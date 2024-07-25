@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{38D8B408-BFA7-4A53-91E5-F3358D9FF337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Coinbase", "Coinbase", "{3AA5B21F-BF3B-4EF7-9FB7-054EDE24B2C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coinbase.Prime", "src\Coinbase\Prime\Coinbase.Prime.csproj", "{B06455C3-D3F6-44A4-9CF0-912BFB39C987}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3AA5B21F-BF3B-4EF7-9FB7-054EDE24B2C8} = {38D8B408-BFA7-4A53-91E5-F3358D9FF337}
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987} = {3AA5B21F-BF3B-4EF7-9FB7-054EDE24B2C8}
+	EndGlobalSection
+EndGlobal
