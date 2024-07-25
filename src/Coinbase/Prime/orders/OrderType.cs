@@ -14,14 +14,15 @@
  *  limitations under the License.
  */
 
-package com.coinbase.prime.model.orders;
-
-public enum OrderType
+namespace Coinbase.Prime.Orders
 {
-  MARKET,
-  LIMIT,
-  TWAP,
-  BLOCK,
-  VWAP,
-  STOP_LIMIT
+  public enum OrderType
+  {
+    MARKET,
+    LIMIT,
+    TWAP,
+    BLOCK,
+    VWAP,
+    STOP_LIMIT
+  }
 }

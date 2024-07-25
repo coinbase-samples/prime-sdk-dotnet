@@ -22,32 +22,23 @@ namespace Coinbase.Prime.Portfolios
   public class GetPortfolioCreditInformationResponse
   {
     public PostTradeCredit PostTradeCredit { get; set; }
-    public GetPortfolioCreditInformationRequest Request { get; set; }
 
     public GetPortfolioCreditInformationResponse() { }
 
     public GetPortfolioCreditInformationResponse(Builder builder)
     {
       PostTradeCredit = builder.PostTradeCredit;
-      Request = builder.Request;
     }
 
     public class Builder
     {
       public PostTradeCredit PostTradeCredit { get; private set; }
-      public GetPortfolioCreditInformationRequest Request { get; private set; }
 
       public Builder() { }
 
       public Builder SetPostTradeCredit(PostTradeCredit postTradeCredit)
       {
         PostTradeCredit = postTradeCredit;
-        return this;
-      }
-
-      public Builder SetRequest(GetPortfolioCreditInformationRequest request)
-      {
-        Request = request;
         return this;
       }
 

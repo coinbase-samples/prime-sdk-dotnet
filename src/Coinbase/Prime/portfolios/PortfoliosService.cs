@@ -18,7 +18,7 @@ namespace Coinbase.Prime.Portfolios
       return Request<GetPortfolioByIdResponse>(HttpMethod.Get, $"/portfolios/{portfolioId}");
     }
 
-    public GetPortfolioCreditInformationResponse(string portfolioId)
+    public GetPortfolioCreditInformationResponse GetPortfolioCreditInformation(string portfolioId)
     {
       return Request<GetPortfolioCreditInformationResponse>(HttpMethod.Post, $"/portfolios/{portfolioId}/credit");
     }

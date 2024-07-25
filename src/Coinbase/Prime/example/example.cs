@@ -2,6 +2,7 @@ namespace Coinbase.Prime.Examples
 {
   using Coinbase.Core.Credentials;
   using Coinbase.Prime.Client;
+  using Coinbase.Prime.Orders;
   using Coinbase.Prime.Portfolios;
   class Example
   {
@@ -22,6 +23,9 @@ namespace Coinbase.Prime.Examples
         Console.WriteLine(portfolio);
         var getById = service.GetPortfolioById(portfolio.Id);
         Console.WriteLine(getById.Portfolio.Id);
+        var orderService = new OrdersService(client);
+        var openOrders = orderService.ListOpenOrders(portfolio.Id, new ListOpenOrdersRequest());
+        Console.WriteLine(openOrders);
       }
     }
   }
