@@ -18,11 +18,11 @@ namespace Coinbase.Prime.Orders
 {
   using Coinbase.Prime.Common;
 
-  public class ListOpenOrdersResponse
+  public class ListPortfolioOrdersResponse
   {
     public Order[] Orders { get; set; }
     public Pagination Pagination { get; set; }
 
-    public ListOpenOrdersResponse() { }
+    public ListPortfolioOrdersResponse() { }
   }
 }

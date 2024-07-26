@@ -14,15 +14,17 @@
  *  limitations under the License.
  */
 
-namespace Coinbase.Prime.Orders
+namespace Coinbase.Prime.Common
 {
-  using Coinbase.Prime.Common;
+  using Newtonsoft.Json;
 
-  public class ListOpenOrdersResponse
+  public class BaseListRequest
   {
-    public Order[] Orders { get; set; }
-    public Pagination Pagination { get; set; }
+    public string? Cursor { get; set; }
 
-    public ListOpenOrdersResponse() { }
+    [JsonProperty("sort_direction")]
+    public string? sortDirection { get; set; }
+
+    public int? Limit { get; set; }
   }
 }

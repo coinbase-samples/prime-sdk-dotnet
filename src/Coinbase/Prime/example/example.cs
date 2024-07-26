@@ -25,7 +25,7 @@ namespace Coinbase.Prime.Examples
         Console.WriteLine(getById.Portfolio.Id);
         var orderService = new OrdersService(client);
         var openOrders = orderService.ListOpenOrders(portfolio.Id, new ListOpenOrdersRequest());
-        Console.WriteLine(openOrders);
+        Console.WriteLine(openOrders.Orders);
       }
     }
   }

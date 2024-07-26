@@ -13,9 +13,18 @@ namespace Coinbase.Prime.Orders
     {
       return Request<ListOpenOrdersResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/credit",
-        HttpStatusCode.OK,
-        request);
+        $"/portfolios/{portfolioId}/open_orders",
+        request,
+        [HttpStatusCode.OK]);
+    }
+
+    public ListPortfolioOrdersResponse ListPortfolioOrders(string portfolioId, ListPortfolioOrdersRequest request)
+    {
+      return Request<ListPortfolioOrdersResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/orders",
+        request,
+        [HttpStatusCode.OK]);
     }
   }
 }
