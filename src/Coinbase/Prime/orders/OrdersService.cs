@@ -18,9 +18,7 @@ namespace Coinbase.Prime.Orders
 {
   using System.Net;
   using Coinbase.Core.Client;
-  using Coinbase.Core.Credentials;
   using Coinbase.Core.Service;
-  using Coinbase.Prime.Client;
 
   public class OrdersService(ICoinbaseClient client) :
    CoinbaseService(client)
@@ -37,9 +35,27 @@ namespace Coinbase.Prime.Orders
     public CancelOrderResponse CancelOrder(string portfolioId, string orderId)
     {
       return Request<CancelOrderResponse>(
-        HttpMethod.Delete,
+        HttpMethod.Post,
         $"/portfolios/{portfolioId}/orders/{orderId}/cancel",
         null,
+        [HttpStatusCode.OK]);
+    }
+
+    public GetOrderByOrderIdResponse GetOrderByOrderId(string portfolioId, string orderId)
+    {
+      return Request<GetOrderByOrderIdResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/orders/{orderId}",
+        null,
+        [HttpStatusCode.OK]);
+    }
+
+    public GetOrderPreviewResponse GetOrderPreview(string portfolioId, GetOrderPreviewRequest request)
+    {
+      return Request<GetOrderPreviewResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{portfolioId}/order_preview",
+        request,
         [HttpStatusCode.OK]);
     }
 

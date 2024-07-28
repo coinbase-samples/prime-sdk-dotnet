@@ -14,21 +14,18 @@
  *  limitations under the License.
  */
 
-using System;
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Orders
 {
-  public class CreateOrderRequest
+  using Newtonsoft.Json;
+  public class GetOrderPreviewResponse
   {
+    [JsonProperty("portfolio_id")]
+    public string? PortfolioId { get; set; }
+
     [JsonProperty("product_id")]
     public string? ProductId { get; set; }
 
     public OrderSide? Side { get; set; }
-
-    [JsonProperty("client_order_id")]
-    public string? ClientOrderId { get; set; }
-
     public OrderType? Type { get; set; }
 
     [JsonProperty("base_quantity")]
@@ -40,33 +37,31 @@ namespace Coinbase.Prime.Orders
     [JsonProperty("limit_price")]
     public string? LimitPrice { get; set; }
 
-    [JsonProperty("stop_price")]
-    public string? StopPrice { get; set; }
-
-    [JsonProperty("time_in_force")]
-    public TimeInForce? TimeInForce { get; set; }
-
     [JsonProperty("start_time")]
     public string? StartTime { get; set; }
 
     [JsonProperty("expiry_time")]
     public string? ExpiryTime { get; set; }
 
-    [JsonProperty("stp_id")]
-    public string? StpId { get; set; }
+    [JsonProperty("time_in_force")]
+    public TimeInForce TimeInForce { get; set; }
 
-    [JsonProperty("display_quote_size")]
-    public string? DisplayQuoteSize { get; set; }
+    public string? Commission { get; set; }
+    public string? Slippage { get; set; }
 
-    [JsonProperty("display_base_size")]
-    public string? DisplayBaseSize { get; set; }
+    [JsonProperty("best_bid")]
+    public string? BestBid { get; set; }
 
-    [JsonProperty("is_raise_exact")]
-    public bool? IsRaiseExact { get; set; }
+    [JsonProperty("best_ask")]
+    public string? BestAsk { get; set; }
 
-    [JsonProperty("historical_pov")]
-    public string? HistoricalPov { get; set; }
+    [JsonProperty("average_filled_price")]
+    public string? AverageFilledPrice { get; set; }
 
-    public CreateOrderRequest() { }
+    [JsonProperty("order_total")]
+    public string? OrderTotal { get; set; }
+
+
+    public GetOrderPreviewResponse() { }
   }
 }

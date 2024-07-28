@@ -16,13 +16,8 @@
 
 namespace Coinbase.Prime.Orders
 {
-  public class CancelOrderResponse
+  public class GetOrderByOrderIdResponse(Order order)
   {
-    public string Id { get; set; }
-
-    public CancelOrderResponse(string id)
-    {
-      Id = id;
-    }
+    public Order Order { get; set; } = order;
   }
 }

@@ -14,22 +14,21 @@
  *  limitations under the License.
  */
 
-using System;
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Orders
 {
-  public class CreateOrderRequest
+
+  using Newtonsoft.Json;
+
+  public class GetOrderPreviewRequest(
+      string productId,
+      OrderSide side,
+      OrderType type)
   {
     [JsonProperty("product_id")]
-    public string? ProductId { get; set; }
+    public string? ProductId { get; set; } = productId;
 
-    public OrderSide? Side { get; set; }
-
-    [JsonProperty("client_order_id")]
-    public string? ClientOrderId { get; set; }
-
-    public OrderType? Type { get; set; }
+    public OrderSide? Side { get; set; } = side;
+    public OrderType? Type { get; set; } = type;
 
     [JsonProperty("base_quantity")]
     public string? BaseQuantity { get; set; }
@@ -52,21 +51,10 @@ namespace Coinbase.Prime.Orders
     [JsonProperty("expiry_time")]
     public string? ExpiryTime { get; set; }
 
-    [JsonProperty("stp_id")]
-    public string? StpId { get; set; }
-
-    [JsonProperty("display_quote_size")]
-    public string? DisplayQuoteSize { get; set; }
-
-    [JsonProperty("display_base_size")]
-    public string? DisplayBaseSize { get; set; }
-
     [JsonProperty("is_raise_exact")]
     public bool? IsRaiseExact { get; set; }
 
     [JsonProperty("historical_pov")]
     public string? HistoricalPov { get; set; }
-
-    public CreateOrderRequest() { }
   }
 }
