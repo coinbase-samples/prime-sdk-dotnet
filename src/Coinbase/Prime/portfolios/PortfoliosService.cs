@@ -14,7 +14,6 @@ namespace Coinbase.Prime.Portfolios
       return Request<ListPortfoliosResponse>(
         HttpMethod.Get,
         "/portfolios",
-        null,
         [HttpStatusCode.OK]);
     }
 
@@ -23,7 +22,6 @@ namespace Coinbase.Prime.Portfolios
       return Request<GetPortfolioByIdResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}",
-        null,
         [HttpStatusCode.OK]);
     }
 
@@ -32,7 +30,6 @@ namespace Coinbase.Prime.Portfolios
       return Request<GetPortfolioCreditInformationResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/credit",
-        null,
         [HttpStatusCode.OK]);
     }
   }

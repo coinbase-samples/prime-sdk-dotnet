@@ -26,8 +26,8 @@ namespace Coinbase.Prime.Activities
       return this.Request<ListActivitiesResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/activities",
-        request,
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        request);
     }
 
     public GetActivityByActivityIdResponse GetActivityByActivityId(string portfolioId, string activityId)
@@ -35,7 +35,6 @@ namespace Coinbase.Prime.Activities
       return this.Request<GetActivityByActivityIdResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/activities/{activityId}",
-        null,
         [HttpStatusCode.OK]);
     }
   }

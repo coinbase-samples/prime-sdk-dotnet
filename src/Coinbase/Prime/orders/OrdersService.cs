@@ -28,8 +28,8 @@ namespace Coinbase.Prime.Orders
       return Request<CreateOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/order",
-        request,
-        [HttpStatusCode.Created, HttpStatusCode.OK]);
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request);
     }
 
     public CancelOrderResponse CancelOrder(string portfolioId, string orderId)
@@ -37,7 +37,6 @@ namespace Coinbase.Prime.Orders
       return Request<CancelOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/orders/{orderId}/cancel",
-        null,
         [HttpStatusCode.OK]);
     }
 
@@ -46,7 +45,6 @@ namespace Coinbase.Prime.Orders
       return Request<GetOrderByOrderIdResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/orders/{orderId}",
-        null,
         [HttpStatusCode.OK]);
     }
 
@@ -55,8 +53,8 @@ namespace Coinbase.Prime.Orders
       return Request<GetOrderPreviewResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/order_preview",
-        request,
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        request);
     }
 
     public ListOpenOrdersResponse ListOpenOrders(string portfolioId, ListOpenOrdersRequest request)
@@ -64,8 +62,8 @@ namespace Coinbase.Prime.Orders
       return Request<ListOpenOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/open_orders",
-        request,
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        request);
     }
 
     public ListOrderFillsResponse ListOrderFills(string portfolioId, string orderId, ListOrderFillsRequest request)
@@ -73,8 +71,8 @@ namespace Coinbase.Prime.Orders
       return Request<ListOrderFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/orders/{orderId}/fills",
-        request,
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        request);
     }
 
     public ListPortfolioOrdersResponse ListPortfolioOrders(string portfolioId, ListPortfolioOrdersRequest request)
@@ -82,8 +80,8 @@ namespace Coinbase.Prime.Orders
       return Request<ListPortfolioOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/orders",
-        request,
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        request);
     }
   }
 }
