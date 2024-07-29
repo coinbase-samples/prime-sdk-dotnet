@@ -1,4 +1,4 @@
-namespace Coinbase.Prime.Examples
+namespace Coinbase.PrimeExample.Example
 {
   using Coinbase.Core.Credentials;
   using Coinbase.Prime.Client;
