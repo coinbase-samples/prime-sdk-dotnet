@@ -14,38 +14,12 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-using System;
-
 namespace Coinbase.Prime.Portfolios
 {
   public class GetPortfolioCreditInformationResponse
   {
-    public PostTradeCredit PostTradeCredit { get; set; }
+    public PostTradeCredit? PostTradeCredit { get; set; }
 
     public GetPortfolioCreditInformationResponse() { }
-
-    public GetPortfolioCreditInformationResponse(Builder builder)
-    {
-      PostTradeCredit = builder.PostTradeCredit;
-    }
-
-    public class Builder
-    {
-      public PostTradeCredit PostTradeCredit { get; private set; }
-
-      public Builder() { }
-
-      public Builder SetPostTradeCredit(PostTradeCredit postTradeCredit)
-      {
-        PostTradeCredit = postTradeCredit;
-        return this;
-      }
-
-      public GetPortfolioCreditInformationResponse Build()
-      {
-        return new GetPortfolioCreditInformationResponse(this);
-      }
-    }
   }
 }

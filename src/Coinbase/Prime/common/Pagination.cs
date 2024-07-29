@@ -21,53 +21,14 @@ namespace Coinbase.Prime.Common
   public class Pagination
   {
     [JsonProperty("next_cursor")]
-    public string NextCursor { get; set; }
+    public string? NextCursor { get; set; }
 
     [JsonProperty("sort_direction")]
-    public string SortDirection { get; set; }
+    public string? SortDirection { get; set; }
 
     [JsonProperty("has_next")]
-    public bool HasNext { get; set; }
+    public bool? HasNext { get; set; }
 
     public Pagination() { }
-
-    public Pagination(Builder builder)
-    {
-      NextCursor = builder.NextCursor;
-      SortDirection = builder.SortDirection;
-      HasNext = builder.HasNext;
-    }
-
-    public class Builder
-    {
-      public string NextCursor { get; private set; }
-      public string SortDirection { get; private set; }
-      public bool HasNext { get; private set; }
-
-      public Builder() { }
-
-      public Builder WithNextCursor(string nextCursor)
-      {
-        NextCursor = nextCursor;
-        return this;
-      }
-
-      public Builder WithSortDirection(string sortDirection)
-      {
-        SortDirection = sortDirection;
-        return this;
-      }
-
-      public Builder WithHasNext(bool hasNext)
-      {
-        HasNext = hasNext;
-        return this;
-      }
-
-      public Pagination Build()
-      {
-        return new Pagination(this);
-      }
-    }
   }
 }

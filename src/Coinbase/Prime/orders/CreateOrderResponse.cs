@@ -21,7 +21,7 @@ namespace Coinbase.Prime.Orders
   public class CreateOrderResponse
   {
     [JsonProperty("order_id")]
-    public string OrderId { get; set; }
+    public string? OrderId { get; set; }
 
     public CreateOrderResponse() { }
 

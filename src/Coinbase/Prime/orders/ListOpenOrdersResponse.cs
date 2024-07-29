@@ -20,8 +20,8 @@ namespace Coinbase.Prime.Orders
 
   public class ListOpenOrdersResponse
   {
-    public Order[] Orders { get; set; }
-    public Pagination Pagination { get; set; }
+    public Order[] Orders { get; set; } = [];
+    public Pagination? Pagination { get; set; }
 
     public ListOpenOrdersResponse() { }
   }
