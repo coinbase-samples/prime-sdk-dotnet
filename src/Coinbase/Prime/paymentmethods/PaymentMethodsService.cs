@@ -18,24 +18,63 @@ namespace Coinbase.Prime.PaymentMethods
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
 
   public class PaymentMethodsService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public GetEntityPaymentMethodResponse GetEntityPaymentMethod(string entityId, string paymentMethodId)
+    public GetEntityPaymentMethodResponse GetEntityPaymentMethod(
+      string entityId,
+      string paymentMethodId,
+      CallOptions? options = null)
     {
-      return Request<GetEntityPaymentMethodResponse>(
+      return this.Request<GetEntityPaymentMethodResponse>(
         HttpMethod.Get,
         $"/entities/{entityId}/payment-methods/{paymentMethodId}",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
     }
 
-    public ListEntityPaymentMethodsResponse ListEntityPaymentMethods(string entityId)
+    public Task<GetEntityPaymentMethodResponse> GetEntityPaymentMethodAsync(
+      string entityId,
+      string paymentMethodId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return Request<ListEntityPaymentMethodsResponse>(
+      return this.RequestAsync<GetEntityPaymentMethodResponse>(
+        HttpMethod.Get,
+        $"/entities/{entityId}/payment-methods/{paymentMethodId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public ListEntityPaymentMethodsResponse ListEntityPaymentMethods(
+      string entityId,
+      CallOptions? options = null)
+    {
+      return this.Request<ListEntityPaymentMethodsResponse>(
         HttpMethod.Get,
         $"/entities/{entityId}/payment-methods",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<ListEntityPaymentMethodsResponse> ListEntityPaymentMethodsAsync(
+      string entityId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<ListEntityPaymentMethodsResponse>(
+        HttpMethod.Get,
+        $"/entities/{entityId}/payment-methods",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
     }
   }
 }

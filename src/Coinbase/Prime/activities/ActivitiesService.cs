@@ -18,24 +18,64 @@ namespace Coinbase.Prime.Activities
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
   public class ActivtiesService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public ListActivitiesResponse ListActivities(string portfolioId, ListActivitiesRequest request)
+    public ListActivitiesResponse ListActivities(
+      string portfolioId,
+      ListActivitiesRequest request,
+      CallOptions? options = null)
     {
       return this.Request<ListActivitiesResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/activities",
         [HttpStatusCode.OK],
-        request);
+        request,
+        options);
     }
 
-    public GetActivityByActivityIdResponse GetActivityByActivityId(string portfolioId, string activityId)
+    public Task<ListActivitiesResponse> ListActivitiesAsync(
+      string portfolioId,
+      ListActivitiesRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<ListActivitiesResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/activities",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    public GetActivityByActivityIdResponse GetActivityByActivityId(
+      string portfolioId,
+      string activityId,
+      CallOptions? options = null)
     {
       return this.Request<GetActivityByActivityIdResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/activities/{activityId}",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
+      string portfolioId,
+      string activityId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetActivityByActivityIdResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/activities/{activityId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
     }
   }
 }

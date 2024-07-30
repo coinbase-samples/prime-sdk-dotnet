@@ -18,17 +18,37 @@ namespace Coinbase.Prime.Products
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
 
   public class ProductsService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public ListPortfolioProductsResponse ListPortfolioProducts(string portfolioId, ListPortfolioProductsRequest request)
+    public ListPortfolioProductsResponse ListPortfolioProducts(
+      string portfolioId,
+      ListPortfolioProductsRequest request,
+      CallOptions? options = null)
     {
-      return Request<ListPortfolioProductsResponse>(
+      return this.Request<ListPortfolioProductsResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/products",
         [HttpStatusCode.OK],
-        request);
+        request,
+        options);
+    }
+
+    public Task<ListPortfolioProductsResponse> ListPortfolioProductsAsync(
+      string portfolioId,
+      ListPortfolioProductsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<ListPortfolioProductsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/products",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
     }
   }
 }

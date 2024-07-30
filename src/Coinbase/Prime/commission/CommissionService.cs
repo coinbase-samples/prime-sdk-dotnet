@@ -18,15 +18,34 @@ namespace Coinbase.Prime.Commission
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
   public class CommissionService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public GetPortfolioCommissionResponse GetPortfolioCommission(string portfolioId)
+    public GetPortfolioCommissionResponse GetPortfolioCommission(
+      string portfolioId,
+      CallOptions? options = null)
     {
-      return Request<GetPortfolioCommissionResponse>(
+      return this.Request<GetPortfolioCommissionResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/commission",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetPortfolioCommissionResponse> GetPortfolioCommissionAsync(
+      string portfolioId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetPortfolioCommissionResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/commission",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
     }
   }
 }

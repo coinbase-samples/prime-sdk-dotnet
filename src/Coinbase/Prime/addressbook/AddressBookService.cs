@@ -18,25 +18,64 @@ namespace Coinbase.Prime.AddressBook
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
   public class AddressBookService(ICoinbaseClient client) : CoinbaseService(client)
   {
-    public CreateAddressBookEntryResponse CreateAddressBookEntry(string portfolioId, CreateAddressBookEntryRequest request)
+    public CreateAddressBookEntryResponse CreateAddressBookEntry(
+      string portfolioId,
+      CreateAddressBookEntryRequest request,
+      CallOptions? options = null)
     {
-      return Request<CreateAddressBookEntryResponse>(
+      return this.Request<CreateAddressBookEntryResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/address_book",
         [HttpStatusCode.Created, HttpStatusCode.OK],
-        request);
+        request,
+        options);
     }
 
-    public GetPortfolioAddressBookResponse GetPortfolioAddressBook(string portfolioId, GetPortfolioAddressBookRequest request)
+    public Task<CreateAddressBookEntryResponse> CreateAddressBookEntryAsync(
+      string portfolioId,
+      CreateAddressBookEntryRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return Request<GetPortfolioAddressBookResponse>(
+      return this.RequestAsync<CreateAddressBookEntryResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{portfolioId}/address_book",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    public GetPortfolioAddressBookResponse GetPortfolioAddressBook(
+      string portfolioId,
+      GetPortfolioAddressBookRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetPortfolioAddressBookResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}/address_book",
         [HttpStatusCode.OK],
-        request);
+        request,
+        options);
+    }
+
+    public Task<GetPortfolioAddressBookResponse> GetPortfolioAddressBookAsync(
+      string portfolioId,
+      GetPortfolioAddressBookRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetPortfolioAddressBookResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}/address_book",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
     }
   }
 }

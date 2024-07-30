@@ -18,33 +18,85 @@ namespace Coinbase.Prime.Portfolios
 {
   using System.Net;
   using Coinbase.Core.Client;
+  using Coinbase.Core.Http;
   using Coinbase.Core.Service;
 
   public class PortfoliosService(ICoinbaseClient client) :
    CoinbaseService(client)
   {
-    public ListPortfoliosResponse ListPortfolios()
+    public ListPortfoliosResponse ListPortfolios(CallOptions? options = null)
     {
-      return Request<ListPortfoliosResponse>(
+      return this.Request<ListPortfoliosResponse>(
         HttpMethod.Get,
         "/portfolios",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
     }
 
-    public GetPortfolioByIdResponse GetPortfolioById(string portfolioId)
+    public Task<ListPortfoliosResponse> ListPortfoliosAsync(
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return Request<GetPortfolioByIdResponse>(
+      return this.RequestAsync<ListPortfoliosResponse>(
+        HttpMethod.Get,
+        "/portfolios",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public GetPortfolioByIdResponse GetPortfolioById(
+      string portfolioId,
+      CallOptions? options = null)
+    {
+      return this.Request<GetPortfolioByIdResponse>(
         HttpMethod.Get,
         $"/portfolios/{portfolioId}",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
     }
 
-    public GetPortfolioCreditInformationResponse GetPortfolioCreditInformation(string portfolioId)
+    public Task<GetPortfolioByIdResponse> GetPortfolioByIdAsync(
+      string portfolioId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return Request<GetPortfolioCreditInformationResponse>(
+      return this.RequestAsync<GetPortfolioByIdResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{portfolioId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public GetPortfolioCreditInformationResponse GetPortfolioCreditInformation(
+      string portfolioId,
+      CallOptions? options = null)
+    {
+      return this.Request<GetPortfolioCreditInformationResponse>(
         HttpMethod.Post,
         $"/portfolios/{portfolioId}/credit",
-        [HttpStatusCode.OK]);
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetPortfolioCreditInformationResponse> GetPortfolioCreditInformationAsync(
+      string portfolioId,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetPortfolioCreditInformationResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{portfolioId}/credit",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
     }
   }
 }
