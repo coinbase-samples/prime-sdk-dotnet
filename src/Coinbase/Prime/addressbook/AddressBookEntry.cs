@@ -14,43 +14,42 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.AddressBook
 {
+  using System.Text.Json.Serialization;
   public class AddressBookEntry
   {
     public string? Id { get; set; }
 
-    [JsonProperty("currency_symbol")]
+    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
     public string? Name { get; set; }
     public string? Address { get; set; }
 
-    [JsonProperty("account_identifier")]
+    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
-    [JsonProperty("account_identifier_name")]
+    [JsonPropertyName("account_identifier_name")]
     public string? AccountIdentifierName { get; set; }
 
     public string? State { get; set; }
 
-    [JsonProperty("explorer_link")]
+    [JsonPropertyName("explorer_link")]
     public string? ExplorerLink { get; set; }
 
-    [JsonProperty("last_used_at")]
+    [JsonPropertyName("last_used_at")]
     public string? LastUsedAt { get; set; }
 
-    [JsonProperty("added_at")]
+    [JsonPropertyName("added_at")]
     public string? AddedAt { get; set; }
 
-    [JsonProperty("added_by")]
+    [JsonPropertyName("added_by")]
     public User? AddedBy { get; set; }
 
     public AddressBookType Type { get; set; }
 
-    [JsonProperty("counterparty_id")]
+    [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
 
     public AddressBookEntry()

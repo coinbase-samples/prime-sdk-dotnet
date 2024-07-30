@@ -16,17 +16,17 @@
 
 namespace Coinbase.Prime.AddressBook
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateAddressBookEntryRequest
   {
     public string? Address { get; set; }
 
-    [JsonProperty("currency_symbol")]
+    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
     public string? Name { get; set; }
 
-    [JsonProperty("account_identifier")]
+    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
     public CreateAddressBookEntryRequest() { }

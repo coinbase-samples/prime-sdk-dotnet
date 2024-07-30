@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Transactions
 {
+  using System.Text.Json.Serialization;
   public class CreateWithdrawalRequest
   {
     public string? Amount { get; set; }
 
-    [JsonProperty("destination_type")]
+    [JsonPropertyName("destination_type")]
     public DestinationType? DestinationType { get; set; }
 
-    [JsonProperty("idempotency_key")]
+    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonProperty("currency_symbol")]
+    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonProperty("payment_method")]
+    [JsonPropertyName("payment_method")]
     public PaymentMethod? PaymentMethod { get; set; }
 
-    [JsonProperty("blockchain_address")]
+    [JsonPropertyName("blockchain_address")]
     public BlockchainAddress? BlockchainAddress { get; set; }
 
     public CreateWithdrawalRequest() { }

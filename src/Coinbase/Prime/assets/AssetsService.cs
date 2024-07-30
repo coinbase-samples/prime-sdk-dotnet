@@ -14,12 +14,11 @@
  *  limitations under the License.
  */
 
-using System.Net;
-using Coinbase.Core.Client;
-using Coinbase.Core.Service;
-
 namespace Coinbase.Prime.Assets
 {
+  using System.Net;
+  using Coinbase.Core.Client;
+  using Coinbase.Core.Service;
   public class AssetsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListAssetsResponse ListAssets(string entityId)

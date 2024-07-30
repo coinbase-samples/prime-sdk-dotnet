@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-using System;
-
 namespace Coinbase.Prime.Wallets
 {
+  using System.Text.Json.Serialization;
   public class Wallet
   {
     public string? Id { get; set; }
@@ -27,7 +25,7 @@ namespace Coinbase.Prime.Wallets
     public WalletType Type { get; set; }
     public string? Address { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
     public Wallet() { }

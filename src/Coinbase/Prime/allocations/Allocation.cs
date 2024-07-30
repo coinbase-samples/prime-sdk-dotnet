@@ -16,47 +16,47 @@
 
 namespace Coinbase.Prime.Allocations
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   using Coinbase.Prime.Orders;
   public class Allocation
   {
-    [JsonProperty("root_id")]
+    [JsonPropertyName("root_id")]
     public string? RootId { get; set; }
 
-    [JsonProperty("reversal_id")]
+    [JsonPropertyName("reversal_id")]
     public string? ReversalId { get; set; }
 
-    [JsonProperty("allocation_completed_at")]
+    [JsonPropertyName("allocation_completed_at")]
     public string? AllocationCompletedAt { get; set; }
 
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
     public OrderSide Side { get; set; }
 
-    [JsonProperty("avg_price")]
+    [JsonPropertyName("avg_price")]
     public string? AveragePrice { get; set; }
 
-    [JsonProperty("base_quantity")]
+    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
 
-    [JsonProperty("quote_value")]
+    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
 
-    [JsonProperty("fees_allocated")]
+    [JsonPropertyName("fees_allocated")]
     public string? FeesAllocated { get; set; }
 
     public AllocationStatus Status { get; set; }
 
     public string? Source { get; set; }
 
-    [JsonProperty("order_ids")]
+    [JsonPropertyName("order_ids")]
     public string[] OrderIds { get; set; } = [];
 
-    [JsonProperty("netting_id")]
+    [JsonPropertyName("netting_id")]
     public string? NettingId { get; set; }
 
     public AllocationDestination[] Destinations { get; set; } = [];

@@ -14,10 +14,9 @@
  *  limitations under the License.
  */
 
-using Coinbase.Prime.Common;
-
 namespace Coinbase.Prime.Users
 {
+  using Coinbase.Prime.Common;
   public class ListUsersRequest : BaseListRequest
   {
     public ListUsersRequest() { }

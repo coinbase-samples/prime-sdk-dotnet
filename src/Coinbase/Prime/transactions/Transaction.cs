@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Transactions
 {
+  using System.Text.Json.Serialization;
   public class Transaction
   {
     public string? Id { get; set; }
 
-    [JsonProperty("wallet_id")]
+    [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
 
-    [JsonProperty("portfolio_id")]
+    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
     public TransactionType Type { get; set; }
@@ -34,43 +33,43 @@ namespace Coinbase.Prime.Transactions
 
     public string? Symbol { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
-    [JsonProperty("completed_at")]
+    [JsonPropertyName("completed_at")]
     public string? CompletedAt { get; set; }
 
     public string? Amount { get; set; }
 
-    [JsonProperty("transfer_from")]
+    [JsonPropertyName("transfer_from")]
     public TransferLocation? TransferFrom { get; set; }
 
-    [JsonProperty("transfer_to")]
+    [JsonPropertyName("transfer_to")]
     public TransferLocation? TransferTo { get; set; }
 
-    [JsonProperty("network_fees")]
+    [JsonPropertyName("network_fees")]
     public string? NetworkFees { get; set; }
 
     public string? Fees { get; set; }
 
-    [JsonProperty("fee_symbol")]
+    [JsonPropertyName("fee_symbol")]
     public string? FeeSymbol { get; set; }
 
-    [JsonProperty("blockchain_ids")]
+    [JsonPropertyName("blockchain_ids")]
     public string[] BlockchainIds { get; set; } = [];
 
-    [JsonProperty("transaction_id")]
+    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
-    [JsonProperty("destination_symbol")]
+    [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
 
-    [JsonProperty("estimated_network_fees")]
+    [JsonPropertyName("estimated_network_fees")]
     public EstimatedNetworkFees? EstimatedNetworkFees { get; set; }
 
     public string? Network { get; set; }
 
-    [JsonProperty("estimated_asset_changes")]
+    [JsonPropertyName("estimated_asset_changes")]
     public AssetChange[] EstimatedAssetChanges { get; set; } = [];
 
     public TransactionMetadata? Metadata { get; set; }

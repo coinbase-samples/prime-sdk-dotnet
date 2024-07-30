@@ -14,34 +14,33 @@
  *  limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Allocations
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateNetAllocationRequest
   {
-    [JsonProperty("allocation_id")]
+    [JsonPropertyName("allocation_id")]
     public string? AllocationId { get; set; }
 
-    [JsonProperty("source_portfolio_id")]
+    [JsonPropertyName("source_portfolio_id")]
     public string? SourcePortfolioId { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonProperty("order_ids")]
+    [JsonPropertyName("order_ids")]
     public string[] OrderIds { get; set; } = [];
 
-    [JsonProperty("allocation_legs")]
+    [JsonPropertyName("allocation_legs")]
     public AllocationLeg[] AllocationLegs { get; set; } = [];
 
-    [JsonProperty("size_type")]
+    [JsonPropertyName("size_type")]
     public SizeType SizeType { get; set; }
 
-    [JsonProperty("remainder_destination_portfolio")]
+    [JsonPropertyName("remainder_destination_portfolio")]
     public string? RemainderDestinationPortfolio { get; set; }
 
-    [JsonProperty("netting_id")]
+    [JsonPropertyName("netting_id")]
     public string? NettingId { get; set; }
 
     public CreateNetAllocationRequest() { }

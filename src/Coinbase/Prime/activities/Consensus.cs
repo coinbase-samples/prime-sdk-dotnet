@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Activities
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Consensus
   {
-    [JsonProperty("approval_deadline")]
+    [JsonPropertyName("approval_deadline")]
     public string? ApprovalDeadline { get; set; }
 
-    [JsonProperty("has_passed_consensus")]
+    [JsonPropertyName("has_passed_consensus")]
     public bool? HasPassedConsensus { get; set; }
 
     public Consensus()

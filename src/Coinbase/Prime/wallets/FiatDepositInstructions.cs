@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Wallets
 {
+  using System.Text.Json.Serialization;
   public class FiatDepositInstructions
   {
     public string? Id { get; set; }
     public string? Name { get; set; }
     public DepositType Type { get; set; }
 
-    [JsonProperty("account_number")]
+    [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
 
-    [JsonProperty("routing_number")]
+    [JsonPropertyName("routing_number")]
     public string? RoutingNumber { get; set; }
 
-    [JsonProperty("reference_code")]
+    [JsonPropertyName("reference_code")]
     public string? ReferenceCode { get; set; }
 
     public FiatDepositInstructions() { }

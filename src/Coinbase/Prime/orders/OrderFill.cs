@@ -14,27 +14,25 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-using System;
-
 namespace Coinbase.Prime.Orders
 {
+  using System.Text.Json.Serialization;
   public class OrderFill
   {
     public string? Id { get; set; }
 
-    [JsonProperty("order_id")]
+    [JsonPropertyName("order_id")]
     public string? OrderId { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
     public OrderSide? Side { get; set; }
 
-    [JsonProperty("filled_quantity")]
+    [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
 
-    [JsonProperty("filled_value")]
+    [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
 
     public string? Price { get; set; }

@@ -16,46 +16,46 @@
 
 namespace Coinbase.Prime.Activities
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Activity
   {
     public string? Id { get; set; }
 
-    [JsonProperty("reference_id")]
+    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
 
     public ActivityCategory Category { get; set; }
     public ActivityType Type { get; set; }
 
-    [JsonProperty("secondary_type")]
+    [JsonPropertyName("secondary_type")]
     public ActivitySecondaryType SecondaryType { get; set; }
 
     public ActivityStatus Status { get; set; }
 
-    [JsonProperty("created_by")]
+    [JsonPropertyName("created_by")]
     public string? CreatedBy { get; set; }
 
     public string? Title { get; set; }
     public string? Description { get; set; }
 
-    [JsonProperty("user_actions")]
+    [JsonPropertyName("user_actions")]
     public UserAction[] UserActions { get; set; } = [];
 
-    [JsonProperty("transactions_metadata")]
+    [JsonPropertyName("transactions_metadata")]
     public TransactionsMetadata? TransactionsMetadata { get; set; }
 
-    [JsonProperty("account_metadata")]
+    [JsonPropertyName("account_metadata")]
     public AccountMetadata? AccountMetadata { get; set; }
 
-    [JsonProperty("orders_metadata")]
+    [JsonPropertyName("orders_metadata")]
     public OrdersMetadata? OrdersMetadata { get; set; }
 
     public string[] Symbols { get; set; } = [];
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
 
     public Activity()

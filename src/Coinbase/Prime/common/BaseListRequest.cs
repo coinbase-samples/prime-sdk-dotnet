@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Common
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
 
   public class BaseListRequest
   {
     public string? Cursor { get; set; }
 
-    [JsonProperty("sort_direction")]
+    [JsonPropertyName("sort_direction")]
     public string? sortDirection { get; set; }
 
     public int? Limit { get; set; }

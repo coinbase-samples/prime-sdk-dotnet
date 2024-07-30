@@ -16,22 +16,16 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateTransferRequest
   {
-    [JsonProperty("portfolio_id", Required = Required.Always)]
-    public string? PortfolioId { get; set; }
-
-    [JsonProperty("wallet_id", Required = Required.Always)]
-    public string? WalletId { get; set; }
-
     public string? Amount { get; set; }
     public string? Destination { get; set; }
 
-    [JsonProperty("idempotency_key")]
+    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonProperty("currency_symbol")]
+    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
     public CreateTransferRequest() { }

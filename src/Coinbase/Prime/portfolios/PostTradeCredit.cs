@@ -14,13 +14,12 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Portfolios
 {
+  using System.Text.Json.Serialization;
   public class PostTradeCredit
   {
-    [JsonProperty("portfolio_id")]
+    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     public string? Currency { get; set; }
     public string? Limit { get; set; }
@@ -28,7 +27,7 @@ namespace Coinbase.Prime.Portfolios
     public string? Available { get; set; }
     public bool? Frozen { get; set; }
 
-    [JsonProperty("amounts_due")]
+    [JsonPropertyName("amounts_due")]
     public PostTradeCreditAmountDue[]? AmountsDue { get; set; }
 
     public PostTradeCredit() { }

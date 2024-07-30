@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-using System;
-
 namespace Coinbase.Prime.Wallets
 {
+  using System.Text.Json.Serialization;
   public class CreateWalletRequest
   {
     public string? Name { get; set; }
 
     public string? Symbol { get; set; }
 
-    [JsonProperty("wallet_type")]
+    [JsonPropertyName("wallet_type")]
     public WalletType Type { get; set; }
 
     public CreateWalletRequest() { }

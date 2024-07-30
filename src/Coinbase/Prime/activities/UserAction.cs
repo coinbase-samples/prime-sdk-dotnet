@@ -14,15 +14,14 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Activities
 {
+  using System.Text.Json.Serialization;
   public class UserAction
   {
     public UserActionType Action { get; set; }
 
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     public string? Timestamp { get; set; }

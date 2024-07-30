@@ -16,18 +16,18 @@
 
 namespace Coinbase.Prime.Allocations
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateAllocationResponse
   {
     public bool? Success { get; set; }
 
-    [JsonProperty("allocation_id")]
+    [JsonPropertyName("allocation_id")]
     public string? AllocationId { get; set; }
 
-    [JsonProperty("failure_reason")]
+    [JsonPropertyName("failure_reason")]
     public string? FailureReason { get; set; }
 
-    [JsonProperty("netting_id")]
+    [JsonPropertyName("netting_id")]
     public string? NettingId { get; set; }
 
     public CreateAllocationResponse() { }

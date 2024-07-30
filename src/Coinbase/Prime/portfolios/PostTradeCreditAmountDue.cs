@@ -14,17 +14,15 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-using System;
-
 namespace Coinbase.Prime.Portfolios
 {
+  using System.Text.Json.Serialization;
   public class PostTradeCreditAmountDue
   {
     public string? Currency { get; set; }
     public string? Amount { get; set; }
 
-    [JsonProperty("due_date")]
+    [JsonPropertyName("due_date")]
     public DateTime? DueDate { get; set; }
 
     public PostTradeCreditAmountDue() { }

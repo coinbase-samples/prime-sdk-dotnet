@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-using System.Net;
-using Coinbase.Core.Client;
-using Coinbase.Core.Service;
-
 namespace Coinbase.Prime.Wallets
 {
+  using System.Net;
+  using Coinbase.Core.Client;
+  using Coinbase.Core.Service;
   public class WalletsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListWalletsResponse ListWallets(string portfolioId, ListWalletsRequest request)

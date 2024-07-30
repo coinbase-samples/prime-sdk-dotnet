@@ -16,14 +16,14 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
   public class ListWalletTransactionsResponse
   {
-    [JsonProperty("transactions")]
+    [JsonPropertyName("transactions")]
     public Transaction[] Transactions { get; set; } = [];
 
-    [JsonProperty("pagination")]
+    [JsonPropertyName("pagination")]
     public Pagination? Pagination { get; set; }
 
     public ListWalletTransactionsResponse() { }

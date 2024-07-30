@@ -16,12 +16,12 @@
 
 namespace Coinbase.Prime.Wallets
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class GetWalletDepositInstructionsResponse
   {
-    [JsonProperty("crypto_instructions")]
+    [JsonPropertyName("crypto_instructions")]
     public CryptoDepositInstructions? CryptoDepositInstructions { get; set; }
-    [JsonProperty("fiat_instructions")]
+    [JsonPropertyName("fiat_instructions")]
     public FiatDepositInstructions? FiatDepositInstructions { get; set; }
 
     public GetWalletDepositInstructionsResponse() { }

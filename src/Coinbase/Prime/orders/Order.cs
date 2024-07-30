@@ -14,71 +14,70 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Orders
 {
+  using System.Text.Json.Serialization;
   public class Order
   {
     public string? Id { get; set; }
 
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
-    [JsonProperty("portfolio_id")]
+    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
     public OrderSide? Side { get; set; }
 
-    [JsonProperty("client_order_id")]
+    [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
 
     public OrderType? Type { get; set; }
 
-    [JsonProperty("base_quantity")]
+    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
 
-    [JsonProperty("quote_value")]
+    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
 
-    [JsonProperty("limit_price")]
+    [JsonPropertyName("limit_price")]
     public string? LimitPrice { get; set; }
 
-    [JsonProperty("stop_price")]
+    [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
 
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonProperty("expiry_time")]
+    [JsonPropertyName("expiry_time")]
     public string? ExpiryTime { get; set; }
 
     public OrderStatus? Status { get; set; }
 
-    [JsonProperty("time_in_force")]
+    [JsonPropertyName("time_in_force")]
     public TimeInForce? TimeInForce { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
-    [JsonProperty("filled_quantity")]
+    [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
 
-    [JsonProperty("filled_value")]
+    [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
 
-    [JsonProperty("average_filled_price")]
+    [JsonPropertyName("average_filled_price")]
     public string? AverageFilledPrice { get; set; }
 
     public string? Commission { get; set; }
 
-    [JsonProperty("exchange_fee")]
+    [JsonPropertyName("exchange_fee")]
     public string? ExchangeFee { get; set; }
 
-    [JsonProperty("historical_pov")]
+    [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
 
     public Order() { }

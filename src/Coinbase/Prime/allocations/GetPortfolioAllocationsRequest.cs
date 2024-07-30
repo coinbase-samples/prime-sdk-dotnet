@@ -18,16 +18,16 @@ namespace Coinbase.Prime.Allocations
 {
   using Coinbase.Prime.Common;
   using Coinbase.Prime.Orders;
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class GetPortfolioAllocationsRequest : BaseListRequest
   {
-    [JsonProperty("product_ids")]
+    [JsonPropertyName("product_ids")]
     public string[] ProductIds { get; set; } = [];
-    [JsonProperty("order_side")]
+    [JsonPropertyName("order_side")]
     public OrderSide OrderSide { get; set; }
-    [JsonProperty("start_date")]
+    [JsonPropertyName("start_date")]
     public string? StartDate { get; set; }
-    [JsonProperty("end_date")]
+    [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
     public GetPortfolioAllocationsRequest() { }

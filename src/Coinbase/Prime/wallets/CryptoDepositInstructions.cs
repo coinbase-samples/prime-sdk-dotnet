@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Wallets
 {
+  using System.Text.Json.Serialization;
   public class CryptoDepositInstructions
   {
     public string? Id { get; set; }
@@ -25,7 +24,7 @@ namespace Coinbase.Prime.Wallets
     public string? Address { get; set; }
     public DepositType Type { get; set; }
 
-    [JsonProperty("account_identifier")]
+    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
     public CryptoDepositInstructions() { }

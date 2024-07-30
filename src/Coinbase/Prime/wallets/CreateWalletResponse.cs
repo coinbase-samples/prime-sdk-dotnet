@@ -16,17 +16,17 @@
 
 namespace Coinbase.Prime.Wallets
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateWalletResponse
   {
-    [JsonProperty("activity_id")]
+    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
     public string? Name { get; set; }
 
     public string? Symbol { get; set; }
 
-    [JsonProperty("wallet_type")]
+    [JsonPropertyName("wallet_type")]
     public WalletType Type { get; set; }
 
     public CreateWalletResponse() { }

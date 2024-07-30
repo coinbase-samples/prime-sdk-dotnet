@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Allocations
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class AllocationLeg
   {
-    [JsonProperty("allocation_leg_id")]
+    [JsonPropertyName("allocation_leg_id")]
     public string? AllocationLegId { get; set; }
 
-    [JsonProperty("destination_portfolio_id")]
+    [JsonPropertyName("destination_portfolio_id")]
     public string? DestinationPortfolioId { get; set; }
 
     public string? Amount { get; set; }

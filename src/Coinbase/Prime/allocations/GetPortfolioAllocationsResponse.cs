@@ -14,10 +14,9 @@
  *  limitations under the License.
  */
 
-using Coinbase.Prime.Common;
-
 namespace Coinbase.Prime.Allocations
 {
+  using Coinbase.Prime.Common;
   public class GetPortfolioAllocationsResponse
   {
     public Allocation[] Allocations { get; set; } = [];

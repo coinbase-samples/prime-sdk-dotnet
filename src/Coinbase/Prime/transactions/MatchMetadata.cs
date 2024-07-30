@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class MatchMetadata
   {
-    [JsonProperty("reference_id")]
+    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
 
-    [JsonProperty("settlement_date")]
+    [JsonPropertyName("settlement_date")]
     public string? SettlementDate { get; set; }
 
     public MatchMetadata() { }

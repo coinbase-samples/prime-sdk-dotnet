@@ -16,29 +16,29 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateTransferResponse
   {
-    [JsonProperty("activity_id")]
+    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonProperty("approval_url")]
+    [JsonPropertyName("approval_url")]
     public string? ApprovalUrl { get; set; }
 
     public string? Symbol { get; set; }
     public string? Amount { get; set; }
     public string? Fee { get; set; }
 
-    [JsonProperty("destination_address")]
+    [JsonPropertyName("destination_address")]
     public string? DestinationAddress { get; set; }
 
-    [JsonProperty("destination_type")]
+    [JsonPropertyName("destination_type")]
     public string? DestinationType { get; set; }
 
-    [JsonProperty("source_address")]
+    [JsonPropertyName("source_address")]
     public string? SourceAddress { get; set; }
 
-    [JsonProperty("transaction_id")]
+    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
     public CreateTransferResponse() { }

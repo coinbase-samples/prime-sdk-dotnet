@@ -14,12 +14,11 @@
  *  limitations under the License.
  */
 
-using System.Net;
-using Coinbase.Core.Client;
-using Coinbase.Core.Service;
-
 namespace Coinbase.Prime.Allocations
 {
+  using System.Net;
+  using Coinbase.Core.Client;
+  using Coinbase.Core.Service;
   public class AllocationsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public CreateAllocationResponse CreateAllocation(CreateAllocationRequest request)

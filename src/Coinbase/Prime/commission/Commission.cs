@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Commission
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Commission
   {
     public string? Type { get; set; }
     public string? Rate { get; set; }
 
-    [JsonProperty("trading_volume")]
+    [JsonPropertyName("trading_volume")]
     public string? TradingVolume { get; set; }
 
     public Commission() { }

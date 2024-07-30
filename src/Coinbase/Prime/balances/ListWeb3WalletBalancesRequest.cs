@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-using Coinbase.Prime.Common;
-
 namespace Coinbase.Prime.Balances
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
+  using Coinbase.Prime.Common;
   public class ListWeb3WalletBalancesRequest : BaseListRequest
   {
-    [JsonProperty("visibility_statuses")]
+    [JsonPropertyName("visibility_statuses")]
     public VisibilityStatus[] VisibilityStatuses { get; set; } = [];
 
     public ListWeb3WalletBalancesRequest() { }

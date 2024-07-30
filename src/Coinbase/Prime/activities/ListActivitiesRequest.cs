@@ -17,15 +17,15 @@
 namespace Coinbase.Prime.Activities
 {
   using Coinbase.Prime.Common;
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class ListActivitiesRequest : BaseListRequest
   {
     public string[] Symbols { get; set; } = [];
     public string[] Categories { get; set; } = [];
     public string[] Statuses { get; set; } = [];
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     public ListActivitiesRequest()

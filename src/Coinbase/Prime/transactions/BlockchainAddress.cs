@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Transactions
 {
+  using System.Text.Json.Serialization;
   public class BlockchainAddress
   {
     public string? Address { get; set; }
 
-    [JsonProperty("account_identifier")]
+    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
     public BlockchainAddress() { }

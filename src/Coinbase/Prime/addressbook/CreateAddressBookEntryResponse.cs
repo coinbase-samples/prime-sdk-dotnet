@@ -16,14 +16,14 @@
 
 namespace Coinbase.Prime.AddressBook
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateAddressBookEntryResponse
   {
-    [JsonProperty("activity_type")]
+    [JsonPropertyName("activity_type")]
     public AddressBookActivityType ActivityType { get; set; }
-    [JsonProperty("num_approvals_remaining")]
+    [JsonPropertyName("num_approvals_remaining")]
     public int? NumApprovalsRemaining { get; set; }
-    [JsonProperty("activity_id")]
+    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
   }
 }

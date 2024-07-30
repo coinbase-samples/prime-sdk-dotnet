@@ -16,30 +16,30 @@
 
 namespace Coinbase.Prime.Products
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Product
   {
     public string? Id { get; set; }
 
-    [JsonProperty("base_increment")]
+    [JsonPropertyName("base_increment")]
     public string? BaseIncrement { get; set; }
 
-    [JsonProperty("quote_increment")]
+    [JsonPropertyName("quote_increment")]
     public string? QuoteIncrement { get; set; }
 
-    [JsonProperty("price_increment")]
+    [JsonPropertyName("price_increment")]
     public string? PriceIncrement { get; set; }
 
-    [JsonProperty("base_min_size")]
+    [JsonPropertyName("base_min_size")]
     public string? BaseMinSize { get; set; }
 
-    [JsonProperty("quote_min_size")]
+    [JsonPropertyName("quote_min_size")]
     public string? QuoteMinSize { get; set; }
 
-    [JsonProperty("base_max_size")]
+    [JsonPropertyName("base_max_size")]
     public string? BaseMaxSize { get; set; }
 
-    [JsonProperty("quote_max_size")]
+    [JsonPropertyName("quote_max_size")]
     public string? QuoteMaxSize { get; set; }
 
     public string[] Permissions { get; set; } = [];

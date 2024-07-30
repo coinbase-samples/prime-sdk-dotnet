@@ -14,41 +14,40 @@
  * limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Balances
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Balance
   {
     public string? Symbol { get; set; }
     public string? Amount { get; set; }
     public string? Holds { get; set; }
 
-    [JsonProperty("bonded_amount")]
+    [JsonPropertyName("bonded_amount")]
     public string? BondedAmount { get; set; }
 
-    [JsonProperty("reserved_amount")]
+    [JsonPropertyName("reserved_amount")]
     public string? ReservedAmount { get; set; }
 
-    [JsonProperty("unbonding_amount")]
+    [JsonPropertyName("unbonding_amount")]
     public string? UnbondingAmount { get; set; }
 
-    [JsonProperty("unvested_amount")]
+    [JsonPropertyName("unvested_amount")]
     public string? UnvestedAmount { get; set; }
 
-    [JsonProperty("pending_rewards_amount")]
+    [JsonPropertyName("pending_rewards_amount")]
     public string? PendingRewardsAmount { get; set; }
 
-    [JsonProperty("past_rewards_amount")]
+    [JsonPropertyName("past_rewards_amount")]
     public string? PastRewardsAmount { get; set; }
 
-    [JsonProperty("bondable_amount")]
+    [JsonPropertyName("bondable_amount")]
     public string? BondableAmount { get; set; }
 
-    [JsonProperty("withdrawable_amount")]
+    [JsonPropertyName("withdrawable_amount")]
     public string? WithdrawableAmount { get; set; }
 
-    [JsonProperty("fiat_amount")]
+    [JsonPropertyName("fiat_amount")]
     public string? FiatAmount { get; set; }
 
     public Balance() { }

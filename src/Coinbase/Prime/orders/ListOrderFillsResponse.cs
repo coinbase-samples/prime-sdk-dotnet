@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Orders
 {
   using Coinbase.Prime.Common;

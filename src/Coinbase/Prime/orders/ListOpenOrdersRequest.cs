@@ -14,28 +14,26 @@
  * limitations under the License.
  */
 
-using System;
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Orders
 {
+  using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
 
   public class ListOpenOrdersRequest : BaseListRequest
   {
-    [JsonProperty("product_ids")]
+    [JsonPropertyName("product_ids")]
     public string[]? ProductIds { get; set; }
 
-    [JsonProperty("order_type")]
+    [JsonPropertyName("order_type")]
     public OrderType? OrderType { get; set; }
 
-    [JsonProperty("start_date"), JsonRequired]
+    [JsonPropertyName("start_date"), JsonRequired]
     public DateTime? StartDate { get; set; }
 
-    [JsonProperty("order_side")]
+    [JsonPropertyName("order_side")]
     public OrderSide? OrderSide { get; set; }
 
-    [JsonProperty("end_date")]
+    [JsonPropertyName("end_date")]
     public DateTime? EndDate { get; set; }
 
     public ListOpenOrdersRequest() { }

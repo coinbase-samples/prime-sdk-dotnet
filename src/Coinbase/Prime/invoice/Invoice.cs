@@ -14,35 +14,34 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Invoice
 {
+  using System.Text.Json.Serialization;
   public class Invoice
   {
     public string? Id { get; set; }
 
-    [JsonProperty("billing_month")]
+    [JsonPropertyName("billing_month")]
     public int? BillingMonth { get; set; }
 
-    [JsonProperty("billing_year")]
+    [JsonPropertyName("billing_year")]
     public int? BillingYear { get; set; }
 
-    [JsonProperty("due_date")]
+    [JsonPropertyName("due_date")]
     public string? DueDate { get; set; }
 
-    [JsonProperty("invoice_number")]
+    [JsonPropertyName("invoice_number")]
     public string? InvoiceNumber { get; set; }
 
     public InvoiceState State { get; set; }
 
-    [JsonProperty("usd_amount_paid")]
+    [JsonPropertyName("usd_amount_paid")]
     public double? UsdAmountPaid { get; set; }
 
-    [JsonProperty("usd_amount_owed")]
+    [JsonPropertyName("usd_amount_owed")]
     public double? UsdAmountOwed { get; set; }
 
-    [JsonProperty("invoice_items")]
+    [JsonPropertyName("invoice_items")]
     public InvoiceItem[] InvoiceItems { get; set; } = [];
 
     public Invoice() { }

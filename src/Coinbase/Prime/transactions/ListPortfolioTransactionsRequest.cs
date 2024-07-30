@@ -16,20 +16,20 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
   public class ListPortfolioTransactionsRequest : BaseListRequest
   {
-    [JsonProperty("symbols")]
+    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonProperty("types")]
+    [JsonPropertyName("types")]
     public TransactionType[] Types { get; set; } = [];
 
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     public ListPortfolioTransactionsRequest() { }

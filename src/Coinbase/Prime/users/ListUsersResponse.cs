@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Users
 {
   using Coinbase.Prime.Common;

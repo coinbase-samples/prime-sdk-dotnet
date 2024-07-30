@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.AddressBook
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class User
   {
     public string? Id { get; set; }
     public string? Name { get; set; }
 
-    [JsonProperty("avatar_url")]
+    [JsonPropertyName("avatar_url")]
     public string? AvatarUrl { get; set; }
 
     public User()

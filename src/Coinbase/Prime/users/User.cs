@@ -16,7 +16,7 @@
 
 namespace Coinbase.Prime.Users
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
 
   public class User
   {
@@ -24,10 +24,10 @@ namespace Coinbase.Prime.Users
     public string? Name { get; set; }
     public string? Email { get; set; }
 
-    [JsonProperty("entity_id")]
+    [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
 
-    [JsonProperty("portfolio_id")]
+    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
     public Role? Role { get; set; }

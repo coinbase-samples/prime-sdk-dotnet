@@ -16,10 +16,10 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class TransactionMetadata
   {
-    [JsonProperty("match_metadata")]
+    [JsonPropertyName("match_metadata")]
     public MatchMetadata? MatchMetadata { get; set; }
 
     public TransactionMetadata() { }

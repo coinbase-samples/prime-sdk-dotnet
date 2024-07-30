@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.PaymentMethods
 {
+  using System.Text.Json.Serialization;
   public class ListEntityPaymentMethodsResponse
   {
-    [JsonProperty("payment_methods")]
+    [JsonPropertyName("payment_methods")]
     public EntityPaymentMethod[] PaymentMethods { get; set; } = [];
 
     public ListEntityPaymentMethodsResponse() { }

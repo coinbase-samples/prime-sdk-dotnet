@@ -16,10 +16,10 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class PaymentMethod
   {
-    [JsonProperty("payment_method_id")]
+    [JsonPropertyName("payment_method_id")]
     public string? PaymentMethodId { get; set; }
 
     public PaymentMethod() { }

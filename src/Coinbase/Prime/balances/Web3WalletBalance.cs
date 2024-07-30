@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Balances
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Web3WalletBalance
   {
     public Web3WalletAsset? Asset { get; set; }
     public string? Amount { get; set; }
 
-    [JsonProperty("visibility_status")]
+    [JsonPropertyName("visibility_status")]
     public VisibilityStatus VisibilityStatus { get; set; }
 
     public Web3WalletBalance() { }

@@ -16,10 +16,10 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class GetTransactionByTransactionIdResponse
   {
-    [JsonProperty("transaction")]
+    [JsonPropertyName("transaction")]
     public Transaction? Transaction { get; set; }
 
     public GetTransactionByTransactionIdResponse() { }

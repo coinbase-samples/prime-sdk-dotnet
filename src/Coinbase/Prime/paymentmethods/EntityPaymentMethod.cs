@@ -16,19 +16,19 @@
 
 namespace Coinbase.Prime.PaymentMethods
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class EntityPaymentMethod
   {
     public string? Id { get; set; }
     public string? Symbol { get; set; }
 
-    [JsonProperty("payment_method_type")]
+    [JsonPropertyName("payment_method_type")]
     public PaymentMethodType PaymentMethodType { get; set; }
 
-    [JsonProperty("bank_name")]
+    [JsonPropertyName("bank_name")]
     public string? BankName { get; set; }
 
-    [JsonProperty("account_number")]
+    [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
 
     public EntityPaymentMethod() { }

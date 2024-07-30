@@ -14,22 +14,21 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Portfolios
 {
+  using System.Text.Json.Serialization;
   public class Portfolio
   {
     public string? Id { get; set; }
     public string? Name { get; set; }
 
-    [JsonProperty("entity_id")]
+    [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
 
-    [JsonProperty("organization_id")]
+    [JsonPropertyName("organization_id")]
     public string? OrganizationId { get; set; }
 
-    [JsonProperty("entity_name")]
+    [JsonPropertyName("entity_name")]
     public string? EntityName { get; set; }
 
     public Portfolio(string id, string name, string entityId, string organizationId, string entityName)

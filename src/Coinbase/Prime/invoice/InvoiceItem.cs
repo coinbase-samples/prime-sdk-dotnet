@@ -16,22 +16,22 @@
 
 namespace Coinbase.Prime.Invoice
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class InvoiceItem
   {
     public string? Description { get; set; }
 
-    [JsonProperty("currency_symbol")]
+    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonProperty("invoice_type")]
+    [JsonPropertyName("invoice_type")]
     public InvoiceType InvoiceType { get; set; }
 
     public double? Rate { get; set; }
     public double? Quantity { get; set; }
     public double? Price { get; set; }
 
-    [JsonProperty("average_auc")]
+    [JsonPropertyName("average_auc")]
     public double? AverageAuc { get; set; }
     public double? Total { get; set; }
 

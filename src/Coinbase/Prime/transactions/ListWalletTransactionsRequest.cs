@@ -16,17 +16,17 @@
 
 namespace Coinbase.Prime.Transactions
 {
+  using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
-  using Newtonsoft.Json;
   public class ListWalletTransactionsRequest : BaseListRequest
   {
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public TransactionType Type { get; set; }
 
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     public ListWalletTransactionsRequest() { }

@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Transactions
 {
+  using System.Text.Json.Serialization;
   public class CreateConversionResponse
   {
-    [JsonProperty("activity_id")]
+    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonProperty("source_symbol")]
+    [JsonPropertyName("source_symbol")]
     public string? SourceSymbol { get; set; }
 
-    [JsonProperty("destination_symbol")]
+    [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
 
     public string? Amount { get; set; }

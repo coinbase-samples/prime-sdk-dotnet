@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class CreateConversionRequest
   {
     public string? Amount { get; set; }
     public string? Destination { get; set; }
 
-    [JsonProperty("idempotency_key")]
+    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonProperty("source_symbol")]
+    [JsonPropertyName("source_symbol")]
     public string? SourceSymbol { get; set; }
 
-    [JsonProperty("destination_symbol")]
+    [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
 
     public CreateConversionRequest() { }

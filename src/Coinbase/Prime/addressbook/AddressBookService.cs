@@ -14,12 +14,11 @@
  *  limitations under the License.
  */
 
-using System.Net;
-using Coinbase.Core.Client;
-using Coinbase.Core.Service;
-
 namespace Coinbase.Prime.AddressBook
 {
+  using System.Net;
+  using Coinbase.Core.Client;
+  using Coinbase.Core.Service;
   public class AddressBookService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public CreateAddressBookEntryResponse CreateAddressBookEntry(string portfolioId, CreateAddressBookEntryRequest request)

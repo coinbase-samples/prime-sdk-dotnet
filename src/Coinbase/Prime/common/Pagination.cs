@@ -14,19 +14,18 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Common
 {
+  using System.Text.Json.Serialization;
   public class Pagination
   {
-    [JsonProperty("next_cursor")]
+    [JsonPropertyName("next_cursor")]
     public string? NextCursor { get; set; }
 
-    [JsonProperty("sort_direction")]
+    [JsonPropertyName("sort_direction")]
     public string? SortDirection { get; set; }
 
-    [JsonProperty("has_next")]
+    [JsonPropertyName("has_next")]
     public bool? HasNext { get; set; }
 
     public Pagination() { }

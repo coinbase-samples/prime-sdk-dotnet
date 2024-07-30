@@ -16,13 +16,13 @@
 
 namespace Coinbase.Prime.Transactions
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class EstimatedNetworkFees
   {
-    [JsonProperty("lower_bound")]
+    [JsonPropertyName("lower_bound")]
     public string? LowerBound { get; set; }
 
-    [JsonProperty("upper_bound")]
+    [JsonPropertyName("upper_bound")]
     public string? UpperBound { get; set; }
 
     public EstimatedNetworkFees() { }

@@ -16,19 +16,19 @@
 
 namespace Coinbase.Prime.Assets
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class Asset
   {
     public string? Name { get; set; }
     public string? Symbol { get; set; }
 
-    [JsonProperty("decimal_precision")]
+    [JsonPropertyName("decimal_precision")]
     public string? DecimalPrecision { get; set; }
 
-    [JsonProperty("trading_supported")]
+    [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
 
-    [JsonProperty("explorer_url")]
+    [JsonPropertyName("explorer_url")]
     public string? ExplorerUrl { get; set; }
 
     public Asset() { }

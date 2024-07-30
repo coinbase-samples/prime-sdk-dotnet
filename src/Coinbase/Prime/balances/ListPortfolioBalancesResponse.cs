@@ -16,16 +16,16 @@
 
 namespace Coinbase.Prime.Balances
 {
-  using Newtonsoft.Json;
+  using System.Text.Json.Serialization;
   public class ListPortfolioBalancesResponse
   {
     public Balance[] Balances { get; set; } = [];
     public BalanceType Type { get; set; }
 
-    [JsonProperty("trading_balances")]
+    [JsonPropertyName("trading_balances")]
     public TotalBalance? TradingBalances { get; set; }
 
-    [JsonProperty("vault_balances")]
+    [JsonPropertyName("vault_balances")]
     public TotalBalance? VaultBalances { get; set; }
 
     public ListPortfolioBalancesResponse() { }

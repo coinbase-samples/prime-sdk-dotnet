@@ -14,13 +14,12 @@
  *  limitations under the License.
  */
 
-using Newtonsoft.Json;
-
 namespace Coinbase.Prime.Orders
 {
+  using System.Text.Json.Serialization;
   public class CreateOrderResponse
   {
-    [JsonProperty("order_id")]
+    [JsonPropertyName("order_id")]
     public string? OrderId { get; set; }
 
     public CreateOrderResponse() { }
