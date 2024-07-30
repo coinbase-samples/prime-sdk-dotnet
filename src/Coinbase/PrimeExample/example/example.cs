@@ -1,5 +1,7 @@
 namespace Coinbase.PrimeExample.Example
 {
+  using System.Text.Json;
+  using System.Text.Json.Serialization;
   using Coinbase.Core.Credentials;
   using Coinbase.Prime.Client;
   using Coinbase.Prime.Orders;
@@ -8,25 +10,57 @@ namespace Coinbase.PrimeExample.Example
   {
     static void Main()
     {
-      string? value = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
-      if (value == null)
+      string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
+      if (credentialsBlob == null)
       {
         Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
         return;
       }
-      var credentials = new CoinbaseCredentials(value);
-      var client = new CoinbasePrimeClient(credentials);
-      var service = new PortfoliosService(client);
-      var response = service.ListPortfolios();
-      foreach (var portfolio in response.Portfolios)
+      Console.WriteLine(credentialsBlob);
+
+      string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
+      if (portfolioId == null)
       {
-        Console.WriteLine(portfolio);
-        var getById = service.GetPortfolioById(portfolio.Id);
-        Console.WriteLine(getById.Portfolio.Id);
-        var orderService = new OrdersService(client);
-        var openOrders = orderService.ListOpenOrders(portfolio.Id, new ListOpenOrdersRequest());
-        Console.WriteLine(openOrders.Orders);
+        Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+        return;
       }
+
+      var credentials = JsonSerializer.Deserialize<CoinbaseCredentials>(credentialsBlob, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+      var client = new CoinbasePrimeClient(credentials);
+
+      var portfoliosService = new PortfoliosService(client);
+
+      var portfolio = portfoliosService.GetPortfolioById(portfolioId).Portfolio!;
+      Console.WriteLine(portfolio);
+
+      Console.WriteLine(portfolio.Id!);
+
+      var orderService = new OrdersService(client);
+
+      Console.WriteLine(OrderType.MARKET);
+
+      var request = new CreateOrderRequest
+      {
+        BaseQuantity = "0.001",
+        Side = OrderSide.BUY,
+        ProductId = "ADA-USD",
+        Type = OrderType.MARKET,
+        ClientOrderId = Guid.NewGuid().ToString()
+      };
+
+      var createOrderResponse = orderService.CreateOrder(
+        portfolio.Id,
+        new CreateOrderRequest
+        {
+          BaseQuantity = "0.001",
+          Side = OrderSide.BUY,
+          ProductId = "ADA-USD",
+          Type = OrderType.MARKET,
+          ClientOrderId = Guid.NewGuid().ToString()
+        }
+      );
+
+      Console.WriteLine(createOrderResponse.OrderId);
     }
   }
 }

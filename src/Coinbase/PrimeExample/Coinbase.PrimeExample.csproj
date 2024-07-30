@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="src\**\*.cs" />
+    <Compile Include=".\example\example.cs" />
   </ItemGroup>
 
 </Project>
