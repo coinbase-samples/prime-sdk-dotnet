@@ -43,6 +43,6 @@ The JSON format expected for `COINBASE_PRIME_CREDENTIALS` is:
 }
 ```
 
-For an example of how to use the client, see the [`Example`](src/Coinbase/PrimeExample/example/example.cs) class under the com.coinbase.examples package.
+For an example of how to use the client, see the [`Example`](src/Coinbase/PrimeExample/example/Example.cs) class under the com.coinbase.examples package.
 
 **Warning**: this does place a market order for a very small amount of ADA. Please ensure that you have the necessary funds in your account before running this code.
