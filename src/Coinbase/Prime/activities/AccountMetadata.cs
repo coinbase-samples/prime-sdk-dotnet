@@ -28,5 +28,23 @@ namespace Coinbase.Prime.Activities
     {
       Consensus = consensus;
     }
+
+    public class Builder
+    {
+      private Consensus? _consensus;
+      public Builder WithConsensus(Consensus consensus)
+      {
+        this._consensus = consensus;
+        return this;
+      }
+
+      public AccountMetadata Build()
+      {
+        return new AccountMetadata()
+        {
+          Consensus = this._consensus
+        };
+      }
+    }
   }
 }

@@ -26,5 +26,24 @@ namespace Coinbase.Prime.Portfolios
     }
 
     public GetPortfolioByIdResponse() { }
+
+    public class GetPortfolioByIdResponseBuilder
+    {
+      private Portfolio? _portfolio;
+
+      public GetPortfolioByIdResponseBuilder WithPortfolio(Portfolio? portfolio)
+      {
+        this._portfolio = portfolio;
+        return this;
+      }
+
+      public GetPortfolioByIdResponse Build()
+      {
+        return new GetPortfolioByIdResponse
+        {
+          Portfolio = this._portfolio
+        };
+      }
+    }
   }
 }

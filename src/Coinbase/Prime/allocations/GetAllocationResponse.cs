@@ -19,5 +19,24 @@ namespace Coinbase.Prime.Allocations
   public class GetAllocationResponse
   {
     public Allocation? Allocation { get; set; }
+
+    public class GetAllocationResponseBuilder
+    {
+      private Allocation? _allocation;
+
+      public GetAllocationResponseBuilder WithAllocation(Allocation allocation)
+      {
+        this._allocation = allocation;
+        return this;
+      }
+
+      public GetAllocationResponse Build()
+      {
+        return new GetAllocationResponse()
+        {
+          Allocation = this._allocation
+        };
+      }
+    }
   }
 }

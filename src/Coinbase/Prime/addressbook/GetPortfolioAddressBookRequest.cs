@@ -16,6 +16,7 @@
 
 namespace Coinbase.Prime.AddressBook
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   using System.Text.Json.Serialization;
   public class GetPortfolioAddressBookRequest(string portfolioId)
@@ -24,5 +25,72 @@ namespace Coinbase.Prime.AddressBook
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
     public string? Search { get; set; }
+
+    public class GetPortfolioAddressBookRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _currencySymbol;
+      private string? _search;
+      private string? _cursor;
+      private string? _sortDirection;
+      private int? _limit;
+
+      public GetPortfolioAddressBookRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithCurrencySymbol(string? currencySymbol)
+      {
+        this._currencySymbol = currencySymbol;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithSearch(string? search)
+      {
+        this._search = search;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithCursor(string? cursor)
+      {
+        this._cursor = cursor;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithSortDirection(string? sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithLimit(int? limit)
+      {
+        this._limit = limit;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public GetPortfolioAddressBookRequest Build()
+      {
+        this.Validate();
+        return new GetPortfolioAddressBookRequest(_portfolioId!)
+        {
+          CurrencySymbol = this._currencySymbol,
+          Search = this._search,
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection,
+          Limit = this._limit
+        };
+      }
+    }
   }
 }

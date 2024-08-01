@@ -27,42 +27,38 @@ namespace Coinbase.Prime.Portfolios
 
     public PostTradeCreditAmountDue() { }
 
-    private PostTradeCreditAmountDue(Builder builder)
+    public class PostTradeCreditAmountDueBuilder
     {
-      Currency = builder.Currency;
-      Amount = builder.Amount;
-      DueDate = builder.DueDate;
-    }
+      private string? _currency;
+      private string? _amount;
+      private DateTime? _dueDate;
 
-    public class Builder
-    {
-      public string? Currency { get; private set; }
-      public string? Amount { get; private set; }
-      public DateTime? DueDate { get; private set; }
-
-      public Builder() { }
-
-      public Builder SetCurrency(string currency)
+      public PostTradeCreditAmountDueBuilder WithCurrency(string currency)
       {
-        Currency = currency;
+        this._currency = currency;
         return this;
       }
 
-      public Builder SetAmount(string amount)
+      public PostTradeCreditAmountDueBuilder WithAmount(string amount)
       {
-        Amount = amount;
+        this._amount = amount;
         return this;
       }
 
-      public Builder SetDueDate(DateTime dueDate)
+      public PostTradeCreditAmountDueBuilder WithDueDate(DateTime dueDate)
       {
-        DueDate = dueDate;
+        this._dueDate = dueDate;
         return this;
       }
 
       public PostTradeCreditAmountDue Build()
       {
-        return new PostTradeCreditAmountDue(this);
+        return new PostTradeCreditAmountDue
+        {
+          Currency = this._currency,
+          Amount = this._amount,
+          DueDate = this._dueDate
+        };
       }
     }
   }

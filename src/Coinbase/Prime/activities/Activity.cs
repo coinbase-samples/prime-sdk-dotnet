@@ -61,41 +61,143 @@ namespace Coinbase.Prime.Activities
     public Activity()
     {
     }
-
-    public Activity(
-        string id,
-        string referenceId,
-        ActivityCategory category,
-        ActivityType type,
-        ActivitySecondaryType secondaryType,
-        ActivityStatus status,
-        string createdBy,
-        string title,
-        string description,
-        UserAction[] userActions,
-        TransactionsMetadata transactionsMetadata,
-        AccountMetadata accountMetadata,
-        OrdersMetadata ordersMetadata,
-        string[] symbols,
-        string createdAt,
-        string updatedAt)
+    public class ActivityBuilder
     {
-      Id = id;
-      ReferenceId = referenceId;
-      Category = category;
-      Type = type;
-      SecondaryType = secondaryType;
-      Status = status;
-      CreatedBy = createdBy;
-      Title = title;
-      Description = description;
-      UserActions = userActions;
-      TransactionsMetadata = transactionsMetadata;
-      AccountMetadata = accountMetadata;
-      OrdersMetadata = ordersMetadata;
-      Symbols = symbols;
-      CreatedAt = createdAt;
-      UpdatedAt = updatedAt;
+      private string? _id;
+      private string? _referenceId;
+      private ActivityCategory _category;
+      private ActivityType _type;
+      private ActivitySecondaryType _secondaryType;
+      private ActivityStatus _status;
+      private string? _createdBy;
+      private string? _title;
+      private string? _description;
+      private UserAction[] _userActions = [];
+      private TransactionsMetadata? _transactionsMetadata;
+      private AccountMetadata? _accountMetadata;
+      private OrdersMetadata? _ordersMetadata;
+      private string[] _symbols = [];
+      private string? _createdAt;
+      private string? _updatedAt;
+
+      public ActivityBuilder WithId(string? id)
+      {
+        _id = id;
+        return this;
+      }
+
+      public ActivityBuilder WithReferenceId(string? referenceId)
+      {
+        _referenceId = referenceId;
+        return this;
+      }
+
+      public ActivityBuilder WithCategory(ActivityCategory category)
+      {
+        _category = category;
+        return this;
+      }
+
+      public ActivityBuilder WithType(ActivityType type)
+      {
+        _type = type;
+        return this;
+      }
+
+      public ActivityBuilder WithSecondaryType(ActivitySecondaryType secondaryType)
+      {
+        _secondaryType = secondaryType;
+        return this;
+      }
+
+      public ActivityBuilder WithStatus(ActivityStatus status)
+      {
+        _status = status;
+        return this;
+      }
+
+      public ActivityBuilder WithCreatedBy(string? createdBy)
+      {
+        _createdBy = createdBy;
+        return this;
+      }
+
+      public ActivityBuilder WithTitle(string? title)
+      {
+        _title = title;
+        return this;
+      }
+
+      public ActivityBuilder WithDescription(string? description)
+      {
+        _description = description;
+        return this;
+      }
+
+      public ActivityBuilder WithUserActions(UserAction[] userActions)
+      {
+        _userActions = userActions;
+        return this;
+      }
+
+      public ActivityBuilder WithTransactionsMetadata(TransactionsMetadata? transactionsMetadata)
+      {
+        _transactionsMetadata = transactionsMetadata;
+        return this;
+      }
+
+      public ActivityBuilder WithAccountMetadata(AccountMetadata? accountMetadata)
+      {
+        _accountMetadata = accountMetadata;
+        return this;
+      }
+
+      public ActivityBuilder WithOrdersMetadata(OrdersMetadata? ordersMetadata)
+      {
+        _ordersMetadata = ordersMetadata;
+        return this;
+      }
+
+      public ActivityBuilder WithSymbols(string[] symbols)
+      {
+        _symbols = symbols;
+        return this;
+      }
+
+      public ActivityBuilder WithCreatedAt(string? createdAt)
+      {
+        _createdAt = createdAt;
+        return this;
+      }
+
+      public ActivityBuilder WithUpdatedAt(string? updatedAt)
+      {
+        _updatedAt = updatedAt;
+        return this;
+      }
+
+      public Activity Build()
+      {
+        return new Activity
+        {
+          Id = _id,
+          ReferenceId = _referenceId,
+          Category = _category,
+          Type = _type,
+          SecondaryType = _secondaryType,
+          Status = _status,
+          CreatedBy = _createdBy,
+          Title = _title,
+          Description = _description,
+          UserActions = _userActions,
+          TransactionsMetadata = _transactionsMetadata,
+          AccountMetadata = _accountMetadata,
+          OrdersMetadata = _ordersMetadata,
+          Symbols = _symbols,
+          CreatedAt = _createdAt,
+          UpdatedAt = _updatedAt
+        };
+      }
     }
   }
 }

@@ -17,12 +17,80 @@
 namespace Coinbase.Prime.Balances
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   public class ListPortfolioBalancesRequest(string portfolioId)
   : BaseListRequest(portfolioId, null)
   {
     public string[] Symbols { get; set; } = [];
     [JsonPropertyName("balance_type")]
-    public string? BalanceType;
+    public BalanceType BalanceType;
+
+    public class ListPortfolioBalancesRequestBuilder
+    {
+      private string? _portfolioId;
+      private string[] _symbols = [];
+      private BalanceType _balanceType;
+      private string? _cursor;
+      private string? _sortDirection;
+      private int? _limit;
+
+      public ListPortfolioBalancesRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public ListPortfolioBalancesRequestBuilder WithSymbols(string[] symbols)
+      {
+        this._symbols = symbols;
+        return this;
+      }
+
+      public ListPortfolioBalancesRequestBuilder WithBalanceType(BalanceType balanceType)
+      {
+        this._balanceType = balanceType;
+        return this;
+      }
+
+      public ListPortfolioBalancesRequestBuilder WithCursor(string cursor)
+      {
+        this._cursor = cursor;
+        return this;
+      }
+
+      public ListPortfolioBalancesRequestBuilder WithSortDirection(string sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public ListPortfolioBalancesRequestBuilder WithLimit(int limit)
+      {
+        this._limit = limit;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrEmpty(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public ListPortfolioBalancesRequest Build()
+      {
+        Validate();
+        return new ListPortfolioBalancesRequest(_portfolioId!)
+        {
+          Symbols = this._symbols,
+          BalanceType = this._balanceType,
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection,
+          Limit = this._limit
+        };
+      }
+    }
   }
 }

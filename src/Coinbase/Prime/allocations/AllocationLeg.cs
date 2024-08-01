@@ -29,11 +29,39 @@ namespace Coinbase.Prime.Allocations
 
     public AllocationLeg() { }
 
-    public AllocationLeg(string allocationLegId, string destinationPortfolioId, string amount)
+    public class AllocationLegBuilder
     {
-      AllocationLegId = allocationLegId;
-      DestinationPortfolioId = destinationPortfolioId;
-      Amount = amount;
+      private string? _allocationLegId;
+      private string? _destinationPortfolioId;
+      private string? _amount;
+
+      public AllocationLegBuilder WithAllocationLegId(string? allocationLegId)
+      {
+        this._allocationLegId = allocationLegId;
+        return this;
+      }
+
+      public AllocationLegBuilder WithDestinationPortfolioId(string? destinationPortfolioId)
+      {
+        this._destinationPortfolioId = destinationPortfolioId;
+        return this;
+      }
+
+      public AllocationLegBuilder WithAmount(string? amount)
+      {
+        this._amount = amount;
+        return this;
+      }
+
+      public AllocationLeg Build()
+      {
+        return new AllocationLeg
+        {
+          AllocationLegId = this._allocationLegId,
+          DestinationPortfolioId = this._destinationPortfolioId,
+          Amount = this._amount
+        };
+      }
     }
   }
 }

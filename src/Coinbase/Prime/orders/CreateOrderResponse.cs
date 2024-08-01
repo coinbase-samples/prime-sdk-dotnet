@@ -28,5 +28,24 @@ namespace Coinbase.Prime.Orders
     {
       OrderId = orderId;
     }
+
+    public class CreateOrderResponseBuilder
+    {
+      private string? _orderId;
+
+      public CreateOrderResponseBuilder WithOrderId(string? orderId)
+      {
+        this._orderId = orderId;
+        return this;
+      }
+
+      public CreateOrderResponse Build()
+      {
+        return new CreateOrderResponse
+        {
+          OrderId = this._orderId
+        };
+      }
+    }
   }
 }

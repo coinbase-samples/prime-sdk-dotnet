@@ -17,6 +17,7 @@
 namespace Coinbase.Prime.AddressBook
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class CreateAddressBookEntryRequest(string portfolioId)
@@ -31,5 +32,64 @@ namespace Coinbase.Prime.AddressBook
 
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
+
+    public class CreateAddressBookEntryRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _address;
+      private string? _currencySymbol;
+      private string? _name;
+      private string? _accountIdentifier;
+
+      public CreateAddressBookEntryRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public CreateAddressBookEntryRequestBuilder WithAddress(string? address)
+      {
+        this._address = address;
+        return this;
+      }
+
+      public CreateAddressBookEntryRequestBuilder WithCurrencySymbol(string? currencySymbol)
+      {
+        this._currencySymbol = currencySymbol;
+        return this;
+      }
+
+      public CreateAddressBookEntryRequestBuilder WithName(string? name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public CreateAddressBookEntryRequestBuilder WithAccountIdentifier(string? accountIdentifier)
+      {
+        this._accountIdentifier = accountIdentifier;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public CreateAddressBookEntryRequest Build()
+      {
+        this.Validate();
+        return new CreateAddressBookEntryRequest(this._portfolioId!)
+        {
+          Address = this._address,
+          CurrencySymbol = this._currencySymbol,
+          Name = this._name,
+          AccountIdentifier = this._accountIdentifier
+        };
+      }
+    }
   }
 }

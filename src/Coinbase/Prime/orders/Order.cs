@@ -82,194 +82,190 @@ namespace Coinbase.Prime.Orders
 
     public Order() { }
 
-    private Order(Builder builder)
+    public class OrderBuilder
     {
-      Id = builder.Id;
-      UserId = builder.UserId;
-      PortfolioId = builder.PortfolioId;
-      ProductId = builder.ProductId;
-      Side = builder.Side;
-      ClientOrderId = builder.ClientOrderId;
-      Type = builder.Type;
-      BaseQuantity = builder.BaseQuantity;
-      QuoteValue = builder.QuoteValue;
-      LimitPrice = builder.LimitPrice;
-      StopPrice = builder.StopPrice;
-      StartTime = builder.StartTime;
-      ExpiryTime = builder.ExpiryTime;
-      Status = builder.Status;
-      TimeInForce = builder.TimeInForce;
-      CreatedAt = builder.CreatedAt;
-      FilledQuantity = builder.FilledQuantity;
-      FilledValue = builder.FilledValue;
-      AverageFilledPrice = builder.AverageFilledPrice;
-      Commission = builder.Commission;
-      ExchangeFee = builder.ExchangeFee;
-      HistoricalPov = builder.HistoricalPov;
-    }
+      private string? _id;
+      private string? _userId;
+      private string? _portfolioId;
+      private string? _productId;
+      private OrderSide? _side;
+      private string? _clientOrderId;
+      private OrderType? _type;
+      private string? _baseQuantity;
+      private string? _quoteValue;
+      private string? _limitPrice;
+      private string? _stopPrice;
+      private string? _startTime;
+      private string? _expiryTime;
+      private OrderStatus? _status;
+      private TimeInForce? _timeInForce;
+      private string? _createdAt;
+      private string? _filledQuantity;
+      private string? _filledValue;
+      private string? _averageFilledPrice;
+      private string? _commission;
+      private string? _exchangeFee;
+      private string? _historicalPov;
 
-    public class Builder
-    {
-      public string? Id { get; private set; }
-      public string? UserId { get; private set; }
-      public string? PortfolioId { get; private set; }
-      public string? ProductId { get; private set; }
-      public OrderSide? Side { get; private set; }
-      public string? ClientOrderId { get; private set; }
-      public OrderType? Type { get; private set; }
-      public string? BaseQuantity { get; private set; }
-      public string? QuoteValue { get; private set; }
-      public string? LimitPrice { get; private set; }
-      public string? StopPrice { get; private set; }
-      public string? StartTime { get; private set; }
-      public string? ExpiryTime { get; private set; }
-      public OrderStatus? Status { get; private set; }
-      public TimeInForce? TimeInForce { get; private set; }
-      public string? CreatedAt { get; private set; }
-      public string? FilledQuantity { get; private set; }
-      public string? FilledValue { get; private set; }
-      public string? AverageFilledPrice { get; private set; }
-      public string? Commission { get; private set; }
-      public string? ExchangeFee { get; private set; }
-      public string? HistoricalPov { get; private set; }
-
-      public Builder() { }
-
-      public Builder SetId(string? id)
+      public OrderBuilder WithId(string id)
       {
-        Id = id;
+        this._id = id;
         return this;
       }
 
-      public Builder SetUserId(string? userId)
+      public OrderBuilder WithUserId(string userId)
       {
-        UserId = userId;
+        this._userId = userId;
         return this;
       }
 
-      public Builder SetPortfolioId(string? portfolioId)
+      public OrderBuilder WithPortfolioId(string portfolioId)
       {
-        PortfolioId = portfolioId;
+        this._portfolioId = portfolioId;
         return this;
       }
 
-      public Builder SetProductId(string? productId)
+      public OrderBuilder WithProductId(string productId)
       {
-        ProductId = productId;
+        this._productId = productId;
         return this;
       }
 
-      public Builder SetSide(OrderSide? side)
+      public OrderBuilder WithSide(OrderSide side)
       {
-        Side = side;
+        this._side = side;
         return this;
       }
 
-      public Builder SetClientOrderId(string? clientOrderId)
+      public OrderBuilder WithClientOrderId(string clientOrderId)
       {
-        ClientOrderId = clientOrderId;
+        this._clientOrderId = clientOrderId;
         return this;
       }
 
-      public Builder SetType(OrderType? type)
+      public OrderBuilder WithType(OrderType type)
       {
-        Type = type;
+        this._type = type;
         return this;
       }
 
-      public Builder SetBaseQuantity(string? baseQuantity)
+      public OrderBuilder WithBaseQuantity(string baseQuantity)
       {
-        BaseQuantity = baseQuantity;
+        this._baseQuantity = baseQuantity;
         return this;
       }
 
-      public Builder SetQuoteValue(string? quoteValue)
+      public OrderBuilder WithQuoteValue(string quoteValue)
       {
-        QuoteValue = quoteValue;
+        this._quoteValue = quoteValue;
         return this;
       }
 
-      public Builder SetLimitPrice(string? limitPrice)
+      public OrderBuilder WithLimitPrice(string limitPrice)
       {
-        LimitPrice = limitPrice;
+        this._limitPrice = limitPrice;
         return this;
       }
 
-      public Builder SetStopPrice(string? stopPrice)
+      public OrderBuilder WithStopPrice(string stopPrice)
       {
-        StopPrice = stopPrice;
+        this._stopPrice = stopPrice;
         return this;
       }
 
-      public Builder SetStartTime(string? startTime)
+      public OrderBuilder WithStartTime(string startTime)
       {
-        StartTime = startTime;
+        this._startTime = startTime;
         return this;
       }
 
-      public Builder SetExpiryTime(string? expiryTime)
+      public OrderBuilder WithExpiryTime(string expiryTime)
       {
-        ExpiryTime = expiryTime;
+        this._expiryTime = expiryTime;
         return this;
       }
 
-      public Builder SetStatus(OrderStatus? status)
+      public OrderBuilder WithStatus(OrderStatus status)
       {
-        Status = status;
+        this._status = status;
         return this;
       }
 
-      public Builder SetTimeInForce(TimeInForce? timeInForce)
+      public OrderBuilder WithTimeInForce(TimeInForce timeInForce)
       {
-        TimeInForce = timeInForce;
+        this._timeInForce = timeInForce;
         return this;
       }
 
-      public Builder SetCreatedAt(string? createdAt)
+      public OrderBuilder WithCreatedAt(string createdAt)
       {
-        CreatedAt = createdAt;
+        this._createdAt = createdAt;
         return this;
       }
 
-      public Builder SetFilledQuantity(string? filledQuantity)
+      public OrderBuilder WithFilledQuantity(string filledQuantity)
       {
-        FilledQuantity = filledQuantity;
+        this._filledQuantity = filledQuantity;
         return this;
       }
 
-      public Builder SetFilledValue(string? filledValue)
+      public OrderBuilder WithFilledValue(string filledValue)
       {
-        FilledValue = filledValue;
+        this._filledValue = filledValue;
         return this;
       }
 
-      public Builder SetAverageFilledPrice(string? averageFilledPrice)
+      public OrderBuilder WithAverageFilledPrice(string averageFilledPrice)
       {
-        AverageFilledPrice = averageFilledPrice;
+        this._averageFilledPrice = averageFilledPrice;
         return this;
       }
 
-      public Builder SetCommission(string? commission)
+      public OrderBuilder WithCommission(string commission)
       {
-        Commission = commission;
+        this._commission = commission;
         return this;
       }
 
-      public Builder SetExchangeFee(string? exchangeFee)
+      public OrderBuilder WithExchangeFee(string exchangeFee)
       {
-        ExchangeFee = exchangeFee;
+        this._exchangeFee = exchangeFee;
         return this;
       }
 
-      public Builder SetHistoricalPov(string? historicalPov)
+      public OrderBuilder WithHistoricalPov(string historicalPov)
       {
-        HistoricalPov = historicalPov;
+        this._historicalPov = historicalPov;
         return this;
       }
 
       public Order Build()
       {
-        return new Order(this);
+        return new Order
+        {
+          Id = this._id,
+          UserId = this._userId,
+          PortfolioId = this._portfolioId,
+          ProductId = this._productId,
+          Side = this._side,
+          ClientOrderId = this._clientOrderId,
+          Type = this._type,
+          BaseQuantity = this._baseQuantity,
+          QuoteValue = this._quoteValue,
+          LimitPrice = this._limitPrice,
+          StopPrice = this._stopPrice,
+          StartTime = this._startTime,
+          ExpiryTime = this._expiryTime,
+          Status = this._status,
+          TimeInForce = this._timeInForce,
+          CreatedAt = this._createdAt,
+          FilledQuantity = this._filledQuantity,
+          FilledValue = this._filledValue,
+          AverageFilledPrice = this._averageFilledPrice,
+          Commission = this._commission,
+          ExchangeFee = this._exchangeFee,
+          HistoricalPov = this._historicalPov
+        };
       }
     }
   }

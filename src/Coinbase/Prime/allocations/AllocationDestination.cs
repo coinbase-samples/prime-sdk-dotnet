@@ -36,18 +36,55 @@ namespace Coinbase.Prime.Allocations
 
     public AllocationDestination() { }
 
-    public AllocationDestination(
-        string legId,
-        string portfolioId,
-        string allocationBase,
-        string allocationQuote,
-        string feesAllocatedLeg)
+    public class AllocationDestinationBuilder
     {
-      LegId = legId;
-      PortfolioId = portfolioId;
-      AllocationBase = allocationBase;
-      AllocationQuote = allocationQuote;
-      FeesAllocatedLeg = feesAllocatedLeg;
+      private string? _legId;
+      private string? _portfolioId;
+      private string? _allocationBase;
+      private string? _allocationQuote;
+      private string? _feesAllocatedLeg;
+
+      public AllocationDestinationBuilder WithLegId(string? legId)
+      {
+        this._legId = legId;
+        return this;
+      }
+
+      public AllocationDestinationBuilder WithPortfolioId(string? portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public AllocationDestinationBuilder WithAllocationBase(string? allocationBase)
+      {
+        this._allocationBase = allocationBase;
+        return this;
+      }
+
+      public AllocationDestinationBuilder WithAllocationQuote(string? allocationQuote)
+      {
+        this._allocationQuote = allocationQuote;
+        return this;
+      }
+
+      public AllocationDestinationBuilder WithFeesAllocatedLeg(string? feesAllocatedLeg)
+      {
+        this._feesAllocatedLeg = feesAllocatedLeg;
+        return this;
+      }
+
+      public AllocationDestination Build()
+      {
+        return new AllocationDestination
+        {
+          LegId = this._legId,
+          PortfolioId = this._portfolioId,
+          AllocationBase = this._allocationBase,
+          AllocationQuote = this._allocationQuote,
+          FeesAllocatedLeg = this._feesAllocatedLeg
+        };
+      }
     }
   }
 }

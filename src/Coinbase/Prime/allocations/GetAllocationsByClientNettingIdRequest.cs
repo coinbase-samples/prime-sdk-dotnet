@@ -17,11 +17,48 @@
 namespace Coinbase.Prime.Allocations
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   public class GetAllocationsByClientNettingIdRequest(string portfolioId, string clientNettingId)
   : BasePrimeRequest(portfolioId, null)
   {
     [JsonIgnore]
     public string ClientNettingId { get; set; } = clientNettingId;
+
+    public class GetAllocationsByClientNettingIdRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _clientNettingId;
+
+      public GetAllocationsByClientNettingIdRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetAllocationsByClientNettingIdRequestBuilder WithClientNettingId(string clientNettingId)
+      {
+        this._clientNettingId = clientNettingId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._clientNettingId))
+        {
+          throw new CoinbaseClientException("ClientNettingId is required");
+        }
+      }
+
+      public GetAllocationsByClientNettingIdRequest Build()
+      {
+        this.Validate();
+        return new GetAllocationsByClientNettingIdRequest(this._portfolioId!, this._clientNettingId!);
+      }
+    }
   }
 }

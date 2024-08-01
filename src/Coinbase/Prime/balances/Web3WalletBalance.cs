@@ -33,5 +33,40 @@ namespace Coinbase.Prime.Balances
       Amount = amount;
       VisibilityStatus = visibilityStatus;
     }
+
+    public class Web3WalletBalanceBuilder
+    {
+      private Web3WalletAsset? _asset;
+      private string? _amount;
+      private VisibilityStatus _visibilityStatus;
+
+      public Web3WalletBalanceBuilder WithAsset(Web3WalletAsset? asset)
+      {
+        this._asset = asset;
+        return this;
+      }
+
+      public Web3WalletBalanceBuilder WithAmount(string? amount)
+      {
+        this._amount = amount;
+        return this;
+      }
+
+      public Web3WalletBalanceBuilder WithVisibilityStatus(VisibilityStatus visibilityStatus)
+      {
+        this._visibilityStatus = visibilityStatus;
+        return this;
+      }
+
+      public Web3WalletBalance Build()
+      {
+        return new Web3WalletBalance
+        {
+          Asset = this._asset,
+          Amount = this._amount,
+          VisibilityStatus = this._visibilityStatus
+        };
+      }
+    }
   }
 }

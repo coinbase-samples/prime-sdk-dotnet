@@ -25,5 +25,56 @@ namespace Coinbase.Prime.Transactions
     public NftItem? Item { get; set; }
 
     public AssetChange() { }
+
+    public class AssetChangeBuilder
+    {
+      private AssetChangeType _type;
+      private string? _symbol;
+      private string? _amount;
+      private NftCollection? _collection;
+      private NftItem? _item;
+
+      public AssetChangeBuilder WithType(AssetChangeType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public AssetChangeBuilder WithSymbol(string symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public AssetChangeBuilder WithAmount(string amount)
+      {
+        this._amount = amount;
+        return this;
+      }
+
+      public AssetChangeBuilder WithCollection(NftCollection collection)
+      {
+        this._collection = collection;
+        return this;
+      }
+
+      public AssetChangeBuilder WithItem(NftItem item)
+      {
+        this._item = item;
+        return this;
+      }
+
+      public AssetChange Build()
+      {
+        return new AssetChange
+        {
+          Type = this._type,
+          Symbol = this._symbol,
+          Amount = this._amount,
+          Collection = this._collection,
+          Item = this._item
+        };
+      }
+    }
   }
 }

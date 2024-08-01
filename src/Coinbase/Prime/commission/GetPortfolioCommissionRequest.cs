@@ -16,11 +16,35 @@
 
 namespace Coinbase.Prime.Commission
 {
-  using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class GetPortfolioCommissionRequest(string portfolioId)
   : BasePrimeRequest(portfolioId, null)
   {
+    public class GetPortfolioCommissionRequestBuilder
+    {
+      private string? _portfolioId;
+
+      public GetPortfolioCommissionRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public GetPortfolioCommissionRequest Build()
+      {
+        this.Validate();
+        return new GetPortfolioCommissionRequest(this._portfolioId!);
+      }
+    }
   }
 }

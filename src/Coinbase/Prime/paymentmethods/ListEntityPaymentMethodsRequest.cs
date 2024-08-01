@@ -16,11 +16,34 @@
 
 namespace Coinbase.Prime.PaymentMethods
 {
-  using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
 
   public class ListEntityPaymentMethodsRequest(string entityId)
   : BasePrimeRequest(null, entityId)
   {
+    public class ListEntityPaymentMethodsRequestBuilder
+    {
+      private string? _entityId;
+
+      public ListEntityPaymentMethodsRequestBuilder WithEntityId(string entityId)
+      {
+        this._entityId = entityId;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._entityId))
+        {
+          throw new System.ArgumentException("EntityId cannot be null or empty");
+        }
+      }
+
+      public ListEntityPaymentMethodsRequest Build()
+      {
+        this.Validate();
+        return new ListEntityPaymentMethodsRequest(this._entityId!);
+      }
+    }
   }
 }

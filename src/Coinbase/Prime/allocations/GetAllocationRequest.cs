@@ -14,15 +14,52 @@
  *  limitations under the License.
  */
 
-using System.Text.Json.Serialization;
-using Coinbase.Prime.Common;
-
 namespace Coinbase.Prime.Allocations
 {
+  using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
+  using Coinbase.Prime.Common;
+
   public class GetAllocationRequest(string portfolioId, string allocationId)
   : BasePrimeRequest(portfolioId, null)
   {
     [JsonIgnore]
     public string AllocationId { get; set; } = allocationId;
+
+    public class GetAllocationRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _allocationId;
+
+      public GetAllocationRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetAllocationRequestBuilder WithAllocationId(string allocationId)
+      {
+        this._allocationId = allocationId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._allocationId))
+        {
+          throw new CoinbaseClientException("AllocationId is required");
+        }
+      }
+
+      public GetAllocationRequest Build()
+      {
+        this.Validate();
+        return new GetAllocationRequest(this._portfolioId!, this._allocationId!);
+      }
+    }
   }
 }

@@ -45,98 +45,94 @@ namespace Coinbase.Prime.Orders
 
     public OrderFill() { }
 
-    private OrderFill(Builder builder)
+    public class OrderFillBuilder
     {
-      Id = builder.Id;
-      OrderId = builder.OrderId;
-      ProductId = builder.ProductId;
-      Side = builder.Side;
-      FilledQuantity = builder.FilledQuantity;
-      FilledValue = builder.FilledValue;
-      Price = builder.Price;
-      Time = builder.Time;
-      Commission = builder.Commission;
-      Venue = builder.Venue;
-    }
+      private string? _id;
+      private string? _orderId;
+      private string? _productId;
+      private OrderSide? _side;
+      private string? _filledQuantity;
+      private string? _filledValue;
+      private string? _price;
+      private string? _time;
+      private string? _commission;
+      private string? _venue;
 
-    public class Builder
-    {
-      public string? Id { get; private set; }
-      public string? OrderId { get; private set; }
-      public string? ProductId { get; private set; }
-      public OrderSide? Side { get; private set; }
-      public string? FilledQuantity { get; private set; }
-      public string? FilledValue { get; private set; }
-      public string? Price { get; private set; }
-      public string? Time { get; private set; }
-      public string? Commission { get; private set; }
-      public string? Venue { get; private set; }
-
-      public Builder() { }
-
-      public Builder SetId(string id)
+      public OrderFillBuilder WithId(string? id)
       {
-        Id = id;
+        this._id = id;
         return this;
       }
 
-      public Builder SetOrderId(string orderId)
+      public OrderFillBuilder WithOrderId(string? orderId)
       {
-        OrderId = orderId;
+        this._orderId = orderId;
         return this;
       }
 
-      public Builder SetProductId(string productId)
+      public OrderFillBuilder WithProductId(string? productId)
       {
-        ProductId = productId;
+        this._productId = productId;
         return this;
       }
 
-      public Builder SetSide(OrderSide side)
+      public OrderFillBuilder WithSide(OrderSide? side)
       {
-        Side = side;
+        this._side = side;
         return this;
       }
 
-      public Builder SetFilledQuantity(string filledQuantity)
+      public OrderFillBuilder WithFilledQuantity(string? filledQuantity)
       {
-        FilledQuantity = filledQuantity;
+        this._filledQuantity = filledQuantity;
         return this;
       }
 
-      public Builder SetFilledValue(string filledValue)
+      public OrderFillBuilder WithFilledValue(string? filledValue)
       {
-        FilledValue = filledValue;
+        this._filledValue = filledValue;
         return this;
       }
 
-      public Builder SetPrice(string price)
+      public OrderFillBuilder WithPrice(string? price)
       {
-        Price = price;
+        this._price = price;
         return this;
       }
 
-      public Builder SetTime(string time)
+      public OrderFillBuilder WithTime(string? time)
       {
-        Time = time;
+        this._time = time;
         return this;
       }
 
-      public Builder SetCommission(string commission)
+      public OrderFillBuilder WithCommission(string? commission)
       {
-        Commission = commission;
+        this._commission = commission;
         return this;
       }
 
-      public Builder SetVenue(string venue)
+      public OrderFillBuilder WithVenue(string? venue)
       {
-        Venue = venue;
+        this._venue = venue;
         return this;
       }
 
       public OrderFill Build()
       {
-        return new OrderFill(this);
+        return new OrderFill
+        {
+          Id = this._id,
+          OrderId = this._orderId,
+          ProductId = this._productId,
+          Side = this._side,
+          FilledQuantity = this._filledQuantity,
+          FilledValue = this._filledValue,
+          Price = this._price,
+          Time = this._time,
+          Commission = this._commission,
+          Venue = this._venue
+        };
       }
     }
   }

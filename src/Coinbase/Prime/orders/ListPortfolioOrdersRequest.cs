@@ -16,6 +16,7 @@
 
 namespace Coinbase.Prime.Orders
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   using System.Text.Json.Serialization;
   public class ListPortfolioOrdersRequest(string portfolioId)
@@ -38,5 +39,105 @@ namespace Coinbase.Prime.Orders
 
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
+
+
+    public class ListPortfolioOrdersRequestBuilder
+    {
+      private string? _portfolioId;
+      private OrderStatus[]? _orderStatuses;
+      private string[]? _productIds;
+      private OrderType? _orderType;
+      private OrderSide? _orderSide;
+      private string? _startDate;
+      private string? _endDate;
+      private string? _cursor;
+      private string? _sortDirection;
+      private int? _limit;
+
+      public ListPortfolioOrdersRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithOrderStatuses(OrderStatus[] orderStatuses)
+      {
+        this._orderStatuses = orderStatuses;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithProductIds(string[] productIds)
+      {
+        this._productIds = productIds;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithOrderType(OrderType orderType)
+      {
+        this._orderType = orderType;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithOrderSide(OrderSide orderSide)
+      {
+        this._orderSide = orderSide;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithStartDate(string startDate)
+      {
+        this._startDate = startDate;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithEndDate(string endDate)
+      {
+        this._endDate = endDate;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithCursor(string cursor)
+      {
+        this._cursor = cursor;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithSortDirection(string sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public ListPortfolioOrdersRequestBuilder WithLimit(int limit)
+      {
+        this._limit = limit;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public ListPortfolioOrdersRequest Build()
+      {
+        Validate();
+        return new ListPortfolioOrdersRequest(this._portfolioId!)
+        {
+          OrderStatuses = this._orderStatuses,
+          ProductIds = this._productIds,
+          OrderType = this._orderType,
+          OrderSide = this._orderSide,
+          StartDate = this._startDate,
+          EndDate = this._endDate,
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection,
+          Limit = this._limit
+        };
+      }
+    }
   }
 }

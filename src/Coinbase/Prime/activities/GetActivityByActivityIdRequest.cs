@@ -17,11 +17,48 @@
 namespace Coinbase.Prime.Activities
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   public class GetActivityByActivityIdRequest(string portfolioId, string activityId)
   : BasePrimeRequest(portfolioId, null)
   {
     [JsonIgnore]
     public string ActivityId { get; set; } = activityId;
+
+    public class GetActivityByActivityIdRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _activityId;
+
+      public GetActivityByActivityIdRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        _portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetActivityByActivityIdRequestBuilder WithActivityId(string activityId)
+      {
+        _activityId = activityId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrEmpty(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrEmpty(_activityId))
+        {
+          throw new CoinbaseClientException("ActivityId is required");
+        }
+      }
+
+      public GetActivityByActivityIdRequest Build()
+      {
+        this.Validate();
+        return new GetActivityByActivityIdRequest(_portfolioId!, _activityId!);
+      }
+    }
   }
 }

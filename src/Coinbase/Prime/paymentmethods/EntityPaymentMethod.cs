@@ -32,5 +32,56 @@ namespace Coinbase.Prime.PaymentMethods
     public string? AccountNumber { get; set; }
 
     public EntityPaymentMethod() { }
+
+    public class EntityPaymentMethodBuilder
+    {
+      private string? _id;
+      private string? _symbol;
+      private PaymentMethodType _paymentMethodType;
+      private string? _bankName;
+      private string? _accountNumber;
+
+      public EntityPaymentMethodBuilder WithId(string? id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public EntityPaymentMethodBuilder WithSymbol(string? symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public EntityPaymentMethodBuilder WithPaymentMethodType(PaymentMethodType paymentMethodType)
+      {
+        this._paymentMethodType = paymentMethodType;
+        return this;
+      }
+
+      public EntityPaymentMethodBuilder WithBankName(string? bankName)
+      {
+        this._bankName = bankName;
+        return this;
+      }
+
+      public EntityPaymentMethodBuilder WithAccountNumber(string? accountNumber)
+      {
+        this._accountNumber = accountNumber;
+        return this;
+      }
+
+      public EntityPaymentMethod Build()
+      {
+        return new EntityPaymentMethod
+        {
+          Id = this._id,
+          Symbol = this._symbol,
+          PaymentMethodType = this._paymentMethodType,
+          BankName = this._bankName,
+          AccountNumber = this._accountNumber
+        };
+      }
+    }
   }
 }

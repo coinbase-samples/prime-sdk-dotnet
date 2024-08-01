@@ -44,5 +44,80 @@ namespace Coinbase.Prime.Allocations
     public string? NettingId { get; set; }
 
     public CreateNetAllocationRequest() { }
+
+    public class CreateNetAllocationRequestBuilder
+    {
+      private string? _allocationId;
+      private string? _sourcePortfolioId;
+      private string? _productId;
+      private string[] _orderIds = Array.Empty<string>();
+      private AllocationLeg[] _allocationLegs = Array.Empty<AllocationLeg>();
+      private SizeType _sizeType;
+      private string? _remainderDestinationPortfolio;
+      private string? _nettingId;
+
+      public CreateNetAllocationRequestBuilder WithAllocationId(string? allocationId)
+      {
+        this._allocationId = allocationId;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithSourcePortfolioId(string? sourcePortfolioId)
+      {
+        this._sourcePortfolioId = sourcePortfolioId;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithProductId(string? productId)
+      {
+        this._productId = productId;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithOrderIds(string[] orderIds)
+      {
+        this._orderIds = orderIds;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithAllocationLegs(AllocationLeg[] allocationLegs)
+      {
+        this._allocationLegs = allocationLegs;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithSizeType(SizeType sizeType)
+      {
+        this._sizeType = sizeType;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithRemainderDestinationPortfolio(string? remainderDestinationPortfolio)
+      {
+        this._remainderDestinationPortfolio = remainderDestinationPortfolio;
+        return this;
+      }
+
+      public CreateNetAllocationRequestBuilder WithNettingId(string? nettingId)
+      {
+        this._nettingId = nettingId;
+        return this;
+      }
+
+      public CreateNetAllocationRequest Build()
+      {
+        return new CreateNetAllocationRequest
+        {
+          AllocationId = this._allocationId,
+          SourcePortfolioId = this._sourcePortfolioId,
+          ProductId = this._productId,
+          OrderIds = this._orderIds,
+          AllocationLegs = this._allocationLegs,
+          SizeType = this._sizeType,
+          RemainderDestinationPortfolio = this._remainderDestinationPortfolio,
+          NettingId = this._nettingId
+        };
+      }
+    }
   }
 }

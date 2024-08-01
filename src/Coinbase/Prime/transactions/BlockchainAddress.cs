@@ -25,5 +25,32 @@ namespace Coinbase.Prime.Transactions
     public string? AccountIdentifier { get; set; }
 
     public BlockchainAddress() { }
+
+    public class BlockchainAddressBuilder
+    {
+      private string? _address;
+      private string? _accountIdentifier;
+
+      public BlockchainAddressBuilder WithAddress(string? address)
+      {
+        this._address = address;
+        return this;
+      }
+
+      public BlockchainAddressBuilder WithAccountIdentifier(string? accountIdentifier)
+      {
+        this._accountIdentifier = accountIdentifier;
+        return this;
+      }
+
+      public BlockchainAddress Build()
+      {
+        return new BlockchainAddress
+        {
+          Address = this._address,
+          AccountIdentifier = this._accountIdentifier
+        };
+      }
+    }
   }
 }

@@ -22,5 +22,32 @@ namespace Coinbase.Prime.Orders
     public List<OrderFill> OrderFills { get; set; } = [];
 
     public Pagination? Pagination { get; set; }
+
+    public class ListOrderFillsResponseBuilder
+    {
+      private List<OrderFill> _orderFills = [];
+      private Pagination? _pagination;
+
+      public ListOrderFillsResponseBuilder WithOrderFills(List<OrderFill> orderFills)
+      {
+        this._orderFills = orderFills;
+        return this;
+      }
+
+      public ListOrderFillsResponseBuilder WithPagination(Pagination pagination)
+      {
+        this._pagination = pagination;
+        return this;
+      }
+
+      public ListOrderFillsResponse Build()
+      {
+        return new ListOrderFillsResponse
+        {
+          OrderFills = this._orderFills,
+          Pagination = this._pagination
+        };
+      }
+    }
   }
 }

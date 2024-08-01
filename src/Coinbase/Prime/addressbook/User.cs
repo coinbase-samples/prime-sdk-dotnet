@@ -29,11 +29,39 @@ namespace Coinbase.Prime.AddressBook
     {
     }
 
-    public User(string id, string name, string avatarUrl)
+    public class UserBuilder
     {
-      Id = id;
-      Name = name;
-      AvatarUrl = avatarUrl;
+      private string? _id;
+      private string? _name;
+      private string? _avatarUrl;
+
+      public UserBuilder WithId(string? id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public UserBuilder WithName(string? name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public UserBuilder WithAvatarUrl(string? avatarUrl)
+      {
+        this._avatarUrl = avatarUrl;
+        return this;
+      }
+
+      public User Build()
+      {
+        return new User
+        {
+          Id = this._id,
+          Name = this._name,
+          AvatarUrl = this._avatarUrl
+        };
+      }
     }
   }
 }

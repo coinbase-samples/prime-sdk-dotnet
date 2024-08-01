@@ -34,5 +34,32 @@ namespace Coinbase.Prime.Activities
       ApprovalDeadline = approvalDeadline;
       HasPassedConsensus = hasPassedConsensus;
     }
+
+    public class ConsensusBuilder
+    {
+      private string? _approvalDeadline;
+      private bool? _hasPassedConsensus;
+
+      public ConsensusBuilder WithApprovalDeadline(string approvalDeadline)
+      {
+        _approvalDeadline = approvalDeadline;
+        return this;
+      }
+
+      public ConsensusBuilder WithHasPassedConsensus(bool hasPassedConsensus)
+      {
+        _hasPassedConsensus = hasPassedConsensus;
+        return this;
+      }
+
+      public Consensus Build()
+      {
+        return new Consensus()
+        {
+          ApprovalDeadline = _approvalDeadline,
+          HasPassedConsensus = _hasPassedConsensus
+        };
+      }
+    }
   }
 }

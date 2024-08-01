@@ -34,5 +34,56 @@ namespace Coinbase.Prime.Allocations
     public string? FailureReason { get; set; }
 
     public CreateNetAllocationResponse() { }
+
+    public class CreateNetAllocationResponseBuilder
+    {
+      private bool? _success;
+      private string? _nettingId;
+      private string? _buyAllocationId;
+      private string? _sellAllocationId;
+      private string? _failureReason;
+
+      public CreateNetAllocationResponseBuilder WithSuccess(bool? success)
+      {
+        this._success = success;
+        return this;
+      }
+
+      public CreateNetAllocationResponseBuilder WithNettingId(string? nettingId)
+      {
+        this._nettingId = nettingId;
+        return this;
+      }
+
+      public CreateNetAllocationResponseBuilder WithBuyAllocationId(string? buyAllocationId)
+      {
+        this._buyAllocationId = buyAllocationId;
+        return this;
+      }
+
+      public CreateNetAllocationResponseBuilder WithSellAllocationId(string? sellAllocationId)
+      {
+        this._sellAllocationId = sellAllocationId;
+        return this;
+      }
+
+      public CreateNetAllocationResponseBuilder WithFailureReason(string? failureReason)
+      {
+        this._failureReason = failureReason;
+        return this;
+      }
+
+      public CreateNetAllocationResponse Build()
+      {
+        return new CreateNetAllocationResponse
+        {
+          Success = this._success,
+          NettingId = this._nettingId,
+          BuyAllocationId = this._buyAllocationId,
+          SellAllocationId = this._sellAllocationId,
+          FailureReason = this._failureReason
+        };
+      }
+    }
   }
 }

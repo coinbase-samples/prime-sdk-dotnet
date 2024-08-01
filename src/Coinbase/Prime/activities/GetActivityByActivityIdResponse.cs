@@ -19,5 +19,24 @@ namespace Coinbase.Prime.Activities
   public class GetActivityByActivityIdResponse
   {
     public Activity? Activity { get; set; }
+
+    public class GetActivityByActivityIdResponseBuilder
+    {
+      private Activity? _activity;
+
+      public GetActivityByActivityIdResponseBuilder WithActivity(Activity activity)
+      {
+        _activity = activity;
+        return this;
+      }
+
+      public GetActivityByActivityIdResponse Build()
+      {
+        return new GetActivityByActivityIdResponse()
+        {
+          Activity = _activity
+        };
+      }
+    }
   }
 }

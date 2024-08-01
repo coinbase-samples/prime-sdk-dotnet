@@ -23,5 +23,32 @@ namespace Coinbase.Prime.Products
     public Pagination? Pagination { get; set; }
 
     public ListPortfolioProductsResponse() { }
+
+    public class ListPortfolioProductsResponseBuilder
+    {
+      private Product[] _products = [];
+      private Pagination? _pagination;
+
+      public ListPortfolioProductsResponseBuilder WithProducts(Product[] products)
+      {
+        this._products = products;
+        return this;
+      }
+
+      public ListPortfolioProductsResponseBuilder WithPagination(Pagination? pagination)
+      {
+        this._pagination = pagination;
+        return this;
+      }
+
+      public ListPortfolioProductsResponse Build()
+      {
+        return new ListPortfolioProductsResponse
+        {
+          Products = this._products,
+          Pagination = this._pagination
+        };
+      }
+    }
   }
 }

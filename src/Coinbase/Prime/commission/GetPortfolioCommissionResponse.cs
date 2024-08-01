@@ -26,5 +26,24 @@ namespace Coinbase.Prime.Commission
     {
       Commission = commission;
     }
+
+    public class GetPortfolioCommissionResponseBuilder
+    {
+      private Commission? _commission;
+
+      public GetPortfolioCommissionResponseBuilder WithCommission(Commission commission)
+      {
+        this._commission = commission;
+        return this;
+      }
+
+      public GetPortfolioCommissionResponse Build()
+      {
+        return new GetPortfolioCommissionResponse
+        {
+          Commission = this._commission
+        };
+      }
+    }
   }
 }

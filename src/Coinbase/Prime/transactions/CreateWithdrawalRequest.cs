@@ -17,6 +17,7 @@
 namespace Coinbase.Prime.Transactions
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class CreateWithdrawalRequest(string portfolioId, string walletId)
@@ -41,5 +42,91 @@ namespace Coinbase.Prime.Transactions
 
     [JsonPropertyName("blockchain_address")]
     public BlockchainAddress? BlockchainAddress { get; set; }
+
+    public class CreateWithdrawalRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _walletId;
+      private string? _amount;
+      private DestinationType? _destinationType;
+      private string? _idempotencyKey;
+      private string? _currencySymbol;
+      private PaymentMethod? _paymentMethod;
+      private BlockchainAddress? _blockchainAddress;
+
+      public CreateWithdrawalRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithWalletId(string walletId)
+      {
+        this._walletId = walletId;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithAmount(string amount)
+      {
+        this._amount = amount;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithDestinationType(DestinationType destinationType)
+      {
+        this._destinationType = destinationType;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithIdempotencyKey(string idempotencyKey)
+      {
+        this._idempotencyKey = idempotencyKey;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithCurrencySymbol(string currencySymbol)
+      {
+        this._currencySymbol = currencySymbol;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithPaymentMethod(PaymentMethod paymentMethod)
+      {
+        this._paymentMethod = paymentMethod;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithBlockchainAddress(BlockchainAddress blockchainAddress)
+      {
+        this._blockchainAddress = blockchainAddress;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._walletId))
+        {
+          throw new CoinbaseClientException("WalletId is required");
+        }
+      }
+
+      public CreateWithdrawalRequest Build()
+      {
+        this.Validate();
+        return new CreateWithdrawalRequest(this._portfolioId!, this._walletId!)
+        {
+          Amount = this._amount,
+          DestinationType = this._destinationType,
+          IdempotencyKey = this._idempotencyKey,
+          CurrencySymbol = this._currencySymbol,
+          PaymentMethod = this._paymentMethod,
+          BlockchainAddress = this._blockchainAddress
+        };
+      }
+    }
   }
 }

@@ -36,5 +36,40 @@ namespace Coinbase.Prime.Activities
       UserId = userId;
       Timestamp = timestamp;
     }
+
+    public class UserActionBuilder
+    {
+      private UserActionType _action;
+      private string? _userId;
+      private string? _timestamp;
+
+      public UserActionBuilder WithAction(UserActionType action)
+      {
+        _action = action;
+        return this;
+      }
+
+      public UserActionBuilder WithUserId(string? userId)
+      {
+        _userId = userId;
+        return this;
+      }
+
+      public UserActionBuilder WithTimestamp(string? timestamp)
+      {
+        _timestamp = timestamp;
+        return this;
+      }
+
+      public UserAction Build()
+      {
+        return new UserAction
+        {
+          Action = _action,
+          UserId = _userId,
+          Timestamp = _timestamp
+        };
+      }
+    }
   }
 }

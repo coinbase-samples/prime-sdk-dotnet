@@ -44,58 +44,54 @@ namespace Coinbase.Prime.Portfolios
     {
     }
 
-    public Portfolio(Builder builder)
+    public class PortfolioBuilder
     {
-      Id = builder.Id;
-      Name = builder.Name;
-      EntityId = builder.EntityId;
-      OrganizationId = builder.OrganizationId;
-      EntityName = builder.EntityName;
-    }
+      private string? _id;
+      private string? _name;
+      private string? _entityId;
+      private string? _organizationId;
+      private string? _entityName;
 
-    public class Builder
-    {
-      public string? Id { get; private set; }
-      public string? Name { get; private set; }
-      public string? EntityId { get; private set; }
-      public string? OrganizationId { get; private set; }
-      public string? EntityName { get; private set; }
-
-      public Builder() { }
-
-      public Builder WithId(string id)
+      public PortfolioBuilder WithId(string id)
       {
-        Id = id;
+        this._id = id;
         return this;
       }
 
-      public Builder WithName(string name)
+      public PortfolioBuilder WithName(string name)
       {
-        Name = name;
+        this._name = name;
         return this;
       }
 
-      public Builder WithEntityId(string entityId)
+      public PortfolioBuilder WithEntityId(string entityId)
       {
-        EntityId = entityId;
+        this._entityId = entityId;
         return this;
       }
 
-      public Builder WithOrganizationId(string organizationId)
+      public PortfolioBuilder WithOrganizationId(string organizationId)
       {
-        OrganizationId = organizationId;
+        this._organizationId = organizationId;
         return this;
       }
 
-      public Builder WithEntityName(string entityName)
+      public PortfolioBuilder WithEntityName(string entityName)
       {
-        EntityName = entityName;
+        this._entityName = entityName;
         return this;
       }
 
       public Portfolio Build()
       {
-        return new Portfolio(this);
+        return new Portfolio()
+        {
+          Id = this._id,
+          Name = this._name,
+          EntityId = this._entityId,
+          OrganizationId = this._organizationId,
+          EntityName = this._entityName
+        };
       }
     }
   }

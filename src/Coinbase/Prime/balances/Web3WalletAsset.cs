@@ -38,5 +38,48 @@ namespace Coinbase.Prime.Balances
       Symbol = symbol;
       TokenId = tokenId;
     }
+
+    public class Web3WalletAssetBuilder
+    {
+      private string? _network;
+      private string? _contractAddress;
+      private string? _symbol;
+      private string? _tokenId;
+
+      public Web3WalletAssetBuilder WithNetwork(string? network)
+      {
+        this._network = network;
+        return this;
+      }
+
+      public Web3WalletAssetBuilder WithContractAddress(string? contractAddress)
+      {
+        this._contractAddress = contractAddress;
+        return this;
+      }
+
+      public Web3WalletAssetBuilder WithSymbol(string? symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public Web3WalletAssetBuilder WithTokenId(string? tokenId)
+      {
+        this._tokenId = tokenId;
+        return this;
+      }
+
+      public Web3WalletAsset Build()
+      {
+        return new Web3WalletAsset
+        {
+          Network = this._network,
+          ContractAddress = this._contractAddress,
+          Symbol = this._symbol,
+          TokenId = this._tokenId
+        };
+      }
+    }
   }
 }

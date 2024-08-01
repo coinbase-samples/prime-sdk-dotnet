@@ -32,74 +32,70 @@ namespace Coinbase.Prime.Portfolios
 
     public PostTradeCredit() { }
 
-    private PostTradeCredit(Builder builder)
+    public class PostTradeCreditBuilder
     {
-      PortfolioId = builder.PortfolioId;
-      Currency = builder.Currency;
-      Limit = builder.Limit;
-      Utilized = builder.Utilized;
-      Available = builder.Available;
-      Frozen = builder.Frozen;
-      AmountsDue = builder.AmountsDue;
-    }
+      private string? _portfolioId;
+      private string? _currency;
+      private string? _limit;
+      private string? _utilized;
+      private string? _available;
+      private bool? _frozen;
+      private PostTradeCreditAmountDue[]? _amountsDue;
 
-    public class Builder
-    {
-      public string? PortfolioId { get; private set; }
-      public string? Currency { get; private set; }
-      public string? Limit { get; private set; }
-      public string? Utilized { get; private set; }
-      public string? Available { get; private set; }
-      public bool? Frozen { get; private set; }
-      public PostTradeCreditAmountDue[]? AmountsDue { get; private set; }
-
-      public Builder() { }
-
-      public Builder SetPortfolioId(string portfolioId)
+      public PostTradeCreditBuilder WithPortfolioId(string portfolioId)
       {
-        PortfolioId = portfolioId;
+        this._portfolioId = portfolioId;
         return this;
       }
 
-      public Builder SetCurrency(string currency)
+      public PostTradeCreditBuilder WithCurrency(string currency)
       {
-        Currency = currency;
+        this._currency = currency;
         return this;
       }
 
-      public Builder SetLimit(string limit)
+      public PostTradeCreditBuilder WithLimit(string limit)
       {
-        Limit = limit;
+        this._limit = limit;
         return this;
       }
 
-      public Builder SetUtilized(string utilized)
+      public PostTradeCreditBuilder WithUtilized(string utilized)
       {
-        Utilized = utilized;
+        this._utilized = utilized;
         return this;
       }
 
-      public Builder SetAvailable(string available)
+      public PostTradeCreditBuilder WithAvailable(string available)
       {
-        Available = available;
+        this._available = available;
         return this;
       }
 
-      public Builder SetFrozen(bool frozen)
+      public PostTradeCreditBuilder WithFrozen(bool frozen)
       {
-        Frozen = frozen;
+        this._frozen = frozen;
         return this;
       }
 
-      public Builder SetAmountsDue(PostTradeCreditAmountDue[] amountsDue)
+      public PostTradeCreditBuilder WithAmountsDue(PostTradeCreditAmountDue[] amountsDue)
       {
-        AmountsDue = amountsDue;
+        this._amountsDue = amountsDue;
         return this;
       }
 
       public PostTradeCredit Build()
       {
-        return new PostTradeCredit(this);
+        return new PostTradeCredit
+        {
+          PortfolioId = this._portfolioId,
+          Currency = this._currency,
+          Limit = this._limit,
+          Utilized = this._utilized,
+          Available = this._available,
+          Frozen = this._frozen,
+          AmountsDue = this._amountsDue
+        };
       }
     }
   }

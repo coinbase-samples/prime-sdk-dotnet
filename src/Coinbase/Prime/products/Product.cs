@@ -45,5 +45,88 @@ namespace Coinbase.Prime.Products
     public string[] Permissions { get; set; } = [];
 
     public Product() { }
+
+    public class ProductBuilder
+    {
+      private string? _id;
+      private string? _baseIncrement;
+      private string? _quoteIncrement;
+      private string? _priceIncrement;
+      private string? _baseMinSize;
+      private string? _quoteMinSize;
+      private string? _baseMaxSize;
+      private string? _quoteMaxSize;
+      private string[] _permissions = [];
+
+      public ProductBuilder WithId(string? id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public ProductBuilder WithBaseIncrement(string? baseIncrement)
+      {
+        this._baseIncrement = baseIncrement;
+        return this;
+      }
+
+      public ProductBuilder WithQuoteIncrement(string? quoteIncrement)
+      {
+        this._quoteIncrement = quoteIncrement;
+        return this;
+      }
+
+      public ProductBuilder WithPriceIncrement(string? priceIncrement)
+      {
+        this._priceIncrement = priceIncrement;
+        return this;
+      }
+
+      public ProductBuilder WithBaseMinSize(string? baseMinSize)
+      {
+        this._baseMinSize = baseMinSize;
+        return this;
+      }
+
+      public ProductBuilder WithQuoteMinSize(string? quoteMinSize)
+      {
+        this._quoteMinSize = quoteMinSize;
+        return this;
+      }
+
+      public ProductBuilder WithBaseMaxSize(string? baseMaxSize)
+      {
+        this._baseMaxSize = baseMaxSize;
+        return this;
+      }
+
+      public ProductBuilder WithQuoteMaxSize(string? quoteMaxSize)
+      {
+        this._quoteMaxSize = quoteMaxSize;
+        return this;
+      }
+
+      public ProductBuilder WithPermissions(string[] permissions)
+      {
+        this._permissions = permissions;
+        return this;
+      }
+
+      public Product Build()
+      {
+        return new Product
+        {
+          Id = this._id,
+          BaseIncrement = this._baseIncrement,
+          QuoteIncrement = this._quoteIncrement,
+          PriceIncrement = this._priceIncrement,
+          BaseMinSize = this._baseMinSize,
+          QuoteMinSize = this._quoteMinSize,
+          BaseMaxSize = this._baseMaxSize,
+          QuoteMaxSize = this._quoteMaxSize,
+          Permissions = this._permissions
+        };
+      }
+    }
   }
 }

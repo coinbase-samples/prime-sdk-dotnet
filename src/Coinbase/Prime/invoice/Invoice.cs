@@ -45,5 +45,88 @@ namespace Coinbase.Prime.Invoice
     public InvoiceItem[] InvoiceItems { get; set; } = [];
 
     public Invoice() { }
+
+    public class InvoiceBuilder
+    {
+      private string? _id;
+      private int? _billingMonth;
+      private int? _billingYear;
+      private string? _dueDate;
+      private string? _invoiceNumber;
+      private InvoiceState _state;
+      private double? _usdAmountPaid;
+      private double? _usdAmountOwed;
+      private InvoiceItem[] _invoiceItems = [];
+
+      public InvoiceBuilder WithId(string? id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public InvoiceBuilder WithBillingMonth(int? billingMonth)
+      {
+        this._billingMonth = billingMonth;
+        return this;
+      }
+
+      public InvoiceBuilder WithBillingYear(int? billingYear)
+      {
+        this._billingYear = billingYear;
+        return this;
+      }
+
+      public InvoiceBuilder WithDueDate(string? dueDate)
+      {
+        this._dueDate = dueDate;
+        return this;
+      }
+
+      public InvoiceBuilder WithInvoiceNumber(string? invoiceNumber)
+      {
+        this._invoiceNumber = invoiceNumber;
+        return this;
+      }
+
+      public InvoiceBuilder WithState(InvoiceState state)
+      {
+        this._state = state;
+        return this;
+      }
+
+      public InvoiceBuilder WithUsdAmountPaid(double? usdAmountPaid)
+      {
+        this._usdAmountPaid = usdAmountPaid;
+        return this;
+      }
+
+      public InvoiceBuilder WithUsdAmountOwed(double? usdAmountOwed)
+      {
+        this._usdAmountOwed = usdAmountOwed;
+        return this;
+      }
+
+      public InvoiceBuilder WithInvoiceItems(InvoiceItem[] invoiceItems)
+      {
+        this._invoiceItems = invoiceItems;
+        return this;
+      }
+
+      public Invoice Build()
+      {
+        return new Invoice
+        {
+          Id = this._id,
+          BillingMonth = this._billingMonth,
+          BillingYear = this._billingYear,
+          DueDate = this._dueDate,
+          InvoiceNumber = this._invoiceNumber,
+          State = this._state,
+          UsdAmountPaid = this._usdAmountPaid,
+          UsdAmountOwed = this._usdAmountOwed,
+          InvoiceItems = this._invoiceItems
+        };
+      }
+    }
   }
 }

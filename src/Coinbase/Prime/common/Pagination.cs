@@ -29,5 +29,40 @@ namespace Coinbase.Prime.Common
     public bool? HasNext { get; set; }
 
     public Pagination() { }
+
+    public class PaginationBuilder
+    {
+      private string? _nextCursor;
+      private string? _sortDirection;
+      private bool? _hasNext;
+
+      public PaginationBuilder WithNextCursor(string? nextCursor)
+      {
+        this._nextCursor = nextCursor;
+        return this;
+      }
+
+      public PaginationBuilder WithSortDirection(string? sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public PaginationBuilder WithHasNext(bool? hasNext)
+      {
+        this._hasNext = hasNext;
+        return this;
+      }
+
+      public Pagination Build()
+      {
+        return new Pagination
+        {
+          NextCursor = this._nextCursor,
+          SortDirection = this._sortDirection,
+          HasNext = this._hasNext
+        };
+      }
+    }
   }
 }

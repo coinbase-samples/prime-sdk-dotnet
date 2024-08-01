@@ -21,5 +21,24 @@ namespace Coinbase.Prime.Allocations
     public Allocation[] Allocations { get; set; } = [];
 
     public GetAllocationsByClientNettingIdResponse() { }
+
+    public class GetAllocationsByClientNettingIdResponseBuilder
+    {
+      private Allocation[] _allocations = [];
+
+      public GetAllocationsByClientNettingIdResponseBuilder WithAllocations(Allocation[] allocations)
+      {
+        this._allocations = allocations;
+        return this;
+      }
+
+      public GetAllocationsByClientNettingIdResponse Build()
+      {
+        return new GetAllocationsByClientNettingIdResponse
+        {
+          Allocations = this._allocations
+        };
+      }
+    }
   }
 }

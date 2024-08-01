@@ -16,6 +16,7 @@
 
 namespace Coinbase.Prime.Activities
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   using System.Text.Json.Serialization;
   public class ListActivitiesRequest(string portfolioId)
@@ -28,5 +29,97 @@ namespace Coinbase.Prime.Activities
     public string? StartTime { get; set; }
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
+
+
+    public class ListActivitiesRequestBuilder
+    {
+      private string? _portfolioId;
+      private string[]? _symbols;
+      private string[]? _categories;
+      private string[]? _statuses;
+      private string? _startTime;
+      private string? _endTime;
+      private string? _cursor;
+      private string? _sortDirection;
+      private int? _limit;
+
+      public ListActivitiesRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        _portfolioId = portfolioId;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithSymbols(string[] symbols)
+      {
+        _symbols = symbols;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithCategories(string[] categories)
+      {
+        _categories = categories;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithStatuses(string[] statuses)
+      {
+        _statuses = statuses;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithStartTime(string startTime)
+      {
+        _startTime = startTime;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithEndTime(string endTime)
+      {
+        _endTime = endTime;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithCursor(string cursor)
+      {
+        _cursor = cursor;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithSortDirection(string sortDirection)
+      {
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public ListActivitiesRequestBuilder WithLimit(int limit)
+      {
+        _limit = limit;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public ListActivitiesRequest Build()
+      {
+        this.Validate();
+        return new ListActivitiesRequest(_portfolioId!)
+        {
+          Symbols = _symbols ?? new string[] { },
+          Categories = _categories ?? new string[] { },
+          Statuses = _statuses ?? new string[] { },
+          StartTime = _startTime,
+          EndTime = _endTime,
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit
+        };
+      }
+    }
   }
 }

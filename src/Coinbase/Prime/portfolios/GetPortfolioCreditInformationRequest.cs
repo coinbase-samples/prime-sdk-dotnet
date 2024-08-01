@@ -16,10 +16,35 @@
 
 namespace Coinbase.Prime.Portfolios
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class GetPortfolioCreditInformationRequest(string portfolioId)
   : BasePrimeRequest(portfolioId, null)
   {
+    public class GetPortfolioCreditInformationRequestBuilder
+    {
+      private string? _portfolioId;
+
+      public GetPortfolioCreditInformationRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId cannot be null or empty");
+        }
+      }
+
+      public GetPortfolioCreditInformationRequest Build()
+      {
+        this.Validate();
+        return new GetPortfolioCreditInformationRequest(this._portfolioId!);
+      }
+    }
   }
 }

@@ -26,5 +26,40 @@ namespace Coinbase.Prime.Commission
     public string? TradingVolume { get; set; }
 
     public Commission() { }
+
+    public class CommissionBuilder
+    {
+      private string? _type;
+      private string? _rate;
+      private string? _tradingVolume;
+
+      public CommissionBuilder WithType(string? type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public CommissionBuilder WithRate(string? rate)
+      {
+        this._rate = rate;
+        return this;
+      }
+
+      public CommissionBuilder WithTradingVolume(string? tradingVolume)
+      {
+        this._tradingVolume = tradingVolume;
+        return this;
+      }
+
+      public Commission Build()
+      {
+        return new Commission
+        {
+          Type = this._type,
+          Rate = this._rate,
+          TradingVolume = this._tradingVolume
+        };
+      }
+    }
   }
 }

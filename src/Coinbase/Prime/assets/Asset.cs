@@ -32,5 +32,56 @@ namespace Coinbase.Prime.Assets
     public string? ExplorerUrl { get; set; }
 
     public Asset() { }
+
+    public class AssetBuilder
+    {
+      private string? _name;
+      private string? _symbol;
+      private string? _decimalPrecision;
+      private bool? _tradingSupported;
+      private string? _explorerUrl;
+
+      public AssetBuilder WithName(string? name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public AssetBuilder WithSymbol(string? symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public AssetBuilder WithDecimalPrecision(string? decimalPrecision)
+      {
+        this._decimalPrecision = decimalPrecision;
+        return this;
+      }
+
+      public AssetBuilder WithTradingSupported(bool? tradingSupported)
+      {
+        this._tradingSupported = tradingSupported;
+        return this;
+      }
+
+      public AssetBuilder WithExplorerUrl(string? explorerUrl)
+      {
+        this._explorerUrl = explorerUrl;
+        return this;
+      }
+
+      public Asset Build()
+      {
+        return new Asset
+        {
+          Name = this._name,
+          Symbol = this._symbol,
+          DecimalPrecision = this._decimalPrecision,
+          TradingSupported = this._tradingSupported,
+          ExplorerUrl = this._explorerUrl
+        };
+      }
+    }
   }
 }

@@ -23,5 +23,32 @@ namespace Coinbase.Prime.Balances
     public Pagination? Pagination { get; set; }
 
     public ListWeb3WalletBalancesResponse() { }
+
+    public class ListWeb3WalletBalancesResponseBuilder
+    {
+      private Web3WalletBalance[] _balances = Array.Empty<Web3WalletBalance>();
+      private Pagination? _pagination;
+
+      public ListWeb3WalletBalancesResponseBuilder WithBalances(Web3WalletBalance[] balances)
+      {
+        this._balances = balances;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesResponseBuilder WithPagination(Pagination? pagination)
+      {
+        this._pagination = pagination;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesResponse Build()
+      {
+        return new ListWeb3WalletBalancesResponse
+        {
+          Balances = this._balances,
+          Pagination = this._pagination
+        };
+      }
+    }
   }
 }

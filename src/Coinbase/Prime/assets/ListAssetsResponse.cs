@@ -21,5 +21,24 @@ namespace Coinbase.Prime.Assets
     public Asset[] Assets { get; set; } = [];
 
     public ListAssetsResponse() { }
+
+    public class ListAssetsResponseBuilder
+    {
+      private Asset[] _assets = [];
+
+      public ListAssetsResponseBuilder WithAssets(Asset[] assets)
+      {
+        this._assets = assets;
+        return this;
+      }
+
+      public ListAssetsResponse Build()
+      {
+        return new ListAssetsResponse
+        {
+          Assets = this._assets
+        };
+      }
+    }
   }
 }

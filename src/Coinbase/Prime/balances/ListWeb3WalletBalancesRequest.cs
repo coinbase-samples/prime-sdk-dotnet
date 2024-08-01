@@ -17,6 +17,7 @@
 namespace Coinbase.Prime.Balances
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   public class ListWeb3WalletBalancesRequest(string portfolioId, string walletId)
   : BaseListRequest(portfolioId, null)
@@ -26,5 +27,76 @@ namespace Coinbase.Prime.Balances
 
     [JsonPropertyName("visibility_statuses")]
     public VisibilityStatus[] VisibilityStatuses { get; set; } = [];
+
+    public class ListWeb3WalletBalancesRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _walletId;
+      private VisibilityStatus[] _visibilityStatuses = [];
+      private string? _cursor;
+      private string? _sortDirection;
+      private int? _limit;
+
+      public ListWeb3WalletBalancesRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesRequestBuilder WithWalletId(string walletId)
+      {
+        this._walletId = walletId;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesRequestBuilder WithVisibilityStatuses(VisibilityStatus[] visibilityStatuses)
+      {
+        this._visibilityStatuses = visibilityStatuses;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesRequestBuilder WithCursor(string cursor)
+      {
+        this._cursor = cursor;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesRequestBuilder WithSortDirection(string sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public ListWeb3WalletBalancesRequestBuilder WithLimit(int limit)
+      {
+        this._limit = limit;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+
+        if (string.IsNullOrWhiteSpace(_walletId))
+        {
+          throw new CoinbaseClientException("WalletId is required");
+        }
+      }
+
+      public ListWeb3WalletBalancesRequest Build()
+      {
+        Validate();
+        return new ListWeb3WalletBalancesRequest(_portfolioId!, this._walletId!)
+        {
+          VisibilityStatuses = this._visibilityStatuses,
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection,
+          Limit = this._limit
+        };
+      }
+    }
   }
 }
