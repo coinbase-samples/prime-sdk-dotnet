@@ -24,25 +24,25 @@ namespace Coinbase.Prime.Users
   public class UsersService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListPortfolioUsersResponse ListPortfolioUsers(
-      string portfolioId,
+      ListPortfolioUsersRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListPortfolioUsersResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/users",
+        $"/portfolios/{request.PortfolioId}/users",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<ListPortfolioUsersResponse> ListPortfolioUsersAsync(
-      string portfolioId,
+      ListPortfolioUsersRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListPortfolioUsersResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/users",
+        $"/portfolios/{request.PortfolioId}/users",
         [HttpStatusCode.OK],
         null,
         options,
@@ -50,27 +50,25 @@ namespace Coinbase.Prime.Users
     }
 
     public ListUsersResponse ListUsers(
-      string entityId,
       ListUsersRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListUsersResponse>(
         HttpMethod.Get,
-        $"/entities/{entityId}/users",
+        $"/entities/{request.EntityId}/users",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListUsersResponse> ListUsersAsync(
-      string entityId,
       ListUsersRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListUsersResponse>(
         HttpMethod.Get,
-        $"/entities/{entityId}/users",
+        $"/entities/{request.EntityId}/users",
         [HttpStatusCode.OK],
         request,
         options,

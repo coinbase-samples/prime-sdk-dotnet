@@ -19,17 +19,10 @@ namespace Coinbase.Prime.Transactions
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
 
-  public class CreateTransferRequest(string portfolioId, string walletId)
+  public class GetTransactionByTransactionIdRequest(string portfolioId, string transactionId)
   : BasePrimeRequest(portfolioId, null)
   {
-    public string WalletId { get; set; } = walletId;
-    public string? Amount { get; set; }
-    public string? Destination { get; set; }
-
-    [JsonPropertyName("idempotency_key")]
-    public string? IdempotencyKey { get; set; }
-
-    [JsonPropertyName("currency_symbol")]
-    public string? CurrencySymbol { get; set; }
+    [JsonIgnore]
+    public string TransactionId { get; set; } = transactionId;
   }
 }

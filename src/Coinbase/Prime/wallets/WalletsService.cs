@@ -23,27 +23,25 @@ namespace Coinbase.Prime.Wallets
   public class WalletsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListWalletsResponse ListWallets(
-      string portfolioId,
       ListWalletsRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListWalletsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets",
+        $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListWalletsResponse> ListWalletsAsync(
-      string portfolioId,
       ListWalletsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListWalletsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets",
+        $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.OK],
         request,
         options,
@@ -51,27 +49,25 @@ namespace Coinbase.Prime.Wallets
     }
 
     public CreateWalletResponse CreateWallet(
-      string portfolioId,
       CreateWalletRequest request,
       CallOptions? options = null)
     {
       return this.Request<CreateWalletResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets",
+        $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<CreateWalletResponse> CreateWalletAsync(
-      string portfolioId,
       CreateWalletRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateWalletResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets",
+        $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -79,27 +75,25 @@ namespace Coinbase.Prime.Wallets
     }
 
     public GetWalletByIdResponse GetWalletById(
-      string portfolioId,
-      string walletId,
+      GetWalletByIdRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetWalletByIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetWalletByIdResponse> GetWalletByIdAsync(
-      string portfolioId,
-      string walletId,
+      GetWalletByIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetWalletByIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}",
         [HttpStatusCode.OK],
         null,
         options,
@@ -107,27 +101,25 @@ namespace Coinbase.Prime.Wallets
     }
 
     public GetWalletDepositInstructionsResponse GetWalletDepositInstructions(
-      string portfolioId,
-      string walletId,
+      GetWalletDepositInstructionsRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetWalletDepositInstructionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/deposit_instructions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/deposit_instructions",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetWalletDepositInstructionsResponse> GetWalletDepositInstructionsAsync(
-      string portfolioId,
-      string walletId,
+      GetWalletDepositInstructionsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetWalletDepositInstructionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/deposit_instructions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/deposit_instructions",
         [HttpStatusCode.OK],
         null,
         options,

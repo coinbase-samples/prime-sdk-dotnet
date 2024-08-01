@@ -18,8 +18,9 @@ namespace Coinbase.Prime.Orders
 {
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
-  public class ListOrderFillsRequest(string portfolioId, string orderId)
-  : BaseListRequest(portfolioId, null)
+
+  public class CancelOrderRequest(string portfolioId, string orderId)
+  : BasePrimeRequest(portfolioId, null)
   {
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;

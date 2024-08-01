@@ -14,22 +14,13 @@
  * limitations under the License.
  */
 
-namespace Coinbase.Prime.Transactions
+namespace Coinbase.Prime.PaymentMethods
 {
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
 
-  public class CreateTransferRequest(string portfolioId, string walletId)
-  : BasePrimeRequest(portfolioId, null)
+  public class ListEntityPaymentMethodsRequest(string entityId)
+  : BasePrimeRequest(null, entityId)
   {
-    public string WalletId { get; set; } = walletId;
-    public string? Amount { get; set; }
-    public string? Destination { get; set; }
-
-    [JsonPropertyName("idempotency_key")]
-    public string? IdempotencyKey { get; set; }
-
-    [JsonPropertyName("currency_symbol")]
-    public string? CurrencySymbol { get; set; }
   }
 }

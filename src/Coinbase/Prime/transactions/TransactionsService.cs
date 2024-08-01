@@ -24,29 +24,25 @@ namespace Coinbase.Prime.Transactions
   public class TransactionsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public CreateConversionResponse CreateConversion(
-      string portfolioId,
-      string walletId,
       CreateConversionRequest request,
       CallOptions? options = null)
     {
       return this.Request<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<CreateConversionResponse> CreateConversionAsync(
-      string portfolioId,
-      string walletId,
       CreateConversionRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -54,29 +50,25 @@ namespace Coinbase.Prime.Transactions
     }
 
     public CreateTransferResponse CreateTransfer(
-      string portfolioId,
-      string walletId,
       CreateTransferRequest request,
       CallOptions? options = null)
     {
       return this.Request<CreateTransferResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/transfers",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transfers",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<CreateTransferResponse> CreateTransferAsync(
-      string portfolioId,
-      string walletId,
       CreateTransferRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateTransferResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/transfers",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transfers",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -84,29 +76,25 @@ namespace Coinbase.Prime.Transactions
     }
 
     public CreateWithdrawalResponse CreateWithdrawal(
-      string portfolioId,
-      string walletId,
       CreateWithdrawalRequest request,
       CallOptions? options = null)
     {
       return this.Request<CreateWithdrawalResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/withdrawals",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/withdrawals",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<CreateWithdrawalResponse> CreateWithdrawalAsync(
-      string portfolioId,
-      string walletId,
       CreateWithdrawalRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateWithdrawalResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/withdrawals",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/withdrawals",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -114,27 +102,25 @@ namespace Coinbase.Prime.Transactions
     }
 
     public GetTransactionByTransactionIdResponse GetTransactionByTransactionId(
-      string portfolioId,
-      string transactionId,
+      GetTransactionByTransactionIdRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetTransactionByTransactionIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/transactions/{transactionId}",
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetTransactionByTransactionIdResponse> GetTransactionByTransactionIdAsync(
-      string portfolioId,
-      string transactionId,
+      GetTransactionByTransactionIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetTransactionByTransactionIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/transactions/{transactionId}",
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],
         null,
         options,
@@ -142,27 +128,25 @@ namespace Coinbase.Prime.Transactions
     }
 
     public ListPortfolioTransactionsResponse ListPortfolioTransactions(
-      string portfolioId,
       ListPortfolioTransactionsRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListPortfolioTransactionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/transactions",
+        $"/portfolios/{request.PortfolioId}/transactions",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListPortfolioTransactionsResponse> ListPortfolioTransactionsAsync(
-      string portfolioId,
       ListPortfolioTransactionsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListPortfolioTransactionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/transactions",
+        $"/portfolios/{request.PortfolioId}/transactions",
         [HttpStatusCode.OK],
         request,
         options,
@@ -170,29 +154,25 @@ namespace Coinbase.Prime.Transactions
     }
 
     public ListWalletTransactionsResponse ListWalletTransactions(
-      string portfolioId,
-      string walletId,
       ListWalletTransactionsRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListWalletTransactionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/transactions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListWalletTransactionsResponse> ListWalletTransactionsAsync(
-      string portfolioId,
-      string walletId,
       ListWalletTransactionsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListWalletTransactionsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/wallets/{walletId}/transactions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
         [HttpStatusCode.OK],
         request,
         options,

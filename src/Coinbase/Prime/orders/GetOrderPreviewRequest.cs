@@ -17,10 +17,14 @@
 namespace Coinbase.Prime.Orders
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Prime.Common;
+
   public class GetOrderPreviewRequest(
+      string portfolioId,
       string productId,
       OrderSide side,
       OrderType type)
+  : BasePrimeRequest(portfolioId, null)
   {
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; } = productId;

@@ -14,14 +14,15 @@
  *  limitations under the License.
  */
 
-namespace Coinbase.Prime.Orders
+using System.Text.Json.Serialization;
+using Coinbase.Prime.Common;
+
+namespace Coinbase.Prime.Wallets
 {
-  using System.Text.Json.Serialization;
-  using Coinbase.Prime.Common;
-  public class ListOrderFillsRequest(string portfolioId, string orderId)
-  : BaseListRequest(portfolioId, null)
+  public class GetWalletByIdRequest(string portfolioId, string walletId)
+  : BasePrimeRequest(portfolioId, walletId)
   {
     [JsonIgnore]
-    public string OrderId { get; set; } = orderId;
+    public string WalletId { get; set; } = walletId;
   }
 }

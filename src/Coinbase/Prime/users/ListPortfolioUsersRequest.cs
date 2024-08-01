@@ -17,9 +17,8 @@
 namespace Coinbase.Prime.Users
 {
   using Coinbase.Prime.Common;
-  public class ListPortfolioUsersRequest : BaseListRequest
+  public class ListPortfolioUsersRequest(string portfolioId)
+  : BaseListRequest(portfolioId, null)
   {
-
-    public ListPortfolioUsersRequest() { }
   }
 }

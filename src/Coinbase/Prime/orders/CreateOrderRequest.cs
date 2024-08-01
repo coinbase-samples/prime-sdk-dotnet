@@ -17,7 +17,9 @@
 namespace Coinbase.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  public class CreateOrderRequest
+  using Coinbase.Prime.Common;
+  public class CreateOrderRequest(string portfolioId)
+  : BasePrimeRequest(portfolioId, null)
   {
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
@@ -64,7 +66,5 @@ namespace Coinbase.Prime.Orders
 
     [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
-
-    public CreateOrderRequest() { }
   }
 }

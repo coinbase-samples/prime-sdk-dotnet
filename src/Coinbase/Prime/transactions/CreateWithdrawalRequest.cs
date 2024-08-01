@@ -17,8 +17,14 @@
 namespace Coinbase.Prime.Transactions
 {
   using System.Text.Json.Serialization;
-  public class CreateWithdrawalRequest
+  using Coinbase.Prime.Common;
+
+  public class CreateWithdrawalRequest(string portfolioId, string walletId)
+  : BasePrimeRequest(portfolioId, null)
   {
+    [JsonIgnore]
+    public string WalletId { get; set; } = walletId;
+
     public string? Amount { get; set; }
 
     [JsonPropertyName("destination_type")]
@@ -35,7 +41,5 @@ namespace Coinbase.Prime.Transactions
 
     [JsonPropertyName("blockchain_address")]
     public BlockchainAddress? BlockchainAddress { get; set; }
-
-    public CreateWithdrawalRequest() { }
   }
 }

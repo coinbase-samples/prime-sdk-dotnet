@@ -24,27 +24,25 @@ namespace Coinbase.Prime.Products
   public class ProductsService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListPortfolioProductsResponse ListPortfolioProducts(
-      string portfolioId,
       ListPortfolioProductsRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListPortfolioProductsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/products",
+        $"/portfolios/{request.PortfolioId}/products",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListPortfolioProductsResponse> ListPortfolioProductsAsync(
-      string portfolioId,
       ListPortfolioProductsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListPortfolioProductsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/products",
+        $"/portfolios/{request.PortfolioId}/products",
         [HttpStatusCode.OK],
         request,
         options,

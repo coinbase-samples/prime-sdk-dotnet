@@ -48,25 +48,25 @@ namespace Coinbase.Prime.Portfolios
     }
 
     public GetPortfolioByIdResponse GetPortfolioById(
-      string portfolioId,
+      GetPortfolioByIdRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetPortfolioByIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}",
+        $"/portfolios/{request.PortfolioId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetPortfolioByIdResponse> GetPortfolioByIdAsync(
-      string portfolioId,
+      GetPortfolioByIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetPortfolioByIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}",
+        $"/portfolios/{request.PortfolioId}",
         [HttpStatusCode.OK],
         null,
         options,
@@ -74,25 +74,25 @@ namespace Coinbase.Prime.Portfolios
     }
 
     public GetPortfolioCreditInformationResponse GetPortfolioCreditInformation(
-      string portfolioId,
+      GetPortfolioCreditInformationRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetPortfolioCreditInformationResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/credit",
+        $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetPortfolioCreditInformationResponse> GetPortfolioCreditInformationAsync(
-      string portfolioId,
+      GetPortfolioCreditInformationRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetPortfolioCreditInformationResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/credit",
+        $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
         null,
         options,

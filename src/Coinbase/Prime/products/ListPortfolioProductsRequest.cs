@@ -17,8 +17,8 @@
 namespace Coinbase.Prime.Products
 {
   using Coinbase.Prime.Common;
-  public class ListPortfolioProductsRequest : BaseListRequest
+  public class ListPortfolioProductsRequest(string portfolioId)
+  : BaseListRequest(portfolioId, null)
   {
-    public ListPortfolioProductsRequest() { }
   }
 }

@@ -19,7 +19,8 @@ namespace Coinbase.Prime.Orders
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
 
-  public class ListOpenOrdersRequest : BaseListRequest
+  public class ListOpenOrdersRequest(string portfolioId)
+  : BaseListRequest(portfolioId, null)
   {
     [JsonPropertyName("product_ids")]
     public string[]? ProductIds { get; set; }
@@ -35,7 +36,5 @@ namespace Coinbase.Prime.Orders
 
     [JsonPropertyName("end_date")]
     public DateTime? EndDate { get; set; }
-
-    public ListOpenOrdersRequest() { }
   }
 }

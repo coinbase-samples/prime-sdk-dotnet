@@ -17,8 +17,13 @@
 namespace Coinbase.Prime.Transactions
 {
   using System.Text.Json.Serialization;
-  public class CreateConversionRequest
+  using Coinbase.Prime.Common;
+
+  public class CreateConversionRequest(string portfolioId, string walletId)
+  : BasePrimeRequest(portfolioId, null)
   {
+    [JsonIgnore]
+    public string WalletId { get; set; } = walletId;
     public string? Amount { get; set; }
     public string? Destination { get; set; }
 
@@ -30,7 +35,5 @@ namespace Coinbase.Prime.Transactions
 
     [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
-
-    public CreateConversionRequest() { }
   }
 }

@@ -18,8 +18,12 @@ namespace Coinbase.Prime.Transactions
 {
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
-  public class ListWalletTransactionsRequest : BaseListRequest
+  public class ListWalletTransactionsRequest(string portfolioId, string walletId)
+  : BaseListRequest(portfolioId, null)
   {
+    [JsonIgnore]
+    public string WalletId { get; set; } = walletId;
+
     [JsonPropertyName("type")]
     public TransactionType Type { get; set; }
 
@@ -28,7 +32,5 @@ namespace Coinbase.Prime.Transactions
 
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-
-    public ListWalletTransactionsRequest() { }
   }
 }

@@ -17,12 +17,10 @@
 namespace Coinbase.Prime.Wallets
 {
   using Coinbase.Prime.Common;
-  public class ListWalletsRequest : BaseListRequest
+  public class ListWalletsRequest(string portfolioId) : BaseListRequest(portfolioId, null)
   {
     public WalletType Type { get; set; }
 
     public string[] Symbols { get; set; } = [];
-
-    public ListWalletsRequest() { }
   }
 }

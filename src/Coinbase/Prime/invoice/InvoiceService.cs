@@ -24,26 +24,24 @@ namespace Coinbase.Prime.Invoice
   public class InvoiceService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListInvoicesResponse ListInvoices(
-      string entityId,
       ListInvoicesRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListInvoicesResponse>(
         HttpMethod.Get,
-        $"/entities/{entityId}/invoices",
+        $"/entities/{request.EntityId}/invoices",
         [HttpStatusCode.OK],
         request,
         options);
     }
     public Task<ListInvoicesResponse> ListInvoicesAsync(
-      string entityId,
       ListInvoicesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListInvoicesResponse>(
         HttpMethod.Get,
-        $"/entities/{entityId}/invoices",
+        $"/entities/{request.EntityId}/invoices",
         [HttpStatusCode.OK],
         request,
         options,

@@ -17,7 +17,10 @@
 namespace Coinbase.Prime.Wallets
 {
   using System.Text.Json.Serialization;
-  public class CreateWalletRequest
+  using Coinbase.Prime.Common;
+
+  public class CreateWalletRequest(string portfolioId)
+  : BasePrimeRequest(portfolioId, null)
   {
     public string? Name { get; set; }
 
@@ -25,7 +28,5 @@ namespace Coinbase.Prime.Wallets
 
     [JsonPropertyName("wallet_type")]
     public WalletType Type { get; set; }
-
-    public CreateWalletRequest() { }
   }
 }

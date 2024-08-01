@@ -17,7 +17,10 @@
 namespace Coinbase.Prime.Invoice
 {
   using System.Text.Json.Serialization;
-  public class ListInvoicesRequest
+  using Coinbase.Prime.Common;
+
+  public class ListInvoicesRequest(string entityId)
+  : BasePrimeRequest(null, entityId)
   {
     public InvoiceState[] States { get; set; } = [];
 
@@ -29,7 +32,5 @@ namespace Coinbase.Prime.Invoice
 
     public int? Cursor { get; set; }
     public int? Limit { get; set; }
-
-    public ListInvoicesRequest() { }
   }
 }
