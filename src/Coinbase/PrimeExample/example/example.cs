@@ -16,7 +16,6 @@ namespace Coinbase.PrimeExample.Example
         Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
         return;
       }
-      Console.WriteLine(credentialsBlob);
 
       string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
       if (portfolioId == null)
@@ -30,7 +29,8 @@ namespace Coinbase.PrimeExample.Example
 
       var portfoliosService = new PortfoliosService(client);
 
-      var portfolio = portfoliosService.GetPortfolioById(portfolioId).Portfolio!;
+      var portfolio = portfoliosService.GetPortfolioById(
+        new GetPortfolioByIdRequest(portfolioId)).Portfolio!;
       Console.WriteLine(portfolio);
 
       Console.WriteLine(portfolio.Id!);
@@ -39,7 +39,7 @@ namespace Coinbase.PrimeExample.Example
 
       Console.WriteLine(OrderType.MARKET);
 
-      var request = new CreateOrderRequest
+      var request = new CreateOrderRequest(portfolio.Id)
       {
         BaseQuantity = "0.001",
         Side = OrderSide.BUY,
@@ -48,17 +48,7 @@ namespace Coinbase.PrimeExample.Example
         ClientOrderId = Guid.NewGuid().ToString()
       };
 
-      var createOrderResponse = orderService.CreateOrder(
-        portfolio.Id,
-        new CreateOrderRequest
-        {
-          BaseQuantity = "0.001",
-          Side = OrderSide.BUY,
-          ProductId = "ADA-USD",
-          Type = OrderType.MARKET,
-          ClientOrderId = Guid.NewGuid().ToString()
-        }
-      );
+      var createOrderResponse = orderService.CreateOrder(request);
 
       Console.WriteLine(createOrderResponse.OrderId);
     }
