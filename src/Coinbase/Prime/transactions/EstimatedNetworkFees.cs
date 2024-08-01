@@ -26,5 +26,34 @@ namespace Coinbase.Prime.Transactions
     public string? UpperBound { get; set; }
 
     public EstimatedNetworkFees() { }
+
+    public class EstimatedNetworkFeesBuilder
+    {
+      private string? LowerBound;
+      private string? UpperBound;
+
+      public EstimatedNetworkFeesBuilder() { }
+
+      public EstimatedNetworkFeesBuilder WithLowerBound(string lowerBound)
+      {
+        this.LowerBound = lowerBound;
+        return this;
+      }
+
+      public EstimatedNetworkFeesBuilder WithUpperBound(string upperBound)
+      {
+        this.UpperBound = upperBound;
+        return this;
+      }
+
+      public EstimatedNetworkFees Build()
+      {
+        return new EstimatedNetworkFees
+        {
+          LowerBound = this.LowerBound,
+          UpperBound = this.UpperBound
+        };
+      }
+    }
   }
 }

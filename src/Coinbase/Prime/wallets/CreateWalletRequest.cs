@@ -17,6 +17,7 @@
 namespace Coinbase.Prime.Wallets
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class CreateWalletRequest(string portfolioId)
@@ -28,5 +29,56 @@ namespace Coinbase.Prime.Wallets
 
     [JsonPropertyName("wallet_type")]
     public WalletType Type { get; set; }
+
+    public class CreateWalletRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _name;
+      private string? _symbol;
+      private WalletType _type;
+
+      public CreateWalletRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public CreateWalletRequestBuilder WithName(string? name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public CreateWalletRequestBuilder WithSymbol(string? symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public CreateWalletRequestBuilder WithType(WalletType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+      }
+
+      public CreateWalletRequest Build()
+      {
+        this.Validate();
+        return new CreateWalletRequest(this._portfolioId!)
+        {
+          Name = this._name,
+          Symbol = this._symbol,
+          Type = this._type
+        };
+      }
+    }
   }
 }

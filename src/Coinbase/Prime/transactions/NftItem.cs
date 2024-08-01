@@ -21,5 +21,26 @@ namespace Coinbase.Prime.Transactions
     public string? Name { get; set; }
 
     public NftItem() { }
+
+    public class NftItemBuilder
+    {
+      private string? Name;
+
+      public NftItemBuilder() { }
+
+      public NftItemBuilder WithName(string name)
+      {
+        this.Name = name;
+        return this;
+      }
+
+      public NftItem Build()
+      {
+        return new NftItem
+        {
+          Name = this.Name
+        };
+      }
+    }
   }
 }

@@ -21,5 +21,26 @@ namespace Coinbase.Prime.Wallets
     public Wallet? Wallet { get; set; }
 
     public GetWalletByIdResponse() { }
+
+    public class GetWalletByIdResponseBuilder
+    {
+      private Wallet? _wallet;
+
+      public GetWalletByIdResponseBuilder() { }
+
+      public GetWalletByIdResponseBuilder WithWallet(Wallet wallet)
+      {
+        this._wallet = wallet;
+        return this;
+      }
+
+      public GetWalletByIdResponse Build()
+      {
+        return new GetWalletByIdResponse
+        {
+          Wallet = this._wallet
+        };
+      }
+    }
   }
 }

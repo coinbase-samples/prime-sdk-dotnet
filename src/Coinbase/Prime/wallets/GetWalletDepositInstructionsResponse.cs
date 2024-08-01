@@ -25,5 +25,34 @@ namespace Coinbase.Prime.Wallets
     public FiatDepositInstructions? FiatDepositInstructions { get; set; }
 
     public GetWalletDepositInstructionsResponse() { }
+
+    public class GetWalletDepositInstructionsResponseBuilder
+    {
+      private CryptoDepositInstructions? _cryptoDepositInstructions;
+      private FiatDepositInstructions? _fiatDepositInstructions;
+
+      public GetWalletDepositInstructionsResponseBuilder() { }
+
+      public GetWalletDepositInstructionsResponseBuilder WithCryptoDepositInstructions(CryptoDepositInstructions cryptoDepositInstructions)
+      {
+        this._cryptoDepositInstructions = cryptoDepositInstructions;
+        return this;
+      }
+
+      public GetWalletDepositInstructionsResponseBuilder WithFiatDepositInstructions(FiatDepositInstructions fiatDepositInstructions)
+      {
+        this._fiatDepositInstructions = fiatDepositInstructions;
+        return this;
+      }
+
+      public GetWalletDepositInstructionsResponse Build()
+      {
+        return new GetWalletDepositInstructionsResponse
+        {
+          CryptoDepositInstructions = this._cryptoDepositInstructions,
+          FiatDepositInstructions = this._fiatDepositInstructions
+        };
+      }
+    }
   }
 }

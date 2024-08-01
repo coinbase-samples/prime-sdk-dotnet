@@ -22,5 +22,34 @@ namespace Coinbase.Prime.Users
     public User[] Users { get; set; } = [];
     public Pagination? Pagination { get; set; }
     public ListUsersResponse() { }
+
+    public class ListUsersResponseBuilder
+    {
+      private User[] _users = [];
+      private Pagination? _pagination;
+
+      public ListUsersResponseBuilder() { }
+
+      public ListUsersResponseBuilder WithUsers(User[] users)
+      {
+        this._users = users;
+        return this;
+      }
+
+      public ListUsersResponseBuilder WithPagination(Pagination pagination)
+      {
+        this._pagination = pagination;
+        return this;
+      }
+
+      public ListUsersResponse Build()
+      {
+        return new ListUsersResponse
+        {
+          Users = this._users,
+          Pagination = this._pagination
+        };
+      }
+    }
   }
 }

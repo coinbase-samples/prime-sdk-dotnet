@@ -23,5 +23,24 @@ namespace Coinbase.Prime.Transactions
     public Transaction? Transaction { get; set; }
 
     public GetTransactionByTransactionIdResponse() { }
+
+    public class GetTransactionByTransactionIdResponseBuilder
+    {
+      private Transaction? _transaction;
+
+      public GetTransactionByTransactionIdResponseBuilder WithTransaction(Transaction? transaction)
+      {
+        this._transaction = transaction;
+        return this;
+      }
+
+      public GetTransactionByTransactionIdResponse Build()
+      {
+        return new GetTransactionByTransactionIdResponse
+        {
+          Transaction = this._transaction
+        };
+      }
+    }
   }
 }

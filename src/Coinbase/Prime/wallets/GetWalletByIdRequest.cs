@@ -15,6 +15,7 @@
  */
 
 using System.Text.Json.Serialization;
+using Coinbase.Core.Error;
 using Coinbase.Prime.Common;
 
 namespace Coinbase.Prime.Wallets
@@ -24,5 +25,41 @@ namespace Coinbase.Prime.Wallets
   {
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
+
+    public class GetWalletByIdRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _walletId;
+
+      public GetWalletByIdRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetWalletByIdRequestBuilder WithWalletId(string walletId)
+      {
+        this._walletId = walletId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._walletId))
+        {
+          throw new CoinbaseClientException("WalletId is required");
+        }
+      }
+
+      public GetWalletByIdRequest Build()
+      {
+        this.Validate();
+        return new GetWalletByIdRequest(this._portfolioId!, this._walletId!);
+      }
+    }
   }
 }

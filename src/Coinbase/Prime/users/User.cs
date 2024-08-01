@@ -33,5 +33,66 @@ namespace Coinbase.Prime.Users
     public Role? Role { get; set; }
 
     public User() { }
+
+    public class UserBuilder
+    {
+      private string? Id;
+      private string? Name;
+      private string? Email;
+      private string? EntityId;
+      private string? PortfolioId;
+      private Role? Role;
+
+      public UserBuilder() { }
+
+      public UserBuilder WithId(string id)
+      {
+        this.Id = id;
+        return this;
+      }
+
+      public UserBuilder WithName(string name)
+      {
+        this.Name = name;
+        return this;
+      }
+
+      public UserBuilder WithEmail(string email)
+      {
+        this.Email = email;
+        return this;
+      }
+
+      public UserBuilder WithEntityId(string entityId)
+      {
+        this.EntityId = entityId;
+        return this;
+      }
+
+      public UserBuilder WithPortfolioId(string portfolioId)
+      {
+        this.PortfolioId = portfolioId;
+        return this;
+      }
+
+      public UserBuilder WithRole(Role role)
+      {
+        this.Role = role;
+        return this;
+      }
+
+      public User Build()
+      {
+        return new User
+        {
+          Id = this.Id,
+          Name = this.Name,
+          Email = this.Email,
+          EntityId = this.EntityId,
+          PortfolioId = this.PortfolioId,
+          Role = this.Role
+        };
+      }
+    }
   }
 }

@@ -22,5 +22,34 @@ namespace Coinbase.Prime.Transactions
     public string? Value { get; set; }
 
     public TransferLocation() { }
+
+    public class TransferLocationBuilder
+    {
+      private TransferLocationType _type;
+      private string? _value;
+
+      public TransferLocationBuilder() { }
+
+      public TransferLocationBuilder WithType(TransferLocationType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public TransferLocationBuilder WithValue(string value)
+      {
+        this._value = value;
+        return this;
+      }
+
+      public TransferLocation Build()
+      {
+        return new TransferLocation
+        {
+          Type = this._type,
+          Value = this._value
+        };
+      }
+    }
   }
 }

@@ -26,5 +26,34 @@ namespace Coinbase.Prime.Transactions
     public string? SettlementDate { get; set; }
 
     public MatchMetadata() { }
+
+    public class MatchMetadataBuilder
+    {
+      private string? ReferenceId;
+      private string? SettlementDate;
+
+      public MatchMetadataBuilder() { }
+
+      public MatchMetadataBuilder WithReferenceId(string referenceId)
+      {
+        this.ReferenceId = referenceId;
+        return this;
+      }
+
+      public MatchMetadataBuilder WithSettlementDate(string settlementDate)
+      {
+        this.SettlementDate = settlementDate;
+        return this;
+      }
+
+      public MatchMetadata Build()
+      {
+        return new MatchMetadata
+        {
+          ReferenceId = this.ReferenceId,
+          SettlementDate = this.SettlementDate
+        };
+      }
+    }
   }
 }

@@ -33,5 +33,66 @@ namespace Coinbase.Prime.Wallets
     public string? ReferenceCode { get; set; }
 
     public FiatDepositInstructions() { }
+
+    public class FiatDepositInstructionsBuilder
+    {
+      private string? _id;
+      private string? _name;
+      private DepositType _type;
+      private string? _accountNumber;
+      private string? _routingNumber;
+      private string? _referenceCode;
+
+      public FiatDepositInstructionsBuilder() { }
+
+      public FiatDepositInstructionsBuilder WithId(string id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public FiatDepositInstructionsBuilder WithName(string name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public FiatDepositInstructionsBuilder WithType(DepositType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public FiatDepositInstructionsBuilder WithAccountNumber(string accountNumber)
+      {
+        this._accountNumber = accountNumber;
+        return this;
+      }
+
+      public FiatDepositInstructionsBuilder WithRoutingNumber(string routingNumber)
+      {
+        this._routingNumber = routingNumber;
+        return this;
+      }
+
+      public FiatDepositInstructionsBuilder WithReferenceCode(string referenceCode)
+      {
+        this._referenceCode = referenceCode;
+        return this;
+      }
+
+      public FiatDepositInstructions Build()
+      {
+        return new FiatDepositInstructions
+        {
+          Id = this._id,
+          Name = this._name,
+          Type = this._type,
+          AccountNumber = this._accountNumber,
+          RoutingNumber = this._routingNumber,
+          ReferenceCode = this._referenceCode
+        };
+      }
+    }
   }
 }

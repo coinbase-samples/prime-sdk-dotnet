@@ -29,5 +29,66 @@ namespace Coinbase.Prime.Wallets
     public string? CreatedAt { get; set; }
 
     public Wallet() { }
+
+    public class WalletBuilder
+    {
+      private string? Id;
+      private string? Name;
+      private string? Symbol;
+      private WalletType Type;
+      private string? Address;
+      private string? CreatedAt;
+
+      public WalletBuilder() { }
+
+      public WalletBuilder WithId(string id)
+      {
+        this.Id = id;
+        return this;
+      }
+
+      public WalletBuilder WithName(string name)
+      {
+        this.Name = name;
+        return this;
+      }
+
+      public WalletBuilder WithSymbol(string symbol)
+      {
+        this.Symbol = symbol;
+        return this;
+      }
+
+      public WalletBuilder WithType(WalletType type)
+      {
+        this.Type = type;
+        return this;
+      }
+
+      public WalletBuilder WithAddress(string address)
+      {
+        this.Address = address;
+        return this;
+      }
+
+      public WalletBuilder WithCreatedAt(string createdAt)
+      {
+        this.CreatedAt = createdAt;
+        return this;
+      }
+
+      public Wallet Build()
+      {
+        return new Wallet
+        {
+          Id = this.Id,
+          Name = this.Name,
+          Symbol = this.Symbol,
+          Type = this.Type,
+          Address = this.Address,
+          CreatedAt = this.CreatedAt
+        };
+      }
+    }
   }
 }

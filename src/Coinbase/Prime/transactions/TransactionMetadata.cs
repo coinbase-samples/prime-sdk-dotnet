@@ -23,5 +23,26 @@ namespace Coinbase.Prime.Transactions
     public MatchMetadata? MatchMetadata { get; set; }
 
     public TransactionMetadata() { }
+
+    public class TransactionMetadataBuilder
+    {
+      private MatchMetadata? _matchMetadata;
+
+      public TransactionMetadataBuilder() { }
+
+      public TransactionMetadataBuilder WithMatchMetadata(MatchMetadata matchMetadata)
+      {
+        this._matchMetadata = matchMetadata;
+        return this;
+      }
+
+      public TransactionMetadata Build()
+      {
+        return new TransactionMetadata
+        {
+          MatchMetadata = this._matchMetadata
+        };
+      }
+    }
   }
 }

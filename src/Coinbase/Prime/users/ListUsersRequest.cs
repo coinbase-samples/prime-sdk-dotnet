@@ -16,8 +16,33 @@
 
 namespace Coinbase.Prime.Users
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   public class ListUsersRequest(string entityId) : BaseListRequest(null, entityId)
   {
+    public class ListUsersRequestBuilder
+    {
+      private string? _entityId;
+
+      public ListUsersRequestBuilder withEntityId(string entityId)
+      {
+        this._entityId = entityId;
+        return this;
+      }
+
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._entityId))
+        {
+          throw new CoinbaseClientException("EntityId is required");
+        }
+      }
+
+      public ListUsersRequest Build()
+      {
+        this.Validate();
+        return new ListUsersRequest(this._entityId!);
+      }
+    }
   }
 }

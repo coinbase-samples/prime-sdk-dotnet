@@ -17,6 +17,7 @@
 namespace Coinbase.Prime.Transactions
 {
   using System.Text.Json.Serialization;
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class GetTransactionByTransactionIdRequest(string portfolioId, string transactionId)
@@ -24,5 +25,41 @@ namespace Coinbase.Prime.Transactions
   {
     [JsonIgnore]
     public string TransactionId { get; set; } = transactionId;
+
+    public class GetTransactionByTransactionIdRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _transactionId;
+
+      public GetTransactionByTransactionIdRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        this._portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetTransactionByTransactionIdRequestBuilder WithTransactionId(string transactionId)
+      {
+        this._transactionId = transactionId;
+        return this;
+      }
+
+      public void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._transactionId))
+        {
+          throw new CoinbaseClientException("TransactionId is required");
+        }
+      }
+
+      public GetTransactionByTransactionIdRequest Build()
+      {
+        this.Validate();
+        return new GetTransactionByTransactionIdRequest(_portfolioId!, _transactionId!);
+      }
+    }
   }
 }

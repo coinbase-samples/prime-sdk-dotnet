@@ -23,5 +23,26 @@ namespace Coinbase.Prime.Transactions
     public string? PaymentMethodId { get; set; }
 
     public PaymentMethod() { }
+
+    public class PaymentMethodBuilder
+    {
+      private string? _paymentMethodId;
+
+      public PaymentMethodBuilder() { }
+
+      public PaymentMethodBuilder WithPaymentMethodId(string paymentMethodId)
+      {
+        this._paymentMethodId = paymentMethodId;
+        return this;
+      }
+
+      public PaymentMethod Build()
+      {
+        return new PaymentMethod
+        {
+          PaymentMethodId = this._paymentMethodId
+        };
+      }
+    }
   }
 }

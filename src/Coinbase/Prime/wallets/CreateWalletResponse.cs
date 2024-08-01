@@ -30,5 +30,50 @@ namespace Coinbase.Prime.Wallets
     public WalletType Type { get; set; }
 
     public CreateWalletResponse() { }
+
+    public class CreateWalletResponseBuilder
+    {
+      private string? _activityId;
+      private string? _name;
+      private string? _symbol;
+      private WalletType _type;
+
+      public CreateWalletResponseBuilder() { }
+
+      public CreateWalletResponseBuilder WithActivityId(string activityId)
+      {
+        this._activityId = activityId;
+        return this;
+      }
+
+      public CreateWalletResponseBuilder WithName(string name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public CreateWalletResponseBuilder WithSymbol(string symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public CreateWalletResponseBuilder WithType(WalletType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public CreateWalletResponse Build()
+      {
+        return new CreateWalletResponse
+        {
+          ActivityId = this._activityId,
+          Name = this._name,
+          Symbol = this._symbol,
+          Type = this._type
+        };
+      }
+    }
   }
 }

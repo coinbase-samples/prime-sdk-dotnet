@@ -28,5 +28,58 @@ namespace Coinbase.Prime.Wallets
     public string? AccountIdentifier { get; set; }
 
     public CryptoDepositInstructions() { }
+
+    public class CryptoDepositInstructionsBuilder
+    {
+      private string? _id;
+      private string? _name;
+      private string? _address;
+      private DepositType _type;
+      private string? _accountIdentifier;
+
+      public CryptoDepositInstructionsBuilder() { }
+
+      public CryptoDepositInstructionsBuilder WithId(string id)
+      {
+        this._id = id;
+        return this;
+      }
+
+      public CryptoDepositInstructionsBuilder WithName(string name)
+      {
+        this._name = name;
+        return this;
+      }
+
+      public CryptoDepositInstructionsBuilder WithAddress(string address)
+      {
+        this._address = address;
+        return this;
+      }
+
+      public CryptoDepositInstructionsBuilder WithType(DepositType type)
+      {
+        this._type = type;
+        return this;
+      }
+
+      public CryptoDepositInstructionsBuilder WithAccountIdentifier(string accountIdentifier)
+      {
+        this._accountIdentifier = accountIdentifier;
+        return this;
+      }
+
+      public CryptoDepositInstructions Build()
+      {
+        return new CryptoDepositInstructions
+        {
+          Id = this._id,
+          Name = this._name,
+          Address = this._address,
+          Type = this._type,
+          AccountIdentifier = this._accountIdentifier
+        };
+      }
+    }
   }
 }
