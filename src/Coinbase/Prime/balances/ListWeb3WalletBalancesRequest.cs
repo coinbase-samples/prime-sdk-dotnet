@@ -18,11 +18,13 @@ namespace Coinbase.Prime.Balances
 {
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
-  public class ListWeb3WalletBalancesRequest : BaseListRequest
+  public class ListWeb3WalletBalancesRequest(string portfolioId, string walletId)
+  : BaseListRequest(portfolioId, null)
   {
+    [JsonIgnore]
+    public string WalletId { get; set; } = walletId;
+
     [JsonPropertyName("visibility_statuses")]
     public VisibilityStatus[] VisibilityStatuses { get; set; } = [];
-
-    public ListWeb3WalletBalancesRequest() { }
   }
 }

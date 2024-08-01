@@ -23,27 +23,25 @@ namespace Coinbase.Prime.AddressBook
   public class AddressBookService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public CreateAddressBookEntryResponse CreateAddressBookEntry(
-      string portfolioId,
       CreateAddressBookEntryRequest request,
       CallOptions? options = null)
     {
       return this.Request<CreateAddressBookEntryResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/address_book",
+        $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<CreateAddressBookEntryResponse> CreateAddressBookEntryAsync(
-      string portfolioId,
       CreateAddressBookEntryRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateAddressBookEntryResponse>(
         HttpMethod.Post,
-        $"/portfolios/{portfolioId}/address_book",
+        $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -51,27 +49,25 @@ namespace Coinbase.Prime.AddressBook
     }
 
     public GetPortfolioAddressBookResponse GetPortfolioAddressBook(
-      string portfolioId,
       GetPortfolioAddressBookRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetPortfolioAddressBookResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/address_book",
+        $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<GetPortfolioAddressBookResponse> GetPortfolioAddressBookAsync(
-      string portfolioId,
       GetPortfolioAddressBookRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetPortfolioAddressBookResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/address_book",
+        $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.OK],
         request,
         options,

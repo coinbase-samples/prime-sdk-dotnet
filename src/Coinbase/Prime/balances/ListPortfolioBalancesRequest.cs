@@ -18,12 +18,11 @@ namespace Coinbase.Prime.Balances
 {
   using System.Text.Json.Serialization;
   using Coinbase.Prime.Common;
-  public class ListPortfolioBalancesRequest : BaseListRequest
+  public class ListPortfolioBalancesRequest(string portfolioId)
+  : BaseListRequest(portfolioId, null)
   {
-    public string[] symbols { get; set; } = [];
+    public string[] Symbols { get; set; } = [];
     [JsonPropertyName("balance_type")]
     public string? BalanceType;
-
-    public ListPortfolioBalancesRequest() { }
   }
 }

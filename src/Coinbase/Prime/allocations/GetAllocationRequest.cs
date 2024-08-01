@@ -14,15 +14,15 @@
  *  limitations under the License.
  */
 
-namespace Coinbase.Prime.AddressBook
+using System.Text.Json.Serialization;
+using Coinbase.Prime.Common;
+
+namespace Coinbase.Prime.Allocations
 {
-  using Coinbase.Prime.Common;
-  using System.Text.Json.Serialization;
-  public class GetPortfolioAddressBookRequest(string portfolioId)
-  : BaseListRequest(portfolioId, null)
+  public class GetAllocationRequest(string portfolioId, string allocationId)
+  : BasePrimeRequest(portfolioId, null)
   {
-    [JsonPropertyName("currency_symbol")]
-    public string? CurrencySymbol { get; set; }
-    public string? Search { get; set; }
+    [JsonIgnore]
+    public string AllocationId { get; set; } = allocationId;
   }
 }

@@ -23,27 +23,25 @@ namespace Coinbase.Prime.Activities
   public class ActivtiesService(ICoinbaseClient client) : CoinbaseService(client)
   {
     public ListActivitiesResponse ListActivities(
-      string portfolioId,
       ListActivitiesRequest request,
       CallOptions? options = null)
     {
       return this.Request<ListActivitiesResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/activities",
+        $"/portfolios/{request.PortfolioId}/activities",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<ListActivitiesResponse> ListActivitiesAsync(
-      string portfolioId,
       ListActivitiesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<ListActivitiesResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/activities",
+        $"/portfolios/{request.PortfolioId}/activities",
         [HttpStatusCode.OK],
         request,
         options,
@@ -51,27 +49,25 @@ namespace Coinbase.Prime.Activities
     }
 
     public GetActivityByActivityIdResponse GetActivityByActivityId(
-      string portfolioId,
-      string activityId,
+      GetActivityByActivityIdRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetActivityByActivityIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/activities/{activityId}",
+        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
-      string portfolioId,
-      string activityId,
+      GetActivityByActivityIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetActivityByActivityIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/activities/{activityId}",
+        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options,

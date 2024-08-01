@@ -18,12 +18,12 @@ namespace Coinbase.Prime.Common
 {
   using System.Text.Json.Serialization;
 
-  public class BaseListRequest
+  public class BaseListRequest(string? portfolioId, string? entityId) : BasePrimeRequest(portfolioId, entityId)
   {
     public string? Cursor { get; set; }
 
     [JsonPropertyName("sort_direction")]
-    public string? sortDirection { get; set; }
+    public string? SortDirection { get; set; }
 
     public int? Limit { get; set; }
   }

@@ -75,27 +75,25 @@ namespace Coinbase.Prime.Allocations
     }
 
     public GetAllocationResponse GetAllocation(
-      string portfolioId,
-      string allocationId,
+      GetAllocationRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetAllocationResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations/{allocationId}",
+        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetAllocationResponse> GetAllocationAsync(
-      string portfolioId,
-      string allocationId,
+      GetAllocationRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetAllocationResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations/{allocationId}",
+        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
         [HttpStatusCode.OK],
         null,
         options,
@@ -103,27 +101,25 @@ namespace Coinbase.Prime.Allocations
     }
 
     public GetAllocationsByClientNettingIdResponse GetAllocationsByClientNettingId(
-      string portfolioId,
-      string nettingId,
+      GetAllocationsByClientNettingIdRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetAllocationsByClientNettingIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations/net/{nettingId}",
+        $"/portfolios/{request.PortfolioId}/allocations/net/{request.ClientNettingId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
     public Task<GetAllocationsByClientNettingIdResponse> GetAllocationsByClientNettingIdAsync(
-      string portfolioId,
-      string nettingId,
+      GetAllocationsByClientNettingIdRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetAllocationsByClientNettingIdResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations/net/{nettingId}",
+        $"/portfolios/{request.PortfolioId}/allocations/net/{request.ClientNettingId}",
         [HttpStatusCode.OK],
         null,
         options,
@@ -131,27 +127,25 @@ namespace Coinbase.Prime.Allocations
     }
 
     public GetPortfolioAllocationsResponse GetPortfolioAllocations(
-      string portfolioId,
       GetPortfolioAllocationsRequest request,
       CallOptions? options = null)
     {
       return this.Request<GetPortfolioAllocationsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations",
+        $"/portfolios/{request.PortfolioId}/allocations",
         [HttpStatusCode.OK],
         request,
         options);
     }
 
     public Task<GetPortfolioAllocationsResponse> GetPortfolioAllocationsAsync(
-      string portfolioId,
       GetPortfolioAllocationsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetPortfolioAllocationsResponse>(
         HttpMethod.Get,
-        $"/portfolios/{portfolioId}/allocations",
+        $"/portfolios/{request.PortfolioId}/allocations",
         [HttpStatusCode.OK],
         request,
         options,

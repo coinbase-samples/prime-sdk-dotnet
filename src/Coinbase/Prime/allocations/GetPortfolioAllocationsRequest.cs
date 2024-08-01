@@ -19,7 +19,8 @@ namespace Coinbase.Prime.Allocations
   using Coinbase.Prime.Common;
   using Coinbase.Prime.Orders;
   using System.Text.Json.Serialization;
-  public class GetPortfolioAllocationsRequest : BaseListRequest
+  public class GetPortfolioAllocationsRequest(string portfolioId)
+  : BaseListRequest(portfolioId, null)
   {
     [JsonPropertyName("product_ids")]
     public string[] ProductIds { get; set; } = [];
@@ -29,7 +30,5 @@ namespace Coinbase.Prime.Allocations
     public string? StartDate { get; set; }
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
-
-    public GetPortfolioAllocationsRequest() { }
   }
 }

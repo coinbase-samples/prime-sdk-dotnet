@@ -17,7 +17,10 @@
 namespace Coinbase.Prime.AddressBook
 {
   using System.Text.Json.Serialization;
-  public class CreateAddressBookEntryRequest
+  using Coinbase.Prime.Common;
+
+  public class CreateAddressBookEntryRequest(string portfolioId)
+  : BasePrimeRequest(portfolioId, null)
   {
     public string? Address { get; set; }
 
@@ -28,19 +31,5 @@ namespace Coinbase.Prime.AddressBook
 
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
-
-    public CreateAddressBookEntryRequest() { }
-
-    public CreateAddressBookEntryRequest(
-        string address,
-        string currencySymbol,
-        string name,
-        string accountIdentifier)
-    {
-      Address = address;
-      CurrencySymbol = currencySymbol;
-      Name = name;
-      AccountIdentifier = accountIdentifier;
-    }
   }
 }
