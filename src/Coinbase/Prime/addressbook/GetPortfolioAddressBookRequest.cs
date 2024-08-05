@@ -71,7 +71,7 @@ namespace Coinbase.Prime.AddressBook
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
         {

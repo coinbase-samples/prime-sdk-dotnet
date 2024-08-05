@@ -43,7 +43,7 @@ namespace Coinbase.Prime.Wallets
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
         {

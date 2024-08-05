@@ -42,7 +42,7 @@ namespace Coinbase.Prime.Activities
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrEmpty(_portfolioId))
         {

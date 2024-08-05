@@ -32,7 +32,7 @@ namespace Coinbase.Prime.Commission
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
         {

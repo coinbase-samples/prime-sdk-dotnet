@@ -79,7 +79,7 @@ namespace Coinbase.Prime.Invoice
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_entityId))
         {

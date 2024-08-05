@@ -97,7 +97,7 @@ namespace Coinbase.Prime.Activities
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
         {

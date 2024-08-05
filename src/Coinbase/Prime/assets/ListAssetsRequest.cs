@@ -30,7 +30,7 @@ namespace Coinbase.Prime.Assets
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._entityId))
         {

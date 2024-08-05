@@ -190,7 +190,7 @@ namespace Coinbase.Prime.Orders
         return this;
       }
 
-      public void Validate()
+      private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
         {
