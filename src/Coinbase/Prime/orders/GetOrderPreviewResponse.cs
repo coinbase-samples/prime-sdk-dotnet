@@ -181,17 +181,8 @@ namespace Coinbase.Prime.Orders
         return this;
       }
 
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-      }
-
       public GetOrderPreviewResponse Build()
       {
-        Validate();
         return new GetOrderPreviewResponse
         {
           PortfolioId = this._portfolioId,

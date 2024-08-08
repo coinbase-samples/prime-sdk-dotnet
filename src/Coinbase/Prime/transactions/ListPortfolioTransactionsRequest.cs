@@ -93,6 +93,10 @@ namespace Coinbase.Prime.Transactions
         return this;
       }
 
+      /// <summary>
+      /// Validates the request.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -101,6 +105,11 @@ namespace Coinbase.Prime.Transactions
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListPortfolioTransactionsRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="ListPortfolioTransactionsRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListPortfolioTransactionsRequest Build()
       {
         return new ListPortfolioTransactionsRequest(this._portfolioId!)

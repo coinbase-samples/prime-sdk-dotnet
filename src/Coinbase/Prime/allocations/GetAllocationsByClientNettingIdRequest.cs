@@ -42,6 +42,12 @@ namespace Coinbase.Prime.Allocations
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> or <see cref="_clientNettingId"/> are null, empty
+      /// or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -54,6 +60,11 @@ namespace Coinbase.Prime.Allocations
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="GetAllocationsByClientNettingIdRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="GetAllocationsByClientNettingIdRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public GetAllocationsByClientNettingIdRequest Build()
       {
         this.Validate();

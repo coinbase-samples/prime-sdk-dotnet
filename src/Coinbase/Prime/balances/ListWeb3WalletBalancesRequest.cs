@@ -73,6 +73,12 @@ namespace Coinbase.Prime.Balances
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
+      /// or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
@@ -86,6 +92,11 @@ namespace Coinbase.Prime.Balances
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="ListWeb3WalletBalancesRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="ListWeb3WalletBalancesRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListWeb3WalletBalancesRequest Build()
       {
         Validate();

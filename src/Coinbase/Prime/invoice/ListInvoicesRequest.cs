@@ -79,6 +79,10 @@ namespace Coinbase.Prime.Invoice
         return this;
       }
 
+      /// <summary>
+      /// Validates the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_entityId))
@@ -87,6 +91,11 @@ namespace Coinbase.Prime.Invoice
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListInvoicesRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="ListInvoicesRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty or whitespace.</exception>
       public ListInvoicesRequest Build()
       {
         Validate();

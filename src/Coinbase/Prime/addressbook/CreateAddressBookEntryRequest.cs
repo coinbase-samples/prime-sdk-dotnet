@@ -71,6 +71,11 @@ namespace Coinbase.Prime.AddressBook
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -79,6 +84,11 @@ namespace Coinbase.Prime.AddressBook
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="CreateAddressBookEntryRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="CreateAddressBookEntryRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateAddressBookEntryRequest Build()
       {
         this.Validate();

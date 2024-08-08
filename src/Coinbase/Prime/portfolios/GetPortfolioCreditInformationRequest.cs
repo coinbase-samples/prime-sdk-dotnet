@@ -32,6 +32,11 @@ namespace Coinbase.Prime.Portfolios
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -40,6 +45,11 @@ namespace Coinbase.Prime.Portfolios
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="GetPortfolioCreditInformationRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="GetPortfolioCreditInformationRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public GetPortfolioCreditInformationRequest Build()
       {
         this.Validate();

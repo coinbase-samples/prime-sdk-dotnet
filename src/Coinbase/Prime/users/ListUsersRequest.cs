@@ -30,6 +30,10 @@ namespace Coinbase.Prime.Users
         return this;
       }
 
+      /// <summary>
+      /// Validates the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the <see cref="_entityId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._entityId))
@@ -38,6 +42,11 @@ namespace Coinbase.Prime.Users
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="ListUsersRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="ListUsersRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListUsersRequest Build()
       {
         this.Validate();

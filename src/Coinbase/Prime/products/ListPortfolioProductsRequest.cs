@@ -52,6 +52,11 @@ namespace Coinbase.Prime.Products
         return this;
       }
 
+      /// <summary>
+      /// Validates the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> is null or empty.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -60,6 +65,11 @@ namespace Coinbase.Prime.Products
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListPortfolioProductsRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="ListPortfolioProductsRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListPortfolioProductsRequest Build()
       {
         this.Validate();

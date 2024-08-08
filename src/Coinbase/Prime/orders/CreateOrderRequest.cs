@@ -190,6 +190,10 @@ namespace Coinbase.Prime.Orders
         return this;
       }
 
+      /// <summary>
+      /// Validates the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
@@ -198,6 +202,11 @@ namespace Coinbase.Prime.Orders
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="CreateOrderRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="CreateOrderRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateOrderRequest Build()
       {
         this.Validate();

@@ -60,6 +60,11 @@ namespace Coinbase.Prime.Activities
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="GetActivityByActivityIdRequest"/>.
+      /// </summary>
+      /// <returns>The new <see cref="GetActivityByActivityIdRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
       public GetActivityByActivityIdRequest Build()
       {
         this.Validate();

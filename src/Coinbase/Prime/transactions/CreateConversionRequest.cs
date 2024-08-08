@@ -89,6 +89,12 @@ namespace Coinbase.Prime.Transactions
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
+      /// or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrEmpty(_portfolioId))
@@ -101,6 +107,11 @@ namespace Coinbase.Prime.Transactions
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="CreateConversionRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="CreateConversionRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateConversionRequest Build()
       {
         this.Validate();

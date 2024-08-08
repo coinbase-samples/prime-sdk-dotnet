@@ -15,8 +15,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include=".\example\example.cs" />
-  </ItemGroup>
-
 </Project>

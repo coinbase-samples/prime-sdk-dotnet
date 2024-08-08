@@ -16,6 +16,7 @@
 
 namespace Coinbase.Prime.PaymentMethods
 {
+  using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
 
   public class ListEntityPaymentMethodsRequest(string entityId)
@@ -31,14 +32,24 @@ namespace Coinbase.Prime.PaymentMethods
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_entityId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._entityId))
         {
-          throw new System.ArgumentException("EntityId cannot be null or empty");
+          throw new CoinbaseClientException("EntityId cannot be null or empty");
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="ListEntityPaymentMethodsRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="ListEntityPaymentMethodsRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListEntityPaymentMethodsRequest Build()
       {
         this.Validate();

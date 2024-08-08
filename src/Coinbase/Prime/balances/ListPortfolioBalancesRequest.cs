@@ -24,7 +24,7 @@ namespace Coinbase.Prime.Balances
   {
     public string[] Symbols { get; set; } = [];
     [JsonPropertyName("balance_type")]
-    public BalanceType BalanceType;
+    public BalanceType? BalanceType;
 
     public class ListPortfolioBalancesRequestBuilder
     {
@@ -71,14 +71,23 @@ namespace Coinbase.Prime.Balances
         return this;
       }
 
+      /// <summary>
+      /// Validates the request.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrEmpty(_portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListPortfolioBalancesRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="ListPortfolioBalancesRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       public ListPortfolioBalancesRequest Build()
       {
         Validate();

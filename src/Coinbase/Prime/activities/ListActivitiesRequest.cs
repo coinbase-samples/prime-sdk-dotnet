@@ -97,6 +97,10 @@ namespace Coinbase.Prime.Activities
         return this;
       }
 
+      /// <summary>
+      /// Validates the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
@@ -105,6 +109,11 @@ namespace Coinbase.Prime.Activities
         }
       }
 
+      /// <summary>
+      /// Builds the <see cref="ListActivitiesRequest"/>.
+      /// </summary>
+      /// <returns>The <see cref="ListActivitiesRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       public ListActivitiesRequest Build()
       {
         this.Validate();

@@ -30,6 +30,10 @@ namespace Coinbase.Prime.Assets
         return this;
       }
 
+      /// <summary>
+      /// Build the <see cref="ListAssetsRequest"/> object.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._entityId))
@@ -38,6 +42,11 @@ namespace Coinbase.Prime.Assets
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="ListAssetsRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="ListAssetsRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public ListAssetsRequest Build()
       {
         this.Validate();

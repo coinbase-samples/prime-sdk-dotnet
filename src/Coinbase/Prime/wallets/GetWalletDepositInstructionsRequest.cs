@@ -43,6 +43,12 @@ namespace Coinbase.Prime.Wallets
         return this;
       }
 
+      /// <summary>
+      /// Validate the builder.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">Thrown when the
+      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
+      /// or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
@@ -55,6 +61,11 @@ namespace Coinbase.Prime.Wallets
         }
       }
 
+      /// <summary>
+      /// Build the <see cref="GetWalletDepositInstructionsRequest"/> object.
+      /// </summary>
+      /// <returns>The <see cref="GetWalletDepositInstructionsRequest"/> object.</returns>
+      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public GetWalletDepositInstructionsRequest Build()
       {
         this.Validate();
