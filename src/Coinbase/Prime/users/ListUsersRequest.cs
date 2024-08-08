@@ -23,10 +23,19 @@ namespace Coinbase.Prime.Users
     public class ListUsersRequestBuilder
     {
       private string? _entityId;
+      private string? _cursor;
+      private string? _sortDirection;
 
       public ListUsersRequestBuilder withEntityId(string entityId)
       {
         this._entityId = entityId;
+        return this;
+      }
+
+      public ListUsersRequestBuilder withPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
         return this;
       }
 
@@ -50,7 +59,11 @@ namespace Coinbase.Prime.Users
       public ListUsersRequest Build()
       {
         this.Validate();
-        return new ListUsersRequest(this._entityId!);
+        return new ListUsersRequest(this._entityId!)
+        {
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection
+        };
       }
     }
   }

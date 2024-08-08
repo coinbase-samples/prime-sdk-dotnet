@@ -69,6 +69,13 @@ namespace Coinbase.Prime.Wallets
         return this;
       }
 
+      public ListWalletsRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validate the builder.
       /// </summary>

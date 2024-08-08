@@ -19,6 +19,7 @@ namespace Coinbase.Prime.AddressBook
   using Coinbase.Core.Error;
   using Coinbase.Prime.Common;
   using System.Text.Json.Serialization;
+
   public class GetPortfolioAddressBookRequest(string portfolioId)
   : BaseListRequest(portfolioId, null)
   {
@@ -68,6 +69,13 @@ namespace Coinbase.Prime.AddressBook
       public GetPortfolioAddressBookRequestBuilder WithLimit(int? limit)
       {
         this._limit = limit;
+        return this;
+      }
+
+      public GetPortfolioAddressBookRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
         return this;
       }
 

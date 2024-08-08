@@ -93,6 +93,13 @@ namespace Coinbase.Prime.Transactions
         return this;
       }
 
+      public ListWalletTransactionsRequestBuilder WithPagination(Pagination pagination)
+      {
+        _cursor = pagination.NextCursor;
+        _sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>

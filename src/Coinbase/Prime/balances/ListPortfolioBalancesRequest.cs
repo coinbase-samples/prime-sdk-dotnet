@@ -71,6 +71,13 @@ namespace Coinbase.Prime.Balances
         return this;
       }
 
+      public ListPortfolioBalancesRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validates the request.
       /// </summary>

@@ -52,6 +52,13 @@ namespace Coinbase.Prime.Products
         return this;
       }
 
+      public ListPortfolioProductsRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>

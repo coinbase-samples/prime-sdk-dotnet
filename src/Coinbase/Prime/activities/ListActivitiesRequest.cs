@@ -97,6 +97,13 @@ namespace Coinbase.Prime.Activities
         return this;
       }
 
+      public ListActivitiesRequestBuilder WithPagination(Pagination pagination)
+      {
+        _cursor = pagination.NextCursor;
+        _sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>

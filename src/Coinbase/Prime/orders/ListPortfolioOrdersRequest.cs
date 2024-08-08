@@ -114,6 +114,13 @@ namespace Coinbase.Prime.Orders
         return this;
       }
 
+      public ListPortfolioOrdersRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>

@@ -73,6 +73,13 @@ namespace Coinbase.Prime.Balances
         return this;
       }
 
+      public ListWeb3WalletBalancesRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       /// <summary>
       /// Validate the builder.
       /// </summary>

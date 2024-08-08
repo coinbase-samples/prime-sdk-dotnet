@@ -103,6 +103,13 @@ namespace Coinbase.Prime.Orders
         return this;
       }
 
+      public ListOpenOrdersRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
+        return this;
+      }
+
       public ListOpenOrdersRequest Build()
       {
         return new ListOpenOrdersRequest(this._portfolioId!)

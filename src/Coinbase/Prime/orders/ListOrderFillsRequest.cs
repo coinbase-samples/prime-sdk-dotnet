@@ -29,6 +29,8 @@ namespace Coinbase.Prime.Orders
     {
       private string? _portfolioId;
       private string? _orderId;
+      private string? _cursor;
+      private string? _sortDirection;
 
       public ListOrderFillsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -39,6 +41,25 @@ namespace Coinbase.Prime.Orders
       public ListOrderFillsRequestBuilder WithOrderId(string orderId)
       {
         this._orderId = orderId;
+        return this;
+      }
+
+      public ListOrderFillsRequestBuilder WithCursor(string? cursor)
+      {
+        this._cursor = cursor;
+        return this;
+      }
+
+      public ListOrderFillsRequestBuilder WithSortDirection(string? sortDirection)
+      {
+        this._sortDirection = sortDirection;
+        return this;
+      }
+
+      public ListOrderFillsRequestBuilder WithPagination(Pagination pagination)
+      {
+        this._cursor = pagination.NextCursor;
+        this._sortDirection = pagination.SortDirection;
         return this;
       }
 
@@ -68,7 +89,11 @@ namespace Coinbase.Prime.Orders
       public ListOrderFillsRequest Build()
       {
         this.Validate();
-        return new ListOrderFillsRequest(this._portfolioId!, this._orderId!);
+        return new ListOrderFillsRequest(this._portfolioId!, this._orderId!)
+        {
+          Cursor = this._cursor,
+          SortDirection = this._sortDirection
+        };
       }
     }
   }
