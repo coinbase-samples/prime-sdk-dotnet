@@ -4,6 +4,10 @@
     <ProjectReference Include="../Prime/Coinbase.Prime.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="\Users\nickmorgan\projects\core-dotnet\src\Coinbase\Core\Coinbase.Core.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>

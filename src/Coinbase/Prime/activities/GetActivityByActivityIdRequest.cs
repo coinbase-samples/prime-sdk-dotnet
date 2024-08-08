@@ -42,13 +42,19 @@ namespace Coinbase.Prime.Activities
         return this;
       }
 
+      /// <summary>
+      /// Validates the input fields.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">
+      /// If <see cref="_portfolioId"/> or <see cref="_activityId"/> are null, empty, or whitespace.
+      /// </exception>
       private void Validate()
       {
-        if (string.IsNullOrEmpty(_portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrEmpty(_activityId))
+        if (string.IsNullOrWhiteSpace(_activityId))
         {
           throw new CoinbaseClientException("ActivityId is required");
         }
