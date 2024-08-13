@@ -1,9 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="\Users\nickmorgan\projects\core-dotnet\src\Coinbase\Core\CoinbaseSdk.Core.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -12,6 +8,10 @@
 
   <ItemGroup>
     <Compile Include="src\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoinbaseSdk.Core" Version="0.0.1" />
   </ItemGroup>
 
 </Project>
