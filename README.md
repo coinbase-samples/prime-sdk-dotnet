@@ -11,6 +11,14 @@ The _Coinbase Prime .NET SDK_ sample library is free and open source and release
 
 The application and code are only available for demonstration purposes.
 
+## Installation
+
+The _Coinbase Prime .NET SDK_ is vended through NuGet and available for installation via the `dotnet` CLI.
+
+```bash
+dotnet add package CoinbaseSdk.Prime
+```
+
 ## Usage
 
 To use the _Coinbase Prime .NET SDK_, initialize the Credentials class and create a new client. The Credentials struct is JSON

@@ -1,8 +1,7 @@
 namespace CoinbaseSdk.PrimeExample.Example
 {
-  using System.Text.Json;
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Credentials;
+  using CoinbaseSdk.Core.Serialization;
   using CoinbaseSdk.Prime.Client;
   using CoinbaseSdk.Prime.Orders;
   using CoinbaseSdk.Prime.Portfolios;
@@ -24,8 +23,17 @@ namespace CoinbaseSdk.PrimeExample.Example
         return;
       }
 
-      var credentials = JsonSerializer.Deserialize<CoinbaseCredentials>(credentialsBlob, new JsonSerializerOptions(JsonSerializerDefaults.Web));
-      var client = new CoinbasePrimeClient(credentials);
+      var serializer = new JsonUtility();
+
+      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+
+      if (credentials == null)
+      {
+        Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
+        return;
+      }
+
+      var client = new CoinbasePrimeClient(credentials!);
 
       var portfoliosService = new PortfoliosService(client);
 
@@ -37,20 +45,40 @@ namespace CoinbaseSdk.PrimeExample.Example
 
       var orderService = new OrdersService(client);
 
-      Console.WriteLine(OrderType.MARKET);
-
-      var request = new CreateOrderRequest(portfolio.Id)
+      var request = new CreateOrderRequest(portfolio.Id!)
       {
-        BaseQuantity = "0.001",
+        BaseQuantity = "5",
+        LimitPrice = "0.32",
         Side = OrderSide.BUY,
         ProductId = "ADA-USD",
-        Type = OrderType.MARKET,
+        Type = OrderType.LIMIT,
+        ExpiryTime = new DateTimeOffset(DateTime.UtcNow.AddMinutes(5)).ToString("o"),
         ClientOrderId = Guid.NewGuid().ToString()
       };
 
       var createOrderResponse = orderService.CreateOrder(request);
 
       Console.WriteLine(createOrderResponse.OrderId);
+
+      // sleep for 1 second and then call GetOrder
+      Thread.Sleep(1000);
+
+      var getOrderResponse = orderService.GetOrderByOrderId(
+          new GetOrderByOrderIdRequest(portfolio.Id!, createOrderResponse.OrderId!));
+
+      Console.WriteLine(serializer.Serialize(getOrderResponse));
+
+      var cancelOrderResponse = orderService.CancelOrder(
+          new CancelOrderRequest(portfolio.Id!, createOrderResponse.OrderId!));
+
+      Console.WriteLine(serializer.Serialize(cancelOrderResponse));
+
+      Thread.Sleep(1000);
+
+      getOrderResponse = orderService.GetOrderByOrderId(
+          new GetOrderByOrderIdRequest(portfolio.Id!, createOrderResponse.OrderId!));
+
+      Console.WriteLine(serializer.Serialize(getOrderResponse));
     }
   }
 }
