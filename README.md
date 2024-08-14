@@ -1,19 +1,19 @@
-# Coinbase Prime Dotnet SDK
+# Coinbase Prime .NET SDK
 
 ## Overview
 
-The _Coinbase Prime Dotnet SDK_ is a sample library that demonstrates the structure of a [Coinbase Prime](https://prime.coinbase.com/) driver for
+The _Coinbase Prime .NET SDK_ is a sample library that demonstrates the structure of a [Coinbase Prime](https://prime.coinbase.com/) driver for
 the [REST APIs](https://docs.cdp.coinbase.com/prime/reference).
 
 ## License
 
-The _Coinbase Prime Dotnet SDK_ sample library is free and open source and released under the [Apache License, Version 2.0](LICENSE).
+The _Coinbase Prime .NET SDK_ sample library is free and open source and released under the [Apache License, Version 2.0](LICENSE).
 
 The application and code are only available for demonstration purposes.
 
 ## Usage
 
-To use the _Coinbase Prime Dotnet SDK_, initialize the Credentials class and create a new client. The Credentials struct is JSON
+To use the _Coinbase Prime .NET SDK_, initialize the Credentials class and create a new client. The Credentials struct is JSON
 enabled. Ensure that Prime API credentials are stored in a secure manner.
 
 ```c#
