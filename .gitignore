@@ -1,0 +1,14 @@
+# build
+[Bb]in/
+[Oo]bj/
+*.nupkg
+
+# user
+*.user
+*.userprefs
+.vs
+
+project.lock.json
+
+.DS_Store
+.idea/

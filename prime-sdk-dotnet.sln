@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F7809299-A0D4-4110-ADDD-58B23EBE3CBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoinbaseSdk", "CoinbaseSdk", "{405E1783-9193-480F-BFE2-088B66DF8697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.Prime", "src\CoinbaseSdk\Prime\CoinbaseSdk.Prime.csproj", "{E2730132-2996-4C04-9EE0-E0430C30DD81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.PrimeExample", "src\CoinbaseSdk\PrimeExample\CoinbaseSdk.PrimeExample.csproj", "{8DB4A76C-9398-403A-824E-65161D28F3E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06455C3-D3F6-44A4-9CF0-912BFB39C987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC20934-60BC-4791-BDC4-3E5D0E18C9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC20934-60BC-4791-BDC4-3E5D0E18C9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC20934-60BC-4791-BDC4-3E5D0E18C9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC20934-60BC-4791-BDC4-3E5D0E18C9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B760835D-6150-4BDE-95F9-20BC125DB840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B760835D-6150-4BDE-95F9-20BC125DB840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B760835D-6150-4BDE-95F9-20BC125DB840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B760835D-6150-4BDE-95F9-20BC125DB840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D98129B-6F3C-4333-9406-A382E488376E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D98129B-6F3C-4333-9406-A382E488376E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D98129B-6F3C-4333-9406-A382E488376E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D98129B-6F3C-4333-9406-A382E488376E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{405E1783-9193-480F-BFE2-088B66DF8697} = {F7809299-A0D4-4110-ADDD-58B23EBE3CBE}
+		{E2730132-2996-4C04-9EE0-E0430C30DD81} = {405E1783-9193-480F-BFE2-088B66DF8697}
+		{8DB4A76C-9398-403A-824E-65161D28F3E4} = {405E1783-9193-480F-BFE2-088B66DF8697}
+	EndGlobalSection
+EndGlobal
