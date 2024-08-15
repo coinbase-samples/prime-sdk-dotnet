@@ -25,19 +25,53 @@ To use the _Coinbase Prime .NET SDK_, initialize the Credentials class and creat
 enabled. Ensure that Prime API credentials are stored in a secure manner.
 
 ```c#
-public class Main {
+namespace CoinbaseSdk.PrimeExample.Example
+{
+  using CoinbaseSdk.Core.Credentials;
+  using CoinbaseSdk.Core.Serialization;
+  using CoinbaseSdk.Prime.Client;
+  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Orders;
+  using CoinbaseSdk.Prime.Portfolios;
+
+  class Example
+  {
     static void Main()
     {
-      string? value = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
-      if (value == null)
+      string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
+      if (credentialsBlob == null)
       {
         Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
         return;
       }
-      var credentials = new CoinbaseCredentials(value);
-      var client = new CoinbasePrimeClient(credentials);
-      var service = new PortfoliosService(client);
+
+      string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
+      if (portfolioId == null)
+      {
+        Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+        return;
+      }
+
+      var serializer = new JsonUtility();
+
+      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+
+      if (credentials == null)
+      {
+        Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
+        return;
+      }
+
+      var client = new CoinbasePrimeClient(credentials!);
+
+      var portfoliosService = new PortfoliosService(client);
+
+      var portfolio = portfoliosService.GetPortfolioById(
+        new GetPortfolioByIdRequest(portfolioId)).Portfolio!;
+
+      Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio)}");
     }
+  }
 }
 ```
 
