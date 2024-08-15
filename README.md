@@ -13,10 +13,16 @@ The application and code are only available for demonstration purposes.
 
 ## Installation
 
-The _Coinbase Prime .NET SDK_ is vended through NuGet and available for installation via the `dotnet` CLI.
+The _Coinbase Prime .NET SDK_ is vended through [NuGet](https://www.nuget.org/packages/CoinbaseSdk.Prime//) and available for installation via the `dotnet` CLI.
 
 ```bash
-dotnet add package CoinbaseSdk.Prime
+dotnet add package CoinbaseSdk.Prime --version x.y.z
+```
+
+or if using [paket](https://fsprojects.github.io/Paket/):
+
+```bash
+paket add CoinbaseSdk.Prime --version x.y.z
 ```
 
 ## Usage
