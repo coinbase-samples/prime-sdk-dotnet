@@ -17,11 +17,16 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class CryptoDepositInstructions
   {
     public string? Id { get; set; }
+
     public string? Name { get; set; }
+
     public string? Address { get; set; }
+
     public DepositType Type { get; set; }
 
     [JsonPropertyName("account_identifier")]

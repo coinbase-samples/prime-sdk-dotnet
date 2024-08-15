@@ -14,13 +14,23 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Wallets
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum WalletType
+  public enum TransactionStatus
   {
-    VAULT,
-    TRADING,
-    WALLET_TYPE_OTHER,
-    WEB3
+    TRANSACTION_CREATED,
+    TRANSACTION_REQUESTED,
+    TRANSACTION_APPROVED,
+    TRANSACTION_PROCESSING,
+    TRANSACTION_DONE,
+    TRANSACTION_IMPORT_PENDING,
+    TRANSACTION_IMPORTED,
+    TRANSACTION_CANCELLED,
+    TRANSACTION_REJECTED,
+    TRANSACTION_DELAYED,
+    TRANSACTION_RETRIED,
+    TRANSACTION_FAILED,
+    TRANSACTION_EXPIRED,
+    OTHER_TRANSACTION_STATUS
   }
 }

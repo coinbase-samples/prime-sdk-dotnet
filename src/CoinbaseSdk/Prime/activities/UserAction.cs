@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Prime.Activities
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class UserAction
   {
     public UserActionType Action { get; set; }

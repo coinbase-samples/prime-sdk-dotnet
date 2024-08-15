@@ -17,7 +17,8 @@
 namespace CoinbaseSdk.Prime.Allocations
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Orders;
+  using CoinbaseSdk.Prime.Model;
+
   public class Allocation
   {
     [JsonPropertyName("root_id")]

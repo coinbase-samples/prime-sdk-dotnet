@@ -18,17 +18,21 @@ namespace CoinbaseSdk.Prime.Allocations
 {
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Common;
-  using CoinbaseSdk.Prime.Orders;
+  using CoinbaseSdk.Prime.Model;
   using System.Text.Json.Serialization;
+
   public class GetPortfolioAllocationsRequest(string portfolioId)
   : BaseListRequest(portfolioId, null)
   {
     [JsonPropertyName("product_ids")]
     public string[] ProductIds { get; set; } = [];
+
     [JsonPropertyName("order_side")]
     public OrderSide OrderSide { get; set; }
+
     [JsonPropertyName("start_date")]
     public string? StartDate { get; set; }
+
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 

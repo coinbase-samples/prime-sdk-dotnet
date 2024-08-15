@@ -14,15 +14,16 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Orders
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum OrderStatus
+  public enum ActivitySecondaryType
   {
-    OPEN,
-    FILLED,
-    CANCELLED,
-    EXPIRED,
-    FAILED,
-    PENDING
+    NO_SECONDARY_TYPE,
+    ACTIVITY_SECONDARY_TYPE_BUY,
+    ACTIVITY_SECONDARY_TYPE_SELL,
+    ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER,
+    ACTIVITY_SECONDARY_TYPE_SWEEP_TRANSFER_TYPE,
+    ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER,
+    ACTIVITY_SECONDARY_TYPE_WEB3_WALLET
   }
 }

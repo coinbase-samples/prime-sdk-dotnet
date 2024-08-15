@@ -17,7 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
   public class GetOrderPreviewResponse
   {
@@ -28,6 +28,7 @@ namespace CoinbaseSdk.Prime.Orders
     public string? ProductId { get; set; }
 
     public OrderSide? Side { get; set; }
+
     public OrderType? Type { get; set; }
 
     [JsonPropertyName("base_quantity")]
@@ -49,6 +50,7 @@ namespace CoinbaseSdk.Prime.Orders
     public TimeInForce TimeInForce { get; set; }
 
     public string? Commission { get; set; }
+
     public string? Slippage { get; set; }
 
     [JsonPropertyName("best_bid")]

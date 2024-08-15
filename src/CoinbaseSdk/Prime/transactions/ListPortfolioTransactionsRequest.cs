@@ -19,6 +19,8 @@ namespace CoinbaseSdk.Prime.Transactions
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model;
+
   public class ListPortfolioTransactionsRequest(string portfolioId)
   : BaseListRequest(portfolioId, null)
   {

@@ -14,13 +14,16 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Balances
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum VisibilityStatus
+  public enum ActivityStatus
   {
-    UNKNOWN_VISIBILITY_STATUS,
-    VISIBLE,
-    HIDDEN,
-    SPAM
+    OTHER_ACTIVITY_STATUS,
+    ACTIVITY_STATUS_CANCELLED,
+    ACTIVITY_STATUS_PROCESSING,
+    ACTIVITY_STATUS_COMPLETED,
+    ACTIVITY_STATUS_EXPIRED,
+    ACTIVITY_STATUS_REJECTED,
+    ACTIVITY_STATUS_FAILED
   }
 }

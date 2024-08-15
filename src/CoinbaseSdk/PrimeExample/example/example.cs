@@ -3,8 +3,10 @@ namespace CoinbaseSdk.PrimeExample.Example
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Serialization;
   using CoinbaseSdk.Prime.Client;
+  using CoinbaseSdk.Prime.Model;
   using CoinbaseSdk.Prime.Orders;
   using CoinbaseSdk.Prime.Portfolios;
+
   class Example
   {
     static void Main()

@@ -14,23 +14,18 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Transactions
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum TransactionStatus
+  public enum Role
   {
-    TRANSACTION_CREATED,
-    TRANSACTION_REQUESTED,
-    TRANSACTION_APPROVED,
-    TRANSACTION_PROCESSING,
-    TRANSACTION_DONE,
-    TRANSACTION_IMPORT_PENDING,
-    TRANSACTION_IMPORTED,
-    TRANSACTION_CANCELLED,
-    TRANSACTION_REJECTED,
-    TRANSACTION_DELAYED,
-    TRANSACTION_RETRIED,
-    TRANSACTION_FAILED,
-    TRANSACTION_EXPIRED,
-    OTHER_TRANSACTION_STATUS
+    AUDITOR,
+    SIGNATORY,
+    ADMIN,
+    INITIATOR,
+    REVIEWER,
+    TRADER,
+    FULL_TRADER,
+    TEAM_MANAGER,
+    APPROVER
   }
 }

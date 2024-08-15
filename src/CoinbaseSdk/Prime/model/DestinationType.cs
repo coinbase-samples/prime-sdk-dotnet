@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Transactions
+namespace CoinbaseSdk.Prime.Model
 {
   public enum DestinationType
   {

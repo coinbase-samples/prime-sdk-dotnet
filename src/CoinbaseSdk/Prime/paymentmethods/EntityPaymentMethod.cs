@@ -17,9 +17,12 @@
 namespace CoinbaseSdk.Prime.PaymentMethods
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class EntityPaymentMethod
   {
     public string? Id { get; set; }
+
     public string? Symbol { get; set; }
 
     [JsonPropertyName("payment_method_type")]

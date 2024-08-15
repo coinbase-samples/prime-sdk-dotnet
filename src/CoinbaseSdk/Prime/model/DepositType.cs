@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Users
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum Role
+  public enum DepositType
   {
-    AUDITOR,
-    SIGNATORY,
-    ADMIN,
-    INITIATOR,
-    REVIEWER,
-    TRADER,
-    FULL_TRADER,
-    TEAM_MANAGER,
-    APPROVER
+    CRYPTO,
+    WIRE,
+    SEN,
+    SWIFT,
+    UNKNOWN_WALLET_DEPOSIT_TYPE
   }
 }

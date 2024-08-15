@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class OrderFill
   {
     public string? Id { get; set; }

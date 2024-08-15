@@ -14,12 +14,13 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Balances
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum BalanceType
+  public enum TimeInForce
   {
-    TRADING_BALANCES,
-    VAULT_BALANCES,
-    TOTAL_BALANCES
+    FILL_OR_KILL,
+    GOOD_UNTIL_DATE_TIME,
+    GOOD_UNTIL_CANCELLED,
+    IMMEDIATE_OR_CANCEL
   }
 }

@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Prime.Allocations
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class CreateAllocationRequest
   {
     [JsonPropertyName("allocation_id")]

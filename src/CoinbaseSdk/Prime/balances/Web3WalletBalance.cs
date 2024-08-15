@@ -17,9 +17,12 @@
 namespace CoinbaseSdk.Prime.Balances
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class Web3WalletBalance
   {
     public Web3WalletAsset? Asset { get; set; }
+
     public string? Amount { get; set; }
 
     [JsonPropertyName("visibility_status")]

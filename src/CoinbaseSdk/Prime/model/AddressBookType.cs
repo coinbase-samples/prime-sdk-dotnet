@@ -14,13 +14,12 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Orders
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum TimeInForce
+  public enum AddressBookType
   {
-    FILL_OR_KILL,
-    GOOD_UNTIL_DATE_TIME,
-    GOOD_UNTIL_CANCELLED,
-    IMMEDIATE_OR_CANCEL
+    ADDRESS_BOOK_TYPE_UNSPECIFIED,
+    ADDRESS_BOOK_TYPE_ADDRESS,
+    ADDRESS_BOOK_TYPE_COUNTERPARTY_ID
   }
 }

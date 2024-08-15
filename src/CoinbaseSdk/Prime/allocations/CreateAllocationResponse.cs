@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Prime.Allocations
 {
   using System.Text.Json.Serialization;
+
   public class CreateAllocationResponse
   {
     public bool? Success { get; set; }

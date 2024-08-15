@@ -16,6 +16,8 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
+  using CoinbaseSdk.Prime.Model;
+
   public class TransferLocation
   {
     public TransferLocationType Type { get; set; }

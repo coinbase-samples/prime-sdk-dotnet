@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Prime.Invoice
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class InvoiceItem
   {
     public string? Description { get; set; }

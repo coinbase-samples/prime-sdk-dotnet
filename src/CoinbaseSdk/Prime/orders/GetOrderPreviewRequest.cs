@@ -19,6 +19,7 @@ namespace CoinbaseSdk.Prime.Orders
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model;
 
   public class GetOrderPreviewRequest(string portfolioId)
   : BasePrimeRequest(portfolioId, null)
@@ -27,6 +28,7 @@ namespace CoinbaseSdk.Prime.Orders
     public string? ProductId { get; set; }
 
     public OrderSide? Side { get; set; }
+
     public OrderType? Type { get; set; }
 
     [JsonPropertyName("base_quantity")]

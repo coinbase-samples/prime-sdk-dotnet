@@ -17,6 +17,8 @@
 namespace CoinbaseSdk.Prime.AddressBook
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class AddressBookEntry
   {
     public string? Id { get; set; }
@@ -25,6 +27,7 @@ namespace CoinbaseSdk.Prime.AddressBook
     public string? CurrencySymbol { get; set; }
 
     public string? Name { get; set; }
+
     public string? Address { get; set; }
 
     [JsonPropertyName("account_identifier")]

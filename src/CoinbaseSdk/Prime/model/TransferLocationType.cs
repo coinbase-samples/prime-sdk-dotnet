@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Transactions
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum AssetChangeType
+  public enum TransferLocationType
   {
-    BalanceTransfer,
-    BalanceApproval,
-    ItemTransfer,
-    ItemApproval,
-    ItemApprovalAll
+    PAYMENT_METHOD,
+    WALLET,
+    ADDRESS,
+    OTHER,
+    MULTIPLE_ADDRESSES
   }
 }

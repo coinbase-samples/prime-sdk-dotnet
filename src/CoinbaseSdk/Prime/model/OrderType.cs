@@ -14,16 +14,15 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Activities
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum ActivitySecondaryType
+  public enum OrderType
   {
-    NO_SECONDARY_TYPE,
-    ACTIVITY_SECONDARY_TYPE_BUY,
-    ACTIVITY_SECONDARY_TYPE_SELL,
-    ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER,
-    ACTIVITY_SECONDARY_TYPE_SWEEP_TRANSFER_TYPE,
-    ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER,
-    ACTIVITY_SECONDARY_TYPE_WEB3_WALLET
+    MARKET,
+    LIMIT,
+    TWAP,
+    BLOCK,
+    VWAP,
+    STOP_LIMIT
   }
 }

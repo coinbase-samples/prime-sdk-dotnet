@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Invoice
+namespace CoinbaseSdk.Prime.Model
 {
   public enum InvoiceType
   {

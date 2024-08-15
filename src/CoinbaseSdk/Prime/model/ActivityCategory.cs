@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Activities
+namespace CoinbaseSdk.Prime.Model
 {
   public enum ActivityCategory
   {

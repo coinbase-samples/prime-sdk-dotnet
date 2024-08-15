@@ -14,14 +14,11 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Allocations
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum AllocationStatus
+  public enum OrderSide
   {
-    ALLOCATION_STATUS_UNSPECIFIED,
-    ALLOCATION_STATUS_ALLOCATION_PENDING,
-    ALLOCATION_STATUS_ALLOCATION_ACCEPTED,
-    ALLOCATION_STATUS_ALLOCATION_REJECTED,
-    ALLOCATION_STATUS_ALLOCATION_ALLOCATED
+    BUY,
+    SELL
   }
 }

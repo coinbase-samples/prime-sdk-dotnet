@@ -16,6 +16,8 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
+  using CoinbaseSdk.Prime.Model;
+
   public class AssetChange
   {
     public AssetChangeType Type { get; set; }

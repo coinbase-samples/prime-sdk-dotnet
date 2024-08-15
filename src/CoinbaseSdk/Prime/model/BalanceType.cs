@@ -14,12 +14,12 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Allocations
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum SizeType
+  public enum BalanceType
   {
-    BASE,
-    QUOTE,
-    PERCENT
+    TRADING_BALANCES,
+    VAULT_BALANCES,
+    TOTAL_BALANCES
   }
 }

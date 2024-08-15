@@ -17,9 +17,12 @@
 namespace CoinbaseSdk.Prime.Balances
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class ListPortfolioBalancesResponse
   {
     public Balance[] Balances { get; set; } = [];
+
     public BalanceType Type { get; set; }
 
     [JsonPropertyName("trading_balances")]

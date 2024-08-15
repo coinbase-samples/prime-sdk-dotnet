@@ -17,12 +17,18 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
+
   public class Wallet
   {
     public string? Id { get; set; }
+
     public string? Name { get; set; }
+
     public string? Symbol { get; set; }
+
     public WalletType Type { get; set; }
+
     public string? Address { get; set; }
 
     [JsonPropertyName("created_at")]

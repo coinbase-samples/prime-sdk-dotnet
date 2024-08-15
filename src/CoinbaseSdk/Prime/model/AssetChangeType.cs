@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.PaymentMethods
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum PaymentMethodType
+  public enum AssetChangeType
   {
-    UNKNOWN_PAYMENT_METHOD_TYPE,
-    METHOD_WIRE,
-    METHOD_SEN,
-    METHOD_SWIFT
+    BalanceTransfer,
+    BalanceApproval,
+    ItemTransfer,
+    ItemApproval,
+    ItemApprovalAll
   }
 }

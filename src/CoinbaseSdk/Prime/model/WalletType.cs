@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Invoice
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum InvoiceState
+  public enum WalletType
   {
-    INVOICE_STATE_UNSPECIFIED,
-    INVOICE_STATE_IMPORTED,
-    INVOICE_STATE_BILLED,
-    INVOICE_STATE_PARTIALLY_PAID,
-    INVOICE_STATE_PAID
+    VAULT,
+    TRADING,
+    WALLET_TYPE_OTHER,
+    WEB3
   }
 }

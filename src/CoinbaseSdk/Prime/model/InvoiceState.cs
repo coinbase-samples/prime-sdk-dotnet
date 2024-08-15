@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Wallets
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum DepositType
+  public enum InvoiceState
   {
-    CRYPTO,
-    WIRE,
-    SEN,
-    SWIFT,
-    UNKNOWN_WALLET_DEPOSIT_TYPE
+    INVOICE_STATE_UNSPECIFIED,
+    INVOICE_STATE_IMPORTED,
+    INVOICE_STATE_BILLED,
+    INVOICE_STATE_PARTIALLY_PAID,
+    INVOICE_STATE_PAID
   }
 }

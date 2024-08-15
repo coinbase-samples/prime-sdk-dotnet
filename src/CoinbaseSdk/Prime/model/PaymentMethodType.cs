@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Transactions
+namespace CoinbaseSdk.Prime.Model
 {
-  public enum TransferLocationType
+  public enum PaymentMethodType
   {
-    PAYMENT_METHOD,
-    WALLET,
-    ADDRESS,
-    OTHER,
-    MULTIPLE_ADDRESSES
+    UNKNOWN_PAYMENT_METHOD_TYPE,
+    METHOD_WIRE,
+    METHOD_SEN,
+    METHOD_SWIFT
   }
 }
