@@ -85,6 +85,12 @@ The JSON format expected for `COINBASE_PRIME_CREDENTIALS` is:
 }
 ```
 
-For an example of how to use the client, see the [`Example`](src/CoinbaseSdk/PrimeExample/example/Example.cs) class under the com.coinbase.examples package.
+For an example of how to use the client, see the [`Example`](src/CoinbaseSdk/PrimeExample/example/Example.cs) file. To execute the example, run the following command:
 
-**Warning**: this does place a market order for a very small amount of ADA. Please ensure that you have the necessary funds in your account before running this code.
+```bash
+dotnet run --project src/CoinbaseSdk.PrimeExample/CoinbaseSdk.PrimeExample.csproj
+```
+
+**Warning**: this does place a limit order for a very small amount of ADA.
+Please ensure that you have the necessary funds in your account before running this code.
+The example code should cancel the order, however if something breaks you may need to go manually cancel the order.
