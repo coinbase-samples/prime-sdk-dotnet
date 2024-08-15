@@ -16,37 +16,17 @@
 
 namespace CoinbaseSdk.Prime.Invoice
 {
-  using System.Net;
-  using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
-  using CoinbaseSdk.Core.Service;
 
-  public class InvoiceService(ICoinbaseClient client) : CoinbaseService(client), IInvoiceService
+  public interface IInvoiceService
   {
     public ListInvoicesResponse ListInvoices(
       ListInvoicesRequest request,
-      CallOptions? options = null)
-    {
-      return this.Request<ListInvoicesResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/invoices",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
+      CallOptions? options = null);
 
     public Task<ListInvoicesResponse> ListInvoicesAsync(
       ListInvoicesRequest request,
       CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return this.RequestAsync<ListInvoicesResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/invoices",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
+      CancellationToken cancellationToken = default);
   }
 }

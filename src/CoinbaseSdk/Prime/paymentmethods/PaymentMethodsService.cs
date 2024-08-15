@@ -21,7 +21,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class PaymentMethodsService(ICoinbaseClient client) : CoinbaseService(client)
+  public class PaymentMethodsService(ICoinbaseClient client) : CoinbaseService(client), IPaymentMethodsService
   {
     public GetEntityPaymentMethodResponse GetEntityPaymentMethod(
       GetEntityPaymentMethodRequest request,

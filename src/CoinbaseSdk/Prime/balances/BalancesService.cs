@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Balances
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class BalancesService(ICoinbaseClient client) : CoinbaseService(client)
+  public class BalancesService(ICoinbaseClient client) : CoinbaseService(client), IBalancesService
   {
     public GetWalletBalanceResponse GetWalletBalance(
       GetWalletBalanceRequest request,

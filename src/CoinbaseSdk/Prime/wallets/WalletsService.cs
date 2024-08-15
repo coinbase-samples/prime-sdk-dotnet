@@ -20,7 +20,8 @@ namespace CoinbaseSdk.Prime.Wallets
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class WalletsService(ICoinbaseClient client) : CoinbaseService(client)
+
+  public class WalletsService(ICoinbaseClient client) : CoinbaseService(client), IWalletsService
   {
     public ListWalletsResponse ListWallets(
       ListWalletsRequest request,

@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Activities
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class ActivtiesService(ICoinbaseClient client) : CoinbaseService(client)
+  public class ActivtiesService(ICoinbaseClient client) : CoinbaseService(client), IActivtiesService
   {
     public ListActivitiesResponse ListActivities(
       ListActivitiesRequest request,

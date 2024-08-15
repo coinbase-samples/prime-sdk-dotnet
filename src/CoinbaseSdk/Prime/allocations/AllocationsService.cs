@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Allocations
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class AllocationsService(ICoinbaseClient client) : CoinbaseService(client)
+  public class AllocationsService(ICoinbaseClient client) : CoinbaseService(client), IAllocationsService
   {
     public CreateAllocationResponse CreateAllocation(
       CreateAllocationRequest request,

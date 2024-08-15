@@ -21,7 +21,7 @@ namespace CoinbaseSdk.Prime.Users
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class UsersService(ICoinbaseClient client) : CoinbaseService(client)
+  public class UsersService(ICoinbaseClient client) : CoinbaseService(client), IUsersService
   {
     public ListPortfolioUsersResponse ListPortfolioUsers(
       ListPortfolioUsersRequest request,

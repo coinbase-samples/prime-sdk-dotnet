@@ -16,36 +16,17 @@
 
 namespace CoinbaseSdk.Prime.Assets
 {
-  using System.Net;
-  using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
-  using CoinbaseSdk.Core.Service;
-  public class AssetsService(ICoinbaseClient client) : CoinbaseService(client), IAssetsService
+  public interface IAssetsService
   {
     public ListAssetsResponse ListAssets(
       ListAssetsRequest request,
-      CallOptions? options = null)
-    {
-      return this.Request<ListAssetsResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/assets",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
+      CallOptions? options = null);
 
     public Task<ListAssetsResponse> ListAssetsAsync(
       ListAssetsRequest request,
       CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return this.RequestAsync<ListAssetsResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/assets",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
+      CancellationToken cancellationToken = default);
   }
 }
+

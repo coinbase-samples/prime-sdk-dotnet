@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.AddressBook
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  public class AddressBookService(ICoinbaseClient client) : CoinbaseService(client)
+  public class AddressBookService(ICoinbaseClient client) : CoinbaseService(client), IAddressBookService
   {
     public CreateAddressBookEntryResponse CreateAddressBookEntry(
       CreateAddressBookEntryRequest request,

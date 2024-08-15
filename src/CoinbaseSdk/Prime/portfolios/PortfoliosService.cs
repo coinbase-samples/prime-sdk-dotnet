@@ -22,7 +22,7 @@ namespace CoinbaseSdk.Prime.Portfolios
   using CoinbaseSdk.Core.Service;
 
   public class PortfoliosService(ICoinbaseClient client) :
-   CoinbaseService(client)
+   CoinbaseService(client), IPortfoliosService
   {
     public ListPortfoliosResponse ListPortfolios(CallOptions? options = null)
     {

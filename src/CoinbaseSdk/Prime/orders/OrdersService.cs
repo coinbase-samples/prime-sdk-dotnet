@@ -22,7 +22,7 @@ namespace CoinbaseSdk.Prime.Orders
   using CoinbaseSdk.Core.Service;
 
   public class OrdersService(ICoinbaseClient client) :
-   CoinbaseService(client)
+   CoinbaseService(client), IOrdersService
   {
     public CreateOrderResponse CreateOrder(
       CreateOrderRequest request,

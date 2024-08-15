@@ -21,7 +21,7 @@ namespace CoinbaseSdk.Prime.Transactions
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class TransactionsService(ICoinbaseClient client) : CoinbaseService(client)
+  public class TransactionsService(ICoinbaseClient client) : CoinbaseService(client), ITransactionsService
   {
     public CreateConversionResponse CreateConversion(
       CreateConversionRequest request,
