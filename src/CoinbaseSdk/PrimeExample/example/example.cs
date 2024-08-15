@@ -39,9 +39,8 @@ namespace CoinbaseSdk.PrimeExample.Example
 
       var portfolio = portfoliosService.GetPortfolioById(
         new GetPortfolioByIdRequest(portfolioId)).Portfolio!;
-      Console.WriteLine(portfolio);
 
-      Console.WriteLine(portfolio.Id!);
+      Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio)}");
 
       var orderService = new OrdersService(client);
 
@@ -58,7 +57,7 @@ namespace CoinbaseSdk.PrimeExample.Example
 
       var createOrderResponse = orderService.CreateOrder(request);
 
-      Console.WriteLine(createOrderResponse.OrderId);
+      Console.WriteLine($"CreateOrderResponse: {serializer.Serialize(createOrderResponse)}");
 
       // sleep for 1 second and then call GetOrder
       Thread.Sleep(1000);
@@ -66,19 +65,19 @@ namespace CoinbaseSdk.PrimeExample.Example
       var getOrderResponse = orderService.GetOrderByOrderId(
           new GetOrderByOrderIdRequest(portfolio.Id!, createOrderResponse.OrderId!));
 
-      Console.WriteLine(serializer.Serialize(getOrderResponse));
+      Console.WriteLine($"GetOrderResponse after Create: {serializer.Serialize(getOrderResponse)}");
 
       var cancelOrderResponse = orderService.CancelOrder(
           new CancelOrderRequest(portfolio.Id!, createOrderResponse.OrderId!));
 
-      Console.WriteLine(serializer.Serialize(cancelOrderResponse));
+      Console.WriteLine($"CancelOrderResponse: {serializer.Serialize(cancelOrderResponse)}");
 
       Thread.Sleep(1000);
 
       getOrderResponse = orderService.GetOrderByOrderId(
           new GetOrderByOrderIdRequest(portfolio.Id!, createOrderResponse.OrderId!));
 
-      Console.WriteLine(serializer.Serialize(getOrderResponse));
+      Console.WriteLine($"Post Cancel Order: {serializer.Serialize(getOrderResponse)}");
     }
   }
 }
