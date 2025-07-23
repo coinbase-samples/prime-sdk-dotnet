@@ -17,27 +17,27 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using CoinbaseSdk.Prime.Model;
-  public class GetWalletByIdResponse
+  public class GetWalletResponse
   {
     public Wallet? Wallet { get; set; }
 
-    public GetWalletByIdResponse() { }
+    public GetWalletResponse() { }
 
-    public class GetWalletByIdResponseBuilder
+    public class GetWalletResponseBuilder
     {
       private Wallet? _wallet;
 
-      public GetWalletByIdResponseBuilder() { }
+      public GetWalletResponseBuilder() { }
 
-      public GetWalletByIdResponseBuilder WithWallet(Wallet wallet)
+      public GetWalletResponseBuilder WithWallet(Wallet wallet)
       {
         this._wallet = wallet;
         return this;
       }
 
-      public GetWalletByIdResponse Build()
+      public GetWalletResponse Build()
       {
-        return new GetWalletByIdResponse
+        return new GetWalletResponse
         {
           Wallet = this._wallet
         };

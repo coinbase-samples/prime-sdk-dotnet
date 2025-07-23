@@ -126,5 +126,31 @@ namespace CoinbaseSdk.Prime.Activities
         options,
         cancellationToken);
     }
+
+    public GetActivityByActivityIdResponse GetActivity(
+      GetActivityRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetActivityByActivityIdResponse>(
+        HttpMethod.Get,
+        $"/activities/{request.ActivityId}",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetActivityByActivityIdResponse> GetActivityAsync(
+      GetActivityRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetActivityByActivityIdResponse>(
+        HttpMethod.Get,
+        $"/activities/{request.ActivityId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
   }
 }

@@ -17,23 +17,23 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using CoinbaseSdk.Prime.Model;
-  public class GetOrderByOrderIdResponse
+  public class GetOrderResponse
   {
     public Order? Order { get; set; }
 
-    public class GetOrderByOrderIdResponseBuilder
+    public class GetOrderResponseBuilder
     {
       private Order? _order;
 
-      public GetOrderByOrderIdResponseBuilder WithOrder(Order order)
+      public GetOrderResponseBuilder WithOrder(Order order)
       {
         this._order = order;
         return this;
       }
 
-      public GetOrderByOrderIdResponse Build()
+      public GetOrderResponse Build()
       {
-        return new GetOrderByOrderIdResponse
+        return new GetOrderResponse
         {
           Order = this._order
         };

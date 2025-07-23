@@ -59,6 +59,9 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
 
+    [JsonPropertyName("hierarchy_type")]
+    public HierarchyType? HierarchyType { get; set; }
+
     public Activity() { }
 
     public class ActivityBuilder
@@ -79,6 +82,7 @@ namespace CoinbaseSdk.Prime.Model
       private string[] _symbols = [];
       private string? _createdAt;
       private string? _updatedAt;
+      private HierarchyType? _hierarchyType;
 
       public ActivityBuilder WithId(string? id)
       {
@@ -177,6 +181,12 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
+      public ActivityBuilder WithHierarchyType(HierarchyType? hierarchyType)
+      {
+        _hierarchyType = hierarchyType;
+        return this;
+      }
+
       public Activity Build()
       {
         return new Activity
@@ -197,6 +207,7 @@ namespace CoinbaseSdk.Prime.Model
           Symbols = _symbols,
           CreatedAt = _createdAt,
           UpdatedAt = _updatedAt,
+          HierarchyType = _hierarchyType,
         };
       }
     }

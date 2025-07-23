@@ -128,11 +128,11 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public GetOrderByOrderIdResponse GetOrderByOrderId(
-      GetOrderByOrderIdRequest request,
+    public GetOrderResponse GetOrder(
+      GetOrderRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetOrderByOrderIdResponse>(
+      return this.Request<GetOrderResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}",
         [HttpStatusCode.OK],
@@ -140,12 +140,12 @@ namespace CoinbaseSdk.Prime.Orders
         options);
     }
 
-    public Task<GetOrderByOrderIdResponse> GetOrderByOrderIdAsync(
-      GetOrderByOrderIdRequest request,
+    public Task<GetOrderResponse> GetOrderAsync(
+      GetOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetOrderByOrderIdResponse>(
+      return this.RequestAsync<GetOrderResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}",
         [HttpStatusCode.OK],
@@ -278,6 +278,32 @@ namespace CoinbaseSdk.Prime.Orders
       return this.RequestAsync<ListOrderFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/fills",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    public GetOrderEditHistoryResponse GetOrderEditHistory(
+      GetOrderEditHistoryRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetOrderEditHistoryResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetOrderEditHistoryResponse> GetOrderEditHistoryAsync(
+      GetOrderEditHistoryRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetOrderEditHistoryResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
         [HttpStatusCode.OK],
         request,
         options,
