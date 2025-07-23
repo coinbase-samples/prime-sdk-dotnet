@@ -49,11 +49,11 @@ namespace CoinbaseSdk.Prime.Activities
         cancellationToken);
     }
 
-    public ListActivitiesResponse ListEntityActivities(
+    public ListEntityActivitiesResponse ListEntityActivities(
       ListEntityActivitiesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListActivitiesResponse>(
+      return this.Request<ListEntityActivitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/activities",
         [HttpStatusCode.OK],
@@ -61,12 +61,12 @@ namespace CoinbaseSdk.Prime.Activities
         options);
     }
 
-    public Task<ListActivitiesResponse> ListEntityActivitiesAsync(
+    public Task<ListEntityActivitiesResponse> ListEntityActivitiesAsync(
       ListEntityActivitiesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListActivitiesResponse>(
+      return this.RequestAsync<ListEntityActivitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/activities",
         [HttpStatusCode.OK],
@@ -75,52 +75,53 @@ namespace CoinbaseSdk.Prime.Activities
         cancellationToken);
     }
 
-    public GetActivityByActivityIdResponse GetActivityByActivityId(
-      GetActivityByActivityIdRequest request,
+
+    public GetActivityResponse GetActivity(
+      GetActivityRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetActivityByActivityIdResponse>(
+      return this.Request<GetActivityResponse>(
         HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
+        $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
-    public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
-      GetActivityByActivityIdRequest request,
+    public Task<GetActivityResponse> GetActivityAsync(
+      GetActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetActivityByActivityIdResponse>(
+      return this.RequestAsync<GetActivityResponse>(
         HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
+        $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options,
         cancellationToken);
     }
 
-    public GetActivityByActivityIdResponse GetEntityActivityByActivityId(
-      GetEntityActivityByActivityIdRequest request,
+    public GetPortfolioActivityResponse GetPortfolioActivity(
+      GetPortfolioActivityRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetActivityByActivityIdResponse>(
+      return this.Request<GetPortfolioActivityResponse>(
         HttpMethod.Get,
-        $"/activities/{request.ActivityId}",
+        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options);
     }
 
-    public Task<GetActivityByActivityIdResponse> GetEntityActivityByActivityIdAsync(
-      GetEntityActivityByActivityIdRequest request,
+    public Task<GetPortfolioActivityResponse> GetPortfolioActivityAsync(
+      GetPortfolioActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetActivityByActivityIdResponse>(
+      return this.RequestAsync<GetPortfolioActivityResponse>(
         HttpMethod.Get,
-        $"/activities/{request.ActivityId}",
+        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
         null,
         options,

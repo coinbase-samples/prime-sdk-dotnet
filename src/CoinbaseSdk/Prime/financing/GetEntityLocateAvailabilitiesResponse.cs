@@ -23,24 +23,5 @@ namespace CoinbaseSdk.Prime.Financing
     public Locate[]? Locates { get; set; }
 
     public GetEntityLocateAvailabilitiesResponse() { }
-
-    public class GetEntityLocateAvailabilitiesResponseBuilder
-    {
-      private Locate[]? _locates;
-
-      public GetEntityLocateAvailabilitiesResponseBuilder WithLocates(Locate[] locates)
-      {
-        this._locates = locates;
-        return this;
-      }
-
-      public GetEntityLocateAvailabilitiesResponse Build()
-      {
-        return new GetEntityLocateAvailabilitiesResponse
-        {
-          Locates = this._locates
-        };
-      }
-    }
   }
 }

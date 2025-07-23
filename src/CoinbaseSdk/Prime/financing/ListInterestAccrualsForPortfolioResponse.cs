@@ -27,32 +27,5 @@ namespace CoinbaseSdk.Prime.Financing
     public Accrual[] Accruals { get; set; } = [];
 
     public ListInterestAccrualsForPortfolioResponse() { }
-
-    public class ListInterestAccrualsForPortfolioResponseBuilder
-    {
-      private string? _totalNotionalAccrual;
-      private Accrual[] _accruals = [];
-
-      public ListInterestAccrualsForPortfolioResponseBuilder WithTotalNotionalAccrual(string totalNotionalAccrual)
-      {
-        _totalNotionalAccrual = totalNotionalAccrual;
-        return this;
-      }
-
-      public ListInterestAccrualsForPortfolioResponseBuilder WithAccruals(Accrual[] accruals)
-      {
-        _accruals = accruals;
-        return this;
-      }
-
-      public ListInterestAccrualsForPortfolioResponse Build()
-      {
-        return new ListInterestAccrualsForPortfolioResponse
-        {
-          TotalNotionalAccrual = _totalNotionalAccrual,
-          Accruals = _accruals
-        };
-      }
-    }
   }
 }

@@ -22,24 +22,5 @@ namespace CoinbaseSdk.Prime.Financing
     public PostTradeCreditInformation? PostTradeCredit { get; set; }
 
     public GetPortfolioCreditInformationResponse() { }
-
-    public class GetPortfolioCreditInformationResponseBuilder
-    {
-      private PostTradeCreditInformation? _postTradeCredit;
-
-      public GetPortfolioCreditInformationResponseBuilder WithPostTradeCredit(PostTradeCreditInformation? postTradeCredit)
-      {
-        this._postTradeCredit = postTradeCredit;
-        return this;
-      }
-
-      public GetPortfolioCreditInformationResponse Build()
-      {
-        return new GetPortfolioCreditInformationResponse
-        {
-          PostTradeCredit = this._postTradeCredit
-        };
-      }
-    }
   }
 }

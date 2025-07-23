@@ -16,6 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// LoanType represents the type of loan.
+  /// </summary>
   public enum LoanType
   {
     LOAN_TYPE_UNSET,

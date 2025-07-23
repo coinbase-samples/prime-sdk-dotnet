@@ -20,21 +20,18 @@ namespace CoinbaseSdk.Prime.Users
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListUsersRequest(string entityId)
+  public class ListUsersRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
-    public int? Limit { get; set; }
+    public SortDirection? SortDirection { get; set; }
 
-    public class ListUsersRequestBuilder
+    public class ListUsersRequestBuilder : PaginatedRequestBuilder<ListUsersRequest, ListUsersRequestBuilder>
     {
       private string? _entityId;
-      private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
 
       public ListUsersRequestBuilder withEntityId(string entityId)
       {
@@ -44,7 +41,7 @@ namespace CoinbaseSdk.Prime.Users
 
       public ListUsersRequestBuilder withPagination(Pagination pagination)
       {
-        this._cursor = pagination.NextCursor;
+        WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
@@ -66,14 +63,15 @@ namespace CoinbaseSdk.Prime.Users
       /// </summary>
       /// <returns>The <see cref="ListUsersRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListUsersRequest Build()
+      public override ListUsersRequest Build()
       {
         this.Validate();
-        return new ListUsersRequest(this._entityId!)
+        var request = new ListUsersRequest(this._entityId!)
         {
-          Cursor = this._cursor,
           SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

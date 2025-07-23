@@ -2,8 +2,7 @@
 
 ## Overview
 
-The _Coinbase Prime .NET SDK_ is a sample library that demonstrates the structure of a [Coinbase Prime](https://prime.coinbase.com/) driver for
-the [REST APIs](https://docs.cdp.coinbase.com/prime/reference).
+The _Coinbase Prime .NET SDK_ is a sample library that demonstrates the structure of a [Coinbase Prime](https://prime.coinbase.com/) driver for the [REST APIs](https://docs.cdp.coinbase.com/prime/reference).
 
 ## License
 
@@ -13,90 +12,57 @@ The application and code are only available for demonstration purposes.
 
 ## Installation
 
-The _Coinbase Prime .NET SDK_ is vended through [NuGet](https://www.nuget.org/packages/CoinbaseSdk.Prime//) and available for installation via the `dotnet` CLI.
-
 ```bash
 dotnet add package CoinbaseSdk.Prime --version x.y.z
 ```
 
-or if using [paket](https://fsprojects.github.io/Paket/):
+## Configuration
+
+Create a `.env` file with your API credentials:
 
 ```bash
-paket add CoinbaseSdk.Prime --version x.y.z
+cp .env.example .env
+```
+
+Required environment variables:
+
+```bash
+PRIME_ACCESS_KEY=your-access-key
+PRIME_PASSPHRASE=your-passphrase
+PRIME_SIGNING_KEY=your-signing-key
 ```
 
 ## Usage
 
-To use the _Coinbase Prime .NET SDK_, initialize the Credentials class and create a new client. The Credentials struct is JSON
-enabled. Ensure that Prime API credentials are stored in a secure manner.
+Initialize the client using environment variables:
 
-```c#
-namespace CoinbaseSdk.PrimeExample.Example
-{
-  using CoinbaseSdk.Core.Credentials;
-  using CoinbaseSdk.Core.Serialization;
-  using CoinbaseSdk.Prime.Client;
-  using CoinbaseSdk.Prime.Model;
-  using CoinbaseSdk.Prime.Orders;
-  using CoinbaseSdk.Prime.Portfolios;
+```csharp
+var client = CoinbasePrimeClient.FromEnv();
+var activitiesService = new ActivitiesService(client);
 
-  class Example
-  {
-    static void Main()
-    {
-      string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
-      if (credentialsBlob == null)
-      {
-        Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
-        return;
-      }
-
-      string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
-      if (portfolioId == null)
-      {
-        Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
-        return;
-      }
-
-      var serializer = new JsonUtility();
-
-      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
-
-      if (credentials == null)
-      {
-        Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
-        return;
-      }
-
-      var client = new CoinbasePrimeClient(credentials!);
-
-      var portfoliosService = new PortfoliosService(client);
-
-      var portfolio = portfoliosService.GetPortfolioById(
-        new GetPortfolioByIdRequest(portfolioId)).Portfolio!;
-
-      Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio)}");
-    }
-  }
-}
+var request = new GetActivityRequest(activityId);
+var response = activitiesService.GetActivity(request);
 ```
 
-The JSON format expected for `COINBASE_PRIME_CREDENTIALS` is:
+## Examples
 
-```
-{
-  "accessKey": "",
-  "passphrase": "",
-  "signingKey": ""
-}
-```
-
-For an example of how to use the client, see the [`Example`](src/CoinbaseSdk/PrimeExample/example/Example.cs) file. To execute the example, run the following command:
+Run examples from the PrimeExample project:
 
 ```bash
-dotnet run --project src/CoinbaseSdk.PrimeExample/CoinbaseSdk.PrimeExample.csproj
+# List available examples
+dotnet run --project src/CoinbaseSdk/PrimeExample list
+
+# Run specific examples
+dotnet run --project src/CoinbaseSdk/PrimeExample ListPortfolios
+dotnet run --project src/CoinbaseSdk/PrimeExample GetActivity --activityId <activity-id>
+dotnet run --project src/CoinbaseSdk/PrimeExample GetPortfolio --portfolioId <portfolio-id>
+dotnet run --project src/CoinbaseSdk/PrimeExample ListAssets --entityId <entity-id>
 ```
 
-**Warning**: this does place a limit order for a very small amount of ADA.
-Please ensure that you have the necessary funds in your account before running this code.
-The example code should cancel the order, however if something breaks you may need to go manually cancel the order.
+Set optional environment variables for convenience:
+
+```bash
+PRIME_ENTITY_ID=your-entity-id
+PRIME_PORTFOLIO_ID=your-portfolio-id
+```
+

@@ -19,53 +19,26 @@ namespace CoinbaseSdk.Prime.Balances
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListEntityBalancesRequest(string entityId)
+  public class ListEntityBalancesRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    public string? Symbol { get; set; }
+    public string[] Symbols { get; set; } = [];
 
-    public string? Cursor { get; set; }
-
-    [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
-
-    public int? Limit { get; set; }
 
     [JsonPropertyName("aggregation_type")]
     public BalanceType? AggregationType { get; set; }
 
-    public class ListEntityBalancesRequestBuilder(string entityId)
+    public class ListEntityBalancesRequestBuilder(string entityId) : PaginatedRequestBuilder<ListEntityBalancesRequest, ListEntityBalancesRequestBuilder>
     {
       private string _entityId = entityId;
-      private string? _symbol;
-      private string? _cursor;
-      private string? _sortDirection;
-      private int? _limit;
+      private string[] _symbols = [];
       private BalanceType? _aggregationType;
 
-      public ListEntityBalancesRequestBuilder WithSymbol(string? symbol)
+      public ListEntityBalancesRequestBuilder WithSymbols(string[] symbols)
       {
-        this._symbol = symbol;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithCursor(string? cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithSortDirection(string? sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithLimit(int? limit)
-      {
-        this._limit = limit;
+        this._symbols = symbols;
         return this;
       }
 
@@ -75,23 +48,21 @@ namespace CoinbaseSdk.Prime.Balances
         return this;
       }
 
-      public ListEntityBalancesRequestBuilder WithPagination(Pagination pagination)
+      public new ListEntityBalancesRequestBuilder WithPagination(Pagination pagination)
       {
-        this._cursor = pagination.NextCursor;
-        this._sortDirection = pagination.SortDirection;
+        base.WithPagination(pagination);
         return this;
       }
 
-      public ListEntityBalancesRequest Build()
+      public override ListEntityBalancesRequest Build()
       {
-        return new ListEntityBalancesRequest(this._entityId)
+        var request = new ListEntityBalancesRequest(this._entityId)
         {
-          Symbol = this._symbol,
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit,
+          Symbols = this._symbols,
           AggregationType = this._aggregationType
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

@@ -19,6 +19,8 @@ namespace CoinbaseSdk.Prime.Financing
   using CoinbaseSdk.Prime.Model;
   public class ListExistingLocatesResponse
   {
-    public Locate[] Locates { get; set; } = [];
+    public ExistingLocate[] Locates { get; set; } = [];
+
+    public ListExistingLocatesResponse() { }
   }
 }

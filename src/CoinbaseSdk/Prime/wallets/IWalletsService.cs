@@ -38,12 +38,12 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetWalletByIdResponse GetWalletById(
-      GetWalletByIdRequest request,
+    public GetWalletResponse GetWallet(
+      GetWalletRequest request,
       CallOptions? options = null);
 
-    public Task<GetWalletByIdResponse> GetWalletByIdAsync(
-      GetWalletByIdRequest request,
+    public Task<GetWalletResponse> GetWalletAsync(
+      GetWalletRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -53,6 +53,24 @@ namespace CoinbaseSdk.Prime.Wallets
 
     public Task<GetWalletDepositInstructionsResponse> GetWalletDepositInstructionsAsync(
       GetWalletDepositInstructionsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    public CreateWalletDepositAddressResponse CreateWalletDepositAddress(
+      CreateWalletDepositAddressRequest request,
+      CallOptions? options = null);
+
+    public Task<CreateWalletDepositAddressResponse> CreateWalletDepositAddressAsync(
+      CreateWalletDepositAddressRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    public ListWalletAddressesResponse ListWalletAddresses(
+      ListWalletAddressesRequest request,
+      CallOptions? options = null);
+
+    public Task<ListWalletAddressesResponse> ListWalletAddressesAsync(
+      ListWalletAddressesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

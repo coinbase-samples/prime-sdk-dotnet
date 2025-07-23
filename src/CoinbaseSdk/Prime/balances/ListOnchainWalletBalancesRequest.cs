@@ -19,7 +19,7 @@ namespace CoinbaseSdk.Prime.Balances
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListOnchainWalletBalancesRequest(string portfolioId, string walletId)
+  public class ListOnchainWalletBalancesRequest(string portfolioId, string walletId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -29,9 +29,5 @@ namespace CoinbaseSdk.Prime.Balances
 
     [JsonPropertyName("visibility_statuses")]
     public VisibilityStatus[] VisibilityStatuses { get; set; } = [];
-
-    public string? Cursor { get; set; }
-
-    public int? Limit { get; set; }
   }
 }

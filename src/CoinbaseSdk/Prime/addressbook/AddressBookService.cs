@@ -48,11 +48,11 @@ namespace CoinbaseSdk.Prime.AddressBook
         cancellationToken);
     }
 
-    public GetPortfolioAddressBookResponse GetPortfolioAddressBook(
-      GetPortfolioAddressBookRequest request,
+    public ListAddressBookEntriesResponse ListAddressBookEntries(
+      ListAddressBookEntriesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioAddressBookResponse>(
+      return this.Request<ListAddressBookEntriesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.OK],
@@ -60,12 +60,12 @@ namespace CoinbaseSdk.Prime.AddressBook
         options);
     }
 
-    public Task<GetPortfolioAddressBookResponse> GetPortfolioAddressBookAsync(
-      GetPortfolioAddressBookRequest request,
+    public Task<ListAddressBookEntriesResponse> ListAddressBookEntriesAsync(
+      ListAddressBookEntriesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioAddressBookResponse>(
+      return this.RequestAsync<ListAddressBookEntriesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/address_book",
         [HttpStatusCode.OK],

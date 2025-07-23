@@ -29,7 +29,7 @@ namespace CoinbaseSdk.Prime.Transactions
     {
       return this.Request<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
@@ -42,7 +42,7 @@ namespace CoinbaseSdk.Prime.Transactions
     {
       return this.RequestAsync<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -101,11 +101,11 @@ namespace CoinbaseSdk.Prime.Transactions
         cancellationToken);
     }
 
-    public GetTransactionByTransactionIdResponse GetTransactionByTransactionId(
-      GetTransactionByTransactionIdRequest request,
+    public GetTransactionResponse GetTransaction(
+      GetTransactionRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetTransactionByTransactionIdResponse>(
+      return this.Request<GetTransactionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],
@@ -113,12 +113,12 @@ namespace CoinbaseSdk.Prime.Transactions
         options);
     }
 
-    public Task<GetTransactionByTransactionIdResponse> GetTransactionByTransactionIdAsync(
-      GetTransactionByTransactionIdRequest request,
+    public Task<GetTransactionResponse> GetTransactionAsync(
+      GetTransactionRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetTransactionByTransactionIdResponse>(
+      return this.RequestAsync<GetTransactionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],

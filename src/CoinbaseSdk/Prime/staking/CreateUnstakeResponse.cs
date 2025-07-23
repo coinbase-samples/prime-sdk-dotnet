@@ -30,40 +30,5 @@ namespace CoinbaseSdk.Prime.Staking
     public string? ActivityId { get; set; }
 
     public CreateUnstakeResponse() { }
-
-    public class CreateUnstakeResponseBuilder
-    {
-      private string? _walletId;
-      private string? _transactionId;
-      private string? _activityId;
-
-      public CreateUnstakeResponseBuilder WithWalletId(string? walletId)
-      {
-        this._walletId = walletId;
-        return this;
-      }
-
-      public CreateUnstakeResponseBuilder WithTransactionId(string? transactionId)
-      {
-        this._transactionId = transactionId;
-        return this;
-      }
-
-      public CreateUnstakeResponseBuilder WithActivityId(string? activityId)
-      {
-        this._activityId = activityId;
-        return this;
-      }
-
-      public CreateUnstakeResponse Build()
-      {
-        return new CreateUnstakeResponse
-        {
-          WalletId = this._walletId,
-          TransactionId = this._transactionId,
-          ActivityId = this._activityId
-        };
-      }
-    }
   }
 }

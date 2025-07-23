@@ -25,38 +25,8 @@ namespace CoinbaseSdk.Prime.Transactions
     public Transaction[] Transactions { get; set; } = [];
 
     [JsonPropertyName("pagination")]
-    public Pagination? Pagination { get; set; }
+    public PaginatedResponse? Pagination { get; set; }
 
     public ListWalletTransactionsResponse() { }
-
-    public class ListWalletTransactionsResponseBuilder
-    {
-      private Transaction[] Transactions = [];
-      private Pagination? Pagination;
-
-      public ListWalletTransactionsResponseBuilder() { }
-
-      public ListWalletTransactionsResponseBuilder WithTransactions(
-          Transaction[] transactions)
-      {
-        this.Transactions = transactions;
-        return this;
-      }
-
-      public ListWalletTransactionsResponseBuilder WithPagination(Pagination? pagination)
-      {
-        this.Pagination = pagination;
-        return this;
-      }
-
-      public ListWalletTransactionsResponse Build()
-      {
-        return new ListWalletTransactionsResponse
-        {
-          Transactions = this.Transactions,
-          Pagination = this.Pagination,
-        };
-      }
-    }
   }
 }

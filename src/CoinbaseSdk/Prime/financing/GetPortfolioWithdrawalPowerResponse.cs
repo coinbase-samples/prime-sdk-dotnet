@@ -23,24 +23,5 @@ namespace CoinbaseSdk.Prime.Financing
     public WithdrawalPower? WithdrawalPower { get; set; }
 
     public GetPortfolioWithdrawalPowerResponse() { }
-
-    public class GetPortfolioWithdrawalPowerResponseBuilder
-    {
-      private WithdrawalPower? withdrawalPower;
-
-      public GetPortfolioWithdrawalPowerResponseBuilder WithWithdrawalPower(WithdrawalPower? withdrawalPower)
-      {
-        this.withdrawalPower = withdrawalPower;
-        return this;
-      }
-
-      public GetPortfolioWithdrawalPowerResponse Build()
-      {
-        return new GetPortfolioWithdrawalPowerResponse
-        {
-          WithdrawalPower = withdrawalPower
-        };
-      }
-    }
   }
 }

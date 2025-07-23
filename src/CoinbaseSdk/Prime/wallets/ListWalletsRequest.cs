@@ -20,28 +20,25 @@ namespace CoinbaseSdk.Prime.Wallets
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListWalletsRequest(string portfolioId)
+  public class ListWalletsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
+    [JsonPropertyName("type")]
     public WalletType Type { get; set; }
 
     public string[] Symbols { get; set; } = [];
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
-    public int? Limit { get; set; }
+    public SortDirection? SortDirection { get; set; }
 
-    public class ListWalletsRequestBuilder
+    public class ListWalletsRequestBuilder : PaginatedRequestBuilder<ListWalletsRequest, ListWalletsRequestBuilder>
     {
       private string? _portfolioId;
       private WalletType _type;
       private string[] _symbols = [];
-      private string? _cursor;
-      private string? _sortDirection;
-      private int? _limit;
+      private SortDirection? _sortDirection;
 
       public ListWalletsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -61,27 +58,16 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
-      public ListWalletsRequestBuilder WithCursor(string cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
 
-      public ListWalletsRequestBuilder WithSortDirection(string sortDirection)
+      public ListWalletsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
       }
 
-      public ListWalletsRequestBuilder WithLimit(int limit)
+      public new ListWalletsRequestBuilder WithPagination(Pagination pagination)
       {
-        this._limit = limit;
-        return this;
-      }
-
-      public ListWalletsRequestBuilder WithPagination(Pagination pagination)
-      {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
@@ -90,12 +76,17 @@ namespace CoinbaseSdk.Prime.Wallets
       /// Validate the builder.
       /// </summary>
       /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
+      /// <see cref="_portfolioId"/> is null, empty or whitespace, or when
+      /// <see cref="_type"/> is not set.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (!Enum.IsDefined(typeof(WalletType), this._type))
+        {
+          throw new CoinbaseClientException("Type is required");
         }
       }
 
@@ -104,17 +95,17 @@ namespace CoinbaseSdk.Prime.Wallets
       /// </summary>
       /// <returns>The <see cref="ListWalletsRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required field is not set.</exception>
-      public ListWalletsRequest Build()
+      public override ListWalletsRequest Build()
       {
         this.Validate();
-        return new ListWalletsRequest(this._portfolioId!)
+        var request = new ListWalletsRequest(this._portfolioId!)
         {
           Type = this._type,
           Symbols = this._symbols,
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit
+          SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

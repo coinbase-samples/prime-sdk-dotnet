@@ -1,6 +1,26 @@
+/*
+ * Copyright 2025-present Coinbase Global, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
+
+  /// <summary>
+  /// Response containing FCM balance summary.
+  /// </summary>
   public class GetFcmBalanceResponse
   {
     [JsonPropertyName("portfolio_id")]
@@ -30,89 +50,12 @@ namespace CoinbaseSdk.Prime.Futures
     [JsonPropertyName("clearing_account_id")]
     public string? ClearingAccountId { get; set; }
 
+    /// <summary>
+    /// CFM unsettled accrued funding PnL.
+    /// </summary>
+    [JsonPropertyName("cfm_unsettled_accrued_funding_pnl")]
+    public string? CfmUnsettledAccruedFundingPnl { get; set; }
+
     public GetFcmBalanceResponse() { }
-
-    public class GetFcmBalanceResponseBuilder
-    {
-      private string? _portfolioId;
-      private string? _cfmUsdBalance;
-      private string? _unrealizedPnl;
-      private string? _dailyRealizedPnl;
-      private string? _excessLiquidity;
-      private string? _futuresBuyingPower;
-      private string? _initialMargin;
-      private string? _maintenanceMargin;
-      private string? _clearingAccountId;
-
-      public GetFcmBalanceResponseBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithCfmUsdBalance(string cfmUsdBalance)
-      {
-        this._cfmUsdBalance = cfmUsdBalance;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithUnrealizedPnl(string unrealizedPnl)
-      {
-        this._unrealizedPnl = unrealizedPnl;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithDailyRealizedPnl(string dailyRealizedPnl)
-      {
-        this._dailyRealizedPnl = dailyRealizedPnl;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithExcessLiquidity(string excessLiquidity)
-      {
-        this._excessLiquidity = excessLiquidity;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithFuturesBuyingPower(string futuresBuyingPower)
-      {
-        this._futuresBuyingPower = futuresBuyingPower;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithInitialMargin(string initialMargin)
-      {
-        this._initialMargin = initialMargin;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithMaintenanceMargin(string maintenanceMargin)
-      {
-        this._maintenanceMargin = maintenanceMargin;
-        return this;
-      }
-
-      public GetFcmBalanceResponseBuilder WithClearingAccountId(string clearingAccountId)
-      {
-        this._clearingAccountId = clearingAccountId;
-        return this;
-      }
-
-      public GetFcmBalanceResponse Build()
-      {
-        return new GetFcmBalanceResponse
-        {
-          PortfolioId = this._portfolioId,
-          CfmUsdBalance = this._cfmUsdBalance,
-          UnrealizedPnl = this._unrealizedPnl,
-          DailyRealizedPnl = this._dailyRealizedPnl,
-          ExcessLiquidity = this._excessLiquidity,
-          FuturesBuyingPower = this._futuresBuyingPower,
-          InitialMargin = this._initialMargin,
-          MaintenanceMargin = this._maintenanceMargin,
-          ClearingAccountId = this._clearingAccountId
-        };
-      }
-    }
   }
 }

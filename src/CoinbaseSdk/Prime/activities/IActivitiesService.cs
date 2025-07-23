@@ -29,30 +29,30 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetActivityByActivityIdResponse GetActivityByActivityId(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null);
-
-    public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    public ListActivitiesResponse ListEntityActivities(
+    public ListEntityActivitiesResponse ListEntityActivities(
       ListEntityActivitiesRequest request,
       CallOptions? options = null);
 
-    public Task<ListActivitiesResponse> ListEntityActivitiesAsync(
+    public Task<ListEntityActivitiesResponse> ListEntityActivitiesAsync(
       ListEntityActivitiesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetActivityByActivityIdResponse GetEntityActivityByActivityId(
-      GetEntityActivityByActivityIdRequest request,
+    public GetActivityResponse GetActivity(
+      GetActivityRequest request,
       CallOptions? options = null);
 
-    public Task<GetActivityByActivityIdResponse> GetEntityActivityByActivityIdAsync(
-      GetEntityActivityByActivityIdRequest request,
+    public Task<GetActivityResponse> GetActivityAsync(
+      GetActivityRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    public GetPortfolioActivityResponse GetPortfolioActivity(
+      GetPortfolioActivityRequest request,
+      CallOptions? options = null);
+
+    public Task<GetPortfolioActivityResponse> GetPortfolioActivityAsync(
+      GetPortfolioActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

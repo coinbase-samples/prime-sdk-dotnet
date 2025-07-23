@@ -21,24 +21,5 @@ namespace CoinbaseSdk.Prime.Financing
   {
     [JsonPropertyName("locate_id")]
     public string? LocateId { get; set; }
-
-    public class CreateNewLocatesResponseBuilder
-    {
-      private string? _locateId;
-
-      public CreateNewLocatesResponseBuilder WithLocateId(string? locateId)
-      {
-        this._locateId = locateId;
-        return this;
-      }
-
-      public CreateNewLocatesResponse Build()
-      {
-        return new CreateNewLocatesResponse
-        {
-          LocateId = this._locateId
-        };
-      }
-    }
   }
 }

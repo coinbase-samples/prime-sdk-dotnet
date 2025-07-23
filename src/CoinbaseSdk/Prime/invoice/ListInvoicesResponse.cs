@@ -28,21 +28,5 @@ namespace CoinbaseSdk.Prime.Invoice
     {
       Invoices = invoices;
     }
-
-    public class ListInvoicesResponseBuilder
-    {
-      private Invoice[] _invoices = [];
-
-      public ListInvoicesResponseBuilder WithInvoices(Invoice[] invoices)
-      {
-        this._invoices = invoices;
-        return this;
-      }
-
-      public ListInvoicesResponse Build()
-      {
-        return new ListInvoicesResponse { Invoices = this._invoices };
-      }
-    }
   }
 }

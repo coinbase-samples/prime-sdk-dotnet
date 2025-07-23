@@ -20,22 +20,18 @@ namespace CoinbaseSdk.Prime.Users
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListPortfolioUsersRequest(string portfolioId)
+  public class ListPortfolioUsersRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
-    public int? Limit { get; set; }
+    public SortDirection? SortDirection { get; set; }
 
-    public class ListPortfolioUsersRequestBuilder
+    public class ListPortfolioUsersRequestBuilder : PaginatedRequestBuilder<ListPortfolioUsersRequest, ListPortfolioUsersRequestBuilder>
     {
       private string? _portfolioId;
-      private string? _cursor;
-      private string? _sortDirection;
-      private int? _limit;
+      private SortDirection? _sortDirection;
 
       public ListPortfolioUsersRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -43,27 +39,15 @@ namespace CoinbaseSdk.Prime.Users
         return this;
       }
 
-      public ListPortfolioUsersRequestBuilder WithCursor(string? cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
-      public ListPortfolioUsersRequestBuilder WithSortDirection(string? sortDirection)
+      public ListPortfolioUsersRequestBuilder WithSortDirection(SortDirection? sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
       }
 
-      public ListPortfolioUsersRequestBuilder WithLimit(int? limit)
+      public new ListPortfolioUsersRequestBuilder WithPagination(Pagination pagination)
       {
-        this._limit = limit;
-        return this;
-      }
-
-      public ListPortfolioUsersRequestBuilder WithPagination(Pagination pagination)
-      {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
@@ -85,15 +69,15 @@ namespace CoinbaseSdk.Prime.Users
       /// </summary>
       /// <returns>The <see cref="ListPortfolioUsersRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListPortfolioUsersRequest Build()
+      public override ListPortfolioUsersRequest Build()
       {
         this.Validate();
-        return new ListPortfolioUsersRequest(this._portfolioId!)
+        var request = new ListPortfolioUsersRequest(this._portfolioId!)
         {
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit
+          SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

@@ -13,4 +13,12 @@ project.lock.json
 .DS_Store
 .idea/
 
-.env*
+appsettings.json
+.env
+.env.local
+.env.development
+.env.production
+
+.claude/
+
+.vscode/

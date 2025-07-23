@@ -27,32 +27,5 @@ namespace CoinbaseSdk.Prime.Financing
     public MarginSummary? MarginSummary { get; set; }
 
     public GetMarginInformationResponse() { }
-
-    public class GetMarginInformationResponseBuilder
-    {
-      private MarginInformation? _marginInformation;
-      private MarginSummary? _marginSummary;
-
-      public GetMarginInformationResponseBuilder WithMarginInformation(MarginInformation marginInformation)
-      {
-        this._marginInformation = marginInformation;
-        return this;
-      }
-
-      public GetMarginInformationResponseBuilder WithMarginSummary(MarginSummary marginSummary)
-      {
-        this._marginSummary = marginSummary;
-        return this;
-      }
-
-      public GetMarginInformationResponse Build()
-      {
-        return new GetMarginInformationResponse
-        {
-          MarginInformation = this._marginInformation,
-          MarginSummary = this._marginSummary
-        };
-      }
-    }
   }
 }

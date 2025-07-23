@@ -51,5 +51,6 @@ namespace CoinbaseSdk.Prime.Model
     CLAIM_REWARDS,
     VOTE_AUTHORIZE,
     WEB3_TRANSACTION,
+    ONCHAIN_TRANSACTION,
   }
 }

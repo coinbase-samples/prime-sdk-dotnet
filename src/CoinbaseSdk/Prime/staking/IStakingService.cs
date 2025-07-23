@@ -37,5 +37,32 @@ namespace CoinbaseSdk.Prime.Staking
         CreateUnstakeRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
+
+    public CreatePortfolioStakeResponse CreatePortfolioStake(
+        CreatePortfolioStakeRequest request,
+        CallOptions? options = null);
+
+    public Task<CreatePortfolioStakeResponse> CreatePortfolioStakeAsync(
+        CreatePortfolioStakeRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
+
+    public CreatePortfolioUnstakeResponse CreatePortfolioUnstake(
+        CreatePortfolioUnstakeRequest request,
+        CallOptions? options = null);
+
+    public Task<CreatePortfolioUnstakeResponse> CreatePortfolioUnstakeAsync(
+        CreatePortfolioUnstakeRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
+
+    public ClaimStakingRewardsResponse ClaimStakingRewards(
+        ClaimStakingRewardsRequest request,
+        CallOptions? options = null);
+
+    public Task<ClaimStakingRewardsResponse> ClaimStakingRewardsAsync(
+        ClaimStakingRewardsRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
   }
 }

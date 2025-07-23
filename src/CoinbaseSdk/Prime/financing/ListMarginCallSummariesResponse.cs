@@ -24,24 +24,5 @@ namespace CoinbaseSdk.Prime.Financing
     public MarginSummaryHistorical[] MarginSummaries { get; set; } = [];
 
     public ListMarginCallSummariesResponse() { }
-
-    public class ListMarginCallSummariesResponseBuilder
-    {
-      private MarginSummaryHistorical[] _marginSummaries = [];
-
-      public ListMarginCallSummariesResponseBuilder WithMarginSummaries(MarginSummaryHistorical[] marginSummaries)
-      {
-        _marginSummaries = marginSummaries;
-        return this;
-      }
-
-      public ListMarginCallSummariesResponse Build()
-      {
-        return new ListMarginCallSummariesResponse
-        {
-          MarginSummaries = _marginSummaries
-        };
-      }
-    }
   }
 }

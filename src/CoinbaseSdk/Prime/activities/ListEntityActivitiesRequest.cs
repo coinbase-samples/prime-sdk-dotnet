@@ -20,37 +20,33 @@ namespace CoinbaseSdk.Prime.Activities
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListEntityActivitiesRequest(string entityId)
+  public class ListEntityActivitiesRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
     [JsonPropertyName("activity_level")]
-    public string? ActivityLevel { get; set; }
+    public ActivityLevel? ActivityLevel { get; set; }
     public string[] Symbols { get; set; } = [];
-    public string[] Categories { get; set; } = [];
-    public string[] Statuses { get; set; } = [];
+    public ActivityCategory[] Categories { get; set; } = [];
+    public ActivityStatus[] Statuses { get; set; } = [];
     [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
-    public int? Limit { get; set; }
+    public SortDirection? SortDirection { get; set; }
 
-    public class ListEntityActivitiesRequestBuilder
+    public class ListEntityActivitiesRequestBuilder : PaginatedRequestBuilder<ListEntityActivitiesRequest, ListEntityActivitiesRequestBuilder>
     {
       private string? _entityId;
-      private string? _activityLevel;
+      private ActivityLevel? _activityLevel;
       private string[]? _symbols;
-      private string[]? _categories;
-      private string[]? _statuses;
+      private ActivityCategory[]? _categories;
+      private ActivityStatus[]? _statuses;
       private string? _startTime;
       private string? _endTime;
-      private string? _cursor;
-      private string? _sortDirection;
-      private int? _limit;
+      private SortDirection? _sortDirection;
 
       public ListEntityActivitiesRequestBuilder WithEntityId(string entityId)
       {
@@ -58,7 +54,7 @@ namespace CoinbaseSdk.Prime.Activities
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithActivityLevel(string activityLevel)
+      public ListEntityActivitiesRequestBuilder WithActivityLevel(ActivityLevel activityLevel)
       {
         _activityLevel = activityLevel;
         return this;
@@ -70,13 +66,13 @@ namespace CoinbaseSdk.Prime.Activities
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithCategories(string[] categories)
+      public ListEntityActivitiesRequestBuilder WithCategories(ActivityCategory[] categories)
       {
         _categories = categories;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithStatuses(string[] statuses)
+      public ListEntityActivitiesRequestBuilder WithStatuses(ActivityStatus[] statuses)
       {
         _statuses = statuses;
         return this;
@@ -94,27 +90,15 @@ namespace CoinbaseSdk.Prime.Activities
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public ListEntityActivitiesRequestBuilder WithSortDirection(string sortDirection)
+      public ListEntityActivitiesRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithLimit(int limit)
+      public new ListEntityActivitiesRequestBuilder WithPagination(Pagination pagination)
       {
-        _limit = limit;
-        return this;
-      }
-
-      public ListEntityActivitiesRequestBuilder WithPagination(Pagination pagination)
-      {
-        _cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         _sortDirection = pagination.SortDirection;
         return this;
       }
@@ -136,21 +120,21 @@ namespace CoinbaseSdk.Prime.Activities
       /// </summary>
       /// <returns>The <see cref="ListEntityActivitiesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty, or whitespace.</exception>
-      public ListEntityActivitiesRequest Build()
+      public override ListEntityActivitiesRequest Build()
       {
         this.Validate();
-        return new ListEntityActivitiesRequest(_entityId!)
+        var request = new ListEntityActivitiesRequest(_entityId!)
         {
           ActivityLevel = _activityLevel,
-          Symbols = _symbols ?? new string[] { },
-          Categories = _categories ?? new string[] { },
-          Statuses = _statuses ?? new string[] { },
+          Symbols = _symbols ?? [],
+          Categories = _categories ?? [],
+          Statuses = _statuses ?? [],
           StartTime = _startTime,
           EndTime = _endTime,
-          Cursor = _cursor,
-          SortDirection = _sortDirection,
-          Limit = _limit
+          SortDirection = _sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

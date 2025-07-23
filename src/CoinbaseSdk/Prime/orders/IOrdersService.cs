@@ -56,12 +56,12 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetOrderByOrderIdResponse GetOrderByOrderId(
-      GetOrderByOrderIdRequest request,
+    public GetOrderResponse GetOrder(
+      GetOrderRequest request,
       CallOptions? options = null);
 
-    public Task<GetOrderByOrderIdResponse> GetOrderByOrderIdAsync(
-      GetOrderByOrderIdRequest request,
+    public Task<GetOrderResponse> GetOrderAsync(
+      GetOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -101,12 +101,30 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public ListOrderFillsResponse ListPortfolioFills(
+    public ListPortfolioFillsResponse ListPortfolioFills(
       ListPortfolioFillsRequest request,
       CallOptions? options = null);
 
-    public Task<ListOrderFillsResponse> ListPortfolioFillsAsync(
+    public Task<ListPortfolioFillsResponse> ListPortfolioFillsAsync(
       ListPortfolioFillsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    public GetOrderEditHistoryResponse GetOrderEditHistory(
+      GetOrderEditHistoryRequest request,
+      CallOptions? options = null);
+
+    public Task<GetOrderEditHistoryResponse> GetOrderEditHistoryAsync(
+      GetOrderEditHistoryRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    public EditOrderResponse EditOrder(
+      EditOrderRequest request,
+      CallOptions? options = null);
+
+    public Task<EditOrderResponse> EditOrderAsync(
+      EditOrderRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

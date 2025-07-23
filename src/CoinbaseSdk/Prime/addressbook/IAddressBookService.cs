@@ -28,12 +28,12 @@ namespace CoinbaseSdk.Prime.AddressBook
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetPortfolioAddressBookResponse GetPortfolioAddressBook(
-      GetPortfolioAddressBookRequest request,
+    public ListAddressBookEntriesResponse ListAddressBookEntries(
+      ListAddressBookEntriesRequest request,
       CallOptions? options = null);
 
-    public Task<GetPortfolioAddressBookResponse> GetPortfolioAddressBookAsync(
-      GetPortfolioAddressBookRequest request,
+    public Task<ListAddressBookEntriesResponse> ListAddressBookEntriesAsync(
+      ListAddressBookEntriesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

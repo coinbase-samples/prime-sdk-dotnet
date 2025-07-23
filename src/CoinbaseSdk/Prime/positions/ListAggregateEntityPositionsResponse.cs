@@ -24,34 +24,5 @@ namespace CoinbaseSdk.Prime.Positions
     public Pagination? Pagination { get; set; }
 
     public ListAggregateEntityPositionsResponse() { }
-
-    public class ListAggregateEntityPositionsResponseBuilder
-    {
-      public Position[] Positions { get; set; } = [];
-      public Pagination? Pagination { get; set; }
-
-      public ListAggregateEntityPositionsResponseBuilder() { }
-
-      public ListAggregateEntityPositionsResponseBuilder WithPositions(Position[] positions)
-      {
-        Positions = positions;
-        return this;
-      }
-
-      public ListAggregateEntityPositionsResponseBuilder WithPagination(Pagination? pagination)
-      {
-        Pagination = pagination;
-        return this;
-      }
-
-      public ListAggregateEntityPositionsResponse Build()
-      {
-        return new ListAggregateEntityPositionsResponse
-        {
-          Positions = Positions,
-          Pagination = Pagination
-        };
-      }
-    }
   }
 }

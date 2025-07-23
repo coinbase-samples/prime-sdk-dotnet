@@ -24,24 +24,5 @@ namespace CoinbaseSdk.Prime.Financing
     public BuyingPower? BuyingPower { get; set; }
 
     public GetPortfolioBuyingPowerResponse() { }
-
-    public class GetPortfolioBuyingPowerResponseBuilder
-    {
-      private BuyingPower? _buyingPower;
-
-      public GetPortfolioBuyingPowerResponseBuilder WithBuyingPower(BuyingPower? buyingPower)
-      {
-        _buyingPower = buyingPower;
-        return this;
-      }
-
-      public GetPortfolioBuyingPowerResponse Build()
-      {
-        return new GetPortfolioBuyingPowerResponse
-        {
-          BuyingPower = _buyingPower
-        };
-      }
-    }
   }
 }

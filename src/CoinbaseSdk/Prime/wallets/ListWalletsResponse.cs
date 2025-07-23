@@ -24,34 +24,5 @@ namespace CoinbaseSdk.Prime.Wallets
     public Pagination? Pagination { get; set; }
 
     public ListWalletsResponse() { }
-
-    public class ListWalletsResponseBuilder
-    {
-      private Wallet[] _wallets = [];
-      private Pagination? _pagination;
-
-      public ListWalletsResponseBuilder() { }
-
-      public ListWalletsResponseBuilder WithWallets(Wallet[] wallets)
-      {
-        this._wallets = wallets;
-        return this;
-      }
-
-      public ListWalletsResponseBuilder WithPagination(Pagination pagination)
-      {
-        this._pagination = pagination;
-        return this;
-      }
-
-      public ListWalletsResponse Build()
-      {
-        return new ListWalletsResponse
-        {
-          Wallets = this._wallets,
-          Pagination = this._pagination
-        };
-      }
-    }
   }
 }

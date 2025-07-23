@@ -18,6 +18,7 @@ namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
   public class GetWalletDepositInstructionsRequest(string portfolioId, string walletId)
   {
@@ -27,10 +28,14 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
+    [JsonPropertyName("deposit_type")]
+    public WalletDepositInstructionType? DepositType { get; set; }
+
     public class GetWalletDepositInstructionsRequestBuilder
     {
       private string? _portfolioId;
       private string? _walletId;
+      private WalletDepositInstructionType? _depositType;
 
       public GetWalletDepositInstructionsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -44,11 +49,17 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
+      public GetWalletDepositInstructionsRequestBuilder WithDepositType(WalletDepositInstructionType depositType)
+      {
+        this._depositType = depositType;
+        return this;
+      }
+
       /// <summary>
       /// Validate the builder.
       /// </summary>
       /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
+      /// <see cref="_portfolioId"/>, <see cref="_walletId"/>, or <see cref="_depositType"/> are null, empty
       /// or whitespace.</exception>
       private void Validate()
       {
@@ -61,6 +72,11 @@ namespace CoinbaseSdk.Prime.Wallets
         {
           throw new CoinbaseClientException("WalletId is required");
         }
+
+        if (this._depositType == null)
+        {
+          throw new CoinbaseClientException("DepositType is required");
+        }
       }
 
       /// <summary>
@@ -71,7 +87,10 @@ namespace CoinbaseSdk.Prime.Wallets
       public GetWalletDepositInstructionsRequest Build()
       {
         this.Validate();
-        return new GetWalletDepositInstructionsRequest(this._portfolioId!, this._walletId!);
+        return new GetWalletDepositInstructionsRequest(this._portfolioId!, this._walletId!)
+        {
+          DepositType = this._depositType
+        };
       }
     }
   }

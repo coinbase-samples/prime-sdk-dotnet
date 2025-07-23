@@ -1,0 +1,79 @@
+/*
+ * Copyright 2025-present Coinbase Global, Inc.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+namespace CoinbaseSdk.Prime.Orders
+{
+  using System.Text.Json.Serialization;
+  using CoinbaseSdk.Core.Error;
+
+  public class GetOrderEditHistoryRequest(string portfolioId, string orderId)
+  {
+    [JsonIgnore]
+    public string PortfolioId { get; set; } = portfolioId;
+
+    [JsonIgnore]
+    public string OrderId { get; set; } = orderId;
+
+
+    public class GetOrderEditHistoryRequestBuilder
+    {
+      private string? _portfolioId;
+      private string? _orderId;
+
+      public GetOrderEditHistoryRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        _portfolioId = portfolioId;
+        return this;
+      }
+
+      public GetOrderEditHistoryRequestBuilder WithOrderId(string orderId)
+      {
+        _orderId = orderId;
+        return this;
+      }
+
+
+      /// <summary>
+      /// Validates the input fields.
+      /// </summary>
+      /// <exception cref="CoinbaseClientException">
+      /// If <see cref="_portfolioId"/> or <see cref="_orderId"/> are null, empty, or whitespace.
+      /// </exception>
+      private void Validate()
+      {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(_orderId))
+        {
+          throw new CoinbaseClientException("OrderId is required");
+        }
+      }
+
+      /// <summary>
+      /// Builds the <see cref="GetOrderEditHistoryRequest"/>.
+      /// </summary>
+      /// <returns>The new <see cref="GetOrderEditHistoryRequest"/>.</returns>
+      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
+      public GetOrderEditHistoryRequest Build()
+      {
+        this.Validate();
+        return new GetOrderEditHistoryRequest(_portfolioId!, _orderId!);
+      }
+    }
+  }
+}

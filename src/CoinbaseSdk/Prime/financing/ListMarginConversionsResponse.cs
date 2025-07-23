@@ -20,24 +20,5 @@ namespace CoinbaseSdk.Prime.Financing
   public class ListMarginConversionsResponse
   {
     public Conversion[] Conversions { get; set; } = [];
-
-    public class ListMarginConversionsResponseBuilder
-    {
-      private Conversion[] _conversions = [];
-
-      public ListMarginConversionsResponseBuilder WithConversions(Conversion[] conversions)
-      {
-        _conversions = conversions;
-        return this;
-      }
-
-      public ListMarginConversionsResponse Build()
-      {
-        return new ListMarginConversionsResponse()
-        {
-          Conversions = _conversions
-        };
-      }
-    }
   }
 }

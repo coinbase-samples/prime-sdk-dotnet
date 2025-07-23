@@ -27,24 +27,5 @@ namespace CoinbaseSdk.Prime.Balances
     {
       Balance = balance;
     }
-
-    public class GetWalletBalanceResponseBuilder
-    {
-      private Balance? _balance;
-
-      public GetWalletBalanceResponseBuilder WithBalance(Balance? balance)
-      {
-        this._balance = balance;
-        return this;
-      }
-
-      public GetWalletBalanceResponse Build()
-      {
-        return new GetWalletBalanceResponse
-        {
-          Balance = this._balance
-        };
-      }
-    }
   }
 }

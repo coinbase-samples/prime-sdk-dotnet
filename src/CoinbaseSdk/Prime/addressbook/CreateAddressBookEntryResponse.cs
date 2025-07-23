@@ -27,40 +27,5 @@ namespace CoinbaseSdk.Prime.AddressBook
     public int? NumApprovalsRemaining { get; set; }
     [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
-
-    public class CreateAddressBookEntryResponseBuilder
-    {
-      private CustodyActivityType _activityType;
-      private int? _numApprovalsRemaining;
-      private string? _activityId;
-
-      public CreateAddressBookEntryResponseBuilder WithActivityType(CustodyActivityType activityType)
-      {
-        this._activityType = activityType;
-        return this;
-      }
-
-      public CreateAddressBookEntryResponseBuilder WithNumApprovalsRemaining(int? numApprovalsRemaining)
-      {
-        this._numApprovalsRemaining = numApprovalsRemaining;
-        return this;
-      }
-
-      public CreateAddressBookEntryResponseBuilder WithActivityId(string? activityId)
-      {
-        this._activityId = activityId;
-        return this;
-      }
-
-      public CreateAddressBookEntryResponse Build()
-      {
-        return new CreateAddressBookEntryResponse
-        {
-          ActivityType = this._activityType,
-          NumApprovalsRemaining = this._numApprovalsRemaining,
-          ActivityId = this._activityId
-        };
-      }
-    }
   }
 }

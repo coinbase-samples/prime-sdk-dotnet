@@ -23,26 +23,5 @@ namespace CoinbaseSdk.Prime.Orders
     public string? OrderId { get; set; }
 
     public AcceptQuoteResponse() { }
-
-    public class AcceptQuoteResponseBuilder
-    {
-      private string? OrderId;
-
-      public AcceptQuoteResponseBuilder() { }
-
-      public AcceptQuoteResponseBuilder WithOrderId(string orderId)
-      {
-        this.OrderId = orderId;
-        return this;
-      }
-
-      public AcceptQuoteResponse Build()
-      {
-        return new AcceptQuoteResponse
-        {
-          OrderId = this.OrderId
-        };
-      }
-    }
   }
 }
