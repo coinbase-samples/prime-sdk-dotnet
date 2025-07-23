@@ -135,7 +135,7 @@ namespace CoinbaseSdk.Prime.Wallets
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.Created, HttpStatusCode.OK],
-        null,
+        request,
         options);
     }
 
@@ -148,7 +148,7 @@ namespace CoinbaseSdk.Prime.Wallets
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.Created, HttpStatusCode.OK],
-        null,
+        request,
         options,
         cancellationToken);
     }

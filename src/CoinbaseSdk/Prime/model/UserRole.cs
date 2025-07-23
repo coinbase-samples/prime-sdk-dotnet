@@ -1,0 +1,81 @@
+/*
+ * Copyright 2025-present Coinbase Global, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace CoinbaseSdk.Prime.Model
+{
+    using System.Text.Json.Serialization;
+
+    /// <summary>
+    /// Indicates the user's role.
+    /// </summary>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public enum UserRole
+    {
+        /// <summary>
+        /// An auditor.
+        /// </summary>
+        [JsonPropertyName("AUDITOR")]
+        AUDITOR,
+
+        /// <summary>
+        /// A signatory.
+        /// </summary>
+        [JsonPropertyName("SIGNATORY")]
+        SIGNATORY,
+
+        /// <summary>
+        /// An admin.
+        /// </summary>
+        [JsonPropertyName("ADMIN")]
+        ADMIN,
+
+        /// <summary>
+        /// An initiator.
+        /// </summary>
+        [JsonPropertyName("INITIATOR")]
+        INITIATOR,
+
+        /// <summary>
+        /// A reviewer.
+        /// </summary>
+        [JsonPropertyName("REVIEWER")]
+        REVIEWER,
+
+        /// <summary>
+        /// A trader.
+        /// </summary>
+        [JsonPropertyName("TRADER")]
+        TRADER,
+
+        /// <summary>
+        /// A trader with full permissions.
+        /// </summary>
+        [JsonPropertyName("FULL_TRADER")]
+        FULL_TRADER,
+
+        /// <summary>
+        /// A team manager.
+        /// </summary>
+        [JsonPropertyName("TEAM_MANAGER")]
+        TEAM_MANAGER,
+
+        /// <summary>
+        /// An approver.
+        /// </summary>
+        [JsonPropertyName("APPROVER")]
+        APPROVER
+    }
+}

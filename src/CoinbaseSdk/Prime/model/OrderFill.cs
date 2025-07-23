@@ -28,6 +28,9 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
+    [JsonPropertyName("client_product_id")]
+    public string? ClientProductId { get; set; }
+
     public OrderSide? Side { get; set; }
 
     [JsonPropertyName("filled_quantity")]
@@ -44,6 +47,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public string? Venue { get; set; }
 
+    [JsonPropertyName("venue_fees")]
+    public string? VenueFees { get; set; }
+
+    [JsonPropertyName("ces_commission")]
+    public string? CesCommission { get; set; }
+
     public OrderFill() { }
 
     public class OrderFillBuilder
@@ -51,6 +60,7 @@ namespace CoinbaseSdk.Prime.Model
       private string? _id;
       private string? _orderId;
       private string? _productId;
+      private string? _clientProductId;
       private OrderSide? _side;
       private string? _filledQuantity;
       private string? _filledValue;
@@ -58,6 +68,8 @@ namespace CoinbaseSdk.Prime.Model
       private string? _time;
       private string? _commission;
       private string? _venue;
+      private string? _venueFees;
+      private string? _cesCommission;
 
       public OrderFillBuilder WithId(string? id)
       {
@@ -74,6 +86,12 @@ namespace CoinbaseSdk.Prime.Model
       public OrderFillBuilder WithProductId(string? productId)
       {
         this._productId = productId;
+        return this;
+      }
+
+      public OrderFillBuilder WithClientProductId(string? clientProductId)
+      {
+        this._clientProductId = clientProductId;
         return this;
       }
 
@@ -119,6 +137,18 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
+      public OrderFillBuilder WithVenueFees(string? venueFees)
+      {
+        this._venueFees = venueFees;
+        return this;
+      }
+
+      public OrderFillBuilder WithCesCommission(string? cesCommission)
+      {
+        this._cesCommission = cesCommission;
+        return this;
+      }
+
       public OrderFill Build()
       {
         return new OrderFill
@@ -126,6 +156,7 @@ namespace CoinbaseSdk.Prime.Model
           Id = this._id,
           OrderId = this._orderId,
           ProductId = this._productId,
+          ClientProductId = this._clientProductId,
           Side = this._side,
           FilledQuantity = this._filledQuantity,
           FilledValue = this._filledValue,
@@ -133,6 +164,8 @@ namespace CoinbaseSdk.Prime.Model
           Time = this._time,
           Commission = this._commission,
           Venue = this._venue,
+          VenueFees = this._venueFees,
+          CesCommission = this._cesCommission,
         };
       }
     }

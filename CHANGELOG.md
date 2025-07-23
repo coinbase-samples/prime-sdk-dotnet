@@ -1,44 +1,29 @@
 # Changelog
 
-## [0.4.0] - 2025-JUL-23
+## [Unreleased]
 
 ### Added
 
-- Activities Endpoints
-  - GetActivity (individual activity details)
-- Futures Endpoints  
-  - GetFcmMarginCallDetails
-  - GetFcmRiskLimits
-- Orders Endpoints
-  - GetOrderEditHistory 
-  - GetOrder (replaces GetOrderByOrderId)
-- Wallets Endpoints
-  - CreateWalletDepositAddress
-  - GetWallet (replaces GetWalletById)
-  - ListWalletAddresses
 - New Model Classes
-  - Network (blockchain network information)
-  - HierarchyType (organizational hierarchy types)
-  - WalletAddress (wallet address details)
-  - OrderEdit and OrderEditValues (order modification tracking)
-  - FcmMarginCallDetails and FcmRiskLimit (futures margin management)
-- Example Programs
-  - Top-level program examples for each new endpoint
-  - Standalone runnable files following TypeScript SDK pattern
-  - Examples for GetActivity, GetFcmMarginCallDetails, GetFcmRiskLimits, GetOrderEditHistory, CreateWalletDepositAddress, ListWalletAddresses
+  - `Commission` - Fee calculation and commission details
+  - `OrderEdit` - Order modification history tracking
+  - `PortfolioUser` - Enhanced user model with portfolio context
+  - `UserRole` - Comprehensive user permission roles enum
+  - `SortDirection` - Sorting specification enum
+  - `ListPortfolioFillsResponse` - Response wrapper for portfolio fills
 
-### Changed
+### Enhanced
 
-- Updated service interfaces and implementations across Activities, Futures, Orders, and Wallets services
-- Reorganized example project structure from `example/` to `examples/` directory
-- Converted examples to top-level programs for simplified usage
+- **OrderFill Model** - Added missing fields from OpenAPI specification:
+  - `ClientProductId` - Settlement currency indicator
+  - `VenueFees` - Venue-specific fees
+  - `CesCommission` - CES commission details
+  - Updated builder pattern to support new fields
 
-### Removed
+### Fixed
 
-- Deprecated request/response classes:
-  - GetOrderByOrderIdRequest/Response (replaced by GetOrderRequest/Response)
-  - GetWalletByIdRequest/Response (replaced by GetWalletRequest/Response)
-- Legacy example structure
+- **WalletsService** - Fixed `CreateWalletDepositAddress` method to properly pass request body to API
+- **Network Model** - Added missing `Network.cs` model for blockchain network identification
 
 ## [0.3.0] - 2025-MAY-15
 
