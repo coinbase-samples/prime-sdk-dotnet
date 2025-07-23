@@ -1,0 +1,74 @@
+/*
+ * Copyright 2025-present Coinbase Global, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+using CoinbaseSdk.Core.Credentials;
+using CoinbaseSdk.Core.Serialization;
+using CoinbaseSdk.Prime.Client;
+using CoinbaseSdk.Prime.Wallets;
+
+string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
+if (credentialsBlob == null)
+{
+    Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
+    return;
+}
+
+string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
+if (portfolioId == null)
+{
+    Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+    return;
+}
+
+var serializer = new JsonUtility();
+var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+
+if (credentials == null)
+{
+    Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
+    return;
+}
+
+var client = new CoinbasePrimeClient(credentials);
+var walletsService = new WalletsService(client);
+
+var request = new ListWalletAddressesRequest.ListWalletAddressesRequestBuilder()
+    .WithPortfolioId(portfolioId)
+    .WithWalletId("sample-wallet-id")
+    .Build();
+
+try
+{
+    var response = walletsService.ListWalletAddresses(request);
+    Console.WriteLine($"Retrieved {response.Addresses?.Length ?? 0} wallet addresses");
+    
+    if (response.Addresses != null)
+    {
+        foreach (var address in response.Addresses)
+        {
+            Console.WriteLine($"Address: {address.Address}");
+            Console.WriteLine($"Network: {address.Network?.Type} ({address.Network?.Id})");
+            Console.WriteLine($"Status: {address.Status}");
+            Console.WriteLine($"Label: {address.Label}");
+            Console.WriteLine($"Created: {address.CreatedAt}");
+            Console.WriteLine("---");
+        }
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error listing wallet addresses: {ex.Message}");
+}

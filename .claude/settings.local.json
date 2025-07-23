@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"/Users/nickmorgan/projects/prime-sdk-dotnet/src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.cs\" \"/Users/nickmorgan/projects/prime-sdk-dotnet/src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity/GetActivity.cs\")",
+      "Bash(rm -rf \"/Users/nickmorgan/projects/prime-sdk-dotnet/src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity\")",
+      "Bash(rm -rf \"/Users/nickmorgan/projects/prime-sdk-dotnet/src/CoinbaseSdk/PrimeExample/examples/futures/GetFcmMarginCallDetails\")"
+    ],
+    "deny": []
+  }
+}

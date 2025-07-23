@@ -22,11 +22,16 @@
   - WalletAddress (wallet address details)
   - OrderEdit and OrderEditValues (order modification tracking)
   - FcmMarginCallDetails and FcmRiskLimit (futures margin management)
+- Example Programs
+  - Top-level program examples for each new endpoint
+  - Standalone runnable files following TypeScript SDK pattern
+  - Examples for GetActivity, GetFcmMarginCallDetails, GetFcmRiskLimits, GetOrderEditHistory, CreateWalletDepositAddress, ListWalletAddresses
 
 ### Changed
 
 - Updated service interfaces and implementations across Activities, Futures, Orders, and Wallets services
 - Reorganized example project structure from `example/` to `examples/` directory
+- Converted examples to top-level programs for simplified usage
 
 ### Removed
 
