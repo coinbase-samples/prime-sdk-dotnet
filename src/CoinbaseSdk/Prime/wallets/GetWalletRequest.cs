@@ -14,33 +14,33 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Orders
+namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
 
-  public class GetOrderByOrderIdRequest(string portfolioId, string orderId)
+  public class GetWalletRequest(string portfolioId, string walletId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
     [JsonIgnore]
-    public string OrderId { get; set; } = orderId;
+    public string WalletId { get; set; } = walletId;
 
-    public class GetOrderByOrderIdRequestBuilder
+    public class GetWalletRequestBuilder
     {
       private string? _portfolioId;
-      private string? _orderId;
+      private string? _walletId;
 
-      public GetOrderByOrderIdRequestBuilder WithPortfolioId(string portfolioId)
+      public GetWalletRequestBuilder WithPortfolioId(string portfolioId)
       {
-        _portfolioId = portfolioId;
+        this._portfolioId = portfolioId;
         return this;
       }
 
-      public GetOrderByOrderIdRequestBuilder WithOrderId(string orderId)
+      public GetWalletRequestBuilder WithWalletId(string walletId)
       {
-        _orderId = orderId;
+        this._walletId = walletId;
         return this;
       }
 
@@ -48,7 +48,7 @@ namespace CoinbaseSdk.Prime.Orders
       /// Validate the builder.
       /// </summary>
       /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_orderId"/> are null, empty
+      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
       /// or whitespace.</exception>
       private void Validate()
       {
@@ -56,21 +56,21 @@ namespace CoinbaseSdk.Prime.Orders
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._orderId))
+        if (string.IsNullOrWhiteSpace(this._walletId))
         {
-          throw new CoinbaseClientException("OrderId is required");
+          throw new CoinbaseClientException("WalletId is required");
         }
       }
 
       /// <summary>
-      /// Build the <see cref="GetOrderByOrderIdRequest"/> object.
+      /// Build the <see cref="GetWalletRequest"/> object.
       /// </summary>
-      /// <returns>The <see cref="GetOrderByOrderIdRequest"/> object.</returns>
+      /// <returns>The <see cref="GetWalletRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetOrderByOrderIdRequest Build()
+      public GetWalletRequest Build()
       {
         this.Validate();
-        return new GetOrderByOrderIdRequest(this._portfolioId!, this._orderId!);
+        return new GetWalletRequest(this._portfolioId!, this._walletId!);
       }
     }
   }

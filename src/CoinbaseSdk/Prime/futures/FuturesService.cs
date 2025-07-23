@@ -178,5 +178,57 @@ namespace CoinbaseSdk.Prime.Futures
         options,
         cancellationToken);
     }
+
+    public GetFcmMarginCallDetailsResponse GetFcmMarginCallDetails(
+      GetFcmMarginCallDetailsRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetFcmMarginCallDetailsResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/margin_call_details",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetFcmMarginCallDetailsResponse> GetFcmMarginCallDetailsAsync(
+      GetFcmMarginCallDetailsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetFcmMarginCallDetailsResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/margin_call_details",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public GetFcmRiskLimitsResponse GetFcmRiskLimits(
+      GetFcmRiskLimitsRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetFcmRiskLimitsResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/risk_limits",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetFcmRiskLimitsResponse> GetFcmRiskLimitsAsync(
+      GetFcmRiskLimitsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetFcmRiskLimitsResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/risk_limits",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

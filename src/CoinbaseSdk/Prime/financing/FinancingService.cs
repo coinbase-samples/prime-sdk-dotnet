@@ -41,7 +41,7 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<CreateNewLocatesResponse>(
-        HttpMethod.Get,
+        HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/locates",
         [HttpStatusCode.OK],
         request,
@@ -132,7 +132,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null)
     {
       return this.Request<GetPortfolioCreditInformationResponse>(
-        HttpMethod.Post,
+        HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
         null,
@@ -145,7 +145,7 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default)
     {
       return this.RequestAsync<GetPortfolioCreditInformationResponse>(
-        HttpMethod.Post,
+        HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
         null,
