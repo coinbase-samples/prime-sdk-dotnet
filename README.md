@@ -13,7 +13,7 @@ The application and code are only available for demonstration purposes.
 
 ## Installation
 
-The _Coinbase Prime .NET SDK_ is vended through [NuGet](https://www.nuget.org/packages/CoinbaseSdk.Prime//) and available for installation via the `dotnet` CLI.
+The _Coinbase Prime .NET SDK_ is vended through [NuGet](https://www.nuget.org/packages/CoinbaseSdk.Prime/) and available for installation via the `dotnet` CLI.
 
 ```bash
 dotnet add package CoinbaseSdk.Prime --version x.y.z
@@ -31,59 +31,50 @@ To use the _Coinbase Prime .NET SDK_, initialize the Credentials class and creat
 enabled. Ensure that Prime API credentials are stored in a secure manner.
 
 ```c#
-namespace CoinbaseSdk.PrimeExample.Example
+using CoinbaseSdk.Core.Credentials;
+using CoinbaseSdk.Core.Serialization;
+using CoinbaseSdk.Prime.Activities;
+using CoinbaseSdk.Prime.Client;
+
+string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
+if (credentialsBlob == null)
 {
-  using CoinbaseSdk.Core.Credentials;
-  using CoinbaseSdk.Core.Serialization;
-  using CoinbaseSdk.Prime.Client;
-  using CoinbaseSdk.Prime.Model;
-  using CoinbaseSdk.Prime.Orders;
-  using CoinbaseSdk.Prime.Portfolios;
+    Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
+    return;
+}
 
-  class Example
-  {
-    static void Main()
-    {
-      string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
-      if (credentialsBlob == null)
-      {
-        Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
-        return;
-      }
+var serializer = new JsonUtility();
+var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
 
-      string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
-      if (portfolioId == null)
-      {
-        Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
-        return;
-      }
+if (credentials == null)
+{
+    Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
+    return;
+}
 
-      var serializer = new JsonUtility();
+var client = new CoinbasePrimeClient(credentials);
+var activitiesService = new ActivitiesService(client);
 
-      var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+var request = new GetActivityRequest.GetActivityRequestBuilder()
+    .WithActivityId("sample-activity-id")
+    .Build();
 
-      if (credentials == null)
-      {
-        Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
-        return;
-      }
-
-      var client = new CoinbasePrimeClient(credentials!);
-
-      var portfoliosService = new PortfoliosService(client);
-
-      var portfolio = portfoliosService.GetPortfolioById(
-        new GetPortfolioByIdRequest(portfolioId)).Portfolio!;
-
-      Console.WriteLine($"Portfolio: {serializer.Serialize(portfolio)}");
-    }
-  }
+try
+{
+    var response = activitiesService.GetActivity(request);
+    Console.WriteLine($"Retrieved activity: {response.Activity?.Id}");
+    Console.WriteLine($"Activity type: {response.Activity?.Type}");
+    Console.WriteLine($"Activity status: {response.Activity?.Status}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error retrieving activity: {ex.Message}");
 }
 ```
 
 The JSON format expected for `COINBASE_PRIME_CREDENTIALS` is:
 
-```
+```json
 {
   "accessKey": "",
   "passphrase": "",
@@ -91,12 +82,40 @@ The JSON format expected for `COINBASE_PRIME_CREDENTIALS` is:
 }
 ```
 
-For an example of how to use the client, see the [`Example`](src/CoinbaseSdk/PrimeExample/example/Example.cs) file. To execute the example, run the following command:
+## Running Examples
+
+For examples of how to use the client, see the files in the [`examples`](src/CoinbaseSdk/PrimeExample/examples/) directory.
+
+### Prerequisites
+
+1. Install the `dotnet-script` global tool:
 
 ```bash
-dotnet run --project src/CoinbaseSdk.PrimeExample/CoinbaseSdk.PrimeExample.csproj
+dotnet tool install -g dotnet-script
 ```
 
-**Warning**: this does place a limit order for a very small amount of ADA.
-Please ensure that you have the necessary funds in your account before running this code.
-The example code should cancel the order, however if something breaks you may need to go manually cancel the order.
+2. Set required environment variables:
+   - `COINBASE_PRIME_CREDENTIALS`: JSON credentials (see format above)
+   - `COINBASE_PRIME_PORTFOLIO_ID`: Your portfolio ID (for portfolio-scoped examples)
+   - `COINBASE_PRIME_ENTITY_ID`: Your entity ID (for entity-scoped examples)
+
+### Running Individual Examples
+
+Each example is a standalone C# script file (`.csx`) that can be executed directly:
+
+```bash
+# Activities examples
+dotnet script src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.csx
+
+# Futures examples
+dotnet script src/CoinbaseSdk/PrimeExample/examples/futures/GetFcmMarginCallDetails.csx
+dotnet script src/CoinbaseSdk/PrimeExample/examples/futures/GetFcmRiskLimits.csx
+
+# Orders examples
+dotnet script src/CoinbaseSdk/PrimeExample/examples/orders/GetOrderEditHistory.csx
+
+# Wallets examples
+dotnet script src/CoinbaseSdk/PrimeExample/examples/wallets/CreateWalletDepositAddress.csx
+dotnet script src/CoinbaseSdk/PrimeExample/examples/wallets/ListWalletAddresses.csx
+```
+

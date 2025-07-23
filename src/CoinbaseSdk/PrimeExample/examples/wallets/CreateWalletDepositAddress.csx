@@ -1,3 +1,6 @@
+#!/usr/bin/env dotnet-script
+#r "nuget: CoinbaseSdk.Prime, *"
+
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -17,7 +20,7 @@
 using CoinbaseSdk.Core.Credentials;
 using CoinbaseSdk.Core.Serialization;
 using CoinbaseSdk.Prime.Client;
-using CoinbaseSdk.Prime.Orders;
+using CoinbaseSdk.Prime.Wallets;
 
 string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
 if (credentialsBlob == null)
@@ -43,33 +46,21 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var ordersService = new OrdersService(client);
+var walletsService = new WalletsService(client);
 
-var request = new GetOrderEditHistoryRequest.GetOrderEditHistoryRequestBuilder()
+var request = new CreateWalletDepositAddressRequest.CreateWalletDepositAddressRequestBuilder()
     .WithPortfolioId(portfolioId)
-    .WithOrderId("sample-order-id")
+    .WithWalletId("sample-wallet-id")
     .Build();
 
 try
 {
-    var response = ordersService.GetOrderEditHistory(request);
-    Console.WriteLine($"Order edit history retrieved: {response.Edits?.Length ?? 0} edits");
-    
-    if (response.Edits != null)
-    {
-        foreach (var edit in response.Edits)
-        {
-            Console.WriteLine($"Edit ID: {edit.EditId}, Type: {edit.EditType}, Timestamp: {edit.EditTimestamp}");
-            
-            if (edit.PreviousValues != null && edit.NewValues != null)
-            {
-                Console.WriteLine($"  Previous: Size={edit.PreviousValues.Size}, Price={edit.PreviousValues.Price}");
-                Console.WriteLine($"  New: Size={edit.NewValues.Size}, Price={edit.NewValues.Price}");
-            }
-        }
-    }
+    var response = walletsService.CreateWalletDepositAddress(request);
+    Console.WriteLine($"Created deposit address: {response.Address}");
+    Console.WriteLine($"Network: {response.Network?.Type}");
+    Console.WriteLine($"Account identifier: {response.AccountIdentifier}");
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving order edit history: {ex.Message}");
+    Console.WriteLine($"Error creating wallet deposit address: {ex.Message}");
 }

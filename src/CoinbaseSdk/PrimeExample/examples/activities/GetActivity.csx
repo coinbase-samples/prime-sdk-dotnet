@@ -1,3 +1,6 @@
+#!/usr/bin/env dotnet-script
+#r "nuget: CoinbaseSdk.Prime, *"
+
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -16,20 +19,13 @@
 
 using CoinbaseSdk.Core.Credentials;
 using CoinbaseSdk.Core.Serialization;
+using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
-using CoinbaseSdk.Prime.Futures;
 
 string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
 if (credentialsBlob == null)
 {
     Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
-    return;
-}
-
-string? entityId = Environment.GetEnvironmentVariable("COINBASE_PRIME_ENTITY_ID");
-if (entityId == null)
-{
-    Console.WriteLine("COINBASE_PRIME_ENTITY_ID environment variable not set");
     return;
 }
 
@@ -43,20 +39,20 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var futuresService = new FuturesService(client);
+var activitiesService = new ActivitiesService(client);
 
-var request = new GetFcmMarginCallDetailsRequest.GetFcmMarginCallDetailsRequestBuilder()
-    .WithEntityId(entityId)
+var request = new GetActivityRequest.GetActivityRequestBuilder()
+    .WithActivityId("a4df04eb-9d7a-4583-971c-290c935771d6")
     .Build();
 
 try
 {
-    var response = futuresService.GetFcmMarginCallDetails(request);
-    Console.WriteLine($"Entity ID: {response.MarginCallDetails?.EntityId}");
-    Console.WriteLine($"Margin call amount: {response.MarginCallDetails?.MarginCallAmount}");
-    Console.WriteLine($"Margin call date: {response.MarginCallDetails?.MarginCallDate}");
+    var response = activitiesService.GetActivity(request);
+    Console.WriteLine($"Retrieved activity: {response.Activity?.Id}");
+    Console.WriteLine($"Activity type: {response.Activity?.Type}");
+    Console.WriteLine($"Activity status: {response.Activity?.Status}");
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving FCM margin call details: {ex.Message}");
+    Console.WriteLine($"Error retrieving activity: {ex.Message}");
 }

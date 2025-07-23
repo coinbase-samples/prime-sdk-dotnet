@@ -1,3 +1,6 @@
+#!/usr/bin/env dotnet-script
+#r "nuget: CoinbaseSdk.Prime, *"
+
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -17,7 +20,7 @@
 using CoinbaseSdk.Core.Credentials;
 using CoinbaseSdk.Core.Serialization;
 using CoinbaseSdk.Prime.Client;
-using CoinbaseSdk.Prime.Wallets;
+using CoinbaseSdk.Prime.Orders;
 
 string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
 if (credentialsBlob == null)
@@ -43,32 +46,33 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var walletsService = new WalletsService(client);
+var ordersService = new OrdersService(client);
 
-var request = new ListWalletAddressesRequest.ListWalletAddressesRequestBuilder()
+var request = new GetOrderEditHistoryRequest.GetOrderEditHistoryRequestBuilder()
     .WithPortfolioId(portfolioId)
-    .WithWalletId("sample-wallet-id")
+    .WithOrderId("sample-order-id")
     .Build();
 
 try
 {
-    var response = walletsService.ListWalletAddresses(request);
-    Console.WriteLine($"Retrieved {response.Addresses?.Length ?? 0} wallet addresses");
+    var response = ordersService.GetOrderEditHistory(request);
+    Console.WriteLine($"Order edit history retrieved: {response.Edits?.Length ?? 0} edits");
     
-    if (response.Addresses != null)
+    if (response.Edits != null)
     {
-        foreach (var address in response.Addresses)
+        foreach (var edit in response.Edits)
         {
-            Console.WriteLine($"Address: {address.Address}");
-            Console.WriteLine($"Network: {address.Network?.Type} ({address.Network?.Id})");
-            Console.WriteLine($"Status: {address.Status}");
-            Console.WriteLine($"Label: {address.Label}");
-            Console.WriteLine($"Created: {address.CreatedAt}");
-            Console.WriteLine("---");
+            Console.WriteLine($"Edit ID: {edit.EditId}, Type: {edit.EditType}, Timestamp: {edit.EditTimestamp}");
+            
+            if (edit.PreviousValues != null && edit.NewValues != null)
+            {
+                Console.WriteLine($"  Previous: Size={edit.PreviousValues.Size}, Price={edit.PreviousValues.Price}");
+                Console.WriteLine($"  New: Size={edit.NewValues.Size}, Price={edit.NewValues.Price}");
+            }
         }
     }
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error listing wallet addresses: {ex.Message}");
+    Console.WriteLine($"Error retrieving order edit history: {ex.Message}");
 }

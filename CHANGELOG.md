@@ -39,13 +39,13 @@
   - `ListWalletAddressesRequest` / `ListWalletAddressesResponse`
   - `ListPortfolioFillsResponse` - Response wrapper for portfolio fills
 
-- **Top-Level Program Examples**
-  - `examples/activities/GetActivity.cs`
-  - `examples/futures/GetFcmMarginCallDetails.cs`
-  - `examples/futures/GetFcmRiskLimits.cs`
-  - `examples/orders/GetOrderEditHistory.cs`
-  - `examples/wallets/CreateWalletDepositAddress.cs`
-  - `examples/wallets/ListWalletAddresses.cs`
+- **Standalone Script Examples**
+  - `examples/activities/GetActivity.csx` - C# script using dotnet-script
+  - `examples/futures/GetFcmMarginCallDetails.csx` - C# script using dotnet-script
+  - `examples/futures/GetFcmRiskLimits.csx` - C# script using dotnet-script
+  - `examples/orders/GetOrderEditHistory.csx` - C# script using dotnet-script
+  - `examples/wallets/CreateWalletDepositAddress.csx` - C# script using dotnet-script
+  - `examples/wallets/ListWalletAddresses.csx` - C# script using dotnet-script
 
 ### Enhanced
 
@@ -61,7 +61,8 @@
   - `CesCommission` - CES commission details
   - Updated builder pattern to support new fields
 
-- **Example Project Structure** - Reorganized examples with top-level program pattern for direct execution
+- **Example Project Structure** - Converted examples to standalone C# scripts (.csx) using dotnet-script for easier execution
+- **Documentation** - Enhanced README with dotnet-script installation instructions and improved example usage guidance
 
 ### Fixed
 

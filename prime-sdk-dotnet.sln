@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoinbaseSdk", "CoinbaseSdk"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.Prime", "src\CoinbaseSdk\Prime\CoinbaseSdk.Prime.csproj", "{E2730132-2996-4C04-9EE0-E0430C30DD81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinbaseSdk.PrimeExample", "src\CoinbaseSdk\PrimeExample\CoinbaseSdk.PrimeExample.csproj", "{8DB4A76C-9398-403A-824E-65161D28F3E4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,14 +38,9 @@ Global
 		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2730132-2996-4C04-9EE0-E0430C30DD81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DB4A76C-9398-403A-824E-65161D28F3E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{405E1783-9193-480F-BFE2-088B66DF8697} = {F7809299-A0D4-4110-ADDD-58B23EBE3CBE}
 		{E2730132-2996-4C04-9EE0-E0430C30DD81} = {405E1783-9193-480F-BFE2-088B66DF8697}
-		{8DB4A76C-9398-403A-824E-65161D28F3E4} = {405E1783-9193-480F-BFE2-088B66DF8697}
 	EndGlobalSection
 EndGlobal

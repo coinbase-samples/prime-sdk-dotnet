@@ -1,3 +1,6 @@
+#!/usr/bin/env dotnet-script
+#r "nuget: CoinbaseSdk.Prime, *"
+
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -17,7 +20,7 @@
 using CoinbaseSdk.Core.Credentials;
 using CoinbaseSdk.Core.Serialization;
 using CoinbaseSdk.Prime.Client;
-using CoinbaseSdk.Prime.Wallets;
+using CoinbaseSdk.Prime.Futures;
 
 string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
 if (credentialsBlob == null)
@@ -26,10 +29,10 @@ if (credentialsBlob == null)
     return;
 }
 
-string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
-if (portfolioId == null)
+string? entityId = Environment.GetEnvironmentVariable("COINBASE_PRIME_ENTITY_ID");
+if (entityId == null)
 {
-    Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+    Console.WriteLine("COINBASE_PRIME_ENTITY_ID environment variable not set");
     return;
 }
 
@@ -43,21 +46,26 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var walletsService = new WalletsService(client);
+var futuresService = new FuturesService(client);
 
-var request = new CreateWalletDepositAddressRequest.CreateWalletDepositAddressRequestBuilder()
-    .WithPortfolioId(portfolioId)
-    .WithWalletId("sample-wallet-id")
+var request = new GetFcmRiskLimitsRequest.GetFcmRiskLimitsRequestBuilder()
+    .WithEntityId(entityId)
     .Build();
 
 try
 {
-    var response = walletsService.CreateWalletDepositAddress(request);
-    Console.WriteLine($"Created deposit address: {response.Address}");
-    Console.WriteLine($"Network: {response.Network?.Type}");
-    Console.WriteLine($"Account identifier: {response.AccountIdentifier}");
+    var response = futuresService.GetFcmRiskLimits(request);
+    Console.WriteLine($"Risk limits retrieved: {response.RiskLimits?.Length ?? 0} items");
+    
+    if (response.RiskLimits != null)
+    {
+        foreach (var riskLimit in response.RiskLimits)
+        {
+            Console.WriteLine($"Product ID: {riskLimit.ProductId}, Limit: {riskLimit.RiskLimitValue}");
+        }
+    }
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error creating wallet deposit address: {ex.Message}");
+    Console.WriteLine($"Error retrieving FCM risk limits: {ex.Message}");
 }
