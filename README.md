@@ -62,9 +62,8 @@ var request = new GetActivityRequest.GetActivityRequestBuilder()
 try
 {
     var response = activitiesService.GetActivity(request);
-    Console.WriteLine($"Retrieved activity: {response.Activity?.Id}");
-    Console.WriteLine($"Activity type: {response.Activity?.Type}");
-    Console.WriteLine($"Activity status: {response.Activity?.Status}");
+    Console.WriteLine("GetActivityResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {
@@ -105,7 +104,7 @@ Each example is a standalone C# script file (`.csx`) that can be executed direct
 
 ```bash
 # Activities examples
-dotnet script src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.csx
+dotnet script src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.csx <activity-id>
 
 # Futures examples
 dotnet script src/CoinbaseSdk/PrimeExample/examples/futures/GetFcmMarginCallDetails.csx

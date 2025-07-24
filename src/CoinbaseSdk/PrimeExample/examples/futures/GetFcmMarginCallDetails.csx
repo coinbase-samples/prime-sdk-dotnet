@@ -55,9 +55,8 @@ var request = new GetFcmMarginCallDetailsRequest.GetFcmMarginCallDetailsRequestB
 try
 {
     var response = futuresService.GetFcmMarginCallDetails(request);
-    Console.WriteLine($"Entity ID: {response.MarginCallDetails?.EntityId}");
-    Console.WriteLine($"Margin call amount: {response.MarginCallDetails?.MarginCallAmount}");
-    Console.WriteLine($"Margin call date: {response.MarginCallDetails?.MarginCallDate}");
+    Console.WriteLine("GetFcmMarginCallDetailsResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {

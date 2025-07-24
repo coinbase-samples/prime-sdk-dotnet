@@ -55,15 +55,8 @@ var request = new GetFcmRiskLimitsRequest.GetFcmRiskLimitsRequestBuilder()
 try
 {
     var response = futuresService.GetFcmRiskLimits(request);
-    Console.WriteLine($"Risk limits retrieved: {response.RiskLimits?.Length ?? 0} items");
-    
-    if (response.RiskLimits != null)
-    {
-        foreach (var riskLimit in response.RiskLimits)
-        {
-            Console.WriteLine($"Product ID: {riskLimit.ProductId}, Limit: {riskLimit.RiskLimitValue}");
-        }
-    }
+    Console.WriteLine("GetFcmRiskLimitsResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {

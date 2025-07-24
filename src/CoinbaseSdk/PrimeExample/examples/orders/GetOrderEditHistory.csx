@@ -56,21 +56,8 @@ var request = new GetOrderEditHistoryRequest.GetOrderEditHistoryRequestBuilder()
 try
 {
     var response = ordersService.GetOrderEditHistory(request);
-    Console.WriteLine($"Order edit history retrieved: {response.Edits?.Length ?? 0} edits");
-    
-    if (response.Edits != null)
-    {
-        foreach (var edit in response.Edits)
-        {
-            Console.WriteLine($"Edit ID: {edit.EditId}, Type: {edit.EditType}, Timestamp: {edit.EditTimestamp}");
-            
-            if (edit.PreviousValues != null && edit.NewValues != null)
-            {
-                Console.WriteLine($"  Previous: Size={edit.PreviousValues.Size}, Price={edit.PreviousValues.Price}");
-                Console.WriteLine($"  New: Size={edit.NewValues.Size}, Price={edit.NewValues.Price}");
-            }
-        }
-    }
+    Console.WriteLine("GetOrderEditHistoryResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {

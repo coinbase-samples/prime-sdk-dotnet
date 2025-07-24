@@ -56,9 +56,8 @@ var request = new CreateWalletDepositAddressRequest.CreateWalletDepositAddressRe
 try
 {
     var response = walletsService.CreateWalletDepositAddress(request);
-    Console.WriteLine($"Created deposit address: {response.Address}");
-    Console.WriteLine($"Network: {response.Network?.Type}");
-    Console.WriteLine($"Account identifier: {response.AccountIdentifier}");
+    Console.WriteLine("CreateWalletDepositAddressResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {

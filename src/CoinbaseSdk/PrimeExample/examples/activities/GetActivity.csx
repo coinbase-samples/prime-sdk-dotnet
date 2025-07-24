@@ -41,16 +41,27 @@ if (credentials == null)
 var client = new CoinbasePrimeClient(credentials);
 var activitiesService = new ActivitiesService(client);
 
+string activityId;
+if (Args.Count > 0)
+{
+    activityId = Args[0];
+}
+else
+{
+    Console.WriteLine("Usage: dotnet script GetActivity.csx <activity-id>");
+    Console.WriteLine("Example: dotnet script GetActivity.csx a4df04eb-9d7a-4583-971c-290c935771d6");
+    return;
+}
+
 var request = new GetActivityRequest.GetActivityRequestBuilder()
-    .WithActivityId("a4df04eb-9d7a-4583-971c-290c935771d6")
+    .WithActivityId(activityId)
     .Build();
 
 try
 {
     var response = activitiesService.GetActivity(request);
-    Console.WriteLine($"Retrieved activity: {response.Activity?.Id}");
-    Console.WriteLine($"Activity type: {response.Activity?.Type}");
-    Console.WriteLine($"Activity status: {response.Activity?.Status}");
+    Console.WriteLine("GetActivityResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {

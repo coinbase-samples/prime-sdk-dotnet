@@ -56,20 +56,8 @@ var request = new ListWalletAddressesRequest.ListWalletAddressesRequestBuilder()
 try
 {
     var response = walletsService.ListWalletAddresses(request);
-    Console.WriteLine($"Retrieved {response.Addresses?.Length ?? 0} wallet addresses");
-    
-    if (response.Addresses != null)
-    {
-        foreach (var address in response.Addresses)
-        {
-            Console.WriteLine($"Address: {address.Address}");
-            Console.WriteLine($"Network: {address.Network?.Type} ({address.Network?.Id})");
-            Console.WriteLine($"Status: {address.Status}");
-            Console.WriteLine($"Label: {address.Label}");
-            Console.WriteLine($"Created: {address.CreatedAt}");
-            Console.WriteLine("---");
-        }
-    }
+    Console.WriteLine("ListWalletAddressesResponse");
+    Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
 {
