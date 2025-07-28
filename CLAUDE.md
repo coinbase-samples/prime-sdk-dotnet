@@ -10,9 +10,30 @@ dotnet build prime-sdk-dotnet.sln
 ```
 
 ### Running Examples
+
+#### Prerequisites
+First, build the SDK to generate the local DLL:
 ```bash
-dotnet run --project src/CoinbaseSdk/PrimeExample/CoinbaseSdk.PrimeExample.csproj
+dotnet build src/CoinbaseSdk/Prime/CoinbaseSdk.Prime.csproj
 ```
+
+#### Running Individual Example Scripts
+Each example is a standalone dotnet-script (.csx) file that references the locally built DLL:
+```bash
+# Navigate to the example directory
+cd src/CoinbaseSdk/PrimeExample/examples/activities
+
+# Run a specific example
+dotnet script GetActivity.csx <activity-id>
+```
+
+#### Available Examples
+- `activities/GetActivity.csx` - Retrieve activity by ID
+- `futures/GetFcmMarginCallDetails.csx` - Get FCM margin call details  
+- `futures/GetFcmRiskLimits.csx` - Get FCM risk limits
+- `orders/GetOrderEditHistory.csx` - Get order edit history
+- `wallets/CreateWalletDepositAddress.csx` - Create wallet deposit address
+- `wallets/ListWalletAddresses.csx` - List wallet addresses
 
 ### Testing
 Note: Tests require environment variables COINBASE_PRIME_CREDENTIALS (JSON with accessKey, passphrase, signingKey) and COINBASE_PRIME_PORTFOLIO_ID.
@@ -24,8 +45,8 @@ The project uses StyleCop analyzers with TreatWarningsAsErrors=true in the main 
 
 ### Project Structure
 - **CoinbaseSdk.Prime**: Main SDK library targeting .NET 8.0
-- **CoinbaseSdk.PrimeExample**: Console application demonstrating SDK usage
-- **prime-sdk-dotnet.sln**: Solution file containing both projects
+- **PrimeExample/examples/**: Standalone dotnet-script examples demonstrating SDK usage
+- **prime-sdk-dotnet.sln**: Solution file
 
 ### Core Architecture
 The SDK follows a service-oriented architecture with clear separation of concerns:

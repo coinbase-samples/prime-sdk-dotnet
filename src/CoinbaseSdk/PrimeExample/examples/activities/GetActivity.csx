@@ -1,5 +1,6 @@
 #!/usr/bin/env dotnet-script
-#r "nuget: CoinbaseSdk.Prime, *"
+#r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
+#r "nuget: CoinbaseSdk.Core, 0.0.1"
 
 /*
  * Copyright 2025-present Coinbase Global, Inc.
@@ -16,6 +17,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+#nullable enable
 
 using CoinbaseSdk.Core.Credentials;
 using CoinbaseSdk.Core.Serialization;
