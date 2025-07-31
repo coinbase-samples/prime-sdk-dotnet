@@ -16,18 +16,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Signing status enumeration.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum SigningStatus
   {
-    [JsonPropertyName("SIGNED")]
-    Signed,
-
-    [JsonPropertyName("UNSIGNED")]
-    Unsigned
+    SIGNED,
+    UNSIGNED
   }
 }

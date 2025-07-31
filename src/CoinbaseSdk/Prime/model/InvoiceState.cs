@@ -16,9 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum InvoiceState
   {
     INVOICE_STATE_UNSPECIFIED,

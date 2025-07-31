@@ -16,21 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Visibility status for assets and items.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum VisibilityStatus
   {
-    [JsonPropertyName("VISIBLE")]
-    Visible,
-
-    [JsonPropertyName("HIDDEN")]
-    Hidden,
-
-    [JsonPropertyName("SPAM")]
-    Spam
+    VISIBLE,
+    HIDDEN,
+    SPAM
   }
 }

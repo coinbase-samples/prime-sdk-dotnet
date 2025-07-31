@@ -16,27 +16,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Action is the available user action types.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum Action
   {
-    [JsonPropertyName("OTHER_ACTION")]
-    OtherAction,
-
-    [JsonPropertyName("ACTION_APPROVE")]
-    ActionApprove,
-
-    [JsonPropertyName("ACTION_REJECT")]
-    ActionReject,
-
-    [JsonPropertyName("ACTION_INITIATE")]
-    ActionInitiate,
-
-    [JsonPropertyName("ACTION_CANCEL")]
-    ActionCancel
+    OTHER_ACTION,
+    ACTION_APPROVE,
+    ACTION_REJECT,
+    ACTION_INITIATE,
+    ACTION_CANCEL
   }
 }

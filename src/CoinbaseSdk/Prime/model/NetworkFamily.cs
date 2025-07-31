@@ -16,18 +16,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum NetworkFamily
   {
-    [JsonPropertyName("NETWORK_FAMILY_UNSPECIFIED")]
-    NetworkFamilyUnspecified,
-
-    [JsonPropertyName("NETWORK_FAMILY_EVM")]
-    NetworkFamilyEvm,
-
-    [JsonPropertyName("NETWORK_FAMILY_SOLANA")]
-    NetworkFamilySolana
+    NETWORK_FAMILY_UNSPECIFIED,
+    NETWORK_FAMILY_EVM,
+    NETWORK_FAMILY_SOLANA
   }
 }

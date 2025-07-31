@@ -16,12 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// MarginAddOnType represents the type of margin add-on.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum MarginAddOnType
   {
     MARGIN_ADD_ON_TYPE_UNSPECIFIED,

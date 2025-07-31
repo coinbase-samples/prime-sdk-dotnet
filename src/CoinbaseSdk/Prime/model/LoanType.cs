@@ -16,12 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// LoanType represents the type of loan.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum LoanType
   {
     LOAN_TYPE_UNSET,

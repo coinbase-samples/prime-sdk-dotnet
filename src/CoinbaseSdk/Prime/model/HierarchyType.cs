@@ -16,12 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// HierarchyType are the enums for various hierarchies within Prime, ex Entity, Organization, Portfolio.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum HierarchyType
   {
     HIERARCHY_TYPE_UNSPECIFIED,

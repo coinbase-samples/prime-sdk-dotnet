@@ -16,12 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Indicates the wallet's deposit instruction type.
   /// </summary>
-  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum WalletDepositInstructionType
   {
     CRYPTO,

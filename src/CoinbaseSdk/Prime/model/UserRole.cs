@@ -16,66 +16,54 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-    using System.Text.Json.Serialization;
-
     /// <summary>
     /// Indicates the user's role.
     /// </summary>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum UserRole
     {
         /// <summary>
         /// An auditor.
         /// </summary>
-        [JsonPropertyName("AUDITOR")]
         AUDITOR,
 
         /// <summary>
         /// A signatory.
         /// </summary>
-        [JsonPropertyName("SIGNATORY")]
         SIGNATORY,
 
         /// <summary>
         /// An admin.
         /// </summary>
-        [JsonPropertyName("ADMIN")]
         ADMIN,
 
         /// <summary>
         /// An initiator.
         /// </summary>
-        [JsonPropertyName("INITIATOR")]
         INITIATOR,
 
         /// <summary>
         /// A reviewer.
         /// </summary>
-        [JsonPropertyName("REVIEWER")]
         REVIEWER,
 
         /// <summary>
         /// A trader.
         /// </summary>
-        [JsonPropertyName("TRADER")]
         TRADER,
 
         /// <summary>
         /// A trader with full permissions.
         /// </summary>
-        [JsonPropertyName("FULL_TRADER")]
         FULL_TRADER,
 
         /// <summary>
         /// A team manager.
         /// </summary>
-        [JsonPropertyName("TEAM_MANAGER")]
         TEAM_MANAGER,
 
         /// <summary>
         /// An approver.
         /// </summary>
-        [JsonPropertyName("APPROVER")]
         APPROVER
     }
 }

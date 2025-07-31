@@ -16,15 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-    using System.Text.Json.Serialization;
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SortDirection
     {
-        [JsonPropertyName("DESC")]
         DESC,
-
-        [JsonPropertyName("ASC")]
         ASC
     }
 }
