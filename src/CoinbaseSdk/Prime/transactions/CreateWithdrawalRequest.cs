@@ -40,10 +40,13 @@ namespace CoinbaseSdk.Prime.Transactions
     public string? CurrencySymbol { get; set; }
 
     [JsonPropertyName("payment_method")]
-    public PaymentMethod? PaymentMethod { get; set; }
+    public PaymentMethodDestination? PaymentMethod { get; set; }
 
     [JsonPropertyName("blockchain_address")]
     public BlockchainAddress? BlockchainAddress { get; set; }
+
+    [JsonPropertyName("counterparty")]
+    public CounterpartyDestination? Counterparty { get; set; }
 
     public class CreateWithdrawalRequestBuilder
     {
@@ -53,8 +56,9 @@ namespace CoinbaseSdk.Prime.Transactions
       private DestinationType? _destinationType;
       private string? _idempotencyKey;
       private string? _currencySymbol;
-      private PaymentMethod? _paymentMethod;
+      private PaymentMethodDestination? _paymentMethod;
       private BlockchainAddress? _blockchainAddress;
+      private CounterpartyDestination? _counterparty;
 
       public CreateWithdrawalRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -92,7 +96,7 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithPaymentMethod(PaymentMethod paymentMethod)
+      public CreateWithdrawalRequestBuilder WithPaymentMethod(PaymentMethodDestination paymentMethod)
       {
         this._paymentMethod = paymentMethod;
         return this;
@@ -101,6 +105,12 @@ namespace CoinbaseSdk.Prime.Transactions
       public CreateWithdrawalRequestBuilder WithBlockchainAddress(BlockchainAddress blockchainAddress)
       {
         this._blockchainAddress = blockchainAddress;
+        return this;
+      }
+
+      public CreateWithdrawalRequestBuilder WithCounterparty(CounterpartyDestination counterparty)
+      {
+        this._counterparty = counterparty;
         return this;
       }
 
@@ -137,7 +147,8 @@ namespace CoinbaseSdk.Prime.Transactions
           IdempotencyKey = this._idempotencyKey,
           CurrencySymbol = this._currencySymbol,
           PaymentMethod = this._paymentMethod,
-          BlockchainAddress = this._blockchainAddress
+          BlockchainAddress = this._blockchainAddress,
+          Counterparty = this._counterparty
         };
       }
     }

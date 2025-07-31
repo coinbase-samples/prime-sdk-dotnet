@@ -49,9 +49,29 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("time_in_force")]
     public TimeInForce TimeInForce { get; set; }
 
+    [JsonPropertyName("commission")]
     public string? Commission { get; set; }
 
+    [JsonPropertyName("slippage")]
     public string? Slippage { get; set; }
+
+    [JsonPropertyName("historical_pov")]
+    public string? HistoricalPov { get; set; }
+
+    [JsonPropertyName("is_raise_exact")]
+    public bool? IsRaiseExact { get; set; }
+
+    [JsonPropertyName("stop_price")]
+    public string? StopPrice { get; set; }
+
+    [JsonPropertyName("display_size")]
+    public string? DisplaySize { get; set; }
+
+    [JsonPropertyName("display_quote_size")]
+    public string? DisplayQuoteSize { get; set; }
+
+    [JsonPropertyName("display_base_size")]
+    public string? DisplayBaseSize { get; set; }
 
     [JsonPropertyName("best_bid")]
     public string? BestBid { get; set; }
@@ -86,6 +106,12 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _bestAsk;
       private string? _averageFilledPrice;
       private string? _orderTotal;
+      private string? _historicalPov;
+      private bool? _isRaiseExact;
+      private string? _stopPrice;
+      private string? _displaySize;
+      private string? _displayQuoteSize;
+      private string? _displayBaseSize;
 
       public GetOrderPreviewResponseBuilder WithPortfolioId(string portfolioId)
       {
@@ -183,6 +209,42 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
+      public GetOrderPreviewResponseBuilder WithHistoricalPov(string? historicalPov)
+      {
+        this._historicalPov = historicalPov;
+        return this;
+      }
+
+      public GetOrderPreviewResponseBuilder WithIsRaiseExact(bool? isRaiseExact)
+      {
+        this._isRaiseExact = isRaiseExact;
+        return this;
+      }
+
+      public GetOrderPreviewResponseBuilder WithStopPrice(string? stopPrice)
+      {
+        this._stopPrice = stopPrice;
+        return this;
+      }
+
+      public GetOrderPreviewResponseBuilder WithDisplaySize(string? displaySize)
+      {
+        this._displaySize = displaySize;
+        return this;
+      }
+
+      public GetOrderPreviewResponseBuilder WithDisplayQuoteSize(string? displayQuoteSize)
+      {
+        this._displayQuoteSize = displayQuoteSize;
+        return this;
+      }
+
+      public GetOrderPreviewResponseBuilder WithDisplayBaseSize(string? displayBaseSize)
+      {
+        this._displayBaseSize = displayBaseSize;
+        return this;
+      }
+
       public GetOrderPreviewResponse Build()
       {
         return new GetOrderPreviewResponse
@@ -202,7 +264,13 @@ namespace CoinbaseSdk.Prime.Orders
           BestBid = this._bestBid,
           BestAsk = this._bestAsk,
           AverageFilledPrice = this._averageFilledPrice,
-          OrderTotal = this._orderTotal
+          OrderTotal = this._orderTotal,
+          HistoricalPov = this._historicalPov,
+          IsRaiseExact = this._isRaiseExact,
+          StopPrice = this._stopPrice,
+          DisplaySize = this._displaySize,
+          DisplayQuoteSize = this._displayQuoteSize,
+          DisplayBaseSize = this._displayBaseSize
         };
       }
     }

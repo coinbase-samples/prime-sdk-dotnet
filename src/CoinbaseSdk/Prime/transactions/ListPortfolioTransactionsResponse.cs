@@ -25,14 +25,14 @@ namespace CoinbaseSdk.Prime.Transactions
     public Transaction[] Transactions { get; set; } = [];
 
     [JsonPropertyName("pagination")]
-    public Pagination? Pagination { get; set; }
+    public PaginatedResponse? Pagination { get; set; }
 
     public ListPortfolioTransactionsResponse() { }
 
     public class ListPortfolioTransactionsResponseBuilder
     {
       private Transaction[] _transactions = [];
-      private Pagination? _pagination;
+      private PaginatedResponse? _pagination;
 
       public ListPortfolioTransactionsResponseBuilder() { }
 
@@ -42,7 +42,7 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
-      public ListPortfolioTransactionsResponseBuilder WithPagination(Pagination? pagination)
+      public ListPortfolioTransactionsResponseBuilder WithPagination(PaginatedResponse? pagination)
       {
         this._pagination = pagination;
         return this;

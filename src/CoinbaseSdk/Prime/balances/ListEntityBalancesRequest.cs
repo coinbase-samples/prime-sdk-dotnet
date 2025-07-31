@@ -24,12 +24,9 @@ namespace CoinbaseSdk.Prime.Balances
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    public string? Symbol { get; set; }
+    public string[] Symbols { get; set; } = [];
 
     public string? Cursor { get; set; }
-
-    [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
 
     public int? Limit { get; set; }
 
@@ -39,27 +36,20 @@ namespace CoinbaseSdk.Prime.Balances
     public class ListEntityBalancesRequestBuilder(string entityId)
     {
       private string _entityId = entityId;
-      private string? _symbol;
+      private string[] _symbols = [];
       private string? _cursor;
-      private string? _sortDirection;
       private int? _limit;
       private BalanceType? _aggregationType;
 
-      public ListEntityBalancesRequestBuilder WithSymbol(string? symbol)
+      public ListEntityBalancesRequestBuilder WithSymbols(string[] symbols)
       {
-        this._symbol = symbol;
+        this._symbols = symbols;
         return this;
       }
 
       public ListEntityBalancesRequestBuilder WithCursor(string? cursor)
       {
         this._cursor = cursor;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithSortDirection(string? sortDirection)
-      {
-        this._sortDirection = sortDirection;
         return this;
       }
 
@@ -78,7 +68,6 @@ namespace CoinbaseSdk.Prime.Balances
       public ListEntityBalancesRequestBuilder WithPagination(Pagination pagination)
       {
         this._cursor = pagination.NextCursor;
-        this._sortDirection = pagination.SortDirection;
         return this;
       }
 
@@ -86,9 +75,8 @@ namespace CoinbaseSdk.Prime.Balances
       {
         return new ListEntityBalancesRequest(this._entityId)
         {
-          Symbol = this._symbol,
+          Symbols = this._symbols,
           Cursor = this._cursor,
-          SortDirection = this._sortDirection,
           Limit = this._limit,
           AggregationType = this._aggregationType
         };

@@ -101,11 +101,11 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public ListOrderFillsResponse ListPortfolioFills(
+    public ListPortfolioFillsResponse ListPortfolioFills(
       ListPortfolioFillsRequest request,
       CallOptions? options = null);
 
-    public Task<ListOrderFillsResponse> ListPortfolioFillsAsync(
+    public Task<ListPortfolioFillsResponse> ListPortfolioFillsAsync(
       ListPortfolioFillsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);

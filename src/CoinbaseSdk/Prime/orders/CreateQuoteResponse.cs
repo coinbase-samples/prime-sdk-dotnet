@@ -33,7 +33,7 @@ namespace CoinbaseSdk.Prime.Orders
     public string? OrderTotal { get; set; }
 
     [JsonPropertyName("price_inclusive_of_fees")]
-    public bool PriceInclusiveOfFees { get; set; }
+    public string? PriceInclusiveOfFees { get; set; }
 
     public CreateQuoteResponse() { }
 
@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _expirationTime;
       private string? _bestPrice;
       private string? _orderTotal;
-      private bool _priceInclusiveOfFees;
+      private string? _priceInclusiveOfFees;
       public CreateQuoteResponseBuilder() { }
 
       public CreateQuoteResponseBuilder WithQuoteId(string quoteId)
@@ -70,7 +70,7 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
-      public CreateQuoteResponseBuilder WithPriceInclusiveOfFees(bool priceInclusiveOfFees)
+      public CreateQuoteResponseBuilder WithPriceInclusiveOfFees(string? priceInclusiveOfFees)
       {
         _priceInclusiveOfFees = priceInclusiveOfFees;
         return this;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2024-present Coinbase Global, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,41 +16,14 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  using System.Text.Json.Serialization;
+
   public class TieredPricingFee
   {
+    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
+    [JsonPropertyName("fee")]
     public string? Fee { get; set; }
-
-    public TieredPricingFee() { }
-
-    public TieredPricingFee(string? symbol, string? fee)
-    {
-      Symbol = symbol;
-      Fee = fee;
-    }
-
-    public class TieredPricingFeeBuilder
-    {
-      private string? _symbol;
-      private string? _fee;
-
-      public TieredPricingFeeBuilder WithSymbol(string? symbol)
-      {
-        _symbol = symbol;
-        return this;
-      }
-
-      public TieredPricingFeeBuilder WithFee(string? fee)
-      {
-        _fee = fee;
-        return this;
-      }
-
-      public TieredPricingFee Build()
-      {
-        return new TieredPricingFee(_symbol, _fee);
-      }
-    }
   }
 }

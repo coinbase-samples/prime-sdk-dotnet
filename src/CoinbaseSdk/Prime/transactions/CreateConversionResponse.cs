@@ -32,6 +32,9 @@ namespace CoinbaseSdk.Prime.Transactions
     public string? Destination { get; set; }
     public string? Source { get; set; }
 
+    [JsonPropertyName("transaction_id")]
+    public string? TransactionId { get; set; }
+
     public CreateConversionResponse() { }
 
     public class CreateConversionResponseBuilder
@@ -42,6 +45,7 @@ namespace CoinbaseSdk.Prime.Transactions
       private string? _amount;
       private string? _destination;
       private string? _source;
+      private string? _transactionId;
 
       public CreateConversionResponseBuilder WithActivityId(string? activityId)
       {
@@ -79,6 +83,12 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
+      public CreateConversionResponseBuilder WithTransactionId(string? transactionId)
+      {
+        this._transactionId = transactionId;
+        return this;
+      }
+
       public CreateConversionResponse Build()
       {
         return new CreateConversionResponse
@@ -88,7 +98,8 @@ namespace CoinbaseSdk.Prime.Transactions
           DestinationSymbol = this._destinationSymbol,
           Amount = this._amount,
           Destination = this._destination,
-          Source = this._source
+          Source = this._source,
+          TransactionId = this._transactionId
         };
       }
     }

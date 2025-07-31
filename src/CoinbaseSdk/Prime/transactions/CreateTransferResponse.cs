@@ -39,6 +39,9 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("source_address")]
     public string? SourceAddress { get; set; }
 
+    [JsonPropertyName("source_type")]
+    public string? SourceType { get; set; }
+
     [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
@@ -54,6 +57,7 @@ namespace CoinbaseSdk.Prime.Transactions
       private string? _destinationAddress;
       private string? _destinationType;
       private string? _sourceAddress;
+      private string? _sourceType;
       private string? _transactionId;
 
       public CreateTransferResponseBuilder WithActivityId(string? activityId)
@@ -104,6 +108,12 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
+      public CreateTransferResponseBuilder WithSourceType(string? sourceType)
+      {
+        this._sourceType = sourceType;
+        return this;
+      }
+
       public CreateTransferResponseBuilder WithTransactionId(string? transactionId)
       {
         this._transactionId = transactionId;
@@ -122,6 +132,7 @@ namespace CoinbaseSdk.Prime.Transactions
           DestinationAddress = this._destinationAddress,
           DestinationType = this._destinationType,
           SourceAddress = this._sourceAddress,
+          SourceType = this._sourceType,
           TransactionId = this._transactionId
         };
       }

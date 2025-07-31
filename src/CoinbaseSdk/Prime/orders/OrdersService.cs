@@ -258,11 +258,11 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public ListOrderFillsResponse ListPortfolioFills(
+    public ListPortfolioFillsResponse ListPortfolioFills(
       ListPortfolioFillsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOrderFillsResponse>(
+      return this.Request<ListPortfolioFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/fills",
         [HttpStatusCode.OK],
@@ -270,12 +270,12 @@ namespace CoinbaseSdk.Prime.Orders
         options);
     }
 
-    public Task<ListOrderFillsResponse> ListPortfolioFillsAsync(
+    public Task<ListPortfolioFillsResponse> ListPortfolioFillsAsync(
       ListPortfolioFillsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOrderFillsResponse>(
+      return this.RequestAsync<ListPortfolioFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/fills",
         [HttpStatusCode.OK],

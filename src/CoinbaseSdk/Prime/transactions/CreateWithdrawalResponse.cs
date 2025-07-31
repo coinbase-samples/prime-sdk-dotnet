@@ -40,6 +40,9 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("blockchain_destination")]
     public BlockchainAddress? BlockchainDestination { get; set; }
 
+    [JsonPropertyName("counterparty_destination")]
+    public CounterpartyDestination? CounterpartyDestination { get; set; }
+
     [JsonPropertyName("blockchain_source")]
     public BlockchainAddress? BlockchainSource { get; set; }
 
@@ -58,6 +61,7 @@ namespace CoinbaseSdk.Prime.Transactions
       private DestinationType _destinationType;
       private string? _sourceType;
       private BlockchainAddress? _blockchainDestination;
+      private CounterpartyDestination? _counterpartyDestination;
       private BlockchainAddress? _blockchainSource;
       private string? _transactionId;
 
@@ -106,6 +110,12 @@ namespace CoinbaseSdk.Prime.Transactions
       public CreateWithdrawalResponseBuilder WithBlockchainDestination(BlockchainAddress? blockchainDestination)
       {
         this._blockchainDestination = blockchainDestination;
+        return this;
+      }
+
+      public CreateWithdrawalResponseBuilder WithCounterpartyDestination(CounterpartyDestination? counterpartyDestination)
+      {
+        this._counterpartyDestination = counterpartyDestination;
         return this;
       }
 

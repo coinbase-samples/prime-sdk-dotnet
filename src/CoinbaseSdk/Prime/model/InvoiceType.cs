@@ -16,6 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  using System.Text.Json.Serialization;
+
+  [JsonConverter(typeof(JsonStringEnumConverter))]
   public enum InvoiceType
   {
     INVOICE_TYPE_UNSPECIFIED,

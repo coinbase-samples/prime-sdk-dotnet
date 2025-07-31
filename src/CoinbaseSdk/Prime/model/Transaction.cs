@@ -75,6 +75,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public TransactionMetadata? Metadata { get; set; }
 
+    [JsonPropertyName("idempotency_key")]
+    public string? IdempotencyKey { get; set; }
+
+    [JsonPropertyName("onchain_details")]
+    public OnchainTransactionDetails? OnchainDetails { get; set; }
+
+    [JsonPropertyName("network_info")]
+    public Network? NetworkInfo { get; set; }
+
     public Transaction() { }
 
     public class TransactionBuilder
@@ -100,6 +109,9 @@ namespace CoinbaseSdk.Prime.Model
       private string? _network;
       private AssetChange[] _estimatedAssetChanges = [];
       private TransactionMetadata? _metadata;
+      private string? _idempotencyKey;
+      private OnchainTransactionDetails? _onchainDetails;
+      private Network? _networkInfo;
 
       public TransactionBuilder WithId(string id)
       {
@@ -228,6 +240,24 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
+      public TransactionBuilder WithIdempotencyKey(string idempotencyKey)
+      {
+        this._idempotencyKey = idempotencyKey;
+        return this;
+      }
+
+      public TransactionBuilder WithOnchainDetails(OnchainTransactionDetails onchainDetails)
+      {
+        this._onchainDetails = onchainDetails;
+        return this;
+      }
+
+      public TransactionBuilder WithNetworkInfo(Network networkInfo)
+      {
+        this._networkInfo = networkInfo;
+        return this;
+      }
+
       public Transaction Build()
       {
         return new Transaction
@@ -253,6 +283,9 @@ namespace CoinbaseSdk.Prime.Model
           Network = this._network,
           EstimatedAssetChanges = this._estimatedAssetChanges,
           Metadata = this._metadata,
+          IdempotencyKey = this._idempotencyKey,
+          OnchainDetails = this._onchainDetails,
+          NetworkInfo = this._networkInfo,
         };
       }
     }

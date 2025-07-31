@@ -71,6 +71,12 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
 
+    [JsonPropertyName("settl_currency")]
+    public string? SettlCurrency { get; set; }
+
+    [JsonPropertyName("post_only")]
+    public bool? PostOnly { get; set; }
+
     public class CreateOrderRequestBuilder
     {
       private string? _portfolioId;
@@ -90,6 +96,8 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _displayBaseSize;
       private bool? _isRaiseExact;
       private string? _historicalPov;
+      private string? _settlCurrency;
+      private bool? _postOnly;
 
       public CreateOrderRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -193,6 +201,18 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
+      public CreateOrderRequestBuilder WithSettlCurrency(string? settlCurrency)
+      {
+        this._settlCurrency = settlCurrency;
+        return this;
+      }
+
+      public CreateOrderRequestBuilder WithPostOnly(bool? postOnly)
+      {
+        this._postOnly = postOnly;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>
@@ -230,7 +250,9 @@ namespace CoinbaseSdk.Prime.Orders
           DisplayQuoteSize = this._displayQuoteSize,
           DisplayBaseSize = this._displayBaseSize,
           IsRaiseExact = this._isRaiseExact,
-          HistoricalPov = this._historicalPov
+          HistoricalPov = this._historicalPov,
+          SettlCurrency = this._settlCurrency,
+          PostOnly = this._postOnly
         };
       }
     }

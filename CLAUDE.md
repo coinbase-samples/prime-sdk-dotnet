@@ -32,6 +32,8 @@ dotnet script GetActivity.csx <activity-id>
 - `futures/GetFcmMarginCallDetails.csx` - Get FCM margin call details  
 - `futures/GetFcmRiskLimits.csx` - Get FCM risk limits
 - `orders/GetOrderEditHistory.csx` - Get order edit history
+- `transactions/GetTransactionByTransactionId.csx` - Get transaction by ID
+- `transactions/ListPortfolioTransactions.csx` - List portfolio transactions
 - `wallets/CreateWalletDepositAddress.csx` - Create wallet deposit address
 - `wallets/ListWalletAddresses.csx` - List wallet addresses
 
@@ -39,7 +41,7 @@ dotnet script GetActivity.csx <activity-id>
 Note: Tests require environment variables COINBASE_PRIME_CREDENTIALS (JSON with accessKey, passphrase, signingKey) and COINBASE_PRIME_PORTFOLIO_ID.
 
 ### Code Analysis
-The project uses StyleCop analyzers with TreatWarningsAsErrors=true in the main SDK project.
+The project uses StyleCop analyzers with TreatWarningsAsErrors=true in the main SDK project. StyleCop rules are configured in `src/StyleCopRules.ruleset` with many documentation-related rules disabled.
 
 ## Architecture Overview
 
@@ -160,6 +162,50 @@ The SDK uses intentional naming differences from the OpenAPI specification for b
 
 ### Code Generation Guidelines
 
+#### Speed Optimization for Object Generation
+**PRIORITY: Execute quickly, validate afterwards**
+
+**Parallelized Fast Generation Strategy:**
+1. **Analyze entire OpenAPI spec** first to identify all missing components
+2. **Plan batches by domain** - group related models/services together (e.g., FCM, Staking, Orders)
+3. **Execute multiple Task agents in parallel** - generate 5-10 models simultaneously across domains
+4. **NO premature validation** - generate ALL files first, validate once at the end
+5. **Template-based rapid creation** - copy existing files and modify rather than create from scratch
+6. **Single build validation** - run `dotnet build` only after all generation is complete
+
+**Parallelization Implementation:**
+```
+// Execute multiple Task agents simultaneously in a single message
+Task 1: Generate FCM models (3 files)
+Task 2: Generate Staking models (5 files) 
+Task 3: Generate Invoice models (5 files)
+Task 4: Generate Margin models (7 files)
+Task 5: Generate Misc models (7 files)
+Task 6: Generate Wallet models (3 files)
+Task 7: Generate Order models (3 files)
+Task 8: Generate Service A
+Task 9: Generate Service B
+```
+
+**Fast Template-Based Approach:**
+1. **Use existing files as templates** - copy/modify instead of creating from scratch
+2. **Batch creation** - generate 5-10 files rapidly per task
+3. **Focus on compilation first** - get objects created and building, refine schema compliance later
+4. **Template pattern**: Copy existing request/response pair → Search/replace service names → Adjust properties
+
+**Template Locations:**
+- Request template: `activities/ListActivitiesRequest.cs` 
+- Response template: `activities/ListActivitiesResponse.cs`
+- Single object response: `activities/GetPortfolioActivityResponse.cs`
+
+**Rapid Generation Process:**
+1. Identify ALL missing objects from OpenAPI analysis (not build errors)
+2. Plan parallelized batches by domain (FCM, Staking, Orders, etc.)
+3. Use template files for structure (copyright, namespace, builder pattern)
+4. Launch multiple generation tasks simultaneously 
+5. Run `dotnet build` ONCE after all generation completes
+6. Fix any compilation errors rapidly in batch
+
 #### Service Method Generation
 Each OpenAPI operation should generate:
 1. **Sync method**: `{OperationName}({RequestType} request, CallOptions? options = null)`
@@ -179,7 +225,7 @@ Each OpenAPI operation should generate:
 #### Naming Conventions
 - **Classes**: PascalCase (e.g., `CreateAllocationRequest`)
 - **Properties**: PascalCase with JSON attribute mapping (e.g., `[JsonPropertyName("portfolio_id")] public string PortfolioId`)
-- **Enums**: PascalCase values with string enum converter
+- **Enums**: Use standard OpenAPI names directly without JsonPropertyName (e.g., `FCM_MARGIN_CALL_STATE_CLOSED`) - JsonStringEnumConverter handles serialization automatically
 - **Methods**: PascalCase matching operation name
 
 #### File Organization
@@ -198,6 +244,24 @@ For adding new endpoints or updating existing ones using AI agents:
 6. **Validate**: Ensure `dotnet build prime-sdk-dotnet.sln` passes after generation
 
 ### AI Agent Code Generation Guidelines
+
+#### Full Coverage Requirement
+**IMPORTANT**: Any code generation request intends for **100% coverage** of the OpenAPI specification. This includes:
+
+- **All endpoints**: Every operation defined in the OpenAPI spec must be implemented
+- **All models**: Every schema in `components.schemas` must have corresponding C# classes
+- **All enums**: Every enum type must be properly implemented with string converters
+- **All request/response types**: Complete coverage of all API input/output models
+- **All service domains**: Every OpenAPI tag must have a corresponding service
+
+The SDK should achieve complete feature parity with the OpenAPI specification. When a generation request is made, ALL missing models, endpoints, and changes must be generated - no prioritization or partial implementation.
+
+#### Coverage Validation
+When generating or updating code:
+1. **Endpoint Coverage**: Verify all `operationId` entries from OpenAPI spec are implemented
+2. **Model Coverage**: Verify all `components.schemas` entries have corresponding C# classes
+3. **Service Coverage**: Verify all OpenAPI tags have corresponding service classes
+4. **Missing Features**: Identify and implement any missing Web3, NFT, staking, or advanced trading features
 
 #### Tag-Based Endpoint Processing
 - **Read OpenAPI tags**: Each tag represents a service domain
