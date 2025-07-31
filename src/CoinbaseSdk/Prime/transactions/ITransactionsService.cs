@@ -47,12 +47,12 @@ namespace CoinbaseSdk.Prime.Transactions
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
 
-    public GetTransactionByTransactionIdResponse GetTransactionByTransactionId(
-        GetTransactionByTransactionIdRequest request,
+    public GetTransactionResponse GetTransaction(
+        GetTransactionRequest request,
         CallOptions? options = null);
 
-    public Task<GetTransactionByTransactionIdResponse> GetTransactionByTransactionIdAsync(
-        GetTransactionByTransactionIdRequest request,
+    public Task<GetTransactionResponse> GetTransactionAsync(
+        GetTransactionRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
 

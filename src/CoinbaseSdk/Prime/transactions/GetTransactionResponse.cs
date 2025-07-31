@@ -19,26 +19,26 @@ namespace CoinbaseSdk.Prime.Transactions
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class GetTransactionByTransactionIdResponse
+  public class GetTransactionResponse
   {
     [JsonPropertyName("transaction")]
     public Transaction? Transaction { get; set; }
 
-    public GetTransactionByTransactionIdResponse() { }
+    public GetTransactionResponse() { }
 
-    public class GetTransactionByTransactionIdResponseBuilder
+    public class GetTransactionResponseBuilder
     {
       private Transaction? _transaction;
 
-      public GetTransactionByTransactionIdResponseBuilder WithTransaction(Transaction? transaction)
+      public GetTransactionResponseBuilder WithTransaction(Transaction? transaction)
       {
         this._transaction = transaction;
         return this;
       }
 
-      public GetTransactionByTransactionIdResponse Build()
+      public GetTransactionResponse Build()
       {
-        return new GetTransactionByTransactionIdResponse
+        return new GetTransactionResponse
         {
           Transaction = this._transaction
         };

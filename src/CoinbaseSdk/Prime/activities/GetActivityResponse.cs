@@ -14,35 +14,28 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Portfolios
+namespace CoinbaseSdk.Prime.Activities
 {
   using CoinbaseSdk.Prime.Model;
-  public class GetPortfolioByIdResponse
+  public class GetActivityResponse
   {
-    public Portfolio? Portfolio { get; set; }
+    public Activity? Activity { get; set; }
 
-    public GetPortfolioByIdResponse(Portfolio portfolio)
+    public class GetActivityResponseBuilder
     {
-      Portfolio = portfolio;
-    }
+      private Activity? _activity;
 
-    public GetPortfolioByIdResponse() { }
-
-    public class GetPortfolioByIdResponseBuilder
-    {
-      private Portfolio? _portfolio;
-
-      public GetPortfolioByIdResponseBuilder WithPortfolio(Portfolio? portfolio)
+      public GetActivityResponseBuilder WithActivity(Activity activity)
       {
-        this._portfolio = portfolio;
+        _activity = activity;
         return this;
       }
 
-      public GetPortfolioByIdResponse Build()
+      public GetActivityResponse Build()
       {
-        return new GetPortfolioByIdResponse
+        return new GetActivityResponse()
         {
-          Portfolio = this._portfolio
+          Activity = _activity
         };
       }
     }

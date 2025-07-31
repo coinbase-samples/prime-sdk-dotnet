@@ -127,6 +127,27 @@
 
 - **WalletsService** - Fixed `CreateWalletDepositAddress` method to properly pass request body to API
 
+### Changed
+
+- **Method Naming Standardization** - Simplified SDK method names to follow consistent .NET conventions:
+  - Activities: `GetActivityByActivityId` → `GetActivity` (consolidated portfolio and entity scoped methods)
+  - Activities: Removed redundant `GetActivityByActivityId` and `GetEntityActivityByActivityId` methods in favor of unified `GetActivity`
+  - Portfolios: `GetPortfolioById` → `GetPortfolio`
+  - Transactions: `GetTransactionByTransactionId` → `GetTransaction`
+
+- **Request/Response Model Consolidation** - Streamlined duplicate model classes:
+  - Activities: Consolidated `GetActivityByActivityIdRequest/Response` into `GetActivityRequest/Response`
+  - Portfolios: Consolidated `GetPortfolioByIdRequest/Response` into `GetPortfolioRequest/Response`
+  - Transactions: Consolidated `GetTransactionByTransactionIdRequest/Response` into `GetTransactionRequest/Response`
+  - Removed redundant `GetEntityActivityByActivityIdRequest` class
+
+- **Service Interface Updates** - Updated method signatures to match simplified naming:
+  - `IActivitiesService`: Removed deprecated methods, standardized on `GetActivity`
+  - `IPortfoliosService`: `GetPortfolioById` → `GetPortfolio`
+  - `ITransactionsService`: `GetTransactionByTransactionId` → `GetTransaction`
+
+- **Example Scripts** - Updated example scripts to use new method names and request types
+
 ## [0.3.0] - 2025-MAY-15
 
 ### Removed

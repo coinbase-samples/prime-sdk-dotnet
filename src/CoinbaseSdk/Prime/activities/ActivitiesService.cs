@@ -75,63 +75,12 @@ namespace CoinbaseSdk.Prime.Activities
         cancellationToken);
     }
 
-    public GetActivityByActivityIdResponse GetActivityByActivityId(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null)
-    {
-      return this.Request<GetActivityByActivityIdResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
 
-    public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return this.RequestAsync<GetActivityByActivityIdResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    public GetActivityByActivityIdResponse GetEntityActivityByActivityId(
-      GetEntityActivityByActivityIdRequest request,
-      CallOptions? options = null)
-    {
-      return this.Request<GetActivityByActivityIdResponse>(
-        HttpMethod.Get,
-        $"/activities/{request.ActivityId}",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetActivityByActivityIdResponse> GetEntityActivityByActivityIdAsync(
-      GetEntityActivityByActivityIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return this.RequestAsync<GetActivityByActivityIdResponse>(
-        HttpMethod.Get,
-        $"/activities/{request.ActivityId}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    public GetActivityByActivityIdResponse GetActivity(
+    public GetActivityResponse GetActivity(
       GetActivityRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetActivityByActivityIdResponse>(
+      return this.Request<GetActivityResponse>(
         HttpMethod.Get,
         $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
@@ -139,12 +88,12 @@ namespace CoinbaseSdk.Prime.Activities
         options);
     }
 
-    public Task<GetActivityByActivityIdResponse> GetActivityAsync(
+    public Task<GetActivityResponse> GetActivityAsync(
       GetActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetActivityByActivityIdResponse>(
+      return this.RequestAsync<GetActivityResponse>(
         HttpMethod.Get,
         $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],

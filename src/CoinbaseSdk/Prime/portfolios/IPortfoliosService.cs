@@ -26,12 +26,12 @@ namespace CoinbaseSdk.Prime.Portfolios
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetPortfolioByIdResponse GetPortfolioById(
-      GetPortfolioByIdRequest request,
+    public GetPortfolioResponse GetPortfolio(
+      GetPortfolioRequest request,
       CallOptions? options = null);
 
-    public Task<GetPortfolioByIdResponse> GetPortfolioByIdAsync(
-      GetPortfolioByIdRequest request,
+    public Task<GetPortfolioResponse> GetPortfolioAsync(
+      GetPortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

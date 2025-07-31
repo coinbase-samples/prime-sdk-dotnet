@@ -29,15 +29,6 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetActivityByActivityIdResponse GetActivityByActivityId(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null);
-
-    public Task<GetActivityByActivityIdResponse> GetActivityByActivityIdAsync(
-      GetActivityByActivityIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
     public ListEntityActivitiesResponse ListEntityActivities(
       ListEntityActivitiesRequest request,
       CallOptions? options = null);
@@ -47,20 +38,11 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetActivityByActivityIdResponse GetEntityActivityByActivityId(
-      GetEntityActivityByActivityIdRequest request,
-      CallOptions? options = null);
-
-    public Task<GetActivityByActivityIdResponse> GetEntityActivityByActivityIdAsync(
-      GetEntityActivityByActivityIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    public GetActivityByActivityIdResponse GetActivity(
+    public GetActivityResponse GetActivity(
       GetActivityRequest request,
       CallOptions? options = null);
 
-    public Task<GetActivityByActivityIdResponse> GetActivityAsync(
+    public Task<GetActivityResponse> GetActivityAsync(
       GetActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);

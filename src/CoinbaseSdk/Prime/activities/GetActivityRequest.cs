@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2024-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,15 +18,24 @@ namespace CoinbaseSdk.Prime.Activities
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-
-  public class GetActivityRequest(string activityId)
+  public class GetActivityRequest(string portfolioId, string activityId)
   {
+    [JsonIgnore]
+    public string PortfolioId { get; set; } = portfolioId;
+
     [JsonIgnore]
     public string ActivityId { get; set; } = activityId;
 
     public class GetActivityRequestBuilder
     {
+      private string? _portfolioId;
       private string? _activityId;
+
+      public GetActivityRequestBuilder WithPortfolioId(string portfolioId)
+      {
+        _portfolioId = portfolioId;
+        return this;
+      }
 
       public GetActivityRequestBuilder WithActivityId(string activityId)
       {
@@ -38,10 +47,14 @@ namespace CoinbaseSdk.Prime.Activities
       /// Validates the input fields.
       /// </summary>
       /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_activityId"/> is null, empty, or whitespace.
+      /// If <see cref="_portfolioId"/> or <see cref="_activityId"/> are null, empty, or whitespace.
       /// </exception>
       private void Validate()
       {
+        if (string.IsNullOrWhiteSpace(_portfolioId))
+        {
+          throw new CoinbaseClientException("PortfolioId is required");
+        }
         if (string.IsNullOrWhiteSpace(_activityId))
         {
           throw new CoinbaseClientException("ActivityId is required");
@@ -56,7 +69,7 @@ namespace CoinbaseSdk.Prime.Activities
       public GetActivityRequest Build()
       {
         this.Validate();
-        return new GetActivityRequest(_activityId!);
+        return new GetActivityRequest(_portfolioId!, _activityId!);
       }
     }
   }

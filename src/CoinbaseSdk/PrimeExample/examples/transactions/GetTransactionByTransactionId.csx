@@ -63,15 +63,15 @@ else
     return;
 }
 
-var request = new GetTransactionByTransactionIdRequest.GetTransactionByTransactionIdRequestBuilder()
+var request = new GetTransactionRequest.GetTransactionRequestBuilder()
     .WithPortfolioId(portfolioId)
     .WithTransactionId(transactionId)
     .Build();
 
 try
 {
-    var response = transactionsService.GetTransactionByTransactionId(request);
-    Console.WriteLine("GetTransactionByTransactionIdResponse");
+    var response = transactionsService.GetTransaction(request);
+    Console.WriteLine("GetTransactionResponse");
     Console.WriteLine(serializer.Serialize(response));
 }
 catch (Exception ex)
