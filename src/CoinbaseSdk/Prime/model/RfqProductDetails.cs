@@ -1,24 +1,24 @@
 /*
- * Copyright 2024-present Coinbase Global, Inc.
+ * Copyright 2025-present Coinbase Global, Inc.
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
 
-  public class RFQProductDetails
+  public class RfqProductDetails
   {
     public bool? Tradable { get; set; }
 
@@ -40,9 +40,9 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("max_quote_size")]
     public string? MaxQuoteSize { get; set; }
 
-    public RFQProductDetails() { }
+    public RfqProductDetails() { }
 
-    public class RFQProductDetailsBuilder
+    public class RfqProductDetailsBuilder
     {
       private bool? _tradable;
       private string? _minNotionalSize;
@@ -52,51 +52,51 @@ namespace CoinbaseSdk.Prime.Model
       private string? _minQuoteSize;
       private string? _maxQuoteSize;
 
-      public RFQProductDetailsBuilder WithTradable(bool tradable)
+      public RfqProductDetailsBuilder WithTradable(bool tradable)
       {
         this._tradable = tradable;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMinNotionalSize(string minNotionalSize)
+      public RfqProductDetailsBuilder WithMinNotionalSize(string minNotionalSize)
       {
         this._minNotionalSize = minNotionalSize;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMaxNotionalSize(string maxNotionalSize)
+      public RfqProductDetailsBuilder WithMaxNotionalSize(string maxNotionalSize)
       {
         this._maxNotionalSize = maxNotionalSize;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMinBaseSize(string minBaseSize)
+      public RfqProductDetailsBuilder WithMinBaseSize(string minBaseSize)
       {
         this._minBaseSize = minBaseSize;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMaxBaseSize(string maxBaseSize)
+      public RfqProductDetailsBuilder WithMaxBaseSize(string maxBaseSize)
       {
         this._maxBaseSize = maxBaseSize;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMinQuoteSize(string minQuoteSize)
+      public RfqProductDetailsBuilder WithMinQuoteSize(string minQuoteSize)
       {
         this._minQuoteSize = minQuoteSize;
         return this;
       }
 
-      public RFQProductDetailsBuilder WithMaxQuoteSize(string maxQuoteSize)
+      public RfqProductDetailsBuilder WithMaxQuoteSize(string maxQuoteSize)
       {
         this._maxQuoteSize = maxQuoteSize;
         return this;
       }
 
-      public RFQProductDetails Build()
+      public RfqProductDetails Build()
       {
-        return new RFQProductDetails
+        return new RfqProductDetails
         {
           Tradable = this._tradable,
           MinNotionalSize = this._minNotionalSize,

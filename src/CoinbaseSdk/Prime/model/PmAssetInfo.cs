@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-present Coinbase Global, Inc.
+ * Copyright 2025-present Coinbase Global, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
 
-  public class PMAssetInfo
+  public class PmAssetInfo
   {
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
@@ -29,13 +29,41 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("price")]
     public string? Price { get; set; }
 
-    [JsonPropertyName("notional_amount")]
-    public string? NotionalAmount { get; set; }
+    public PmAssetInfo() { }
 
-    [JsonPropertyName("asset_tier")]
-    public string? AssetTier { get; set; }
+    public class PmAssetInfoBuilder
+    {
+      private string? _symbol;
+      private string? _amount;
+      private string? _price;
 
-    [JsonPropertyName("margin_eligible")]
-    public bool? MarginEligible { get; set; }
+      public PmAssetInfoBuilder WithSymbol(string? symbol)
+      {
+        this._symbol = symbol;
+        return this;
+      }
+
+      public PmAssetInfoBuilder WithAmount(string? amount)
+      {
+        this._amount = amount;
+        return this;
+      }
+
+      public PmAssetInfoBuilder WithPrice(string? price)
+      {
+        this._price = price;
+        return this;
+      }
+
+      public PmAssetInfo Build()
+      {
+        return new PmAssetInfo
+        {
+          Symbol = this._symbol,
+          Amount = this._amount,
+          Price = this._price
+        };
+      }
+    }
   }
 }

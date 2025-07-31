@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-present Coinbase Global, Inc.
+ * Copyright 2025-present Coinbase Global, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ namespace CoinbaseSdk.Prime.Model
   using System;
   using System.Text.Json.Serialization;
 
-  public class FCMMarginCall
+  public class FcmMarginCall
   {
     public FcmMarginCallType? Type { get; set; }
     public FcmMarginCallState? State { get; set; }
@@ -36,9 +36,9 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("cure_deadline")]
     public DateTime? CureDeadline { get; set; }
 
-    public FCMMarginCall() { }
+    public FcmMarginCall() { }
 
-    public class FCMMarginCallBuilder
+    public class FcmMarginCallBuilder
     {
       private FcmMarginCallType? _type;
       private FcmMarginCallState? _state;
@@ -47,45 +47,45 @@ namespace CoinbaseSdk.Prime.Model
       private DateTime? _businessDate;
       private DateTime? _cureDeadline;
 
-      public FCMMarginCallBuilder WithType(FcmMarginCallType? type)
+      public FcmMarginCallBuilder WithType(FcmMarginCallType? type)
       {
         this._type = type;
         return this;
       }
 
-      public FCMMarginCallBuilder WithState(FcmMarginCallState? state)
+      public FcmMarginCallBuilder WithState(FcmMarginCallState? state)
       {
         this._state = state;
         return this;
       }
 
-      public FCMMarginCallBuilder WithInitialAmount(string? initialAmount)
+      public FcmMarginCallBuilder WithInitialAmount(string? initialAmount)
       {
         this._initialAmount = initialAmount;
         return this;
       }
 
-      public FCMMarginCallBuilder WithRemainingAmount(string? remainingAmount)
+      public FcmMarginCallBuilder WithRemainingAmount(string? remainingAmount)
       {
         this._remainingAmount = remainingAmount;
         return this;
       }
 
-      public FCMMarginCallBuilder WithBusinessDate(DateTime? businessDate)
+      public FcmMarginCallBuilder WithBusinessDate(DateTime? businessDate)
       {
         this._businessDate = businessDate;
         return this;
       }
 
-      public FCMMarginCallBuilder WithCureDeadline(DateTime? cureDeadline)
+      public FcmMarginCallBuilder WithCureDeadline(DateTime? cureDeadline)
       {
         this._cureDeadline = cureDeadline;
         return this;
       }
 
-      public FCMMarginCall Build()
+      public FcmMarginCall Build()
       {
-        return new FCMMarginCall
+        return new FcmMarginCall
         {
           Type = this._type,
           State = this._state,

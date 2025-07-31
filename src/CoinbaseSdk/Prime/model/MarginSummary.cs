@@ -103,7 +103,7 @@ namespace CoinbaseSdk.Prime.Model
     public MarginAddOn? PortfolioStressTriggered { get; set; }
 
     [JsonPropertyName("pm_asset_info")]
-    public PMAssetInfo? PmAssetInfo { get; set; }
+    public PmAssetInfo? PmAssetInfo { get; set; }
 
     [JsonPropertyName("pm_credit_limit")]
     public string? PmCreditLimit { get; set; }
@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Model
       private string? _grossLeverage;
       private string? _netExposure;
       private MarginAddOn? _portfolioStressTriggered;
-      private PMAssetInfo? _pmAssetInfo;
+      private PmAssetInfo? _pmAssetInfo;
       private string? _pmCreditLimit;
       private string? _pmMarginLimit;
       private string? _pmMarginConsumed;
@@ -317,7 +317,7 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
-      public MarginSummaryBuilder WithPmAssetInfo(PMAssetInfo? pmAssetInfo)
+      public MarginSummaryBuilder WithPmAssetInfo(PmAssetInfo? pmAssetInfo)
       {
         this._pmAssetInfo = pmAssetInfo;
         return this;

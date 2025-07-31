@@ -28,7 +28,7 @@
   - `Commission` - Fee calculation and commission details
   - `CounterpartyDestination` - Counterparty destination details
   - `ExistingLocate` - Existing locate information
-  - `FCMMarginCall` - FCM margin call details
+  - `FcmMarginCall` - FCM margin call details
   - `FcmMarginCallDetails` - FCM margin call information
   - `FcmMarginCallState` - FCM margin call state enum
   - `FcmMarginCallType` - FCM margin call type enum
@@ -45,7 +45,7 @@
   - `PortfolioBalanceType` - Portfolio balance type classifications
   - `PortfolioUser` - Enhanced user model with portfolio context
   - `QuoteResponse` - Quote response details
-  - `RFQProductDetails` - RFQ product information
+  - `RfqProductDetails` - RFQ product information
   - `RiskAssessment` - Risk assessment details
   - `SigningStatus` - Transaction signing status
   - `SortDirection` - Sorting specification enum
@@ -109,7 +109,7 @@
   - `GetOrderPreviewResponse` - Expanded with comprehensive preview details
   - `HierarchyType` - Added new hierarchy type options
   - `VisibilityStatus` - Enhanced visibility control options
-  - `InvoiceItem`, `PMAssetInfo`, `TieredPricingFee` - Streamlined model structures
+  - `InvoiceItem`, `PmAssetInfo`, `TieredPricingFee` - Streamlined model structures
   - `OrderFill Model` - Added missing fields from OpenAPI specification:
     - `ClientProductId` - Settlement currency indicator
     - `VenueFees` - Venue-specific fees
