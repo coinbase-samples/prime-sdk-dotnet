@@ -31,14 +31,14 @@ namespace CoinbaseSdk.Prime.Wallets
     public string? Cursor { get; set; }
 
     [JsonPropertyName("limit")]
-    public string? Limit { get; set; }
+    public int? Limit { get; set; }
 
     public class ListWalletAddressesRequestBuilder
     {
       private string? _portfolioId;
       private string? _walletId;
       private string? _cursor;
-      private string? _limit;
+      private int? _limit;
 
       public ListWalletAddressesRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -58,7 +58,7 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
-      public ListWalletAddressesRequestBuilder WithLimit(string limit)
+      public ListWalletAddressesRequestBuilder WithLimit(int limit)
       {
         _limit = limit;
         return this;

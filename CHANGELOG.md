@@ -21,10 +21,12 @@
   - Wallets: `ListWalletAddresses` - List all wallet addresses
   - Wallets: `GetWallet` - Retrieve individual wallet details
 
-- **New Model Classes** (40+ new models added)
+- **New Model Classes** (45+ new models added)
   - `Activity` - Activity details and metadata
   - `Action` - Transaction action types
   - `ActivityLevel` - Activity level classifications
+  - `ActivityCategory` - Activity category classifications enum
+  - `ActivityStatus` - Activity status types enum
   - `Commission` - Fee calculation and commission details
   - `CounterpartyDestination` - Counterparty destination details
   - `ExistingLocate` - Existing locate information
@@ -43,6 +45,7 @@
   - `PaginatedResponse` - Generic pagination wrapper
   - `PaymentMethodDestination` - Payment method destination details
   - `PortfolioBalanceType` - Portfolio balance type classifications
+  - `PortfolioStakingMetadata` - Comprehensive portfolio staking information
   - `PortfolioUser` - Enhanced user model with portfolio context
   - `QuoteResponse` - Quote response details
   - `RfqProductDetails` - RFQ product information
@@ -51,6 +54,7 @@
   - `SortDirection` - Sorting specification enum
   - `StakingInitiateResponse` - Staking initiation response
   - `StakingUnstakeResponse` - Staking unstake response
+  - `TransactionType` - Transaction type classifications enum
   - `UserRole` - Comprehensive user permission roles enum
   - `WalletAddress` - Comprehensive wallet address details
   - `WalletCryptoDepositInstructions` - Crypto deposit instruction details
@@ -69,6 +73,9 @@
   - `ListWeb3WalletBalancesRequest` / `ListWeb3WalletBalancesResponse` - Web3 wallet balance operations
   - `ListAggregatePositionsRequest` / `ListAggregatePositionsResponse` - Aggregate position operations
   - `ListPortfolioStakingBalancesRequest` / `ListPortfolioStakingBalancesResponse` - Portfolio staking operations
+  - `CreatePortfolioStakeRequest` / `CreatePortfolioStakeResponse` - Portfolio staking initiation operations
+  - `CreatePortfolioUnstakeRequest` / `CreatePortfolioUnstakeResponse` - Portfolio unstaking operations
+  - `ListAddressBookEntriesRequest` / `ListAddressBookEntriesResponse` - Address book entry operations (renamed from GetPortfolioAddressBook)
   - `GetFcmMarginCallDetailsRequest` / `GetFcmMarginCallDetailsResponse`
   - `GetFcmRiskLimitsRequest` / `GetFcmRiskLimitsResponse`
   - `GetOrderEditHistoryRequest` / `GetOrderEditHistoryResponse`
@@ -95,11 +102,24 @@
   - `IFuturesService` - Added `GetFcmMarginCallDetails` and `GetFcmRiskLimits` methods
   - `IOrdersService` - Added `GetOrder` and `GetOrderEditHistory` methods
   - `IWalletsService` - Added `GetWallet`, `CreateWalletDepositAddress`, and `ListWalletAddresses` methods
+  - `IAddressBookService` - Renamed `GetPortfolioAddressBook` to `ListAddressBookEntries` for consistency
+  - `IStakingService` - Added new staking operations including `CreatePortfolioStake` and `CreatePortfolioUnstake`
 
 - **OpenAPI Specification Synchronization**
   - Updated to latest Prime API specification with 211 lines of additions/changes
   - Synchronized all model properties with current API schema
   - Enhanced enum values across multiple model classes
+  - Improved type safety by replacing string parameters with proper enum types
+
+- **Type Safety Improvements**
+  - **Enum Integration**: Replaced generic string parameters with strongly-typed enums across all request models:
+    - `ActivityCategory` enum for activity filtering instead of string arrays
+    - `ActivityStatus` enum for status filtering instead of string arrays  
+    - `ActivityLevel` enum for entity activity level specification
+    - `SortDirection` enum for pagination sorting instead of string values
+    - `TransactionType` enum for transaction type filtering
+  - **Request Model Standardization**: Updated 25+ request classes to use proper enum types
+  - **Pagination Enhancement**: Improved `Pagination` model with typed `SortDirection` enum
 
 - **Model Enhancements**
   - `Transaction` - Added `NetworkFamily` property for blockchain network identification
@@ -115,6 +135,13 @@
     - `VenueFees` - Venue-specific fees
     - `CesCommission` - CES commission details
     - Updated builder pattern to support new fields
+  - `PortfolioStakingMetadata` - New model for comprehensive staking information
+
+- **Staking Operations**
+  - Enhanced staking service with new request/response models:
+    - `CreatePortfolioStakeRequest` / `CreatePortfolioStakeResponse` - Portfolio staking initiation
+    - `CreatePortfolioUnstakeRequest` / `CreatePortfolioUnstakeResponse` - Portfolio unstaking operations
+  - Updated service interface to support new staking workflows
 
 - **Transaction & Conversion Responses**
   - Enhanced `CreateConversionResponse` and `CreateTransferResponse` with additional metadata
@@ -132,19 +159,27 @@
 - **Method Naming Standardization** - Simplified SDK method names to follow consistent .NET conventions:
   - Activities: `GetActivityByActivityId` → `GetActivity` (consolidated portfolio and entity scoped methods)
   - Activities: Removed redundant `GetActivityByActivityId` and `GetEntityActivityByActivityId` methods in favor of unified `GetActivity`
+  - AddressBook: `GetPortfolioAddressBook` → `ListAddressBookEntries` for better semantic clarity
   - Portfolios: `GetPortfolioById` → `GetPortfolio`
   - Transactions: `GetTransactionByTransactionId` → `GetTransaction`
 
 - **Request/Response Model Consolidation** - Streamlined duplicate model classes:
   - Activities: Consolidated `GetActivityByActivityIdRequest/Response` into `GetActivityRequest/Response`
+  - AddressBook: Renamed `GetPortfolioAddressBookRequest/Response` to `ListAddressBookEntriesRequest/Response`
   - Portfolios: Consolidated `GetPortfolioByIdRequest/Response` into `GetPortfolioRequest/Response`
   - Transactions: Consolidated `GetTransactionByTransactionIdRequest/Response` into `GetTransactionRequest/Response`
   - Removed redundant `GetEntityActivityByActivityIdRequest` class
 
 - **Service Interface Updates** - Updated method signatures to match simplified naming:
   - `IActivitiesService`: Removed deprecated methods, standardized on `GetActivity`
+  - `IAddressBookService`: `GetPortfolioAddressBook` → `ListAddressBookEntries`
   - `IPortfoliosService`: `GetPortfolioById` → `GetPortfolio`
   - `ITransactionsService`: `GetTransactionByTransactionId` → `GetTransaction`
+
+- **Type Safety Migration** - Enhanced type safety across the SDK:
+  - Migrated from string-based parameters to strongly-typed enum parameters in all request models
+  - Updated 25+ request classes to use enum types instead of string arrays or string values
+  - Improved compile-time validation and IntelliSense support for developers
 
 - **Example Scripts** - Updated example scripts to use new method names and request types
 

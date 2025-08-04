@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Transactions
 
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
     public class ListWalletTransactionsRequestBuilder
@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Transactions
       private string? _startTime;
       private string? _endTime;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
       public ListWalletTransactionsRequestBuilder WithPortfolioId(string portfolioId)
@@ -89,7 +89,7 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
-      public ListWalletTransactionsRequestBuilder WithSortDirection(string sortDirection)
+      public ListWalletTransactionsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;

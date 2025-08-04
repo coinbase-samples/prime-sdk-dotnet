@@ -27,14 +27,14 @@ namespace CoinbaseSdk.Prime.Users
 
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
     public class ListUsersRequestBuilder
     {
       private string? _entityId;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
 
       public ListUsersRequestBuilder withEntityId(string entityId)
       {

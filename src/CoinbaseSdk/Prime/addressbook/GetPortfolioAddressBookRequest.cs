@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.AddressBook
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class GetPortfolioAddressBookRequest(string portfolioId)
+  public class ListAddressBookEntriesRequest(string portfolioId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -30,55 +30,55 @@ namespace CoinbaseSdk.Prime.AddressBook
     public string? Search { get; set; }
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
-    public class GetPortfolioAddressBookRequestBuilder
+    public class ListAddressBookEntriesRequestBuilder
     {
       private string? _portfolioId;
       private string? _currencySymbol;
       private string? _search;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
-      public GetPortfolioAddressBookRequestBuilder WithPortfolioId(string portfolioId)
+      public ListAddressBookEntriesRequestBuilder WithPortfolioId(string portfolioId)
       {
         this._portfolioId = portfolioId;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithCurrencySymbol(string? currencySymbol)
+      public ListAddressBookEntriesRequestBuilder WithCurrencySymbol(string? currencySymbol)
       {
         this._currencySymbol = currencySymbol;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithSearch(string? search)
+      public ListAddressBookEntriesRequestBuilder WithSearch(string? search)
       {
         this._search = search;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithCursor(string? cursor)
+      public ListAddressBookEntriesRequestBuilder WithCursor(string? cursor)
       {
         this._cursor = cursor;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithSortDirection(string? sortDirection)
+      public ListAddressBookEntriesRequestBuilder WithSortDirection(SortDirection? sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithLimit(int? limit)
+      public ListAddressBookEntriesRequestBuilder WithLimit(int? limit)
       {
         this._limit = limit;
         return this;
       }
 
-      public GetPortfolioAddressBookRequestBuilder WithPagination(Pagination pagination)
+      public ListAddressBookEntriesRequestBuilder WithPagination(Pagination pagination)
       {
         this._cursor = pagination.NextCursor;
         this._sortDirection = pagination.SortDirection;
@@ -99,14 +99,14 @@ namespace CoinbaseSdk.Prime.AddressBook
       }
 
       /// <summary>
-      /// Build the <see cref="GetPortfolioAddressBookRequest"/>.
+      /// Build the <see cref="ListAddressBookEntriesRequest"/>.
       /// </summary>
-      /// <returns>The <see cref="GetPortfolioAddressBookRequest"/>.</returns>
+      /// <returns>The <see cref="ListAddressBookEntriesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetPortfolioAddressBookRequest Build()
+      public ListAddressBookEntriesRequest Build()
       {
         this.Validate();
-        return new GetPortfolioAddressBookRequest(_portfolioId!)
+        return new ListAddressBookEntriesRequest(_portfolioId!)
         {
           CurrencySymbol = this._currencySymbol,
           Search = this._search,

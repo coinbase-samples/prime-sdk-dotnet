@@ -31,7 +31,7 @@ namespace CoinbaseSdk.Prime.Wallets
 
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
     public class ListWalletsRequestBuilder
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Wallets
       private WalletType _type;
       private string[] _symbols = [];
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
       public ListWalletsRequestBuilder WithPortfolioId(string portfolioId)
@@ -67,7 +67,7 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
-      public ListWalletsRequestBuilder WithSortDirection(string sortDirection)
+      public ListWalletsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;

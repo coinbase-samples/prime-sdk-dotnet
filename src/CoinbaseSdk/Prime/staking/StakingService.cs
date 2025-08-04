@@ -74,5 +74,57 @@ namespace CoinbaseSdk.Prime.Staking
         options,
         cancellationToken);
     }
+
+    public CreatePortfolioStakeResponse CreatePortfolioStake(
+      CreatePortfolioStakeRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<CreatePortfolioStakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/initiate",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreatePortfolioStakeResponse> CreatePortfolioStakeAsync(
+      CreatePortfolioStakeRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<CreatePortfolioStakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/initiate",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    public CreatePortfolioUnstakeResponse CreatePortfolioUnstake(
+      CreatePortfolioUnstakeRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<CreatePortfolioUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/unstake",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreatePortfolioUnstakeResponse> CreatePortfolioUnstakeAsync(
+      CreatePortfolioUnstakeRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<CreatePortfolioUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/unstake",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

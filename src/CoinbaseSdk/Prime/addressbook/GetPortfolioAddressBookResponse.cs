@@ -18,31 +18,31 @@ namespace CoinbaseSdk.Prime.AddressBook
 {
   using CoinbaseSdk.Prime.Model;
 
-  public class GetPortfolioAddressBookResponse
+  public class ListAddressBookEntriesResponse
   {
     public AddressBookEntry[] Addresses { get; set; } = [];
     public Pagination? Pagination { get; set; }
 
-    public class GetPortfolioAddressBookResponseBuilder
+    public class ListAddressBookEntriesResponseBuilder
     {
       private AddressBookEntry[] _addresses = [];
       private Pagination? _pagination;
 
-      public GetPortfolioAddressBookResponseBuilder WithAddresses(AddressBookEntry[] addresses)
+      public ListAddressBookEntriesResponseBuilder WithAddresses(AddressBookEntry[] addresses)
       {
         this._addresses = addresses;
         return this;
       }
 
-      public GetPortfolioAddressBookResponseBuilder WithPagination(Pagination? pagination)
+      public ListAddressBookEntriesResponseBuilder WithPagination(Pagination? pagination)
       {
         this._pagination = pagination;
         return this;
       }
 
-      public GetPortfolioAddressBookResponse Build()
+      public ListAddressBookEntriesResponse Build()
       {
-        return new GetPortfolioAddressBookResponse
+        return new ListAddressBookEntriesResponse
         {
           Addresses = this._addresses,
           Pagination = this._pagination

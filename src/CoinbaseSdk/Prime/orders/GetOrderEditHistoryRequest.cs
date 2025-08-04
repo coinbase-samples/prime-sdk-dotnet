@@ -27,22 +27,11 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
 
-    [JsonPropertyName("cursor")]
-    public string? Cursor { get; set; }
-
-    [JsonPropertyName("limit")]
-    public string? Limit { get; set; }
-
-    [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
 
     public class GetOrderEditHistoryRequestBuilder
     {
       private string? _portfolioId;
       private string? _orderId;
-      private string? _cursor;
-      private string? _limit;
-      private string? _sortDirection;
 
       public GetOrderEditHistoryRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -56,23 +45,6 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
-      public GetOrderEditHistoryRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public GetOrderEditHistoryRequestBuilder WithLimit(string limit)
-      {
-        _limit = limit;
-        return this;
-      }
-
-      public GetOrderEditHistoryRequestBuilder WithSortDirection(string sortDirection)
-      {
-        _sortDirection = sortDirection;
-        return this;
-      }
 
       /// <summary>
       /// Validates the input fields.
@@ -100,12 +72,7 @@ namespace CoinbaseSdk.Prime.Orders
       public GetOrderEditHistoryRequest Build()
       {
         this.Validate();
-        return new GetOrderEditHistoryRequest(_portfolioId!, _orderId!)
-        {
-          Cursor = _cursor,
-          Limit = _limit,
-          SortDirection = _sortDirection
-        };
+        return new GetOrderEditHistoryRequest(_portfolioId!, _orderId!);
       }
     }
   }

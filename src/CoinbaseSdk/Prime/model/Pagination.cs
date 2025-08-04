@@ -23,7 +23,7 @@ namespace CoinbaseSdk.Prime.Model
     public string? NextCursor { get; set; }
 
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
 
     [JsonPropertyName("has_next")]
     public bool? HasNext { get; set; }
@@ -33,7 +33,7 @@ namespace CoinbaseSdk.Prime.Model
     public class PaginationBuilder
     {
       private string? _nextCursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private bool? _hasNext;
 
       public PaginationBuilder WithNextCursor(string? nextCursor)
@@ -42,7 +42,7 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
-      public PaginationBuilder WithSortDirection(string? sortDirection)
+      public PaginationBuilder WithSortDirection(SortDirection? sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;

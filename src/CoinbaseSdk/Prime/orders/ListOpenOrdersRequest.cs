@@ -30,7 +30,7 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("order_type")]
     public OrderType? OrderType { get; set; }
 
-    [JsonPropertyName("start_date"), JsonRequired]
+    [JsonPropertyName("start_date")]
     public DateTime? StartDate { get; set; }
 
     [JsonPropertyName("order_side")]
@@ -41,7 +41,7 @@ namespace CoinbaseSdk.Prime.Orders
 
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
     public class ListOpenOrdersRequestBuilder
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Orders
       private OrderSide? _orderSide;
       private DateTime? _endDate;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
       public ListOpenOrdersRequestBuilder WithPortfolioId(string portfolioId)
@@ -98,7 +98,7 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
-      public ListOpenOrdersRequestBuilder WithSortDirection(string sortDirection)
+      public ListOpenOrdersRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;

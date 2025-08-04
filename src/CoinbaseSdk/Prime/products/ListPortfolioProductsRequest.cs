@@ -26,13 +26,13 @@ namespace CoinbaseSdk.Prime.Products
     public string PortfolioId { get; set; } = portfolioId;
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
     public class ListPortfolioProductsRequestBuilder
     {
       private string? _portfolioId;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
       public ListPortfolioProductsRequestBuilder WithPortfolioId(string portfolioId)
@@ -47,7 +47,7 @@ namespace CoinbaseSdk.Prime.Products
         return this;
       }
 
-      public ListPortfolioProductsRequestBuilder WithSortDirection(string sortDirection)
+      public ListPortfolioProductsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;

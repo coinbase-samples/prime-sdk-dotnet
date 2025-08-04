@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Allocations
 
     public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
-    public string? SortDirection { get; set; }
+    public SortDirection? SortDirection { get; set; }
     public int? Limit { get; set; }
 
     public class GetPortfolioAllocationsRequestBuilder
@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Allocations
       private string? _startDate;
       private string? _endDate;
       private string? _cursor;
-      private string? _sortDirection;
+      private SortDirection? _sortDirection;
       private int? _limit;
 
       public GetPortfolioAllocationsRequestBuilder WithPortfolioId(string portfolioId)
@@ -89,7 +89,7 @@ namespace CoinbaseSdk.Prime.Allocations
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithSortDirection(string? sortDirection)
+      public GetPortfolioAllocationsRequestBuilder WithSortDirection(SortDirection? sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
