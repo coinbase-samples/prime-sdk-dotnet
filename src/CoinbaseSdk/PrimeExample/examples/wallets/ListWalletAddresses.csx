@@ -50,9 +50,11 @@ if (credentials == null)
 var client = new CoinbasePrimeClient(credentials);
 var walletsService = new WalletsService(client);
 
+// Note: Replace "sample-wallet-id" with an actual wallet ID
+// To find wallet IDs, use the ListWallets example script first
 var request = new ListWalletAddressesRequest.ListWalletAddressesRequestBuilder()
     .WithPortfolioId(portfolioId)
-    .WithWalletId("sample-wallet-id")
+    .WithWalletId("sample-wallet-id")  // Replace with actual wallet ID
     .Build();
 
 try
@@ -64,4 +66,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine($"Error listing wallet addresses: {ex.Message}");
+    Console.WriteLine("Note: Ensure you use a valid wallet-id value.");
+    Console.WriteLine("Use the ListWallets example to find valid wallet IDs.");
 }

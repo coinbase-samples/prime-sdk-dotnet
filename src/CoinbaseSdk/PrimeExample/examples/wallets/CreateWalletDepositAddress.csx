@@ -50,9 +50,13 @@ if (credentials == null)
 var client = new CoinbasePrimeClient(credentials);
 var walletsService = new WalletsService(client);
 
+// Note: Replace "sample-wallet-id" and "sample-network-id" with actual values
+// To find wallet IDs, use the ListWallets example script first
+// Common network IDs include: "ethereum", "bitcoin", "polygon", etc.
 var request = new CreateWalletDepositAddressRequest.CreateWalletDepositAddressRequestBuilder()
     .WithPortfolioId(portfolioId)
-    .WithWalletId("sample-wallet-id")
+    .WithWalletId("sample-wallet-id")  // Replace with actual wallet ID
+    .WithNetworkId("sample-network-id")  // Replace with actual network ID (e.g., "ethereum")
     .Build();
 
 try
@@ -64,4 +68,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine($"Error creating wallet deposit address: {ex.Message}");
+    Console.WriteLine("Note: Ensure you use valid wallet-id and network-id values.");
+    Console.WriteLine("Use the ListWallets example to find valid wallet IDs.");
 }

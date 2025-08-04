@@ -32,6 +32,13 @@ if (credentialsBlob == null)
     return;
 }
 
+string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
+if (portfolioId == null)
+{
+    Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+    return;
+}
+
 var serializer = new JsonUtility();
 var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
 
@@ -57,6 +64,7 @@ else
 }
 
 var request = new GetActivityRequest.GetActivityRequestBuilder()
+    .WithPortfolioId(portfolioId)
     .WithActivityId(activityId)
     .Build();
 
