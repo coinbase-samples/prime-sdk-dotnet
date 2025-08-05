@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 
 /*
  * Copyright 2025-present Coinbase Global, Inc.
@@ -58,8 +59,9 @@ if (Args.Count > 0)
 }
 else
 {
-    Console.WriteLine("Usage: dotnet script GetActivity.csx <activity-id>");
-    Console.WriteLine("Example: dotnet script GetActivity.csx a4df04eb-9d7a-4583-971c-290c935771d6");
+    PrettyPrinter.PrintUsage(
+        "dotnet script GetActivity.csx <activity-id>", 
+        "dotnet script GetActivity.csx a4df04eb-9d7a-4583-971c-290c935771d6");
     return;
 }
 
@@ -71,10 +73,9 @@ var request = new GetActivityRequest.GetActivityRequestBuilder()
 try
 {
     var response = activitiesService.GetActivity(request);
-    Console.WriteLine("GetActivityResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("GetActivityResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving activity: {ex.Message}");
+    PrettyPrinter.PrintError("Error retrieving activity", ex);
 }

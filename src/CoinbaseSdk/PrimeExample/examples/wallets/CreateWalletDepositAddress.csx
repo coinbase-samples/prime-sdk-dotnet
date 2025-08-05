@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 #nullable enable
 
 /*
@@ -62,12 +63,11 @@ var request = new CreateWalletDepositAddressRequest.CreateWalletDepositAddressRe
 try
 {
     var response = walletsService.CreateWalletDepositAddress(request);
-    Console.WriteLine("CreateWalletDepositAddressResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("CreateWalletDepositAddressResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error creating wallet deposit address: {ex.Message}");
+    PrettyPrinter.PrintError("Error creating wallet deposit address", ex);
     Console.WriteLine("Note: Ensure you use valid wallet-id and network-id values.");
     Console.WriteLine("Use the ListWallets example to find valid wallet IDs.");
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 
 /*
  * Copyright 2025-present Coinbase Global, Inc.
@@ -113,10 +114,9 @@ var request = requestBuilder.Build();
 try
 {
     var response = transactionsService.ListPortfolioTransactions(request);
-    Console.WriteLine("ListPortfolioTransactionsResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("ListPortfolioTransactionsResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving portfolio transactions: {ex.Message}");
+    PrettyPrinter.PrintError("Error retrieving portfolio transactions", ex);
 }

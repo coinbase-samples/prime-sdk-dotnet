@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 
 /*
  * Copyright 2025-present Coinbase Global, Inc.
@@ -58,8 +59,9 @@ if (Args.Count > 0)
 }
 else
 {
-    Console.WriteLine("Usage: dotnet script GetTransactionByTransactionId.csx <transaction-id>");
-    Console.WriteLine("Example: dotnet script GetTransactionByTransactionId.csx 550e8400-e29b-41d4-a716-446655440000");
+    PrettyPrinter.PrintUsage(
+        "dotnet script GetTransactionByTransactionId.csx <transaction-id>",
+        "dotnet script GetTransactionByTransactionId.csx 550e8400-e29b-41d4-a716-446655440000");
     return;
 }
 
@@ -71,10 +73,9 @@ var request = new GetTransactionRequest.GetTransactionRequestBuilder()
 try
 {
     var response = transactionsService.GetTransaction(request);
-    Console.WriteLine("GetTransactionResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("GetTransactionResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving transaction: {ex.Message}");
+    PrettyPrinter.PrintError("Error retrieving transaction", ex);
 }

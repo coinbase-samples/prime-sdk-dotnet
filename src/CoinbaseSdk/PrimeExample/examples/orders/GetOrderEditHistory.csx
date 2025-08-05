@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 #nullable enable
 
 /*
@@ -58,10 +59,9 @@ var request = new GetOrderEditHistoryRequest.GetOrderEditHistoryRequestBuilder()
 try
 {
     var response = ordersService.GetOrderEditHistory(request);
-    Console.WriteLine("GetOrderEditHistoryResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("GetOrderEditHistoryResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving order edit history: {ex.Message}");
+    PrettyPrinter.PrintError("Error retrieving order edit history", ex);
 }

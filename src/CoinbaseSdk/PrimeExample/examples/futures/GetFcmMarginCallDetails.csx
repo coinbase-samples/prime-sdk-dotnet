@@ -1,6 +1,7 @@
 #!/usr/bin/env dotnet-script
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
 #nullable enable
 
 /*
@@ -57,10 +58,9 @@ var request = new GetFcmMarginCallDetailsRequest.GetFcmMarginCallDetailsRequestB
 try
 {
     var response = futuresService.GetFcmMarginCallDetails(request);
-    Console.WriteLine("GetFcmMarginCallDetailsResponse");
-    Console.WriteLine(serializer.Serialize(response));
+    PrettyPrinter.PrintResponse("GetFcmMarginCallDetailsResponse", response);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error retrieving FCM margin call details: {ex.Message}");
+    PrettyPrinter.PrintError("Error retrieving FCM margin call details", ex);
 }
