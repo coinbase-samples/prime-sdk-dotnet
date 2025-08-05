@@ -100,31 +100,5 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
         options,
         cancellationToken);
     }
-
-    public ListOnchainAddressGroupsResponse ListOnchainAddressGroups(
-        ListOnchainAddressGroupsRequest request,
-        CallOptions? options = null)
-    {
-      return this.Request<ListOnchainAddressGroupsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/onchain_address_groups",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<ListOnchainAddressGroupsResponse> ListOnchainAddressGroupsAsync(
-        ListOnchainAddressGroupsRequest request,
-        CallOptions? options = null,
-        CancellationToken cancellationToken = default)
-    {
-      return this.RequestAsync<ListOnchainAddressGroupsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/onchain_address_groups",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
   }
 }

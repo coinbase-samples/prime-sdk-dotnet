@@ -17,7 +17,6 @@
 namespace CoinbaseSdk.Prime.OnchainAddressGroups
 {
   using CoinbaseSdk.Core.Http;
-  using CoinbaseSdk.Prime.OnchainAddressBook;
 
   public interface IOnchainAddressGroupsService
   {

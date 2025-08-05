@@ -20,7 +20,6 @@ namespace CoinbaseSdk.Prime.OnchainAddressGroups
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  using CoinbaseSdk.Prime.OnchainAddressBook;
 
   public class OnchainAddressGroupsService(ICoinbaseClient client) : CoinbaseService(client), IOnchainAddressGroupsService
   {

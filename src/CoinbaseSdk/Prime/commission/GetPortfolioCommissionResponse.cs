@@ -16,6 +16,8 @@
 
 namespace CoinbaseSdk.Prime.Commission
 {
+  using CoinbaseSdk.Prime.Model;
+
   public class GetPortfolioCommissionResponse
   {
     public Commission? Commission { get; set; }

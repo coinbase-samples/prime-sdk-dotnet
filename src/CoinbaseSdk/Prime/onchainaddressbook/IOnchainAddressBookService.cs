@@ -46,14 +46,5 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
         DeleteOnchainAddressGroupRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
-
-    public ListOnchainAddressGroupsResponse ListOnchainAddressGroups(
-        ListOnchainAddressGroupsRequest request,
-        CallOptions? options = null);
-
-    public Task<ListOnchainAddressGroupsResponse> ListOnchainAddressGroupsAsync(
-        ListOnchainAddressGroupsRequest request,
-        CallOptions? options = null,
-        CancellationToken cancellationToken = default);
   }
 }

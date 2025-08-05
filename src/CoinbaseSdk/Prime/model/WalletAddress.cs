@@ -14,25 +14,25 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Orders
+namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
 
-  public class OrderEditValues
+  public class WalletAddress
   {
-    [JsonPropertyName("price")]
-    public string? Price { get; set; }
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
-    [JsonPropertyName("size")]
-    public string? Size { get; set; }
+    [JsonPropertyName("network")]
+    public Network? Network { get; set; }
 
-    [JsonPropertyName("display_size")]
-    public string? DisplaySize { get; set; }
+    [JsonPropertyName("created_at")]
+    public string? CreatedAt { get; set; }
 
-    [JsonPropertyName("stop_price")]
-    public string? StopPrice { get; set; }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 
-    [JsonPropertyName("stop_limit_price")]
-    public string? StopLimitPrice { get; set; }
+    [JsonPropertyName("label")]
+    public string? Label { get; set; }
   }
 }

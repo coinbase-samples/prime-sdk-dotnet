@@ -14,15 +14,25 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.OnchainAddressBook
+namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
 
-  public class ListOnchainAddressGroupsResponse
+  public class FcmRiskLimit
   {
-    [JsonPropertyName("address_groups")]
-    public AddressGroup[] AddressGroups { get; set; } = [];
+    [JsonPropertyName("product_id")]
+    public string? ProductId { get; set; }
+
+    [JsonPropertyName("risk_limit")]
+    public string? RiskLimitValue { get; set; }
+
+    [JsonPropertyName("current_exposure")]
+    public string? CurrentExposure { get; set; }
+
+    [JsonPropertyName("remaining_capacity")]
+    public string? RemainingCapacity { get; set; }
+
+    [JsonPropertyName("limit_type")]
+    public string? LimitType { get; set; }
   }
 }
-

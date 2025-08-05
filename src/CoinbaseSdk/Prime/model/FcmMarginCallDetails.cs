@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Futures
+namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
 
