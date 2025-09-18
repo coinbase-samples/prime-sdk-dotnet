@@ -16,13 +16,39 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Indicates the order status.
+  /// </summary>
   public enum OrderStatus
   {
+    /// <summary>
+    /// The order is open but unfilled.
+    /// </summary>
     OPEN,
+
+    /// <summary>
+    /// The order was filled.
+    /// </summary>
     FILLED,
+
+    /// <summary>
+    /// The order was cancelled.
+    /// </summary>
     CANCELLED,
+
+    /// <summary>
+    /// The order has expired.
+    /// </summary>
     EXPIRED,
+
+    /// <summary>
+    /// Order submission failed.
+    /// </summary>
     FAILED,
+
+    /// <summary>
+    /// The order has been sent but is not yet confirmed.
+    /// </summary>
     PENDING,
   }
 }

@@ -18,52 +18,111 @@ namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// Represents an account activity in the Coinbase Prime system.
+  /// </summary>
   public class Activity
   {
+    /// <summary>
+    /// A unique id for the account activity.
+    /// </summary>
     public string? Id { get; set; }
 
+    /// <summary>
+    /// A reference for orders and transactions, n/a for other category types.
+    /// </summary>
     [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
 
+    /// <summary>
+    /// The category of the activity.
+    /// </summary>
     public ActivityCategory Category { get; set; }
+
+    /// <summary>
+    /// The type of the activity.
+    /// </summary>
     public ActivityType Type { get; set; }
 
+    /// <summary>
+    /// The secondary type of the activity.
+    /// </summary>
     [JsonPropertyName("secondary_type")]
     public ActivitySecondaryType SecondaryType { get; set; }
 
+    /// <summary>
+    /// The status of the activity.
+    /// </summary>
     public ActivityStatus Status { get; set; }
 
+    /// <summary>
+    /// Id of user who created the activity.
+    /// </summary>
     [JsonPropertyName("created_by")]
     public string? CreatedBy { get; set; }
 
+    /// <summary>
+    /// Title of the activity.
+    /// </summary>
     public string? Title { get; set; }
+
+    /// <summary>
+    /// Description detail of the activity.
+    /// </summary>
     public string? Description { get; set; }
 
+    /// <summary>
+    /// Actions related to the Activity.
+    /// </summary>
     [JsonPropertyName("user_actions")]
     public UserAction[] UserActions { get; set; } = [];
 
+    /// <summary>
+    /// Metadata for transactions associated with this activity.
+    /// </summary>
     [JsonPropertyName("transactions_metadata")]
     public ActivityMetadataTransactions? TransactionsMetadata { get; set; }
 
+    /// <summary>
+    /// Metadata for accounts associated with this activity.
+    /// </summary>
     [JsonPropertyName("account_metadata")]
     public ActivityMetadataAccount? AccountMetadata { get; set; }
 
+    /// <summary>
+    /// Metadata for orders associated with this activity.
+    /// </summary>
     [JsonPropertyName("orders_metadata")]
     public Dictionary<string, string>? OrdersMetadata { get; set; }
 
+    /// <summary>
+    /// List of currencies included in an activity.
+    /// </summary>
     public string[] Symbols { get; set; } = [];
 
+    /// <summary>
+    /// Time activity was created at.
+    /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
+    /// <summary>
+    /// Time for latest status update of account activity.
+    /// </summary>
     [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
 
+    /// <summary>
+    /// The hierarchy type of the activity.
+    /// </summary>
     [JsonPropertyName("hierarchy_type")]
     public HierarchyType? HierarchyType { get; set; }
 
     public Activity() { }
 
+    /// <summary>
+    /// Builder class for creating Activity instances.
+    /// </summary>
     public class ActivityBuilder
     {
       private string? _id;
