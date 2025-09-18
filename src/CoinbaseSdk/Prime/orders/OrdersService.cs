@@ -309,5 +309,31 @@ namespace CoinbaseSdk.Prime.Orders
         options,
         cancellationToken);
     }
+
+    public EditOrderResponse EditOrder(
+      EditOrderRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<EditOrderResponse>(
+        HttpMethod.Put,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<EditOrderResponse> EditOrderAsync(
+      EditOrderRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<EditOrderResponse>(
+        HttpMethod.Put,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

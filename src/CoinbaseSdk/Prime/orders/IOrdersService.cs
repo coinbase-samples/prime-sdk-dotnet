@@ -118,5 +118,14 @@ namespace CoinbaseSdk.Prime.Orders
       GetOrderEditHistoryRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
+
+    public EditOrderResponse EditOrder(
+      EditOrderRequest request,
+      CallOptions? options = null);
+
+    public Task<EditOrderResponse> EditOrderAsync(
+      EditOrderRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
   }
 }
