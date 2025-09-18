@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Prime.Client
 {
   using System.Net;
+  using System.Reflection;
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Error;
@@ -25,7 +26,7 @@ namespace CoinbaseSdk.Prime.Client
   public class CoinbasePrimeClient : CoinbaseClient
   {
     private const string DefaultApiBasePath = "api.prime.coinbase.com/v1";
-    private const string SdkVersion = "0.0.0"; // Set by release process
+    private static readonly string SdkVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.0.0";
 
     public CoinbasePrimeClient(CoinbaseCredentials credentials) : base(credentials, DefaultApiBasePath)
     {
