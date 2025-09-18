@@ -1,5 +1,8 @@
 # CLAUDE.md
 
+@./claude/AI_GENERATION_GUIDELINES.md
+@./claude/SDK_GENERATION_TDD.md
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
@@ -70,7 +73,7 @@ All data models are in `src/CoinbaseSdk/Prime/model/` directory with clear namin
 
 ## Environment Variables for Examples
 - `COINBASE_PRIME_CREDENTIALS`: JSON credentials object
-- `COINBASE_PRIME_PORTFOLIO_ID`: Portfolio ID for portfolio-scoped examples  
+- `COINBASE_PRIME_PORTFOLIO_ID`: Portfolio ID for portfolio-scoped examples
 - `COINBASE_PRIME_ENTITY_ID`: Entity ID for entity-scoped examples
 
 ## Development Notes
