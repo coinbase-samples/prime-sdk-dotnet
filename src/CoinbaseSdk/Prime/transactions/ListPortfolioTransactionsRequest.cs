@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Transactions
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListPortfolioTransactionsRequest(string portfolioId)
+  public class ListPortfolioTransactionsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -35,21 +35,17 @@ namespace CoinbaseSdk.Prime.Transactions
 
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListPortfolioTransactionsRequestBuilder
+    public class ListPortfolioTransactionsRequestBuilder : PaginatedRequestBuilder<ListPortfolioTransactionsRequest, ListPortfolioTransactionsRequestBuilder>
     {
       private string? _portfolioId;
       private string[] _symbols = [];
       private TransactionType[] _types = [];
       private string? _startTime;
       private string? _endTime;
-      private string? _cursor;
       private SortDirection? _sortDirection;
-      private int? _limit;
 
       public ListPortfolioTransactionsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -81,27 +77,15 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
       public ListPortfolioTransactionsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithLimit(int limit)
+      public new ListPortfolioTransactionsRequestBuilder WithPagination(Pagination pagination)
       {
-        _limit = limit;
-        return this;
-      }
-
-      public ListPortfolioTransactionsRequestBuilder WithPagination(Pagination pagination)
-      {
-        _cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         _sortDirection = pagination.SortDirection;
         return this;
       }
@@ -123,18 +107,18 @@ namespace CoinbaseSdk.Prime.Transactions
       /// </summary>
       /// <returns>The <see cref="ListPortfolioTransactionsRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListPortfolioTransactionsRequest Build()
+      public override ListPortfolioTransactionsRequest Build()
       {
-        return new ListPortfolioTransactionsRequest(this._portfolioId!)
+        var request = new ListPortfolioTransactionsRequest(this._portfolioId!)
         {
           Symbols = _symbols,
           Types = _types,
           StartTime = _startTime,
           EndTime = _endTime,
-          Cursor = _cursor,
-          SortDirection = _sortDirection,
-          Limit = _limit
+          SortDirection = _sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

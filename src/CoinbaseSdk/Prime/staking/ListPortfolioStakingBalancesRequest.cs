@@ -18,20 +18,17 @@ namespace CoinbaseSdk.Prime.Staking
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
-  public class ListPortfolioStakingBalancesRequest(string portfolioId)
+  public class ListPortfolioStakingBalancesRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    public string? Cursor { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListPortfolioStakingBalancesRequestBuilder
+    public class ListPortfolioStakingBalancesRequestBuilder : PaginatedRequestBuilder<ListPortfolioStakingBalancesRequest, ListPortfolioStakingBalancesRequestBuilder>
     {
       private string? _portfolioId;
-      private string? _cursor;
-      private int? _limit;
 
       public ListPortfolioStakingBalancesRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -39,17 +36,6 @@ namespace CoinbaseSdk.Prime.Staking
         return this;
       }
 
-      public ListPortfolioStakingBalancesRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public ListPortfolioStakingBalancesRequestBuilder WithLimit(int limit)
-      {
-        _limit = limit;
-        return this;
-      }
 
       private void Validate()
       {
@@ -59,14 +45,12 @@ namespace CoinbaseSdk.Prime.Staking
         }
       }
 
-      public ListPortfolioStakingBalancesRequest Build()
+      public override ListPortfolioStakingBalancesRequest Build()
       {
         this.Validate();
-        return new ListPortfolioStakingBalancesRequest(_portfolioId!)
-        {
-          Cursor = _cursor,
-          Limit = _limit
-        };
+        var request = new ListPortfolioStakingBalancesRequest(_portfolioId!);
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

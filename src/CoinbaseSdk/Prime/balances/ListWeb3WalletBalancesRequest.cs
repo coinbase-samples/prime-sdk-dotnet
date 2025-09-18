@@ -18,20 +18,17 @@ namespace CoinbaseSdk.Prime.Balances
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
-  public class ListWeb3WalletBalancesRequest(string walletId)
+  public class ListWeb3WalletBalancesRequest(string walletId) : PaginatedRequest
   {
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    public string? Cursor { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListWeb3WalletBalancesRequestBuilder
+    public class ListWeb3WalletBalancesRequestBuilder : PaginatedRequestBuilder<ListWeb3WalletBalancesRequest, ListWeb3WalletBalancesRequestBuilder>
     {
       private string? _walletId;
-      private string? _cursor;
-      private int? _limit;
 
       public ListWeb3WalletBalancesRequestBuilder WithWalletId(string walletId)
       {
@@ -39,17 +36,6 @@ namespace CoinbaseSdk.Prime.Balances
         return this;
       }
 
-      public ListWeb3WalletBalancesRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public ListWeb3WalletBalancesRequestBuilder WithLimit(int limit)
-      {
-        _limit = limit;
-        return this;
-      }
 
       private void Validate()
       {
@@ -59,14 +45,12 @@ namespace CoinbaseSdk.Prime.Balances
         }
       }
 
-      public ListWeb3WalletBalancesRequest Build()
+      public override ListWeb3WalletBalancesRequest Build()
       {
         this.Validate();
-        return new ListWeb3WalletBalancesRequest(_walletId!)
-        {
-          Cursor = _cursor,
-          Limit = _limit
-        };
+        var request = new ListWeb3WalletBalancesRequest(_walletId!);
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

@@ -19,7 +19,7 @@ namespace CoinbaseSdk.Prime.Orders
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListOpenOrdersRequest(string portfolioId)
+  public class ListOpenOrdersRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -39,12 +39,10 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("end_date")]
     public DateTime? EndDate { get; set; }
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListOpenOrdersRequestBuilder
+    public class ListOpenOrdersRequestBuilder : PaginatedRequestBuilder<ListOpenOrdersRequest, ListOpenOrdersRequestBuilder>
     {
       private string? _portfolioId;
       private string[]? _productIds;
@@ -52,9 +50,7 @@ namespace CoinbaseSdk.Prime.Orders
       private DateTime? _startDate;
       private OrderSide? _orderSide;
       private DateTime? _endDate;
-      private string? _cursor;
       private SortDirection? _sortDirection;
-      private int? _limit;
 
       public ListOpenOrdersRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -92,44 +88,32 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
-      public ListOpenOrdersRequestBuilder WithCursor(string cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
       public ListOpenOrdersRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
       }
 
-      public ListOpenOrdersRequestBuilder WithLimit(int limit)
+      public new ListOpenOrdersRequestBuilder WithPagination(Pagination pagination)
       {
-        this._limit = limit;
-        return this;
-      }
-
-      public ListOpenOrdersRequestBuilder WithPagination(Pagination pagination)
-      {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
 
-      public ListOpenOrdersRequest Build()
+      public override ListOpenOrdersRequest Build()
       {
-        return new ListOpenOrdersRequest(this._portfolioId!)
+        var request = new ListOpenOrdersRequest(this._portfolioId!)
         {
           ProductIds = this._productIds,
           OrderType = this._orderType,
           StartDate = this._startDate,
           OrderSide = this._orderSide,
           EndDate = this._endDate,
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit
+          SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

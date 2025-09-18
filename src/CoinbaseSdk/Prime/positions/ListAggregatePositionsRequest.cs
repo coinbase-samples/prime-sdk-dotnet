@@ -18,20 +18,17 @@ namespace CoinbaseSdk.Prime.Positions
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
-  public class ListAggregatePositionsRequest(string portfolioId)
+  public class ListAggregatePositionsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    public string? Cursor { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListAggregatePositionsRequestBuilder
+    public class ListAggregatePositionsRequestBuilder : PaginatedRequestBuilder<ListAggregatePositionsRequest, ListAggregatePositionsRequestBuilder>
     {
       private string? _portfolioId;
-      private string? _cursor;
-      private int? _limit;
 
       public ListAggregatePositionsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -39,17 +36,6 @@ namespace CoinbaseSdk.Prime.Positions
         return this;
       }
 
-      public ListAggregatePositionsRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public ListAggregatePositionsRequestBuilder WithLimit(int limit)
-      {
-        _limit = limit;
-        return this;
-      }
 
       private void Validate()
       {
@@ -59,14 +45,12 @@ namespace CoinbaseSdk.Prime.Positions
         }
       }
 
-      public ListAggregatePositionsRequest Build()
+      public override ListAggregatePositionsRequest Build()
       {
         this.Validate();
-        return new ListAggregatePositionsRequest(_portfolioId!)
-        {
-          Cursor = _cursor,
-          Limit = _limit
-        };
+        var request = new ListAggregatePositionsRequest(_portfolioId!);
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

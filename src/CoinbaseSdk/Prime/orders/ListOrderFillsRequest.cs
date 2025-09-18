@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Orders
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListOrderFillsRequest(string portfolioId, string orderId)
+  public class ListOrderFillsRequest(string portfolioId, string orderId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -28,16 +28,13 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListOrderFillsRequestBuilder
+    public class ListOrderFillsRequestBuilder : PaginatedRequestBuilder<ListOrderFillsRequest, ListOrderFillsRequestBuilder>
     {
       private string? _portfolioId;
       private string? _orderId;
-      private string? _cursor;
       private SortDirection? _sortDirection;
 
       public ListOrderFillsRequestBuilder WithPortfolioId(string portfolioId)
@@ -52,21 +49,15 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
-      public ListOrderFillsRequestBuilder WithCursor(string? cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
       public ListOrderFillsRequestBuilder WithSortDirection(SortDirection? sortDirection)
       {
         this._sortDirection = sortDirection;
         return this;
       }
 
-      public ListOrderFillsRequestBuilder WithPagination(Pagination pagination)
+      public new ListOrderFillsRequestBuilder WithPagination(Pagination pagination)
       {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
@@ -94,14 +85,15 @@ namespace CoinbaseSdk.Prime.Orders
       /// </summary>
       /// <returns>The <see cref="ListOrderFillsRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListOrderFillsRequest Build()
+      public override ListOrderFillsRequest Build()
       {
         this.Validate();
-        return new ListOrderFillsRequest(this._portfolioId!, this._orderId!)
+        var request = new ListOrderFillsRequest(this._portfolioId!, this._orderId!)
         {
-          Cursor = this._cursor,
           SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

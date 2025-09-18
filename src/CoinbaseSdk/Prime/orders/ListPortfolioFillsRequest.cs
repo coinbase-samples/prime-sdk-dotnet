@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Orders
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListPortfolioFillsRequest(string portfolioId)
+  public class ListPortfolioFillsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -31,18 +31,14 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListPortfolioFillsRequestBuilder
+    public class ListPortfolioFillsRequestBuilder : PaginatedRequestBuilder<ListPortfolioFillsRequest, ListPortfolioFillsRequestBuilder>
     {
       private string? _portfolioId;
       private string? _startDate;
       private string? _endDate;
-      private string? _cursor;
-      private int? _limit;
       private SortDirection? _sortDirection;
 
       public ListPortfolioFillsRequestBuilder WithPortfolioId(string portfolioId)
@@ -60,18 +56,6 @@ namespace CoinbaseSdk.Prime.Orders
       public ListPortfolioFillsRequestBuilder WithEndDate(string? endDate)
       {
         this._endDate = endDate;
-        return this;
-      }
-
-      public ListPortfolioFillsRequestBuilder WithCursor(string? cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
-      public ListPortfolioFillsRequestBuilder WithLimit(int? limit)
-      {
-        this._limit = limit;
         return this;
       }
 
@@ -104,17 +88,17 @@ namespace CoinbaseSdk.Prime.Orders
       /// </summary>
       /// <returns>The <see cref="ListPortfolioFillsRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListPortfolioFillsRequest Build()
+      public override ListPortfolioFillsRequest Build()
       {
         this.Validate();
-        return new ListPortfolioFillsRequest(this._portfolioId!)
+        var request = new ListPortfolioFillsRequest(this._portfolioId!)
         {
           StartDate = this._startDate!,
           EndDate = this._endDate,
-          Cursor = this._cursor,
-          Limit = this._limit,
           SortDirection = this._sortDirection,
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

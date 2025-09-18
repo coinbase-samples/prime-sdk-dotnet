@@ -20,20 +20,16 @@ namespace CoinbaseSdk.Prime.Products
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListPortfolioProductsRequest(string portfolioId)
+  public class ListPortfolioProductsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
-    public class ListPortfolioProductsRequestBuilder
+    public class ListPortfolioProductsRequestBuilder : PaginatedRequestBuilder<ListPortfolioProductsRequest, ListPortfolioProductsRequestBuilder>
     {
       private string? _portfolioId;
-      private string? _cursor;
       private SortDirection? _sortDirection;
-      private int? _limit;
 
       public ListPortfolioProductsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -41,11 +37,6 @@ namespace CoinbaseSdk.Prime.Products
         return this;
       }
 
-      public ListPortfolioProductsRequestBuilder WithCursor(string cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
 
       public ListPortfolioProductsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
@@ -53,15 +44,9 @@ namespace CoinbaseSdk.Prime.Products
         return this;
       }
 
-      public ListPortfolioProductsRequestBuilder WithLimit(int limit)
+      public new ListPortfolioProductsRequestBuilder WithPagination(Pagination pagination)
       {
-        this._limit = limit;
-        return this;
-      }
-
-      public ListPortfolioProductsRequestBuilder WithPagination(Pagination pagination)
-      {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         this._sortDirection = pagination.SortDirection;
         return this;
       }
@@ -84,15 +69,15 @@ namespace CoinbaseSdk.Prime.Products
       /// </summary>
       /// <returns>The <see cref="ListPortfolioProductsRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListPortfolioProductsRequest Build()
+      public override ListPortfolioProductsRequest Build()
       {
         this.Validate();
-        return new ListPortfolioProductsRequest(this._portfolioId!)
+        var request = new ListPortfolioProductsRequest(this._portfolioId!)
         {
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit
+          SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

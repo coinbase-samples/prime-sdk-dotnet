@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Invoice
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListInvoicesRequest(string entityId)
+  public class ListInvoicesRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
@@ -33,17 +33,13 @@ namespace CoinbaseSdk.Prime.Invoice
     [JsonPropertyName("billing_year")]
     public int? BillingYear { get; set; }
 
-    public int? Cursor { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListInvoicesRequestBuilder
+    public class ListInvoicesRequestBuilder : PaginatedRequestBuilder<ListInvoicesRequest, ListInvoicesRequestBuilder>
     {
       private string? _entityId;
       private InvoiceState[] _states = [];
       private int? _billingMonth;
       private int? _billingYear;
-      private int? _cursor;
-      private int? _limit;
 
       public ListInvoicesRequestBuilder WithEntityId(string entityId)
       {
@@ -69,17 +65,6 @@ namespace CoinbaseSdk.Prime.Invoice
         return this;
       }
 
-      public ListInvoicesRequestBuilder WithCursor(int cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
-      public ListInvoicesRequestBuilder WithLimit(int limit)
-      {
-        this._limit = limit;
-        return this;
-      }
 
       /// <summary>
       /// Validates the builder.
@@ -98,17 +83,17 @@ namespace CoinbaseSdk.Prime.Invoice
       /// </summary>
       /// <returns>The <see cref="ListInvoicesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty or whitespace.</exception>
-      public ListInvoicesRequest Build()
+      public override ListInvoicesRequest Build()
       {
         Validate();
-        return new ListInvoicesRequest(this._entityId!)
+        var request = new ListInvoicesRequest(this._entityId!)
         {
           States = this._states,
           BillingMonth = this._billingMonth,
           BillingYear = this._billingYear,
-          Cursor = this._cursor,
-          Limit = this._limit,
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

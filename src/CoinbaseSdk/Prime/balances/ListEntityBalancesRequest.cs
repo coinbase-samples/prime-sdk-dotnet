@@ -19,43 +19,26 @@ namespace CoinbaseSdk.Prime.Balances
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListEntityBalancesRequest(string entityId)
+  public class ListEntityBalancesRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
     public string[] Symbols { get; set; } = [];
 
-    public string? Cursor { get; set; }
-
-    public int? Limit { get; set; }
 
     [JsonPropertyName("aggregation_type")]
     public BalanceType? AggregationType { get; set; }
 
-    public class ListEntityBalancesRequestBuilder(string entityId)
+    public class ListEntityBalancesRequestBuilder(string entityId) : PaginatedRequestBuilder<ListEntityBalancesRequest, ListEntityBalancesRequestBuilder>
     {
       private string _entityId = entityId;
       private string[] _symbols = [];
-      private string? _cursor;
-      private int? _limit;
       private BalanceType? _aggregationType;
 
       public ListEntityBalancesRequestBuilder WithSymbols(string[] symbols)
       {
         this._symbols = symbols;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithCursor(string? cursor)
-      {
-        this._cursor = cursor;
-        return this;
-      }
-
-      public ListEntityBalancesRequestBuilder WithLimit(int? limit)
-      {
-        this._limit = limit;
         return this;
       }
 
@@ -65,21 +48,21 @@ namespace CoinbaseSdk.Prime.Balances
         return this;
       }
 
-      public ListEntityBalancesRequestBuilder WithPagination(Pagination pagination)
+      public new ListEntityBalancesRequestBuilder WithPagination(Pagination pagination)
       {
-        this._cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         return this;
       }
 
-      public ListEntityBalancesRequest Build()
+      public override ListEntityBalancesRequest Build()
       {
-        return new ListEntityBalancesRequest(this._entityId)
+        var request = new ListEntityBalancesRequest(this._entityId)
         {
           Symbols = this._symbols,
-          Cursor = this._cursor,
-          Limit = this._limit,
           AggregationType = this._aggregationType
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

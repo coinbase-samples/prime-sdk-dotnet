@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Transactions
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
 
-  public class ListWalletTransactionsRequest(string portfolioId, string walletId)
+  public class ListWalletTransactionsRequest(string portfolioId, string walletId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -37,21 +37,17 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
-    public string? Cursor { get; set; }
     [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
-    public int? Limit { get; set; }
 
-    public class ListWalletTransactionsRequestBuilder
+    public class ListWalletTransactionsRequestBuilder : PaginatedRequestBuilder<ListWalletTransactionsRequest, ListWalletTransactionsRequestBuilder>
     {
       private string? _portfolioId;
       private string? _walletId;
       private TransactionType _type;
       private string? _startTime;
       private string? _endTime;
-      private string? _cursor;
       private SortDirection? _sortDirection;
-      private int? _limit;
 
       public ListWalletTransactionsRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -83,27 +79,15 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
-      public ListWalletTransactionsRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
       public ListWalletTransactionsRequestBuilder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public ListWalletTransactionsRequestBuilder WithLimit(int limit)
+      public new ListWalletTransactionsRequestBuilder WithPagination(Pagination pagination)
       {
-        _limit = limit;
-        return this;
-      }
-
-      public ListWalletTransactionsRequestBuilder WithPagination(Pagination pagination)
-      {
-        _cursor = pagination.NextCursor;
+        base.WithPagination(pagination);
         _sortDirection = pagination.SortDirection;
         return this;
       }
@@ -129,18 +113,18 @@ namespace CoinbaseSdk.Prime.Transactions
       /// </summary>
       /// <returns>The <see cref="ListWalletTransactionsRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListWalletTransactionsRequest Build()
+      public override ListWalletTransactionsRequest Build()
       {
         this.Validate();
-        return new ListWalletTransactionsRequest(this._portfolioId!, this._walletId!)
+        var request = new ListWalletTransactionsRequest(this._portfolioId!, this._walletId!)
         {
           Type = this._type,
           StartTime = this._startTime,
           EndTime = this._endTime,
-          Cursor = this._cursor,
-          SortDirection = this._sortDirection,
-          Limit = this._limit
+          SortDirection = this._sortDirection
         };
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }

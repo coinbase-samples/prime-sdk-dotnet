@@ -18,8 +18,9 @@ namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Model;
 
-  public class ListWalletAddressesRequest(string portfolioId, string walletId)
+  public class ListWalletAddressesRequest(string portfolioId, string walletId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -27,18 +28,11 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("cursor")]
-    public string? Cursor { get; set; }
 
-    [JsonPropertyName("limit")]
-    public int? Limit { get; set; }
-
-    public class ListWalletAddressesRequestBuilder
+    public class ListWalletAddressesRequestBuilder : PaginatedRequestBuilder<ListWalletAddressesRequest, ListWalletAddressesRequestBuilder>
     {
       private string? _portfolioId;
       private string? _walletId;
-      private string? _cursor;
-      private int? _limit;
 
       public ListWalletAddressesRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -52,17 +46,6 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
-      public ListWalletAddressesRequestBuilder WithCursor(string cursor)
-      {
-        _cursor = cursor;
-        return this;
-      }
-
-      public ListWalletAddressesRequestBuilder WithLimit(int limit)
-      {
-        _limit = limit;
-        return this;
-      }
 
       /// <summary>
       /// Validates the input fields.
@@ -87,14 +70,12 @@ namespace CoinbaseSdk.Prime.Wallets
       /// </summary>
       /// <returns>The new <see cref="ListWalletAddressesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public ListWalletAddressesRequest Build()
+      public override ListWalletAddressesRequest Build()
       {
         this.Validate();
-        return new ListWalletAddressesRequest(_portfolioId!, _walletId!)
-        {
-          Cursor = _cursor,
-          Limit = _limit
-        };
+        var request = new ListWalletAddressesRequest(_portfolioId!, _walletId!);
+        SetPaginationProperties(request);
+        return request;
       }
     }
   }
