@@ -29,7 +29,7 @@ namespace CoinbaseSdk.Prime.Transactions
     {
       return this.Request<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options);
@@ -42,7 +42,7 @@ namespace CoinbaseSdk.Prime.Transactions
     {
       return this.RequestAsync<CreateConversionResponse>(
         HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversions",
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,

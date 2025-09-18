@@ -25,6 +25,7 @@ namespace CoinbaseSdk.Prime.Client
   public class CoinbasePrimeClient : CoinbaseClient
   {
     private const string DefaultApiBasePath = "api.prime.coinbase.com/v1";
+    private const string SdkVersion = "0.0.0"; // Set by release process
 
     public CoinbasePrimeClient(CoinbaseCredentials credentials) : base(credentials, DefaultApiBasePath)
     {
@@ -48,6 +49,9 @@ namespace CoinbaseSdk.Prime.Client
         this.Credentials,
         options,
         this.JsonUtility);
+
+      // Attach SDK version header to all requests
+      request.Headers["User-Agent"] = $"prime-sdk-dotnet/{SdkVersion}";
 
       // Send the HTTP request
       CoinbaseResponse response;
