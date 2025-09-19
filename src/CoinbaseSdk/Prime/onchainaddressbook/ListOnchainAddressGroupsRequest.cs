@@ -14,15 +14,13 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.OnchainAddressGroups
+namespace CoinbaseSdk.Prime.OnchainAddressBook
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
 
-  public class ListOnchainAddressGroupsResponse
+  public class ListOnchainAddressGroupsRequest(string portfolioId)
   {
-    [JsonPropertyName("address_groups")]
-    public AddressGroup[] AddressGroups { get; set; } = [];
+    [JsonIgnore]
+    public string PortfolioId { get; set; } = portfolioId;
   }
 }
-

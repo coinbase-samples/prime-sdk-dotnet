@@ -46,5 +46,27 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
         DeleteOnchainAddressGroupRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Lists all onchain address groups for a given portfolio ID.
+    /// </summary>
+    /// <param name="request">The request object containing the portfolio ID.</param>
+    /// <param name="options">Optional call options.</param>
+    /// <returns>A response containing the list of onchain address groups.</returns>
+    ListOnchainAddressGroupsResponse ListOnchainAddressGroups(
+      ListOnchainAddressGroupsRequest request,
+      CallOptions? options = null);
+
+    /// <summary>
+    /// Lists all onchain address groups for a given portfolio ID asynchronously.
+    /// </summary>
+    /// <param name="request">The request object containing the portfolio ID.</param>
+    /// <param name="options">Optional call options.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>A task that returns a response containing the list of onchain address groups.</returns>
+    Task<ListOnchainAddressGroupsResponse> ListOnchainAddressGroupsAsync(
+      ListOnchainAddressGroupsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
   }
 }

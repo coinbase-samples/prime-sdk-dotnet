@@ -16,15 +16,31 @@
 
 namespace CoinbaseSdk.Prime.Orders
 {
+  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
+  /// <summary>
+  /// Response containing open orders.
+  /// </summary>
   public class ListOpenOrdersResponse
   {
+    /// <summary>
+    /// Array of orders.
+    /// </summary>
+    [JsonPropertyName("orders")]
     public Order[] Orders { get; set; } = [];
+
+    /// <summary>
+    /// Pagination information.
+    /// </summary>
+    [JsonPropertyName("pagination")]
     public Pagination? Pagination { get; set; }
 
     public ListOpenOrdersResponse() { }
 
+    /// <summary>
+    /// Builder for ListOpenOrdersResponse.
+    /// </summary>
     public class ListOpenOrdersResponseBuilder
     {
       private Order[] _orders = [];

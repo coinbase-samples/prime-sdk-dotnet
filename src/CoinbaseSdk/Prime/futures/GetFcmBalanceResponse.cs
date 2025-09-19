@@ -1,6 +1,10 @@
 namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
+
+  /// <summary>
+  /// Response containing FCM balance summary.
+  /// </summary>
   public class GetFcmBalanceResponse
   {
     [JsonPropertyName("portfolio_id")]
@@ -30,6 +34,12 @@ namespace CoinbaseSdk.Prime.Futures
     [JsonPropertyName("clearing_account_id")]
     public string? ClearingAccountId { get; set; }
 
+    /// <summary>
+    /// CFM unsettled accrued funding PnL.
+    /// </summary>
+    [JsonPropertyName("cfm_unsettled_accrued_funding_pnl")]
+    public string? CfmUnsettledAccruedFundingPnl { get; set; }
+
     public GetFcmBalanceResponse() { }
 
     public class GetFcmBalanceResponseBuilder
@@ -43,6 +53,7 @@ namespace CoinbaseSdk.Prime.Futures
       private string? _initialMargin;
       private string? _maintenanceMargin;
       private string? _clearingAccountId;
+      private string? _cfmUnsettledAccruedFundingPnl;
 
       public GetFcmBalanceResponseBuilder WithPortfolioId(string portfolioId)
       {
@@ -98,6 +109,12 @@ namespace CoinbaseSdk.Prime.Futures
         return this;
       }
 
+      public GetFcmBalanceResponseBuilder WithCfmUnsettledAccruedFundingPnl(string cfmUnsettledAccruedFundingPnl)
+      {
+        this._cfmUnsettledAccruedFundingPnl = cfmUnsettledAccruedFundingPnl;
+        return this;
+      }
+
       public GetFcmBalanceResponse Build()
       {
         return new GetFcmBalanceResponse
@@ -110,7 +127,8 @@ namespace CoinbaseSdk.Prime.Futures
           FuturesBuyingPower = this._futuresBuyingPower,
           InitialMargin = this._initialMargin,
           MaintenanceMargin = this._maintenanceMargin,
-          ClearingAccountId = this._clearingAccountId
+          ClearingAccountId = this._clearingAccountId,
+          CfmUnsettledAccruedFundingPnl = this._cfmUnsettledAccruedFundingPnl
         };
       }
     }

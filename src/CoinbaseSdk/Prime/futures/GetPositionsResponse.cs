@@ -2,8 +2,16 @@ namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
+
+  /// <summary>
+  /// Response containing FCM positions.
+  /// </summary>
   public class GetPositionsResponse
   {
+    /// <summary>
+    /// Array of FCM positions.
+    /// </summary>
+    [JsonPropertyName("positions")]
     public FcmPosition[] Positions { get; set; } = [];
 
     [JsonPropertyName("clearing_account_id")]

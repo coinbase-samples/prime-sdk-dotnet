@@ -19,9 +19,21 @@ namespace CoinbaseSdk.Prime.Model
   using System;
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// FCM Margin Call details.
+  /// </summary>
   public class FcmMarginCall
   {
+    /// <summary>
+    /// The type of the margin call.
+    /// </summary>
+    [JsonPropertyName("type")]
     public FcmMarginCallType? Type { get; set; }
+
+    /// <summary>
+    /// The state of the margin call.
+    /// </summary>
+    [JsonPropertyName("state")]
     public FcmMarginCallState? State { get; set; }
 
     [JsonPropertyName("initial_amount")]

@@ -40,6 +40,7 @@ namespace CoinbaseSdk.Prime.Orders
     /// <summary>
     /// The side of the order (BUY or SELL).
     /// </summary>
+    [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
 
     /// <summary>
@@ -51,6 +52,7 @@ namespace CoinbaseSdk.Prime.Orders
     /// <summary>
     /// Strategy (execution algorithm) for the order.
     /// </summary>
+    [JsonPropertyName("type")]
     public OrderType? Type { get; set; }
 
     /// <summary>
