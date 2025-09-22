@@ -46,14 +46,30 @@ Each Prime API domain has its own service with a consistent pattern:
 - **Implementation**: `{Domain}Service.cs` - Service implementation
 - **Models**: Request/Response classes following the pattern `{Action}{Domain}Request.cs` and `{Action}{Domain}Response.cs`
 
-### Key Services
+### All Services (Equal Priority)
+All services in this SDK are equally important and follow the same architectural patterns. Each service provides comprehensive access to its respective API domain:
+
 - **ActivitiesService**: Portfolio and entity activity tracking
-- **OrdersService**: Order management, quotes, and fills
-- **TransactionsService**: Transfers, withdrawals, conversions
-- **WalletsService**: Wallet management and deposit addresses
+- **AddressBookService**: Address book management
+- **AllocationsService**: Portfolio allocation management
+- **AssetsService**: Asset information and management
 - **BalancesService**: Portfolio and wallet balance queries
-- **PortfoliosService**: Portfolio information and management
+- **CommissionService**: Commission and fee information
+- **FinancingService**: Margin, credit, and financing operations
 - **FuturesService**: FCM operations and margin management
+- **InvoiceService**: Invoice management
+- **OnchainAddressBookService**: Onchain address group management
+- **OrdersService**: Order management, quotes, and fills
+- **PaymentMethodsService**: Payment method management
+- **PortfoliosService**: Portfolio information and management
+- **PositionsService**: Position tracking and management
+- **ProductsService**: Product information
+- **StakingService**: Staking and delegation operations
+- **TransactionsService**: Transfers, withdrawals, conversions
+- **UsersService**: User management
+- **WalletsService**: Wallet management and deposit addresses
+
+**Note**: When performing validation or analysis tasks, ALL services must be treated with equal importance. There are no "critical" or "key" services - every service requires the same level of attention and validation.
 
 ### Client Infrastructure
 - **CoinbasePrimeClient**: Main client class extending CoinbaseClient from Core SDK

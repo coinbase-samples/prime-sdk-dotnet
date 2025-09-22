@@ -17,32 +17,33 @@
 namespace CoinbaseSdk.Prime.OnchainAddressBook
 {
   using CoinbaseSdk.Core.Http;
+  using CoinbaseSdk.Prime.Model;
 
   public interface IOnchainAddressBookService
   {
-    public CreateOnchainAddressBookEntryResponse CreateOnchainAddressBookEntry(
+    public ActivityCreationResponse CreateOnchainAddressBookEntry(
         CreateOnchainAddressBookEntryRequest request,
         CallOptions? options = null);
 
-    public Task<CreateOnchainAddressBookEntryResponse> CreateOnchainAddressBookEntryAsync(
+    public Task<ActivityCreationResponse> CreateOnchainAddressBookEntryAsync(
         CreateOnchainAddressBookEntryRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
 
-    public UpdateOnchainAddressBookEntryResponse UpdateOnchainAddressBookEntry(
+    public ActivityCreationResponse UpdateOnchainAddressBookEntry(
         UpdateOnchainAddressBookEntryRequest request,
         CallOptions? options = null);
 
-    public Task<UpdateOnchainAddressBookEntryResponse> UpdateOnchainAddressBookEntryAsync(
+    public Task<ActivityCreationResponse> UpdateOnchainAddressBookEntryAsync(
         UpdateOnchainAddressBookEntryRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
 
-    public DeleteOnchainAddressGroupResponse DeleteOnchainAddressGroup(
+    public ActivityCreationResponse DeleteOnchainAddressGroup(
         DeleteOnchainAddressGroupRequest request,
         CallOptions? options = null);
 
-    public Task<DeleteOnchainAddressGroupResponse> DeleteOnchainAddressGroupAsync(
+    public Task<ActivityCreationResponse> DeleteOnchainAddressGroupAsync(
         DeleteOnchainAddressGroupRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);

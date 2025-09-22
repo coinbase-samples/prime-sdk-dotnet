@@ -28,11 +28,15 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
+    [JsonPropertyName("network_id")]
+    public string? NetworkId { get; set; }
+
 
     public class ListWalletAddressesRequestBuilder : PaginatedRequestBuilder<ListWalletAddressesRequest, ListWalletAddressesRequestBuilder>
     {
       private string? _portfolioId;
       private string? _walletId;
+      private string? _networkId;
 
       public ListWalletAddressesRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -46,12 +50,18 @@ namespace CoinbaseSdk.Prime.Wallets
         return this;
       }
 
+      public ListWalletAddressesRequestBuilder WithNetworkId(string networkId)
+      {
+        _networkId = networkId;
+        return this;
+      }
+
 
       /// <summary>
       /// Validates the input fields.
       /// </summary>
       /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty, or whitespace.
+      /// If <see cref="_portfolioId"/>, <see cref="_walletId"/>, or <see cref="_networkId"/> are null, empty, or whitespace.
       /// </exception>
       private void Validate()
       {
@@ -63,6 +73,10 @@ namespace CoinbaseSdk.Prime.Wallets
         {
           throw new CoinbaseClientException("WalletId is required");
         }
+        if (string.IsNullOrWhiteSpace(_networkId))
+        {
+          throw new CoinbaseClientException("NetworkId is required");
+        }
       }
 
       /// <summary>
@@ -73,7 +87,10 @@ namespace CoinbaseSdk.Prime.Wallets
       public override ListWalletAddressesRequest Build()
       {
         this.Validate();
-        var request = new ListWalletAddressesRequest(_portfolioId!, _walletId!);
+        var request = new ListWalletAddressesRequest(_portfolioId!, _walletId!)
+        {
+          NetworkId = _networkId!
+        };
         SetPaginationProperties(request);
         return request;
       }

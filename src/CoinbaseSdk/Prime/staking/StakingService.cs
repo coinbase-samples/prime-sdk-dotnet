@@ -126,5 +126,31 @@ namespace CoinbaseSdk.Prime.Staking
         options,
         cancellationToken);
     }
+
+    public ClaimStakingRewardsResponse ClaimStakingRewards(
+      ClaimStakingRewardsRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<ClaimStakingRewardsResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/claim_rewards",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<ClaimStakingRewardsResponse> ClaimStakingRewardsAsync(
+      ClaimStakingRewardsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<ClaimStakingRewardsResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/claim_rewards",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

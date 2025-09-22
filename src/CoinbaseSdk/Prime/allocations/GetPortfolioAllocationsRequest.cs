@@ -96,12 +96,17 @@ namespace CoinbaseSdk.Prime.Allocations
       /// Validates the builder.
       /// </summary>
       /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
+      /// <see cref="_portfolioId"/> or <see cref="_startDate"/> are null, empty
+      /// or whitespace.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (string.IsNullOrWhiteSpace(this._startDate))
+        {
+          throw new CoinbaseClientException("StartDate is required");
         }
       }
 
@@ -117,7 +122,7 @@ namespace CoinbaseSdk.Prime.Allocations
         {
           ProductIds = this._productIds,
           OrderSide = this._orderSide,
-          StartDate = this._startDate,
+          StartDate = this._startDate!,
           EndDate = this._endDate,
           SortDirection = this._sortDirection
         };

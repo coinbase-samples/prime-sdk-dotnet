@@ -72,5 +72,31 @@ namespace CoinbaseSdk.Prime.Portfolios
         options,
         cancellationToken);
     }
+
+    public GetPortfolioCounterpartyResponse GetPortfolioCounterparty(
+      GetPortfolioCounterpartyRequest request,
+      CallOptions? options = null)
+    {
+      return this.Request<GetPortfolioCounterpartyResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/counterparty",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetPortfolioCounterpartyResponse> GetPortfolioCounterpartyAsync(
+      GetPortfolioCounterpartyRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return this.RequestAsync<GetPortfolioCounterpartyResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/counterparty",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
   }
 }

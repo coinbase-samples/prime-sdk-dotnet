@@ -25,6 +25,7 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
+    [JsonPropertyName("type")]
     public WalletType Type { get; set; }
 
     public string[] Symbols { get; set; } = [];
@@ -75,12 +76,17 @@ namespace CoinbaseSdk.Prime.Wallets
       /// Validate the builder.
       /// </summary>
       /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
+      /// <see cref="_portfolioId"/> is null, empty or whitespace, or when
+      /// <see cref="_type"/> is not set.</exception>
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(this._portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
+        }
+        if (!Enum.IsDefined(typeof(WalletType), this._type))
+        {
+          throw new CoinbaseClientException("Type is required");
         }
       }
 
