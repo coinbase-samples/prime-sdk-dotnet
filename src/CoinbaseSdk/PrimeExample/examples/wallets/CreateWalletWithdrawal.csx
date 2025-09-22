@@ -2,6 +2,7 @@
 #r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
 #r "nuget: CoinbaseSdk.Core, 0.0.1"
 #load "../../PrettyPrinter.csx"
+#load "../../DotEnvLoader.csx"
 #nullable enable
 
 /*
@@ -25,19 +26,24 @@ using CoinbaseSdk.Core.Serialization;
 using CoinbaseSdk.Prime.Wallets;
 using CoinbaseSdk.Prime.Client;
 
-string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
-if (credentialsBlob == null)
+// Load environment variables from .env file
+if (!DotEnvLoader.LoadEnvironmentVariables())
 {
-    Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
+    Console.WriteLine("Error: No credentials found in environment variables or .env file.");
+    DotEnvLoader.PrintSetupInstructions();
     return;
 }
 
-string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
-if (portfolioId == null)
+// Validate required environment variables
+if (!DotEnvLoader.ValidateRequiredVariables("COINBASE_PRIME_CREDENTIALS", "COINBASE_PRIME_PORTFOLIO_ID"))
 {
-    Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+    DotEnvLoader.PrintSetupInstructions();
     return;
 }
+
+// Parse credentials (now guaranteed to be available)
+string credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS")!;
+string portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID")!;
 
 var serializer = new JsonUtility();
 var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
