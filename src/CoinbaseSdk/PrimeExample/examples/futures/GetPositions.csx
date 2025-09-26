@@ -55,7 +55,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var futuresService = new FuturesService(client);
+var futuresService = client.FuturesService;
 
 var request = new GetPositionsRequest.GetPositionsRequestBuilder()
     .WithEntityId(entityId)

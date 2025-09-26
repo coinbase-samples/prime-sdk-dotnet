@@ -42,7 +42,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var allocationsService = new AllocationsService(client);
+var allocationsService = client.AllocationsService;
 
 // Sample allocation data - replace with actual values
 var request = new CreateAllocationRequest.CreateAllocationRequestBuilder()

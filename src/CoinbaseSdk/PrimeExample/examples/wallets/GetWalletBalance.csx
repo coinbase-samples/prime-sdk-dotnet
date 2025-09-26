@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var walletsService = new WalletsService(client);
+var walletsService = client.WalletsService;
 
 string walletId;
 if (Args.Count > 0)

@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var activitiesService = new ActivitiesService(client);
+var activitiesService = client.ActivitiesService;
 
 string activityId;
 if (Args.Count > 0)

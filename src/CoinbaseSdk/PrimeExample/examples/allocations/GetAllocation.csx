@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var allocationsService = new AllocationsService(client);
+var allocationsService = client.AllocationsService;
 
 string allocationId;
 if (Args.Count > 0)

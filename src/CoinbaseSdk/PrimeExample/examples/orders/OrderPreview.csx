@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var ordersService = new OrdersService(client);
+var ordersService = client.OrdersService;
 
 // Sample order preview data - replace with actual values
 var request = new OrderPreviewRequest.OrderPreviewRequestBuilder()

@@ -22,18 +22,47 @@ namespace CoinbaseSdk.Prime.Client
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Core.Http;
+  using CoinbaseSdk.Prime.Configuration;
+  using Microsoft.Extensions.Configuration;
 
   public class CoinbasePrimeClient : CoinbaseClient
   {
     private const string DefaultApiBasePath = "api.prime.coinbase.com/v1";
-    private static readonly string SdkVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.0.0";
+    private static readonly string SdkVersion =
+      Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.0.0";
 
-    public CoinbasePrimeClient(CoinbaseCredentials credentials) : base(credentials, DefaultApiBasePath)
-    {
-    }
+    public CoinbasePrimeClient(CoinbaseCredentials credentials)
+      : base(credentials, DefaultApiBasePath) { }
 
-    public CoinbasePrimeClient(CoinbaseCredentials credentials, string apiBasePath) : base(credentials, apiBasePath)
+    public CoinbasePrimeClient(CoinbaseCredentials credentials, string apiBasePath)
+      : base(credentials, apiBasePath) { }
+
+    public static CoinbasePrimeClient FromEnv()
     {
+      var config = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .Build();
+
+      // Bind into a POCO
+      var primeConfig = config.Get<PrimeConfig>();
+      var accessKey =
+        primeConfig?.Credentials?.AccessKey
+        ?? throw new InvalidOperationException("AccessKey is required");
+      var passphrase =
+        primeConfig.Credentials.Passphrase
+        ?? throw new InvalidOperationException("Passphrase is required");
+      var signingKey =
+        primeConfig.Credentials.SigningKey
+        ?? throw new InvalidOperationException("SigningKey is required");
+
+      var credentials = new CoinbaseCredentials()
+      {
+        AccessKey = accessKey,
+        Passphrase = passphrase,
+        SigningKey = signingKey,
+      };
+
+      return new CoinbasePrimeClient(credentials);
     }
 
     public override async Task<T> SendRequestAsync<T>(
@@ -44,12 +73,13 @@ namespace CoinbaseSdk.Prime.Client
       CancellationToken cancellationToken,
       CallOptions? callOptions = null)
     {
-      CoinbaseHttpRequest request = new CoinbaseHttpRequest(
-        $"{this.ApiBasePath}{path}",
+      CoinbaseHttpRequest request = new (
+        $"{ApiBasePath}{path}",
         method.Method,
-        this.Credentials,
+        Credentials,
         options,
-        this.JsonUtility);
+        JsonUtility
+      );
 
       // Attach SDK version header to all requests
       request.Headers["User-Agent"] = $"prime-sdk-dotnet/{SdkVersion}";
@@ -58,7 +88,7 @@ namespace CoinbaseSdk.Prime.Client
       CoinbaseResponse response;
       try
       {
-        response = await this.HttpClient.SendAsyncRequest(request, callOptions, cancellationToken);
+        response = await HttpClient.SendAsyncRequest(request, callOptions, cancellationToken);
       }
       catch (Exception ex)
       {
@@ -71,7 +101,7 @@ namespace CoinbaseSdk.Prime.Client
         CoinbasePrimeErrorMessage errorMessage;
         try
         {
-          errorMessage = this.JsonUtility.Deserialize<CoinbasePrimeErrorMessage>(response.Content);
+          errorMessage = JsonUtility.Deserialize<CoinbasePrimeErrorMessage>(response.Content);
         }
         catch (Exception)
         {
@@ -80,7 +110,7 @@ namespace CoinbaseSdk.Prime.Client
         throw errorMessage.CreateCoinbaseException();
       }
 
-      return this.JsonUtility.Deserialize<T>(response.Content);
+      return JsonUtility.Deserialize<T>(response.Content);
     }
   }
 }

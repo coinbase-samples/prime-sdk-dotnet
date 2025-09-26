@@ -51,7 +51,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var transactionsService = new TransactionsService(client);
+var transactionsService = client.TransactionsService;
 
 var requestBuilder = new ListPortfolioTransactionsRequest.ListPortfolioTransactionsRequestBuilder()
     .WithPortfolioId(portfolioId);

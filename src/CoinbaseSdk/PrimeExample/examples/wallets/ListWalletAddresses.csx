@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var walletsService = new WalletsService(client);
+var walletsService = client.WalletsService;
 
 // Note: Replace "sample-wallet-id" with an actual wallet ID
 // To find wallet IDs, use the ListWallets example script first

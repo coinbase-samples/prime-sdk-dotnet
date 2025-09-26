@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var portfoliosService = new PortfoliosService(client);
+var portfoliosService = client.PortfoliosService;
 
 var request = new GetBuyingPowerRequest.GetBuyingPowerRequestBuilder()
     .WithPortfolioId(portfolioId)

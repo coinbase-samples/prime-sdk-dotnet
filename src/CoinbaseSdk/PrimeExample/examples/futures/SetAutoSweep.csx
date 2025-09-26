@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var futuresService = new FuturesService(client);
+var futuresService = client.FuturesService;
 
 // Sample auto sweep configuration - replace with actual values
 bool enableAutoSweep;

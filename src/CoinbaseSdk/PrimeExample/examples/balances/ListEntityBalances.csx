@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var balancesService = new BalancesService(client);
+var balancesService = client.BalancesService;
 
 var request = new ListEntityBalancesRequest.ListEntityBalancesRequestBuilder()
     .WithEntityId(entityId)

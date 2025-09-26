@@ -1,0 +1,81 @@
+#!/usr/bin/env dotnet-script
+#r "../../../Prime/bin/Debug/net8.0/CoinbaseSdk.Prime.dll"
+#r "nuget: CoinbaseSdk.Core, 0.0.1"
+#load "../../PrettyPrinter.csx"
+#nullable enable
+
+/*
+ * Copyright 2025-present Coinbase Global, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+using CoinbaseSdk.Core.Credentials;
+using CoinbaseSdk.Core.Serialization;
+using CoinbaseSdk.Prime.Orders;
+using CoinbaseSdk.Prime.Client;
+
+string? credentialsBlob = Environment.GetEnvironmentVariable("COINBASE_PRIME_CREDENTIALS");
+if (credentialsBlob == null)
+{
+    Console.WriteLine("COINBASE_PRIME_CREDENTIALS environment variable not set");
+    return;
+}
+
+string? portfolioId = Environment.GetEnvironmentVariable("COINBASE_PRIME_PORTFOLIO_ID");
+if (portfolioId == null)
+{
+    Console.WriteLine("COINBASE_PRIME_PORTFOLIO_ID environment variable not set");
+    return;
+}
+
+var serializer = new JsonUtility();
+var credentials = serializer.Deserialize<CoinbaseCredentials>(credentialsBlob);
+
+if (credentials == null)
+{
+    Console.WriteLine("Failed to parse COINBASE_PRIME_CREDENTIALS environment variable");
+    return;
+}
+
+var client = new CoinbasePrimeClient(credentials);
+var ordersService = client.OrdersService;
+
+string quoteId;
+if (Args.Count > 0)
+{
+    quoteId = Args[0];
+}
+else
+{
+    PrettyPrinter.PrintUsage(
+        "dotnet script AcceptQuote.csx <quote-id>", 
+        "dotnet script AcceptQuote.csx sample-quote-id-12345");
+    return;
+}
+
+var request = new AcceptQuoteRequest.AcceptQuoteRequestBuilder()
+    .WithPortfolioId(portfolioId)
+    .WithQuoteId(quoteId)
+    .Build();
+
+try
+{
+    var response = ordersService.AcceptQuote(request);
+    PrettyPrinter.PrintResponse("AcceptQuoteResponse", response);
+}
+catch (Exception ex)
+{
+    PrettyPrinter.PrintError("Error accepting quote", ex);
+    Console.WriteLine("Note: Use CreateQuoteRequest to generate quote IDs first");
+}

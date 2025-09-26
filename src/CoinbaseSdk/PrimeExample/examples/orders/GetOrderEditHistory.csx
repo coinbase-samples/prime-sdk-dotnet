@@ -49,7 +49,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var ordersService = new OrdersService(client);
+var ordersService = client.OrdersService;
 
 var request = new GetOrderEditHistoryRequest.GetOrderEditHistoryRequestBuilder()
     .WithPortfolioId(portfolioId)

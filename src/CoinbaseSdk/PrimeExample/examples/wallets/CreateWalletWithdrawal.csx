@@ -55,7 +55,7 @@ if (credentials == null)
 }
 
 var client = new CoinbasePrimeClient(credentials);
-var walletsService = new WalletsService(client);
+var walletsService = client.WalletsService;
 
 string walletId = "sample-wallet-id"; // Replace with actual wallet ID
 string destinationAddress = "sample-destination-address"; // Replace with actual destination
