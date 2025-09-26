@@ -1,0 +1,11 @@
+{
+  "Credentials": {
+    "AccessKey":"your_access_key",
+    "Passphrase":"your_passphrase",
+    "SigningKey":"your_signing_key"
+  },
+
+  "PortfolioId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+
+  "EntityId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+}

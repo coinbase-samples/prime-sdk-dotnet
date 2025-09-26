@@ -16,3 +16,5 @@ project.lock.json
 .env*
 
 .claude/*
+
+appsettings.json
