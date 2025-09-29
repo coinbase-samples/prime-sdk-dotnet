@@ -17,8 +17,8 @@
 using System.CommandLine;
 using CoinbaseSdk.PrimeExample.Common;
 using CoinbaseSdk.PrimeExample.Examples.Activities;
+using CoinbaseSdk.PrimeExample.Examples.Assets;
 using CoinbaseSdk.PrimeExample.Examples.Portfolios;
-using CoinbaseSdk.PrimeExample.Examples.Wallets;
 using Spectre.Console;
 
 namespace CoinbaseSdk.PrimeExample;
@@ -47,8 +47,8 @@ public class Program
 
         // Add example commands
         rootCommand.AddCommand(GetActivityCommand.CreateCommand());
+        rootCommand.AddCommand(ListAssetsCommand.CreateCommand());
         rootCommand.AddCommand(GetPortfolioCommand.CreateCommand());
-        rootCommand.AddCommand(CreateWalletCommand.CreateCommand());
 
         return await rootCommand.InvokeAsync(args);
     }
@@ -72,7 +72,7 @@ public class Program
         table.AddRow("Wallets", "CreateWallet", "Create a new wallet");
 
         AnsiConsole.Write(table);
-        
+
         AnsiConsole.WriteLine();
         AnsiConsole.MarkupLine("[bold]Usage:[/] dotnet run -- [command] [options]");
         AnsiConsole.MarkupLine("[bold]Examples:[/]");
