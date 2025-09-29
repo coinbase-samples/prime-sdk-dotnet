@@ -1,48 +1,39 @@
 # Changelog
 
-## [0.4.0] - 2025-SEP-18
+## [0.4.0] - 2025-SEP-29
 
 ### Added
 
 - **New API Endpoints**
-  - `ActivitiesService.GetActivity` - Retrieve individual activity details
-  - `ActivitiesService.GetPortfolioActivity` - Retrieve specific portfolio activity
-  - `ActivitiesService.ListEntityActivities` - List activities for entity
-  - `AssetsService.ListEntityAssets` - Retrieve entity asset information
-  - `BalancesService.ListWeb3WalletBalances` - Web3 wallet balance queries
   - `FuturesService.GetFcmMarginCallDetails` - FCM margin call information
   - `FuturesService.GetFcmRiskLimits` - FCM risk limit management
-  - `OnchainAddressGroupsService` - Complete onchain address group management
   - `OrdersService.EditOrder` - Modify existing order parameters
   - `OrdersService.GetOrderEditHistory` - Order modification audit trail
-  - `OrdersService.GetOrder` - Retrieve individual order details
   - `PositionsService.ListAggregatePositions` - Aggregate position summaries
+  - `PortfoliosService.GetPortfolioCounterparty` - Portfolio counterparty details
+  - `StakingService.ClaimStakingRewards` - Claim accumulated staking rewards
+  - `StakingService.CreatePortfolioStake` - Create new staking position
+  - `StakingService.CreatePortfolioUnstake` - Create unstaking request
   - `StakingService.ListPortfolioStakingBalances` - Portfolio staking balance details
   - `WalletsService.CreateWalletDepositAddress` - Generate new deposit addresses
   - `WalletsService.ListWalletAddresses` - List all wallet addresses
-  - `WalletsService.GetWallet` - Retrieve individual wallet details
 
-- **New Models and Types**
-  - `EditOrderRequest` / `EditOrderResponse` - Order modification support
-  - `ActivityCategory`, `ActivityStatus`, `ActivityLevel` - Activity filtering enums
-  - `FcmMarginCall`, `FcmRiskLimit` - FCM trading support models
-  - `Web3Asset`, `Web3Balance` - Web3 wallet integration models
-  - `WalletAddress`, `WalletDepositInstructionType` - Enhanced wallet models
-  - `PortfolioStakingMetadata` - Staking information models
-  - `NetworkFamily`, `TransactionType`, `SortDirection` - Enhanced type safety enums
-
-### Enhanced
-
-- **Type Safety Improvements**
-  - Replaced string parameters with strongly-typed enums across request models
-  - Enhanced pagination with typed `SortDirection` enum
-  - Improved compile-time validation and IntelliSense support
-
-- **Model Enhancements**
-  - `OrderFill` - Added `ClientProductId`, `VenueFees`, and `CesCommission` properties
-  - `Transaction` - Added `NetworkFamily` property for blockchain network identification
-  - `CreateOrderRequest` - Added `NetworkFamily` support for cross-chain orders
-  - `CreateWithdrawalRequest` - Enhanced with additional withdrawal options
+- **New Domain Models**
+  - `Action`, `Activity`, `ActivityCreationResponse`, `ActivityLevel` - Activity tracking models
+  - `Commission`, `CounterpartyDestination` - Commission and destination models
+  - `ExistingLocate`, `FcmMarginCall`, `FcmMarginCallDetails`, `FcmRiskLimit` - FCM trading models
+  - `FcmMarginCallState`, `FcmMarginCallType`, `HierarchyType` - FCM enums
+  - `MarginAddOnType`, `Network`, `NetworkFamily` - Network and margin models
+  - `OnchainTransactionDetails`, `OrderEdit`, `OrderFill`, `OrderStatus` - Order models
+  - `PaginatedRequest`, `PaginatedRequestBuilder`, `PaginatedResponse` - Pagination infrastructure
+  - `PaymentMethodDestination`, `PmAssetInfo`, `PortfolioBalanceType` - Asset and payment models
+  - `PortfolioStakingMetadata`, `PortfolioUser`, `QuoteResponse` - Portfolio models
+  - `RfqProductDetails`, `RiskAssessment`, `SigningStatus`, `SortDirection` - Product and risk models
+  - `StakingInitiateResponse`, `StakingUnstakeResponse`, `Transaction` - Staking and transaction models
+  - `UserRole`, `VisibilityStatus`, `WalletAddress` - User and wallet models
+  - `WalletCryptoDepositInstructions`, `WalletDepositInstructionType` - Wallet deposit models
+  - `WalletFiatDepositInstructions`, `WalletVisibility` - Wallet configuration models
+  - `Web3Asset`, `Web3Balance`, `Web3TransactionMetadata` - Web3 integration models
 
 ### Fixed
 
@@ -52,15 +43,31 @@
 
 - **Method Renaming** - Simplified SDK method names for consistency:
   - `GetActivityByActivityId` → `GetActivity`
-  - `GetPortfolioAddressBook` → `ListAddressBookEntries` 
+  - `GetEntityActivityByActivityId` → `GetPortfolioActivity`
+  - `GetPortfolioAddressBook` → `ListAddressBookEntries`
+  - `GetOrderByOrderId` → `GetOrder`
   - `GetPortfolioById` → `GetPortfolio`
   - `GetTransactionByTransactionId` → `GetTransaction`
+  - `GetWalletById` → `GetWallet`
 
-- **Model Renaming** - Consolidated duplicate request/response models:
+- **Model Renaming** - Consolidated and renamed request/response models:
   - `GetActivityByActivityIdRequest/Response` → `GetActivityRequest/Response`
+  - `GetEntityActivityByActivityIdRequest` → `GetActivityRequest`
+  - `GetActivityByActivityIdRequest` → `GetPortfolioActivityRequest`
   - `GetPortfolioAddressBookRequest/Response` → `ListAddressBookEntriesRequest/Response`
+  - `GetOrderByOrderIdRequest/Response` → `GetOrderRequest/Response`
   - `GetPortfolioByIdRequest/Response` → `GetPortfolioRequest/Response`
   - `GetTransactionByTransactionIdRequest/Response` → `GetTransactionRequest/Response`
+  - `GetWalletByIdRequest/Response` → `GetWalletRequest/Response`
+  - `PMAssetInfo` → `PmAssetInfo`
+
+- **Enhanced pagination** with typed `SortDirection` enum and standardized request patterns
+
+- **Model Updates**:
+  - `OrderFill` - Added `ClientProductId`, `VenueFees`, and `CesCommission` properties
+  - `Transaction` - Added `NetworkFamily` property for blockchain network identification
+  - `CreateOrderRequest` - Added `NetworkFamily` support for cross-chain orders
+  - `CreateWithdrawalRequest` - Enhanced with additional withdrawal options
 
 ## [0.3.0] - 2025-MAY-15
 
