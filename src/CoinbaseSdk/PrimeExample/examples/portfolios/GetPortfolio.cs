@@ -15,8 +15,8 @@
  */
 
 using CoinbaseSdk.Core.Credentials;
-using CoinbaseSdk.Prime.Portfolios;
 using CoinbaseSdk.Prime.Client;
+using CoinbaseSdk.Prime.Portfolios;
 using CoinbaseSdk.PrimeExample.Common;
 using Microsoft.Extensions.Configuration;
 
@@ -27,36 +27,36 @@ namespace CoinbaseSdk.PrimeExample.Examples.Portfolios;
 /// </summary>
 public static class GetPortfolio
 {
-    /// <summary>
-    /// Retrieves portfolio information
-    /// </summary>
-    /// <param name="portfolioId">Optional portfolio ID. If not provided, will use configuration</param>
-    /// <returns>Task representing the async operation</returns>
-    public static bool Run(string? portfolioId = null)
+  /// <summary>
+  /// Run the example.
+  /// </summary>
+  public static bool Run(string? portfolioId)
+  {
+    try
     {
-        try
-        {
-            // Create client and service
-            var client = CoinbasePrimeClient.FromEnv();
-            var portfoliosService = new PortfoliosService(client);
+      if (portfolioId == null)
+      {
+        PrettyPrinter.Print("portfolioId required input parameter");
+        return false;
+      }
+      var client = CoinbasePrimeClient.FromEnv();
+      var portfoliosService = new PortfoliosService(client);
 
-            // Build request
-            var request = new GetPortfolioRequest.GetPortfolioRequestBuilder()
-                .Build();
+      // Build request
+      var request = new GetPortfolioRequest.GetPortfolioRequestBuilder().WithPortfolioId(portfolioId).Build();
 
-            // Execute request
-            var response = portfoliosService.GetPortfolioAsync(request);
+      // Execute request
+      var response = portfoliosService.GetPortfolio(request);
 
-            // Print response
-            PrettyPrinter.PrintResponse("GetPortfolioResponse", response);
+      // Print response
+      PrettyPrinter.PrintResponse("GetPortfolioResponse", response);
 
-            return true;
-        }
-        catch (Exception ex)
-        {
-            PrettyPrinter.PrintError("Error retrieving portfolio", ex);
-            return false;
-        }
+      return true;
     }
+    catch (Exception ex)
+    {
+      PrettyPrinter.PrintError("Error retrieving portfolio", ex);
+      return false;
+    }
+  }
 }
-

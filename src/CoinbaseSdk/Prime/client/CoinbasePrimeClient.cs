@@ -44,16 +44,21 @@ namespace CoinbaseSdk.Prime.Client
         .Build();
 
       // Bind into a POCO
-      var primeConfig = config.Get<PrimeConfig>();
+      var primeConfig = config.Get<PrimeConfig>() ?? throw new CoinbaseClientException("Prime Config is required");
+      if (primeConfig.Credentials == null)
+      {
+        throw new CoinbaseClientException("credentials is null");
+      }
+
       var accessKey =
         primeConfig?.Credentials?.AccessKey
-        ?? throw new InvalidOperationException("AccessKey is required");
+        ?? throw new CoinbaseClientException("AccessKey is required");
       var passphrase =
         primeConfig.Credentials.Passphrase
-        ?? throw new InvalidOperationException("Passphrase is required");
+        ?? throw new CoinbaseClientException("Passphrase is required");
       var signingKey =
         primeConfig.Credentials.SigningKey
-        ?? throw new InvalidOperationException("SigningKey is required");
+        ?? throw new CoinbaseClientException("SigningKey is required");
 
       var credentials = new CoinbaseCredentials()
       {
