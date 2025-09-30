@@ -7,12 +7,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <EnablePackageValidation>true</EnablePackageValidation>
     <AssemblyName>PrimeExample</AssemblyName>
     <RootNamespace>CoinbaseSdk.PrimeExample</RootNamespace>
+    <!-- Exclude from NuGet packaging -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
