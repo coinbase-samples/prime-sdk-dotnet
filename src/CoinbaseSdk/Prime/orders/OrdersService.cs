@@ -284,11 +284,11 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public GetOrderEditHistoryResponse GetOrderEditHistory(
-      GetOrderEditHistoryRequest request,
+    public ListOrderEditHistoryResponse ListOrderEditHistory(
+      ListOrderEditHistoryRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetOrderEditHistoryResponse>(
+      return this.Request<ListOrderEditHistoryResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
         [HttpStatusCode.OK],
@@ -296,12 +296,12 @@ namespace CoinbaseSdk.Prime.Orders
         options);
     }
 
-    public Task<GetOrderEditHistoryResponse> GetOrderEditHistoryAsync(
-      GetOrderEditHistoryRequest request,
+    public Task<ListOrderEditHistoryResponse> ListOrderEditHistoryAsync(
+      ListOrderEditHistoryRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetOrderEditHistoryResponse>(
+      return this.RequestAsync<ListOrderEditHistoryResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
         [HttpStatusCode.OK],

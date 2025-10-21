@@ -19,7 +19,7 @@ namespace CoinbaseSdk.Prime.Orders
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
-  public class GetOrderEditHistoryResponse
+  public class ListOrderEditHistoryResponse
   {
     [JsonPropertyName("edits")]
     public OrderEdit[]? Edits { get; set; }
@@ -28,3 +28,5 @@ namespace CoinbaseSdk.Prime.Orders
     public Pagination? Pagination { get; set; }
   }
 }
+
+

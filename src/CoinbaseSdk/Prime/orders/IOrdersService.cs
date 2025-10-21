@@ -110,12 +110,12 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
-    public GetOrderEditHistoryResponse GetOrderEditHistory(
-      GetOrderEditHistoryRequest request,
+    public ListOrderEditHistoryResponse ListOrderEditHistory(
+      ListOrderEditHistoryRequest request,
       CallOptions? options = null);
 
-    public Task<GetOrderEditHistoryResponse> GetOrderEditHistoryAsync(
-      GetOrderEditHistoryRequest request,
+    public Task<ListOrderEditHistoryResponse> ListOrderEditHistoryAsync(
+      ListOrderEditHistoryRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 

@@ -19,7 +19,7 @@ namespace CoinbaseSdk.Prime.Orders
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
 
-  public class GetOrderEditHistoryRequest(string portfolioId, string orderId)
+  public class ListOrderEditHistoryRequest(string portfolioId, string orderId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -28,18 +28,18 @@ namespace CoinbaseSdk.Prime.Orders
     public string OrderId { get; set; } = orderId;
 
 
-    public class GetOrderEditHistoryRequestBuilder
+    public class ListOrderEditHistoryRequestBuilder
     {
       private string? _portfolioId;
       private string? _orderId;
 
-      public GetOrderEditHistoryRequestBuilder WithPortfolioId(string portfolioId)
+      public ListOrderEditHistoryRequestBuilder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
       }
 
-      public GetOrderEditHistoryRequestBuilder WithOrderId(string orderId)
+      public ListOrderEditHistoryRequestBuilder WithOrderId(string orderId)
       {
         _orderId = orderId;
         return this;
@@ -65,15 +65,17 @@ namespace CoinbaseSdk.Prime.Orders
       }
 
       /// <summary>
-      /// Builds the <see cref="GetOrderEditHistoryRequest"/>.
+      /// Builds the <see cref="ListOrderEditHistoryRequest"/>.
       /// </summary>
-      /// <returns>The new <see cref="GetOrderEditHistoryRequest"/>.</returns>
+      /// <returns>The new <see cref="ListOrderEditHistoryRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public GetOrderEditHistoryRequest Build()
+      public ListOrderEditHistoryRequest Build()
       {
         this.Validate();
-        return new GetOrderEditHistoryRequest(_portfolioId!, _orderId!);
+        return new ListOrderEditHistoryRequest(_portfolioId!, _orderId!);
       }
     }
   }
 }
+
+

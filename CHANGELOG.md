@@ -8,7 +8,7 @@
   - `FuturesService.GetFcmMarginCallDetails`
   - `FuturesService.GetFcmRiskLimits`
   - `OrdersService.EditOrder`
-  - `OrdersService.GetOrderEditHistory`
+  - `OrdersService.ListOrderEditHistory`
   - `PortfoliosService.GetPortfolioCounterparty`
   - `StakingService.ClaimStakingRewards`
   - `StakingService.CreatePortfolioStake`
