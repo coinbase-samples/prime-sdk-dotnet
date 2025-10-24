@@ -1,0 +1,32 @@
+  public class {{classname}}
+  {
+{{#vars}}{{#description}}    /// <summary>
+    /// {{.}}
+    /// </summary>
+{{/description}}    [JsonPropertyName("{{baseName}}")]
+    public {{{datatype}}}{{^required}}?{{/required}} {{name}} { get; set; }{{#defaultValue}} = {{{.}}};{{/defaultValue}}
+
+{{/vars}}    public {{classname}}() { }
+
+    public {{classname}}(Builder builder)
+    {
+{{#vars}}      this.{{name}} = builder.{{name}};
+{{/vars}}    }
+
+    public static class Builder
+    {
+{{#vars}}      private {{{datatype}}}{{^required}}?{{/required}} {{name}};
+
+{{/vars}}
+{{#vars}}      public Builder {{name}}({{{datatype}}}{{^required}}?{{/required}} {{name}})
+      {
+        this.{{name}} = {{name}};
+        return this;
+      }
+
+{{/vars}}      public {{classname}} Build()
+      {
+        return new {{classname}}(this);
+      }
+    }
+  }
