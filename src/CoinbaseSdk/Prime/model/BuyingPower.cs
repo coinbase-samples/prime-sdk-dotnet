@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.quote_buying_power = builder.quote_buying_power;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? portfolio_id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? quote_buying_power;
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder base_currency(string? base_currency)
+      public Builder Withbase_currency(string? base_currency)
       {
         this.base_currency = base_currency;
         return this;
       }
 
-      public Builder quote_currency(string? quote_currency)
+      public Builder Withquote_currency(string? quote_currency)
       {
         this.quote_currency = quote_currency;
         return this;
       }
 
-      public Builder base_buying_power(string? base_buying_power)
+      public Builder Withbase_buying_power(string? base_buying_power)
       {
         this.base_buying_power = base_buying_power;
         return this;
       }
 
-      public Builder quote_buying_power(string? quote_buying_power)
+      public Builder Withquote_buying_power(string? quote_buying_power)
       {
         this.quote_buying_power = quote_buying_power;
         return this;

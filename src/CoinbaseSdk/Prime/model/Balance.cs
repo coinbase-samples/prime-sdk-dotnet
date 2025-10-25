@@ -122,7 +122,7 @@ namespace CoinbaseSdk.Prime.Model
       this.unbondable_amount = builder.unbondable_amount;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -150,79 +150,79 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? unbondable_amount;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder holds(string? holds)
+      public Builder Withholds(string? holds)
       {
         this.holds = holds;
         return this;
       }
 
-      public Builder bonded_amount(string? bonded_amount)
+      public Builder Withbonded_amount(string? bonded_amount)
       {
         this.bonded_amount = bonded_amount;
         return this;
       }
 
-      public Builder reserved_amount(string? reserved_amount)
+      public Builder Withreserved_amount(string? reserved_amount)
       {
         this.reserved_amount = reserved_amount;
         return this;
       }
 
-      public Builder unbonding_amount(string? unbonding_amount)
+      public Builder Withunbonding_amount(string? unbonding_amount)
       {
         this.unbonding_amount = unbonding_amount;
         return this;
       }
 
-      public Builder unvested_amount(string? unvested_amount)
+      public Builder Withunvested_amount(string? unvested_amount)
       {
         this.unvested_amount = unvested_amount;
         return this;
       }
 
-      public Builder pending_rewards_amount(string? pending_rewards_amount)
+      public Builder Withpending_rewards_amount(string? pending_rewards_amount)
       {
         this.pending_rewards_amount = pending_rewards_amount;
         return this;
       }
 
-      public Builder past_rewards_amount(string? past_rewards_amount)
+      public Builder Withpast_rewards_amount(string? past_rewards_amount)
       {
         this.past_rewards_amount = past_rewards_amount;
         return this;
       }
 
-      public Builder bondable_amount(string? bondable_amount)
+      public Builder Withbondable_amount(string? bondable_amount)
       {
         this.bondable_amount = bondable_amount;
         return this;
       }
 
-      public Builder withdrawable_amount(string? withdrawable_amount)
+      public Builder Withwithdrawable_amount(string? withdrawable_amount)
       {
         this.withdrawable_amount = withdrawable_amount;
         return this;
       }
 
-      public Builder fiat_amount(string? fiat_amount)
+      public Builder Withfiat_amount(string? fiat_amount)
       {
         this.fiat_amount = fiat_amount;
         return this;
       }
 
-      public Builder unbondable_amount(string? unbondable_amount)
+      public Builder Withunbondable_amount(string? unbondable_amount)
       {
         this.unbondable_amount = unbondable_amount;
         return this;

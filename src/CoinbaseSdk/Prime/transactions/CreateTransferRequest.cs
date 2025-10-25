@@ -26,7 +26,9 @@ namespace CoinbaseSdk.Prime.Transactions
 
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
+
     public string? Amount { get; set; }
+
     public string? Destination { get; set; }
 
     [JsonPropertyName("idempotency_key")]
@@ -35,7 +37,7 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    public class CreateTransferRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _walletId;
@@ -44,39 +46,39 @@ namespace CoinbaseSdk.Prime.Transactions
       private string? _idempotencyKey;
       private string? _currencySymbol;
 
-      public CreateTransferRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public CreateTransferRequestBuilder WithWalletId(string walletId)
+      public Builder WithWalletId(string walletId)
       {
-        this._walletId = walletId;
+        _walletId = walletId;
         return this;
       }
 
-      public CreateTransferRequestBuilder WithAmount(string amount)
+      public Builder WithAmount(string amount)
       {
-        this._amount = amount;
+        _amount = amount;
         return this;
       }
 
-      public CreateTransferRequestBuilder WithDestination(string destination)
+      public Builder WithDestination(string destination)
       {
-        this._destination = destination;
+        _destination = destination;
         return this;
       }
 
-      public CreateTransferRequestBuilder WithIdempotencyKey(string idempotencyKey)
+      public Builder WithIdempotencyKey(string idempotencyKey)
       {
-        this._idempotencyKey = idempotencyKey;
+        _idempotencyKey = idempotencyKey;
         return this;
       }
 
-      public CreateTransferRequestBuilder WithCurrencySymbol(string currencySymbol)
+      public Builder WithCurrencySymbol(string currencySymbol)
       {
-        this._currencySymbol = currencySymbol;
+        _currencySymbol = currencySymbol;
         return this;
       }
 
@@ -87,11 +89,11 @@ namespace CoinbaseSdk.Prime.Transactions
       /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._walletId))
+        if (string.IsNullOrWhiteSpace(_walletId))
         {
           throw new CoinbaseClientException("WalletId is required");
         }
@@ -104,13 +106,13 @@ namespace CoinbaseSdk.Prime.Transactions
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateTransferRequest Build()
       {
-        this.Validate();
-        return new CreateTransferRequest(this._portfolioId!, this._walletId!)
+        Validate();
+        return new CreateTransferRequest(_portfolioId!, _walletId!)
         {
-          Amount = this._amount,
-          Destination = this._destination,
-          IdempotencyKey = this._idempotencyKey,
-          CurrencySymbol = this._currencySymbol
+          Amount = _amount,
+          Destination = _destination,
+          IdempotencyKey = _idempotencyKey,
+          CurrencySymbol = _currencySymbol
         };
       }
     }

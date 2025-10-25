@@ -18,7 +18,10 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
-  public class ListInterestAccrualsRequest(string entityId)
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
+
+  public class ListInterestAccrualsRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
@@ -32,37 +35,62 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
-    public class ListInterestAccrualsRequestBuilder
+    public class Builder(string entityId)
     {
+      private readonly string _entityId = entityId;
       private string? _portfolioId;
       private string? _startDate;
       private string? _endDate;
+      private string? _cursor;
+      private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListInterestAccrualsRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
       }
 
-      public ListInterestAccrualsRequestBuilder WithStartDate(string startDate)
+      public Builder WithStartDate(string startDate)
       {
         _startDate = startDate;
         return this;
       }
 
-      public ListInterestAccrualsRequestBuilder WithEndDate(string endDate)
+      public Builder WithEndDate(string endDate)
       {
         _endDate = endDate;
         return this;
       }
 
-      public ListInterestAccrualsRequest Build(string entityId)
+      public Builder WithCursor(string cursor)
       {
-        return new ListInterestAccrualsRequest(entityId)
+        _cursor = cursor;
+        return this;
+      }
+
+      public Builder WithSortDirection(SortDirection sortDirection)
+      {
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public Builder WithLimit(int limit)
+      {
+        _limit = limit;
+        return this;
+      }
+
+      public ListInterestAccrualsRequest Build()
+      {
+        return new ListInterestAccrualsRequest(_entityId)
         {
           PortfolioId = _portfolioId,
           StartDate = _startDate,
-          EndDate = _endDate
+          EndDate = _endDate,
+          Cursor = _cursor,
+          Limit = _limit,
+          SortDirection = _sortDirection
         };
       }
     }

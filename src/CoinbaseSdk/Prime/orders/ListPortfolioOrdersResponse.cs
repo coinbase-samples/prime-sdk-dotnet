@@ -16,6 +16,7 @@
 
 namespace CoinbaseSdk.Prime.Orders
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -36,3 +37,4 @@ namespace CoinbaseSdk.Prime.Orders
     public ListPortfolioOrdersResponse() { }
   }
 }
+

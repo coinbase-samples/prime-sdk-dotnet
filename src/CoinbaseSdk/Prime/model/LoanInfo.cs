@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.due_date = builder.due_date;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? portfolio_id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? due_date;
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder notional_amount(string? notional_amount)
+      public Builder Withnotional_amount(string? notional_amount)
       {
         this.notional_amount = notional_amount;
         return this;
       }
 
-      public Builder due_date(string? due_date)
+      public Builder Withdue_date(string? due_date)
       {
         this.due_date = due_date;
         return this;

@@ -20,14 +20,14 @@ namespace CoinbaseSdk.Core.Error
   {
     public CoinbasePrimeErrorMessage(string message)
     {
-      this.Message = message;
+      Message = message;
     }
 
     public string Message { get; set; }
 
     public CoinbaseException CreateCoinbaseException()
     {
-      return new CoinbaseException(this.Message);
+      return new CoinbaseException(Message);
     }
   }
 }

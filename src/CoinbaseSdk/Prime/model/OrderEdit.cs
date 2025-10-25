@@ -67,7 +67,7 @@ namespace CoinbaseSdk.Prime.Model
       this.client_order_id = builder.client_order_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? price;
 
@@ -87,55 +87,55 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? client_order_id;
 
-      public Builder price(string? price)
+      public Builder Withprice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder base_quantity(string? base_quantity)
+      public Builder Withbase_quantity(string? base_quantity)
       {
         this.base_quantity = base_quantity;
         return this;
       }
 
-      public Builder quote_value(string? quote_value)
+      public Builder Withquote_value(string? quote_value)
       {
         this.quote_value = quote_value;
         return this;
       }
 
-      public Builder display_base_size(string? display_base_size)
+      public Builder Withdisplay_base_size(string? display_base_size)
       {
         this.display_base_size = display_base_size;
         return this;
       }
 
-      public Builder display_quote_size(string? display_quote_size)
+      public Builder Withdisplay_quote_size(string? display_quote_size)
       {
         this.display_quote_size = display_quote_size;
         return this;
       }
 
-      public Builder stop_price(string? stop_price)
+      public Builder Withstop_price(string? stop_price)
       {
         this.stop_price = stop_price;
         return this;
       }
 
-      public Builder expiry_time(DateTime? expiry_time)
+      public Builder Withexpiry_time(DateTime? expiry_time)
       {
         this.expiry_time = expiry_time;
         return this;
       }
 
-      public Builder accept_time(DateTime? accept_time)
+      public Builder Withaccept_time(DateTime? accept_time)
       {
         this.accept_time = accept_time;
         return this;
       }
 
-      public Builder client_order_id(string? client_order_id)
+      public Builder Withclient_order_id(string? client_order_id)
       {
         this.client_order_id = client_order_id;
         return this;

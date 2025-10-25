@@ -26,7 +26,7 @@ namespace CoinbaseSdk.Prime.Balances
       GetWalletBalanceRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetWalletBalanceResponse>(
+      return Request<GetWalletBalanceResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/balance",
         [HttpStatusCode.OK],
@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Balances
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetWalletBalanceResponse>(
+      return RequestAsync<GetWalletBalanceResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/balance",
         [HttpStatusCode.OK],
@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Balances
       ListEntityBalancesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListEntityBalancesResponse>(
+      return Request<ListEntityBalancesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/balances",
         [HttpStatusCode.OK],
@@ -65,7 +65,7 @@ namespace CoinbaseSdk.Prime.Balances
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListEntityBalancesResponse>(
+      return RequestAsync<ListEntityBalancesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/balances",
         [HttpStatusCode.OK],
@@ -78,7 +78,7 @@ namespace CoinbaseSdk.Prime.Balances
       ListPortfolioBalancesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioBalancesResponse>(
+      return Request<ListPortfolioBalancesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/balances",
         [HttpStatusCode.OK],
@@ -91,7 +91,7 @@ namespace CoinbaseSdk.Prime.Balances
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioBalancesResponse>(
+      return RequestAsync<ListPortfolioBalancesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/balances",
         [HttpStatusCode.OK],
@@ -104,7 +104,7 @@ namespace CoinbaseSdk.Prime.Balances
       ListOnchainWalletBalancesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOnchainWalletBalancesResponse>(
+      return Request<ListOnchainWalletBalancesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/web3_balances",
         [HttpStatusCode.OK],
@@ -117,7 +117,7 @@ namespace CoinbaseSdk.Prime.Balances
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOnchainWalletBalancesResponse>(
+      return RequestAsync<ListOnchainWalletBalancesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/web3_balances",
         [HttpStatusCode.OK],

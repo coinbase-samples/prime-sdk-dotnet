@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Prime.Activities
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -35,6 +36,7 @@ namespace CoinbaseSdk.Prime.Activities
     /// </summary>
     [JsonPropertyName("pagination")]
     public Pagination? Pagination { get; set; }
+
     public ListActivitiesResponse()
     {
     }

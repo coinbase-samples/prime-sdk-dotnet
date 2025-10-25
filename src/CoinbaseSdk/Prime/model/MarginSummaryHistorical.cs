@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Model
       this.margin_summary = builder.margin_summary;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? conversion_datetime;
 
@@ -58,19 +58,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private MarginSummary? margin_summary;
 
-      public Builder conversion_datetime(string? conversion_datetime)
+      public Builder Withconversion_datetime(string? conversion_datetime)
       {
         this.conversion_datetime = conversion_datetime;
         return this;
       }
 
-      public Builder conversion_date(string? conversion_date)
+      public Builder Withconversion_date(string? conversion_date)
       {
         this.conversion_date = conversion_date;
         return this;
       }
 
-      public Builder margin_summary(MarginSummary? margin_summary)
+      public Builder Withmargin_summary(MarginSummary? margin_summary)
       {
         this.margin_summary = margin_summary;
         return this;

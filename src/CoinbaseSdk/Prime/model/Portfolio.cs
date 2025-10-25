@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.entity_name = builder.entity_name;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? entity_name;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder entity_id(string? entity_id)
+      public Builder Withentity_id(string? entity_id)
       {
         this.entity_id = entity_id;
         return this;
       }
 
-      public Builder organization_id(string? organization_id)
+      public Builder Withorganization_id(string? organization_id)
       {
         this.organization_id = organization_id;
         return this;
       }
 
-      public Builder entity_name(string? entity_name)
+      public Builder Withentity_name(string? entity_name)
       {
         this.entity_name = entity_name;
         return this;

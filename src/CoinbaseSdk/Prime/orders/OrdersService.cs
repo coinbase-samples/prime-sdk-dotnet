@@ -21,14 +21,11 @@ namespace CoinbaseSdk.Prime.Orders
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class OrdersService(ICoinbaseClient client)
-    : CoinbaseService(client), IOrdersService
+  public class OrdersService(ICoinbaseClient client) : CoinbaseService(client), IOrdersService
   {
-    public AcceptQuoteResponse AcceptQuote(
-      AcceptQuoteRequest request,
-      CallOptions? options = null)
+    public AcceptQuoteResponse AcceptQuote(AcceptQuoteRequest request, CallOptions? options = null)
     {
-      return this.Request<AcceptQuoteResponse>(
+      return Request<AcceptQuoteResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/accept_quote",
         [HttpStatusCode.OK],
@@ -41,7 +38,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<AcceptQuoteResponse>(
+      return RequestAsync<AcceptQuoteResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/accept_quote",
         [HttpStatusCode.OK],
@@ -50,11 +47,9 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public CreateOrderResponse CreateOrder(
-      CreateOrderRequest request,
-      CallOptions? options = null)
+    public CreateOrderResponse CreateOrder(CreateOrderRequest request, CallOptions? options = null)
     {
-      return this.Request<CreateOrderResponse>(
+      return Request<CreateOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/order",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -67,7 +62,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateOrderResponse>(
+      return RequestAsync<CreateOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/order",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -76,11 +71,9 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public CreateQuoteResponse CreateQuote(
-      CreateQuoteRequest request,
-      CallOptions? options = null)
+    public CreateQuoteResponse CreateQuote(CreateQuoteRequest request, CallOptions? options = null)
     {
-      return this.Request<CreateQuoteResponse>(
+      return Request<CreateQuoteResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/rfq",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -93,7 +86,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateQuoteResponse>(
+      return RequestAsync<CreateQuoteResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/rfq",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -102,11 +95,9 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public CancelOrderResponse CancelOrder(
-      CancelOrderRequest request,
-      CallOptions? options = null)
+    public CancelOrderResponse CancelOrder(CancelOrderRequest request, CallOptions? options = null)
     {
-      return this.Request<CancelOrderResponse>(
+      return Request<CancelOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
         [HttpStatusCode.OK],
@@ -119,7 +110,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CancelOrderResponse>(
+      return RequestAsync<CancelOrderResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
         [HttpStatusCode.OK],
@@ -128,11 +119,9 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public GetOrderResponse GetOrder(
-      GetOrderRequest request,
-      CallOptions? options = null)
+    public GetOrderResponse GetOrder(GetOrderRequest request, CallOptions? options = null)
     {
-      return this.Request<GetOrderResponse>(
+      return Request<GetOrderResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}",
         [HttpStatusCode.OK],
@@ -145,7 +134,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetOrderResponse>(
+      return RequestAsync<GetOrderResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}",
         [HttpStatusCode.OK],
@@ -158,7 +147,7 @@ namespace CoinbaseSdk.Prime.Orders
       GetOrderPreviewRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetOrderPreviewResponse>(
+      return Request<GetOrderPreviewResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/order_preview",
         [HttpStatusCode.OK],
@@ -171,7 +160,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetOrderPreviewResponse>(
+      return RequestAsync<GetOrderPreviewResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/order_preview",
         [HttpStatusCode.OK],
@@ -184,7 +173,7 @@ namespace CoinbaseSdk.Prime.Orders
       ListOpenOrdersRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOpenOrdersResponse>(
+      return Request<ListOpenOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/open_orders",
         [HttpStatusCode.OK],
@@ -197,7 +186,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOpenOrdersResponse>(
+      return RequestAsync<ListOpenOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/open_orders",
         [HttpStatusCode.OK],
@@ -210,7 +199,7 @@ namespace CoinbaseSdk.Prime.Orders
       ListOrderFillsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOrderFillsResponse>(
+      return Request<ListOrderFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/fills",
         [HttpStatusCode.OK],
@@ -223,7 +212,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOrderFillsResponse>(
+      return RequestAsync<ListOrderFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/fills",
         [HttpStatusCode.OK],
@@ -236,7 +225,7 @@ namespace CoinbaseSdk.Prime.Orders
       ListPortfolioOrdersRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioOrdersResponse>(
+      return Request<ListPortfolioOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders",
         [HttpStatusCode.OK],
@@ -249,7 +238,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioOrdersResponse>(
+      return RequestAsync<ListPortfolioOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders",
         [HttpStatusCode.OK],
@@ -262,7 +251,7 @@ namespace CoinbaseSdk.Prime.Orders
       ListPortfolioFillsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioFillsResponse>(
+      return Request<ListPortfolioFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/fills",
         [HttpStatusCode.OK],
@@ -275,7 +264,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioFillsResponse>(
+      return RequestAsync<ListPortfolioFillsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/fills",
         [HttpStatusCode.OK],
@@ -288,7 +277,7 @@ namespace CoinbaseSdk.Prime.Orders
       ListOrderEditHistoryRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOrderEditHistoryResponse>(
+      return Request<ListOrderEditHistoryResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
         [HttpStatusCode.OK],
@@ -301,7 +290,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOrderEditHistoryResponse>(
+      return RequestAsync<ListOrderEditHistoryResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit_history",
         [HttpStatusCode.OK],
@@ -310,11 +299,9 @@ namespace CoinbaseSdk.Prime.Orders
         cancellationToken);
     }
 
-    public EditOrderResponse EditOrder(
-      EditOrderRequest request,
-      CallOptions? options = null)
+    public EditOrderResponse EditOrder(EditOrderRequest request, CallOptions? options = null)
     {
-      return this.Request<EditOrderResponse>(
+      return Request<EditOrderResponse>(
         HttpMethod.Put,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
         [HttpStatusCode.OK],
@@ -327,7 +314,7 @@ namespace CoinbaseSdk.Prime.Orders
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<EditOrderResponse>(
+      return RequestAsync<EditOrderResponse>(
         HttpMethod.Put,
         $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
         [HttpStatusCode.OK],

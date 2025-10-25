@@ -26,7 +26,7 @@ namespace CoinbaseSdk.Prime.Commission
       GetPortfolioCommissionRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioCommissionResponse>(
+      return Request<GetPortfolioCommissionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/commission",
         [HttpStatusCode.OK],
@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Commission
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioCommissionResponse>(
+      return RequestAsync<GetPortfolioCommissionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/commission",
         [HttpStatusCode.OK],

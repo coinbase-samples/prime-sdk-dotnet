@@ -26,7 +26,9 @@ namespace CoinbaseSdk.Prime.Transactions
 
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
+
     public string? Amount { get; set; }
+
     public string? Destination { get; set; }
 
     [JsonPropertyName("idempotency_key")]
@@ -50,43 +52,43 @@ namespace CoinbaseSdk.Prime.Transactions
 
       public CreateConversionRequestBuilder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
       public CreateConversionRequestBuilder WithWalletId(string walletId)
       {
-        this._walletId = walletId;
+        _walletId = walletId;
         return this;
       }
 
       public CreateConversionRequestBuilder WithAmount(string amount)
       {
-        this._amount = amount;
+        _amount = amount;
         return this;
       }
 
       public CreateConversionRequestBuilder WithDestination(string destination)
       {
-        this._destination = destination;
+        _destination = destination;
         return this;
       }
 
       public CreateConversionRequestBuilder WithIdempotencyKey(string idempotencyKey)
       {
-        this._idempotencyKey = idempotencyKey;
+        _idempotencyKey = idempotencyKey;
         return this;
       }
 
       public CreateConversionRequestBuilder WithSourceSymbol(string sourceSymbol)
       {
-        this._sourceSymbol = sourceSymbol;
+        _sourceSymbol = sourceSymbol;
         return this;
       }
 
       public CreateConversionRequestBuilder WithDestinationSymbol(string destinationSymbol)
       {
-        this._destinationSymbol = destinationSymbol;
+        _destinationSymbol = destinationSymbol;
         return this;
       }
 
@@ -115,14 +117,14 @@ namespace CoinbaseSdk.Prime.Transactions
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateConversionRequest Build()
       {
-        this.Validate();
-        return new CreateConversionRequest(this._portfolioId!, this._walletId!)
+        Validate();
+        return new CreateConversionRequest(_portfolioId!, _walletId!)
         {
-          Amount = this._amount,
-          Destination = this._destination,
-          IdempotencyKey = this._idempotencyKey,
-          SourceSymbol = this._sourceSymbol,
-          DestinationSymbol = this._destinationSymbol
+          Amount = _amount,
+          Destination = _destination,
+          IdempotencyKey = _idempotencyKey,
+          SourceSymbol = _sourceSymbol,
+          DestinationSymbol = _destinationSymbol,
         };
       }
     }

@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Model
       this.avatar_url = builder.avatar_url;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string id;
 
@@ -60,19 +60,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string avatar_url;
 
-      public Builder id(string id)
+      public Builder Withid(string id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string name)
+      public Builder Withname(string name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder avatar_url(string avatar_url)
+      public Builder Withavatar_url(string avatar_url)
       {
         this.avatar_url = avatar_url;
         return this;

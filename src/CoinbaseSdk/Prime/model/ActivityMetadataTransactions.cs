@@ -36,11 +36,11 @@ namespace CoinbaseSdk.Prime.Model
       this.consensus = builder.consensus;
     }
 
-    public static class Builder
+    public class Builder
     {
       private ActivityMetadataConsensus? consensus;
 
-      public Builder consensus(ActivityMetadataConsensus? consensus)
+      public Builder Withconsensus(ActivityMetadataConsensus? consensus)
       {
         this.consensus = consensus;
         return this;

@@ -16,6 +16,7 @@
 
 namespace CoinbaseSdk.Prime.Users
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListPortfolioUsersResponse

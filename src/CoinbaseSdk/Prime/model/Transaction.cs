@@ -183,7 +183,7 @@ namespace CoinbaseSdk.Prime.Model
       this.network_info = builder.network_info;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -233,145 +233,145 @@ namespace CoinbaseSdk.Prime.Model
 
       private Network? network_info;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder wallet_id(string? wallet_id)
+      public Builder Withwallet_id(string? wallet_id)
       {
         this.wallet_id = wallet_id;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder type(TransactionType? type)
+      public Builder Withtype(TransactionType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder status(TransactionStatus? status)
+      public Builder Withstatus(TransactionStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder created_at(DateTime? created_at)
+      public Builder Withcreated_at(DateTime? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder completed_at(DateTime? completed_at)
+      public Builder Withcompleted_at(DateTime? completed_at)
       {
         this.completed_at = completed_at;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder transfer_from(TransferLocation? transfer_from)
+      public Builder Withtransfer_from(TransferLocation? transfer_from)
       {
         this.transfer_from = transfer_from;
         return this;
       }
 
-      public Builder transfer_to(TransferLocation? transfer_to)
+      public Builder Withtransfer_to(TransferLocation? transfer_to)
       {
         this.transfer_to = transfer_to;
         return this;
       }
 
-      public Builder network_fees(string? network_fees)
+      public Builder Withnetwork_fees(string? network_fees)
       {
         this.network_fees = network_fees;
         return this;
       }
 
-      public Builder fees(string? fees)
+      public Builder Withfees(string? fees)
       {
         this.fees = fees;
         return this;
       }
 
-      public Builder fee_symbol(string? fee_symbol)
+      public Builder Withfee_symbol(string? fee_symbol)
       {
         this.fee_symbol = fee_symbol;
         return this;
       }
 
-      public Builder blockchain_ids(List<string>? blockchain_ids)
+      public Builder Withblockchain_ids(List<string>? blockchain_ids)
       {
         this.blockchain_ids = blockchain_ids;
         return this;
       }
 
-      public Builder transaction_id(string? transaction_id)
+      public Builder Withtransaction_id(string? transaction_id)
       {
         this.transaction_id = transaction_id;
         return this;
       }
 
-      public Builder destination_symbol(string? destination_symbol)
+      public Builder Withdestination_symbol(string? destination_symbol)
       {
         this.destination_symbol = destination_symbol;
         return this;
       }
 
-      public Builder estimated_network_fees(EstimatedNetworkFees? estimated_network_fees)
+      public Builder Withestimated_network_fees(EstimatedNetworkFees? estimated_network_fees)
       {
         this.estimated_network_fees = estimated_network_fees;
         return this;
       }
 
-      public Builder network(string? network)
+      public Builder Withnetwork(string? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder estimated_asset_changes(List<AssetChange>? estimated_asset_changes)
+      public Builder Withestimated_asset_changes(List<AssetChange>? estimated_asset_changes)
       {
         this.estimated_asset_changes = estimated_asset_changes;
         return this;
       }
 
-      public Builder metadata(TransactionMetadata? metadata)
+      public Builder Withmetadata(TransactionMetadata? metadata)
       {
         this.metadata = metadata;
         return this;
       }
 
-      public Builder idempotency_key(string? idempotency_key)
+      public Builder Withidempotency_key(string? idempotency_key)
       {
         this.idempotency_key = idempotency_key;
         return this;
       }
 
-      public Builder onchain_details(OnchainTransactionDetails? onchain_details)
+      public Builder Withonchain_details(OnchainTransactionDetails? onchain_details)
       {
         this.onchain_details = onchain_details;
         return this;
       }
 
-      public Builder network_info(Network? network_info)
+      public Builder Withnetwork_info(Network? network_info)
       {
         this.network_info = network_info;
         return this;

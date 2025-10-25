@@ -120,7 +120,7 @@ namespace CoinbaseSdk.Prime.Model
       this.ces_commission = builder.ces_commission;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -148,79 +148,79 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? ces_commission;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder order_id(string? order_id)
+      public Builder Withorder_id(string? order_id)
       {
         this.order_id = order_id;
         return this;
       }
 
-      public Builder product_id(string? product_id)
+      public Builder Withproduct_id(string? product_id)
       {
         this.product_id = product_id;
         return this;
       }
 
-      public Builder client_product_id(string? client_product_id)
+      public Builder Withclient_product_id(string? client_product_id)
       {
         this.client_product_id = client_product_id;
         return this;
       }
 
-      public Builder side(OrderSide? side)
+      public Builder Withside(OrderSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder filled_quantity(string? filled_quantity)
+      public Builder Withfilled_quantity(string? filled_quantity)
       {
         this.filled_quantity = filled_quantity;
         return this;
       }
 
-      public Builder filled_value(string? filled_value)
+      public Builder Withfilled_value(string? filled_value)
       {
         this.filled_value = filled_value;
         return this;
       }
 
-      public Builder price(string? price)
+      public Builder Withprice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder time(DateTime? time)
+      public Builder Withtime(DateTime? time)
       {
         this.time = time;
         return this;
       }
 
-      public Builder commission(string? commission)
+      public Builder Withcommission(string? commission)
       {
         this.commission = commission;
         return this;
       }
 
-      public Builder venue(string? venue)
+      public Builder Withvenue(string? venue)
       {
         this.venue = venue;
         return this;
       }
 
-      public Builder venue_fees(string? venue_fees)
+      public Builder Withvenue_fees(string? venue_fees)
       {
         this.venue_fees = venue_fees;
         return this;
       }
 
-      public Builder ces_commission(string? ces_commission)
+      public Builder Withces_commission(string? ces_commission)
       {
         this.ces_commission = ces_commission;
         return this;

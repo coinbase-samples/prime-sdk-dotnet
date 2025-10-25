@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Products
       ListPortfolioProductsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioProductsResponse>(
+      return Request<ListPortfolioProductsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/products",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Products
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioProductsResponse>(
+      return RequestAsync<ListPortfolioProductsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/products",
         [HttpStatusCode.OK],

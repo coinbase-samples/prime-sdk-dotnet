@@ -17,8 +17,8 @@
 namespace CoinbaseSdk.Prime.Invoice
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListInvoicesRequest(string entityId) : PaginatedRequest
   {
@@ -32,69 +32,5 @@ namespace CoinbaseSdk.Prime.Invoice
 
     [JsonPropertyName("billing_year")]
     public int? BillingYear { get; set; }
-
-
-    public class ListInvoicesRequestBuilder : PaginatedRequestBuilder<ListInvoicesRequest, ListInvoicesRequestBuilder>
-    {
-      private string? _entityId;
-      private InvoiceState[] _states = [];
-      private int? _billingMonth;
-      private int? _billingYear;
-
-      public ListInvoicesRequestBuilder WithEntityId(string entityId)
-      {
-        this._entityId = entityId;
-        return this;
-      }
-
-      public ListInvoicesRequestBuilder WithStates(InvoiceState[] states)
-      {
-        this._states = states;
-        return this;
-      }
-
-      public ListInvoicesRequestBuilder WithBillingMonth(int billingMonth)
-      {
-        this._billingMonth = billingMonth;
-        return this;
-      }
-
-      public ListInvoicesRequestBuilder WithBillingYear(int billingYear)
-      {
-        this._billingYear = billingYear;
-        return this;
-      }
-
-
-      /// <summary>
-      /// Validates the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty, or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_entityId))
-        {
-          throw new CoinbaseClientException("EntityId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListInvoicesRequest"/>.
-      /// </summary>
-      /// <returns>The <see cref="ListInvoicesRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty or whitespace.</exception>
-      public override ListInvoicesRequest Build()
-      {
-        Validate();
-        var request = new ListInvoicesRequest(this._entityId!)
-        {
-          States = this._states,
-          BillingMonth = this._billingMonth,
-          BillingYear = this._billingYear,
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Model
       this.net_usd_value = builder.net_usd_value;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? network;
 
@@ -51,19 +51,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? net_usd_value;
 
-      public Builder network(string? network)
+      public Builder Withnetwork(string? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder protocol(string? protocol)
+      public Builder Withprotocol(string? protocol)
       {
         this.protocol = protocol;
         return this;
       }
 
-      public Builder net_usd_value(string? net_usd_value)
+      public Builder Withnet_usd_value(string? net_usd_value)
       {
         this.net_usd_value = net_usd_value;
         return this;

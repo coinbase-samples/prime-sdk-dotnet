@@ -17,7 +17,6 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
 
   public class GetOrderRequest(string portfolioId, string orderId)
   {
@@ -26,52 +25,5 @@ namespace CoinbaseSdk.Prime.Orders
 
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
-
-    public class GetOrderRequestBuilder
-    {
-      private string? _portfolioId;
-      private string? _orderId;
-
-      public GetOrderRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        _portfolioId = portfolioId;
-        return this;
-      }
-
-      public GetOrderRequestBuilder WithOrderId(string orderId)
-      {
-        _orderId = orderId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_orderId"/> are null, empty
-      /// or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(this._orderId))
-        {
-          throw new CoinbaseClientException("OrderId is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="GetOrderRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="GetOrderRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetOrderRequest Build()
-      {
-        this.Validate();
-        return new GetOrderRequest(this._portfolioId!, this._orderId!);
-      }
-    }
   }
 }

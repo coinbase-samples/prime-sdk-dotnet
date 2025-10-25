@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Wallets
       ListWalletsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListWalletsResponse>(
+      return Request<ListWalletsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListWalletsResponse>(
+      return RequestAsync<ListWalletsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CreateWalletRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateWalletResponse>(
+      return Request<CreateWalletResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateWalletResponse>(
+      return RequestAsync<CreateWalletResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -79,7 +79,7 @@ namespace CoinbaseSdk.Prime.Wallets
       GetWalletRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetWalletResponse>(
+      return Request<GetWalletResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}",
         [HttpStatusCode.OK],
@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetWalletResponse>(
+      return RequestAsync<GetWalletResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}",
         [HttpStatusCode.OK],
@@ -105,7 +105,7 @@ namespace CoinbaseSdk.Prime.Wallets
       GetWalletDepositInstructionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetWalletDepositInstructionsResponse>(
+      return Request<GetWalletDepositInstructionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/deposit_instructions",
         [HttpStatusCode.OK],
@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetWalletDepositInstructionsResponse>(
+      return RequestAsync<GetWalletDepositInstructionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/deposit_instructions",
         [HttpStatusCode.OK],
@@ -131,7 +131,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CreateWalletDepositAddressRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateWalletDepositAddressResponse>(
+      return Request<CreateWalletDepositAddressResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateWalletDepositAddressResponse>(
+      return RequestAsync<CreateWalletDepositAddressResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -157,7 +157,7 @@ namespace CoinbaseSdk.Prime.Wallets
       ListWalletAddressesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListWalletAddressesResponse>(
+      return Request<ListWalletAddressesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.OK],
@@ -170,7 +170,7 @@ namespace CoinbaseSdk.Prime.Wallets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListWalletAddressesResponse>(
+      return RequestAsync<ListWalletAddressesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
         [HttpStatusCode.OK],

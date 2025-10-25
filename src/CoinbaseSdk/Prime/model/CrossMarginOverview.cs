@@ -67,7 +67,7 @@ namespace CoinbaseSdk.Prime.Model
       this.active_loans = builder.active_loans;
     }
 
-    public static class Builder
+    public class Builder
     {
       private XMControlStatus? control_status;
 
@@ -81,37 +81,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private List<XMLoan>? active_loans;
 
-      public Builder control_status(XMControlStatus? control_status)
+      public Builder Withcontrol_status(XMControlStatus? control_status)
       {
         this.control_status = control_status;
         return this;
       }
 
-      public Builder call_status(XMEntityCallStatus? call_status)
+      public Builder Withcall_status(XMEntityCallStatus? call_status)
       {
         this.call_status = call_status;
         return this;
       }
 
-      public Builder margin_level(XMMarginLevel? margin_level)
+      public Builder Withmargin_level(XMMarginLevel? margin_level)
       {
         this.margin_level = margin_level;
         return this;
       }
 
-      public Builder margin_summary(XMSummary? margin_summary)
+      public Builder Withmargin_summary(XMSummary? margin_summary)
       {
         this.margin_summary = margin_summary;
         return this;
       }
 
-      public Builder active_margin_calls(List<XMMarginCall>? active_margin_calls)
+      public Builder Withactive_margin_calls(List<XMMarginCall>? active_margin_calls)
       {
         this.active_margin_calls = active_margin_calls;
         return this;
       }
 
-      public Builder active_loans(List<XMLoan>? active_loans)
+      public Builder Withactive_loans(List<XMLoan>? active_loans)
       {
         this.active_loans = active_loans;
         return this;

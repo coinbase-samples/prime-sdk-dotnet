@@ -17,47 +17,10 @@
 namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
 
   public class GetFcmMarginCallDetailsRequest(string entityId)
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
-
-    public class GetFcmMarginCallDetailsRequestBuilder
-    {
-      private string? _entityId;
-
-      public GetFcmMarginCallDetailsRequestBuilder WithEntityId(string entityId)
-      {
-        _entityId = entityId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validates the input fields.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_entityId"/> is null, empty, or whitespace.
-      /// </exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_entityId))
-        {
-          throw new CoinbaseClientException("EntityId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="GetFcmMarginCallDetailsRequest"/>.
-      /// </summary>
-      /// <returns>The new <see cref="GetFcmMarginCallDetailsRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public GetFcmMarginCallDetailsRequest Build()
-      {
-        this.Validate();
-        return new GetFcmMarginCallDetailsRequest(_entityId!);
-      }
-    }
   }
 }

@@ -54,7 +54,7 @@ namespace CoinbaseSdk.Prime.Model
       this.telephone_number = builder.telephone_number;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? name;
 
@@ -66,31 +66,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? telephone_number;
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder detailed_address(DetailedAddress? detailed_address)
+      public Builder Withdetailed_address(DetailedAddress? detailed_address)
       {
         this.detailed_address = detailed_address;
         return this;
       }
 
-      public Builder natural_person_name(NaturalPersonName? natural_person_name)
+      public Builder Withnatural_person_name(NaturalPersonName? natural_person_name)
       {
         this.natural_person_name = natural_person_name;
         return this;
       }
 
-      public Builder date_of_birth(DateOfBirth? date_of_birth)
+      public Builder Withdate_of_birth(DateOfBirth? date_of_birth)
       {
         this.date_of_birth = date_of_birth;
         return this;
       }
 
-      public Builder telephone_number(string? telephone_number)
+      public Builder Withtelephone_number(string? telephone_number)
       {
         this.telephone_number = telephone_number;
         return this;

@@ -90,7 +90,7 @@ namespace CoinbaseSdk.Prime.Model
       this.signing_status = builder.signing_status;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? signed_transaction;
 
@@ -110,55 +110,55 @@ namespace CoinbaseSdk.Prime.Model
 
       private SigningStatus? signing_status;
 
-      public Builder signed_transaction(string? signed_transaction)
+      public Builder Withsigned_transaction(string? signed_transaction)
       {
         this.signed_transaction = signed_transaction;
         return this;
       }
 
-      public Builder risk_assessment(RiskAssessment? risk_assessment)
+      public Builder Withrisk_assessment(RiskAssessment? risk_assessment)
       {
         this.risk_assessment = risk_assessment;
         return this;
       }
 
-      public Builder chain_id(string? chain_id)
+      public Builder Withchain_id(string? chain_id)
       {
         this.chain_id = chain_id;
         return this;
       }
 
-      public Builder nonce(string? nonce)
+      public Builder Withnonce(string? nonce)
       {
         this.nonce = nonce;
         return this;
       }
 
-      public Builder replaced_transaction_id(string? replaced_transaction_id)
+      public Builder Withreplaced_transaction_id(string? replaced_transaction_id)
       {
         this.replaced_transaction_id = replaced_transaction_id;
         return this;
       }
 
-      public Builder destination_address(string? destination_address)
+      public Builder Withdestination_address(string? destination_address)
       {
         this.destination_address = destination_address;
         return this;
       }
 
-      public Builder skip_broadcast(bool? skip_broadcast)
+      public Builder Withskip_broadcast(bool? skip_broadcast)
       {
         this.skip_broadcast = skip_broadcast;
         return this;
       }
 
-      public Builder failure_reason(string? failure_reason)
+      public Builder Withfailure_reason(string? failure_reason)
       {
         this.failure_reason = failure_reason;
         return this;
       }
 
-      public Builder signing_status(SigningStatus? signing_status)
+      public Builder Withsigning_status(SigningStatus? signing_status)
       {
         this.signing_status = signing_status;
         return this;

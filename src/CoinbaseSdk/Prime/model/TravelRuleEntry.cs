@@ -75,7 +75,7 @@ namespace CoinbaseSdk.Prime.Model
       this.is_self = builder.is_self;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -97,61 +97,61 @@ namespace CoinbaseSdk.Prime.Model
 
       private bool? is_self;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder blockchain_address(BlockchainAddress? blockchain_address)
+      public Builder Withblockchain_address(BlockchainAddress? blockchain_address)
       {
         this.blockchain_address = blockchain_address;
         return this;
       }
 
-      public Builder originator(TravelRuleParty? originator)
+      public Builder Withoriginator(TravelRuleParty? originator)
       {
         this.originator = originator;
         return this;
       }
 
-      public Builder beneficiary(TravelRuleParty? beneficiary)
+      public Builder Withbeneficiary(TravelRuleParty? beneficiary)
       {
         this.beneficiary = beneficiary;
         return this;
       }
 
-      public Builder vasp(VASP? vasp)
+      public Builder Withvasp(VASP? vasp)
       {
         this.vasp = vasp;
         return this;
       }
 
-      public Builder wallet_details(TravelRuleWalletDetails? wallet_details)
+      public Builder Withwallet_details(TravelRuleWalletDetails? wallet_details)
       {
         this.wallet_details = wallet_details;
         return this;
       }
 
-      public Builder transfer_purpose(string? transfer_purpose)
+      public Builder Withtransfer_purpose(string? transfer_purpose)
       {
         this.transfer_purpose = transfer_purpose;
         return this;
       }
 
-      public Builder is_self_certified(bool? is_self_certified)
+      public Builder Withis_self_certified(bool? is_self_certified)
       {
         this.is_self_certified = is_self_certified;
         return this;
       }
 
-      public Builder is_intermediary(bool? is_intermediary)
+      public Builder Withis_intermediary(bool? is_intermediary)
       {
         this.is_intermediary = is_intermediary;
         return this;
       }
 
-      public Builder is_self(bool? is_self)
+      public Builder Withis_self(bool? is_self)
       {
         this.is_self = is_self;
         return this;

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 namespace CoinbaseSdk.Prime.Staking
 {
   using System.Text.Json.Serialization;
@@ -31,33 +30,6 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    public StakingInputs? Inputs { get; set; }
-
-    public class CreateStakeRequestBuilder
-    {
-      private string? _idempotencyKey;
-      private StakingInputs? _inputs;
-
-      public CreateStakeRequestBuilder WithIdempotencyKey(string? idempotencyKey)
-      {
-        this._idempotencyKey = idempotencyKey;
-        return this;
-      }
-
-      public CreateStakeRequestBuilder WithInputs(StakingInputs? inputs)
-      {
-        this._inputs = inputs;
-        return this;
-      }
-
-      public CreateStakeRequest Build(string portfolioId, string walletId)
-      {
-        return new CreateStakeRequest(portfolioId, walletId)
-        {
-          IdempotencyKey = this._idempotencyKey,
-          Inputs = this._inputs
-        };
-      }
-    }
+    public WalletStakeInputs? Inputs { get; set; }
   }
 }

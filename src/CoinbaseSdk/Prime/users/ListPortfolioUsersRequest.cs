@@ -17,68 +17,11 @@
 namespace CoinbaseSdk.Prime.Users
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
 
   public class ListPortfolioUsersRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
-
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-
-    public class ListPortfolioUsersRequestBuilder : PaginatedRequestBuilder<ListPortfolioUsersRequest, ListPortfolioUsersRequestBuilder>
-    {
-      private string? _portfolioId;
-      private SortDirection? _sortDirection;
-
-      public ListPortfolioUsersRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListPortfolioUsersRequestBuilder WithSortDirection(SortDirection? sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      public new ListPortfolioUsersRequestBuilder WithPagination(Pagination pagination)
-      {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
-        return this;
-      }
-
-      /// <summary>
-      /// Validates the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListPortfolioUsersRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="ListPortfolioUsersRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListPortfolioUsersRequest Build()
-      {
-        this.Validate();
-        var request = new ListPortfolioUsersRequest(this._portfolioId!)
-        {
-          SortDirection = this._sortDirection
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

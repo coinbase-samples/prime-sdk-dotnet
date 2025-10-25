@@ -44,19 +44,19 @@ namespace CoinbaseSdk.Prime.Model
       this.margin_summary = builder.margin_summary;
     }
 
-    public static class Builder
+    public class Builder
     {
       private List<MarginCallRecord>? margin_call_records;
 
       private MarginSummary? margin_summary;
 
-      public Builder margin_call_records(List<MarginCallRecord>? margin_call_records)
+      public Builder Withmargin_call_records(List<MarginCallRecord>? margin_call_records)
       {
         this.margin_call_records = margin_call_records;
         return this;
       }
 
-      public Builder margin_summary(MarginSummary? margin_summary)
+      public Builder Withmargin_summary(MarginSummary? margin_summary)
       {
         this.margin_summary = margin_summary;
         return this;

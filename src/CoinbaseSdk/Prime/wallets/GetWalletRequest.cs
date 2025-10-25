@@ -26,52 +26,5 @@ namespace CoinbaseSdk.Prime.Wallets
 
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
-
-    public class GetWalletRequestBuilder
-    {
-      private string? _portfolioId;
-      private string? _walletId;
-
-      public GetWalletRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public GetWalletRequestBuilder WithWalletId(string walletId)
-      {
-        this._walletId = walletId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_walletId"/> are null, empty
-      /// or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(this._walletId))
-        {
-          throw new CoinbaseClientException("WalletId is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="GetWalletRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="GetWalletRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetWalletRequest Build()
-      {
-        this.Validate();
-        return new GetWalletRequest(this._portfolioId!, this._walletId!);
-      }
-    }
   }
 }

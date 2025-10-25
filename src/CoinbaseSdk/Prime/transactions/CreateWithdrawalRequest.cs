@@ -19,6 +19,7 @@ namespace CoinbaseSdk.Prime.Transactions
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CreateWithdrawalRequest(string portfolioId, string walletId)
   {
@@ -48,7 +49,7 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("counterparty")]
     public CounterpartyDestination? Counterparty { get; set; }
 
-    public class CreateWithdrawalRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _walletId;
@@ -60,57 +61,57 @@ namespace CoinbaseSdk.Prime.Transactions
       private BlockchainAddress? _blockchainAddress;
       private CounterpartyDestination? _counterparty;
 
-      public CreateWithdrawalRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithWalletId(string walletId)
+      public Builder WithWalletId(string walletId)
       {
-        this._walletId = walletId;
+        _walletId = walletId;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithAmount(string amount)
+      public Builder WithAmount(string amount)
       {
-        this._amount = amount;
+        _amount = amount;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithDestinationType(DestinationType destinationType)
+      public Builder WithDestinationType(DestinationType destinationType)
       {
-        this._destinationType = destinationType;
+        _destinationType = destinationType;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithIdempotencyKey(string idempotencyKey)
+      public Builder WithIdempotencyKey(string idempotencyKey)
       {
-        this._idempotencyKey = idempotencyKey;
+        _idempotencyKey = idempotencyKey;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithCurrencySymbol(string currencySymbol)
+      public Builder WithCurrencySymbol(string currencySymbol)
       {
-        this._currencySymbol = currencySymbol;
+        _currencySymbol = currencySymbol;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithPaymentMethod(PaymentMethodDestination paymentMethod)
+      public Builder WithPaymentMethod(PaymentMethodDestination paymentMethod)
       {
-        this._paymentMethod = paymentMethod;
+        _paymentMethod = paymentMethod;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithBlockchainAddress(BlockchainAddress blockchainAddress)
+      public Builder WithBlockchainAddress(BlockchainAddress blockchainAddress)
       {
-        this._blockchainAddress = blockchainAddress;
+        _blockchainAddress = blockchainAddress;
         return this;
       }
 
-      public CreateWithdrawalRequestBuilder WithCounterparty(CounterpartyDestination counterparty)
+      public Builder WithCounterparty(CounterpartyDestination counterparty)
       {
-        this._counterparty = counterparty;
+        _counterparty = counterparty;
         return this;
       }
 
@@ -122,11 +123,11 @@ namespace CoinbaseSdk.Prime.Transactions
       /// or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._walletId))
+        if (string.IsNullOrWhiteSpace(_walletId))
         {
           throw new CoinbaseClientException("WalletId is required");
         }
@@ -139,16 +140,16 @@ namespace CoinbaseSdk.Prime.Transactions
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateWithdrawalRequest Build()
       {
-        this.Validate();
-        return new CreateWithdrawalRequest(this._portfolioId!, this._walletId!)
+        Validate();
+        return new CreateWithdrawalRequest(_portfolioId!, _walletId!)
         {
-          Amount = this._amount,
-          DestinationType = this._destinationType,
-          IdempotencyKey = this._idempotencyKey,
-          CurrencySymbol = this._currencySymbol,
-          PaymentMethod = this._paymentMethod,
-          BlockchainAddress = this._blockchainAddress,
-          Counterparty = this._counterparty
+          Amount = _amount,
+          DestinationType = _destinationType,
+          IdempotencyKey = _idempotencyKey,
+          CurrencySymbol = _currencySymbol,
+          PaymentMethod = _paymentMethod,
+          BlockchainAddress = _blockchainAddress,
+          Counterparty = _counterparty
         };
       }
     }

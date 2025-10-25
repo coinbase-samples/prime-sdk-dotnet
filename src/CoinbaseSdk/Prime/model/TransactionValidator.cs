@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Model
       this.validator_status = builder.validator_status;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string transaction_id;
 
@@ -58,19 +58,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private ValidatorStatus validator_status;
 
-      public Builder transaction_id(string transaction_id)
+      public Builder Withtransaction_id(string transaction_id)
       {
         this.transaction_id = transaction_id;
         return this;
       }
 
-      public Builder validator_address(string validator_address)
+      public Builder Withvalidator_address(string validator_address)
       {
         this.validator_address = validator_address;
         return this;
       }
 
-      public Builder validator_status(ValidatorStatus validator_status)
+      public Builder Withvalidator_status(ValidatorStatus validator_status)
       {
         this.validator_status = validator_status;
         return this;

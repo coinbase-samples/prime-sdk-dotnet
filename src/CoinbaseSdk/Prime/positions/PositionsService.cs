@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 namespace CoinbaseSdk.Prime.Positions
 {
   using System.Net;
@@ -22,14 +21,13 @@ namespace CoinbaseSdk.Prime.Positions
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class PositionsService(ICoinbaseClient client) :
-   CoinbaseService(client), IPositionsService
+  public class PositionsService(ICoinbaseClient client) : CoinbaseService(client), IPositionsService
   {
     public ListAggregateEntityPositionsResponse ListAggregateEntityPositions(
       ListAggregateEntityPositionsRequest request,
       CallOptions? callOptions = null)
     {
-      return this.Request<ListAggregateEntityPositionsResponse>(
+      return Request<ListAggregateEntityPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/aggregate_positions",
         [HttpStatusCode.OK],
@@ -42,7 +40,7 @@ namespace CoinbaseSdk.Prime.Positions
       CallOptions? callOptions = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListAggregateEntityPositionsResponse>(
+      return RequestAsync<ListAggregateEntityPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/aggregate_positions",
         [HttpStatusCode.OK],
@@ -55,7 +53,7 @@ namespace CoinbaseSdk.Prime.Positions
       ListEntityPositionsRequest request,
       CallOptions? callOptions = null)
     {
-      return this.Request<ListEntityPositionsResponse>(
+      return Request<ListEntityPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/positions",
         [HttpStatusCode.OK],
@@ -68,7 +66,7 @@ namespace CoinbaseSdk.Prime.Positions
       CallOptions? callOptions = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListEntityPositionsResponse>(
+      return RequestAsync<ListEntityPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/positions",
         [HttpStatusCode.OK],

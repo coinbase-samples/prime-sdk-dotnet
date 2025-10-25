@@ -26,7 +26,7 @@ namespace CoinbaseSdk.Prime.Assets
       ListAssetsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListAssetsResponse>(
+      return Request<ListAssetsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/assets",
         [HttpStatusCode.OK],
@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Assets
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListAssetsResponse>(
+      return RequestAsync<ListAssetsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/assets",
         [HttpStatusCode.OK],

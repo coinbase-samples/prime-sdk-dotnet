@@ -63,7 +63,7 @@ namespace CoinbaseSdk.Prime.Model
       this.name = builder.name;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? network;
 
@@ -75,31 +75,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? name;
 
-      public Builder network(string? network)
+      public Builder Withnetwork(string? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder contract_address(string? contract_address)
+      public Builder Withcontract_address(string? contract_address)
       {
         this.contract_address = contract_address;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder token_id(string? token_id)
+      public Builder Withtoken_id(string? token_id)
       {
         this.token_id = token_id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;

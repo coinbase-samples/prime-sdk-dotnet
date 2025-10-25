@@ -76,7 +76,7 @@ namespace CoinbaseSdk.Prime.Model
       this.network = builder.network;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -92,43 +92,43 @@ namespace CoinbaseSdk.Prime.Model
 
       private Network? network;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder type(WalletDepositInstructionType? type)
+      public Builder Withtype(WalletDepositInstructionType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder account_identifier(string? account_identifier)
+      public Builder Withaccount_identifier(string? account_identifier)
       {
         this.account_identifier = account_identifier;
         return this;
       }
 
-      public Builder account_identifier_name(string? account_identifier_name)
+      public Builder Withaccount_identifier_name(string? account_identifier_name)
       {
         this.account_identifier_name = account_identifier_name;
         return this;
       }
 
-      public Builder network(Network? network)
+      public Builder Withnetwork(Network? network)
       {
         this.network = network;
         return this;

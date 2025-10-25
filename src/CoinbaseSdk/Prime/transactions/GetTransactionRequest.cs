@@ -17,7 +17,6 @@
 namespace CoinbaseSdk.Prime.Transactions
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
 
   public class GetTransactionRequest(string portfolioId, string transactionId)
   {
@@ -26,52 +25,5 @@ namespace CoinbaseSdk.Prime.Transactions
 
     [JsonIgnore]
     public string TransactionId { get; set; } = transactionId;
-
-    public class GetTransactionRequestBuilder
-    {
-      private string? _portfolioId;
-      private string? _transactionId;
-
-      public GetTransactionRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public GetTransactionRequestBuilder WithTransactionId(string transactionId)
-      {
-        this._transactionId = transactionId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_transactionId"/> are null, empty
-      /// or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(this._transactionId))
-        {
-          throw new CoinbaseClientException("TransactionId is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="GetTransactionRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="GetTransactionRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetTransactionRequest Build()
-      {
-        this.Validate();
-        return new GetTransactionRequest(_portfolioId!, _transactionId!);
-      }
-    }
   }
 }

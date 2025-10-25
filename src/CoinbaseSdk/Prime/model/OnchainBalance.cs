@@ -48,7 +48,7 @@ namespace CoinbaseSdk.Prime.Model
       this.visibility_status = builder.visibility_status;
     }
 
-    public static class Builder
+    public class Builder
     {
       private OnchainAsset? asset;
 
@@ -56,19 +56,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private VisibilityStatus? visibility_status;
 
-      public Builder asset(OnchainAsset? asset)
+      public Builder Withasset(OnchainAsset? asset)
       {
         this.asset = asset;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder visibility_status(VisibilityStatus? visibility_status)
+      public Builder Withvisibility_status(VisibilityStatus? visibility_status)
       {
         this.visibility_status = visibility_status;
         return this;

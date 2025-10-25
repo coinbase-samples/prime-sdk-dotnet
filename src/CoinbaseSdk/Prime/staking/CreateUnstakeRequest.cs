@@ -30,33 +30,6 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    public StakingInputs? Inputs { get; set; }
-
-    public class CreateUnstakeRequestBuilder
-    {
-      private string? _idempotencyKey;
-      private StakingInputs? _inputs;
-
-      public CreateUnstakeRequestBuilder WithIdempotencyKey(string? idempotencyKey)
-      {
-        this._idempotencyKey = idempotencyKey;
-        return this;
-      }
-
-      public CreateUnstakeRequestBuilder WithInputs(StakingInputs? inputs)
-      {
-        this._inputs = inputs;
-        return this;
-      }
-
-      public CreateUnstakeRequest Build(string portfolioId, string walletId)
-      {
-        return new CreateUnstakeRequest(portfolioId, walletId)
-        {
-          IdempotencyKey = this._idempotencyKey,
-          Inputs = this._inputs
-        };
-      }
-    }
+    public WalletUnstakeInputs? Inputs { get; set; }
   }
 }

@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CreateConversionRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateConversionResponse>(
+      return Request<CreateConversionResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateConversionResponse>(
+      return RequestAsync<CreateConversionResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/conversion",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CreateTransferRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateTransferResponse>(
+      return Request<CreateTransferResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transfers",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateTransferResponse>(
+      return RequestAsync<CreateTransferResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transfers",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -79,7 +79,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CreateWithdrawalRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateWithdrawalResponse>(
+      return Request<CreateWithdrawalResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/withdrawals",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateWithdrawalResponse>(
+      return RequestAsync<CreateWithdrawalResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/withdrawals",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -105,7 +105,7 @@ namespace CoinbaseSdk.Prime.Transactions
       GetTransactionRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetTransactionResponse>(
+      return Request<GetTransactionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],
@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetTransactionResponse>(
+      return RequestAsync<GetTransactionResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}",
         [HttpStatusCode.OK],
@@ -131,7 +131,7 @@ namespace CoinbaseSdk.Prime.Transactions
       ListPortfolioTransactionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioTransactionsResponse>(
+      return Request<ListPortfolioTransactionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions",
         [HttpStatusCode.OK],
@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioTransactionsResponse>(
+      return RequestAsync<ListPortfolioTransactionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/transactions",
         [HttpStatusCode.OK],
@@ -157,7 +157,7 @@ namespace CoinbaseSdk.Prime.Transactions
       ListWalletTransactionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListWalletTransactionsResponse>(
+      return Request<ListWalletTransactionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
         [HttpStatusCode.OK],
@@ -170,7 +170,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListWalletTransactionsResponse>(
+      return RequestAsync<ListWalletTransactionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
         [HttpStatusCode.OK],
@@ -183,7 +183,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CreateOnchainTransactionRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateOnchainTransactionResponse>(
+      return Request<CreateOnchainTransactionResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/onchain_transaction",
         [HttpStatusCode.Created, HttpStatusCode.OK],
@@ -195,7 +195,7 @@ namespace CoinbaseSdk.Prime.Transactions
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateOnchainTransactionResponse>(
+      return RequestAsync<CreateOnchainTransactionResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/onchain_transaction",
         [HttpStatusCode.Created, HttpStatusCode.OK],

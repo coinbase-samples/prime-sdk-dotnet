@@ -22,7 +22,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
   public class ListEntityPaymentMethodsResponse
   {
     [JsonPropertyName("payment_methods")]
-    public EntityPaymentMethod[] PaymentMethods { get; set; } = [];
+    public PaymentMethodDetails[] PaymentMethods { get; set; } = [];
 
     public ListEntityPaymentMethodsResponse() { }
   }

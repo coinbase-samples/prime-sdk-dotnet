@@ -17,8 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
 
   public class ListOrderFillsRequest(string portfolioId, string orderId) : PaginatedRequest
   {
@@ -27,74 +26,5 @@ namespace CoinbaseSdk.Prime.Orders
 
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
-
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-
-    public class ListOrderFillsRequestBuilder : PaginatedRequestBuilder<ListOrderFillsRequest, ListOrderFillsRequestBuilder>
-    {
-      private string? _portfolioId;
-      private string? _orderId;
-      private SortDirection? _sortDirection;
-
-      public ListOrderFillsRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListOrderFillsRequestBuilder WithOrderId(string orderId)
-      {
-        this._orderId = orderId;
-        return this;
-      }
-
-      public ListOrderFillsRequestBuilder WithSortDirection(SortDirection? sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      public new ListOrderFillsRequestBuilder WithPagination(Pagination pagination)
-      {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_orderId"/> are null, empty
-      /// or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(this._orderId))
-        {
-          throw new CoinbaseClientException("OrderId is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="ListOrderFillsRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="ListOrderFillsRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListOrderFillsRequest Build()
-      {
-        this.Validate();
-        var request = new ListOrderFillsRequest(this._portfolioId!, this._orderId!)
-        {
-          SortDirection = this._sortDirection
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Model
       this.notional_open_borrow_sod = builder.notional_open_borrow_sod;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? accrual_id;
 
@@ -180,103 +180,103 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? notional_open_borrow_sod;
 
-      public Builder accrual_id(string? accrual_id)
+      public Builder Withaccrual_id(string? accrual_id)
       {
         this.accrual_id = accrual_id;
         return this;
       }
 
-      public Builder date(string? date)
+      public Builder Withdate(string? date)
       {
         this.date = date;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder loan_type(LoanType? loan_type)
+      public Builder Withloan_type(LoanType? loan_type)
       {
         this.loan_type = loan_type;
         return this;
       }
 
-      public Builder interest_rate(string? interest_rate)
+      public Builder Withinterest_rate(string? interest_rate)
       {
         this.interest_rate = interest_rate;
         return this;
       }
 
-      public Builder nominal_accrual(string? nominal_accrual)
+      public Builder Withnominal_accrual(string? nominal_accrual)
       {
         this.nominal_accrual = nominal_accrual;
         return this;
       }
 
-      public Builder notional_accrual(string? notional_accrual)
+      public Builder Withnotional_accrual(string? notional_accrual)
       {
         this.notional_accrual = notional_accrual;
         return this;
       }
 
-      public Builder conversion_rate(string? conversion_rate)
+      public Builder Withconversion_rate(string? conversion_rate)
       {
         this.conversion_rate = conversion_rate;
         return this;
       }
 
-      public Builder loan_amount(string? loan_amount)
+      public Builder Withloan_amount(string? loan_amount)
       {
         this.loan_amount = loan_amount;
         return this;
       }
 
-      public Builder benchmark(Benchmark? benchmark)
+      public Builder Withbenchmark(Benchmark? benchmark)
       {
         this.benchmark = benchmark;
         return this;
       }
 
-      public Builder benchmark_rate(string? benchmark_rate)
+      public Builder Withbenchmark_rate(string? benchmark_rate)
       {
         this.benchmark_rate = benchmark_rate;
         return this;
       }
 
-      public Builder spread(string? spread)
+      public Builder Withspread(string? spread)
       {
         this.spread = spread;
         return this;
       }
 
-      public Builder rate_type(RateType? rate_type)
+      public Builder Withrate_type(RateType? rate_type)
       {
         this.rate_type = rate_type;
         return this;
       }
 
-      public Builder loan_amount_notional(string? loan_amount_notional)
+      public Builder Withloan_amount_notional(string? loan_amount_notional)
       {
         this.loan_amount_notional = loan_amount_notional;
         return this;
       }
 
-      public Builder nominal_open_borrow_sod(string? nominal_open_borrow_sod)
+      public Builder Withnominal_open_borrow_sod(string? nominal_open_borrow_sod)
       {
         this.nominal_open_borrow_sod = nominal_open_borrow_sod;
         return this;
       }
 
-      public Builder notional_open_borrow_sod(string? notional_open_borrow_sod)
+      public Builder Withnotional_open_borrow_sod(string? notional_open_borrow_sod)
       {
         this.notional_open_borrow_sod = notional_open_borrow_sod;
         return this;

@@ -71,7 +71,7 @@ namespace CoinbaseSdk.Prime.Model
       this.role = builder.role;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -85,37 +85,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private UserRole? role;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder email(string? email)
+      public Builder Withemail(string? email)
       {
         this.email = email;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder entity_id(string? entity_id)
+      public Builder Withentity_id(string? entity_id)
       {
         this.entity_id = entity_id;
         return this;
       }
 
-      public Builder role(UserRole? role)
+      public Builder Withrole(UserRole? role)
       {
         this.role = role;
         return this;

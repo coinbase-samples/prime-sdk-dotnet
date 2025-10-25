@@ -21,13 +21,15 @@ namespace CoinbaseSdk.Prime.Activities
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
 
-  public class ActivitiesService(ICoinbaseClient client) : CoinbaseService(client), IActivitiesService
+  public class ActivitiesService(ICoinbaseClient client)
+    : CoinbaseService(client),
+      IActivitiesService
   {
     public ListActivitiesResponse ListActivities(
       ListActivitiesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListActivitiesResponse>(
+      return Request<ListActivitiesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/activities",
         [HttpStatusCode.OK],
@@ -40,7 +42,7 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListActivitiesResponse>(
+      return RequestAsync<ListActivitiesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/activities",
         [HttpStatusCode.OK],
@@ -53,7 +55,7 @@ namespace CoinbaseSdk.Prime.Activities
       ListEntityActivitiesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListEntityActivitiesResponse>(
+      return Request<ListEntityActivitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/activities",
         [HttpStatusCode.OK],
@@ -66,7 +68,7 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListEntityActivitiesResponse>(
+      return RequestAsync<ListEntityActivitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/activities",
         [HttpStatusCode.OK],
@@ -75,12 +77,9 @@ namespace CoinbaseSdk.Prime.Activities
         cancellationToken);
     }
 
-
-    public GetActivityResponse GetActivity(
-      GetActivityRequest request,
-      CallOptions? options = null)
+    public GetActivityResponse GetActivity(GetActivityRequest request, CallOptions? options = null)
     {
-      return this.Request<GetActivityResponse>(
+      return Request<GetActivityResponse>(
         HttpMethod.Get,
         $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
@@ -93,7 +92,7 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetActivityResponse>(
+      return RequestAsync<GetActivityResponse>(
         HttpMethod.Get,
         $"/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
@@ -106,7 +105,7 @@ namespace CoinbaseSdk.Prime.Activities
       GetPortfolioActivityRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioActivityResponse>(
+      return Request<GetPortfolioActivityResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],
@@ -119,7 +118,7 @@ namespace CoinbaseSdk.Prime.Activities
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioActivityResponse>(
+      return RequestAsync<GetPortfolioActivityResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/activities/{request.ActivityId}",
         [HttpStatusCode.OK],

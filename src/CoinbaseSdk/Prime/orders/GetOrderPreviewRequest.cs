@@ -18,7 +18,7 @@ namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class GetOrderPreviewRequest(string portfolioId)
   {
@@ -45,7 +45,7 @@ namespace CoinbaseSdk.Prime.Orders
     public string? StopPrice { get; set; }
 
     [JsonPropertyName("time_in_force")]
-    public TimeInForce? TimeInForce { get; set; }
+    public TimeInForceType? TimeInForce { get; set; }
 
     [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
@@ -69,7 +69,7 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _quoteValue;
       private string? _limitPrice;
       private string? _stopPrice;
-      private TimeInForce? _timeInForce;
+      private TimeInForceType? _timeInForce;
       private string? _startTime;
       private string? _expiryTime;
       private bool? _isRaiseExact;
@@ -77,79 +77,79 @@ namespace CoinbaseSdk.Prime.Orders
 
       public GetOrderPreviewRequestBuilder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithProductId(string productId)
       {
-        this._productId = productId;
+        _productId = productId;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithSide(OrderSide side)
       {
-        this._side = side;
+        _side = side;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithType(OrderType type)
       {
-        this._type = type;
+        _type = type;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithBaseQuantity(string baseQuantity)
       {
-        this._baseQuantity = baseQuantity;
+        _baseQuantity = baseQuantity;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithQuoteValue(string quoteValue)
       {
-        this._quoteValue = quoteValue;
+        _quoteValue = quoteValue;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithLimitPrice(string limitPrice)
       {
-        this._limitPrice = limitPrice;
+        _limitPrice = limitPrice;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithStopPrice(string stopPrice)
       {
-        this._stopPrice = stopPrice;
+        _stopPrice = stopPrice;
         return this;
       }
 
-      public GetOrderPreviewRequestBuilder WithTimeInForce(TimeInForce timeInForce)
+      public GetOrderPreviewRequestBuilder WithTimeInForce(TimeInForceType timeInForce)
       {
-        this._timeInForce = timeInForce;
+        _timeInForce = timeInForce;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithStartTime(string startTime)
       {
-        this._startTime = startTime;
+        _startTime = startTime;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithExpiryTime(string expiryTime)
       {
-        this._expiryTime = expiryTime;
+        _expiryTime = expiryTime;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithIsRaiseExact(bool isRaiseExact)
       {
-        this._isRaiseExact = isRaiseExact;
+        _isRaiseExact = isRaiseExact;
         return this;
       }
 
       public GetOrderPreviewRequestBuilder WithHistoricalPov(string historicalPov)
       {
-        this._historicalPov = historicalPov;
+        _historicalPov = historicalPov;
         return this;
       }
 
@@ -173,20 +173,20 @@ namespace CoinbaseSdk.Prime.Orders
       public GetOrderPreviewRequest Build()
       {
         Validate();
-        return new GetOrderPreviewRequest(this._portfolioId!)
+        return new GetOrderPreviewRequest(_portfolioId!)
         {
-          ProductId = this._productId,
-          Side = this._side,
-          Type = this._type,
-          BaseQuantity = this._baseQuantity,
-          QuoteValue = this._quoteValue,
-          LimitPrice = this._limitPrice,
-          StopPrice = this._stopPrice,
-          TimeInForce = this._timeInForce,
-          StartTime = this._startTime,
-          ExpiryTime = this._expiryTime,
-          IsRaiseExact = this._isRaiseExact,
-          HistoricalPov = this._historicalPov
+          ProductId = _productId,
+          Side = _side,
+          Type = _type,
+          BaseQuantity = _baseQuantity,
+          QuoteValue = _quoteValue,
+          LimitPrice = _limitPrice,
+          StopPrice = _stopPrice,
+          TimeInForce = _timeInForce,
+          StartTime = _startTime,
+          ExpiryTime = _expiryTime,
+          IsRaiseExact = _isRaiseExact,
+          HistoricalPov = _historicalPov,
         };
       }
     }

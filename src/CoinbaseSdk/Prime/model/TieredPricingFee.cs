@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.fee = builder.fee;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
       private string? fee;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder fee(string? fee)
+      public Builder Withfee(string? fee)
       {
         this.fee = fee;
         return this;

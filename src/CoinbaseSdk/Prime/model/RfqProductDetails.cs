@@ -80,7 +80,7 @@ namespace CoinbaseSdk.Prime.Model
       this.max_quote_size = builder.max_quote_size;
     }
 
-    public static class Builder
+    public class Builder
     {
       private bool? tradable;
 
@@ -96,43 +96,43 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? max_quote_size;
 
-      public Builder tradable(bool? tradable)
+      public Builder Withtradable(bool? tradable)
       {
         this.tradable = tradable;
         return this;
       }
 
-      public Builder min_notional_size(string? min_notional_size)
+      public Builder Withmin_notional_size(string? min_notional_size)
       {
         this.min_notional_size = min_notional_size;
         return this;
       }
 
-      public Builder max_notional_size(string? max_notional_size)
+      public Builder Withmax_notional_size(string? max_notional_size)
       {
         this.max_notional_size = max_notional_size;
         return this;
       }
 
-      public Builder min_base_size(string? min_base_size)
+      public Builder Withmin_base_size(string? min_base_size)
       {
         this.min_base_size = min_base_size;
         return this;
       }
 
-      public Builder max_base_size(string? max_base_size)
+      public Builder Withmax_base_size(string? max_base_size)
       {
         this.max_base_size = max_base_size;
         return this;
       }
 
-      public Builder min_quote_size(string? min_quote_size)
+      public Builder Withmin_quote_size(string? min_quote_size)
       {
         this.min_quote_size = min_quote_size;
         return this;
       }
 
-      public Builder max_quote_size(string? max_quote_size)
+      public Builder Withmax_quote_size(string? max_quote_size)
       {
         this.max_quote_size = max_quote_size;
         return this;

@@ -17,7 +17,8 @@
 namespace CoinbaseSdk.Prime.Balances
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListOnchainWalletBalancesRequest(string portfolioId, string walletId) : PaginatedRequest
   {

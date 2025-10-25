@@ -249,7 +249,7 @@ namespace CoinbaseSdk.Prime.Model
       this.display_base_size = builder.display_base_size;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -315,193 +315,193 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? display_base_size;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder user_id(string? user_id)
+      public Builder Withuser_id(string? user_id)
       {
         this.user_id = user_id;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder product_id(string? product_id)
+      public Builder Withproduct_id(string? product_id)
       {
         this.product_id = product_id;
         return this;
       }
 
-      public Builder side(OrderSide? side)
+      public Builder Withside(OrderSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder client_order_id(string? client_order_id)
+      public Builder Withclient_order_id(string? client_order_id)
       {
         this.client_order_id = client_order_id;
         return this;
       }
 
-      public Builder type(OrderType? type)
+      public Builder Withtype(OrderType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder base_quantity(string? base_quantity)
+      public Builder Withbase_quantity(string? base_quantity)
       {
         this.base_quantity = base_quantity;
         return this;
       }
 
-      public Builder quote_value(string? quote_value)
+      public Builder Withquote_value(string? quote_value)
       {
         this.quote_value = quote_value;
         return this;
       }
 
-      public Builder limit_price(string? limit_price)
+      public Builder Withlimit_price(string? limit_price)
       {
         this.limit_price = limit_price;
         return this;
       }
 
-      public Builder start_time(DateTime? start_time)
+      public Builder Withstart_time(DateTime? start_time)
       {
         this.start_time = start_time;
         return this;
       }
 
-      public Builder expiry_time(DateTime? expiry_time)
+      public Builder Withexpiry_time(DateTime? expiry_time)
       {
         this.expiry_time = expiry_time;
         return this;
       }
 
-      public Builder status(OrderStatus? status)
+      public Builder Withstatus(OrderStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder time_in_force(TimeInForceType? time_in_force)
+      public Builder Withtime_in_force(TimeInForceType? time_in_force)
       {
         this.time_in_force = time_in_force;
         return this;
       }
 
-      public Builder created_at(DateTime? created_at)
+      public Builder Withcreated_at(DateTime? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder filled_quantity(string? filled_quantity)
+      public Builder Withfilled_quantity(string? filled_quantity)
       {
         this.filled_quantity = filled_quantity;
         return this;
       }
 
-      public Builder filled_value(string? filled_value)
+      public Builder Withfilled_value(string? filled_value)
       {
         this.filled_value = filled_value;
         return this;
       }
 
-      public Builder average_filled_price(string? average_filled_price)
+      public Builder Withaverage_filled_price(string? average_filled_price)
       {
         this.average_filled_price = average_filled_price;
         return this;
       }
 
-      public Builder commission(string? commission)
+      public Builder Withcommission(string? commission)
       {
         this.commission = commission;
         return this;
       }
 
-      public Builder exchange_fee(string? exchange_fee)
+      public Builder Withexchange_fee(string? exchange_fee)
       {
         this.exchange_fee = exchange_fee;
         return this;
       }
 
-      public Builder historical_pov(string? historical_pov)
+      public Builder Withhistorical_pov(string? historical_pov)
       {
         this.historical_pov = historical_pov;
         return this;
       }
 
-      public Builder stop_price(string? stop_price)
+      public Builder Withstop_price(string? stop_price)
       {
         this.stop_price = stop_price;
         return this;
       }
 
-      public Builder net_average_filled_price(string? net_average_filled_price)
+      public Builder Withnet_average_filled_price(string? net_average_filled_price)
       {
         this.net_average_filled_price = net_average_filled_price;
         return this;
       }
 
-      public Builder user_context(string? user_context)
+      public Builder Withuser_context(string? user_context)
       {
         this.user_context = user_context;
         return this;
       }
 
-      public Builder client_product_id(string? client_product_id)
+      public Builder Withclient_product_id(string? client_product_id)
       {
         this.client_product_id = client_product_id;
         return this;
       }
 
-      public Builder post_only(bool? post_only)
+      public Builder Withpost_only(bool? post_only)
       {
         this.post_only = post_only;
         return this;
       }
 
-      public Builder order_edit_history(List<LimitOrderEdit>? order_edit_history)
+      public Builder Withorder_edit_history(List<LimitOrderEdit>? order_edit_history)
       {
         this.order_edit_history = order_edit_history;
         return this;
       }
 
-      public Builder is_raise_exact(bool? is_raise_exact)
+      public Builder Withis_raise_exact(bool? is_raise_exact)
       {
         this.is_raise_exact = is_raise_exact;
         return this;
       }
 
-      public Builder display_size(string? display_size)
+      public Builder Withdisplay_size(string? display_size)
       {
         this.display_size = display_size;
         return this;
       }
 
-      public Builder edit_history(List<OrderEdit>? edit_history)
+      public Builder Withedit_history(List<OrderEdit>? edit_history)
       {
         this.edit_history = edit_history;
         return this;
       }
 
-      public Builder display_quote_size(string? display_quote_size)
+      public Builder Withdisplay_quote_size(string? display_quote_size)
       {
         this.display_quote_size = display_quote_size;
         return this;
       }
 
-      public Builder display_base_size(string? display_base_size)
+      public Builder Withdisplay_base_size(string? display_base_size)
       {
         this.display_base_size = display_base_size;
         return this;

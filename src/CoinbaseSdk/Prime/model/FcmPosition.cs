@@ -85,7 +85,7 @@ namespace CoinbaseSdk.Prime.Model
       this.expiration_time = builder.expiration_time;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? product_id;
 
@@ -103,49 +103,49 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? expiration_time;
 
-      public Builder product_id(string? product_id)
+      public Builder Withproduct_id(string? product_id)
       {
         this.product_id = product_id;
         return this;
       }
 
-      public Builder side(FcmPositionSide? side)
+      public Builder Withside(FcmPositionSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder number_of_contracts(string? number_of_contracts)
+      public Builder Withnumber_of_contracts(string? number_of_contracts)
       {
         this.number_of_contracts = number_of_contracts;
         return this;
       }
 
-      public Builder daily_realized_pnl(string? daily_realized_pnl)
+      public Builder Withdaily_realized_pnl(string? daily_realized_pnl)
       {
         this.daily_realized_pnl = daily_realized_pnl;
         return this;
       }
 
-      public Builder unrealized_pnl(string? unrealized_pnl)
+      public Builder Withunrealized_pnl(string? unrealized_pnl)
       {
         this.unrealized_pnl = unrealized_pnl;
         return this;
       }
 
-      public Builder current_price(string? current_price)
+      public Builder Withcurrent_price(string? current_price)
       {
         this.current_price = current_price;
         return this;
       }
 
-      public Builder avg_entry_price(string? avg_entry_price)
+      public Builder Withavg_entry_price(string? avg_entry_price)
       {
         this.avg_entry_price = avg_entry_price;
         return this;
       }
 
-      public Builder expiration_time(DateTime? expiration_time)
+      public Builder Withexpiration_time(DateTime? expiration_time)
       {
         this.expiration_time = expiration_time;
         return this;

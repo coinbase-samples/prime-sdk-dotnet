@@ -17,12 +17,13 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListWalletAddressesResponse
   {
     [JsonPropertyName("addresses")]
-    public WalletAddress[]? Addresses { get; set; }
+    public BlockchainAddress[]? Addresses { get; set; }
 
     [JsonPropertyName("pagination")]
     public Pagination? Pagination { get; set; }

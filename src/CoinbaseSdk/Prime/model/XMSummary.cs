@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Model
       this.risk_netting_info = builder.risk_netting_info;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? margin_requirement;
 
@@ -112,55 +112,55 @@ namespace CoinbaseSdk.Prime.Model
 
       private XMRiskNettingInfo? risk_netting_info;
 
-      public Builder margin_requirement(string? margin_requirement)
+      public Builder Withmargin_requirement(string? margin_requirement)
       {
         this.margin_requirement = margin_requirement;
         return this;
       }
 
-      public Builder account_equity(string? account_equity)
+      public Builder Withaccount_equity(string? account_equity)
       {
         this.account_equity = account_equity;
         return this;
       }
 
-      public Builder margin_excess_shortfall(string? margin_excess_shortfall)
+      public Builder Withmargin_excess_shortfall(string? margin_excess_shortfall)
       {
         this.margin_excess_shortfall = margin_excess_shortfall;
         return this;
       }
 
-      public Builder consumed_credit(string? consumed_credit)
+      public Builder Withconsumed_credit(string? consumed_credit)
       {
         this.consumed_credit = consumed_credit;
         return this;
       }
 
-      public Builder xm_credit_limit(string? xm_credit_limit)
+      public Builder Withxm_credit_limit(string? xm_credit_limit)
       {
         this.xm_credit_limit = xm_credit_limit;
         return this;
       }
 
-      public Builder xm_margin_limit(string? xm_margin_limit)
+      public Builder Withxm_margin_limit(string? xm_margin_limit)
       {
         this.xm_margin_limit = xm_margin_limit;
         return this;
       }
 
-      public Builder spot_equity(string? spot_equity)
+      public Builder Withspot_equity(string? spot_equity)
       {
         this.spot_equity = spot_equity;
         return this;
       }
 
-      public Builder futures_equity(string? futures_equity)
+      public Builder Withfutures_equity(string? futures_equity)
       {
         this.futures_equity = futures_equity;
         return this;
       }
 
-      public Builder risk_netting_info(XMRiskNettingInfo? risk_netting_info)
+      public Builder Withrisk_netting_info(XMRiskNettingInfo? risk_netting_info)
       {
         this.risk_netting_info = risk_netting_info;
         return this;

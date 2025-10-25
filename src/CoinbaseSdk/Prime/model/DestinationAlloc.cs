@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.fees_allocated_leg = builder.fees_allocated_leg;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? leg_id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? fees_allocated_leg;
 
-      public Builder leg_id(string? leg_id)
+      public Builder Withleg_id(string? leg_id)
       {
         this.leg_id = leg_id;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder allocation_base(string? allocation_base)
+      public Builder Withallocation_base(string? allocation_base)
       {
         this.allocation_base = allocation_base;
         return this;
       }
 
-      public Builder allocation_quote(string? allocation_quote)
+      public Builder Withallocation_quote(string? allocation_quote)
       {
         this.allocation_quote = allocation_quote;
         return this;
       }
 
-      public Builder fees_allocated_leg(string? fees_allocated_leg)
+      public Builder Withfees_allocated_leg(string? fees_allocated_leg)
       {
         this.fees_allocated_leg = fees_allocated_leg;
         return this;

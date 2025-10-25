@@ -38,11 +38,11 @@ namespace CoinbaseSdk.Prime.Model
       this.counterparty_id = builder.counterparty_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? counterparty_id;
 
-      public Builder counterparty_id(string? counterparty_id)
+      public Builder Withcounterparty_id(string? counterparty_id)
       {
         this.counterparty_id = counterparty_id;
         return this;

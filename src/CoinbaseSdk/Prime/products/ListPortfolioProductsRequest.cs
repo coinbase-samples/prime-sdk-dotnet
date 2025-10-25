@@ -17,68 +17,11 @@
 namespace CoinbaseSdk.Prime.Products
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
 
   public class ListPortfolioProductsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-    public class ListPortfolioProductsRequestBuilder : PaginatedRequestBuilder<ListPortfolioProductsRequest, ListPortfolioProductsRequestBuilder>
-    {
-      private string? _portfolioId;
-      private SortDirection? _sortDirection;
-
-      public ListPortfolioProductsRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-
-      public ListPortfolioProductsRequestBuilder WithSortDirection(SortDirection sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      public new ListPortfolioProductsRequestBuilder WithPagination(Pagination pagination)
-      {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
-        return this;
-      }
-
-      /// <summary>
-      /// Validates the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null or empty.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId cannot be null or empty");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListPortfolioProductsRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="ListPortfolioProductsRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListPortfolioProductsRequest Build()
-      {
-        this.Validate();
-        var request = new ListPortfolioProductsRequest(this._portfolioId!)
-        {
-          SortDirection = this._sortDirection
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

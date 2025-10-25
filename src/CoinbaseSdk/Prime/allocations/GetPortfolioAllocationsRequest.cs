@@ -18,7 +18,8 @@ namespace CoinbaseSdk.Prime.Allocations
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class GetPortfolioAllocationsRequest(string portfolioId) : PaginatedRequest
   {
@@ -37,58 +38,62 @@ namespace CoinbaseSdk.Prime.Allocations
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-
-    public class GetPortfolioAllocationsRequestBuilder : PaginatedRequestBuilder<GetPortfolioAllocationsRequest, GetPortfolioAllocationsRequestBuilder>
+    public class Builder
     {
       private string? _portfolioId;
-      private string[] _productIds = Array.Empty<string>();
+      private string[] _productIds = [];
       private OrderSide _orderSide;
       private string? _startDate;
       private string? _endDate;
+      private string? _cursor;
       private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public GetPortfolioAllocationsRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithProductIds(string[] productIds)
+      public Builder WithProductIds(string[] productIds)
       {
-        this._productIds = productIds;
+        _productIds = productIds;
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithOrderSide(OrderSide orderSide)
+      public Builder WithOrderSide(OrderSide orderSide)
       {
-        this._orderSide = orderSide;
+        _orderSide = orderSide;
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithStartDate(string? startDate)
+      public Builder WithStartDate(string? startDate)
       {
-        this._startDate = startDate;
+        _startDate = startDate;
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithEndDate(string? endDate)
+      public Builder WithEndDate(string? endDate)
       {
-        this._endDate = endDate;
+        _endDate = endDate;
         return this;
       }
 
-      public GetPortfolioAllocationsRequestBuilder WithSortDirection(SortDirection? sortDirection)
+      public Builder WithCursor(string cursor)
       {
-        this._sortDirection = sortDirection;
+        _cursor = cursor;
         return this;
       }
 
-      public new GetPortfolioAllocationsRequestBuilder WithPagination(Pagination pagination)
+      public Builder WithSortDirection(SortDirection sortDirection)
       {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public Builder WithLimit(int limit)
+      {
+        _limit = limit;
         return this;
       }
 
@@ -100,11 +105,11 @@ namespace CoinbaseSdk.Prime.Allocations
       /// or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._startDate))
+        if (string.IsNullOrWhiteSpace(_startDate))
         {
           throw new CoinbaseClientException("StartDate is required");
         }
@@ -115,18 +120,19 @@ namespace CoinbaseSdk.Prime.Allocations
       /// </summary>
       /// <returns>The <see cref="GetPortfolioAllocationsRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override GetPortfolioAllocationsRequest Build()
+      public GetPortfolioAllocationsRequest Build()
       {
-        this.Validate();
-        var request = new GetPortfolioAllocationsRequest(this._portfolioId!)
+        Validate();
+        var request = new GetPortfolioAllocationsRequest(_portfolioId!)
         {
-          ProductIds = this._productIds,
-          OrderSide = this._orderSide,
-          StartDate = this._startDate!,
-          EndDate = this._endDate,
-          SortDirection = this._sortDirection
+          ProductIds = _productIds,
+          OrderSide = _orderSide,
+          StartDate = _startDate!,
+          EndDate = _endDate,
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit
         };
-        SetPaginationProperties(request);
         return request;
       }
     }

@@ -100,7 +100,7 @@ namespace CoinbaseSdk.Prime.Model
       this.updated_at = builder.updated_at;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? margin_call_id;
 
@@ -124,67 +124,67 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? updated_at;
 
-      public Builder margin_call_id(string? margin_call_id)
+      public Builder Withmargin_call_id(string? margin_call_id)
       {
         this.margin_call_id = margin_call_id;
         return this;
       }
 
-      public Builder currency(string? currency)
+      public Builder Withcurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder initial_notional_amount(string? initial_notional_amount)
+      public Builder Withinitial_notional_amount(string? initial_notional_amount)
       {
         this.initial_notional_amount = initial_notional_amount;
         return this;
       }
 
-      public Builder outstanding_notional_amount(string? outstanding_notional_amount)
+      public Builder Withoutstanding_notional_amount(string? outstanding_notional_amount)
       {
         this.outstanding_notional_amount = outstanding_notional_amount;
         return this;
       }
 
-      public Builder margin_call_type(XMCallType? margin_call_type)
+      public Builder Withmargin_call_type(XMCallType? margin_call_type)
       {
         this.margin_call_type = margin_call_type;
         return this;
       }
 
-      public Builder margin_call_status(XMCallStatus? margin_call_status)
+      public Builder Withmargin_call_status(XMCallStatus? margin_call_status)
       {
         this.margin_call_status = margin_call_status;
         return this;
       }
 
-      public Builder called_with_margin_level(XMMarginLevel? called_with_margin_level)
+      public Builder Withcalled_with_margin_level(XMMarginLevel? called_with_margin_level)
       {
         this.called_with_margin_level = called_with_margin_level;
         return this;
       }
 
-      public Builder called_with_margin_summary(XMSummary? called_with_margin_summary)
+      public Builder Withcalled_with_margin_summary(XMSummary? called_with_margin_summary)
       {
         this.called_with_margin_summary = called_with_margin_summary;
         return this;
       }
 
-      public Builder due_at(DateTime? due_at)
+      public Builder Withdue_at(DateTime? due_at)
       {
         this.due_at = due_at;
         return this;
       }
 
-      public Builder created_at(DateTime? created_at)
+      public Builder Withcreated_at(DateTime? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder updated_at(DateTime? updated_at)
+      public Builder Withupdated_at(DateTime? updated_at)
       {
         this.updated_at = updated_at;
         return this;

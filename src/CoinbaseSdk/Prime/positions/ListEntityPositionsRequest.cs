@@ -17,24 +17,12 @@
 namespace CoinbaseSdk.Prime.Positions
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+
   public class ListEntityPositionsRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
-
-
-    public class ListEntityPositionsRequestBuilder(string entityId) : PaginatedRequestBuilder<ListEntityPositionsRequest, ListEntityPositionsRequestBuilder>
-    {
-      private string _entityId = entityId;
-
-
-      public override ListEntityPositionsRequest Build()
-      {
-        var request = new ListEntityPositionsRequest(_entityId);
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }
+

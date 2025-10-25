@@ -46,19 +46,19 @@ namespace CoinbaseSdk.Prime.Model
       this.confirmed_asset_changes = builder.confirmed_asset_changes;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? label;
 
       private List<AssetChange>? confirmed_asset_changes;
 
-      public Builder label(string? label)
+      public Builder Withlabel(string? label)
       {
         this.label = label;
         return this;
       }
 
-      public Builder confirmed_asset_changes(List<AssetChange>? confirmed_asset_changes)
+      public Builder Withconfirmed_asset_changes(List<AssetChange>? confirmed_asset_changes)
       {
         this.confirmed_asset_changes = confirmed_asset_changes;
         return this;

@@ -16,12 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Activities
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListEntityActivitiesResponse
   {
     public Activity[] Activities { get; set; } = [];
-    public PaginatedResponse? Pagination { get; set; }
+    public Pagination? Pagination { get; set; }
 
     public ListEntityActivitiesResponse()
     {

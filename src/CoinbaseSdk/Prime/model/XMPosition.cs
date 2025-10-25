@@ -206,7 +206,7 @@ namespace CoinbaseSdk.Prime.Model
       this.total_position_margin = builder.total_position_margin;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? currency;
 
@@ -258,151 +258,151 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? total_position_margin;
 
-      public Builder currency(string? currency)
+      public Builder Withcurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder market_price(string? market_price)
+      public Builder Withmarket_price(string? market_price)
       {
         this.market_price = market_price;
         return this;
       }
 
-      public Builder margin_eligible(bool? margin_eligible)
+      public Builder Withmargin_eligible(bool? margin_eligible)
       {
         this.margin_eligible = margin_eligible;
         return this;
       }
 
-      public Builder market_cap(string? market_cap)
+      public Builder Withmarket_cap(string? market_cap)
       {
         this.market_cap = market_cap;
         return this;
       }
 
-      public Builder adv30_days(string? adv30_days)
+      public Builder Withadv30_days(string? adv30_days)
       {
         this.adv30_days = adv30_days;
         return this;
       }
 
-      public Builder hist5d_vol(string? hist5d_vol)
+      public Builder Withhist5d_vol(string? hist5d_vol)
       {
         this.hist5d_vol = hist5d_vol;
         return this;
       }
 
-      public Builder hist30d_vol(string? hist30d_vol)
+      public Builder Withhist30d_vol(string? hist30d_vol)
       {
         this.hist30d_vol = hist30d_vol;
         return this;
       }
 
-      public Builder hist90d_vol(string? hist90d_vol)
+      public Builder Withhist90d_vol(string? hist90d_vol)
       {
         this.hist90d_vol = hist90d_vol;
         return this;
       }
 
-      public Builder margin_requirement(string? margin_requirement)
+      public Builder Withmargin_requirement(string? margin_requirement)
       {
         this.margin_requirement = margin_requirement;
         return this;
       }
 
-      public Builder spot_balance(string? spot_balance)
+      public Builder Withspot_balance(string? spot_balance)
       {
         this.spot_balance = spot_balance;
         return this;
       }
 
-      public Builder spot_balance_notional(string? spot_balance_notional)
+      public Builder Withspot_balance_notional(string? spot_balance_notional)
       {
         this.spot_balance_notional = spot_balance_notional;
         return this;
       }
 
-      public Builder spot_total_position_margin(string? spot_total_position_margin)
+      public Builder Withspot_total_position_margin(string? spot_total_position_margin)
       {
         this.spot_total_position_margin = spot_total_position_margin;
         return this;
       }
 
-      public Builder futures_balance(string? futures_balance)
+      public Builder Withfutures_balance(string? futures_balance)
       {
         this.futures_balance = futures_balance;
         return this;
       }
 
-      public Builder futures_balance_notional(string? futures_balance_notional)
+      public Builder Withfutures_balance_notional(string? futures_balance_notional)
       {
         this.futures_balance_notional = futures_balance_notional;
         return this;
       }
 
-      public Builder futures_total_position_margin(string? futures_total_position_margin)
+      public Builder Withfutures_total_position_margin(string? futures_total_position_margin)
       {
         this.futures_total_position_margin = futures_total_position_margin;
         return this;
       }
 
-      public Builder gmv_basis(string? gmv_basis)
+      public Builder Withgmv_basis(string? gmv_basis)
       {
         this.gmv_basis = gmv_basis;
         return this;
       }
 
-      public Builder base_requirement(string? base_requirement)
+      public Builder Withbase_requirement(string? base_requirement)
       {
         this.base_requirement = base_requirement;
         return this;
       }
 
-      public Builder liq_shorts_add_on(string? liq_shorts_add_on)
+      public Builder Withliq_shorts_add_on(string? liq_shorts_add_on)
       {
         this.liq_shorts_add_on = liq_shorts_add_on;
         return this;
       }
 
-      public Builder liq_longs_add_on(string? liq_longs_add_on)
+      public Builder Withliq_longs_add_on(string? liq_longs_add_on)
       {
         this.liq_longs_add_on = liq_longs_add_on;
         return this;
       }
 
-      public Builder vol_shorts_add_on(string? vol_shorts_add_on)
+      public Builder Withvol_shorts_add_on(string? vol_shorts_add_on)
       {
         this.vol_shorts_add_on = vol_shorts_add_on;
         return this;
       }
 
-      public Builder vol_longs_add_on(string? vol_longs_add_on)
+      public Builder Withvol_longs_add_on(string? vol_longs_add_on)
       {
         this.vol_longs_add_on = vol_longs_add_on;
         return this;
       }
 
-      public Builder vol5days_add_on(string? vol5days_add_on)
+      public Builder Withvol5days_add_on(string? vol5days_add_on)
       {
         this.vol5days_add_on = vol5days_add_on;
         return this;
       }
 
-      public Builder vol30days_add_on(string? vol30days_add_on)
+      public Builder Withvol30days_add_on(string? vol30days_add_on)
       {
         this.vol30days_add_on = vol30days_add_on;
         return this;
       }
 
-      public Builder vol90days_add_on(string? vol90days_add_on)
+      public Builder Withvol90days_add_on(string? vol90days_add_on)
       {
         this.vol90days_add_on = vol90days_add_on;
         return this;
       }
 
-      public Builder total_position_margin(string? total_position_margin)
+      public Builder Withtotal_position_margin(string? total_position_margin)
       {
         this.total_position_margin = total_position_margin;
         return this;

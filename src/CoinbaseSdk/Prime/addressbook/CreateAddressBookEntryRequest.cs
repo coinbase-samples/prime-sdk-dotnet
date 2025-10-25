@@ -34,7 +34,7 @@ namespace CoinbaseSdk.Prime.AddressBook
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
-    public class CreateAddressBookEntryRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _address;
@@ -42,33 +42,33 @@ namespace CoinbaseSdk.Prime.AddressBook
       private string? _name;
       private string? _accountIdentifier;
 
-      public CreateAddressBookEntryRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public CreateAddressBookEntryRequestBuilder WithAddress(string? address)
+      public Builder WithAddress(string? address)
       {
-        this._address = address;
+        _address = address;
         return this;
       }
 
-      public CreateAddressBookEntryRequestBuilder WithCurrencySymbol(string? currencySymbol)
+      public Builder WithCurrencySymbol(string? currencySymbol)
       {
-        this._currencySymbol = currencySymbol;
+        _currencySymbol = currencySymbol;
         return this;
       }
 
-      public CreateAddressBookEntryRequestBuilder WithName(string? name)
+      public Builder WithName(string? name)
       {
-        this._name = name;
+        _name = name;
         return this;
       }
 
-      public CreateAddressBookEntryRequestBuilder WithAccountIdentifier(string? accountIdentifier)
+      public Builder WithAccountIdentifier(string? accountIdentifier)
       {
-        this._accountIdentifier = accountIdentifier;
+        _accountIdentifier = accountIdentifier;
         return this;
       }
 
@@ -79,7 +79,7 @@ namespace CoinbaseSdk.Prime.AddressBook
       /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
@@ -92,13 +92,13 @@ namespace CoinbaseSdk.Prime.AddressBook
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateAddressBookEntryRequest Build()
       {
-        this.Validate();
-        return new CreateAddressBookEntryRequest(this._portfolioId!)
+        Validate();
+        return new CreateAddressBookEntryRequest(_portfolioId!)
         {
-          Address = this._address,
-          CurrencySymbol = this._currencySymbol,
-          Name = this._name,
-          AccountIdentifier = this._accountIdentifier
+          Address = _address,
+          CurrencySymbol = _currencySymbol,
+          Name = _name,
+          AccountIdentifier = _accountIdentifier
         };
       }
     }

@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.settlement_date = builder.settlement_date;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? reference_id;
 
       private string? settlement_date;
 
-      public Builder reference_id(string? reference_id)
+      public Builder Withreference_id(string? reference_id)
       {
         this.reference_id = reference_id;
         return this;
       }
 
-      public Builder settlement_date(string? settlement_date)
+      public Builder Withsettlement_date(string? settlement_date)
       {
         this.settlement_date = settlement_date;
         return this;

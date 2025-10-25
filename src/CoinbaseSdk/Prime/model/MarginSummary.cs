@@ -257,7 +257,7 @@ namespace CoinbaseSdk.Prime.Model
       this.pm_margin_consumed = builder.pm_margin_consumed;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? entity_id;
 
@@ -323,193 +323,193 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? pm_margin_consumed;
 
-      public Builder entity_id(string? entity_id)
+      public Builder Withentity_id(string? entity_id)
       {
         this.entity_id = entity_id;
         return this;
       }
 
-      public Builder margin_equity(string? margin_equity)
+      public Builder Withmargin_equity(string? margin_equity)
       {
         this.margin_equity = margin_equity;
         return this;
       }
 
-      public Builder margin_requirement(string? margin_requirement)
+      public Builder Withmargin_requirement(string? margin_requirement)
       {
         this.margin_requirement = margin_requirement;
         return this;
       }
 
-      public Builder excess_deficit(string? excess_deficit)
+      public Builder Withexcess_deficit(string? excess_deficit)
       {
         this.excess_deficit = excess_deficit;
         return this;
       }
 
-      public Builder pm_credit_consumed(string? pm_credit_consumed)
+      public Builder Withpm_credit_consumed(string? pm_credit_consumed)
       {
         this.pm_credit_consumed = pm_credit_consumed;
         return this;
       }
 
-      public Builder tf_credit_limit(string? tf_credit_limit)
+      public Builder Withtf_credit_limit(string? tf_credit_limit)
       {
         this.tf_credit_limit = tf_credit_limit;
         return this;
       }
 
-      public Builder tf_credit_consumed(string? tf_credit_consumed)
+      public Builder Withtf_credit_consumed(string? tf_credit_consumed)
       {
         this.tf_credit_consumed = tf_credit_consumed;
         return this;
       }
 
-      public Builder tf_adjusted_asset_value(string? tf_adjusted_asset_value)
+      public Builder Withtf_adjusted_asset_value(string? tf_adjusted_asset_value)
       {
         this.tf_adjusted_asset_value = tf_adjusted_asset_value;
         return this;
       }
 
-      public Builder tf_adjusted_liability_value(string? tf_adjusted_liability_value)
+      public Builder Withtf_adjusted_liability_value(string? tf_adjusted_liability_value)
       {
         this.tf_adjusted_liability_value = tf_adjusted_liability_value;
         return this;
       }
 
-      public Builder tf_adjusted_credit_consumed(string? tf_adjusted_credit_consumed)
+      public Builder Withtf_adjusted_credit_consumed(string? tf_adjusted_credit_consumed)
       {
         this.tf_adjusted_credit_consumed = tf_adjusted_credit_consumed;
         return this;
       }
 
-      public Builder tf_adjusted_equity(string? tf_adjusted_equity)
+      public Builder Withtf_adjusted_equity(string? tf_adjusted_equity)
       {
         this.tf_adjusted_equity = tf_adjusted_equity;
         return this;
       }
 
-      public Builder frozen(bool? frozen)
+      public Builder Withfrozen(bool? frozen)
       {
         this.frozen = frozen;
         return this;
       }
 
-      public Builder frozen_reason(string? frozen_reason)
+      public Builder Withfrozen_reason(string? frozen_reason)
       {
         this.frozen_reason = frozen_reason;
         return this;
       }
 
-      public Builder tf_enabled(bool? tf_enabled)
+      public Builder Withtf_enabled(bool? tf_enabled)
       {
         this.tf_enabled = tf_enabled;
         return this;
       }
 
-      public Builder pm_enabled(bool? pm_enabled)
+      public Builder Withpm_enabled(bool? pm_enabled)
       {
         this.pm_enabled = pm_enabled;
         return this;
       }
 
-      public Builder market_rates(List<MarketRate>? market_rates)
+      public Builder Withmarket_rates(List<MarketRate>? market_rates)
       {
         this.market_rates = market_rates;
         return this;
       }
 
-      public Builder asset_balances(List<AssetBalance>? asset_balances)
+      public Builder Withasset_balances(List<AssetBalance>? asset_balances)
       {
         this.asset_balances = asset_balances;
         return this;
       }
 
-      public Builder tf_loans(List<LoanInfo>? tf_loans)
+      public Builder Withtf_loans(List<LoanInfo>? tf_loans)
       {
         this.tf_loans = tf_loans;
         return this;
       }
 
-      public Builder pm_loans(List<LoanInfo>? pm_loans)
+      public Builder Withpm_loans(List<LoanInfo>? pm_loans)
       {
         this.pm_loans = pm_loans;
         return this;
       }
 
-      public Builder short_collateral(List<LoanInfo>? short_collateral)
+      public Builder Withshort_collateral(List<LoanInfo>? short_collateral)
       {
         this.short_collateral = short_collateral;
         return this;
       }
 
-      public Builder gross_market_value(string? gross_market_value)
+      public Builder Withgross_market_value(string? gross_market_value)
       {
         this.gross_market_value = gross_market_value;
         return this;
       }
 
-      public Builder net_market_value(string? net_market_value)
+      public Builder Withnet_market_value(string? net_market_value)
       {
         this.net_market_value = net_market_value;
         return this;
       }
 
-      public Builder long_market_value(string? long_market_value)
+      public Builder Withlong_market_value(string? long_market_value)
       {
         this.long_market_value = long_market_value;
         return this;
       }
 
-      public Builder non_marginable_long_market_value(string? non_marginable_long_market_value)
+      public Builder Withnon_marginable_long_market_value(string? non_marginable_long_market_value)
       {
         this.non_marginable_long_market_value = non_marginable_long_market_value;
         return this;
       }
 
-      public Builder short_market_value(string? short_market_value)
+      public Builder Withshort_market_value(string? short_market_value)
       {
         this.short_market_value = short_market_value;
         return this;
       }
 
-      public Builder gross_leverage(string? gross_leverage)
+      public Builder Withgross_leverage(string? gross_leverage)
       {
         this.gross_leverage = gross_leverage;
         return this;
       }
 
-      public Builder net_exposure(string? net_exposure)
+      public Builder Withnet_exposure(string? net_exposure)
       {
         this.net_exposure = net_exposure;
         return this;
       }
 
-      public Builder portfolio_stress_triggered(MarginAddOn? portfolio_stress_triggered)
+      public Builder Withportfolio_stress_triggered(MarginAddOn? portfolio_stress_triggered)
       {
         this.portfolio_stress_triggered = portfolio_stress_triggered;
         return this;
       }
 
-      public Builder pm_asset_info(List<PMAssetInfo>? pm_asset_info)
+      public Builder Withpm_asset_info(List<PMAssetInfo>? pm_asset_info)
       {
         this.pm_asset_info = pm_asset_info;
         return this;
       }
 
-      public Builder pm_credit_limit(string? pm_credit_limit)
+      public Builder Withpm_credit_limit(string? pm_credit_limit)
       {
         this.pm_credit_limit = pm_credit_limit;
         return this;
       }
 
-      public Builder pm_margin_limit(string? pm_margin_limit)
+      public Builder Withpm_margin_limit(string? pm_margin_limit)
       {
         this.pm_margin_limit = pm_margin_limit;
         return this;
       }
 
-      public Builder pm_margin_consumed(string? pm_margin_consumed)
+      public Builder Withpm_margin_consumed(string? pm_margin_consumed)
       {
         this.pm_margin_consumed = pm_margin_consumed;
         return this;

@@ -47,7 +47,7 @@ public static class ListAssets
             }
 
             // Build request
-            var request = new ListAssetsRequest.ListAssetsRequestBuilder()
+            var request = new ListAssetsRequest.Builder()
                 .WithEntityId(entityId)
                 .Build();
 

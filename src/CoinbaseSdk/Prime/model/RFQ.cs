@@ -63,7 +63,7 @@ namespace CoinbaseSdk.Prime.Model
       this.settl_currency = builder.settl_currency;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string product_id;
 
@@ -79,43 +79,43 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? settl_currency;
 
-      public Builder product_id(string product_id)
+      public Builder Withproduct_id(string product_id)
       {
         this.product_id = product_id;
         return this;
       }
 
-      public Builder side(OrderSide side)
+      public Builder Withside(OrderSide side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder client_quote_id(string client_quote_id)
+      public Builder Withclient_quote_id(string client_quote_id)
       {
         this.client_quote_id = client_quote_id;
         return this;
       }
 
-      public Builder base_quantity(string? base_quantity)
+      public Builder Withbase_quantity(string? base_quantity)
       {
         this.base_quantity = base_quantity;
         return this;
       }
 
-      public Builder quote_value(string? quote_value)
+      public Builder Withquote_value(string? quote_value)
       {
         this.quote_value = quote_value;
         return this;
       }
 
-      public Builder limit_price(string limit_price)
+      public Builder Withlimit_price(string limit_price)
       {
         this.limit_price = limit_price;
         return this;
       }
 
-      public Builder settl_currency(string? settl_currency)
+      public Builder Withsettl_currency(string? settl_currency)
       {
         this.settl_currency = settl_currency;
         return this;

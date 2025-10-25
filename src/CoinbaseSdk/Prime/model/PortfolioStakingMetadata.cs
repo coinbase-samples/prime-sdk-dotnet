@@ -38,11 +38,11 @@ namespace CoinbaseSdk.Prime.Model
       this.external_id = builder.external_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? external_id;
 
-      public Builder external_id(string? external_id)
+      public Builder Withexternal_id(string? external_id)
       {
         this.external_id = external_id;
         return this;

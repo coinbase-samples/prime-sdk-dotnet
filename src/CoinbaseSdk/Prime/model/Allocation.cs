@@ -133,7 +133,7 @@ namespace CoinbaseSdk.Prime.Model
       this.netting_id = builder.netting_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? root_id;
 
@@ -165,91 +165,91 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? netting_id;
 
-      public Builder root_id(string? root_id)
+      public Builder Withroot_id(string? root_id)
       {
         this.root_id = root_id;
         return this;
       }
 
-      public Builder reversal_id(string? reversal_id)
+      public Builder Withreversal_id(string? reversal_id)
       {
         this.reversal_id = reversal_id;
         return this;
       }
 
-      public Builder allocation_completed_at(DateTime? allocation_completed_at)
+      public Builder Withallocation_completed_at(DateTime? allocation_completed_at)
       {
         this.allocation_completed_at = allocation_completed_at;
         return this;
       }
 
-      public Builder user_id(string? user_id)
+      public Builder Withuser_id(string? user_id)
       {
         this.user_id = user_id;
         return this;
       }
 
-      public Builder product_id(string? product_id)
+      public Builder Withproduct_id(string? product_id)
       {
         this.product_id = product_id;
         return this;
       }
 
-      public Builder side(OrderSide? side)
+      public Builder Withside(OrderSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder avg_price(string? avg_price)
+      public Builder Withavg_price(string? avg_price)
       {
         this.avg_price = avg_price;
         return this;
       }
 
-      public Builder base_quantity(string? base_quantity)
+      public Builder Withbase_quantity(string? base_quantity)
       {
         this.base_quantity = base_quantity;
         return this;
       }
 
-      public Builder quote_value(string? quote_value)
+      public Builder Withquote_value(string? quote_value)
       {
         this.quote_value = quote_value;
         return this;
       }
 
-      public Builder fees_allocated(string? fees_allocated)
+      public Builder Withfees_allocated(string? fees_allocated)
       {
         this.fees_allocated = fees_allocated;
         return this;
       }
 
-      public Builder status(AllocationStatus? status)
+      public Builder Withstatus(AllocationStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder source(string? source)
+      public Builder Withsource(string? source)
       {
         this.source = source;
         return this;
       }
 
-      public Builder order_ids(List<string>? order_ids)
+      public Builder Withorder_ids(List<string>? order_ids)
       {
         this.order_ids = order_ids;
         return this;
       }
 
-      public Builder destinations(List<DestinationAlloc>? destinations)
+      public Builder Withdestinations(List<DestinationAlloc>? destinations)
       {
         this.destinations = destinations;
         return this;
       }
 
-      public Builder netting_id(string? netting_id)
+      public Builder Withnetting_id(string? netting_id)
       {
         this.netting_id = netting_id;
         return this;

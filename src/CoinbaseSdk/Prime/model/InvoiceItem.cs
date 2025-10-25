@@ -64,7 +64,7 @@ namespace CoinbaseSdk.Prime.Model
       this.total = builder.total;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? description;
 
@@ -82,49 +82,49 @@ namespace CoinbaseSdk.Prime.Model
 
       private double? total;
 
-      public Builder description(string? description)
+      public Builder Withdescription(string? description)
       {
         this.description = description;
         return this;
       }
 
-      public Builder currency_symbol(string? currency_symbol)
+      public Builder Withcurrency_symbol(string? currency_symbol)
       {
         this.currency_symbol = currency_symbol;
         return this;
       }
 
-      public Builder invoice_type(InvoiceType? invoice_type)
+      public Builder Withinvoice_type(InvoiceType? invoice_type)
       {
         this.invoice_type = invoice_type;
         return this;
       }
 
-      public Builder rate(double? rate)
+      public Builder Withrate(double? rate)
       {
         this.rate = rate;
         return this;
       }
 
-      public Builder quantity(double? quantity)
+      public Builder Withquantity(double? quantity)
       {
         this.quantity = quantity;
         return this;
       }
 
-      public Builder price(double? price)
+      public Builder Withprice(double? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder average_auc(double? average_auc)
+      public Builder Withaverage_auc(double? average_auc)
       {
         this.average_auc = average_auc;
         return this;
       }
 
-      public Builder total(double? total)
+      public Builder Withtotal(double? total)
       {
         this.total = total;
         return this;

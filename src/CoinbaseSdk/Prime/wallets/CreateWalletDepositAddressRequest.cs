@@ -18,7 +18,11 @@ namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
 
-  public class CreateWalletDepositAddressRequest(string portfolioId, string walletId, string networkId)
+  public class CreateWalletDepositAddressRequest(
+    string portfolioId,
+    string walletId,
+    string networkId
+  )
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -28,35 +32,5 @@ namespace CoinbaseSdk.Prime.Wallets
 
     [JsonPropertyName("network_id")]
     public string NetworkId { get; set; } = networkId;
-
-    public class CreateWalletDepositAddressRequestBuilder
-    {
-      private string? _portfolioId;
-      private string? _walletId;
-      private string? _networkId;
-
-      public CreateWalletDepositAddressRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public CreateWalletDepositAddressRequestBuilder WithWalletId(string walletId)
-      {
-        this._walletId = walletId;
-        return this;
-      }
-
-      public CreateWalletDepositAddressRequestBuilder WithNetworkId(string networkId)
-      {
-        this._networkId = networkId;
-        return this;
-      }
-
-      public CreateWalletDepositAddressRequest Build()
-      {
-        return new CreateWalletDepositAddressRequest(this._portfolioId!, this._walletId!, this._networkId!);
-      }
-    }
   }
 }

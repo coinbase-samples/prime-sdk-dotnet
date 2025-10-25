@@ -62,7 +62,7 @@ namespace CoinbaseSdk.Prime.Model
       this.scheduled_time = builder.scheduled_time;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -74,31 +74,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? scheduled_time;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder requested_amount(SweepAmount? requested_amount)
+      public Builder Withrequested_amount(SweepAmount? requested_amount)
       {
         this.requested_amount = requested_amount;
         return this;
       }
 
-      public Builder should_sweep_all(bool? should_sweep_all)
+      public Builder Withshould_sweep_all(bool? should_sweep_all)
       {
         this.should_sweep_all = should_sweep_all;
         return this;
       }
 
-      public Builder status(FuturesSweepStatus? status)
+      public Builder Withstatus(FuturesSweepStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder scheduled_time(DateTime? scheduled_time)
+      public Builder Withscheduled_time(DateTime? scheduled_time)
       {
         this.scheduled_time = scheduled_time;
         return this;

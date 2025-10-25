@@ -100,7 +100,7 @@ namespace CoinbaseSdk.Prime.Model
       this.rfq_product_details = builder.rfq_product_details;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -122,61 +122,61 @@ namespace CoinbaseSdk.Prime.Model
 
       private RFQProductDetails? rfq_product_details;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder base_increment(string? base_increment)
+      public Builder Withbase_increment(string? base_increment)
       {
         this.base_increment = base_increment;
         return this;
       }
 
-      public Builder quote_increment(string? quote_increment)
+      public Builder Withquote_increment(string? quote_increment)
       {
         this.quote_increment = quote_increment;
         return this;
       }
 
-      public Builder base_min_size(string? base_min_size)
+      public Builder Withbase_min_size(string? base_min_size)
       {
         this.base_min_size = base_min_size;
         return this;
       }
 
-      public Builder quote_min_size(string? quote_min_size)
+      public Builder Withquote_min_size(string? quote_min_size)
       {
         this.quote_min_size = quote_min_size;
         return this;
       }
 
-      public Builder base_max_size(string? base_max_size)
+      public Builder Withbase_max_size(string? base_max_size)
       {
         this.base_max_size = base_max_size;
         return this;
       }
 
-      public Builder quote_max_size(string? quote_max_size)
+      public Builder Withquote_max_size(string? quote_max_size)
       {
         this.quote_max_size = quote_max_size;
         return this;
       }
 
-      public Builder permissions(List<ProductPermissions>? permissions)
+      public Builder Withpermissions(List<ProductPermissions>? permissions)
       {
         this.permissions = permissions;
         return this;
       }
 
-      public Builder price_increment(string? price_increment)
+      public Builder Withprice_increment(string? price_increment)
       {
         this.price_increment = price_increment;
         return this;
       }
 
-      public Builder rfq_product_details(RFQProductDetails? rfq_product_details)
+      public Builder Withrfq_product_details(RFQProductDetails? rfq_product_details)
       {
         this.rfq_product_details = rfq_product_details;
         return this;

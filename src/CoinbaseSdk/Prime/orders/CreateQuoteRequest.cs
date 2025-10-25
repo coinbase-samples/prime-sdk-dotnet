@@ -17,7 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CreateQuoteRequest(string portfolioId)
   {
@@ -46,7 +46,7 @@ namespace CoinbaseSdk.Prime.Orders
 
     public class CreateQuoteRequestBuilder(string portfolioId)
     {
-      private string _portfolioId = portfolioId;
+      private readonly string _portfolioId = portfolioId;
       private string? _productId;
       private OrderSide? _side;
       private string? _clientQuoteId;
@@ -57,43 +57,43 @@ namespace CoinbaseSdk.Prime.Orders
 
       public CreateQuoteRequestBuilder WithProductId(string productId)
       {
-        this._productId = productId;
+        _productId = productId;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithSide(OrderSide side)
       {
-        this._side = side;
+        _side = side;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithClientQuoteId(string clientQuoteId)
       {
-        this._clientQuoteId = clientQuoteId;
+        _clientQuoteId = clientQuoteId;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithBaseQuantity(string baseQuantity)
       {
-        this._baseQuantity = baseQuantity;
+        _baseQuantity = baseQuantity;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithQuoteValue(string quoteValue)
       {
-        this._quoteValue = quoteValue;
+        _quoteValue = quoteValue;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithLimitPrice(string limitPrice)
       {
-        this._limitPrice = limitPrice;
+        _limitPrice = limitPrice;
         return this;
       }
 
       public CreateQuoteRequestBuilder WithSettlCurrency(string settlCurrency)
       {
-        this._settlCurrency = settlCurrency;
+        _settlCurrency = settlCurrency;
         return this;
       }
 
@@ -107,7 +107,7 @@ namespace CoinbaseSdk.Prime.Orders
           BaseQuantity = _baseQuantity,
           QuoteValue = _quoteValue,
           LimitPrice = _limitPrice,
-          SettlCurrency = _settlCurrency
+          SettlCurrency = _settlCurrency,
         };
       }
     }

@@ -56,7 +56,7 @@ namespace CoinbaseSdk.Prime.Model
       this.reference_code = builder.reference_code;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -70,37 +70,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? reference_code;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder type(WalletDepositInstructionType? type)
+      public Builder Withtype(WalletDepositInstructionType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder account_number(string? account_number)
+      public Builder Withaccount_number(string? account_number)
       {
         this.account_number = account_number;
         return this;
       }
 
-      public Builder routing_number(string? routing_number)
+      public Builder Withrouting_number(string? routing_number)
       {
         this.routing_number = routing_number;
         return this;
       }
 
-      public Builder reference_code(string? reference_code)
+      public Builder Withreference_code(string? reference_code)
       {
         this.reference_code = reference_code;
         return this;

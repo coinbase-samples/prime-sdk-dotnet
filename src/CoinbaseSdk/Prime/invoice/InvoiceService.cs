@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Invoice
       ListInvoicesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListInvoicesResponse>(
+      return Request<ListInvoicesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/invoices",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Invoice
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListInvoicesResponse>(
+      return RequestAsync<ListInvoicesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/invoices",
         [HttpStatusCode.OK],

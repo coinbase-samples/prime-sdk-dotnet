@@ -27,18 +27,18 @@ namespace CoinbaseSdk.Prime.Activities
     [JsonIgnore]
     public string ActivityId { get; set; } = activityId;
 
-    public class GetPortfolioActivityRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _activityId;
 
-      public GetPortfolioActivityRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
       }
 
-      public GetPortfolioActivityRequestBuilder WithActivityId(string activityId)
+      public Builder WithActivityId(string activityId)
       {
         _activityId = activityId;
         return this;
@@ -68,7 +68,7 @@ namespace CoinbaseSdk.Prime.Activities
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> or <see cref="_activityId" /> is null, empty, or whitespace.</exception>
       public GetPortfolioActivityRequest Build()
       {
-        this.Validate();
+        Validate();
         return new GetPortfolioActivityRequest(_portfolioId!, _activityId!);
       }
     }

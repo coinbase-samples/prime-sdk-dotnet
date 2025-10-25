@@ -106,7 +106,7 @@ namespace CoinbaseSdk.Prime.Model
       this.adjusted_portfolio_equity = builder.adjusted_portfolio_equity;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? portfolio_id;
 
@@ -130,67 +130,67 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? adjusted_portfolio_equity;
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder currency(string? currency)
+      public Builder Withcurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder limit(string? limit)
+      public Builder Withlimit(string? limit)
       {
         this.limit = limit;
         return this;
       }
 
-      public Builder utilized(string? utilized)
+      public Builder Withutilized(string? utilized)
       {
         this.utilized = utilized;
         return this;
       }
 
-      public Builder available(string? available)
+      public Builder Withavailable(string? available)
       {
         this.available = available;
         return this;
       }
 
-      public Builder frozen(bool? frozen)
+      public Builder Withfrozen(bool? frozen)
       {
         this.frozen = frozen;
         return this;
       }
 
-      public Builder frozen_reason(string? frozen_reason)
+      public Builder Withfrozen_reason(string? frozen_reason)
       {
         this.frozen_reason = frozen_reason;
         return this;
       }
 
-      public Builder amounts_due(List<AmountDue>? amounts_due)
+      public Builder Withamounts_due(List<AmountDue>? amounts_due)
       {
         this.amounts_due = amounts_due;
         return this;
       }
 
-      public Builder enabled(bool? enabled)
+      public Builder Withenabled(bool? enabled)
       {
         this.enabled = enabled;
         return this;
       }
 
-      public Builder adjusted_credit_utilized(string? adjusted_credit_utilized)
+      public Builder Withadjusted_credit_utilized(string? adjusted_credit_utilized)
       {
         this.adjusted_credit_utilized = adjusted_credit_utilized;
         return this;
       }
 
-      public Builder adjusted_portfolio_equity(string? adjusted_portfolio_equity)
+      public Builder Withadjusted_portfolio_equity(string? adjusted_portfolio_equity)
       {
         this.adjusted_portfolio_equity = adjusted_portfolio_equity;
         return this;

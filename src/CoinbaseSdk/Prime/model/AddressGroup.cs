@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Model
       this.added_at = builder.added_at;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -65,31 +65,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? added_at;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder network_type(NetworkType? network_type)
+      public Builder Withnetwork_type(NetworkType? network_type)
       {
         this.network_type = network_type;
         return this;
       }
 
-      public Builder addresses(List<AddressEntry>? addresses)
+      public Builder Withaddresses(List<AddressEntry>? addresses)
       {
         this.addresses = addresses;
         return this;
       }
 
-      public Builder added_at(DateTime? added_at)
+      public Builder Withadded_at(DateTime? added_at)
       {
         this.added_at = added_at;
         return this;

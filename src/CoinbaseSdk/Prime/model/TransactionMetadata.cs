@@ -41,19 +41,19 @@ namespace CoinbaseSdk.Prime.Model
       this.onchain_transaction_metadata = builder.onchain_transaction_metadata;
     }
 
-    public static class Builder
+    public class Builder
     {
       private MatchMetadata? match_metadata;
 
       private OnchainTransactionMetadata? onchain_transaction_metadata;
 
-      public Builder match_metadata(MatchMetadata? match_metadata)
+      public Builder Withmatch_metadata(MatchMetadata? match_metadata)
       {
         this.match_metadata = match_metadata;
         return this;
       }
 
-      public Builder onchain_transaction_metadata(OnchainTransactionMetadata? onchain_transaction_metadata)
+      public Builder Withweb3_transaction_metadata(OnchainTransactionMetadata? onchain_transaction_metadata)
       {
         this.onchain_transaction_metadata = onchain_transaction_metadata;
         return this;

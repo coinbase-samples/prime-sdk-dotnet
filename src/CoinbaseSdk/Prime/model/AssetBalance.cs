@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.conversion_rate = builder.conversion_rate;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? portfolio_id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? conversion_rate;
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder notional_amount(string? notional_amount)
+      public Builder Withnotional_amount(string? notional_amount)
       {
         this.notional_amount = notional_amount;
         return this;
       }
 
-      public Builder conversion_rate(string? conversion_rate)
+      public Builder Withconversion_rate(string? conversion_rate)
       {
         this.conversion_rate = conversion_rate;
         return this;

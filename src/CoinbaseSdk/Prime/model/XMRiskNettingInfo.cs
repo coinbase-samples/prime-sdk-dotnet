@@ -128,7 +128,7 @@ namespace CoinbaseSdk.Prime.Model
       this.xm_positions = builder.xm_positions;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? nodal_margin_requirement;
 
@@ -158,85 +158,85 @@ namespace CoinbaseSdk.Prime.Model
 
       private List<XMPosition>? xm_positions;
 
-      public Builder nodal_margin_requirement(string? nodal_margin_requirement)
+      public Builder Withnodal_margin_requirement(string? nodal_margin_requirement)
       {
         this.nodal_margin_requirement = nodal_margin_requirement;
         return this;
       }
 
-      public Builder portfolio_margin_requirement(string? portfolio_margin_requirement)
+      public Builder Withportfolio_margin_requirement(string? portfolio_margin_requirement)
       {
         this.portfolio_margin_requirement = portfolio_margin_requirement;
         return this;
       }
 
-      public Builder integrated_portfolio_margin_requirement(string? integrated_portfolio_margin_requirement)
+      public Builder Withintegrated_portfolio_margin_requirement(string? integrated_portfolio_margin_requirement)
       {
         this.integrated_portfolio_margin_requirement = integrated_portfolio_margin_requirement;
         return this;
       }
 
-      public Builder ineligible_futures_margin_requirement(string? ineligible_futures_margin_requirement)
+      public Builder Withineligible_futures_margin_requirement(string? ineligible_futures_margin_requirement)
       {
         this.ineligible_futures_margin_requirement = ineligible_futures_margin_requirement;
         return this;
       }
 
-      public Builder position_margin_requirement(string? position_margin_requirement)
+      public Builder Withposition_margin_requirement(string? position_margin_requirement)
       {
         this.position_margin_requirement = position_margin_requirement;
         return this;
       }
 
-      public Builder portfolio_margin_addon(string? portfolio_margin_addon)
+      public Builder Withportfolio_margin_addon(string? portfolio_margin_addon)
       {
         this.portfolio_margin_addon = portfolio_margin_addon;
         return this;
       }
 
-      public Builder integrated_position_margin_requirement(string? integrated_position_margin_requirement)
+      public Builder Withintegrated_position_margin_requirement(string? integrated_position_margin_requirement)
       {
         this.integrated_position_margin_requirement = integrated_position_margin_requirement;
         return this;
       }
 
-      public Builder integrated_portfolio_margin_addon(string? integrated_portfolio_margin_addon)
+      public Builder Withintegrated_portfolio_margin_addon(string? integrated_portfolio_margin_addon)
       {
         this.integrated_portfolio_margin_addon = integrated_portfolio_margin_addon;
         return this;
       }
 
-      public Builder netted_futures_notional(string? netted_futures_notional)
+      public Builder Withnetted_futures_notional(string? netted_futures_notional)
       {
         this.netted_futures_notional = netted_futures_notional;
         return this;
       }
 
-      public Builder total_gmv_basis(string? total_gmv_basis)
+      public Builder Withtotal_gmv_basis(string? total_gmv_basis)
       {
         this.total_gmv_basis = total_gmv_basis;
         return this;
       }
 
-      public Builder ipm_cash_balance(string? ipm_cash_balance)
+      public Builder Withipm_cash_balance(string? ipm_cash_balance)
       {
         this.ipm_cash_balance = ipm_cash_balance;
         return this;
       }
 
-      public Builder integrated_scenario_addon(MarginAddOn? integrated_scenario_addon)
+      public Builder Withintegrated_scenario_addon(MarginAddOn? integrated_scenario_addon)
       {
         this.integrated_scenario_addon = integrated_scenario_addon;
         return this;
       }
 
-      public Builder all_integrated_scenario_addons(List<MarginAddOn>? all_integrated_scenario_addons)
+      public Builder Withall_integrated_scenario_addons(List<MarginAddOn>? all_integrated_scenario_addons)
       {
         this.all_integrated_scenario_addons = all_integrated_scenario_addons;
         return this;
       }
 
-      public Builder xm_positions(List<XMPosition>? xm_positions)
+      public Builder Withxm_positions(List<XMPosition>? xm_positions)
       {
         this.xm_positions = xm_positions;
         return this;

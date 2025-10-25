@@ -69,7 +69,7 @@ namespace CoinbaseSdk.Prime.Model
       this.cure_deadline = builder.cure_deadline;
     }
 
-    public static class Builder
+    public class Builder
     {
       private FCMMarginCallType? type;
 
@@ -83,37 +83,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? cure_deadline;
 
-      public Builder type(FCMMarginCallType? type)
+      public Builder Withtype(FCMMarginCallType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder state(FCMMarginCallState? state)
+      public Builder Withstate(FCMMarginCallState? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder initial_amount(string? initial_amount)
+      public Builder Withinitial_amount(string? initial_amount)
       {
         this.initial_amount = initial_amount;
         return this;
       }
 
-      public Builder remaining_amount(string? remaining_amount)
+      public Builder Withremaining_amount(string? remaining_amount)
       {
         this.remaining_amount = remaining_amount;
         return this;
       }
 
-      public Builder business_date(DateTime? business_date)
+      public Builder Withbusiness_date(DateTime? business_date)
       {
         this.business_date = business_date;
         return this;
       }
 
-      public Builder cure_deadline(DateTime? cure_deadline)
+      public Builder Withcure_deadline(DateTime? cure_deadline)
       {
         this.cure_deadline = cure_deadline;
         return this;

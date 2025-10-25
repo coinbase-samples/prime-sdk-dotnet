@@ -17,7 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class AcceptQuoteRequest(string portfolioId, string productId, string quoteId, string clientQuoteId)
   {

@@ -17,7 +17,9 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
-  public class ListMarginConversionsRequest(string portfolioId)
+  using CoinbaseSdk.Prime.Common;
+
+  public class ListMarginConversionsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -27,32 +29,5 @@ namespace CoinbaseSdk.Prime.Financing
 
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
-
-    public class ListMarginConversionsRequestBuilder
-    {
-      private string? _startDate;
-      private string? _endDate;
-
-      public ListMarginConversionsRequestBuilder WithStartDate(string startDate)
-      {
-        _startDate = startDate;
-        return this;
-      }
-
-      public ListMarginConversionsRequestBuilder WithEndDate(string endDate)
-      {
-        _endDate = endDate;
-        return this;
-      }
-
-      public ListMarginConversionsRequest Build(string portfolioId)
-      {
-        return new ListMarginConversionsRequest(portfolioId)
-        {
-          StartDate = _startDate,
-          EndDate = _endDate
-        };
-      }
-    }
   }
 }

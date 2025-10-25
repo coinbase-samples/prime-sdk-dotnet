@@ -74,7 +74,7 @@ namespace CoinbaseSdk.Prime.Model
       this.networks = builder.networks;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? name;
 
@@ -88,37 +88,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private List<NetworkDetails>? networks;
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder decimal_precision(string? decimal_precision)
+      public Builder Withdecimal_precision(string? decimal_precision)
       {
         this.decimal_precision = decimal_precision;
         return this;
       }
 
-      public Builder trading_supported(bool? trading_supported)
+      public Builder Withtrading_supported(bool? trading_supported)
       {
         this.trading_supported = trading_supported;
         return this;
       }
 
-      public Builder explorer_url(string? explorer_url)
+      public Builder Withexplorer_url(string? explorer_url)
       {
         this.explorer_url = explorer_url;
         return this;
       }
 
-      public Builder networks(List<NetworkDetails>? networks)
+      public Builder Withnetworks(List<NetworkDetails>? networks)
       {
         this.networks = networks;
         return this;

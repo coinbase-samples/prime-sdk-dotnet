@@ -80,7 +80,7 @@ namespace CoinbaseSdk.Prime.Model
       this.conversion_rate = builder.conversion_rate;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -96,43 +96,43 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? conversion_rate;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder tf_balance(string? tf_balance)
+      public Builder Withtf_balance(string? tf_balance)
       {
         this.tf_balance = tf_balance;
         return this;
       }
 
-      public Builder notional_tf_balance(string? notional_tf_balance)
+      public Builder Withnotional_tf_balance(string? notional_tf_balance)
       {
         this.notional_tf_balance = notional_tf_balance;
         return this;
       }
 
-      public Builder converted_balance(string? converted_balance)
+      public Builder Withconverted_balance(string? converted_balance)
       {
         this.converted_balance = converted_balance;
         return this;
       }
 
-      public Builder notional_converted_balance(string? notional_converted_balance)
+      public Builder Withnotional_converted_balance(string? notional_converted_balance)
       {
         this.notional_converted_balance = notional_converted_balance;
         return this;
       }
 
-      public Builder interest_rate(string? interest_rate)
+      public Builder Withinterest_rate(string? interest_rate)
       {
         this.interest_rate = interest_rate;
         return this;
       }
 
-      public Builder conversion_rate(string? conversion_rate)
+      public Builder Withconversion_rate(string? conversion_rate)
       {
         this.conversion_rate = conversion_rate;
         return this;

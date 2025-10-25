@@ -17,8 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
 
   public class ListPortfolioFillsRequest(string portfolioId) : PaginatedRequest
   {
@@ -30,76 +29,5 @@ namespace CoinbaseSdk.Prime.Orders
 
     [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
-
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-
-    public class ListPortfolioFillsRequestBuilder : PaginatedRequestBuilder<ListPortfolioFillsRequest, ListPortfolioFillsRequestBuilder>
-    {
-      private string? _portfolioId;
-      private string? _startDate;
-      private string? _endDate;
-      private SortDirection? _sortDirection;
-
-      public ListPortfolioFillsRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListPortfolioFillsRequestBuilder WithStartDate(string startDate)
-      {
-        this._startDate = startDate;
-        return this;
-      }
-
-      public ListPortfolioFillsRequestBuilder WithEndDate(string? endDate)
-      {
-        this._endDate = endDate;
-        return this;
-      }
-
-      public ListPortfolioFillsRequestBuilder WithSortDirection(SortDirection? sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> or <see cref="_startDate"/> are null, empty
-      /// or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(this._startDate))
-        {
-          throw new CoinbaseClientException("StartDate is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="ListPortfolioFillsRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="ListPortfolioFillsRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListPortfolioFillsRequest Build()
-      {
-        this.Validate();
-        var request = new ListPortfolioFillsRequest(this._portfolioId!)
-        {
-          StartDate = this._startDate!,
-          EndDate = this._endDate,
-          SortDirection = this._sortDirection,
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

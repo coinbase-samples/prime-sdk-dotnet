@@ -32,3 +32,4 @@ namespace CoinbaseSdk.Prime.Staking
     public CreateUnstakeResponse() { }
   }
 }
+

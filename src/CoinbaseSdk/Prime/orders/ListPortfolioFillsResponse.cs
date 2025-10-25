@@ -16,11 +16,12 @@
 
 namespace CoinbaseSdk.Prime.Orders
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListPortfolioFillsResponse
   {
-    public List<OrderFill> Fills { get; set; } = [];
+    public List<Fill> Fills { get; set; } = [];
 
     public Pagination? Pagination { get; set; }
   }

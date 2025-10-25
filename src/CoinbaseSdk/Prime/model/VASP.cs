@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Model
       this.lei_number = builder.lei_number;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -51,19 +51,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? lei_number;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder country_code(string? country_code)
+      public Builder Withcountry_code(string? country_code)
       {
         this.country_code = country_code;
         return this;
       }
 
-      public Builder lei_number(string? lei_number)
+      public Builder Withlei_number(string? lei_number)
       {
         this.lei_number = lei_number;
         return this;

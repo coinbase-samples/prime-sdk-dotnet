@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.due_at = builder.due_at;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? margin_call_id;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? due_at;
 
-      public Builder margin_call_id(string? margin_call_id)
+      public Builder Withmargin_call_id(string? margin_call_id)
       {
         this.margin_call_id = margin_call_id;
         return this;
       }
 
-      public Builder initial_notional_amount(string? initial_notional_amount)
+      public Builder Withinitial_notional_amount(string? initial_notional_amount)
       {
         this.initial_notional_amount = initial_notional_amount;
         return this;
       }
 
-      public Builder outstanding_notional_amount(string? outstanding_notional_amount)
+      public Builder Withoutstanding_notional_amount(string? outstanding_notional_amount)
       {
         this.outstanding_notional_amount = outstanding_notional_amount;
         return this;
       }
 
-      public Builder created_at(string? created_at)
+      public Builder Withcreated_at(string? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder due_at(string? due_at)
+      public Builder Withdue_at(string? due_at)
       {
         this.due_at = due_at;
         return this;

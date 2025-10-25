@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.upper_bound = builder.upper_bound;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? lower_bound;
 
       private string? upper_bound;
 
-      public Builder lower_bound(string? lower_bound)
+      public Builder Withlower_bound(string? lower_bound)
       {
         this.lower_bound = lower_bound;
         return this;
       }
 
-      public Builder upper_bound(string? upper_bound)
+      public Builder Withupper_bound(string? upper_bound)
       {
         this.upper_bound = upper_bound;
         return this;

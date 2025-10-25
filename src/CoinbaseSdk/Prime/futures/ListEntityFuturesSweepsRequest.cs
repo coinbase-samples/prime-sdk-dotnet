@@ -17,9 +17,12 @@
 namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
-  public class ListEntityFuturesSweepsRequest(string entityId)
+  using CoinbaseSdk.Prime.Common;
+
+  public class ListEntityFuturesSweepsRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
   }
 }
+

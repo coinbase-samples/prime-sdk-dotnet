@@ -17,8 +17,8 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListWalletsRequest(string portfolioId) : PaginatedRequest
   {
@@ -29,84 +29,5 @@ namespace CoinbaseSdk.Prime.Wallets
     public WalletType Type { get; set; }
 
     public string[] Symbols { get; set; } = [];
-
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
-
-    public class ListWalletsRequestBuilder : PaginatedRequestBuilder<ListWalletsRequest, ListWalletsRequestBuilder>
-    {
-      private string? _portfolioId;
-      private WalletType _type;
-      private string[] _symbols = [];
-      private SortDirection? _sortDirection;
-
-      public ListWalletsRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListWalletsRequestBuilder WithType(WalletType type)
-      {
-        this._type = type;
-        return this;
-      }
-
-      public ListWalletsRequestBuilder WithSymbols(string[] symbols)
-      {
-        this._symbols = symbols;
-        return this;
-      }
-
-
-      public ListWalletsRequestBuilder WithSortDirection(SortDirection sortDirection)
-      {
-        this._sortDirection = sortDirection;
-        return this;
-      }
-
-      public new ListWalletsRequestBuilder WithPagination(Pagination pagination)
-      {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace, or when
-      /// <see cref="_type"/> is not set.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (!Enum.IsDefined(typeof(WalletType), this._type))
-        {
-          throw new CoinbaseClientException("Type is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListWalletsRequest"/>.
-      /// </summary>
-      /// <returns>The <see cref="ListWalletsRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required field is not set.</exception>
-      public override ListWalletsRequest Build()
-      {
-        this.Validate();
-        var request = new ListWalletsRequest(this._portfolioId!)
-        {
-          Type = this._type,
-          Symbols = this._symbols,
-          SortDirection = this._sortDirection
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

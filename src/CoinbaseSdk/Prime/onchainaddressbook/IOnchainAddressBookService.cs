@@ -17,7 +17,6 @@
 namespace CoinbaseSdk.Prime.OnchainAddressBook
 {
   using CoinbaseSdk.Core.Http;
-  using CoinbaseSdk.Prime.Model;
 
   public interface IOnchainAddressBookService
   {

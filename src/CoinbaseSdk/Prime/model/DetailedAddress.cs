@@ -59,7 +59,7 @@ namespace CoinbaseSdk.Prime.Model
       this.postal_code = builder.postal_code;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? address_1;
 
@@ -75,43 +75,43 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? postal_code;
 
-      public Builder address_1(string? address_1)
+      public Builder Withaddress_1(string? address_1)
       {
         this.address_1 = address_1;
         return this;
       }
 
-      public Builder address_2(string? address_2)
+      public Builder Withaddress_2(string? address_2)
       {
         this.address_2 = address_2;
         return this;
       }
 
-      public Builder address_3(string? address_3)
+      public Builder Withaddress_3(string? address_3)
       {
         this.address_3 = address_3;
         return this;
       }
 
-      public Builder city(string? city)
+      public Builder Withcity(string? city)
       {
         this.city = city;
         return this;
       }
 
-      public Builder state(string? state)
+      public Builder Withstate(string? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder country_code(string? country_code)
+      public Builder Withcountry_code(string? country_code)
       {
         this.country_code = country_code;
         return this;
       }
 
-      public Builder postal_code(string? postal_code)
+      public Builder Withpostal_code(string? postal_code)
       {
         this.postal_code = postal_code;
         return this;

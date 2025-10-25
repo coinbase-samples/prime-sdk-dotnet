@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Model
       this.day = builder.day;
     }
 
-    public static class Builder
+    public class Builder
     {
       private long? year;
 
@@ -51,19 +51,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private long? day;
 
-      public Builder year(long? year)
+      public Builder Withyear(long? year)
       {
         this.year = year;
         return this;
       }
 
-      public Builder month(long? month)
+      public Builder Withmonth(long? month)
       {
         this.month = month;
         return this;
       }
 
-      public Builder day(long? day)
+      public Builder Withday(long? day)
       {
         this.day = day;
         return this;

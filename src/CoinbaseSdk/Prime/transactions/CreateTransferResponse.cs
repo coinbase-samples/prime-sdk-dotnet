@@ -27,7 +27,9 @@ namespace CoinbaseSdk.Prime.Transactions
     public string? ApprovalUrl { get; set; }
 
     public string? Symbol { get; set; }
+
     public string? Amount { get; set; }
+
     public string? Fee { get; set; }
 
     [JsonPropertyName("destination_address")]

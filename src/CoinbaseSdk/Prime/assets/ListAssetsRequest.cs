@@ -17,44 +17,11 @@
 namespace CoinbaseSdk.Prime.Assets
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  public class ListAssetsRequest(string entityId)
+  using CoinbaseSdk.Prime.Common;
+
+  public class ListAssetsRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; } = entityId;
-
-    public class ListAssetsRequestBuilder
-    {
-      private string? _entityId;
-
-      public ListAssetsRequestBuilder WithEntityId(string entityId)
-      {
-        this._entityId = entityId;
-        return this;
-      }
-
-      /// <summary>
-      /// Build the <see cref="ListAssetsRequest"/> object.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId"/> is null, empty or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._entityId))
-        {
-          throw new CoinbaseClientException("EntityId is required");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="ListAssetsRequest"/> object.
-      /// </summary>
-      /// <returns>The <see cref="ListAssetsRequest"/> object.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public ListAssetsRequest Build()
-      {
-        this.Validate();
-        return new ListAssetsRequest(this._entityId!);
-      }
-    }
   }
 }

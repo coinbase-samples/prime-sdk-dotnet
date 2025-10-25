@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.network = builder.network;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -84,49 +84,49 @@ namespace CoinbaseSdk.Prime.Model
 
       private Network? network;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder type(WalletType? type)
+      public Builder Withtype(WalletType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder created_at(DateTime? created_at)
+      public Builder Withcreated_at(DateTime? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder visibility(WalletVisibility? visibility)
+      public Builder Withvisibility(WalletVisibility? visibility)
       {
         this.visibility = visibility;
         return this;
       }
 
-      public Builder network(Network? network)
+      public Builder Withnetwork(Network? network)
       {
         this.network = network;
         return this;

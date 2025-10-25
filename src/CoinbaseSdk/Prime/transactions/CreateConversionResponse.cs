@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Prime.Transactions
 {
   using System.Text.Json.Serialization;
+
   public class CreateConversionResponse
   {
     [JsonPropertyName("activity_id")]
@@ -29,7 +30,9 @@ namespace CoinbaseSdk.Prime.Transactions
     public string? DestinationSymbol { get; set; }
 
     public string? Amount { get; set; }
+
     public string? Destination { get; set; }
+
     public string? Source { get; set; }
 
     [JsonPropertyName("transaction_id")]

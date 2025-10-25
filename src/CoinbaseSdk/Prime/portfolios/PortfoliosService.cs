@@ -26,7 +26,7 @@ namespace CoinbaseSdk.Prime.Portfolios
   {
     public ListPortfoliosResponse ListPortfolios(CallOptions? options = null)
     {
-      return this.Request<ListPortfoliosResponse>(
+      return Request<ListPortfoliosResponse>(
         HttpMethod.Get,
         "/portfolios",
         [HttpStatusCode.OK],
@@ -38,7 +38,7 @@ namespace CoinbaseSdk.Prime.Portfolios
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfoliosResponse>(
+      return RequestAsync<ListPortfoliosResponse>(
         HttpMethod.Get,
         "/portfolios",
         [HttpStatusCode.OK],
@@ -51,7 +51,7 @@ namespace CoinbaseSdk.Prime.Portfolios
       GetPortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioResponse>(
+      return Request<GetPortfolioResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}",
         [HttpStatusCode.OK],
@@ -64,7 +64,7 @@ namespace CoinbaseSdk.Prime.Portfolios
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioResponse>(
+      return RequestAsync<GetPortfolioResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}",
         [HttpStatusCode.OK],
@@ -77,7 +77,7 @@ namespace CoinbaseSdk.Prime.Portfolios
       GetPortfolioCounterpartyRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioCounterpartyResponse>(
+      return Request<GetPortfolioCounterpartyResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/counterparty",
         [HttpStatusCode.OK],
@@ -90,7 +90,7 @@ namespace CoinbaseSdk.Prime.Portfolios
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioCounterpartyResponse>(
+      return RequestAsync<GetPortfolioCounterpartyResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/counterparty",
         [HttpStatusCode.OK],

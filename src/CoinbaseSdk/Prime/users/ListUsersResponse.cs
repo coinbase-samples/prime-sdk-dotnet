@@ -16,12 +16,16 @@
 
 namespace CoinbaseSdk.Prime.Users
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListUsersResponse
   {
     public EntityUser[] Users { get; set; } = [];
+
     public Pagination? Pagination { get; set; }
+
     public ListUsersResponse() { }
   }
 }
+

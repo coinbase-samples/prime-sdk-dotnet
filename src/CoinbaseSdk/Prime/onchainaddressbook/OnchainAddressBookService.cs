@@ -20,15 +20,16 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  using CoinbaseSdk.Prime.Model;
 
-  public class OnchainAddressBookService(ICoinbaseClient client) : CoinbaseService(client), IOnchainAddressBookService
+  public class OnchainAddressBookService(ICoinbaseClient client)
+    : CoinbaseService(client),
+      IOnchainAddressBookService
   {
     public ActivityCreationResponse CreateOnchainAddressBookEntry(
       CreateOnchainAddressBookEntryRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ActivityCreationResponse>(
+      return Request<ActivityCreationResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/onchain_address_group",
         [HttpStatusCode.OK],
@@ -41,7 +42,7 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ActivityCreationResponse>(
+      return RequestAsync<ActivityCreationResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/onchain_address_group",
         [HttpStatusCode.OK],
@@ -54,7 +55,7 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
       UpdateOnchainAddressBookEntryRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ActivityCreationResponse>(
+      return Request<ActivityCreationResponse>(
         HttpMethod.Put,
         $"/portfolios/{request.PortfolioId}/onchain_address_group",
         [HttpStatusCode.OK],
@@ -63,24 +64,24 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
     }
 
     public Task<ActivityCreationResponse> UpdateOnchainAddressBookEntryAsync(
-        UpdateOnchainAddressBookEntryRequest request,
-        CallOptions? options = null,
-        CancellationToken cancellationToken = default)
+      UpdateOnchainAddressBookEntryRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ActivityCreationResponse>(
-      HttpMethod.Put,
-      $"/portfolios/{request.PortfolioId}/onchain_address_group",
-      [HttpStatusCode.OK],
-      request,
-      options,
-      cancellationToken);
+      return RequestAsync<ActivityCreationResponse>(
+        HttpMethod.Put,
+        $"/portfolios/{request.PortfolioId}/onchain_address_group",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
     }
 
     public ActivityCreationResponse DeleteOnchainAddressGroup(
-        DeleteOnchainAddressGroupRequest request,
-        CallOptions? options = null)
+      DeleteOnchainAddressGroupRequest request,
+      CallOptions? options = null)
     {
-      return this.Request<ActivityCreationResponse>(
+      return Request<ActivityCreationResponse>(
         HttpMethod.Delete,
         $"/portfolios/{request.PortfolioId}/onchain_address_group/{request.AddressGroupId}",
         [HttpStatusCode.OK],
@@ -89,11 +90,11 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
     }
 
     public Task<ActivityCreationResponse> DeleteOnchainAddressGroupAsync(
-        DeleteOnchainAddressGroupRequest request,
-        CallOptions? options = null,
-        CancellationToken cancellationToken = default)
+      DeleteOnchainAddressGroupRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ActivityCreationResponse>(
+      return RequestAsync<ActivityCreationResponse>(
         HttpMethod.Delete,
         $"/portfolios/{request.PortfolioId}/onchain_address_group/{request.AddressGroupId}",
         [HttpStatusCode.OK],
@@ -106,7 +107,7 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
       ListOnchainAddressGroupsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListOnchainAddressGroupsResponse>(
+      return Request<ListOnchainAddressGroupsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/onchain_address_groups",
         [HttpStatusCode.OK],
@@ -119,7 +120,7 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListOnchainAddressGroupsResponse>(
+      return RequestAsync<ListOnchainAddressGroupsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/onchain_address_groups",
         [HttpStatusCode.OK],

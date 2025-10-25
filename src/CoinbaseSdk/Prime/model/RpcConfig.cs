@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.url = builder.url;
     }
 
-    public static class Builder
+    public class Builder
     {
       private bool? skip_broadcast;
 
       private string? url;
 
-      public Builder skip_broadcast(bool? skip_broadcast)
+      public Builder Withskip_broadcast(bool? skip_broadcast)
       {
         this.skip_broadcast = skip_broadcast;
         return this;
       }
 
-      public Builder url(string? url)
+      public Builder Withurl(string? url)
       {
         this.url = url;
         return this;

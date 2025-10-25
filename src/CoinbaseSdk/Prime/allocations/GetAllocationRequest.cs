@@ -27,20 +27,20 @@ namespace CoinbaseSdk.Prime.Allocations
     [JsonIgnore]
     public string AllocationId { get; set; } = allocationId;
 
-    public class GetAllocationRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _allocationId;
 
-      public GetAllocationRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public GetAllocationRequestBuilder WithAllocationId(string allocationId)
+      public Builder WithAllocationId(string allocationId)
       {
-        this._allocationId = allocationId;
+        _allocationId = allocationId;
         return this;
       }
 
@@ -52,11 +52,11 @@ namespace CoinbaseSdk.Prime.Allocations
       /// or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._allocationId))
+        if (string.IsNullOrWhiteSpace(_allocationId))
         {
           throw new CoinbaseClientException("AllocationId is required");
         }
@@ -69,8 +69,8 @@ namespace CoinbaseSdk.Prime.Allocations
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public GetAllocationRequest Build()
       {
-        this.Validate();
-        return new GetAllocationRequest(this._portfolioId!, this._allocationId!);
+        Validate();
+        return new GetAllocationRequest(_portfolioId!, _allocationId!);
       }
     }
   }

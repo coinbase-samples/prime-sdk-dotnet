@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.security_risk_detected = builder.security_risk_detected;
     }
 
-    public static class Builder
+    public class Builder
     {
       private bool? compliance_risk_detected;
 
       private bool? security_risk_detected;
 
-      public Builder compliance_risk_detected(bool? compliance_risk_detected)
+      public Builder Withcompliance_risk_detected(bool? compliance_risk_detected)
       {
         this.compliance_risk_detected = compliance_risk_detected;
         return this;
       }
 
-      public Builder security_risk_detected(bool? security_risk_detected)
+      public Builder Withsecurity_risk_detected(bool? security_risk_detected)
       {
         this.security_risk_detected = security_risk_detected;
         return this;

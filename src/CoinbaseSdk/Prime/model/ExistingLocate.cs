@@ -108,7 +108,7 @@ namespace CoinbaseSdk.Prime.Model
       this.locate_date = builder.locate_date;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? locate_id;
 
@@ -132,67 +132,67 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? locate_date;
 
-      public Builder locate_id(string? locate_id)
+      public Builder Withlocate_id(string? locate_id)
       {
         this.locate_id = locate_id;
         return this;
       }
 
-      public Builder entity_id(string? entity_id)
+      public Builder Withentity_id(string? entity_id)
       {
         this.entity_id = entity_id;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder requested_amount(string? requested_amount)
+      public Builder Withrequested_amount(string? requested_amount)
       {
         this.requested_amount = requested_amount;
         return this;
       }
 
-      public Builder interest_rate(string? interest_rate)
+      public Builder Withinterest_rate(string? interest_rate)
       {
         this.interest_rate = interest_rate;
         return this;
       }
 
-      public Builder status(string? status)
+      public Builder Withstatus(string? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder approved_amount(string? approved_amount)
+      public Builder Withapproved_amount(string? approved_amount)
       {
         this.approved_amount = approved_amount;
         return this;
       }
 
-      public Builder conversion_date(string? conversion_date)
+      public Builder Withconversion_date(string? conversion_date)
       {
         this.conversion_date = conversion_date;
         return this;
       }
 
-      public Builder created_at(string? created_at)
+      public Builder Withcreated_at(string? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder locate_date(string? locate_date)
+      public Builder Withlocate_date(string? locate_date)
       {
         this.locate_date = locate_date;
         return this;

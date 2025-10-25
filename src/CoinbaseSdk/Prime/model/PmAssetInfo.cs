@@ -150,7 +150,7 @@ namespace CoinbaseSdk.Prime.Model
       this.long_nominal = builder.long_nominal;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -186,103 +186,103 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? long_nominal;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder price(string? price)
+      public Builder Withprice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder notional_amount(string? notional_amount)
+      public Builder Withnotional_amount(string? notional_amount)
       {
         this.notional_amount = notional_amount;
         return this;
       }
 
-      public Builder asset_tier(string? asset_tier)
+      public Builder Withasset_tier(string? asset_tier)
       {
         this.asset_tier = asset_tier;
         return this;
       }
 
-      public Builder margin_eligible(bool? margin_eligible)
+      public Builder Withmargin_eligible(bool? margin_eligible)
       {
         this.margin_eligible = margin_eligible;
         return this;
       }
 
-      public Builder base_margin_requirement(string? base_margin_requirement)
+      public Builder Withbase_margin_requirement(string? base_margin_requirement)
       {
         this.base_margin_requirement = base_margin_requirement;
         return this;
       }
 
-      public Builder base_margin_requirement_notional(string? base_margin_requirement_notional)
+      public Builder Withbase_margin_requirement_notional(string? base_margin_requirement_notional)
       {
         this.base_margin_requirement_notional = base_margin_requirement_notional;
         return this;
       }
 
-      public Builder adv_30d(string? adv_30d)
+      public Builder Withadv_30d(string? adv_30d)
       {
         this.adv_30d = adv_30d;
         return this;
       }
 
-      public Builder hist_5d_vol(string? hist_5d_vol)
+      public Builder Withhist_5d_vol(string? hist_5d_vol)
       {
         this.hist_5d_vol = hist_5d_vol;
         return this;
       }
 
-      public Builder hist_30d_vol(string? hist_30d_vol)
+      public Builder Withhist_30d_vol(string? hist_30d_vol)
       {
         this.hist_30d_vol = hist_30d_vol;
         return this;
       }
 
-      public Builder hist_90d_vol(string? hist_90d_vol)
+      public Builder Withhist_90d_vol(string? hist_90d_vol)
       {
         this.hist_90d_vol = hist_90d_vol;
         return this;
       }
 
-      public Builder volatility_addon(string? volatility_addon)
+      public Builder Withvolatility_addon(string? volatility_addon)
       {
         this.volatility_addon = volatility_addon;
         return this;
       }
 
-      public Builder liquidity_addon(string? liquidity_addon)
+      public Builder Withliquidity_addon(string? liquidity_addon)
       {
         this.liquidity_addon = liquidity_addon;
         return this;
       }
 
-      public Builder total_position_margin(string? total_position_margin)
+      public Builder Withtotal_position_margin(string? total_position_margin)
       {
         this.total_position_margin = total_position_margin;
         return this;
       }
 
-      public Builder short_nominal(string? short_nominal)
+      public Builder Withshort_nominal(string? short_nominal)
       {
         this.short_nominal = short_nominal;
         return this;
       }
 
-      public Builder long_nominal(string? long_nominal)
+      public Builder Withlong_nominal(string? long_nominal)
       {
         this.long_nominal = long_nominal;
         return this;

@@ -39,19 +39,19 @@ namespace CoinbaseSdk.Prime.Model
       this.holds = builder.holds;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? total;
 
       private string? holds;
 
-      public Builder total(string? total)
+      public Builder Withtotal(string? total)
       {
         this.total = total;
         return this;
       }
 
-      public Builder holds(string? holds)
+      public Builder Withholds(string? holds)
       {
         this.holds = holds;
         return this;

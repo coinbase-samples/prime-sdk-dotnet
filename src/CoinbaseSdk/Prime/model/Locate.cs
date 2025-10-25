@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Model
       this.rate = builder.rate;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -60,19 +60,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? rate;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder quantity(string? quantity)
+      public Builder Withquantity(string? quantity)
       {
         this.quantity = quantity;
         return this;
       }
 
-      public Builder rate(string? rate)
+      public Builder Withrate(string? rate)
       {
         this.rate = rate;
         return this;

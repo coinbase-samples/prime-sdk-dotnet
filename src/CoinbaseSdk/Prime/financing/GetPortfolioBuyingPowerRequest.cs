@@ -27,32 +27,5 @@ namespace CoinbaseSdk.Prime.Financing
 
     [JsonPropertyName("quote_currency")]
     public string? QuoteCurrency { get; set; }
-
-    public class GetPortfolioBuyingPowerRequestBuilder
-    {
-      private string? _baseCurrency;
-      private string? _quoteCurrency;
-
-      public GetPortfolioBuyingPowerRequestBuilder WithBaseCurrency(string baseCurrency)
-      {
-        _baseCurrency = baseCurrency;
-        return this;
-      }
-
-      public GetPortfolioBuyingPowerRequestBuilder WithQuoteCurrency(string quoteCurrency)
-      {
-        _quoteCurrency = quoteCurrency;
-        return this;
-      }
-
-      public GetPortfolioBuyingPowerRequest Build(string portfolioId)
-      {
-        return new GetPortfolioBuyingPowerRequest(portfolioId)
-        {
-          BaseCurrency = _baseCurrency,
-          QuoteCurrency = _quoteCurrency
-        };
-      }
-    }
   }
 }

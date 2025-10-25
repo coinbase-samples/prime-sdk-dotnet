@@ -57,7 +57,7 @@ namespace CoinbaseSdk.Prime.Model
       this.position_reference = builder.position_reference;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -67,25 +67,25 @@ namespace CoinbaseSdk.Prime.Model
 
       private PositionReference? position_reference;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder VarLong(string? VarLong)
+      public Builder WithVarLong(string? VarLong)
       {
         this.VarLong = VarLong;
         return this;
       }
 
-      public Builder VarShort(string? VarShort)
+      public Builder WithVarShort(string? VarShort)
       {
         this.VarShort = VarShort;
         return this;
       }
 
-      public Builder position_reference(PositionReference? position_reference)
+      public Builder Withposition_reference(PositionReference? position_reference)
       {
         this.position_reference = position_reference;
         return this;

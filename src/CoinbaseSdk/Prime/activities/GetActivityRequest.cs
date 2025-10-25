@@ -23,11 +23,11 @@ namespace CoinbaseSdk.Prime.Activities
     [JsonIgnore]
     public string ActivityId { get; set; } = activityId;
 
-    public class GetActivityRequestBuilder
+    public class Builder
     {
       private string? _activityId;
 
-      public GetActivityRequestBuilder WithActivityId(string activityId)
+      public Builder WithActivityId(string activityId)
       {
         _activityId = activityId;
         return this;
@@ -54,7 +54,7 @@ namespace CoinbaseSdk.Prime.Activities
       /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
       public GetActivityRequest Build()
       {
-        this.Validate();
+        Validate();
         return new GetActivityRequest(_activityId!);
       }
     }

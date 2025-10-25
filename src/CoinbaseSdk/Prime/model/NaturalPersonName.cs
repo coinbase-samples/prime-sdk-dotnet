@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Model
       this.last_name = builder.last_name;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? first_name;
 
@@ -51,19 +51,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? last_name;
 
-      public Builder first_name(string? first_name)
+      public Builder Withfirst_name(string? first_name)
       {
         this.first_name = first_name;
         return this;
       }
 
-      public Builder middle_name(string? middle_name)
+      public Builder Withmiddle_name(string? middle_name)
       {
         this.middle_name = middle_name;
         return this;
       }
 
-      public Builder last_name(string? last_name)
+      public Builder Withlast_name(string? last_name)
       {
         this.last_name = last_name;
         return this;

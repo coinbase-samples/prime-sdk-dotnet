@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
       GetEntityPaymentMethodRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetEntityPaymentMethodResponse>(
+      return Request<GetEntityPaymentMethodResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/payment-methods/{request.PaymentMethodId}",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetEntityPaymentMethodResponse>(
+      return RequestAsync<GetEntityPaymentMethodResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/payment-methods/{request.PaymentMethodId}",
         [HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
       ListEntityPaymentMethodsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListEntityPaymentMethodsResponse>(
+      return Request<ListEntityPaymentMethodsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/payment-methods",
         [HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.PaymentMethods
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListEntityPaymentMethodsResponse>(
+      return RequestAsync<ListEntityPaymentMethodsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/payment-methods",
         [HttpStatusCode.OK],

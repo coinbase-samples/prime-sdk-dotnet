@@ -18,12 +18,14 @@ namespace CoinbaseSdk.Prime.Transactions
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListPortfolioTransactionsRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
+
     [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
@@ -35,58 +37,63 @@ namespace CoinbaseSdk.Prime.Transactions
 
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
 
-    public class ListPortfolioTransactionsRequestBuilder : PaginatedRequestBuilder<ListPortfolioTransactionsRequest, ListPortfolioTransactionsRequestBuilder>
+    public class Builder
     {
       private string? _portfolioId;
       private string[] _symbols = [];
       private TransactionType[] _types = [];
       private string? _startTime;
       private string? _endTime;
+      private string? _cursor;
       private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListPortfolioTransactionsRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithSymbols(string[] symbols)
+      public Builder WithSymbols(string[] symbols)
       {
         _symbols = symbols;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithTypes(TransactionType[] types)
+      public Builder WithTypes(TransactionType[] types)
       {
         _types = types;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithStartTime(string startTime)
+      public Builder WithStartTime(string startTime)
       {
         _startTime = startTime;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithEndTime(string endTime)
+      public Builder WithEndTime(string endTime)
       {
         _endTime = endTime;
         return this;
       }
 
-      public ListPortfolioTransactionsRequestBuilder WithSortDirection(SortDirection sortDirection)
+      public Builder WithCursor(string cursor)
+      {
+        _cursor = cursor;
+        return this;
+      }
+
+      public Builder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public new ListPortfolioTransactionsRequestBuilder WithPagination(Pagination pagination)
+      public Builder WithLimit(int limit)
       {
-        base.WithPagination(pagination);
-        _sortDirection = pagination.SortDirection;
+        _limit = limit;
         return this;
       }
 
@@ -96,7 +103,7 @@ namespace CoinbaseSdk.Prime.Transactions
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId cannot be null or empty");
         }
@@ -107,17 +114,19 @@ namespace CoinbaseSdk.Prime.Transactions
       /// </summary>
       /// <returns>The <see cref="ListPortfolioTransactionsRequest"/> object.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListPortfolioTransactionsRequest Build()
+      public ListPortfolioTransactionsRequest Build()
       {
-        var request = new ListPortfolioTransactionsRequest(this._portfolioId!)
+        Validate();
+        var request = new ListPortfolioTransactionsRequest(_portfolioId!)
         {
           Symbols = _symbols,
           Types = _types,
           StartTime = _startTime,
           EndTime = _endTime,
-          SortDirection = _sortDirection
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit,
         };
-        SetPaginationProperties(request);
         return request;
       }
     }

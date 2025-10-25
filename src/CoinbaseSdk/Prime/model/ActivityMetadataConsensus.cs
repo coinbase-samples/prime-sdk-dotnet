@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.has_passed_consensus = builder.has_passed_consensus;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? approval_deadline;
 
       private bool? has_passed_consensus;
 
-      public Builder approval_deadline(string? approval_deadline)
+      public Builder Withapproval_deadline(string? approval_deadline)
       {
         this.approval_deadline = approval_deadline;
         return this;
       }
 
-      public Builder has_passed_consensus(bool? has_passed_consensus)
+      public Builder Withhas_passed_consensus(bool? has_passed_consensus)
       {
         this.has_passed_consensus = has_passed_consensus;
         return this;

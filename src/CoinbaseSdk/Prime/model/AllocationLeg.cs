@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Model
       this.amount = builder.amount;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string allocation_leg_id;
 
@@ -60,19 +60,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string amount;
 
-      public Builder allocation_leg_id(string allocation_leg_id)
+      public Builder Withallocation_leg_id(string allocation_leg_id)
       {
         this.allocation_leg_id = allocation_leg_id;
         return this;
       }
 
-      public Builder destination_portfolio_id(string destination_portfolio_id)
+      public Builder Withdestination_portfolio_id(string destination_portfolio_id)
       {
         this.destination_portfolio_id = destination_portfolio_id;
         return this;
       }
 
-      public Builder amount(string amount)
+      public Builder Withamount(string amount)
       {
         this.amount = amount;
         return this;

@@ -56,7 +56,7 @@ namespace CoinbaseSdk.Prime.Model
       this.bank_code = builder.bank_code;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -70,37 +70,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? bank_code;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder payment_method_type(PaymentMethodType? payment_method_type)
+      public Builder Withpayment_method_type(PaymentMethodType? payment_method_type)
       {
         this.payment_method_type = payment_method_type;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder account_number(string? account_number)
+      public Builder Withaccount_number(string? account_number)
       {
         this.account_number = account_number;
         return this;
       }
 
-      public Builder bank_code(string? bank_code)
+      public Builder Withbank_code(string? bank_code)
       {
         this.bank_code = bank_code;
         return this;

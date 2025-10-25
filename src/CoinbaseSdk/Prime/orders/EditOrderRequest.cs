@@ -74,73 +74,73 @@ namespace CoinbaseSdk.Prime.Orders
 
       public EditOrderRequestBuilder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
       public EditOrderRequestBuilder WithOrderId(string orderId)
       {
-        this._orderId = orderId;
+        _orderId = orderId;
         return this;
       }
 
       public EditOrderRequestBuilder WithProductId(string? productId)
       {
-        this._productId = productId;
+        _productId = productId;
         return this;
       }
 
       public EditOrderRequestBuilder WithOrigClientOrderId(string? origClientOrderId)
       {
-        this._origClientOrderId = origClientOrderId;
+        _origClientOrderId = origClientOrderId;
         return this;
       }
 
       public EditOrderRequestBuilder WithClientOrderId(string? clientOrderId)
       {
-        this._clientOrderId = clientOrderId;
+        _clientOrderId = clientOrderId;
         return this;
       }
 
       public EditOrderRequestBuilder WithBaseQuantity(string? baseQuantity)
       {
-        this._baseQuantity = baseQuantity;
+        _baseQuantity = baseQuantity;
         return this;
       }
 
       public EditOrderRequestBuilder WithQuoteValue(string? quoteValue)
       {
-        this._quoteValue = quoteValue;
+        _quoteValue = quoteValue;
         return this;
       }
 
       public EditOrderRequestBuilder WithLimitPrice(string? limitPrice)
       {
-        this._limitPrice = limitPrice;
+        _limitPrice = limitPrice;
         return this;
       }
 
       public EditOrderRequestBuilder WithExpiryTime(string? expiryTime)
       {
-        this._expiryTime = expiryTime;
+        _expiryTime = expiryTime;
         return this;
       }
 
       public EditOrderRequestBuilder WithDisplayQuoteSize(string? displayQuoteSize)
       {
-        this._displayQuoteSize = displayQuoteSize;
+        _displayQuoteSize = displayQuoteSize;
         return this;
       }
 
       public EditOrderRequestBuilder WithDisplayBaseSize(string? displayBaseSize)
       {
-        this._displayBaseSize = displayBaseSize;
+        _displayBaseSize = displayBaseSize;
         return this;
       }
 
       public EditOrderRequestBuilder WithStopPrice(string? stopPrice)
       {
-        this._stopPrice = stopPrice;
+        _stopPrice = stopPrice;
         return this;
       }
 
@@ -178,19 +178,19 @@ namespace CoinbaseSdk.Prime.Orders
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public EditOrderRequest Build()
       {
-        this.Validate();
+        Validate();
         return new EditOrderRequest(_portfolioId!, _orderId!)
         {
-          ProductId = this._productId,
-          OrigClientOrderId = this._origClientOrderId,
-          ClientOrderId = this._clientOrderId,
-          BaseQuantity = this._baseQuantity,
-          QuoteValue = this._quoteValue,
-          LimitPrice = this._limitPrice,
-          ExpiryTime = this._expiryTime,
-          DisplayQuoteSize = this._displayQuoteSize,
-          DisplayBaseSize = this._displayBaseSize,
-          StopPrice = this._stopPrice
+          ProductId = _productId,
+          OrigClientOrderId = _origClientOrderId,
+          ClientOrderId = _clientOrderId,
+          BaseQuantity = _baseQuantity,
+          QuoteValue = _quoteValue,
+          LimitPrice = _limitPrice,
+          ExpiryTime = _expiryTime,
+          DisplayQuoteSize = _displayQuoteSize,
+          DisplayBaseSize = _displayBaseSize,
+          StopPrice = _stopPrice,
         };
       }
     }

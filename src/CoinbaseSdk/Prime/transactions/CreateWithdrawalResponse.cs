@@ -18,6 +18,7 @@ namespace CoinbaseSdk.Prime.Transactions
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CreateWithdrawalResponse
   {
@@ -28,7 +29,9 @@ namespace CoinbaseSdk.Prime.Transactions
     public string? ApprovalUrl { get; set; }
 
     public string? Symbol { get; set; }
+
     public string? Amount { get; set; }
+
     public string? Fee { get; set; }
 
     [JsonPropertyName("destination_type")]

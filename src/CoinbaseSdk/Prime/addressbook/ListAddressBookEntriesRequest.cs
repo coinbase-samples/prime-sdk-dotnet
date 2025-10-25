@@ -18,7 +18,8 @@ namespace CoinbaseSdk.Prime.AddressBook
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListAddressBookEntriesRequest(string portfolioId) : PaginatedRequest
   {
@@ -28,44 +29,49 @@ namespace CoinbaseSdk.Prime.AddressBook
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
     public string? Search { get; set; }
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
 
-    public class ListAddressBookEntriesRequestBuilder : PaginatedRequestBuilder<ListAddressBookEntriesRequest, ListAddressBookEntriesRequestBuilder>
+    public class Builder
     {
       private string? _portfolioId;
       private string? _currencySymbol;
       private string? _search;
+      private string? _cursor;
       private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListAddressBookEntriesRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public ListAddressBookEntriesRequestBuilder WithCurrencySymbol(string? currencySymbol)
+      public Builder WithCurrencySymbol(string? currencySymbol)
       {
-        this._currencySymbol = currencySymbol;
+        _currencySymbol = currencySymbol;
         return this;
       }
 
-      public ListAddressBookEntriesRequestBuilder WithSearch(string? search)
+      public Builder WithSearch(string? search)
       {
-        this._search = search;
+        _search = search;
         return this;
       }
 
-      public ListAddressBookEntriesRequestBuilder WithSortDirection(SortDirection? sortDirection)
+      public Builder WithCursor(string cursor)
       {
-        this._sortDirection = sortDirection;
+        _cursor = cursor;
         return this;
       }
 
-      public new ListAddressBookEntriesRequestBuilder WithPagination(Pagination pagination)
+      public Builder WithSortDirection(SortDirection? sortDirection)
       {
-        base.WithPagination(pagination);
-        this._sortDirection = pagination.SortDirection;
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public Builder WithLimit(int limit)
+      {
+        _limit = limit;
         return this;
       }
 
@@ -87,16 +93,17 @@ namespace CoinbaseSdk.Prime.AddressBook
       /// </summary>
       /// <returns>The <see cref="ListAddressBookEntriesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public override ListAddressBookEntriesRequest Build()
+      public ListAddressBookEntriesRequest Build()
       {
-        this.Validate();
+        Validate();
         var request = new ListAddressBookEntriesRequest(_portfolioId!)
         {
-          CurrencySymbol = this._currencySymbol,
-          Search = this._search,
-          SortDirection = this._sortDirection
+          CurrencySymbol = _currencySymbol,
+          Search = _search,
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit
         };
-        SetPaginationProperties(request);
         return request;
       }
     }

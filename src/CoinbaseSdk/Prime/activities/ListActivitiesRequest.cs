@@ -18,7 +18,8 @@ namespace CoinbaseSdk.Prime.Activities
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListActivitiesRequest(string portfolioId) : PaginatedRequest
   {
@@ -26,16 +27,18 @@ namespace CoinbaseSdk.Prime.Activities
     public string PortfolioId { get; set; } = portfolioId;
 
     public string[] Symbols { get; set; } = [];
+
     public ActivityCategory[] Categories { get; set; } = [];
+
     public ActivityStatus[] Statuses { get; set; } = [];
+
     [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
+
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
 
-    public class ListActivitiesRequestBuilder : PaginatedRequestBuilder<ListActivitiesRequest, ListActivitiesRequestBuilder>
+    public class Builder
     {
       private string? _portfolioId;
       private string[]? _symbols;
@@ -43,55 +46,61 @@ namespace CoinbaseSdk.Prime.Activities
       private ActivityStatus[]? _statuses;
       private string? _startTime;
       private string? _endTime;
+      private string? _cursor;
       private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListActivitiesRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
       }
 
-      public ListActivitiesRequestBuilder WithSymbols(string[] symbols)
+      public Builder WithSymbols(string[] symbols)
       {
         _symbols = symbols;
         return this;
       }
 
-      public ListActivitiesRequestBuilder WithCategories(ActivityCategory[] categories)
+      public Builder WithCategories(ActivityCategory[] categories)
       {
         _categories = categories;
         return this;
       }
 
-      public ListActivitiesRequestBuilder WithStatuses(ActivityStatus[] statuses)
+      public Builder WithStatuses(ActivityStatus[] statuses)
       {
         _statuses = statuses;
         return this;
       }
 
-      public ListActivitiesRequestBuilder WithStartTime(string startTime)
+      public Builder WithStartTime(string startTime)
       {
         _startTime = startTime;
         return this;
       }
 
-      public ListActivitiesRequestBuilder WithEndTime(string endTime)
+      public Builder WithEndTime(string endTime)
       {
         _endTime = endTime;
         return this;
       }
 
-
-      public ListActivitiesRequestBuilder WithSortDirection(SortDirection sortDirection)
+      public Builder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public new ListActivitiesRequestBuilder WithPagination(Pagination pagination)
+      public Builder WithCursor(string cursor)
       {
-        base.WithPagination(pagination);
-        _sortDirection = pagination.SortDirection;
+        _cursor = cursor;
+        return this;
+      }
+
+      public Builder WithLimit(int limit)
+      {
+        _limit = limit;
         return this;
       }
 
@@ -112,9 +121,9 @@ namespace CoinbaseSdk.Prime.Activities
       /// </summary>
       /// <returns>The <see cref="ListActivitiesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_portfolioId" /> is null, empty, or whitespace.</exception>
-      public override ListActivitiesRequest Build()
+      public ListActivitiesRequest Build()
       {
-        this.Validate();
+        Validate();
         var request = new ListActivitiesRequest(_portfolioId!)
         {
           Symbols = _symbols ?? [],
@@ -122,9 +131,10 @@ namespace CoinbaseSdk.Prime.Activities
           Statuses = _statuses ?? [],
           StartTime = _startTime,
           EndTime = _endTime,
-          SortDirection = _sortDirection
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit,
         };
-        SetPaginationProperties(request);
         return request;
       }
     }

@@ -69,7 +69,7 @@ namespace CoinbaseSdk.Prime.Model
       this.invoice_items = builder.invoice_items;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -89,55 +89,55 @@ namespace CoinbaseSdk.Prime.Model
 
       private List<InvoiceItem>? invoice_items;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder billing_month(int? billing_month)
+      public Builder Withbilling_month(int? billing_month)
       {
         this.billing_month = billing_month;
         return this;
       }
 
-      public Builder billing_year(int? billing_year)
+      public Builder Withbilling_year(int? billing_year)
       {
         this.billing_year = billing_year;
         return this;
       }
 
-      public Builder due_date(string? due_date)
+      public Builder Withdue_date(string? due_date)
       {
         this.due_date = due_date;
         return this;
       }
 
-      public Builder invoice_number(string? invoice_number)
+      public Builder Withinvoice_number(string? invoice_number)
       {
         this.invoice_number = invoice_number;
         return this;
       }
 
-      public Builder state(InvoiceState? state)
+      public Builder Withstate(InvoiceState? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder usd_amount_paid(double? usd_amount_paid)
+      public Builder Withusd_amount_paid(double? usd_amount_paid)
       {
         this.usd_amount_paid = usd_amount_paid;
         return this;
       }
 
-      public Builder usd_amount_owed(double? usd_amount_owed)
+      public Builder Withusd_amount_owed(double? usd_amount_owed)
       {
         this.usd_amount_owed = usd_amount_owed;
         return this;
       }
 
-      public Builder invoice_items(List<InvoiceItem>? invoice_items)
+      public Builder Withinvoice_items(List<InvoiceItem>? invoice_items)
       {
         this.invoice_items = invoice_items;
         return this;

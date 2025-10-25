@@ -26,20 +26,20 @@ namespace CoinbaseSdk.Prime.Allocations
     [JsonIgnore]
     public string ClientNettingId { get; set; } = clientNettingId;
 
-    public class GetAllocationsByClientNettingIdRequestBuilder
+    public class Builder
     {
       private string? _portfolioId;
       private string? _clientNettingId;
 
-      public GetAllocationsByClientNettingIdRequestBuilder WithPortfolioId(string portfolioId)
+      public Builder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public GetAllocationsByClientNettingIdRequestBuilder WithClientNettingId(string clientNettingId)
+      public Builder WithClientNettingId(string clientNettingId)
       {
-        this._clientNettingId = clientNettingId;
+        _clientNettingId = clientNettingId;
         return this;
       }
 
@@ -51,11 +51,11 @@ namespace CoinbaseSdk.Prime.Allocations
       /// or whitespace.</exception>
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
+        if (string.IsNullOrWhiteSpace(_portfolioId))
         {
           throw new CoinbaseClientException("PortfolioId is required");
         }
-        if (string.IsNullOrWhiteSpace(this._clientNettingId))
+        if (string.IsNullOrWhiteSpace(_clientNettingId))
         {
           throw new CoinbaseClientException("ClientNettingId is required");
         }
@@ -68,8 +68,8 @@ namespace CoinbaseSdk.Prime.Allocations
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public GetAllocationsByClientNettingIdRequest Build()
       {
-        this.Validate();
-        return new GetAllocationsByClientNettingIdRequest(this._portfolioId!, this._clientNettingId!);
+        Validate();
+        return new GetAllocationsByClientNettingIdRequest(_portfolioId!, _clientNettingId!);
       }
     }
   }

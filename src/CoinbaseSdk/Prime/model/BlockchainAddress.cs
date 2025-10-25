@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Model
       this.network = builder.network;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? address;
 
@@ -58,19 +58,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private Network? network;
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder account_identifier(string? account_identifier)
+      public Builder Withaccount_identifier(string? account_identifier)
       {
         this.account_identifier = account_identifier;
         return this;
       }
 
-      public Builder network(Network? network)
+      public Builder Withnetwork(Network? network)
       {
         this.network = network;
         return this;

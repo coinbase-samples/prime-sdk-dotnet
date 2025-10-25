@@ -22,9 +22,9 @@ namespace CoinbaseSdk.Prime.Wallets
   public class GetWalletDepositInstructionsResponse
   {
     [JsonPropertyName("crypto_instructions")]
-    public CryptoDepositInstructions? CryptoDepositInstructions { get; set; }
+    public WalletCryptoDepositInstructions? CryptoDepositInstructions { get; set; }
     [JsonPropertyName("fiat_instructions")]
-    public FiatDepositInstructions? FiatDepositInstructions { get; set; }
+    public WalletFiatDepositInstructions? FiatDepositInstructions { get; set; }
 
     public GetWalletDepositInstructionsResponse() { }
   }

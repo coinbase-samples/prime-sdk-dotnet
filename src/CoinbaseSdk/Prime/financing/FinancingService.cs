@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Financing
       CreateNewLocatesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CreateNewLocatesResponse>(
+      return Request<CreateNewLocatesResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/locates",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CreateNewLocatesResponse>(
+      return RequestAsync<CreateNewLocatesResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/locates",
         [HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetEntityLocateAvailabilitiesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetEntityLocateAvailabilitiesResponse>(
+      return Request<GetEntityLocateAvailabilitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/locates_availability",
         [HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetEntityLocateAvailabilitiesResponse>(
+      return RequestAsync<GetEntityLocateAvailabilitiesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/locates_availability",
         [HttpStatusCode.OK],
@@ -79,7 +79,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetMarginInformationRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetMarginInformationResponse>(
+      return Request<GetMarginInformationResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/margin",
         [HttpStatusCode.OK],
@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetMarginInformationResponse>(
+      return RequestAsync<GetMarginInformationResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/margin",
         [HttpStatusCode.OK],
@@ -105,7 +105,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetPortfolioBuyingPowerRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioBuyingPowerResponse>(
+      return Request<GetPortfolioBuyingPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/buying_power",
         [HttpStatusCode.OK],
@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioBuyingPowerResponse>(
+      return RequestAsync<GetPortfolioBuyingPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/buying_power",
         [HttpStatusCode.OK],
@@ -131,7 +131,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetPortfolioCreditInformationRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioCreditInformationResponse>(
+      return Request<GetPortfolioCreditInformationResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioCreditInformationResponse>(
+      return RequestAsync<GetPortfolioCreditInformationResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/credit",
         [HttpStatusCode.OK],
@@ -157,7 +157,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetPortfolioWithdrawalPowerRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPortfolioWithdrawalPowerResponse>(
+      return Request<GetPortfolioWithdrawalPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/withdrawal_power",
         [HttpStatusCode.OK],
@@ -170,7 +170,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPortfolioWithdrawalPowerResponse>(
+      return RequestAsync<GetPortfolioWithdrawalPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/withdrawal_power",
         [HttpStatusCode.OK],
@@ -183,7 +183,7 @@ namespace CoinbaseSdk.Prime.Financing
       GetTradeFinanceTieredPricingFeesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetTradeFinanceTieredPricingFeesResponse>(
+      return Request<GetTradeFinanceTieredPricingFeesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/tf_tiered_fees",
         [HttpStatusCode.OK],
@@ -196,7 +196,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetTradeFinanceTieredPricingFeesResponse>(
+      return RequestAsync<GetTradeFinanceTieredPricingFeesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/tf_tiered_fees",
         [HttpStatusCode.OK],
@@ -209,7 +209,7 @@ namespace CoinbaseSdk.Prime.Financing
       ListExistingLocatesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListExistingLocatesResponse>(
+      return Request<ListExistingLocatesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/locates",
         [HttpStatusCode.OK],
@@ -222,7 +222,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListExistingLocatesResponse>(
+      return RequestAsync<ListExistingLocatesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/locates",
         [HttpStatusCode.OK],
@@ -235,7 +235,7 @@ namespace CoinbaseSdk.Prime.Financing
       ListInterestAccrualsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListInterestAccrualsResponse>(
+      return Request<ListInterestAccrualsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/accruals",
         [HttpStatusCode.OK],
@@ -248,7 +248,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListInterestAccrualsResponse>(
+      return RequestAsync<ListInterestAccrualsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/accruals",
         [HttpStatusCode.OK],
@@ -261,7 +261,7 @@ namespace CoinbaseSdk.Prime.Financing
       ListInterestAccrualsForPortfolioRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListInterestAccrualsForPortfolioResponse>(
+      return Request<ListInterestAccrualsForPortfolioResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/accruals",
         [HttpStatusCode.OK],
@@ -274,7 +274,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListInterestAccrualsForPortfolioResponse>(
+      return RequestAsync<ListInterestAccrualsForPortfolioResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/accruals",
         [HttpStatusCode.OK],
@@ -287,7 +287,7 @@ namespace CoinbaseSdk.Prime.Financing
       ListMarginCallSummariesRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListMarginCallSummariesResponse>(
+      return Request<ListMarginCallSummariesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/margin_summaries",
         [HttpStatusCode.OK],
@@ -300,7 +300,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListMarginCallSummariesResponse>(
+      return RequestAsync<ListMarginCallSummariesResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/margin_summaries",
         [HttpStatusCode.OK],
@@ -313,7 +313,7 @@ namespace CoinbaseSdk.Prime.Financing
       ListMarginConversionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListMarginConversionsResponse>(
+      return Request<ListMarginConversionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/margin_conversions",
         [HttpStatusCode.OK],
@@ -326,7 +326,7 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListMarginConversionsResponse>(
+      return RequestAsync<ListMarginConversionsResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/margin_conversions",
         [HttpStatusCode.OK],

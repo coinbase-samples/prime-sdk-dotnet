@@ -58,7 +58,7 @@ namespace CoinbaseSdk.Prime.Model
       this.portfolio_id = builder.portfolio_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private List<ConversionDetail>? conversion_details;
 
@@ -68,25 +68,25 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? portfolio_id;
 
-      public Builder conversion_details(List<ConversionDetail>? conversion_details)
+      public Builder Withconversion_details(List<ConversionDetail>? conversion_details)
       {
         this.conversion_details = conversion_details;
         return this;
       }
 
-      public Builder short_collateral(ShortCollateral? short_collateral)
+      public Builder Withshort_collateral(ShortCollateral? short_collateral)
       {
         this.short_collateral = short_collateral;
         return this;
       }
 
-      public Builder conversion_datetime(string? conversion_datetime)
+      public Builder Withconversion_datetime(string? conversion_datetime)
       {
         this.conversion_datetime = conversion_datetime;
         return this;
       }
 
-      public Builder portfolio_id(string? portfolio_id)
+      public Builder Withportfolio_id(string? portfolio_id)
       {
         this.portfolio_id = portfolio_id;
         return this;

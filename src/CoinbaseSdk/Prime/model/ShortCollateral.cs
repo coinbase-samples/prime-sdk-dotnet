@@ -59,7 +59,7 @@ namespace CoinbaseSdk.Prime.Model
       this.collateral_interest_rate = builder.collateral_interest_rate;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? old_balance;
 
@@ -69,25 +69,25 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? collateral_interest_rate;
 
-      public Builder old_balance(string? old_balance)
+      public Builder Withold_balance(string? old_balance)
       {
         this.old_balance = old_balance;
         return this;
       }
 
-      public Builder new_balance(string? new_balance)
+      public Builder Withnew_balance(string? new_balance)
       {
         this.new_balance = new_balance;
         return this;
       }
 
-      public Builder loan_interest_rate(string? loan_interest_rate)
+      public Builder Withloan_interest_rate(string? loan_interest_rate)
       {
         this.loan_interest_rate = loan_interest_rate;
         return this;
       }
 
-      public Builder collateral_interest_rate(string? collateral_interest_rate)
+      public Builder Withcollateral_interest_rate(string? collateral_interest_rate)
       {
         this.collateral_interest_rate = collateral_interest_rate;
         return this;

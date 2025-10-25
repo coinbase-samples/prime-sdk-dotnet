@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Futures
       CancelEntityFuturesSweepRequest request,
       CallOptions? options = null)
     {
-      return this.Request<CancelEntityFuturesSweepResponse>(
+      return Request<CancelEntityFuturesSweepResponse>(
         HttpMethod.Delete,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<CancelEntityFuturesSweepResponse>(
+      return RequestAsync<CancelEntityFuturesSweepResponse>(
         HttpMethod.Delete,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Futures
       GetFcmBalanceRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetFcmBalanceResponse>(
+      return Request<GetFcmBalanceResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/balance_summary",
         [HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetFcmBalanceResponse>(
+      return RequestAsync<GetFcmBalanceResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/balance_summary",
         [HttpStatusCode.OK],
@@ -79,7 +79,7 @@ namespace CoinbaseSdk.Prime.Futures
       GetPositionsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetPositionsResponse>(
+      return Request<GetPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/positions",
         [HttpStatusCode.OK],
@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetPositionsResponse>(
+      return RequestAsync<GetPositionsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/positions",
         [HttpStatusCode.OK],
@@ -105,7 +105,7 @@ namespace CoinbaseSdk.Prime.Futures
       ListEntityFuturesSweepsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListEntityFuturesSweepsResponse>(
+      return Request<ListEntityFuturesSweepsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListEntityFuturesSweepsResponse>(
+      return RequestAsync<ListEntityFuturesSweepsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -131,7 +131,7 @@ namespace CoinbaseSdk.Prime.Futures
       ScheduleEntityFuturesSweepRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ScheduleEntityFuturesSweepResponse>(
+      return Request<ScheduleEntityFuturesSweepResponse>(
         HttpMethod.Post,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -144,7 +144,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ScheduleEntityFuturesSweepResponse>(
+      return RequestAsync<ScheduleEntityFuturesSweepResponse>(
         HttpMethod.Post,
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
@@ -157,7 +157,7 @@ namespace CoinbaseSdk.Prime.Futures
       SetAutoSweepRequest request,
       CallOptions? options = null)
     {
-      return this.Request<SetAutoSweepResponse>(
+      return Request<SetAutoSweepResponse>(
         HttpMethod.Post,
         $"/entities/{request.EntityId}/futures/auto_sweep",
         [HttpStatusCode.OK],
@@ -170,7 +170,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<SetAutoSweepResponse>(
+      return RequestAsync<SetAutoSweepResponse>(
         HttpMethod.Post,
         $"/entities/{request.EntityId}/futures/auto_sweep",
         [HttpStatusCode.OK],
@@ -183,7 +183,7 @@ namespace CoinbaseSdk.Prime.Futures
       GetFcmMarginCallDetailsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetFcmMarginCallDetailsResponse>(
+      return Request<GetFcmMarginCallDetailsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/margin_call_details",
         [HttpStatusCode.OK],
@@ -196,7 +196,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetFcmMarginCallDetailsResponse>(
+      return RequestAsync<GetFcmMarginCallDetailsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/margin_call_details",
         [HttpStatusCode.OK],
@@ -209,7 +209,7 @@ namespace CoinbaseSdk.Prime.Futures
       GetFcmRiskLimitsRequest request,
       CallOptions? options = null)
     {
-      return this.Request<GetFcmRiskLimitsResponse>(
+      return Request<GetFcmRiskLimitsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/risk_limits",
         [HttpStatusCode.OK],
@@ -222,7 +222,7 @@ namespace CoinbaseSdk.Prime.Futures
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<GetFcmRiskLimitsResponse>(
+      return RequestAsync<GetFcmRiskLimitsResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/risk_limits",
         [HttpStatusCode.OK],

@@ -134,7 +134,7 @@ namespace CoinbaseSdk.Prime.Model
       this.hierarchy_type = builder.hierarchy_type;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
@@ -170,103 +170,103 @@ namespace CoinbaseSdk.Prime.Model
 
       private HierarchyType? hierarchy_type;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder reference_id(string? reference_id)
+      public Builder Withreference_id(string? reference_id)
       {
         this.reference_id = reference_id;
         return this;
       }
 
-      public Builder category(ActivityCategory? category)
+      public Builder Withcategory(ActivityCategory? category)
       {
         this.category = category;
         return this;
       }
 
-      public Builder type(PrimeActivityType? type)
+      public Builder Withtype(PrimeActivityType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder secondary_type(ActivitySecondaryType? secondary_type)
+      public Builder Withsecondary_type(ActivitySecondaryType? secondary_type)
       {
         this.secondary_type = secondary_type;
         return this;
       }
 
-      public Builder status(ActivityStatus? status)
+      public Builder Withstatus(ActivityStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder created_by(string? created_by)
+      public Builder Withcreated_by(string? created_by)
       {
         this.created_by = created_by;
         return this;
       }
 
-      public Builder title(string? title)
+      public Builder Withtitle(string? title)
       {
         this.title = title;
         return this;
       }
 
-      public Builder description(string? description)
+      public Builder Withdescription(string? description)
       {
         this.description = description;
         return this;
       }
 
-      public Builder user_actions(List<UserAction>? user_actions)
+      public Builder Withuser_actions(List<UserAction>? user_actions)
       {
         this.user_actions = user_actions;
         return this;
       }
 
-      public Builder transactions_metadata(ActivityMetadataTransactions? transactions_metadata)
+      public Builder Withtransactions_metadata(ActivityMetadataTransactions? transactions_metadata)
       {
         this.transactions_metadata = transactions_metadata;
         return this;
       }
 
-      public Builder account_metadata(ActivityMetadataAccount? account_metadata)
+      public Builder Withaccount_metadata(ActivityMetadataAccount? account_metadata)
       {
         this.account_metadata = account_metadata;
         return this;
       }
 
-      public Builder orders_metadata(Object? orders_metadata)
+      public Builder Withorders_metadata(Object? orders_metadata)
       {
         this.orders_metadata = orders_metadata;
         return this;
       }
 
-      public Builder symbols(List<string>? symbols)
+      public Builder Withsymbols(List<string>? symbols)
       {
         this.symbols = symbols;
         return this;
       }
 
-      public Builder created_at(string? created_at)
+      public Builder Withcreated_at(string? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder updated_at(string? updated_at)
+      public Builder Withupdated_at(string? updated_at)
       {
         this.updated_at = updated_at;
         return this;
       }
 
-      public Builder hierarchy_type(HierarchyType? hierarchy_type)
+      public Builder Withhierarchy_type(HierarchyType? hierarchy_type)
       {
         this.hierarchy_type = hierarchy_type;
         return this;

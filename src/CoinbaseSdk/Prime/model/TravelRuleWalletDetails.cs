@@ -41,19 +41,19 @@ namespace CoinbaseSdk.Prime.Model
       this.wallet_address = builder.wallet_address;
     }
 
-    public static class Builder
+    public class Builder
     {
       private TravelRuleWalletType? wallet_type;
 
       private BlockchainAddress? wallet_address;
 
-      public Builder wallet_type(TravelRuleWalletType? wallet_type)
+      public Builder Withwallet_type(TravelRuleWalletType? wallet_type)
       {
         this.wallet_type = wallet_type;
         return this;
       }
 
-      public Builder wallet_address(BlockchainAddress? wallet_address)
+      public Builder Withwallet_address(BlockchainAddress? wallet_address)
       {
         this.wallet_address = wallet_address;
         return this;

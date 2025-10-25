@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.type = builder.type;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? id;
 
       private string? type;
 
-      public Builder id(string? id)
+      public Builder Withid(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder type(string? type)
+      public Builder Withtype(string? type)
       {
         this.type = type;
         return this;

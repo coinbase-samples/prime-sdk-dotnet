@@ -70,7 +70,7 @@ namespace CoinbaseSdk.Prime.Model
       this.volume = builder.volume;
     }
 
-    public static class Builder
+    public class Builder
     {
       private DateTime? timestamp;
 
@@ -84,37 +84,37 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? volume;
 
-      public Builder timestamp(DateTime? timestamp)
+      public Builder Withtimestamp(DateTime? timestamp)
       {
         this.timestamp = timestamp;
         return this;
       }
 
-      public Builder open(string? open)
+      public Builder Withopen(string? open)
       {
         this.open = open;
         return this;
       }
 
-      public Builder high(string? high)
+      public Builder Withhigh(string? high)
       {
         this.high = high;
         return this;
       }
 
-      public Builder low(string? low)
+      public Builder Withlow(string? low)
       {
         this.low = low;
         return this;
       }
 
-      public Builder close(string? close)
+      public Builder Withclose(string? close)
       {
         this.close = close;
         return this;
       }
 
-      public Builder volume(string? volume)
+      public Builder Withvolume(string? volume)
       {
         this.volume = volume;
         return this;

@@ -60,7 +60,7 @@ namespace CoinbaseSdk.Prime.Model
       this.item = builder.item;
     }
 
-    public static class Builder
+    public class Builder
     {
       private AssetChangeType? type;
 
@@ -72,31 +72,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private NFTItem? item;
 
-      public Builder type(AssetChangeType? type)
+      public Builder Withtype(AssetChangeType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder collection(NFTCollection? collection)
+      public Builder Withcollection(NFTCollection? collection)
       {
         this.collection = collection;
         return this;
       }
 
-      public Builder item(NFTItem? item)
+      public Builder Withitem(NFTItem? item)
       {
         this.item = item;
         return this;

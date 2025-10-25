@@ -16,6 +16,7 @@
 
 namespace CoinbaseSdk.Prime.Wallets
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
   public class ListWalletsResponse

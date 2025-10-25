@@ -23,24 +23,5 @@ namespace CoinbaseSdk.Prime.Financing
     public string PortfolioId { get; set; } = portfolioId;
 
     public string? Symbol { get; set; }
-
-    public class GetPortfolioWithdrawalPowerRequestBuilder
-    {
-      private string? _symbol;
-
-      public GetPortfolioWithdrawalPowerRequestBuilder WithSymbol(string symbol)
-      {
-        _symbol = symbol;
-        return this;
-      }
-
-      public GetPortfolioWithdrawalPowerRequest Build(string portfolioId)
-      {
-        return new GetPortfolioWithdrawalPowerRequest(portfolioId)
-        {
-          Symbol = _symbol
-        };
-      }
-    }
   }
 }

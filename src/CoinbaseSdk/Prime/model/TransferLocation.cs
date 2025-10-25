@@ -57,7 +57,7 @@ namespace CoinbaseSdk.Prime.Model
       this.account_identifier = builder.account_identifier;
     }
 
-    public static class Builder
+    public class Builder
     {
       private TransferLocationType? type;
 
@@ -67,25 +67,25 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? account_identifier;
 
-      public Builder type(TransferLocationType? type)
+      public Builder Withtype(TransferLocationType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder value(string? value)
+      public Builder Withvalue(string? value)
       {
         this.value = value;
         return this;
       }
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder account_identifier(string? account_identifier)
+      public Builder Withaccount_identifier(string? account_identifier)
       {
         this.account_identifier = account_identifier;
         return this;

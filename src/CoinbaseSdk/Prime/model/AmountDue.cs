@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Model
       this.due_date = builder.due_date;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? currency;
 
@@ -60,19 +60,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? due_date;
 
-      public Builder currency(string? currency)
+      public Builder Withcurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder due_date(DateTime? due_date)
+      public Builder Withdue_date(DateTime? due_date)
       {
         this.due_date = due_date;
         return this;

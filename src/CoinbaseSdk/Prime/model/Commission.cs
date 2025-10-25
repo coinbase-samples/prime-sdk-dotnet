@@ -52,7 +52,7 @@ namespace CoinbaseSdk.Prime.Model
       this.trading_volume = builder.trading_volume;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? type;
 
@@ -60,19 +60,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? trading_volume;
 
-      public Builder type(string? type)
+      public Builder Withtype(string? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder rate(string? rate)
+      public Builder Withrate(string? rate)
       {
         this.rate = rate;
         return this;
       }
 
-      public Builder trading_volume(string? trading_volume)
+      public Builder Withtrading_volume(string? trading_volume)
       {
         this.trading_volume = trading_volume;
         return this;

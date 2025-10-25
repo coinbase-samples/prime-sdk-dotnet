@@ -59,7 +59,7 @@ namespace CoinbaseSdk.Prime.Model
       this.currency_symbol = builder.currency_symbol;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string amount;
 
@@ -69,25 +69,25 @@ namespace CoinbaseSdk.Prime.Model
 
       private string currency_symbol;
 
-      public Builder amount(string amount)
+      public Builder Withamount(string amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder destination(string destination)
+      public Builder Withdestination(string destination)
       {
         this.destination = destination;
         return this;
       }
 
-      public Builder idempotency_key(string idempotency_key)
+      public Builder Withidempotency_key(string idempotency_key)
       {
         this.idempotency_key = idempotency_key;
         return this;
       }
 
-      public Builder currency_symbol(string currency_symbol)
+      public Builder Withcurrency_symbol(string currency_symbol)
       {
         this.currency_symbol = currency_symbol;
         return this;

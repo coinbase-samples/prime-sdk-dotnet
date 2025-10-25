@@ -63,7 +63,7 @@ namespace CoinbaseSdk.Prime.Model
       this.client_order_id = builder.client_order_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? price;
 
@@ -81,49 +81,49 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? client_order_id;
 
-      public Builder price(string? price)
+      public Builder Withprice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder size(string? size)
+      public Builder Withsize(string? size)
       {
         this.size = size;
         return this;
       }
 
-      public Builder display_size(string? display_size)
+      public Builder Withdisplay_size(string? display_size)
       {
         this.display_size = display_size;
         return this;
       }
 
-      public Builder stop_price(string? stop_price)
+      public Builder Withstop_price(string? stop_price)
       {
         this.stop_price = stop_price;
         return this;
       }
 
-      public Builder stop_limit_price(string? stop_limit_price)
+      public Builder Withstop_limit_price(string? stop_limit_price)
       {
         this.stop_limit_price = stop_limit_price;
         return this;
       }
 
-      public Builder end_time(DateTime? end_time)
+      public Builder Withend_time(DateTime? end_time)
       {
         this.end_time = end_time;
         return this;
       }
 
-      public Builder accept_time(DateTime? accept_time)
+      public Builder Withaccept_time(DateTime? accept_time)
       {
         this.accept_time = accept_time;
         return this;
       }
 
-      public Builder client_order_id(string? client_order_id)
+      public Builder Withclient_order_id(string? client_order_id)
       {
         this.client_order_id = client_order_id;
         return this;

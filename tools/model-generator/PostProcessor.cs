@@ -209,15 +209,20 @@ public class PostProcessor
   private async Task ProcessEnumFileAsync(string filePath)
   {
     var content = await File.ReadAllTextAsync(filePath);
-    var className = ExtractClassName(content);
-
-    // Apply content replacements
-    content = ApplyContentReplacements(content);
-
-    // Strip prefixes from class name
-    var originalClassName = className;
+    
+    // Extract original class name BEFORE applying content replacements
+    var originalClassName = ExtractClassName(content);
+    
+    // Apply specialized transformations to class name (e.g., ActivityType variants)
+    var className = ApplyClassNameTransformations(originalClassName);
+    
+    // Strip common prefixes from the transformed name
     className = StripCommonPrefixes(className);
 
+    // Apply content replacements to the content
+    content = ApplyContentReplacements(content);
+
+    // Update class declaration in content
     if (className != originalClassName)
     {
       content = content.Replace($"enum {originalClassName}", $"enum {className}");
@@ -251,15 +256,20 @@ public class PostProcessor
   private async Task ProcessModelFileAsync(string filePath)
   {
     var content = await File.ReadAllTextAsync(filePath);
-    var className = ExtractClassName(content);
-
-    // Apply content replacements
-    content = ApplyContentReplacements(content);
-
-    // Strip prefixes from class name
-    var originalClassName = className;
+    
+    // Extract original class name BEFORE applying content replacements
+    var originalClassName = ExtractClassName(content);
+    
+    // Apply specialized transformations to class name (e.g., ActivityType variants)
+    var className = ApplyClassNameTransformations(originalClassName);
+    
+    // Strip common prefixes from the transformed name
     className = StripCommonPrefixes(className);
 
+    // Apply content replacements to the content
+    content = ApplyContentReplacements(content);
+
+    // Update class declaration in content
     if (className != originalClassName)
     {
       content = content.Replace($"class {originalClassName}", $"class {className}");
@@ -359,6 +369,24 @@ public class PostProcessor
     var pattern = new Regex(@"public\s+(?:class|enum)\s+(\w+)");
     var match = pattern.Match(content);
     return match.Success ? match.Groups[1].Value : string.Empty;
+  }
+
+  private string ApplyClassNameTransformations(string className)
+  {
+    // Apply specific transformations that need to happen before prefix stripping
+    // to avoid collisions (e.g., CustodyActivityType vs PrimeActivityType)
+    var transformations = new Dictionary<string, string>
+    {
+      { "CoinbaseCustodyApiActivityType", "CustodyActivityType" },
+      { "CoinbasePublicRestApiActivityType", "PrimeActivityType" }
+    };
+
+    if (transformations.TryGetValue(className, out var transformed))
+    {
+      return transformed;
+    }
+
+    return className;
   }
 
   private string StripCommonPrefixes(string className)

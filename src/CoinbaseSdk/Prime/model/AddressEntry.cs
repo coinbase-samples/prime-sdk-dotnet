@@ -43,7 +43,7 @@ namespace CoinbaseSdk.Prime.Model
       this.chain_ids = builder.chain_ids;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? name;
 
@@ -51,19 +51,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private List<string>? chain_ids;
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder chain_ids(List<string>? chain_ids)
+      public Builder Withchain_ids(List<string>? chain_ids)
       {
         this.chain_ids = chain_ids;
         return this;

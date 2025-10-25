@@ -45,19 +45,19 @@ namespace CoinbaseSdk.Prime.Model
       this.validator_address = builder.validator_address;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? amount;
 
       private string? validator_address;
 
-      public Builder amount(string? amount)
+      public Builder Withamount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder validator_address(string? validator_address)
+      public Builder Withvalidator_address(string? validator_address)
       {
         this.validator_address = validator_address;
         return this;

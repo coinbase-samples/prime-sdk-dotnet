@@ -50,7 +50,7 @@ namespace CoinbaseSdk.Prime.Model
       this.timestamp = builder.timestamp;
     }
 
-    public static class Builder
+    public class Builder
     {
       private Action? action;
 
@@ -58,19 +58,19 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? timestamp;
 
-      public Builder action(Action? action)
+      public Builder Withaction(Action? action)
       {
         this.action = action;
         return this;
       }
 
-      public Builder user_id(string? user_id)
+      public Builder Withuser_id(string? user_id)
       {
         this.user_id = user_id;
         return this;
       }
 
-      public Builder timestamp(string? timestamp)
+      public Builder Withtimestamp(string? timestamp)
       {
         this.timestamp = timestamp;
         return this;

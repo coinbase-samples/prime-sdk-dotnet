@@ -17,8 +17,7 @@
 namespace CoinbaseSdk.Prime.Wallets
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
 
   public class ListWalletAddressesRequest(string portfolioId, string walletId) : PaginatedRequest
   {
@@ -30,70 +29,5 @@ namespace CoinbaseSdk.Prime.Wallets
 
     [JsonPropertyName("network_id")]
     public string? NetworkId { get; set; }
-
-
-    public class ListWalletAddressesRequestBuilder : PaginatedRequestBuilder<ListWalletAddressesRequest, ListWalletAddressesRequestBuilder>
-    {
-      private string? _portfolioId;
-      private string? _walletId;
-      private string? _networkId;
-
-      public ListWalletAddressesRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        _portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListWalletAddressesRequestBuilder WithWalletId(string walletId)
-      {
-        _walletId = walletId;
-        return this;
-      }
-
-      public ListWalletAddressesRequestBuilder WithNetworkId(string networkId)
-      {
-        _networkId = networkId;
-        return this;
-      }
-
-
-      /// <summary>
-      /// Validates the input fields.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_portfolioId"/>, <see cref="_walletId"/>, or <see cref="_networkId"/> are null, empty, or whitespace.
-      /// </exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(_walletId))
-        {
-          throw new CoinbaseClientException("WalletId is required");
-        }
-        if (string.IsNullOrWhiteSpace(_networkId))
-        {
-          throw new CoinbaseClientException("NetworkId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListWalletAddressesRequest"/>.
-      /// </summary>
-      /// <returns>The new <see cref="ListWalletAddressesRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public override ListWalletAddressesRequest Build()
-      {
-        this.Validate();
-        var request = new ListWalletAddressesRequest(_portfolioId!, _walletId!)
-        {
-          NetworkId = _networkId!
-        };
-        SetPaginationProperties(request);
-        return request;
-      }
-    }
   }
 }

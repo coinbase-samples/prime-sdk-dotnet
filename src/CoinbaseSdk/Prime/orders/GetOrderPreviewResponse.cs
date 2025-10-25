@@ -17,7 +17,7 @@
 namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class GetOrderPreviewResponse
   {
@@ -47,7 +47,7 @@ namespace CoinbaseSdk.Prime.Orders
     public string? ExpiryTime { get; set; }
 
     [JsonPropertyName("time_in_force")]
-    public TimeInForce TimeInForce { get; set; }
+    public TimeInForceType? TimeInForce { get; set; }
 
     [JsonPropertyName("commission")]
     public string? Commission { get; set; }

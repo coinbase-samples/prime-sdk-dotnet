@@ -13,12 +13,12 @@
 {{#vars}}      this.{{name}} = builder.{{name}};
 {{/vars}}    }
 
-    public static class Builder
+    public class Builder
     {
 {{#vars}}      private {{{datatype}}}{{^required}}?{{/required}} {{name}};
 
 {{/vars}}
-{{#vars}}      public Builder {{name}}({{{datatype}}}{{^required}}?{{/required}} {{name}})
+{{#vars}}      public Builder With{{name}}({{{datatype}}}{{^required}}?{{/required}} {{name}})
       {
         this.{{name}} = {{name}};
         return this;

@@ -17,46 +17,11 @@
 namespace CoinbaseSdk.Prime.Portfolios
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
 
   public class GetPortfolioRequest(string portfolioId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
-
-    public class GetPortfolioRequestBuilder
-    {
-      private string? _portfolioId;
-
-      public GetPortfolioRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validate the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId cannot be null or empty");
-        }
-      }
-
-      /// <summary>
-      /// Build the <see cref="GetPortfolioRequest"/>.
-      /// </summary>
-      /// <returns>The <see cref="GetPortfolioRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetPortfolioRequest Build()
-      {
-        this.Validate();
-        return new GetPortfolioRequest(this._portfolioId!);
-      }
-    }
   }
 }
+

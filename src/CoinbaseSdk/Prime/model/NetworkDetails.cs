@@ -92,7 +92,7 @@ namespace CoinbaseSdk.Prime.Model
       this.network_link = builder.network_link;
     }
 
-    public static class Builder
+    public class Builder
     {
       private Network? network;
 
@@ -112,55 +112,55 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? network_link;
 
-      public Builder network(Network? network)
+      public Builder Withnetwork(Network? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder name(string? name)
+      public Builder Withname(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder max_decimals(string? max_decimals)
+      public Builder Withmax_decimals(string? max_decimals)
       {
         this.max_decimals = max_decimals;
         return this;
       }
 
-      public Builder VarDefault(bool? VarDefault)
+      public Builder WithVarDefault(bool? VarDefault)
       {
         this.VarDefault = VarDefault;
         return this;
       }
 
-      public Builder trading_supported(bool? trading_supported)
+      public Builder Withtrading_supported(bool? trading_supported)
       {
         this.trading_supported = trading_supported;
         return this;
       }
 
-      public Builder vault_supported(bool? vault_supported)
+      public Builder Withvault_supported(bool? vault_supported)
       {
         this.vault_supported = vault_supported;
         return this;
       }
 
-      public Builder prime_custody_supported(bool? prime_custody_supported)
+      public Builder Withprime_custody_supported(bool? prime_custody_supported)
       {
         this.prime_custody_supported = prime_custody_supported;
         return this;
       }
 
-      public Builder destination_tag_required(bool? destination_tag_required)
+      public Builder Withdestination_tag_required(bool? destination_tag_required)
       {
         this.destination_tag_required = destination_tag_required;
         return this;
       }
 
-      public Builder network_link(string? network_link)
+      public Builder Withnetwork_link(string? network_link)
       {
         this.network_link = network_link;
         return this;

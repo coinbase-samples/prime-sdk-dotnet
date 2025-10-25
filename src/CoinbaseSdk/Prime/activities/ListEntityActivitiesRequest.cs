@@ -18,7 +18,8 @@ namespace CoinbaseSdk.Prime.Activities
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListEntityActivitiesRequest(string entityId) : PaginatedRequest
   {
@@ -34,10 +35,8 @@ namespace CoinbaseSdk.Prime.Activities
     public string? StartTime { get; set; }
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
-    [JsonPropertyName("sort_direction")]
-    public SortDirection? SortDirection { get; set; }
 
-    public class ListEntityActivitiesRequestBuilder : PaginatedRequestBuilder<ListEntityActivitiesRequest, ListEntityActivitiesRequestBuilder>
+    public class Builder
     {
       private string? _entityId;
       private ActivityLevel? _activityLevel;
@@ -46,60 +45,67 @@ namespace CoinbaseSdk.Prime.Activities
       private ActivityStatus[]? _statuses;
       private string? _startTime;
       private string? _endTime;
+      private string? _cursor;
       private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListEntityActivitiesRequestBuilder WithEntityId(string entityId)
+      public Builder WithEntityId(string entityId)
       {
         _entityId = entityId;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithActivityLevel(ActivityLevel activityLevel)
+      public Builder WithActivityLevel(ActivityLevel activityLevel)
       {
         _activityLevel = activityLevel;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithSymbols(string[] symbols)
+      public Builder WithSymbols(string[] symbols)
       {
         _symbols = symbols;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithCategories(ActivityCategory[] categories)
+      public Builder WithCategories(ActivityCategory[] categories)
       {
         _categories = categories;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithStatuses(ActivityStatus[] statuses)
+      public Builder WithStatuses(ActivityStatus[] statuses)
       {
         _statuses = statuses;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithStartTime(string startTime)
+      public Builder WithStartTime(string startTime)
       {
         _startTime = startTime;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithEndTime(string endTime)
+      public Builder WithEndTime(string endTime)
       {
         _endTime = endTime;
         return this;
       }
 
-      public ListEntityActivitiesRequestBuilder WithSortDirection(SortDirection sortDirection)
+      public Builder WithCursor(string cursor)
+      {
+        _cursor = cursor;
+        return this;
+      }
+
+      public Builder WithSortDirection(SortDirection sortDirection)
       {
         _sortDirection = sortDirection;
         return this;
       }
 
-      public new ListEntityActivitiesRequestBuilder WithPagination(Pagination pagination)
+      public Builder WithLimit(int limit)
       {
-        base.WithPagination(pagination);
-        _sortDirection = pagination.SortDirection;
+        _limit = limit;
         return this;
       }
 
@@ -120,9 +126,9 @@ namespace CoinbaseSdk.Prime.Activities
       /// </summary>
       /// <returns>The <see cref="ListEntityActivitiesRequest"/>.</returns>
       /// <exception cref="CoinbaseClientException">Thrown when <see cref="_entityId" /> is null, empty, or whitespace.</exception>
-      public override ListEntityActivitiesRequest Build()
+      public ListEntityActivitiesRequest Build()
       {
-        this.Validate();
+        Validate();
         var request = new ListEntityActivitiesRequest(_entityId!)
         {
           ActivityLevel = _activityLevel,
@@ -131,9 +137,10 @@ namespace CoinbaseSdk.Prime.Activities
           Statuses = _statuses ?? [],
           StartTime = _startTime,
           EndTime = _endTime,
-          SortDirection = _sortDirection
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit
         };
-        SetPaginationProperties(request);
         return request;
       }
     }

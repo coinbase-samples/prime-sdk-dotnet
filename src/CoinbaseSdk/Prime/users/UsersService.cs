@@ -27,7 +27,7 @@ namespace CoinbaseSdk.Prime.Users
       ListPortfolioUsersRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListPortfolioUsersResponse>(
+      return Request<ListPortfolioUsersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/users",
         [HttpStatusCode.OK],
@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Users
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListPortfolioUsersResponse>(
+      return RequestAsync<ListPortfolioUsersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/users",
         [HttpStatusCode.OK],
@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Users
       ListUsersRequest request,
       CallOptions? options = null)
     {
-      return this.Request<ListUsersResponse>(
+      return Request<ListUsersResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/users",
         [HttpStatusCode.OK],
@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Users
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return this.RequestAsync<ListUsersResponse>(
+      return RequestAsync<ListUsersResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/users",
         [HttpStatusCode.OK],

@@ -16,7 +16,9 @@
 
 namespace CoinbaseSdk.Prime.Positions
 {
+  using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
+
   public class ListEntityPositionsResponse
   {
     public Position[] Positions { get; set; } = [];
@@ -26,3 +28,4 @@ namespace CoinbaseSdk.Prime.Positions
     public ListEntityPositionsResponse() { }
   }
 }
+

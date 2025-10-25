@@ -85,7 +85,7 @@ namespace CoinbaseSdk.Prime.Model
       this.updated_at = builder.updated_at;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? loan_id;
 
@@ -103,49 +103,49 @@ namespace CoinbaseSdk.Prime.Model
 
       private DateTime? updated_at;
 
-      public Builder loan_id(string? loan_id)
+      public Builder Withloan_id(string? loan_id)
       {
         this.loan_id = loan_id;
         return this;
       }
 
-      public Builder loan_party(XMParty? loan_party)
+      public Builder Withloan_party(XMParty? loan_party)
       {
         this.loan_party = loan_party;
         return this;
       }
 
-      public Builder principal_currency(string? principal_currency)
+      public Builder Withprincipal_currency(string? principal_currency)
       {
         this.principal_currency = principal_currency;
         return this;
       }
 
-      public Builder principal_currency_market_price(string? principal_currency_market_price)
+      public Builder Withprincipal_currency_market_price(string? principal_currency_market_price)
       {
         this.principal_currency_market_price = principal_currency_market_price;
         return this;
       }
 
-      public Builder initial_principal_amount(string? initial_principal_amount)
+      public Builder Withinitial_principal_amount(string? initial_principal_amount)
       {
         this.initial_principal_amount = initial_principal_amount;
         return this;
       }
 
-      public Builder outstanding_principal_amount(string? outstanding_principal_amount)
+      public Builder Withoutstanding_principal_amount(string? outstanding_principal_amount)
       {
         this.outstanding_principal_amount = outstanding_principal_amount;
         return this;
       }
 
-      public Builder created_at(DateTime? created_at)
+      public Builder Withcreated_at(DateTime? created_at)
       {
         this.created_at = created_at;
         return this;
       }
 
-      public Builder updated_at(DateTime? updated_at)
+      public Builder Withupdated_at(DateTime? updated_at)
       {
         this.updated_at = updated_at;
         return this;

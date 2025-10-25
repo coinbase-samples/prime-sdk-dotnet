@@ -18,7 +18,7 @@ namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
   /// Request for creating a new trading order.
@@ -83,7 +83,7 @@ namespace CoinbaseSdk.Prime.Orders
     /// Indicates the order time validity.
     /// </summary>
     [JsonPropertyName("time_in_force")]
-    public TimeInForce? TimeInForce { get; set; }
+    public TimeInForceType? TimeInForce { get; set; }
 
     /// <summary>
     /// The start time of the order in UTC (only applies to TWAP, VWAP orders.).
@@ -153,7 +153,7 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _quoteValue;
       private string? _limitPrice;
       private string? _stopPrice;
-      private TimeInForce? _timeInForce;
+      private TimeInForceType? _timeInForce;
       private string? _startTime;
       private string? _expiryTime;
       private string? _stpId;
@@ -166,115 +166,115 @@ namespace CoinbaseSdk.Prime.Orders
 
       public CreateOrderRequestBuilder WithPortfolioId(string portfolioId)
       {
-        this._portfolioId = portfolioId;
+        _portfolioId = portfolioId;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithProductId(string? productId)
+      public CreateOrderRequestBuilder WithProductId(string productId)
       {
-        this._productId = productId;
+        _productId = productId;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithSide(OrderSide? side)
+      public CreateOrderRequestBuilder WithSide(OrderSide side)
       {
-        this._side = side;
+        _side = side;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithClientOrderId(string? clientOrderId)
+      public CreateOrderRequestBuilder WithClientOrderId(string clientOrderId)
       {
-        this._clientOrderId = clientOrderId;
+        _clientOrderId = clientOrderId;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithType(OrderType? type)
+      public CreateOrderRequestBuilder WithType(OrderType type)
       {
-        this._type = type;
+        _type = type;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithBaseQuantity(string? baseQuantity)
+      public CreateOrderRequestBuilder WithBaseQuantity(string baseQuantity)
       {
-        this._baseQuantity = baseQuantity;
+        _baseQuantity = baseQuantity;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithQuoteValue(string? quoteValue)
+      public CreateOrderRequestBuilder WithQuoteValue(string quoteValue)
       {
-        this._quoteValue = quoteValue;
+        _quoteValue = quoteValue;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithLimitPrice(string? limitPrice)
+      public CreateOrderRequestBuilder WithLimitPrice(string limitPrice)
       {
-        this._limitPrice = limitPrice;
+        _limitPrice = limitPrice;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithStopPrice(string? stopPrice)
+      public CreateOrderRequestBuilder WithStopPrice(string stopPrice)
       {
-        this._stopPrice = stopPrice;
+        _stopPrice = stopPrice;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithTimeInForce(TimeInForce? timeInForce)
+      public CreateOrderRequestBuilder WithTimeInForce(TimeInForceType timeInForce)
       {
-        this._timeInForce = timeInForce;
+        _timeInForce = timeInForce;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithStartTime(string? startTime)
+      public CreateOrderRequestBuilder WithStartTime(string startTime)
       {
-        this._startTime = startTime;
+        _startTime = startTime;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithExpiryTime(string? expiryTime)
+      public CreateOrderRequestBuilder WithExpiryTime(string expiryTime)
       {
-        this._expiryTime = expiryTime;
+        _expiryTime = expiryTime;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithStpId(string? stpId)
+      public CreateOrderRequestBuilder WithStpId(string stpId)
       {
-        this._stpId = stpId;
+        _stpId = stpId;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithDisplayQuoteSize(string? displayQuoteSize)
+      public CreateOrderRequestBuilder WithDisplayQuoteSize(string displayQuoteSize)
       {
-        this._displayQuoteSize = displayQuoteSize;
+        _displayQuoteSize = displayQuoteSize;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithDisplayBaseSize(string? displayBaseSize)
+      public CreateOrderRequestBuilder WithDisplayBaseSize(string displayBaseSize)
       {
-        this._displayBaseSize = displayBaseSize;
+        _displayBaseSize = displayBaseSize;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithIsRaiseExact(bool? isRaiseExact)
+      public CreateOrderRequestBuilder WithIsRaiseExact(bool isRaiseExact)
       {
-        this._isRaiseExact = isRaiseExact;
+        _isRaiseExact = isRaiseExact;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithHistoricalPov(string? historicalPov)
+      public CreateOrderRequestBuilder WithHistoricalPov(string historicalPov)
       {
-        this._historicalPov = historicalPov;
+        _historicalPov = historicalPov;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithSettlCurrency(string? settlCurrency)
+      public CreateOrderRequestBuilder WithSettlCurrency(string settlCurrency)
       {
-        this._settlCurrency = settlCurrency;
+        _settlCurrency = settlCurrency;
         return this;
       }
 
-      public CreateOrderRequestBuilder WithPostOnly(bool? postOnly)
+      public CreateOrderRequestBuilder WithPostOnly(bool postOnly)
       {
-        this._postOnly = postOnly;
+        _postOnly = postOnly;
         return this;
       }
 
@@ -297,27 +297,27 @@ namespace CoinbaseSdk.Prime.Orders
       /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
       public CreateOrderRequest Build()
       {
-        this.Validate();
+        Validate();
         return new CreateOrderRequest(_portfolioId!)
         {
-          ProductId = this._productId,
-          Side = this._side,
-          ClientOrderId = this._clientOrderId,
-          Type = this._type,
-          BaseQuantity = this._baseQuantity,
-          QuoteValue = this._quoteValue,
-          LimitPrice = this._limitPrice,
-          StopPrice = this._stopPrice,
-          TimeInForce = this._timeInForce,
-          StartTime = this._startTime,
-          ExpiryTime = this._expiryTime,
-          StpId = this._stpId,
-          DisplayQuoteSize = this._displayQuoteSize,
-          DisplayBaseSize = this._displayBaseSize,
-          IsRaiseExact = this._isRaiseExact,
-          HistoricalPov = this._historicalPov,
-          SettlCurrency = this._settlCurrency,
-          PostOnly = this._postOnly
+          ProductId = _productId,
+          Side = _side,
+          ClientOrderId = _clientOrderId,
+          Type = _type,
+          BaseQuantity = _baseQuantity,
+          QuoteValue = _quoteValue,
+          LimitPrice = _limitPrice,
+          StopPrice = _stopPrice,
+          TimeInForce = _timeInForce,
+          StartTime = _startTime,
+          ExpiryTime = _expiryTime,
+          StpId = _stpId,
+          DisplayQuoteSize = _displayQuoteSize,
+          DisplayBaseSize = _displayBaseSize,
+          IsRaiseExact = _isRaiseExact,
+          HistoricalPov = _historicalPov,
+          SettlCurrency = _settlCurrency,
+          PostOnly = _postOnly,
         };
       }
     }

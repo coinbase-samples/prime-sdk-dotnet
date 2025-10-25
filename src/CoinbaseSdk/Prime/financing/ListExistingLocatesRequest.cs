@@ -17,7 +17,10 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
-  public class ListExistingLocatesRequest(string portfolioId)
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
+
+  public class ListExistingLocatesRequest(string portfolioId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
@@ -31,27 +34,48 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonPropertyName("locate_date")]
     public string? LocateDate { get; set; }
 
-    public class ListExistingLocatesRequestBuilder
+    public class Builder
     {
       private string[] _locateIds = [];
       private string? _conversionDate;
       private string? _locateDate;
+      private string? _cursor;
+      private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public ListExistingLocatesRequestBuilder WithLocateIds(string[] locateIds)
+      public Builder WithLocateIds(string[] locateIds)
       {
         _locateIds = locateIds;
         return this;
       }
 
-      public ListExistingLocatesRequestBuilder WithConversionDate(string conversionDate)
+      public Builder WithConversionDate(string conversionDate)
       {
         _conversionDate = conversionDate;
         return this;
       }
 
-      public ListExistingLocatesRequestBuilder WithLocateDate(string locateDate)
+      public Builder WithLocateDate(string locateDate)
       {
         _locateDate = locateDate;
+        return this;
+      }
+
+      public Builder WithCursor(string cursor)
+      {
+        _cursor = cursor;
+        return this;
+      }
+
+      public Builder WithSortDirection(SortDirection sortDirection)
+      {
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public Builder WithLimit(int limit)
+      {
+        _limit = limit;
         return this;
       }
 
@@ -61,7 +85,10 @@ namespace CoinbaseSdk.Prime.Financing
         {
           LocateIds = _locateIds,
           ConversionDate = _conversionDate,
-          LocateDate = _locateDate
+          LocateDate = _locateDate,
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit
         };
       }
     }

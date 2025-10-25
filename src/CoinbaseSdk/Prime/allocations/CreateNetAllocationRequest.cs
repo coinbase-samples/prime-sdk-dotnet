@@ -18,6 +18,7 @@ namespace CoinbaseSdk.Prime.Allocations
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CreateNetAllocationRequest
   {
@@ -37,7 +38,7 @@ namespace CoinbaseSdk.Prime.Allocations
     public AllocationLeg[] AllocationLegs { get; set; } = [];
 
     [JsonPropertyName("size_type")]
-    public SizeType SizeType { get; set; }
+    public AllocationSizeType SizeType { get; set; }
 
     [JsonPropertyName("remainder_destination_portfolio")]
     public string? RemainderDestinationPortfolio { get; set; }
@@ -47,62 +48,62 @@ namespace CoinbaseSdk.Prime.Allocations
 
     public CreateNetAllocationRequest() { }
 
-    public class CreateNetAllocationRequestBuilder
+    public class Builder
     {
       private string? _allocationId;
       private string? _sourcePortfolioId;
       private string? _productId;
       private string[] _orderIds = Array.Empty<string>();
       private AllocationLeg[] _allocationLegs = Array.Empty<AllocationLeg>();
-      private SizeType _sizeType;
+      private AllocationSizeType _sizeType;
       private string? _remainderDestinationPortfolio;
       private string? _nettingId;
 
-      public CreateNetAllocationRequestBuilder WithAllocationId(string? allocationId)
+      public Builder WithAllocationId(string? allocationId)
       {
-        this._allocationId = allocationId;
+        _allocationId = allocationId;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithSourcePortfolioId(string? sourcePortfolioId)
+      public Builder WithSourcePortfolioId(string? sourcePortfolioId)
       {
-        this._sourcePortfolioId = sourcePortfolioId;
+        _sourcePortfolioId = sourcePortfolioId;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithProductId(string? productId)
+      public Builder WithProductId(string? productId)
       {
-        this._productId = productId;
+        _productId = productId;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithOrderIds(string[] orderIds)
+      public Builder WithOrderIds(string[] orderIds)
       {
-        this._orderIds = orderIds;
+        _orderIds = orderIds;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithAllocationLegs(AllocationLeg[] allocationLegs)
+      public Builder WithAllocationLegs(AllocationLeg[] allocationLegs)
       {
-        this._allocationLegs = allocationLegs;
+        _allocationLegs = allocationLegs;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithSizeType(SizeType sizeType)
+      public Builder WithSizeType(AllocationSizeType sizeType)
       {
-        this._sizeType = sizeType;
+        _sizeType = sizeType;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithRemainderDestinationPortfolio(string? remainderDestinationPortfolio)
+      public Builder WithRemainderDestinationPortfolio(string? remainderDestinationPortfolio)
       {
-        this._remainderDestinationPortfolio = remainderDestinationPortfolio;
+        _remainderDestinationPortfolio = remainderDestinationPortfolio;
         return this;
       }
 
-      public CreateNetAllocationRequestBuilder WithNettingId(string? nettingId)
+      public Builder WithNettingId(string? nettingId)
       {
-        this._nettingId = nettingId;
+        _nettingId = nettingId;
         return this;
       }
 
@@ -110,14 +111,14 @@ namespace CoinbaseSdk.Prime.Allocations
       {
         return new CreateNetAllocationRequest
         {
-          AllocationId = this._allocationId,
-          SourcePortfolioId = this._sourcePortfolioId,
-          ProductId = this._productId,
-          OrderIds = this._orderIds,
-          AllocationLegs = this._allocationLegs,
-          SizeType = this._sizeType,
-          RemainderDestinationPortfolio = this._remainderDestinationPortfolio,
-          NettingId = this._nettingId
+          AllocationId = _allocationId,
+          SourcePortfolioId = _sourcePortfolioId,
+          ProductId = _productId,
+          OrderIds = _orderIds,
+          AllocationLegs = _allocationLegs,
+          SizeType = _sizeType,
+          RemainderDestinationPortfolio = _remainderDestinationPortfolio,
+          NettingId = _nettingId
         };
       }
     }

@@ -18,64 +18,14 @@ namespace CoinbaseSdk.Prime.Orders
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Common;
 
-  public class ListOrderEditHistoryRequest(string portfolioId, string orderId)
+  public class ListOrderEditHistoryRequest(string portfolioId, string orderId) : PaginatedRequest
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
-
-
-    public class ListOrderEditHistoryRequestBuilder
-    {
-      private string? _portfolioId;
-      private string? _orderId;
-
-      public ListOrderEditHistoryRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        _portfolioId = portfolioId;
-        return this;
-      }
-
-      public ListOrderEditHistoryRequestBuilder WithOrderId(string orderId)
-      {
-        _orderId = orderId;
-        return this;
-      }
-
-
-      /// <summary>
-      /// Validates the input fields.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_portfolioId"/> or <see cref="_orderId"/> are null, empty, or whitespace.
-      /// </exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-        if (string.IsNullOrWhiteSpace(_orderId))
-        {
-          throw new CoinbaseClientException("OrderId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="ListOrderEditHistoryRequest"/>.
-      /// </summary>
-      /// <returns>The new <see cref="ListOrderEditHistoryRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public ListOrderEditHistoryRequest Build()
-      {
-        this.Validate();
-        return new ListOrderEditHistoryRequest(_portfolioId!, _orderId!);
-      }
-    }
   }
 }
-
-

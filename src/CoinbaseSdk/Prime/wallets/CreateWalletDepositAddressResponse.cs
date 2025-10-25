@@ -29,3 +29,4 @@ namespace CoinbaseSdk.Prime.Wallets
     public Network? Network { get; set; }
   }
 }
+

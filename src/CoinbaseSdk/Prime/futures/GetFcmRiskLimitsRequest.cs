@@ -26,51 +26,5 @@ namespace CoinbaseSdk.Prime.Futures
 
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
-    public class GetFcmRiskLimitsRequestBuilder
-    {
-      private string? _entityId;
-      private string? _productId;
-
-      public GetFcmRiskLimitsRequestBuilder WithEntityId(string entityId)
-      {
-        _entityId = entityId;
-        return this;
-      }
-
-      public GetFcmRiskLimitsRequestBuilder WithProductId(string productId)
-      {
-        _productId = productId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validates the input fields.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">
-      /// If <see cref="_entityId"/> is null, empty, or whitespace.
-      /// </exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(_entityId))
-        {
-          throw new CoinbaseClientException("EntityId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="GetFcmRiskLimitsRequest"/>.
-      /// </summary>
-      /// <returns>The new <see cref="GetFcmRiskLimitsRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException"> If the required fields are not set.</exception>
-      public GetFcmRiskLimitsRequest Build()
-      {
-        this.Validate();
-        return new GetFcmRiskLimitsRequest(_entityId!)
-        {
-          ProductId = _productId
-        };
-      }
-    }
   }
 }

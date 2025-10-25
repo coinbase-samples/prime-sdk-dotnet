@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Model
       this.counterparty_id = builder.counterparty_id;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string id;
 
@@ -146,79 +146,79 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? counterparty_id;
 
-      public Builder id(string id)
+      public Builder Withid(string id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder currency_symbol(string? currency_symbol)
+      public Builder Withcurrency_symbol(string? currency_symbol)
       {
         this.currency_symbol = currency_symbol;
         return this;
       }
 
-      public Builder name(string name)
+      public Builder Withname(string name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder address(string? address)
+      public Builder Withaddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder account_identifier(string? account_identifier)
+      public Builder Withaccount_identifier(string? account_identifier)
       {
         this.account_identifier = account_identifier;
         return this;
       }
 
-      public Builder account_identifier_name(string? account_identifier_name)
+      public Builder Withaccount_identifier_name(string? account_identifier_name)
       {
         this.account_identifier_name = account_identifier_name;
         return this;
       }
 
-      public Builder state(string state)
+      public Builder Withstate(string state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder explorer_link(string? explorer_link)
+      public Builder Withexplorer_link(string? explorer_link)
       {
         this.explorer_link = explorer_link;
         return this;
       }
 
-      public Builder last_used_at(DateTime? last_used_at)
+      public Builder Withlast_used_at(DateTime? last_used_at)
       {
         this.last_used_at = last_used_at;
         return this;
       }
 
-      public Builder added_at(DateTime? added_at)
+      public Builder Withadded_at(DateTime? added_at)
       {
         this.added_at = added_at;
         return this;
       }
 
-      public Builder added_by(DisplayUser added_by)
+      public Builder Withadded_by(DisplayUser added_by)
       {
         this.added_by = added_by;
         return this;
       }
 
-      public Builder type(AddressBookType? type)
+      public Builder Withtype(AddressBookType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder counterparty_id(string? counterparty_id)
+      public Builder Withcounterparty_id(string? counterparty_id)
       {
         this.counterparty_id = counterparty_id;
         return this;

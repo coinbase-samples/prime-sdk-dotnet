@@ -66,7 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       this.short_notional = builder.short_notional;
     }
 
-    public static class Builder
+    public class Builder
     {
       private string? symbol;
 
@@ -78,31 +78,31 @@ namespace CoinbaseSdk.Prime.Model
 
       private string? short_notional;
 
-      public Builder symbol(string? symbol)
+      public Builder Withsymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder long_amount(string? long_amount)
+      public Builder Withlong_amount(string? long_amount)
       {
         this.long_amount = long_amount;
         return this;
       }
 
-      public Builder long_notional(string? long_notional)
+      public Builder Withlong_notional(string? long_notional)
       {
         this.long_notional = long_notional;
         return this;
       }
 
-      public Builder short_amount(string? short_amount)
+      public Builder Withshort_amount(string? short_amount)
       {
         this.short_amount = short_amount;
         return this;
       }
 
-      public Builder short_notional(string? short_notional)
+      public Builder Withshort_notional(string? short_notional)
       {
         this.short_notional = short_notional;
         return this;

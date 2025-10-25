@@ -17,7 +17,6 @@
 namespace CoinbaseSdk.Prime.Portfolios
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Core.Error;
 
   /// <summary>
   /// Request object for getting a portfolio's counterparty ID.
@@ -29,48 +28,5 @@ namespace CoinbaseSdk.Prime.Portfolios
     /// </summary>
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
-
-    /// <summary>
-    /// Builder for <see cref="GetPortfolioCounterpartyRequest"/>.
-    /// </summary>
-    public class GetPortfolioCounterpartyRequestBuilder
-    {
-      private string? _portfolioId;
-
-      /// <summary>
-      /// Sets the portfolio ID.
-      /// </summary>
-      /// <param name="portfolioId">The portfolio ID.</param>
-      /// <returns>The builder instance.</returns>
-      public GetPortfolioCounterpartyRequestBuilder WithPortfolioId(string portfolioId)
-      {
-        this._portfolioId = portfolioId;
-        return this;
-      }
-
-      /// <summary>
-      /// Validates the builder.
-      /// </summary>
-      /// <exception cref="CoinbaseClientException">Thrown when the
-      /// <see cref="_portfolioId"/> is null, empty or whitespace.</exception>
-      private void Validate()
-      {
-        if (string.IsNullOrWhiteSpace(this._portfolioId))
-        {
-          throw new CoinbaseClientException("PortfolioId is required");
-        }
-      }
-
-      /// <summary>
-      /// Builds the <see cref="GetPortfolioCounterpartyRequest"/>.
-      /// </summary>
-      /// <returns>The <see cref="GetPortfolioCounterpartyRequest"/>.</returns>
-      /// <exception cref="CoinbaseClientException">Thrown when the required fields are not set.</exception>
-      public GetPortfolioCounterpartyRequest Build()
-      {
-        this.Validate();
-        return new GetPortfolioCounterpartyRequest(this._portfolioId!);
-      }
-    }
   }
 }
