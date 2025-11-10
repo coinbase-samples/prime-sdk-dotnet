@@ -21,11 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.AssetBalance;
-  using CoinbaseSdk.Prime.Model.LoanInfo;
-  using CoinbaseSdk.Prime.Model.MarginAddOn;
-  using CoinbaseSdk.Prime.Model.MarketRate;
-  using CoinbaseSdk.Prime.Model.PMAssetInfo;
   using System.Text.Json.Serialization;
 
   public class MarginSummary

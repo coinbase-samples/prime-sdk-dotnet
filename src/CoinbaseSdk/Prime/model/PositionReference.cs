@@ -21,7 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.PositionReferenceType;
   using System.Text.Json.Serialization;
 
   public class PositionReference

@@ -21,9 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.DateOfBirth;
-  using CoinbaseSdk.Prime.Model.DetailedAddress;
-  using CoinbaseSdk.Prime.Model.NaturalPersonName;
   using System.Text.Json.Serialization;
 
   public class TravelRuleParty

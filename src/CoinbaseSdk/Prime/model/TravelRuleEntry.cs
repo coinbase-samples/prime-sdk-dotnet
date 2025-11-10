@@ -21,10 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.BlockchainAddress;
-  using CoinbaseSdk.Prime.Model.TravelRuleParty;
-  using CoinbaseSdk.Prime.Model.TravelRuleWalletDetails;
-  using CoinbaseSdk.Prime.Model.VASP;
   using System.Text.Json.Serialization;
 
   public class TravelRuleEntry

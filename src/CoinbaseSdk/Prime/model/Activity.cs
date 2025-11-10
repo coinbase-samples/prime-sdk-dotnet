@@ -21,14 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.ActivityCategory;
-  using CoinbaseSdk.Prime.Model.ActivityMetadataAccount;
-  using CoinbaseSdk.Prime.Model.ActivityMetadataTransactions;
-  using CoinbaseSdk.Prime.Model.ActivitySecondaryType;
-  using CoinbaseSdk.Prime.Model.ActivityStatus;
-  using CoinbaseSdk.Prime.Model.PrimeActivityType;
-  using CoinbaseSdk.Prime.Model.HierarchyType;
-  using CoinbaseSdk.Prime.Model.UserAction;
   using System.Text.Json.Serialization;
 
   public class Activity

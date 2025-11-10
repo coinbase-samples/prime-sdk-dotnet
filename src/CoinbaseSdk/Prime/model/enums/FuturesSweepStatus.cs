@@ -18,38 +18,17 @@
  *  Do not edit the class manually.
  */
 
-namespace CoinbaseSdk.Prime.Model
+namespace CoinbaseSdk.Prime.Model.Enums
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class ActivityMetadataTransactions
+  public enum FuturesSweepStatus
   {
-    [JsonPropertyName("consensus")]
-    public ActivityMetadataConsensus? consensus { get; set; }
-
-    public ActivityMetadataTransactions() { }
-
-    public ActivityMetadataTransactions(Builder builder)
-    {
-      this.consensus = builder.consensus;
-    }
-
-    public class Builder
-    {
-      private ActivityMetadataConsensus? consensus;
-
-      public Builder Withconsensus(ActivityMetadataConsensus? consensus)
-      {
-        this.consensus = consensus;
-        return this;
-      }
-
-      public ActivityMetadataTransactions Build()
-      {
-        return new ActivityMetadataTransactions(this);
-      }
-    }
+    FCMFUTURESSWEEPSTATUSUNSPECIFIED,
+    FCMFUTURESSWEEPSTATUSPENDING,
+    FCMFUTURESSWEEPSTATUSCLOSED,
+    FCMFUTURESSWEEPSTATUSCANCELED,
+    FCMFUTURESSWEEPSTATUSPROCESSING
   }
 
 }

@@ -21,12 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.XMControlStatus;
-  using CoinbaseSdk.Prime.Model.XMEntityCallStatus;
-  using CoinbaseSdk.Prime.Model.XMLoan;
-  using CoinbaseSdk.Prime.Model.XMMarginCall;
-  using CoinbaseSdk.Prime.Model.XMMarginLevel;
-  using CoinbaseSdk.Prime.Model.XMSummary;
   using System.Text.Json.Serialization;
 
   public class CrossMarginOverview

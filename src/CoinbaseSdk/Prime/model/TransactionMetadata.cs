@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.MatchMetadata;
-  using CoinbaseSdk.Prime.Model.OnchainTransactionMetadata;
   using System.Text.Json.Serialization;
 
   public class TransactionMetadata
@@ -30,7 +28,7 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("match_metadata")]
     public MatchMetadata? match_metadata { get; set; }
 
-    [JsonPropertyName("web3_transaction_metadata")]
+    [JsonPropertyName("onchain_transaction_metadata")]
     public OnchainTransactionMetadata? onchain_transaction_metadata { get; set; }
 
     public TransactionMetadata() { }

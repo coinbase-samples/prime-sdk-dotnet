@@ -23,57 +23,54 @@ namespace CoinbaseSdk.Prime.Model
   using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class EntityUser
+  public class FuturesSweep
   {
     /// <summary>
-    /// The unique ID of the user
+    /// Sweep ID
     /// </summary>
     [JsonPropertyName("id")]
     public string? id { get; set; }
 
-    /// <summary>
-    /// The name of the user
-    /// </summary>
-    [JsonPropertyName("name")]
-    public string? name { get; set; }
+    [JsonPropertyName("requested_amount")]
+    public SweepAmount? requested_amount { get; set; }
 
     /// <summary>
-    /// The email of the user
+    /// Should sweep all
     /// </summary>
-    [JsonPropertyName("email")]
-    public string? email { get; set; }
+    [JsonPropertyName("should_sweep_all")]
+    public bool? should_sweep_all { get; set; }
+
+    [JsonPropertyName("status")]
+    public FuturesSweepStatus? status { get; set; }
 
     /// <summary>
-    /// The entity to which this user and associated permissions are identified
+    /// Scheduled time
     /// </summary>
-    [JsonPropertyName("entity_id")]
-    public string? entity_id { get; set; }
+    [JsonPropertyName("scheduled_time")]
+    public DateTime? scheduled_time { get; set; }
 
-    [JsonPropertyName("role")]
-    public UserRole? role { get; set; }
+    public FuturesSweep() { }
 
-    public EntityUser() { }
-
-    public EntityUser(Builder builder)
+    public FuturesSweep(Builder builder)
     {
       this.id = builder.id;
-      this.name = builder.name;
-      this.email = builder.email;
-      this.entity_id = builder.entity_id;
-      this.role = builder.role;
+      this.requested_amount = builder.requested_amount;
+      this.should_sweep_all = builder.should_sweep_all;
+      this.status = builder.status;
+      this.scheduled_time = builder.scheduled_time;
     }
 
     public class Builder
     {
       private string? id;
 
-      private string? name;
+      private SweepAmount? requested_amount;
 
-      private string? email;
+      private bool? should_sweep_all;
 
-      private string? entity_id;
+      private FuturesSweepStatus? status;
 
-      private UserRole? role;
+      private DateTime? scheduled_time;
 
       public Builder Withid(string? id)
       {
@@ -81,33 +78,33 @@ namespace CoinbaseSdk.Prime.Model
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder Withrequested_amount(SweepAmount? requested_amount)
       {
-        this.name = name;
+        this.requested_amount = requested_amount;
         return this;
       }
 
-      public Builder Withemail(string? email)
+      public Builder Withshould_sweep_all(bool? should_sweep_all)
       {
-        this.email = email;
+        this.should_sweep_all = should_sweep_all;
         return this;
       }
 
-      public Builder Withentity_id(string? entity_id)
+      public Builder Withstatus(FuturesSweepStatus? status)
       {
-        this.entity_id = entity_id;
+        this.status = status;
         return this;
       }
 
-      public Builder Withrole(UserRole? role)
+      public Builder Withscheduled_time(DateTime? scheduled_time)
       {
-        this.role = role;
+        this.scheduled_time = scheduled_time;
         return this;
       }
 
-      public EntityUser Build()
+      public FuturesSweep Build()
       {
-        return new EntityUser(this);
+        return new FuturesSweep(this);
       }
     }
   }

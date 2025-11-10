@@ -21,9 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.Benchmark;
-  using CoinbaseSdk.Prime.Model.LoanType;
-  using CoinbaseSdk.Prime.Model.RateType;
   using System.Text.Json.Serialization;
 
   public class Accrual

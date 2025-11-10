@@ -21,12 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.LimitOrderEdit;
-  using CoinbaseSdk.Prime.Model.OrderEdit;
-  using CoinbaseSdk.Prime.Model.OrderSide;
-  using CoinbaseSdk.Prime.Model.OrderStatus;
-  using CoinbaseSdk.Prime.Model.OrderType;
-  using CoinbaseSdk.Prime.Model.TimeInForceType;
   using System.Text.Json.Serialization;
 
   public class Order

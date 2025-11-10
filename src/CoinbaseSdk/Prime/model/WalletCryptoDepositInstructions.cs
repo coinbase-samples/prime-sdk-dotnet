@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.Network;
-  using CoinbaseSdk.Prime.Model.WalletDepositInstructionType;
   using System.Text.Json.Serialization;
 
   public class WalletCryptoDepositInstructions

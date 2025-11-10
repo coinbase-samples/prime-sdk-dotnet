@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.AddressEntry;
-  using CoinbaseSdk.Prime.Model.NetworkType;
   using System.Text.Json.Serialization;
 
   public class AddressGroup

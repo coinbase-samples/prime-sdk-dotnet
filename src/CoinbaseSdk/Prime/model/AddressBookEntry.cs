@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.AddressBookType;
-  using CoinbaseSdk.Prime.Model.DisplayUser;
   using System.Text.Json.Serialization;
 
   public class AddressBookEntry

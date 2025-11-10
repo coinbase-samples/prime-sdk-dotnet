@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.MarginAddOn;
-  using CoinbaseSdk.Prime.Model.XMPosition;
   using System.Text.Json.Serialization;
 
   public class XMRiskNettingInfo

@@ -21,14 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.AssetChange;
-  using CoinbaseSdk.Prime.Model.EstimatedNetworkFees;
-  using CoinbaseSdk.Prime.Model.Network;
-  using CoinbaseSdk.Prime.Model.OnchainTransactionDetails;
-  using CoinbaseSdk.Prime.Model.TransactionMetadata;
-  using CoinbaseSdk.Prime.Model.TransactionStatus;
-  using CoinbaseSdk.Prime.Model.TransactionType;
-  using CoinbaseSdk.Prime.Model.TransferLocation;
   using System.Text.Json.Serialization;
 
   public class Transaction
@@ -147,7 +139,7 @@ namespace CoinbaseSdk.Prime.Model
     [JsonPropertyName("idempotency_key")]
     public string? idempotency_key { get; set; }
 
-    [JsonPropertyName("web3_details")]
+    [JsonPropertyName("onchain_details")]
     public OnchainTransactionDetails? onchain_details { get; set; }
 
     [JsonPropertyName("network_info")]

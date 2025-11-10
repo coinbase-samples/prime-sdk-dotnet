@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.RiskAssessment;
-  using CoinbaseSdk.Prime.Model.SigningStatus;
   using System.Text.Json.Serialization;
 
   public class OnchainTransactionDetails

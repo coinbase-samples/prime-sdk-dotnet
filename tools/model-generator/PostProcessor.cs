@@ -28,9 +28,20 @@ public class PostProcessor
   private int _newModelsCount = 0;
   private int _updatedModelsCount = 0;
 
-  // Prefix mappings for stripping common API/service prefixes from generated class names
-  private static readonly Dictionary<string, string> PrefixMappings = new()
+  // Special case enum renames: stripped name -> final enum name
+  // This handles cases where enums need custom naming beyond simple prefix stripping
+  private static readonly Dictionary<string, string> EnumNameMappings = new()
   {
+    { "ActivityType", "PrimeActivityType" }  // CoinbasePublicRestApiActivityType -> PrimeActivityType
+    // CoinbaseCustodyApiActivityType is handled by FILE_PATH_REPLACEMENTS
+  };
+
+  // File path replacements (matching prime-sdk-java FILE_PATH_REPLACEMENTS)
+  // Used for transforming class names and file names
+  private static readonly Dictionary<string, string> FilePathReplacements = new()
+  {
+    { "CoinbaseCustodyApiActivityType", "CustodyActivityType" },
+    { "CoinbasePublicRestApiActivityType", "PrimeActivityType" },
     { "CoinbaseBrokerageProxyEventsMaterializedApi", "" },
     { "CoinbasePublicRestApi", "" },
     { "CoinbaseCustodyApi", "" },
@@ -40,7 +51,8 @@ public class PostProcessor
     { "FcmFuturesSweep", "FuturesSweep" }
   };
 
-  // Content replacements (matching prime-sdk-java logic)
+  // Content replacements (matching prime-sdk-java CONTENT_REPLACEMENTS)
+  // Applied to all file content to strip prefixes from type references
   private static readonly Dictionary<string, string> ContentReplacements = new()
   {
     { "coinbaseCustodyApiActivityType", "CustodyActivityType" },
@@ -209,35 +221,32 @@ public class PostProcessor
   private async Task ProcessEnumFileAsync(string filePath)
   {
     var content = await File.ReadAllTextAsync(filePath);
-    
-    // Extract original class name BEFORE applying content replacements
-    var originalClassName = ExtractClassName(content);
-    
-    // Apply specialized transformations to class name (e.g., ActivityType variants)
-    var className = ApplyClassNameTransformations(originalClassName);
-    
-    // Strip common prefixes from the transformed name
-    className = StripCommonPrefixes(className);
+    var className = ExtractClassName(content);
 
-    // Apply content replacements to the content
+    // Apply content replacements to ALL files (matching Java applyContentReplacements logic)
     content = ApplyContentReplacements(content);
 
-    // Update class declaration in content
+    // Strip prefixes from class name (matching Java stripCommonPrefixes logic)
+    var originalClassName = className;
+    className = StripCommonPrefixes(className);
+
     if (className != originalClassName)
     {
       content = content.Replace($"enum {originalClassName}", $"enum {className}");
       _logger.LogInformation("Transformed enum name: {Original} -> {New}", originalClassName, className);
     }
 
-    // Update namespace to enums
-    content = content.Replace("namespace CoinbaseSdk.Prime.Model", "namespace CoinbaseSdk.Prime.Model.Enums");
-
+    // Extract final class name after all transformations (for correct filename)
+    className = ExtractClassName(content);
     var fileName = $"{className}.cs";
     var outputPath = Path.Combine(_enumsDir, fileName);
     var existsBefore = File.Exists(outputPath);
 
     // Handle case-only filename changes
     HandleCaseVariants(_enumsDir, fileName);
+
+    // Custom templates already produce correct output - just fix package
+    content = content.Replace("namespace CoinbaseSdk.Prime.Model", "namespace CoinbaseSdk.Prime.Model.Enums");
 
     await File.WriteAllTextAsync(outputPath, content);
 
@@ -256,40 +265,44 @@ public class PostProcessor
   private async Task ProcessModelFileAsync(string filePath)
   {
     var content = await File.ReadAllTextAsync(filePath);
-    
-    // Extract original class name BEFORE applying content replacements
-    var originalClassName = ExtractClassName(content);
-    
-    // Apply specialized transformations to class name (e.g., ActivityType variants)
-    var className = ApplyClassNameTransformations(originalClassName);
-    
-    // Strip common prefixes from the transformed name
-    className = StripCommonPrefixes(className);
+    var className = ExtractClassName(content);
 
-    // Apply content replacements to the content
+    // Apply content replacements to ALL files (matching Java applyContentReplacements logic)
     content = ApplyContentReplacements(content);
 
-    // Update class declaration in content
+    // Strip prefixes from class name (matching Java stripCommonPrefixes logic)
+    var originalClassName = className;
+    className = StripCommonPrefixes(className);
+
     if (className != originalClassName)
     {
       content = content.Replace($"class {originalClassName}", $"class {className}");
+      content = content.Replace($"enum {originalClassName}", $"enum {className}");
       _logger.LogInformation("Transformed class name: {Original} -> {New}", originalClassName, className);
     }
 
     // Apply Web3 to Onchain transformation
     content = ApplyWeb3ToOnchainTransformation(content, className);
 
-    // Fix enum imports (add Enums namespace)
-    content = FixEnumImports(content);
+    // Extract final class name after all transformations (for correct filename)
+    className = ExtractClassName(content);
+    var fileName = $"{className}.cs";
 
     // Apply Web3 to Onchain transformation to filename
-    var fileName = className.Replace("Web3", "Onchain") + ".cs";
+    if (fileName.Contains("Web3"))
+    {
+      fileName = fileName.Replace("Web3", "Onchain");
+      className = className.Replace("Web3", "Onchain");
+    }
 
     var outputPath = Path.Combine(_outputDir, fileName);
     var existsBefore = File.Exists(outputPath);
 
     // Handle case-only filename changes
     HandleCaseVariants(_outputDir, fileName);
+
+    // Custom templates already produce correct output - just fix enum imports
+    content = FixEnumImports(content);
 
     await File.WriteAllTextAsync(outputPath, content);
 
@@ -318,14 +331,50 @@ public class PostProcessor
       content = Regex.Replace(content, @"\bweb3", "onchain");
 
       // Keep JSON property mappings unchanged
-      content = content.Replace("[JsonPropertyName(\"onchain", "[JsonPropertyName(\"web3");
+      content = content.Replace("[JsonPropertyName(\"onchain\")]", "[JsonPropertyName(\"web3\")]");
     }
 
     return content;
   }
 
+  /// <summary>
+  /// Fixes enum imports to use the enums namespace and applies special case enum name mappings.
+  /// Handles both import statements and type references throughout the content.
+  /// </summary>
   private string FixEnumImports(string content)
   {
+    // Get list of all actual enum names from enums directory
+    var actualEnumNames = new HashSet<string>();
+    if (Directory.Exists(_enumsDir))
+    {
+      foreach (var file in Directory.GetFiles(_enumsDir, "*.cs"))
+      {
+        var fileName = Path.GetFileNameWithoutExtension(file);
+        actualEnumNames.Add(fileName);
+      }
+    }
+
+    // First, apply special case enum name mappings (e.g., ActivityType -> PrimeActivityType)
+    // This must happen BEFORE fixing import paths
+    foreach (var mapping in EnumNameMappings)
+    {
+      var strippedName = mapping.Key;
+      var actualEnumName = mapping.Value;
+
+      // Only apply mapping if the actual enum exists
+      if (actualEnumNames.Contains(actualEnumName))
+      {
+        // Replace type references (but not in JsonPropertyName attributes)
+        // Pattern: word boundary + strippedName + word boundary (not inside attribute)
+        content = Regex.Replace(
+          content,
+          $@"\b{Regex.Escape(strippedName)}\b(?![^\[]*\[JsonPropertyName)",
+          actualEnumName
+        );
+        _logger.LogDebug("Applied enum mapping: {Original} -> {New}", strippedName, actualEnumName);
+      }
+    }
+
     // Add using statement for enums if not already present
     if (!content.Contains("using CoinbaseSdk.Prime.Model.Enums;"))
     {
@@ -338,8 +387,14 @@ public class PostProcessor
 
     return content;
   }
+  /// <summary>
+  /// Apply content replacements to all files to strip prefixes from type references.
+  /// Matches prime-sdk-java applyContentReplacements() behavior.
+  /// </summary>
   private string ApplyContentReplacements(string content)
   {
+    // Apply content replacements (matching Java CONTENT_REPLACEMENTS)
+    // Uses String.Replace() which replaces ALL occurrences (like Java)
     foreach (var replacement in ContentReplacements)
     {
       content = content.Replace(replacement.Key, replacement.Value);
@@ -371,37 +426,23 @@ public class PostProcessor
     return match.Success ? match.Groups[1].Value : string.Empty;
   }
 
-  private string ApplyClassNameTransformations(string className)
-  {
-    // Apply specific transformations that need to happen before prefix stripping
-    // to avoid collisions (e.g., CustodyActivityType vs PrimeActivityType)
-    var transformations = new Dictionary<string, string>
-    {
-      { "CoinbaseCustodyApiActivityType", "CustodyActivityType" },
-      { "CoinbasePublicRestApiActivityType", "PrimeActivityType" }
-    };
-
-    if (transformations.TryGetValue(className, out var transformed))
-    {
-      return transformed;
-    }
-
-    return className;
-  }
-
+  /// <summary>
+  /// Apply file path replacements to strip common prefixes from class names.
+  /// Matches prime-sdk-java stripCommonPrefixes() behavior.
+  /// </summary>
   private string StripCommonPrefixes(string className)
   {
-    // Apply prefix mappings
-    foreach (var mapping in PrefixMappings)
+    var result = className;
+
+    // Apply replacements in order (Dictionary maintains insertion order in .NET Core 3.0+)
+    foreach (var entry in FilePathReplacements)
     {
-      if (className.StartsWith(mapping.Key))
+      if (result.Contains(entry.Key))
       {
-        var stripped = mapping.Value + className.Substring(mapping.Key.Length);
-        // Return the stripped name, or original if it would result in empty string
-        return !string.IsNullOrEmpty(stripped) ? stripped : className;
+        result = result.Replace(entry.Key, entry.Value);
       }
     }
 
-    return className;
+    return result;
   }
 }

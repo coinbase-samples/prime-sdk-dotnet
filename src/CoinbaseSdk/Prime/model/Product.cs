@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.ProductPermissions;
-  using CoinbaseSdk.Prime.Model.RFQProductDetails;
   using System.Text.Json.Serialization;
 
   public class Product

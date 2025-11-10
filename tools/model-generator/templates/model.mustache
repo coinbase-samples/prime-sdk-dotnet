@@ -1,8 +1,7 @@
 {{>licenseInfo}}
 namespace CoinbaseSdk.Prime.Model
 {
-{{#imports}}  using {{import}};
-{{/imports}}  using System.Text.Json.Serialization;
+  using System.Text.Json.Serialization;
 
 {{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>modelGeneric}}{{/isEnum}}{{/model}}{{/models}}
 }

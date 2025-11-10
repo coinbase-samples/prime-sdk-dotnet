@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.InvoiceItem;
-  using CoinbaseSdk.Prime.Model.InvoiceState;
   using System.Text.Json.Serialization;
 
   public class Invoice

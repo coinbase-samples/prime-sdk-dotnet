@@ -21,9 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.AssetChangeType;
-  using CoinbaseSdk.Prime.Model.NFTCollection;
-  using CoinbaseSdk.Prime.Model.NFTItem;
   using System.Text.Json.Serialization;
 
   public class AssetChange

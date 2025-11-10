@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.MarginCallRecord;
-  using CoinbaseSdk.Prime.Model.MarginSummary;
   using System.Text.Json.Serialization;
 
   public class MarginInformation

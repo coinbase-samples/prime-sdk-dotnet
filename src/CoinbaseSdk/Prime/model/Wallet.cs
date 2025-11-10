@@ -21,9 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.Network;
-  using CoinbaseSdk.Prime.Model.WalletType;
-  using CoinbaseSdk.Prime.Model.WalletVisibility;
   using System.Text.Json.Serialization;
 
   public class Wallet

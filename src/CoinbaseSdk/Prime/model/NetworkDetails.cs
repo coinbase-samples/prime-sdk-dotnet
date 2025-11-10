@@ -21,7 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.Network;
   using System.Text.Json.Serialization;
 
   public class NetworkDetails

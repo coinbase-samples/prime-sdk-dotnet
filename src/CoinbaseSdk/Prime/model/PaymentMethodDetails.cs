@@ -21,7 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.PaymentMethodType;
   using System.Text.Json.Serialization;
 
   public class PaymentMethodDetails

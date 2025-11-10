@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.FCMMarginCallState;
-  using CoinbaseSdk.Prime.Model.FCMMarginCallType;
   using System.Text.Json.Serialization;
 
   public class FCMMarginCall

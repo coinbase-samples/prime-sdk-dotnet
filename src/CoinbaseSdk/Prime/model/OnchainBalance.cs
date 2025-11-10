@@ -21,8 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.VisibilityStatus;
-  using CoinbaseSdk.Prime.Model.OnchainAsset;
   using System.Text.Json.Serialization;
 
   public class OnchainBalance

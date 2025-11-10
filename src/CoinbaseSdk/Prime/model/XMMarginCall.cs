@@ -21,10 +21,6 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
-  using CoinbaseSdk.Prime.Model.XMCallStatus;
-  using CoinbaseSdk.Prime.Model.XMCallType;
-  using CoinbaseSdk.Prime.Model.XMMarginLevel;
-  using CoinbaseSdk.Prime.Model.XMSummary;
   using System.Text.Json.Serialization;
 
   public class XMMarginCall
