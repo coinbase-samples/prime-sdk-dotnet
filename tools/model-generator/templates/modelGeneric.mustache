@@ -6,7 +6,6 @@
 {{/description}}
     [JsonPropertyName("{{baseName}}")]
     public {{{datatype}}}{{^required}}?{{/required}} {{name}} { get; set; }{{#defaultValue}} = {{{.}}};{{/defaultValue}}{{^defaultValue}}{{#required}} = default!;{{/required}}{{/defaultValue}}
-
 {{/vars}}
     public {{classname}}() { }
 
@@ -18,15 +17,14 @@
     public class Builder
     {
 {{#vars}}      private {{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}{{#required}} = default!{{/required}};
-
 {{/vars}}
 {{#vars}}      public Builder With{{name}}({{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}})
       {
         this.{{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}} = {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}};
         return this;
       }
-
-{{/vars}}      public {{classname}} Build()
+{{/vars}}
+      public {{classname}} Build()
       {
         return new {{classname}}(this);
       }
