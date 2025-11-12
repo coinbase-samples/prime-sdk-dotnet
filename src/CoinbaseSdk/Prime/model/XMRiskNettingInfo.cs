@@ -128,33 +128,33 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? nodalMarginRequirement;
+      private string? nodalMarginRequirement;
 
-      internal string? portfolioMarginRequirement;
+      private string? portfolioMarginRequirement;
 
-      internal string? integratedPortfolioMarginRequirement;
+      private string? integratedPortfolioMarginRequirement;
 
-      internal string? ineligibleFuturesMarginRequirement;
+      private string? ineligibleFuturesMarginRequirement;
 
-      internal string? positionMarginRequirement;
+      private string? positionMarginRequirement;
 
-      internal string? portfolioMarginAddon;
+      private string? portfolioMarginAddon;
 
-      internal string? integratedPositionMarginRequirement;
+      private string? integratedPositionMarginRequirement;
 
-      internal string? integratedPortfolioMarginAddon;
+      private string? integratedPortfolioMarginAddon;
 
-      internal string? nettedFuturesNotional;
+      private string? nettedFuturesNotional;
 
-      internal string? totalGmvBasis;
+      private string? totalGmvBasis;
 
-      internal string? ipmCashBalance;
+      private string? ipmCashBalance;
 
-      internal MarginAddOn? integratedScenarioAddon;
+      private MarginAddOn? integratedScenarioAddon;
 
-      internal List<MarginAddOn>? allIntegratedScenarioAddons;
+      private List<MarginAddOn>? allIntegratedScenarioAddons;
 
-      internal List<XmPosition>? xmPositions;
+      private List<XmPosition>? xmPositions;
 
       public Builder WithNodalMarginRequirement(string? nodalMarginRequirement)
       {

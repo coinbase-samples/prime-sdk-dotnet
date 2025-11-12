@@ -54,11 +54,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? type;
+      private string? type;
 
-      internal string? rate;
+      private string? rate;
 
-      internal string? tradingVolume;
+      private string? tradingVolume;
 
       public Builder WithType(string? type)
       {

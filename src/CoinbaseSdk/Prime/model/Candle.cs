@@ -72,17 +72,17 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal DateTime? timestamp;
+      private DateTime? timestamp;
 
-      internal string? open;
+      private string? open;
 
-      internal string? high;
+      private string? high;
 
-      internal string? low;
+      private string? low;
 
-      internal string? close;
+      private string? close;
 
-      internal string? volume;
+      private string? volume;
 
       public Builder WithTimestamp(DateTime? timestamp)
       {

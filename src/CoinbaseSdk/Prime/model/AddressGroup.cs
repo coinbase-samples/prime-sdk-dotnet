@@ -54,15 +54,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? name;
+      private string? name;
 
-      internal NetworkType? networkType;
+      private NetworkType? networkType;
 
-      internal List<AddressEntry>? addresses;
+      private List<AddressEntry>? addresses;
 
-      internal DateTime? addedAt;
+      private DateTime? addedAt;
 
       public Builder WithId(string? id)
       {

@@ -53,15 +53,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? name;
+      private string? name;
 
-      internal DetailedAddress? detailedAddress;
+      private DetailedAddress? detailedAddress;
 
-      internal NaturalPersonName? naturalPersonName;
+      private NaturalPersonName? naturalPersonName;
 
-      internal DateOfBirth? dateOfBirth;
+      private DateOfBirth? dateOfBirth;
 
-      internal string? telephoneNumber;
+      private string? telephoneNumber;
 
       public Builder WithName(string? name)
       {

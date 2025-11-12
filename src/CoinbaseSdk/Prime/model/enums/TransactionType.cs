@@ -61,5 +61,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     PORTFOLIOSTAKE,
     PORTFOLIOUNSTAKE
   }
-
 }

@@ -31,5 +31,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     FcmMARGINCALLSTATEDEFAULT,
     FcmMARGINCALLSTATEOFFICIAL
   }
-
 }

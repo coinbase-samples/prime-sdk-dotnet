@@ -42,9 +42,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal TravelRuleWalletType? walletType;
+      private TravelRuleWalletType? walletType;
 
-      internal BlockchainAddress? walletAddress;
+      private BlockchainAddress? walletAddress;
 
       public Builder WithWalletType(TravelRuleWalletType? walletType)
       {

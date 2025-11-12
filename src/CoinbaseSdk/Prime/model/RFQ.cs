@@ -65,19 +65,19 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string productId = default!;
+      private string productId = default!;
 
-      internal OrderSide side = default!;
+      private OrderSide side = default!;
 
-      internal string clientQuoteId = default!;
+      private string clientQuoteId = default!;
 
-      internal string? baseQuantity;
+      private string? baseQuantity;
 
-      internal string? quoteValue;
+      private string? quoteValue;
 
-      internal string limitPrice = default!;
+      private string limitPrice = default!;
 
-      internal string? settlCurrency;
+      private string? settlCurrency;
 
       public Builder WithProductId(string productId)
       {

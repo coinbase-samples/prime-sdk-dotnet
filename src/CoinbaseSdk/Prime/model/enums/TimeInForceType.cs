@@ -30,5 +30,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     IMMEDIATEORCANCEL,
     FILLORKILL
   }
-
 }

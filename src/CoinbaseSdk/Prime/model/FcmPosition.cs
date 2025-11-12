@@ -87,21 +87,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? productId;
+      private string? productId;
 
-      internal FcmPositionSide? side;
+      private FcmPositionSide? side;
 
-      internal string? numberOfContracts;
+      private string? numberOfContracts;
 
-      internal string? dailyRealizedPnl;
+      private string? dailyRealizedPnl;
 
-      internal string? unrealizedPnl;
+      private string? unrealizedPnl;
 
-      internal string? currentPrice;
+      private string? currentPrice;
 
-      internal string? avgEntryPrice;
+      private string? avgEntryPrice;
 
-      internal DateTime? expirationTime;
+      private DateTime? expirationTime;
 
       public Builder WithProductId(string? productId)
       {

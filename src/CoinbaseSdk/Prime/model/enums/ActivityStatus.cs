@@ -33,5 +33,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     ACTIVITYSTATUSREJECTED,
     ACTIVITYSTATUSFAILED
   }
-
 }

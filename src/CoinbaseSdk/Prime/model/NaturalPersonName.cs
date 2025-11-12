@@ -45,11 +45,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? firstName;
+      private string? firstName;
 
-      internal string? middleName;
+      private string? middleName;
 
-      internal string? lastName;
+      private string? lastName;
 
       public Builder WithFirstName(string? firstName)
       {

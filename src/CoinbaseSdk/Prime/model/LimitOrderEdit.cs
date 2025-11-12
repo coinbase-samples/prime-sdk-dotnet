@@ -65,21 +65,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? price;
+      private string? price;
 
-      internal string? size;
+      private string? size;
 
-      internal string? displaySize;
+      private string? displaySize;
 
-      internal string? stopPrice;
+      private string? stopPrice;
 
-      internal string? stopLimitPrice;
+      private string? stopLimitPrice;
 
-      internal DateTime? endTime;
+      private DateTime? endTime;
 
-      internal DateTime? acceptTime;
+      private DateTime? acceptTime;
 
-      internal string? clientOrderId;
+      private string? clientOrderId;
 
       public Builder WithPrice(string? price)
       {

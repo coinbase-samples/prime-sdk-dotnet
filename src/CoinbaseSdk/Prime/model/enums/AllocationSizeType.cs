@@ -29,5 +29,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     QUOTE,
     PERCENT
   }
-
 }

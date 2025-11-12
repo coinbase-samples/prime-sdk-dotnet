@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? amount;
+      private string? amount;
 
       public Builder WithAmount(string? amount)
       {

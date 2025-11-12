@@ -52,11 +52,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal Action? action;
+      private Action? action;
 
-      internal string? userId;
+      private string? userId;
 
-      internal string? timestamp;
+      private string? timestamp;
 
       public Builder WithAction(Action? action)
       {

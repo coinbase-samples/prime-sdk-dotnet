@@ -60,15 +60,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal AssetChangeType? type;
+      private AssetChangeType? type;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? amount;
+      private string? amount;
 
-      internal NftCollection? collection;
+      private NftCollection? collection;
 
-      internal NftItem? item;
+      private NftItem? item;
 
       public Builder WithType(AssetChangeType? type)
       {

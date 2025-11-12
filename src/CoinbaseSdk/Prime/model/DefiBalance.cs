@@ -45,11 +45,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? network;
+      private string? network;
 
-      internal string? protocol;
+      private string? protocol;
 
-      internal string? netUsdValue;
+      private string? netUsdValue;
 
       public Builder WithNetwork(string? network)
       {

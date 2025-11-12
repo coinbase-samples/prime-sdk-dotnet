@@ -63,15 +63,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal SweepAmount? requestedAmount;
+      private SweepAmount? requestedAmount;
 
-      internal bool? shouldSweepAll;
+      private bool? shouldSweepAll;
 
-      internal FuturesSweepStatus? status;
+      private FuturesSweepStatus? status;
 
-      internal DateTime? scheduledTime;
+      private DateTime? scheduledTime;
 
       public Builder WithId(string? id)
       {

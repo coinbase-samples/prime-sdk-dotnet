@@ -28,5 +28,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     DESC,
     ASC
   }
-
 }

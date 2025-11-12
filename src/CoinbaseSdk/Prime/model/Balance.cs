@@ -124,31 +124,31 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? amount;
+      private string? amount;
 
-      internal string? holds;
+      private string? holds;
 
-      internal string? bondedAmount;
+      private string? bondedAmount;
 
-      internal string? reservedAmount;
+      private string? reservedAmount;
 
-      internal string? unbondingAmount;
+      private string? unbondingAmount;
 
-      internal string? unvestedAmount;
+      private string? unvestedAmount;
 
-      internal string? pendingRewardsAmount;
+      private string? pendingRewardsAmount;
 
-      internal string? pastRewardsAmount;
+      private string? pastRewardsAmount;
 
-      internal string? bondableAmount;
+      private string? bondableAmount;
 
-      internal string? withdrawableAmount;
+      private string? withdrawableAmount;
 
-      internal string? fiatAmount;
+      private string? fiatAmount;
 
-      internal string? unbondableAmount;
+      private string? unbondableAmount;
 
       public Builder WithSymbol(string? symbol)
       {

@@ -82,19 +82,19 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal bool? tradable;
+      private bool? tradable;
 
-      internal string? minNotionalSize;
+      private string? minNotionalSize;
 
-      internal string? maxNotionalSize;
+      private string? maxNotionalSize;
 
-      internal string? minBaseSize;
+      private string? minBaseSize;
 
-      internal string? maxBaseSize;
+      private string? maxBaseSize;
 
-      internal string? minQuoteSize;
+      private string? minQuoteSize;
 
-      internal string? maxQuoteSize;
+      private string? maxQuoteSize;
 
       public Builder WithTradable(bool? tradable)
       {

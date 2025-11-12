@@ -32,5 +32,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     TRANSACTIONREWARD,
     STAKINGFEEREBATEREWARD
   }
-
 }

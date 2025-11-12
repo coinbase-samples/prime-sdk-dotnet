@@ -68,15 +68,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? legId;
+      private string? legId;
 
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal string? allocationBase;
+      private string? allocationBase;
 
-      internal string? allocationQuote;
+      private string? allocationQuote;
 
-      internal string? feesAllocatedLeg;
+      private string? feesAllocatedLeg;
 
       public Builder WithLegId(string? legId)
       {

@@ -68,15 +68,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal bool success = default!;
+      private bool success = default!;
 
-      internal string nettingId = default!;
+      private string nettingId = default!;
 
-      internal string buyAllocationId = default!;
+      private string buyAllocationId = default!;
 
-      internal string sellAllocationId = default!;
+      private string sellAllocationId = default!;
 
-      internal string failureReason = default!;
+      private string failureReason = default!;
 
       public Builder WithSuccess(bool success)
       {

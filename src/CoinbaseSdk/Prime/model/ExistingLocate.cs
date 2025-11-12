@@ -110,27 +110,27 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? locateId;
+      private string? locateId;
 
-      internal string? entityId;
+      private string? entityId;
 
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? requestedAmount;
+      private string? requestedAmount;
 
-      internal string? interestRate;
+      private string? interestRate;
 
-      internal string? status;
+      private string? status;
 
-      internal string? approvedAmount;
+      private string? approvedAmount;
 
-      internal string? conversionDate;
+      private string? conversionDate;
 
-      internal string? createdAt;
+      private string? createdAt;
 
-      internal string? locateDate;
+      private string? locateDate;
 
       public Builder WithLocateId(string? locateId)
       {

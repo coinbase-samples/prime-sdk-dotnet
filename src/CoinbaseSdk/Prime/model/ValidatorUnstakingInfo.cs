@@ -47,9 +47,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string validatorAddress = default!;
+      private string validatorAddress = default!;
 
-      internal List<UnstakingStatus> statuses = default!;
+      private List<UnstakingStatus> statuses = default!;
 
       public Builder WithValidatorAddress(string validatorAddress)
       {

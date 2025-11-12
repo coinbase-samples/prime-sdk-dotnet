@@ -59,13 +59,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal TransferLocationType? type;
+      private TransferLocationType? type;
 
-      internal string? value;
+      private string? value;
 
-      internal string? address;
+      private string? address;
 
-      internal string? accountIdentifier;
+      private string? accountIdentifier;
 
       public Builder WithType(TransferLocationType? type)
       {

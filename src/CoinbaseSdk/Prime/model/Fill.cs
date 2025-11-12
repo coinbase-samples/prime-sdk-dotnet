@@ -122,31 +122,31 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? orderId;
+      private string? orderId;
 
-      internal string? productId;
+      private string? productId;
 
-      internal string? clientProductId;
+      private string? clientProductId;
 
-      internal OrderSide? side;
+      private OrderSide? side;
 
-      internal string? filledQuantity;
+      private string? filledQuantity;
 
-      internal string? filledValue;
+      private string? filledValue;
 
-      internal string? price;
+      private string? price;
 
-      internal DateTime? time;
+      private DateTime? time;
 
-      internal string? commission;
+      private string? commission;
 
-      internal string? venue;
+      private string? venue;
 
-      internal string? venueFees;
+      private string? venueFees;
 
-      internal string? cesCommission;
+      private string? cesCommission;
 
       public Builder WithId(string? id)
       {

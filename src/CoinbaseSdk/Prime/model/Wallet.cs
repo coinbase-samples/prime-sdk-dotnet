@@ -66,21 +66,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? name;
+      private string? name;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal WalletType? type;
+      private WalletType? type;
 
-      internal DateTime? createdAt;
+      private DateTime? createdAt;
 
-      internal string? address;
+      private string? address;
 
-      internal WalletVisibility? visibility;
+      private WalletVisibility? visibility;
 
-      internal Network? network;
+      private Network? network;
 
       public Builder WithId(string? id)
       {

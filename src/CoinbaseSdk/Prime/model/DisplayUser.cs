@@ -54,11 +54,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string id = default!;
+      private string id = default!;
 
-      internal string name = default!;
+      private string name = default!;
 
-      internal string avatarUrl = default!;
+      private string avatarUrl = default!;
 
       public Builder WithId(string id)
       {

@@ -66,21 +66,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? description;
+      private string? description;
 
-      internal string? currencySymbol;
+      private string? currencySymbol;
 
-      internal InvoiceType? invoiceType;
+      private InvoiceType? invoiceType;
 
-      internal double? rate;
+      private double? rate;
 
-      internal double? quantity;
+      private double? quantity;
 
-      internal double? price;
+      private double? price;
 
-      internal double? averageAuc;
+      private double? averageAuc;
 
-      internal double? total;
+      private double? total;
 
       public Builder WithDescription(string? description)
       {

@@ -61,13 +61,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? oldBalance;
+      private string? oldBalance;
 
-      internal string? newBalance;
+      private string? newBalance;
 
-      internal string? loanInterestRate;
+      private string? loanInterestRate;
 
-      internal string? collateralInterestRate;
+      private string? collateralInterestRate;
 
       public Builder WithOldBalance(string? oldBalance)
       {

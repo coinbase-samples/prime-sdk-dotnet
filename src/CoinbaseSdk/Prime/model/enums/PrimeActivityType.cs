@@ -68,5 +68,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     ACTIVITYTYPEWEB3RECREATEBACKUP,
     ACTIVITYTYPEWEB3ONBOARDING
   }
-
 }

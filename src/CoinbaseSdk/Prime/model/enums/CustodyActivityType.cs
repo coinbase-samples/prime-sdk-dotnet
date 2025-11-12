@@ -55,5 +55,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     ACTIVITYTYPEWEB3MESSAGE,
     ACTIVITYTYPECLAIMREWARDS
   }
-
 }

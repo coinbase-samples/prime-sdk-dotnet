@@ -107,27 +107,27 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal string? currency;
+      private string? currency;
 
-      internal string? limit;
+      private string? limit;
 
-      internal string? utilized;
+      private string? utilized;
 
-      internal string? available;
+      private string? available;
 
-      internal bool? frozen;
+      private bool? frozen;
 
-      internal string? frozenReason;
+      private string? frozenReason;
 
-      internal List<AmountDue>? amountsDue;
+      private List<AmountDue>? amountsDue;
 
-      internal bool? enabled;
+      private bool? enabled;
 
-      internal string? adjustedCreditUtilized;
+      private string? adjustedCreditUtilized;
 
-      internal string? adjustedPortfolioEquity;
+      private string? adjustedPortfolioEquity;
 
       public Builder WithPortfolioId(string? portfolioId)
       {

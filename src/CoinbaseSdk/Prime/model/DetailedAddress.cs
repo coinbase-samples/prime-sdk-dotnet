@@ -61,19 +61,19 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? address1;
+      private string? address1;
 
-      internal string? address2;
+      private string? address2;
 
-      internal string? address3;
+      private string? address3;
 
-      internal string? city;
+      private string? city;
 
-      internal string? state;
+      private string? state;
 
-      internal string? countryCode;
+      private string? countryCode;
 
-      internal string? postalCode;
+      private string? postalCode;
 
       public Builder WithAddress1(string? address1)
       {

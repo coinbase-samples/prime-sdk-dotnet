@@ -58,13 +58,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal List<ConversionDetail>? conversionDetails;
+      private List<ConversionDetail>? conversionDetails;
 
-      internal ShortCollateral? shortCollateral;
+      private ShortCollateral? shortCollateral;
 
-      internal string? conversionDatetime;
+      private string? conversionDatetime;
 
-      internal string? portfolioId;
+      private string? portfolioId;
 
       public Builder WithConversionDetails(List<ConversionDetail>? conversionDetails)
       {

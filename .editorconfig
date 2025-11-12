@@ -4,3 +4,18 @@ root = true
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true
+
+# Suppress StyleCop documentation rules for generated model files
+[**/Prime/model/**.cs]
+dotnet_diagnostic.SA1629.severity = none  # Documentation text should end with a period
+dotnet_diagnostic.SA1121.severity = none  # Use built-in type alias
+dotnet_diagnostic.SA1101.severity = none  # Prefix local calls with this
+dotnet_diagnostic.SA1600.severity = none  # Elements should be documented
+dotnet_diagnostic.SA1602.severity = none  # Enumeration items should be documented
+
+[**/Prime/model/enums/**.cs]
+dotnet_diagnostic.SA1629.severity = none  # Documentation text should end with a period
+dotnet_diagnostic.SA1121.severity = none  # Use built-in type alias
+dotnet_diagnostic.SA1101.severity = none  # Prefix local calls with this
+dotnet_diagnostic.SA1602.severity = none  # Enumeration items should be documented
+

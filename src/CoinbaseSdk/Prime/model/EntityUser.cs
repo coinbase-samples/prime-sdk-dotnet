@@ -66,15 +66,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? name;
+      private string? name;
 
-      internal string? email;
+      private string? email;
 
-      internal string? entityId;
+      private string? entityId;
 
-      internal UserRole? role;
+      private UserRole? role;
 
       public Builder WithId(string? id)
       {

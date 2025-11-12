@@ -51,11 +51,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? conversionDatetime;
+      private string? conversionDatetime;
 
-      internal string? conversionDate;
+      private string? conversionDate;
 
-      internal MarginSummary? marginSummary;
+      private MarginSummary? marginSummary;
 
       public Builder WithConversionDatetime(string? conversionDatetime)
       {

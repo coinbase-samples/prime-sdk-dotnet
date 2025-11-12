@@ -58,17 +58,17 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal PaymentMethodType? paymentMethodType;
+      private PaymentMethodType? paymentMethodType;
 
-      internal string? bankName;
+      private string? bankName;
 
-      internal string? accountNumber;
+      private string? accountNumber;
 
-      internal string? bankName2;
+      private string? bankName2;
 
       public Builder WithId(string? id)
       {

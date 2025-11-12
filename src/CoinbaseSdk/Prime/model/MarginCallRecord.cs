@@ -68,15 +68,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? marginCallId;
+      private string? marginCallId;
 
-      internal string? initialNotionalAmount;
+      private string? initialNotionalAmount;
 
-      internal string? outstandingNotionalAmount;
+      private string? outstandingNotionalAmount;
 
-      internal string? createdAt;
+      private string? createdAt;
 
-      internal string? dueAt;
+      private string? dueAt;
 
       public Builder WithMarginCallId(string? marginCallId)
       {

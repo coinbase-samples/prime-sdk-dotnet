@@ -75,17 +75,17 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? name;
+      private string? name;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? decimalPrecision;
+      private string? decimalPrecision;
 
-      internal bool? tradingSupported;
+      private bool? tradingSupported;
 
-      internal string? explorerUrl;
+      private string? explorerUrl;
 
-      internal List<NetworkDetails>? networks;
+      private List<NetworkDetails>? networks;
 
       public Builder WithName(string? name)
       {

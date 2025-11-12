@@ -87,21 +87,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? loanId;
+      private string? loanId;
 
-      internal XmParty? loanParty;
+      private XmParty? loanParty;
 
-      internal string? principalCurrency;
+      private string? principalCurrency;
 
-      internal string? principalCurrencyMarketPrice;
+      private string? principalCurrencyMarketPrice;
 
-      internal string? initialPrincipalAmount;
+      private string? initialPrincipalAmount;
 
-      internal string? outstandingPrincipalAmount;
+      private string? outstandingPrincipalAmount;
 
-      internal DateTime? createdAt;
+      private DateTime? createdAt;
 
-      internal DateTime? updatedAt;
+      private DateTime? updatedAt;
 
       public Builder WithLoanId(string? loanId)
       {

@@ -65,15 +65,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? network;
+      private string? network;
 
-      internal string? contractAddress;
+      private string? contractAddress;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? tokenId;
+      private string? tokenId;
 
-      internal string? name;
+      private string? name;
 
       public Builder WithNetwork(string? network)
       {

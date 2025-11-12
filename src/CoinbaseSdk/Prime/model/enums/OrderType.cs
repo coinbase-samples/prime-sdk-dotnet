@@ -34,5 +34,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     RFQ,
     PEG
   }
-
 }

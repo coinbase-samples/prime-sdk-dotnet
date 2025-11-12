@@ -254,69 +254,69 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? entityId;
+      private string? entityId;
 
-      internal string? marginEquity;
+      private string? marginEquity;
 
-      internal string? marginRequirement;
+      private string? marginRequirement;
 
-      internal string? excessDeficit;
+      private string? excessDeficit;
 
-      internal string? pmCreditConsumed;
+      private string? pmCreditConsumed;
 
-      internal string? tfCreditLimit;
+      private string? tfCreditLimit;
 
-      internal string? tfCreditConsumed;
+      private string? tfCreditConsumed;
 
-      internal string? tfAdjustedAssetValue;
+      private string? tfAdjustedAssetValue;
 
-      internal string? tfAdjustedLiabilityValue;
+      private string? tfAdjustedLiabilityValue;
 
-      internal string? tfAdjustedCreditConsumed;
+      private string? tfAdjustedCreditConsumed;
 
-      internal string? tfAdjustedEquity;
+      private string? tfAdjustedEquity;
 
-      internal bool? frozen;
+      private bool? frozen;
 
-      internal string? frozenReason;
+      private string? frozenReason;
 
-      internal bool? tfEnabled;
+      private bool? tfEnabled;
 
-      internal bool? pmEnabled;
+      private bool? pmEnabled;
 
-      internal List<MarketRate>? marketRates;
+      private List<MarketRate>? marketRates;
 
-      internal List<AssetBalance>? assetBalances;
+      private List<AssetBalance>? assetBalances;
 
-      internal List<LoanInfo>? tfLoans;
+      private List<LoanInfo>? tfLoans;
 
-      internal List<LoanInfo>? pmLoans;
+      private List<LoanInfo>? pmLoans;
 
-      internal List<LoanInfo>? shortCollateral;
+      private List<LoanInfo>? shortCollateral;
 
-      internal string? grossMarketValue;
+      private string? grossMarketValue;
 
-      internal string? netMarketValue;
+      private string? netMarketValue;
 
-      internal string? longMarketValue;
+      private string? longMarketValue;
 
-      internal string? nonMarginableLongMarketValue;
+      private string? nonMarginableLongMarketValue;
 
-      internal string? shortMarketValue;
+      private string? shortMarketValue;
 
-      internal string? grossLeverage;
+      private string? grossLeverage;
 
-      internal string? netExposure;
+      private string? netExposure;
 
-      internal MarginAddOn? portfolioStressTriggered;
+      private MarginAddOn? portfolioStressTriggered;
 
-      internal List<PmAssetInfo>? pmAssetInfo;
+      private List<PmAssetInfo>? pmAssetInfo;
 
-      internal string? pmCreditLimit;
+      private string? pmCreditLimit;
 
-      internal string? pmMarginLimit;
+      private string? pmMarginLimit;
 
-      internal string? pmMarginConsumed;
+      private string? pmMarginConsumed;
 
       public Builder WithEntityId(string? entityId)
       {

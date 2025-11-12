@@ -41,9 +41,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? total;
+      private string? total;
 
-      internal string? holds;
+      private string? holds;
 
       public Builder WithTotal(string? total)
       {

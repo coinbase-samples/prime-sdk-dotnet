@@ -47,9 +47,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? label;
+      private string? label;
 
-      internal List<AssetChange>? confirmedAssetChanges;
+      private List<AssetChange>? confirmedAssetChanges;
 
       public Builder WithLabel(string? label)
       {

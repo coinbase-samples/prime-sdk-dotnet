@@ -101,25 +101,25 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? baseIncrement;
+      private string? baseIncrement;
 
-      internal string? quoteIncrement;
+      private string? quoteIncrement;
 
-      internal string? baseMinSize;
+      private string? baseMinSize;
 
-      internal string? quoteMinSize;
+      private string? quoteMinSize;
 
-      internal string? baseMaxSize;
+      private string? baseMaxSize;
 
-      internal string? quoteMaxSize;
+      private string? quoteMaxSize;
 
-      internal List<ProductPermissions>? permissions;
+      private List<ProductPermissions>? permissions;
 
-      internal string? priceIncrement;
+      private string? priceIncrement;
 
-      internal RfqProductDetails? rfqProductDetails;
+      private RfqProductDetails? rfqProductDetails;
 
       public Builder WithId(string? id)
       {

@@ -40,7 +40,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? counterpartyId;
+      private string? counterpartyId;
 
       public Builder WithCounterpartyId(string? counterpartyId)
       {

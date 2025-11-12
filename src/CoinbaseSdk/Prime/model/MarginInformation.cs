@@ -44,9 +44,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal List<MarginCallRecord>? marginCallRecords;
+      private List<MarginCallRecord>? marginCallRecords;
 
-      internal MarginSummary? marginSummary;
+      private MarginSummary? marginSummary;
 
       public Builder WithMarginCallRecords(List<MarginCallRecord>? marginCallRecords)
       {

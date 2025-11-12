@@ -93,23 +93,23 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? marginRequirement;
+      private string? marginRequirement;
 
-      internal string? accountEquity;
+      private string? accountEquity;
 
-      internal string? marginExcessShortfall;
+      private string? marginExcessShortfall;
 
-      internal string? consumedCredit;
+      private string? consumedCredit;
 
-      internal string? xmCreditLimit;
+      private string? xmCreditLimit;
 
-      internal string? xmMarginLimit;
+      private string? xmMarginLimit;
 
-      internal string? spotEquity;
+      private string? spotEquity;
 
-      internal string? futuresEquity;
+      private string? futuresEquity;
 
-      internal XmRiskNettingInfo? riskNettingInfo;
+      private XmRiskNettingInfo? riskNettingInfo;
 
       public Builder WithMarginRequirement(string? marginRequirement)
       {

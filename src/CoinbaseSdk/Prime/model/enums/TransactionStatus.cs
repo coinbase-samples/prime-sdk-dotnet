@@ -47,5 +47,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     OTHERTRANSACTIONSTATUS,
     TRANSACTIONCONSTRUCTED
   }
-
 }

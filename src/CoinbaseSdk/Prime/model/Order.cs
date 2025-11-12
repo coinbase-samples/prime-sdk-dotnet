@@ -246,69 +246,69 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? userId;
+      private string? userId;
 
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal string? productId;
+      private string? productId;
 
-      internal OrderSide? side;
+      private OrderSide? side;
 
-      internal string? clientOrderId;
+      private string? clientOrderId;
 
-      internal OrderType? type;
+      private OrderType? type;
 
-      internal string? baseQuantity;
+      private string? baseQuantity;
 
-      internal string? quoteValue;
+      private string? quoteValue;
 
-      internal string? limitPrice;
+      private string? limitPrice;
 
-      internal DateTime? startTime;
+      private DateTime? startTime;
 
-      internal DateTime? expiryTime;
+      private DateTime? expiryTime;
 
-      internal OrderStatus? status;
+      private OrderStatus? status;
 
-      internal TimeInForceType? timeInForce;
+      private TimeInForceType? timeInForce;
 
-      internal DateTime? createdAt;
+      private DateTime? createdAt;
 
-      internal string? filledQuantity;
+      private string? filledQuantity;
 
-      internal string? filledValue;
+      private string? filledValue;
 
-      internal string? averageFilledPrice;
+      private string? averageFilledPrice;
 
-      internal string? commission;
+      private string? commission;
 
-      internal string? exchangeFee;
+      private string? exchangeFee;
 
-      internal string? historicalPov;
+      private string? historicalPov;
 
-      internal string? stopPrice;
+      private string? stopPrice;
 
-      internal string? netAverageFilledPrice;
+      private string? netAverageFilledPrice;
 
-      internal string? userContext;
+      private string? userContext;
 
-      internal string? clientProductId;
+      private string? clientProductId;
 
-      internal bool? postOnly;
+      private bool? postOnly;
 
-      internal List<LimitOrderEdit>? orderEditHistory;
+      private List<LimitOrderEdit>? orderEditHistory;
 
-      internal bool? isRaiseExact;
+      private bool? isRaiseExact;
 
-      internal string? displaySize;
+      private string? displaySize;
 
-      internal List<OrderEdit>? editHistory;
+      private List<OrderEdit>? editHistory;
 
-      internal string? displayQuoteSize;
+      private string? displayQuoteSize;
 
-      internal string? displayBaseSize;
+      private string? displayBaseSize;
 
       public Builder WithId(string? id)
       {

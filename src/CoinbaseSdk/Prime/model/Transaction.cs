@@ -178,53 +178,53 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? id;
+      private string? id;
 
-      internal string? walletId;
+      private string? walletId;
 
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal TransactionType? type;
+      private TransactionType? type;
 
-      internal TransactionStatus? status;
+      private TransactionStatus? status;
 
-      internal string? symbol;
+      private string? symbol;
 
-      internal DateTime? createdAt;
+      private DateTime? createdAt;
 
-      internal DateTime? completedAt;
+      private DateTime? completedAt;
 
-      internal string? amount;
+      private string? amount;
 
-      internal TransferLocation? transferFrom;
+      private TransferLocation? transferFrom;
 
-      internal TransferLocation? transferTo;
+      private TransferLocation? transferTo;
 
-      internal string? networkFees;
+      private string? networkFees;
 
-      internal string? fees;
+      private string? fees;
 
-      internal string? feeSymbol;
+      private string? feeSymbol;
 
-      internal List<string>? blockchainIds;
+      private List<string>? blockchainIds;
 
-      internal string? transactionId;
+      private string? transactionId;
 
-      internal string? destinationSymbol;
+      private string? destinationSymbol;
 
-      internal EstimatedNetworkFees? estimatedNetworkFees;
+      private EstimatedNetworkFees? estimatedNetworkFees;
 
-      internal string? network;
+      private string? network;
 
-      internal List<AssetChange>? estimatedAssetChanges;
+      private List<AssetChange>? estimatedAssetChanges;
 
-      internal TransactionMetadata? metadata;
+      private TransactionMetadata? metadata;
 
-      internal string? idempotencyKey;
+      private string? idempotencyKey;
 
-      internal OnchainTransactionDetails? onchainDetails;
+      private OnchainTransactionDetails? onchainDetails;
 
-      internal Network? networkInfo;
+      private Network? networkInfo;
 
       public Builder WithId(string? id)
       {

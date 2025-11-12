@@ -31,5 +31,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     SOFR365,
     CRYPTORFR
   }
-
 }

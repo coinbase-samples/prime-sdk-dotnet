@@ -54,11 +54,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string allocationLegId = default!;
+      private string allocationLegId = default!;
 
-      internal string destinationPortfolioId = default!;
+      private string destinationPortfolioId = default!;
 
-      internal string amount = default!;
+      private string amount = default!;
 
       public Builder WithAllocationLegId(string allocationLegId)
       {

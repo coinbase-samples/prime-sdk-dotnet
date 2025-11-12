@@ -47,9 +47,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? fee;
+      private string? fee;
 
       public Builder WithSymbol(string? symbol)
       {

@@ -35,5 +35,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     TEAMMANAGER,
     APPROVER
   }
-
 }

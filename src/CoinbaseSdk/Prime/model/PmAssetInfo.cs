@@ -152,39 +152,39 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? symbol;
+      private string? symbol;
 
-      internal string? amount;
+      private string? amount;
 
-      internal string? price;
+      private string? price;
 
-      internal string? notionalAmount;
+      private string? notionalAmount;
 
-      internal string? assetTier;
+      private string? assetTier;
 
-      internal bool? marginEligible;
+      private bool? marginEligible;
 
-      internal string? baseMarginRequirement;
+      private string? baseMarginRequirement;
 
-      internal string? baseMarginRequirementNotional;
+      private string? baseMarginRequirementNotional;
 
-      internal string? adv30d;
+      private string? adv30d;
 
-      internal string? hist5dVol;
+      private string? hist5dVol;
 
-      internal string? hist30dVol;
+      private string? hist30dVol;
 
-      internal string? hist90dVol;
+      private string? hist90dVol;
 
-      internal string? volatilityAddon;
+      private string? volatilityAddon;
 
-      internal string? liquidityAddon;
+      private string? liquidityAddon;
 
-      internal string? totalPositionMargin;
+      private string? totalPositionMargin;
 
-      internal string? shortNominal;
+      private string? shortNominal;
 
-      internal string? longNominal;
+      private string? longNominal;
 
       public Builder WithSymbol(string? symbol)
       {

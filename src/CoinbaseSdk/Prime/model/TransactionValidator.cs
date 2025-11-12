@@ -52,11 +52,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string transactionId = default!;
+      private string transactionId = default!;
 
-      internal string validatorAddress = default!;
+      private string validatorAddress = default!;
 
-      internal ValidatorStatus validatorStatus = default!;
+      private ValidatorStatus validatorStatus = default!;
 
       public Builder WithTransactionId(string transactionId)
       {

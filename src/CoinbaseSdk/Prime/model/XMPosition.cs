@@ -208,55 +208,55 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? currency;
+      private string? currency;
 
-      internal string? marketPrice;
+      private string? marketPrice;
 
-      internal bool? marginEligible;
+      private bool? marginEligible;
 
-      internal string? marketCap;
+      private string? marketCap;
 
-      internal string? adv30Days;
+      private string? adv30Days;
 
-      internal string? hist5dVol;
+      private string? hist5dVol;
 
-      internal string? hist30dVol;
+      private string? hist30dVol;
 
-      internal string? hist90dVol;
+      private string? hist90dVol;
 
-      internal string? marginRequirement;
+      private string? marginRequirement;
 
-      internal string? spotBalance;
+      private string? spotBalance;
 
-      internal string? spotBalanceNotional;
+      private string? spotBalanceNotional;
 
-      internal string? spotTotalPositionMargin;
+      private string? spotTotalPositionMargin;
 
-      internal string? futuresBalance;
+      private string? futuresBalance;
 
-      internal string? futuresBalanceNotional;
+      private string? futuresBalanceNotional;
 
-      internal string? futuresTotalPositionMargin;
+      private string? futuresTotalPositionMargin;
 
-      internal string? gmvBasis;
+      private string? gmvBasis;
 
-      internal string? baseRequirement;
+      private string? baseRequirement;
 
-      internal string? liqShortsAddOn;
+      private string? liqShortsAddOn;
 
-      internal string? liqLongsAddOn;
+      private string? liqLongsAddOn;
 
-      internal string? volShortsAddOn;
+      private string? volShortsAddOn;
 
-      internal string? volLongsAddOn;
+      private string? volLongsAddOn;
 
-      internal string? vol5daysAddOn;
+      private string? vol5daysAddOn;
 
-      internal string? vol30daysAddOn;
+      private string? vol30daysAddOn;
 
-      internal string? vol90daysAddOn;
+      private string? vol90daysAddOn;
 
-      internal string? totalPositionMargin;
+      private string? totalPositionMargin;
 
       public Builder WithCurrency(string? currency)
       {

@@ -51,11 +51,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? address;
+      private string? address;
 
-      internal string? accountIdentifier;
+      private string? accountIdentifier;
 
-      internal Network? network;
+      private Network? network;
 
       public Builder WithAddress(string? address)
       {

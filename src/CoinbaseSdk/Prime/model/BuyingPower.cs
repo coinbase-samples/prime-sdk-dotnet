@@ -68,15 +68,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      internal string? portfolioId;
+      private string? portfolioId;
 
-      internal string? baseCurrency;
+      private string? baseCurrency;
 
-      internal string? quoteCurrency;
+      private string? quoteCurrency;
 
-      internal string? baseBuyingPower;
+      private string? baseBuyingPower;
 
-      internal string? quoteBuyingPower;
+      private string? quoteBuyingPower;
 
       public Builder WithPortfolioId(string? portfolioId)
       {

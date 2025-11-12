@@ -32,5 +32,4 @@ namespace CoinbaseSdk.Prime.Model.Enums
     URGENTMARGINCALLTHRESHOLD,
     LIQUIDATIONTHRESHOLD
   }
-
 }
