@@ -75,13 +75,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? symbol;
-      private string? tfBalance;
-      private string? notionalTfBalance;
-      private string? convertedBalance;
-      private string? notionalConvertedBalance;
-      private string? interestRate;
-      private string? conversionRate;
+      internal string? symbol;
+      internal string? tfBalance;
+      internal string? notionalTfBalance;
+      internal string? convertedBalance;
+      internal string? notionalConvertedBalance;
+      internal string? interestRate;
+      internal string? conversionRate;
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;

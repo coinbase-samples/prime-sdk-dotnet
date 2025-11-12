@@ -43,8 +43,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? id;
-      private PositionReferenceType? type;
+      internal string? id;
+      internal PositionReferenceType? type;
       public Builder WithId(string? id)
       {
         this.id = id;

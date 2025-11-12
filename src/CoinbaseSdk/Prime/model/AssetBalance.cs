@@ -63,11 +63,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? portfolioId;
-      private string? symbol;
-      private string? amount;
-      private string? notionalAmount;
-      private string? conversionRate;
+      internal string? portfolioId;
+      internal string? symbol;
+      internal string? amount;
+      internal string? notionalAmount;
+      internal string? conversionRate;
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;

@@ -61,15 +61,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? id;
-      private int? billingMonth;
-      private int? billingYear;
-      private string? dueDate;
-      private string? invoiceNumber;
-      private InvoiceState? state;
-      private double? usdAmountPaid;
-      private double? usdAmountOwed;
-      private List<InvoiceItem>? invoiceItems;
+      internal string? id;
+      internal int? billingMonth;
+      internal int? billingYear;
+      internal string? dueDate;
+      internal string? invoiceNumber;
+      internal InvoiceState? state;
+      internal double? usdAmountPaid;
+      internal double? usdAmountOwed;
+      internal List<InvoiceItem>? invoiceItems;
       public Builder WithId(string? id)
       {
         this.id = id;

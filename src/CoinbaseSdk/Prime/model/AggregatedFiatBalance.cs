@@ -39,8 +39,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? total;
-      private string? holds;
+      internal string? total;
+      internal string? holds;
       public Builder WithTotal(string? total)
       {
         this.total = total;

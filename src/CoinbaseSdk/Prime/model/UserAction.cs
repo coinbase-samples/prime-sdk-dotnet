@@ -49,9 +49,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private Action? action;
-      private string? userId;
-      private string? timestamp;
+      internal Action? action;
+      internal string? userId;
+      internal string? timestamp;
       public Builder WithAction(Action? action)
       {
         this.action = action;

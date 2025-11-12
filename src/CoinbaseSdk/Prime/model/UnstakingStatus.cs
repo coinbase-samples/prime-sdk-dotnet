@@ -70,13 +70,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string amount = default!;
-      private UnstakeType? unstakeType;
-      private DateTime? finishingAt;
-      private long? remainingHours;
-      private DateTime? requestedAt;
-      private EstimateType estimateType = default!;
-      private string estimateDescription = default!;
+      internal string amount = default!;
+      internal UnstakeType? unstakeType;
+      internal DateTime? finishingAt;
+      internal long? remainingHours;
+      internal DateTime? requestedAt;
+      internal EstimateType estimateType = default!;
+      internal string estimateDescription = default!;
       public Builder WithAmount(string amount)
       {
         this.amount = amount;

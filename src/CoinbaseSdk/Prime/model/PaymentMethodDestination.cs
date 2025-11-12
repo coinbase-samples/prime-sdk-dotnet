@@ -36,7 +36,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? paymentMethodId;
+      internal string? paymentMethodId;
       public Builder WithPaymentMethodId(string? paymentMethodId)
       {
         this.paymentMethodId = paymentMethodId;

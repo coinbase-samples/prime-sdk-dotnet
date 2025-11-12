@@ -127,23 +127,23 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? accrualId;
-      private string? date;
-      private string? portfolioId;
-      private string? symbol;
-      private LoanType? loanType;
-      private string? interestRate;
-      private string? nominalAccrual;
-      private string? notionalAccrual;
-      private string? conversionRate;
-      private string? loanAmount;
-      private Benchmark? benchmark;
-      private string? benchmarkRate;
-      private string? spread;
-      private RateType? rateType;
-      private string? loanAmountNotional;
-      private string? nominalOpenBorrowSod;
-      private string? notionalOpenBorrowSod;
+      internal string? accrualId;
+      internal string? date;
+      internal string? portfolioId;
+      internal string? symbol;
+      internal LoanType? loanType;
+      internal string? interestRate;
+      internal string? nominalAccrual;
+      internal string? notionalAccrual;
+      internal string? conversionRate;
+      internal string? loanAmount;
+      internal Benchmark? benchmark;
+      internal string? benchmarkRate;
+      internal string? spread;
+      internal RateType? rateType;
+      internal string? loanAmountNotional;
+      internal string? nominalOpenBorrowSod;
+      internal string? notionalOpenBorrowSod;
       public Builder WithAccrualId(string? accrualId)
       {
         this.accrualId = accrualId;

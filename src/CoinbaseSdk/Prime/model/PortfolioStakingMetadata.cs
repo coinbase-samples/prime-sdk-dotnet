@@ -39,7 +39,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? externalId;
+      internal string? externalId;
       public Builder WithExternalId(string? externalId)
       {
         this.externalId = externalId;

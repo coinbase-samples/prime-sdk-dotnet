@@ -43,8 +43,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? amount;
-      private MarginAddOnType? addOnType;
+      internal string? amount;
+      internal MarginAddOnType? addOnType;
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;

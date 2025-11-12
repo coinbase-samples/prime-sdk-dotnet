@@ -63,16 +63,16 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? id;
-      private BlockchainAddress? blockchainAddress;
-      private TravelRuleParty? originator;
-      private TravelRuleParty? beneficiary;
-      private VASP? vasp;
-      private TravelRuleWalletDetails? walletDetails;
-      private string? transferPurpose;
-      private bool? isSelfCertified;
-      private bool? isIntermediary;
-      private bool? isSelf;
+      internal string? id;
+      internal BlockchainAddress? blockchainAddress;
+      internal TravelRuleParty? originator;
+      internal TravelRuleParty? beneficiary;
+      internal VASP? vasp;
+      internal TravelRuleWalletDetails? walletDetails;
+      internal string? transferPurpose;
+      internal bool? isSelfCertified;
+      internal bool? isIntermediary;
+      internal bool? isSelf;
       public Builder WithId(string? id)
       {
         this.id = id;

@@ -54,10 +54,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? symbol;
-      private string? varLong;
-      private string? varShort;
-      private PositionReference? positionReference;
+      internal string? symbol;
+      internal string? varLong;
+      internal string? varShort;
+      internal PositionReference? positionReference;
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;

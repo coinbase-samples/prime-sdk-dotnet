@@ -45,8 +45,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? referenceId;
-      private string? settlementDate;
+      internal string? referenceId;
+      internal string? settlementDate;
       public Builder WithReferenceId(string? referenceId)
       {
         this.referenceId = referenceId;

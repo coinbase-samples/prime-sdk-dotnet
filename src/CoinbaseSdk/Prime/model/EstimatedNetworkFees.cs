@@ -45,8 +45,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? lowerBound;
-      private string? upperBound;
+      internal string? lowerBound;
+      internal string? upperBound;
       public Builder WithLowerBound(string? lowerBound)
       {
         this.lowerBound = lowerBound;

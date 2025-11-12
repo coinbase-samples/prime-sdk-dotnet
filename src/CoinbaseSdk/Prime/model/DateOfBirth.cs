@@ -42,9 +42,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private long? year;
-      private long? month;
-      private long? day;
+      internal long? year;
+      internal long? month;
+      internal long? day;
       public Builder WithYear(long? year)
       {
         this.year = year;

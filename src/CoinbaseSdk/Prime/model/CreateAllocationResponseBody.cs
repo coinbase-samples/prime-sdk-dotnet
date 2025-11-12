@@ -51,9 +51,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private bool success = default!;
-      private string allocationId = default!;
-      private string failureReason = default!;
+      internal bool success = default!;
+      internal string allocationId = default!;
+      internal string failureReason = default!;
       public Builder WithSuccess(bool success)
       {
         this.success = success;

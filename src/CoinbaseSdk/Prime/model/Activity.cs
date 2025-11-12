@@ -112,23 +112,23 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? id;
-      private string? referenceId;
-      private ActivityCategory? category;
-      private PrimeActivityType? type;
-      private ActivitySecondaryType? secondaryType;
-      private ActivityStatus? status;
-      private string? createdBy;
-      private string? title;
-      private string? description;
-      private List<UserAction>? userActions;
-      private ActivityMetadataTransactions? transactionsMetadata;
-      private ActivityMetadataAccount? accountMetadata;
-      private Object? ordersMetadata;
-      private List<string>? symbols;
-      private string? createdAt;
-      private string? updatedAt;
-      private HierarchyType? hierarchyType;
+      internal string? id;
+      internal string? referenceId;
+      internal ActivityCategory? category;
+      internal PrimeActivityType? type;
+      internal ActivitySecondaryType? secondaryType;
+      internal ActivityStatus? status;
+      internal string? createdBy;
+      internal string? title;
+      internal string? description;
+      internal List<UserAction>? userActions;
+      internal ActivityMetadataTransactions? transactionsMetadata;
+      internal ActivityMetadataAccount? accountMetadata;
+      internal Object? ordersMetadata;
+      internal List<string>? symbols;
+      internal string? createdAt;
+      internal string? updatedAt;
+      internal HierarchyType? hierarchyType;
       public Builder WithId(string? id)
       {
         this.id = id;

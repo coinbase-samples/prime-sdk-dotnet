@@ -46,9 +46,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private OnchainAsset? asset;
-      private string? amount;
-      private VisibilityStatus? visibilityStatus;
+      internal OnchainAsset? asset;
+      internal string? amount;
+      internal VisibilityStatus? visibilityStatus;
       public Builder WithAsset(OnchainAsset? asset)
       {
         this.asset = asset;

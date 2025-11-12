@@ -90,16 +90,16 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private Network? network;
-      private string? name;
-      private string? maxDecimals;
-      private bool? varDefault;
-      private bool? tradingSupported;
-      private bool? vaultSupported;
-      private bool? primeCustodySupported;
-      private bool? destinationTagRequired;
-      private string? networkLink;
-      private string? networkScopedSymbol;
+      internal Network? network;
+      internal string? name;
+      internal string? maxDecimals;
+      internal bool? varDefault;
+      internal bool? tradingSupported;
+      internal bool? vaultSupported;
+      internal bool? primeCustodySupported;
+      internal bool? destinationTagRequired;
+      internal string? networkLink;
+      internal string? networkScopedSymbol;
       public Builder WithNetwork(Network? network)
       {
         this.network = network;

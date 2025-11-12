@@ -57,10 +57,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string amount = default!;
-      private string destination = default!;
-      private string idempotencyKey = default!;
-      private string currencySymbol = default!;
+      internal string amount = default!;
+      internal string destination = default!;
+      internal string idempotencyKey = default!;
+      internal string currencySymbol = default!;
       public Builder WithAmount(string amount)
       {
         this.amount = amount;

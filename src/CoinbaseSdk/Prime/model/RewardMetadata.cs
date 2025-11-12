@@ -37,7 +37,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private RewardSubtype? subtype;
+      internal RewardSubtype? subtype;
       public Builder WithSubtype(RewardSubtype? subtype)
       {
         this.subtype = subtype;

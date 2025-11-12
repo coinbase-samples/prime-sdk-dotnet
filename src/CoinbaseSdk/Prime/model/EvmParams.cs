@@ -63,11 +63,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private bool? disableDynamicGas;
-      private bool? disableDynamicNonce;
-      private string? replacedTransactionId;
-      private string? chainId;
-      private string? networkName;
+      internal bool? disableDynamicGas;
+      internal bool? disableDynamicNonce;
+      internal string? replacedTransactionId;
+      internal string? chainId;
+      internal string? networkName;
       public Builder WithDisableDynamicGas(bool? disableDynamicGas)
       {
         this.disableDynamicGas = disableDynamicGas;

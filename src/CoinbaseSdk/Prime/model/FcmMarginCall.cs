@@ -64,12 +64,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private FcmMarginCallType? type;
-      private FcmMarginCallState? state;
-      private string? initialAmount;
-      private string? remainingAmount;
-      private DateTime? businessDate;
-      private DateTime? cureDeadline;
+      internal FcmMarginCallType? type;
+      internal FcmMarginCallState? state;
+      internal string? initialAmount;
+      internal string? remainingAmount;
+      internal DateTime? businessDate;
+      internal DateTime? cureDeadline;
       public Builder WithType(FcmMarginCallType? type)
       {
         this.type = type;

@@ -36,7 +36,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? counterpartyId;
+      internal string? counterpartyId;
       public Builder WithCounterpartyId(string? counterpartyId)
       {
         this.counterpartyId = counterpartyId;

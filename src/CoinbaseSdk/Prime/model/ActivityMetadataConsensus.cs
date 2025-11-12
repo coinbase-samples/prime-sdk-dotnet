@@ -45,8 +45,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? approvalDeadline;
-      private bool? hasPassedConsensus;
+      internal string? approvalDeadline;
+      internal bool? hasPassedConsensus;
       public Builder WithApprovalDeadline(string? approvalDeadline)
       {
         this.approvalDeadline = approvalDeadline;

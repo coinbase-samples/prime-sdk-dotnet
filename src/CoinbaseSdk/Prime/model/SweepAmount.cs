@@ -45,8 +45,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? currency;
-      private string? amount;
+      internal string? currency;
+      internal string? amount;
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;

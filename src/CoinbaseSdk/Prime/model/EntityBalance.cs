@@ -63,11 +63,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? symbol;
-      private string? longAmount;
-      private string? longNotional;
-      private string? shortAmount;
-      private string? shortNotional;
+      internal string? symbol;
+      internal string? longAmount;
+      internal string? longNotional;
+      internal string? shortAmount;
+      internal string? shortNotional;
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;

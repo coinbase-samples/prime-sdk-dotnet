@@ -82,15 +82,15 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? signedTransaction;
-      private RiskAssessment? riskAssessment;
-      private string? chainId;
-      private string? nonce;
-      private string? replacedTransactionId;
-      private string? destinationAddress;
-      private bool? skipBroadcast;
-      private string? failureReason;
-      private SigningStatus? signingStatus;
+      internal string? signedTransaction;
+      internal RiskAssessment? riskAssessment;
+      internal string? chainId;
+      internal string? nonce;
+      internal string? replacedTransactionId;
+      internal string? destinationAddress;
+      internal bool? skipBroadcast;
+      internal string? failureReason;
+      internal SigningStatus? signingStatus;
       public Builder WithSignedTransaction(string? signedTransaction)
       {
         this.signedTransaction = signedTransaction;

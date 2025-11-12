@@ -183,31 +183,31 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? currency;
-      private string? marketPrice;
-      private bool? marginEligible;
-      private string? marketCap;
-      private string? adv30Days;
-      private string? hist5dVol;
-      private string? hist30dVol;
-      private string? hist90dVol;
-      private string? marginRequirement;
-      private string? spotBalance;
-      private string? spotBalanceNotional;
-      private string? spotTotalPositionMargin;
-      private string? futuresBalance;
-      private string? futuresBalanceNotional;
-      private string? futuresTotalPositionMargin;
-      private string? gmvBasis;
-      private string? baseRequirement;
-      private string? liqShortsAddOn;
-      private string? liqLongsAddOn;
-      private string? volShortsAddOn;
-      private string? volLongsAddOn;
-      private string? vol5daysAddOn;
-      private string? vol30daysAddOn;
-      private string? vol90daysAddOn;
-      private string? totalPositionMargin;
+      internal string? currency;
+      internal string? marketPrice;
+      internal bool? marginEligible;
+      internal string? marketCap;
+      internal string? adv30Days;
+      internal string? hist5dVol;
+      internal string? hist30dVol;
+      internal string? hist90dVol;
+      internal string? marginRequirement;
+      internal string? spotBalance;
+      internal string? spotBalanceNotional;
+      internal string? spotTotalPositionMargin;
+      internal string? futuresBalance;
+      internal string? futuresBalanceNotional;
+      internal string? futuresTotalPositionMargin;
+      internal string? gmvBasis;
+      internal string? baseRequirement;
+      internal string? liqShortsAddOn;
+      internal string? liqLongsAddOn;
+      internal string? volShortsAddOn;
+      internal string? volLongsAddOn;
+      internal string? vol5daysAddOn;
+      internal string? vol30daysAddOn;
+      internal string? vol90daysAddOn;
+      internal string? totalPositionMargin;
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;

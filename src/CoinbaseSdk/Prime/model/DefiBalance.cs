@@ -42,9 +42,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? network;
-      private string? protocol;
-      private string? netUsdValue;
+      internal string? network;
+      internal string? protocol;
+      internal string? netUsdValue;
       public Builder WithNetwork(string? network)
       {
         this.network = network;

@@ -106,19 +106,19 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string id = default!;
-      private string? currencySymbol;
-      private string name = default!;
-      private string? address;
-      private string? accountIdentifier;
-      private string? accountIdentifierName;
-      private string state = default!;
-      private string? explorerLink;
-      private DateTime? lastUsedAt;
-      private DateTime? addedAt;
-      private DisplayUser addedBy = default!;
-      private AddressBookType? type;
-      private string? counterpartyId;
+      internal string id = default!;
+      internal string? currencySymbol;
+      internal string name = default!;
+      internal string? address;
+      internal string? accountIdentifier;
+      internal string? accountIdentifierName;
+      internal string state = default!;
+      internal string? explorerLink;
+      internal DateTime? lastUsedAt;
+      internal DateTime? addedAt;
+      internal DisplayUser addedBy = default!;
+      internal AddressBookType? type;
+      internal string? counterpartyId;
       public Builder WithId(string id)
       {
         this.id = id;

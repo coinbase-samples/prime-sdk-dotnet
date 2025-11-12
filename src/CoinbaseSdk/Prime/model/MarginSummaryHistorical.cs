@@ -48,9 +48,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? conversionDatetime;
-      private string? conversionDate;
-      private MarginSummary? marginSummary;
+      internal string? conversionDatetime;
+      internal string? conversionDate;
+      internal MarginSummary? marginSummary;
       public Builder WithConversionDatetime(string? conversionDatetime)
       {
         this.conversionDatetime = conversionDatetime;

@@ -58,12 +58,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private XmControlStatus? controlStatus;
-      private XmEntityCallStatus? callStatus;
-      private XmMarginLevel? marginLevel;
-      private XmSummary? marginSummary;
-      private List<XmMarginCall>? activeMarginCalls;
-      private List<XmLoan>? activeLoans;
+      internal XmControlStatus? controlStatus;
+      internal XmEntityCallStatus? callStatus;
+      internal XmMarginLevel? marginLevel;
+      internal XmSummary? marginSummary;
+      internal List<XmMarginCall>? activeMarginCalls;
+      internal List<XmLoan>? activeLoans;
       public Builder WithControlStatus(XmControlStatus? controlStatus)
       {
         this.controlStatus = controlStatus;

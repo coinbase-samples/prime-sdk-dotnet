@@ -51,9 +51,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? currency;
-      private string? amount;
-      private DateTime? dueDate;
+      internal string? currency;
+      internal string? amount;
+      internal DateTime? dueDate;
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;

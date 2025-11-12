@@ -42,9 +42,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? name;
-      private string? address;
-      private List<string>? chainIds;
+      internal string? name;
+      internal string? address;
+      internal List<string>? chainIds;
       public Builder WithName(string? name)
       {
         this.name = name;

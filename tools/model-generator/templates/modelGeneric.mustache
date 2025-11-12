@@ -1,6 +1,7 @@
   public class {{classname}}
   {
-{{#vars}}{{#description}}    /// <summary>
+{{#vars}}
+{{#description}}    /// <summary>
     /// {{.}}
     /// </summary>
 {{/description}}
@@ -16,7 +17,7 @@
 
     public class Builder
     {
-{{#vars}}      private {{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}{{#required}} = default!{{/required}};
+{{#vars}}      internal {{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}{{#required}} = default!{{/required}};
 {{/vars}}
 {{#vars}}      public Builder With{{name}}({{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}})
       {

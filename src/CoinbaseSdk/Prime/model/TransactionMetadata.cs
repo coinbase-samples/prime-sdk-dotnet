@@ -42,9 +42,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private MatchMetadata? matchMetadata;
-      private OnchainTransactionMetadata? onchainTransactionMetadata;
-      private RewardMetadata? rewardMetadata;
+      internal MatchMetadata? matchMetadata;
+      internal OnchainTransactionMetadata? onchainTransactionMetadata;
+      internal RewardMetadata? rewardMetadata;
       public Builder WithMatchMetadata(MatchMetadata? matchMetadata)
       {
         this.matchMetadata = matchMetadata;

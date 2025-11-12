@@ -118,21 +118,21 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? rootId;
-      private string? reversalId;
-      private DateTime? allocationCompletedAt;
-      private string? userId;
-      private string? productId;
-      private OrderSide? side;
-      private string? avgPrice;
-      private string? baseQuantity;
-      private string? quoteValue;
-      private string? feesAllocated;
-      private AllocationStatus? status;
-      private string? source;
-      private List<string>? orderIds;
-      private List<DestinationAlloc>? destinations;
-      private string? nettingId;
+      internal string? rootId;
+      internal string? reversalId;
+      internal DateTime? allocationCompletedAt;
+      internal string? userId;
+      internal string? productId;
+      internal OrderSide? side;
+      internal string? avgPrice;
+      internal string? baseQuantity;
+      internal string? quoteValue;
+      internal string? feesAllocated;
+      internal AllocationStatus? status;
+      internal string? source;
+      internal List<string>? orderIds;
+      internal List<DestinationAlloc>? destinations;
+      internal string? nettingId;
       public Builder WithRootId(string? rootId)
       {
         this.rootId = rootId;

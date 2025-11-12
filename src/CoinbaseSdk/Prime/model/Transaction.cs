@@ -154,30 +154,30 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? id;
-      private string? walletId;
-      private string? portfolioId;
-      private TransactionType? type;
-      private TransactionStatus? status;
-      private string? symbol;
-      private DateTime? createdAt;
-      private DateTime? completedAt;
-      private string? amount;
-      private TransferLocation? transferFrom;
-      private TransferLocation? transferTo;
-      private string? networkFees;
-      private string? fees;
-      private string? feeSymbol;
-      private List<string>? blockchainIds;
-      private string? transactionId;
-      private string? destinationSymbol;
-      private EstimatedNetworkFees? estimatedNetworkFees;
-      private string? network;
-      private List<AssetChange>? estimatedAssetChanges;
-      private TransactionMetadata? metadata;
-      private string? idempotencyKey;
-      private OnchainTransactionDetails? onchainDetails;
-      private Network? networkInfo;
+      internal string? id;
+      internal string? walletId;
+      internal string? portfolioId;
+      internal TransactionType? type;
+      internal TransactionStatus? status;
+      internal string? symbol;
+      internal DateTime? createdAt;
+      internal DateTime? completedAt;
+      internal string? amount;
+      internal TransferLocation? transferFrom;
+      internal TransferLocation? transferTo;
+      internal string? networkFees;
+      internal string? fees;
+      internal string? feeSymbol;
+      internal List<string>? blockchainIds;
+      internal string? transactionId;
+      internal string? destinationSymbol;
+      internal EstimatedNetworkFees? estimatedNetworkFees;
+      internal string? network;
+      internal List<AssetChange>? estimatedAssetChanges;
+      internal TransactionMetadata? metadata;
+      internal string? idempotencyKey;
+      internal OnchainTransactionDetails? onchainDetails;
+      internal Network? networkInfo;
       public Builder WithId(string? id)
       {
         this.id = id;

@@ -48,9 +48,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private string? address;
-      private string? accountIdentifier;
-      private Network? network;
+      internal string? address;
+      internal string? accountIdentifier;
+      internal Network? network;
       public Builder WithAddress(string? address)
       {
         this.address = address;

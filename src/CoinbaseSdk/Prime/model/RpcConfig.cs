@@ -45,8 +45,8 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
-      private bool? skipBroadcast;
-      private string? url;
+      internal bool? skipBroadcast;
+      internal string? url;
       public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
         this.skipBroadcast = skipBroadcast;
