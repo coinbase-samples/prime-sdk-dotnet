@@ -17,6 +17,7 @@
 namespace CoinbaseSdk.Prime.Tests
 {
     using Xunit;
+    using CoinbaseSdk.Prime.Common;
     using CoinbaseSdk.Prime.Model;
     using System.Text.Json;
 

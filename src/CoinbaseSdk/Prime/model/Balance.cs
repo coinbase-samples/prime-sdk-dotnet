@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Balance
@@ -29,202 +29,202 @@ namespace CoinbaseSdk.Prime.Model
     /// The display symbol for the asset
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The total amount in whole units with full precision. Includes the &#x60;holds&#x60; amount.
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// Amount that is currently held in obligation to an open order&#39;s position or a pending withdrawal
     /// </summary>
     [JsonPropertyName("holds")]
-    public string? holds { get; set; }
+    public string? Holds { get; set; }
 
     /// <summary>
     /// Amount that is currently locked due to bonding/staking, potentially subject to an unbonding period, in whole units
     /// </summary>
     [JsonPropertyName("bonded_amount")]
-    public string? bonded_amount { get; set; }
+    public string? BondedAmount { get; set; }
 
     /// <summary>
     /// Amount that must remain in the wallet due to the protocol, in whole units
     /// </summary>
     [JsonPropertyName("reserved_amount")]
-    public string? reserved_amount { get; set; }
+    public string? ReservedAmount { get; set; }
 
     /// <summary>
     /// Amount that is in the process of unbonding, in whole units
     /// </summary>
     [JsonPropertyName("unbonding_amount")]
-    public string? unbonding_amount { get; set; }
+    public string? UnbondingAmount { get; set; }
 
     /// <summary>
     /// Unrealized amount subject to a vesting schedule, in whole units
     /// </summary>
     [JsonPropertyName("unvested_amount")]
-    public string? unvested_amount { get; set; }
+    public string? UnvestedAmount { get; set; }
 
     /// <summary>
     /// Pending bonding/staking rewards that have not yet been realized, in whole units
     /// </summary>
     [JsonPropertyName("pending_rewards_amount")]
-    public string? pending_rewards_amount { get; set; }
+    public string? PendingRewardsAmount { get; set; }
 
     /// <summary>
     /// Previously realized bonding/staking rewards, in whole units
     /// </summary>
     [JsonPropertyName("past_rewards_amount")]
-    public string? past_rewards_amount { get; set; }
+    public string? PastRewardsAmount { get; set; }
 
     /// <summary>
     /// Amount available for bonding/staking, in whole units
     /// </summary>
     [JsonPropertyName("bondable_amount")]
-    public string? bondable_amount { get; set; }
+    public string? BondableAmount { get; set; }
 
     /// <summary>
     /// Amount available to withdraw, in whole units
     /// </summary>
     [JsonPropertyName("withdrawable_amount")]
-    public string? withdrawable_amount { get; set; }
+    public string? WithdrawableAmount { get; set; }
 
     /// <summary>
     /// The total amount in fiat unit
     /// </summary>
     [JsonPropertyName("fiat_amount")]
-    public string? fiat_amount { get; set; }
+    public string? FiatAmount { get; set; }
 
     /// <summary>
     /// Amount available for unbonding/unstaking, in whole units
     /// </summary>
     [JsonPropertyName("unbondable_amount")]
-    public string? unbondable_amount { get; set; }
+    public string? UnbondableAmount { get; set; }
 
     public Balance() { }
 
     public Balance(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
-      this.holds = builder.holds;
-      this.bonded_amount = builder.bonded_amount;
-      this.reserved_amount = builder.reserved_amount;
-      this.unbonding_amount = builder.unbonding_amount;
-      this.unvested_amount = builder.unvested_amount;
-      this.pending_rewards_amount = builder.pending_rewards_amount;
-      this.past_rewards_amount = builder.past_rewards_amount;
-      this.bondable_amount = builder.bondable_amount;
-      this.withdrawable_amount = builder.withdrawable_amount;
-      this.fiat_amount = builder.fiat_amount;
-      this.unbondable_amount = builder.unbondable_amount;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
+      this.Holds = builder.holds;
+      this.BondedAmount = builder.bondedAmount;
+      this.ReservedAmount = builder.reservedAmount;
+      this.UnbondingAmount = builder.unbondingAmount;
+      this.UnvestedAmount = builder.unvestedAmount;
+      this.PendingRewardsAmount = builder.pendingRewardsAmount;
+      this.PastRewardsAmount = builder.pastRewardsAmount;
+      this.BondableAmount = builder.bondableAmount;
+      this.WithdrawableAmount = builder.withdrawableAmount;
+      this.FiatAmount = builder.fiatAmount;
+      this.UnbondableAmount = builder.unbondableAmount;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      private string? holds;
+      internal string? holds;
 
-      private string? bonded_amount;
+      internal string? bondedAmount;
 
-      private string? reserved_amount;
+      internal string? reservedAmount;
 
-      private string? unbonding_amount;
+      internal string? unbondingAmount;
 
-      private string? unvested_amount;
+      internal string? unvestedAmount;
 
-      private string? pending_rewards_amount;
+      internal string? pendingRewardsAmount;
 
-      private string? past_rewards_amount;
+      internal string? pastRewardsAmount;
 
-      private string? bondable_amount;
+      internal string? bondableAmount;
 
-      private string? withdrawable_amount;
+      internal string? withdrawableAmount;
 
-      private string? fiat_amount;
+      internal string? fiatAmount;
 
-      private string? unbondable_amount;
+      internal string? unbondableAmount;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withholds(string? holds)
+      public Builder WithHolds(string? holds)
       {
         this.holds = holds;
         return this;
       }
 
-      public Builder Withbonded_amount(string? bonded_amount)
+      public Builder WithBondedAmount(string? bondedAmount)
       {
-        this.bonded_amount = bonded_amount;
+        this.bondedAmount = bondedAmount;
         return this;
       }
 
-      public Builder Withreserved_amount(string? reserved_amount)
+      public Builder WithReservedAmount(string? reservedAmount)
       {
-        this.reserved_amount = reserved_amount;
+        this.reservedAmount = reservedAmount;
         return this;
       }
 
-      public Builder Withunbonding_amount(string? unbonding_amount)
+      public Builder WithUnbondingAmount(string? unbondingAmount)
       {
-        this.unbonding_amount = unbonding_amount;
+        this.unbondingAmount = unbondingAmount;
         return this;
       }
 
-      public Builder Withunvested_amount(string? unvested_amount)
+      public Builder WithUnvestedAmount(string? unvestedAmount)
       {
-        this.unvested_amount = unvested_amount;
+        this.unvestedAmount = unvestedAmount;
         return this;
       }
 
-      public Builder Withpending_rewards_amount(string? pending_rewards_amount)
+      public Builder WithPendingRewardsAmount(string? pendingRewardsAmount)
       {
-        this.pending_rewards_amount = pending_rewards_amount;
+        this.pendingRewardsAmount = pendingRewardsAmount;
         return this;
       }
 
-      public Builder Withpast_rewards_amount(string? past_rewards_amount)
+      public Builder WithPastRewardsAmount(string? pastRewardsAmount)
       {
-        this.past_rewards_amount = past_rewards_amount;
+        this.pastRewardsAmount = pastRewardsAmount;
         return this;
       }
 
-      public Builder Withbondable_amount(string? bondable_amount)
+      public Builder WithBondableAmount(string? bondableAmount)
       {
-        this.bondable_amount = bondable_amount;
+        this.bondableAmount = bondableAmount;
         return this;
       }
 
-      public Builder Withwithdrawable_amount(string? withdrawable_amount)
+      public Builder WithWithdrawableAmount(string? withdrawableAmount)
       {
-        this.withdrawable_amount = withdrawable_amount;
+        this.withdrawableAmount = withdrawableAmount;
         return this;
       }
 
-      public Builder Withfiat_amount(string? fiat_amount)
+      public Builder WithFiatAmount(string? fiatAmount)
       {
-        this.fiat_amount = fiat_amount;
+        this.fiatAmount = fiatAmount;
         return this;
       }
 
-      public Builder Withunbondable_amount(string? unbondable_amount)
+      public Builder WithUnbondableAmount(string? unbondableAmount)
       {
-        this.unbondable_amount = unbondable_amount;
+        this.unbondableAmount = unbondableAmount;
         return this;
       }
 

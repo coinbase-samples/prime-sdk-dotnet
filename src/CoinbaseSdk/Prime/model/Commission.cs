@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Commission
@@ -29,52 +29,52 @@ namespace CoinbaseSdk.Prime.Model
     /// Fee model (all_in or cost_plus)
     /// </summary>
     [JsonPropertyName("type")]
-    public string? type { get; set; }
+    public string? Type { get; set; }
 
     /// <summary>
     /// Commission rate (in whole percentage. Commission of 15bps is \&quot;0.0015\&quot;)
     /// </summary>
     [JsonPropertyName("rate")]
-    public string? rate { get; set; }
+    public string? Rate { get; set; }
 
     /// <summary>
     /// Average 30 days over past 3 months (e.g. 90 days divided by 3)
     /// </summary>
     [JsonPropertyName("trading_volume")]
-    public string? trading_volume { get; set; }
+    public string? TradingVolume { get; set; }
 
     public Commission() { }
 
     public Commission(Builder builder)
     {
-      this.type = builder.type;
-      this.rate = builder.rate;
-      this.trading_volume = builder.trading_volume;
+      this.Type = builder.type;
+      this.Rate = builder.rate;
+      this.TradingVolume = builder.tradingVolume;
     }
 
     public class Builder
     {
-      private string? type;
+      internal string? type;
 
-      private string? rate;
+      internal string? rate;
 
-      private string? trading_volume;
+      internal string? tradingVolume;
 
-      public Builder Withtype(string? type)
+      public Builder WithType(string? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withrate(string? rate)
+      public Builder WithRate(string? rate)
       {
         this.rate = rate;
         return this;
       }
 
-      public Builder Withtrading_volume(string? trading_volume)
+      public Builder WithTradingVolume(string? tradingVolume)
       {
-        this.trading_volume = trading_volume;
+        this.tradingVolume = tradingVolume;
         return this;
       }
 

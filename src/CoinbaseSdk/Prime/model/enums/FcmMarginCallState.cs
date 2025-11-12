@@ -18,17 +18,18 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
-  public enum FCMMarginCallState
+  public enum FcmMarginCallState
   {
-    FCMMARGINCALLSTATEUNSPECIFIED,
-    FCMMARGINCALLSTATECLOSED,
-    FCMMARGINCALLSTATEROLLEDOVER,
-    FCMMARGINCALLSTATEDEFAULT,
-    FCMMARGINCALLSTATEOFFICIAL
+    FcmMARGINCALLSTATEUNSPECIFIED,
+    FcmMARGINCALLSTATECLOSED,
+    FcmMARGINCALLSTATEROLLEDOVER,
+    FcmMARGINCALLSTATEDEFAULT,
+    FcmMARGINCALLSTATEOFFICIAL
   }
 
 }

@@ -18,88 +18,88 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class OnchainAsset
   {
     [JsonPropertyName("network")]
-    public string? network { get; set; }
+    public string? Network { get; set; }
 
     /// <summary>
     /// Contract Address of this asset (empty for native assets).
     /// </summary>
     [JsonPropertyName("contract_address")]
-    public string? contract_address { get; set; }
+    public string? ContractAddress { get; set; }
 
     /// <summary>
     /// Symbol of this asset.
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
-    /// Token ID of this asset (empty for non  NFT assets).
+    /// Token ID of this asset (empty for non  Nft assets).
     /// </summary>
     [JsonPropertyName("token_id")]
-    public string? token_id { get; set; }
+    public string? TokenId { get; set; }
 
     /// <summary>
-    /// Name of this asset, either the name of the crypto token or the NFT collection name.
+    /// Name of this asset, either the name of the crypto token or the Nft collection name.
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     public OnchainAsset() { }
 
     public OnchainAsset(Builder builder)
     {
-      this.network = builder.network;
-      this.contract_address = builder.contract_address;
-      this.symbol = builder.symbol;
-      this.token_id = builder.token_id;
-      this.name = builder.name;
+      this.Network = builder.network;
+      this.ContractAddress = builder.contractAddress;
+      this.Symbol = builder.symbol;
+      this.TokenId = builder.tokenId;
+      this.Name = builder.name;
     }
 
     public class Builder
     {
-      private string? network;
+      internal string? network;
 
-      private string? contract_address;
+      internal string? contractAddress;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? token_id;
+      internal string? tokenId;
 
-      private string? name;
+      internal string? name;
 
-      public Builder Withnetwork(string? network)
+      public Builder WithNetwork(string? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder Withcontract_address(string? contract_address)
+      public Builder WithContractAddress(string? contractAddress)
       {
-        this.contract_address = contract_address;
+        this.contractAddress = contractAddress;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withtoken_id(string? token_id)
+      public Builder WithTokenId(string? tokenId)
       {
-        this.token_id = token_id;
+        this.tokenId = tokenId;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;

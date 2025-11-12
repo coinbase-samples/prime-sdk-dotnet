@@ -18,78 +18,78 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class TravelRuleParty
   {
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("detailed_address")]
-    public DetailedAddress? detailed_address { get; set; }
+    public DetailedAddress? DetailedAddress { get; set; }
 
     [JsonPropertyName("natural_person_name")]
-    public NaturalPersonName? natural_person_name { get; set; }
+    public NaturalPersonName? NaturalPersonName { get; set; }
 
     [JsonPropertyName("date_of_birth")]
-    public DateOfBirth? date_of_birth { get; set; }
+    public DateOfBirth? DateOfBirth { get; set; }
 
     [JsonPropertyName("telephone_number")]
-    public string? telephone_number { get; set; }
+    public string? TelephoneNumber { get; set; }
 
     public TravelRuleParty() { }
 
     public TravelRuleParty(Builder builder)
     {
-      this.name = builder.name;
-      this.detailed_address = builder.detailed_address;
-      this.natural_person_name = builder.natural_person_name;
-      this.date_of_birth = builder.date_of_birth;
-      this.telephone_number = builder.telephone_number;
+      this.Name = builder.name;
+      this.DetailedAddress = builder.detailedAddress;
+      this.NaturalPersonName = builder.naturalPersonName;
+      this.DateOfBirth = builder.dateOfBirth;
+      this.TelephoneNumber = builder.telephoneNumber;
     }
 
     public class Builder
     {
-      private string? name;
+      internal string? name;
 
-      private DetailedAddress? detailed_address;
+      internal DetailedAddress? detailedAddress;
 
-      private NaturalPersonName? natural_person_name;
+      internal NaturalPersonName? naturalPersonName;
 
-      private DateOfBirth? date_of_birth;
+      internal DateOfBirth? dateOfBirth;
 
-      private string? telephone_number;
+      internal string? telephoneNumber;
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withdetailed_address(DetailedAddress? detailed_address)
+      public Builder WithDetailedAddress(DetailedAddress? detailedAddress)
       {
-        this.detailed_address = detailed_address;
+        this.detailedAddress = detailedAddress;
         return this;
       }
 
-      public Builder Withnatural_person_name(NaturalPersonName? natural_person_name)
+      public Builder WithNaturalPersonName(NaturalPersonName? naturalPersonName)
       {
-        this.natural_person_name = natural_person_name;
+        this.naturalPersonName = naturalPersonName;
         return this;
       }
 
-      public Builder Withdate_of_birth(DateOfBirth? date_of_birth)
+      public Builder WithDateOfBirth(DateOfBirth? dateOfBirth)
       {
-        this.date_of_birth = date_of_birth;
+        this.dateOfBirth = dateOfBirth;
         return this;
       }
 
-      public Builder Withtelephone_number(string? telephone_number)
+      public Builder WithTelephoneNumber(string? telephoneNumber)
       {
-        this.telephone_number = telephone_number;
+        this.telephoneNumber = telephoneNumber;
         return this;
       }
 

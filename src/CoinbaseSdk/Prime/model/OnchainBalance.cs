@@ -18,57 +18,58 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class OnchainBalance
   {
     [JsonPropertyName("asset")]
-    public OnchainAsset? asset { get; set; }
+    public OnchainAsset? Asset { get; set; }
 
     /// <summary>
     /// The total amount in whole units with full precision.
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     [JsonPropertyName("visibility_status")]
-    public VisibilityStatus? visibility_status { get; set; }
+    public VisibilityStatus? VisibilityStatus { get; set; }
 
     public OnchainBalance() { }
 
     public OnchainBalance(Builder builder)
     {
-      this.asset = builder.asset;
-      this.amount = builder.amount;
-      this.visibility_status = builder.visibility_status;
+      this.Asset = builder.asset;
+      this.Amount = builder.amount;
+      this.VisibilityStatus = builder.visibilityStatus;
     }
 
     public class Builder
     {
-      private OnchainAsset? asset;
+      internal OnchainAsset? asset;
 
-      private string? amount;
+      internal string? amount;
 
-      private VisibilityStatus? visibility_status;
+      internal VisibilityStatus? visibilityStatus;
 
-      public Builder Withasset(OnchainAsset? asset)
+      public Builder WithAsset(OnchainAsset? asset)
       {
         this.asset = asset;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withvisibility_status(VisibilityStatus? visibility_status)
+      public Builder WithVisibilityStatus(VisibilityStatus? visibilityStatus)
       {
-        this.visibility_status = visibility_status;
+        this.visibilityStatus = visibilityStatus;
         return this;
       }
 

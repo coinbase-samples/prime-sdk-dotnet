@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class PortfolioUser
   {
@@ -29,92 +30,92 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the user.
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The name of the user.
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// The email of the user.
     /// </summary>
     [JsonPropertyName("email")]
-    public string? email { get; set; }
+    public string? Email { get; set; }
 
     /// <summary>
     /// The portfolio to which this user and associated permissions are identified.
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The entity to which this user and associated permissions are identified.
     /// </summary>
     [JsonPropertyName("entity_id")]
-    public string? entity_id { get; set; }
+    public string? EntityId { get; set; }
 
     [JsonPropertyName("role")]
-    public UserRole? role { get; set; }
+    public UserRole? Role { get; set; }
 
     public PortfolioUser() { }
 
     public PortfolioUser(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.email = builder.email;
-      this.portfolio_id = builder.portfolio_id;
-      this.entity_id = builder.entity_id;
-      this.role = builder.role;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.Email = builder.email;
+      this.PortfolioId = builder.portfolioId;
+      this.EntityId = builder.entityId;
+      this.Role = builder.role;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private string? email;
+      internal string? email;
 
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? entity_id;
+      internal string? entityId;
 
-      private UserRole? role;
+      internal UserRole? role;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withemail(string? email)
+      public Builder WithEmail(string? email)
       {
         this.email = email;
         return this;
       }
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withentity_id(string? entity_id)
+      public Builder WithEntityId(string? entityId)
       {
-        this.entity_id = entity_id;
+        this.entityId = entityId;
         return this;
       }
 
-      public Builder Withrole(UserRole? role)
+      public Builder WithRole(UserRole? role)
       {
         this.role = role;
         return this;

@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class WithdrawalPower
@@ -29,35 +29,35 @@ namespace CoinbaseSdk.Prime.Model
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// Withdrawal power
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     public WithdrawalPower() { }
 
     public WithdrawalPower(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;

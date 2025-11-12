@@ -18,58 +18,59 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class UserAction
   {
     [JsonPropertyName("action")]
-    public Action? action { get; set; }
+    public Action? Action { get; set; }
 
     /// <summary>
     /// Id of the user who executed the action
     /// </summary>
     [JsonPropertyName("user_id")]
-    public string? user_id { get; set; }
+    public string? UserId { get; set; }
 
     /// <summary>
     /// Time the action was taken
     /// </summary>
     [JsonPropertyName("timestamp")]
-    public string? timestamp { get; set; }
+    public string? Timestamp { get; set; }
 
     public UserAction() { }
 
     public UserAction(Builder builder)
     {
-      this.action = builder.action;
-      this.user_id = builder.user_id;
-      this.timestamp = builder.timestamp;
+      this.Action = builder.action;
+      this.UserId = builder.userId;
+      this.Timestamp = builder.timestamp;
     }
 
     public class Builder
     {
-      private Action? action;
+      internal Action? action;
 
-      private string? user_id;
+      internal string? userId;
 
-      private string? timestamp;
+      internal string? timestamp;
 
-      public Builder Withaction(Action? action)
+      public Builder WithAction(Action? action)
       {
         this.action = action;
         return this;
       }
 
-      public Builder Withuser_id(string? user_id)
+      public Builder WithUserId(string? userId)
       {
-        this.user_id = user_id;
+        this.userId = userId;
         return this;
       }
 
-      public Builder Withtimestamp(string? timestamp)
+      public Builder WithTimestamp(string? timestamp)
       {
         this.timestamp = timestamp;
         return this;

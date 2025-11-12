@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class TieredPricingFee
@@ -29,35 +29,35 @@ namespace CoinbaseSdk.Prime.Model
     /// Asset symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The fee in bps
     /// </summary>
     [JsonPropertyName("fee")]
-    public string? fee { get; set; }
+    public string? Fee { get; set; }
 
     public TieredPricingFee() { }
 
     public TieredPricingFee(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.fee = builder.fee;
+      this.Symbol = builder.symbol;
+      this.Fee = builder.fee;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? fee;
+      internal string? fee;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withfee(string? fee)
+      public Builder WithFee(string? fee)
       {
         this.fee = fee;
         return this;

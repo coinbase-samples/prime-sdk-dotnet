@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class OnchainTransactionMetadata
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// The transaction type label of the confirmed transaction post settlement
     /// </summary>
     [JsonPropertyName("label")]
-    public string? label { get; set; }
+    public string? Label { get; set; }
 
     /// <summary>
     /// The confirmed asset changes (onchain)
     /// </summary>
     [JsonPropertyName("confirmed_asset_changes")]
-    public List<AssetChange>? confirmed_asset_changes { get; set; }
+    public List<AssetChange>? ConfirmedAssetChanges { get; set; }
 
     public OnchainTransactionMetadata() { }
 
     public OnchainTransactionMetadata(Builder builder)
     {
-      this.label = builder.label;
-      this.confirmed_asset_changes = builder.confirmed_asset_changes;
+      this.Label = builder.label;
+      this.ConfirmedAssetChanges = builder.confirmedAssetChanges;
     }
 
     public class Builder
     {
-      private string? label;
+      internal string? label;
 
-      private List<AssetChange>? confirmed_asset_changes;
+      internal List<AssetChange>? confirmedAssetChanges;
 
-      public Builder Withlabel(string? label)
+      public Builder WithLabel(string? label)
       {
         this.label = label;
         return this;
       }
 
-      public Builder Withconfirmed_asset_changes(List<AssetChange>? confirmed_asset_changes)
+      public Builder WithConfirmedAssetChanges(List<AssetChange>? confirmedAssetChanges)
       {
-        this.confirmed_asset_changes = confirmed_asset_changes;
+        this.confirmedAssetChanges = confirmedAssetChanges;
         return this;
       }
 

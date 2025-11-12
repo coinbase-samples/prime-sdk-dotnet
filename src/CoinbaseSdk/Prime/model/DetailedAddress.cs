@@ -18,102 +18,102 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class DetailedAddress
   {
     [JsonPropertyName("address_1")]
-    public string? address_1 { get; set; }
+    public string? Address1 { get; set; }
 
     [JsonPropertyName("address_2")]
-    public string? address_2 { get; set; }
+    public string? Address2 { get; set; }
 
     [JsonPropertyName("address_3")]
-    public string? address_3 { get; set; }
+    public string? Address3 { get; set; }
 
     [JsonPropertyName("city")]
-    public string? city { get; set; }
+    public string? City { get; set; }
 
     [JsonPropertyName("state")]
-    public string? state { get; set; }
+    public string? State { get; set; }
 
     [JsonPropertyName("country_code")]
-    public string? country_code { get; set; }
+    public string? CountryCode { get; set; }
 
     [JsonPropertyName("postal_code")]
-    public string? postal_code { get; set; }
+    public string? PostalCode { get; set; }
 
     public DetailedAddress() { }
 
     public DetailedAddress(Builder builder)
     {
-      this.address_1 = builder.address_1;
-      this.address_2 = builder.address_2;
-      this.address_3 = builder.address_3;
-      this.city = builder.city;
-      this.state = builder.state;
-      this.country_code = builder.country_code;
-      this.postal_code = builder.postal_code;
+      this.Address1 = builder.address1;
+      this.Address2 = builder.address2;
+      this.Address3 = builder.address3;
+      this.City = builder.city;
+      this.State = builder.state;
+      this.CountryCode = builder.countryCode;
+      this.PostalCode = builder.postalCode;
     }
 
     public class Builder
     {
-      private string? address_1;
+      internal string? address1;
 
-      private string? address_2;
+      internal string? address2;
 
-      private string? address_3;
+      internal string? address3;
 
-      private string? city;
+      internal string? city;
 
-      private string? state;
+      internal string? state;
 
-      private string? country_code;
+      internal string? countryCode;
 
-      private string? postal_code;
+      internal string? postalCode;
 
-      public Builder Withaddress_1(string? address_1)
+      public Builder WithAddress1(string? address1)
       {
-        this.address_1 = address_1;
+        this.address1 = address1;
         return this;
       }
 
-      public Builder Withaddress_2(string? address_2)
+      public Builder WithAddress2(string? address2)
       {
-        this.address_2 = address_2;
+        this.address2 = address2;
         return this;
       }
 
-      public Builder Withaddress_3(string? address_3)
+      public Builder WithAddress3(string? address3)
       {
-        this.address_3 = address_3;
+        this.address3 = address3;
         return this;
       }
 
-      public Builder Withcity(string? city)
+      public Builder WithCity(string? city)
       {
         this.city = city;
         return this;
       }
 
-      public Builder Withstate(string? state)
+      public Builder WithState(string? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder Withcountry_code(string? country_code)
+      public Builder WithCountryCode(string? countryCode)
       {
-        this.country_code = country_code;
+        this.countryCode = countryCode;
         return this;
       }
 
-      public Builder Withpostal_code(string? postal_code)
+      public Builder WithPostalCode(string? postalCode)
       {
-        this.postal_code = postal_code;
+        this.postalCode = postalCode;
         return this;
       }
 

@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class AllocationLeg
@@ -29,50 +29,50 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID of the portfolio of the allocation leg
     /// </summary>
     [JsonPropertyName("allocation_leg_id")]
-    public string allocation_leg_id { get; set; }
+    public string AllocationLegId { get; set; } = default!;
 
     /// <summary>
     /// The ID of the destination portfolio of the allocation leg
     /// </summary>
     [JsonPropertyName("destination_portfolio_id")]
-    public string destination_portfolio_id { get; set; }
+    public string DestinationPortfolioId { get; set; } = default!;
 
     /// <summary>
     /// The amount size for the allocation leg
     /// </summary>
     [JsonPropertyName("amount")]
-    public string amount { get; set; }
+    public string Amount { get; set; } = default!;
 
     public AllocationLeg() { }
 
     public AllocationLeg(Builder builder)
     {
-      this.allocation_leg_id = builder.allocation_leg_id;
-      this.destination_portfolio_id = builder.destination_portfolio_id;
-      this.amount = builder.amount;
+      this.AllocationLegId = builder.allocationLegId;
+      this.DestinationPortfolioId = builder.destinationPortfolioId;
+      this.Amount = builder.amount;
     }
 
     public class Builder
     {
-      private string allocation_leg_id;
+      internal string allocationLegId = default!;
 
-      private string destination_portfolio_id;
+      internal string destinationPortfolioId = default!;
 
-      private string amount;
+      internal string amount = default!;
 
-      public Builder Withallocation_leg_id(string allocation_leg_id)
+      public Builder WithAllocationLegId(string allocationLegId)
       {
-        this.allocation_leg_id = allocation_leg_id;
+        this.allocationLegId = allocationLegId;
         return this;
       }
 
-      public Builder Withdestination_portfolio_id(string destination_portfolio_id)
+      public Builder WithDestinationPortfolioId(string destinationPortfolioId)
       {
-        this.destination_portfolio_id = destination_portfolio_id;
+        this.destinationPortfolioId = destinationPortfolioId;
         return this;
       }
 
-      public Builder Withamount(string amount)
+      public Builder WithAmount(string amount)
       {
         this.amount = amount;
         return this;

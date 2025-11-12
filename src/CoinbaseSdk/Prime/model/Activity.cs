@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Activity
   {
@@ -29,238 +30,238 @@ namespace CoinbaseSdk.Prime.Model
     /// A unique id for the account activity
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// A reference for orders and transactions, n/a for other category types
     /// </summary>
     [JsonPropertyName("reference_id")]
-    public string? reference_id { get; set; }
+    public string? ReferenceId { get; set; }
 
     [JsonPropertyName("category")]
-    public ActivityCategory? category { get; set; }
+    public ActivityCategory? Category { get; set; }
 
     [JsonPropertyName("type")]
-    public PrimeActivityType? type { get; set; }
+    public PrimeActivityType? Type { get; set; }
 
     [JsonPropertyName("secondary_type")]
-    public ActivitySecondaryType? secondary_type { get; set; }
+    public ActivitySecondaryType? SecondaryType { get; set; }
 
     [JsonPropertyName("status")]
-    public ActivityStatus? status { get; set; }
+    public ActivityStatus? Status { get; set; }
 
     /// <summary>
     /// Id of user who created the activity
     /// </summary>
     [JsonPropertyName("created_by")]
-    public string? created_by { get; set; }
+    public string? CreatedBy { get; set; }
 
     /// <summary>
     /// Title of the activity
     /// </summary>
     [JsonPropertyName("title")]
-    public string? title { get; set; }
+    public string? Title { get; set; }
 
     /// <summary>
     /// Description detail of the activity
     /// </summary>
     [JsonPropertyName("description")]
-    public string? description { get; set; }
+    public string? Description { get; set; }
 
     /// <summary>
     /// Actions related to the Activity
     /// </summary>
     [JsonPropertyName("user_actions")]
-    public List<UserAction>? user_actions { get; set; }
+    public List<UserAction>? UserActions { get; set; }
 
     [JsonPropertyName("transactions_metadata")]
-    public ActivityMetadataTransactions? transactions_metadata { get; set; }
+    public ActivityMetadataTransactions? TransactionsMetadata { get; set; }
 
     [JsonPropertyName("account_metadata")]
-    public ActivityMetadataAccount? account_metadata { get; set; }
+    public ActivityMetadataAccount? AccountMetadata { get; set; }
 
     [JsonPropertyName("orders_metadata")]
-    public Object? orders_metadata { get; set; }
+    public Object? OrdersMetadata { get; set; }
 
     /// <summary>
     /// List of currencies included in an activity
     /// </summary>
     [JsonPropertyName("symbols")]
-    public List<string>? symbols { get; set; }
+    public List<string>? Symbols { get; set; }
 
     /// <summary>
     /// Time activity was created at
     /// </summary>
     [JsonPropertyName("created_at")]
-    public string? created_at { get; set; }
+    public string? CreatedAt { get; set; }
 
     /// <summary>
     /// Time for latest status update of account activity
     /// </summary>
     [JsonPropertyName("updated_at")]
-    public string? updated_at { get; set; }
+    public string? UpdatedAt { get; set; }
 
     [JsonPropertyName("hierarchy_type")]
-    public HierarchyType? hierarchy_type { get; set; }
+    public HierarchyType? HierarchyType { get; set; }
 
     public Activity() { }
 
     public Activity(Builder builder)
     {
-      this.id = builder.id;
-      this.reference_id = builder.reference_id;
-      this.category = builder.category;
-      this.type = builder.type;
-      this.secondary_type = builder.secondary_type;
-      this.status = builder.status;
-      this.created_by = builder.created_by;
-      this.title = builder.title;
-      this.description = builder.description;
-      this.user_actions = builder.user_actions;
-      this.transactions_metadata = builder.transactions_metadata;
-      this.account_metadata = builder.account_metadata;
-      this.orders_metadata = builder.orders_metadata;
-      this.symbols = builder.symbols;
-      this.created_at = builder.created_at;
-      this.updated_at = builder.updated_at;
-      this.hierarchy_type = builder.hierarchy_type;
+      this.Id = builder.id;
+      this.ReferenceId = builder.referenceId;
+      this.Category = builder.category;
+      this.Type = builder.type;
+      this.SecondaryType = builder.secondaryType;
+      this.Status = builder.status;
+      this.CreatedBy = builder.createdBy;
+      this.Title = builder.title;
+      this.Description = builder.description;
+      this.UserActions = builder.userActions;
+      this.TransactionsMetadata = builder.transactionsMetadata;
+      this.AccountMetadata = builder.accountMetadata;
+      this.OrdersMetadata = builder.ordersMetadata;
+      this.Symbols = builder.symbols;
+      this.CreatedAt = builder.createdAt;
+      this.UpdatedAt = builder.updatedAt;
+      this.HierarchyType = builder.hierarchyType;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? reference_id;
+      internal string? referenceId;
 
-      private ActivityCategory? category;
+      internal ActivityCategory? category;
 
-      private PrimeActivityType? type;
+      internal PrimeActivityType? type;
 
-      private ActivitySecondaryType? secondary_type;
+      internal ActivitySecondaryType? secondaryType;
 
-      private ActivityStatus? status;
+      internal ActivityStatus? status;
 
-      private string? created_by;
+      internal string? createdBy;
 
-      private string? title;
+      internal string? title;
 
-      private string? description;
+      internal string? description;
 
-      private List<UserAction>? user_actions;
+      internal List<UserAction>? userActions;
 
-      private ActivityMetadataTransactions? transactions_metadata;
+      internal ActivityMetadataTransactions? transactionsMetadata;
 
-      private ActivityMetadataAccount? account_metadata;
+      internal ActivityMetadataAccount? accountMetadata;
 
-      private Object? orders_metadata;
+      internal Object? ordersMetadata;
 
-      private List<string>? symbols;
+      internal List<string>? symbols;
 
-      private string? created_at;
+      internal string? createdAt;
 
-      private string? updated_at;
+      internal string? updatedAt;
 
-      private HierarchyType? hierarchy_type;
+      internal HierarchyType? hierarchyType;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withreference_id(string? reference_id)
+      public Builder WithReferenceId(string? referenceId)
       {
-        this.reference_id = reference_id;
+        this.referenceId = referenceId;
         return this;
       }
 
-      public Builder Withcategory(ActivityCategory? category)
+      public Builder WithCategory(ActivityCategory? category)
       {
         this.category = category;
         return this;
       }
 
-      public Builder Withtype(PrimeActivityType? type)
+      public Builder WithType(PrimeActivityType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withsecondary_type(ActivitySecondaryType? secondary_type)
+      public Builder WithSecondaryType(ActivitySecondaryType? secondaryType)
       {
-        this.secondary_type = secondary_type;
+        this.secondaryType = secondaryType;
         return this;
       }
 
-      public Builder Withstatus(ActivityStatus? status)
+      public Builder WithStatus(ActivityStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder Withcreated_by(string? created_by)
+      public Builder WithCreatedBy(string? createdBy)
       {
-        this.created_by = created_by;
+        this.createdBy = createdBy;
         return this;
       }
 
-      public Builder Withtitle(string? title)
+      public Builder WithTitle(string? title)
       {
         this.title = title;
         return this;
       }
 
-      public Builder Withdescription(string? description)
+      public Builder WithDescription(string? description)
       {
         this.description = description;
         return this;
       }
 
-      public Builder Withuser_actions(List<UserAction>? user_actions)
+      public Builder WithUserActions(List<UserAction>? userActions)
       {
-        this.user_actions = user_actions;
+        this.userActions = userActions;
         return this;
       }
 
-      public Builder Withtransactions_metadata(ActivityMetadataTransactions? transactions_metadata)
+      public Builder WithTransactionsMetadata(ActivityMetadataTransactions? transactionsMetadata)
       {
-        this.transactions_metadata = transactions_metadata;
+        this.transactionsMetadata = transactionsMetadata;
         return this;
       }
 
-      public Builder Withaccount_metadata(ActivityMetadataAccount? account_metadata)
+      public Builder WithAccountMetadata(ActivityMetadataAccount? accountMetadata)
       {
-        this.account_metadata = account_metadata;
+        this.accountMetadata = accountMetadata;
         return this;
       }
 
-      public Builder Withorders_metadata(Object? orders_metadata)
+      public Builder WithOrdersMetadata(Object? ordersMetadata)
       {
-        this.orders_metadata = orders_metadata;
+        this.ordersMetadata = ordersMetadata;
         return this;
       }
 
-      public Builder Withsymbols(List<string>? symbols)
+      public Builder WithSymbols(List<string>? symbols)
       {
         this.symbols = symbols;
         return this;
       }
 
-      public Builder Withcreated_at(string? created_at)
+      public Builder WithCreatedAt(string? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withupdated_at(string? updated_at)
+      public Builder WithUpdatedAt(string? updatedAt)
       {
-        this.updated_at = updated_at;
+        this.updatedAt = updatedAt;
         return this;
       }
 
-      public Builder Withhierarchy_type(HierarchyType? hierarchy_type)
+      public Builder WithHierarchyType(HierarchyType? hierarchyType)
       {
-        this.hierarchy_type = hierarchy_type;
+        this.hierarchyType = hierarchyType;
         return this;
       }
 

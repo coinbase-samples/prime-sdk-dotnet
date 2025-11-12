@@ -18,75 +18,76 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class TransferLocation
   {
     [JsonPropertyName("type")]
-    public TransferLocationType? type { get; set; }
+    public TransferLocationType? Type { get; set; }
 
     /// <summary>
     /// The value of the transfer location: payment method ID, wallet ID or crypto address
     /// </summary>
     [JsonPropertyName("value")]
-    public string? value { get; set; }
+    public string? Value { get; set; }
 
     /// <summary>
     /// The crypto address of the transfer location
     /// </summary>
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     /// <summary>
     /// The tag/memo of the address, if applicable - - required for certain assets (e.g. XRP, XLM, etc.)
     /// </summary>
     [JsonPropertyName("account_identifier")]
-    public string? account_identifier { get; set; }
+    public string? AccountIdentifier { get; set; }
 
     public TransferLocation() { }
 
     public TransferLocation(Builder builder)
     {
-      this.type = builder.type;
-      this.value = builder.value;
-      this.address = builder.address;
-      this.account_identifier = builder.account_identifier;
+      this.Type = builder.type;
+      this.Value = builder.value;
+      this.Address = builder.address;
+      this.AccountIdentifier = builder.accountIdentifier;
     }
 
     public class Builder
     {
-      private TransferLocationType? type;
+      internal TransferLocationType? type;
 
-      private string? value;
+      internal string? value;
 
-      private string? address;
+      internal string? address;
 
-      private string? account_identifier;
+      internal string? accountIdentifier;
 
-      public Builder Withtype(TransferLocationType? type)
+      public Builder WithType(TransferLocationType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withvalue(string? value)
+      public Builder WithValue(string? value)
       {
         this.value = value;
         return this;
       }
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withaccount_identifier(string? account_identifier)
+      public Builder WithAccountIdentifier(string? accountIdentifier)
       {
-        this.account_identifier = account_identifier;
+        this.accountIdentifier = accountIdentifier;
         return this;
       }
 

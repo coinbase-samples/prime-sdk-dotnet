@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Network
@@ -29,35 +29,35 @@ namespace CoinbaseSdk.Prime.Model
     /// The network id: base, bitcoin, ethereum, solana etc
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The network type: mainnet, testnet, etc
     /// </summary>
     [JsonPropertyName("type")]
-    public string? type { get; set; }
+    public string? Type { get; set; }
 
     public Network() { }
 
     public Network(Builder builder)
     {
-      this.id = builder.id;
-      this.type = builder.type;
+      this.Id = builder.id;
+      this.Type = builder.type;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? type;
+      internal string? type;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withtype(string? type)
+      public Builder WithType(string? type)
       {
         this.type = type;
         return this;

@@ -18,6 +18,7 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
@@ -30,9 +31,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
     ONEHOUR,
     SIXHOURS,
     ONEDAY,
-    THIRTYMINUTE,
-    TWOHOUR,
-    FOURHOUR
+    THIRTYMINUTES,
+    TWOHOURS,
+    FOURHOURS
   }
 
 }

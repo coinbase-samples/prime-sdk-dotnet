@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class PortfolioStakingMetadata
@@ -29,22 +29,22 @@ namespace CoinbaseSdk.Prime.Model
     /// An optional custom identifier (up to 255 characters) to attach to the transaction.  This is not a searchable transaction field.
     /// </summary>
     [JsonPropertyName("external_id")]
-    public string? external_id { get; set; }
+    public string? ExternalId { get; set; }
 
     public PortfolioStakingMetadata() { }
 
     public PortfolioStakingMetadata(Builder builder)
     {
-      this.external_id = builder.external_id;
+      this.ExternalId = builder.externalId;
     }
 
     public class Builder
     {
-      private string? external_id;
+      internal string? externalId;
 
-      public Builder Withexternal_id(string? external_id)
+      public Builder WithExternalId(string? externalId)
       {
-        this.external_id = external_id;
+        this.externalId = externalId;
         return this;
       }
 

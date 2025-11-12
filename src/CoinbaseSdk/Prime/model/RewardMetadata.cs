@@ -18,17 +18,39 @@
  *  Do not edit the class manually.
  */
 
-namespace CoinbaseSdk.Prime.Model.Enums
+
+namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-  public enum FuturesSweepStatus
+  public class RewardMetadata
   {
-    FCMFUTURESSWEEPSTATUSUNSPECIFIED,
-    FCMFUTURESSWEEPSTATUSPENDING,
-    FCMFUTURESSWEEPSTATUSCLOSED,
-    FCMFUTURESSWEEPSTATUSCANCELED,
-    FCMFUTURESSWEEPSTATUSPROCESSING
+    [JsonPropertyName("subtype")]
+    public RewardSubtype? Subtype { get; set; }
+
+    public RewardMetadata() { }
+
+    public RewardMetadata(Builder builder)
+    {
+      this.Subtype = builder.subtype;
+    }
+
+    public class Builder
+    {
+      internal RewardSubtype? subtype;
+
+      public Builder WithSubtype(RewardSubtype? subtype)
+      {
+        this.subtype = subtype;
+        return this;
+      }
+
+      public RewardMetadata Build()
+      {
+        return new RewardMetadata(this);
+      }
+    }
   }
 
 }

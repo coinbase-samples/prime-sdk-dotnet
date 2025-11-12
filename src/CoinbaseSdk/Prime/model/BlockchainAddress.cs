@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class BlockchainAddress
@@ -29,47 +29,47 @@ namespace CoinbaseSdk.Prime.Model
     /// The address on the network
     /// </summary>
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     /// <summary>
     /// The account identifier (used on some chains to distinguish accounts using the same address)
     /// </summary>
     [JsonPropertyName("account_identifier")]
-    public string? account_identifier { get; set; }
+    public string? AccountIdentifier { get; set; }
 
     [JsonPropertyName("network")]
-    public Network? network { get; set; }
+    public Network? Network { get; set; }
 
     public BlockchainAddress() { }
 
     public BlockchainAddress(Builder builder)
     {
-      this.address = builder.address;
-      this.account_identifier = builder.account_identifier;
-      this.network = builder.network;
+      this.Address = builder.address;
+      this.AccountIdentifier = builder.accountIdentifier;
+      this.Network = builder.network;
     }
 
     public class Builder
     {
-      private string? address;
+      internal string? address;
 
-      private string? account_identifier;
+      internal string? accountIdentifier;
 
-      private Network? network;
+      internal Network? network;
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withaccount_identifier(string? account_identifier)
+      public Builder WithAccountIdentifier(string? accountIdentifier)
       {
-        this.account_identifier = account_identifier;
+        this.accountIdentifier = accountIdentifier;
         return this;
       }
 
-      public Builder Withnetwork(Network? network)
+      public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;

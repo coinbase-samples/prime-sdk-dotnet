@@ -18,13 +18,14 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
-  public enum XMCallStatus
+  public enum XmCallStatus
   {
-    XMCALLSTATUSUNSPECIFIED,
+    XmCALLSTATUSUNSPECIFIED,
     CALLSTATUSOPEN,
     CALLSTATUSAGED,
     CALLSTATUSSETTLED,

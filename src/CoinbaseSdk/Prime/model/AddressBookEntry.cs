@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class AddressBookEntry
   {
@@ -29,196 +30,196 @@ namespace CoinbaseSdk.Prime.Model
     /// UUID identifying this address book entry
     /// </summary>
     [JsonPropertyName("id")]
-    public string id { get; set; }
+    public string Id { get; set; } = default!;
 
     /// <summary>
     /// Currency symbol
     /// </summary>
     [JsonPropertyName("currency_symbol")]
-    public string? currency_symbol { get; set; }
+    public string? CurrencySymbol { get; set; }
 
     /// <summary>
     /// Name for this address book entry
     /// </summary>
     [JsonPropertyName("name")]
-    public string name { get; set; }
+    public string Name { get; set; } = default!;
 
     /// <summary>
     /// Cryptocurrency address
     /// </summary>
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     /// <summary>
     /// Memo or destination tag for currencies which support them
     /// </summary>
     [JsonPropertyName("account_identifier")]
-    public string? account_identifier { get; set; }
+    public string? AccountIdentifier { get; set; }
 
     /// <summary>
     /// Name of the account identifier. For instance Destination Tag
     /// </summary>
     [JsonPropertyName("account_identifier_name")]
-    public string? account_identifier_name { get; set; }
+    public string? AccountIdentifierName { get; set; }
 
     /// <summary>
     /// State of this address book entry
     /// </summary>
     [JsonPropertyName("state")]
-    public string state { get; set; }
+    public string State { get; set; } = default!;
 
     /// <summary>
     /// Link to a blockchain explorer
     /// </summary>
     [JsonPropertyName("explorer_link")]
-    public string? explorer_link { get; set; }
+    public string? ExplorerLink { get; set; }
 
     /// <summary>
     /// When this entry was last used for a transaction
     /// </summary>
     [JsonPropertyName("last_used_at")]
-    public DateTime? last_used_at { get; set; }
+    public DateTime? LastUsedAt { get; set; }
 
     /// <summary>
     /// When this entry was added to the address book
     /// </summary>
     [JsonPropertyName("added_at")]
-    public DateTime? added_at { get; set; }
+    public DateTime? AddedAt { get; set; }
 
     [JsonPropertyName("added_by")]
-    public DisplayUser added_by { get; set; }
+    public DisplayUser AddedBy { get; set; } = default!;
 
     [JsonPropertyName("type")]
-    public AddressBookType? type { get; set; }
+    public AddressBookType? Type { get; set; }
 
     /// <summary>
     /// counterparty id
     /// </summary>
     [JsonPropertyName("counterparty_id")]
-    public string? counterparty_id { get; set; }
+    public string? CounterpartyId { get; set; }
 
     public AddressBookEntry() { }
 
     public AddressBookEntry(Builder builder)
     {
-      this.id = builder.id;
-      this.currency_symbol = builder.currency_symbol;
-      this.name = builder.name;
-      this.address = builder.address;
-      this.account_identifier = builder.account_identifier;
-      this.account_identifier_name = builder.account_identifier_name;
-      this.state = builder.state;
-      this.explorer_link = builder.explorer_link;
-      this.last_used_at = builder.last_used_at;
-      this.added_at = builder.added_at;
-      this.added_by = builder.added_by;
-      this.type = builder.type;
-      this.counterparty_id = builder.counterparty_id;
+      this.Id = builder.id;
+      this.CurrencySymbol = builder.currencySymbol;
+      this.Name = builder.name;
+      this.Address = builder.address;
+      this.AccountIdentifier = builder.accountIdentifier;
+      this.AccountIdentifierName = builder.accountIdentifierName;
+      this.State = builder.state;
+      this.ExplorerLink = builder.explorerLink;
+      this.LastUsedAt = builder.lastUsedAt;
+      this.AddedAt = builder.addedAt;
+      this.AddedBy = builder.addedBy;
+      this.Type = builder.type;
+      this.CounterpartyId = builder.counterpartyId;
     }
 
     public class Builder
     {
-      private string id;
+      internal string id = default!;
 
-      private string? currency_symbol;
+      internal string? currencySymbol;
 
-      private string name;
+      internal string name = default!;
 
-      private string? address;
+      internal string? address;
 
-      private string? account_identifier;
+      internal string? accountIdentifier;
 
-      private string? account_identifier_name;
+      internal string? accountIdentifierName;
 
-      private string state;
+      internal string state = default!;
 
-      private string? explorer_link;
+      internal string? explorerLink;
 
-      private DateTime? last_used_at;
+      internal DateTime? lastUsedAt;
 
-      private DateTime? added_at;
+      internal DateTime? addedAt;
 
-      private DisplayUser added_by;
+      internal DisplayUser addedBy = default!;
 
-      private AddressBookType? type;
+      internal AddressBookType? type;
 
-      private string? counterparty_id;
+      internal string? counterpartyId;
 
-      public Builder Withid(string id)
+      public Builder WithId(string id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withcurrency_symbol(string? currency_symbol)
+      public Builder WithCurrencySymbol(string? currencySymbol)
       {
-        this.currency_symbol = currency_symbol;
+        this.currencySymbol = currencySymbol;
         return this;
       }
 
-      public Builder Withname(string name)
+      public Builder WithName(string name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withaccount_identifier(string? account_identifier)
+      public Builder WithAccountIdentifier(string? accountIdentifier)
       {
-        this.account_identifier = account_identifier;
+        this.accountIdentifier = accountIdentifier;
         return this;
       }
 
-      public Builder Withaccount_identifier_name(string? account_identifier_name)
+      public Builder WithAccountIdentifierName(string? accountIdentifierName)
       {
-        this.account_identifier_name = account_identifier_name;
+        this.accountIdentifierName = accountIdentifierName;
         return this;
       }
 
-      public Builder Withstate(string state)
+      public Builder WithState(string state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder Withexplorer_link(string? explorer_link)
+      public Builder WithExplorerLink(string? explorerLink)
       {
-        this.explorer_link = explorer_link;
+        this.explorerLink = explorerLink;
         return this;
       }
 
-      public Builder Withlast_used_at(DateTime? last_used_at)
+      public Builder WithLastUsedAt(DateTime? lastUsedAt)
       {
-        this.last_used_at = last_used_at;
+        this.lastUsedAt = lastUsedAt;
         return this;
       }
 
-      public Builder Withadded_at(DateTime? added_at)
+      public Builder WithAddedAt(DateTime? addedAt)
       {
-        this.added_at = added_at;
+        this.addedAt = addedAt;
         return this;
       }
 
-      public Builder Withadded_by(DisplayUser added_by)
+      public Builder WithAddedBy(DisplayUser addedBy)
       {
-        this.added_by = added_by;
+        this.addedBy = addedBy;
         return this;
       }
 
-      public Builder Withtype(AddressBookType? type)
+      public Builder WithType(AddressBookType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withcounterparty_id(string? counterparty_id)
+      public Builder WithCounterpartyId(string? counterpartyId)
       {
-        this.counterparty_id = counterparty_id;
+        this.counterpartyId = counterpartyId;
         return this;
       }
 

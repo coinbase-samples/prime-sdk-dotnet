@@ -18,30 +18,30 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class PaymentMethodDestination
   {
     [JsonPropertyName("payment_method_id")]
-    public string? payment_method_id { get; set; }
+    public string? PaymentMethodId { get; set; }
 
     public PaymentMethodDestination() { }
 
     public PaymentMethodDestination(Builder builder)
     {
-      this.payment_method_id = builder.payment_method_id;
+      this.PaymentMethodId = builder.paymentMethodId;
     }
 
     public class Builder
     {
-      private string? payment_method_id;
+      internal string? paymentMethodId;
 
-      public Builder Withpayment_method_id(string? payment_method_id)
+      public Builder WithPaymentMethodId(string? paymentMethodId)
       {
-        this.payment_method_id = payment_method_id;
+        this.paymentMethodId = paymentMethodId;
         return this;
       }
 

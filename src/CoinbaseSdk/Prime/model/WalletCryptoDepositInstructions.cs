@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class WalletCryptoDepositInstructions
   {
@@ -29,104 +30,104 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID of the wallet
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The name of the wallet
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("type")]
-    public WalletDepositInstructionType? type { get; set; }
+    public WalletDepositInstructionType? Type { get; set; }
 
     /// <summary>
     /// The address of the wallet
     /// </summary>
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     /// <summary>
     /// The tag/memo of the address, if applicable - - required for certain assets (e.g. XRP, XLM, etc.)
     /// </summary>
     [JsonPropertyName("account_identifier")]
-    public string? account_identifier { get; set; }
+    public string? AccountIdentifier { get; set; }
 
     /// <summary>
     /// The blockchain network&#39;s terminology for the unique identifier used to identify the receiver of the transaction (different blockchain networks use different names, such as &#x60;destination_tag&#x60; or &#x60;memo&#x60;)
     /// </summary>
     [JsonPropertyName("account_identifier_name")]
-    public string? account_identifier_name { get; set; }
+    public string? AccountIdentifierName { get; set; }
 
     [JsonPropertyName("network")]
-    public Network? network { get; set; }
+    public Network? Network { get; set; }
 
     public WalletCryptoDepositInstructions() { }
 
     public WalletCryptoDepositInstructions(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.type = builder.type;
-      this.address = builder.address;
-      this.account_identifier = builder.account_identifier;
-      this.account_identifier_name = builder.account_identifier_name;
-      this.network = builder.network;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.Type = builder.type;
+      this.Address = builder.address;
+      this.AccountIdentifier = builder.accountIdentifier;
+      this.AccountIdentifierName = builder.accountIdentifierName;
+      this.Network = builder.network;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private WalletDepositInstructionType? type;
+      internal WalletDepositInstructionType? type;
 
-      private string? address;
+      internal string? address;
 
-      private string? account_identifier;
+      internal string? accountIdentifier;
 
-      private string? account_identifier_name;
+      internal string? accountIdentifierName;
 
-      private Network? network;
+      internal Network? network;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withtype(WalletDepositInstructionType? type)
+      public Builder WithType(WalletDepositInstructionType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withaccount_identifier(string? account_identifier)
+      public Builder WithAccountIdentifier(string? accountIdentifier)
       {
-        this.account_identifier = account_identifier;
+        this.accountIdentifier = accountIdentifier;
         return this;
       }
 
-      public Builder Withaccount_identifier_name(string? account_identifier_name)
+      public Builder WithAccountIdentifierName(string? accountIdentifierName)
       {
-        this.account_identifier_name = account_identifier_name;
+        this.accountIdentifierName = accountIdentifierName;
         return this;
       }
 
-      public Builder Withnetwork(Network? network)
+      public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;

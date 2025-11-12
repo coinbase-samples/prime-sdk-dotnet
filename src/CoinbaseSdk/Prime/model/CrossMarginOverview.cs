@@ -18,96 +18,97 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CrossMarginOverview
   {
     [JsonPropertyName("control_status")]
-    public XMControlStatus? control_status { get; set; }
+    public XmControlStatus? ControlStatus { get; set; }
 
     [JsonPropertyName("call_status")]
-    public XMEntityCallStatus? call_status { get; set; }
+    public XmEntityCallStatus? CallStatus { get; set; }
 
     [JsonPropertyName("margin_level")]
-    public XMMarginLevel? margin_level { get; set; }
+    public XmMarginLevel? MarginLevel { get; set; }
 
     [JsonPropertyName("margin_summary")]
-    public XMSummary? margin_summary { get; set; }
+    public XmSummary? MarginSummary { get; set; }
 
     /// <summary>
-    /// List of active XM margin calls
+    /// List of active Xm margin calls
     /// </summary>
     [JsonPropertyName("active_margin_calls")]
-    public List<XMMarginCall>? active_margin_calls { get; set; }
+    public List<XmMarginCall>? ActiveMarginCalls { get; set; }
 
     /// <summary>
-    /// List of active XM loans
+    /// List of active Xm loans
     /// </summary>
     [JsonPropertyName("active_loans")]
-    public List<XMLoan>? active_loans { get; set; }
+    public List<XmLoan>? ActiveLoans { get; set; }
 
     public CrossMarginOverview() { }
 
     public CrossMarginOverview(Builder builder)
     {
-      this.control_status = builder.control_status;
-      this.call_status = builder.call_status;
-      this.margin_level = builder.margin_level;
-      this.margin_summary = builder.margin_summary;
-      this.active_margin_calls = builder.active_margin_calls;
-      this.active_loans = builder.active_loans;
+      this.ControlStatus = builder.controlStatus;
+      this.CallStatus = builder.callStatus;
+      this.MarginLevel = builder.marginLevel;
+      this.MarginSummary = builder.marginSummary;
+      this.ActiveMarginCalls = builder.activeMarginCalls;
+      this.ActiveLoans = builder.activeLoans;
     }
 
     public class Builder
     {
-      private XMControlStatus? control_status;
+      internal XmControlStatus? controlStatus;
 
-      private XMEntityCallStatus? call_status;
+      internal XmEntityCallStatus? callStatus;
 
-      private XMMarginLevel? margin_level;
+      internal XmMarginLevel? marginLevel;
 
-      private XMSummary? margin_summary;
+      internal XmSummary? marginSummary;
 
-      private List<XMMarginCall>? active_margin_calls;
+      internal List<XmMarginCall>? activeMarginCalls;
 
-      private List<XMLoan>? active_loans;
+      internal List<XmLoan>? activeLoans;
 
-      public Builder Withcontrol_status(XMControlStatus? control_status)
+      public Builder WithControlStatus(XmControlStatus? controlStatus)
       {
-        this.control_status = control_status;
+        this.controlStatus = controlStatus;
         return this;
       }
 
-      public Builder Withcall_status(XMEntityCallStatus? call_status)
+      public Builder WithCallStatus(XmEntityCallStatus? callStatus)
       {
-        this.call_status = call_status;
+        this.callStatus = callStatus;
         return this;
       }
 
-      public Builder Withmargin_level(XMMarginLevel? margin_level)
+      public Builder WithMarginLevel(XmMarginLevel? marginLevel)
       {
-        this.margin_level = margin_level;
+        this.marginLevel = marginLevel;
         return this;
       }
 
-      public Builder Withmargin_summary(XMSummary? margin_summary)
+      public Builder WithMarginSummary(XmSummary? marginSummary)
       {
-        this.margin_summary = margin_summary;
+        this.marginSummary = marginSummary;
         return this;
       }
 
-      public Builder Withactive_margin_calls(List<XMMarginCall>? active_margin_calls)
+      public Builder WithActiveMarginCalls(List<XmMarginCall>? activeMarginCalls)
       {
-        this.active_margin_calls = active_margin_calls;
+        this.activeMarginCalls = activeMarginCalls;
         return this;
       }
 
-      public Builder Withactive_loans(List<XMLoan>? active_loans)
+      public Builder WithActiveLoans(List<XmLoan>? activeLoans)
       {
-        this.active_loans = active_loans;
+        this.activeLoans = activeLoans;
         return this;
       }
 

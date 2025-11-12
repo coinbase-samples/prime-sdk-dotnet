@@ -16,8 +16,8 @@
 
 namespace CoinbaseSdk.Prime.Common
 {
-    using CoinbaseSdk.Prime.Model;
     using System.Text.Json.Serialization;
+    using CoinbaseSdk.Prime.Model.Enums;
 
     public class Pagination
     {

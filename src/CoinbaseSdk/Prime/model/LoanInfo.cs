@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class LoanInfo
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// Balance amount
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// Notional balance amount
     /// </summary>
     [JsonPropertyName("notional_amount")]
-    public string? notional_amount { get; set; }
+    public string? NotionalAmount { get; set; }
 
     /// <summary>
     /// Settlement due date
     /// </summary>
     [JsonPropertyName("due_date")]
-    public string? due_date { get; set; }
+    public string? DueDate { get; set; }
 
     public LoanInfo() { }
 
     public LoanInfo(Builder builder)
     {
-      this.portfolio_id = builder.portfolio_id;
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
-      this.notional_amount = builder.notional_amount;
-      this.due_date = builder.due_date;
+      this.PortfolioId = builder.portfolioId;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
+      this.NotionalAmount = builder.notionalAmount;
+      this.DueDate = builder.dueDate;
     }
 
     public class Builder
     {
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      private string? notional_amount;
+      internal string? notionalAmount;
 
-      private string? due_date;
+      internal string? dueDate;
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withnotional_amount(string? notional_amount)
+      public Builder WithNotionalAmount(string? notionalAmount)
       {
-        this.notional_amount = notional_amount;
+        this.notionalAmount = notionalAmount;
         return this;
       }
 
-      public Builder Withdue_date(string? due_date)
+      public Builder WithDueDate(string? dueDate)
       {
-        this.due_date = due_date;
+        this.dueDate = dueDate;
         return this;
       }
 

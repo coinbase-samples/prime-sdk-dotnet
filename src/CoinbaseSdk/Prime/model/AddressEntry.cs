@@ -18,54 +18,54 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class AddressEntry
   {
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     [JsonPropertyName("chain_ids")]
-    public List<string>? chain_ids { get; set; }
+    public List<string>? ChainIds { get; set; }
 
     public AddressEntry() { }
 
     public AddressEntry(Builder builder)
     {
-      this.name = builder.name;
-      this.address = builder.address;
-      this.chain_ids = builder.chain_ids;
+      this.Name = builder.name;
+      this.Address = builder.address;
+      this.ChainIds = builder.chainIds;
     }
 
     public class Builder
     {
-      private string? name;
+      internal string? name;
 
-      private string? address;
+      internal string? address;
 
-      private List<string>? chain_ids;
+      internal List<string>? chainIds;
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withchain_ids(List<string>? chain_ids)
+      public Builder WithChainIds(List<string>? chainIds)
       {
-        this.chain_ids = chain_ids;
+        this.chainIds = chainIds;
         return this;
       }
 

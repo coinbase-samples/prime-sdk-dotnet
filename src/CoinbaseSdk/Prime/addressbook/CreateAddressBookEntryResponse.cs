@@ -17,7 +17,7 @@
 namespace CoinbaseSdk.Prime.AddressBook
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class CreateAddressBookEntryResponse
   {

@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Product
   {
@@ -29,154 +30,154 @@ namespace CoinbaseSdk.Prime.Model
     /// The product ID, written as &#x60;BASE-QUOTE&#x60;
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The smallest permitted unit of denomination for the base asset (varies by product)
     /// </summary>
     [JsonPropertyName("base_increment")]
-    public string? base_increment { get; set; }
+    public string? BaseIncrement { get; set; }
 
     /// <summary>
     /// The smallest permitted unit of denomination for the quote asset (varies by product)
     /// </summary>
     [JsonPropertyName("quote_increment")]
-    public string? quote_increment { get; set; }
+    public string? QuoteIncrement { get; set; }
 
     /// <summary>
     /// The minimum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_min_size")]
-    public string? base_min_size { get; set; }
+    public string? BaseMinSize { get; set; }
 
     /// <summary>
     /// The minimum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_min_size")]
-    public string? quote_min_size { get; set; }
+    public string? QuoteMinSize { get; set; }
 
     /// <summary>
     /// The maximum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_max_size")]
-    public string? base_max_size { get; set; }
+    public string? BaseMaxSize { get; set; }
 
     /// <summary>
     /// The maximum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_max_size")]
-    public string? quote_max_size { get; set; }
+    public string? QuoteMaxSize { get; set; }
 
     /// <summary>
     /// Permissions given to the user for a product
     /// </summary>
     [JsonPropertyName("permissions")]
-    public List<ProductPermissions>? permissions { get; set; }
+    public List<ProductPermissions>? Permissions { get; set; }
 
     /// <summary>
     /// The smallest permitted price increment for the product
     /// </summary>
     [JsonPropertyName("price_increment")]
-    public string? price_increment { get; set; }
+    public string? PriceIncrement { get; set; }
 
     [JsonPropertyName("rfq_product_details")]
-    public RFQProductDetails? rfq_product_details { get; set; }
+    public RfqProductDetails? RfqProductDetails { get; set; }
 
     public Product() { }
 
     public Product(Builder builder)
     {
-      this.id = builder.id;
-      this.base_increment = builder.base_increment;
-      this.quote_increment = builder.quote_increment;
-      this.base_min_size = builder.base_min_size;
-      this.quote_min_size = builder.quote_min_size;
-      this.base_max_size = builder.base_max_size;
-      this.quote_max_size = builder.quote_max_size;
-      this.permissions = builder.permissions;
-      this.price_increment = builder.price_increment;
-      this.rfq_product_details = builder.rfq_product_details;
+      this.Id = builder.id;
+      this.BaseIncrement = builder.baseIncrement;
+      this.QuoteIncrement = builder.quoteIncrement;
+      this.BaseMinSize = builder.baseMinSize;
+      this.QuoteMinSize = builder.quoteMinSize;
+      this.BaseMaxSize = builder.baseMaxSize;
+      this.QuoteMaxSize = builder.quoteMaxSize;
+      this.Permissions = builder.permissions;
+      this.PriceIncrement = builder.priceIncrement;
+      this.RfqProductDetails = builder.rfqProductDetails;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? base_increment;
+      internal string? baseIncrement;
 
-      private string? quote_increment;
+      internal string? quoteIncrement;
 
-      private string? base_min_size;
+      internal string? baseMinSize;
 
-      private string? quote_min_size;
+      internal string? quoteMinSize;
 
-      private string? base_max_size;
+      internal string? baseMaxSize;
 
-      private string? quote_max_size;
+      internal string? quoteMaxSize;
 
-      private List<ProductPermissions>? permissions;
+      internal List<ProductPermissions>? permissions;
 
-      private string? price_increment;
+      internal string? priceIncrement;
 
-      private RFQProductDetails? rfq_product_details;
+      internal RfqProductDetails? rfqProductDetails;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withbase_increment(string? base_increment)
+      public Builder WithBaseIncrement(string? baseIncrement)
       {
-        this.base_increment = base_increment;
+        this.baseIncrement = baseIncrement;
         return this;
       }
 
-      public Builder Withquote_increment(string? quote_increment)
+      public Builder WithQuoteIncrement(string? quoteIncrement)
       {
-        this.quote_increment = quote_increment;
+        this.quoteIncrement = quoteIncrement;
         return this;
       }
 
-      public Builder Withbase_min_size(string? base_min_size)
+      public Builder WithBaseMinSize(string? baseMinSize)
       {
-        this.base_min_size = base_min_size;
+        this.baseMinSize = baseMinSize;
         return this;
       }
 
-      public Builder Withquote_min_size(string? quote_min_size)
+      public Builder WithQuoteMinSize(string? quoteMinSize)
       {
-        this.quote_min_size = quote_min_size;
+        this.quoteMinSize = quoteMinSize;
         return this;
       }
 
-      public Builder Withbase_max_size(string? base_max_size)
+      public Builder WithBaseMaxSize(string? baseMaxSize)
       {
-        this.base_max_size = base_max_size;
+        this.baseMaxSize = baseMaxSize;
         return this;
       }
 
-      public Builder Withquote_max_size(string? quote_max_size)
+      public Builder WithQuoteMaxSize(string? quoteMaxSize)
       {
-        this.quote_max_size = quote_max_size;
+        this.quoteMaxSize = quoteMaxSize;
         return this;
       }
 
-      public Builder Withpermissions(List<ProductPermissions>? permissions)
+      public Builder WithPermissions(List<ProductPermissions>? permissions)
       {
         this.permissions = permissions;
         return this;
       }
 
-      public Builder Withprice_increment(string? price_increment)
+      public Builder WithPriceIncrement(string? priceIncrement)
       {
-        this.price_increment = price_increment;
+        this.priceIncrement = priceIncrement;
         return this;
       }
 
-      public Builder Withrfq_product_details(RFQProductDetails? rfq_product_details)
+      public Builder WithRfqProductDetails(RfqProductDetails? rfqProductDetails)
       {
-        this.rfq_product_details = rfq_product_details;
+        this.rfqProductDetails = rfqProductDetails;
         return this;
       }
 

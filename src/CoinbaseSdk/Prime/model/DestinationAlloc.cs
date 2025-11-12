@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class DestinationAlloc
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID unique to each leg of an allocation.
     /// </summary>
     [JsonPropertyName("leg_id")]
-    public string? leg_id { get; set; }
+    public string? LegId { get; set; }
 
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("allocation_base")]
-    public string? allocation_base { get; set; }
+    public string? AllocationBase { get; set; }
 
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("allocation_quote")]
-    public string? allocation_quote { get; set; }
+    public string? AllocationQuote { get; set; }
 
     /// <summary>
     /// Pro rata fees for each leg. Adding up the fees for each leg will sum up to equal the total allocation level fees.
     /// </summary>
     [JsonPropertyName("fees_allocated_leg")]
-    public string? fees_allocated_leg { get; set; }
+    public string? FeesAllocatedLeg { get; set; }
 
     public DestinationAlloc() { }
 
     public DestinationAlloc(Builder builder)
     {
-      this.leg_id = builder.leg_id;
-      this.portfolio_id = builder.portfolio_id;
-      this.allocation_base = builder.allocation_base;
-      this.allocation_quote = builder.allocation_quote;
-      this.fees_allocated_leg = builder.fees_allocated_leg;
+      this.LegId = builder.legId;
+      this.PortfolioId = builder.portfolioId;
+      this.AllocationBase = builder.allocationBase;
+      this.AllocationQuote = builder.allocationQuote;
+      this.FeesAllocatedLeg = builder.feesAllocatedLeg;
     }
 
     public class Builder
     {
-      private string? leg_id;
+      internal string? legId;
 
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? allocation_base;
+      internal string? allocationBase;
 
-      private string? allocation_quote;
+      internal string? allocationQuote;
 
-      private string? fees_allocated_leg;
+      internal string? feesAllocatedLeg;
 
-      public Builder Withleg_id(string? leg_id)
+      public Builder WithLegId(string? legId)
       {
-        this.leg_id = leg_id;
+        this.legId = legId;
         return this;
       }
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withallocation_base(string? allocation_base)
+      public Builder WithAllocationBase(string? allocationBase)
       {
-        this.allocation_base = allocation_base;
+        this.allocationBase = allocationBase;
         return this;
       }
 
-      public Builder Withallocation_quote(string? allocation_quote)
+      public Builder WithAllocationQuote(string? allocationQuote)
       {
-        this.allocation_quote = allocation_quote;
+        this.allocationQuote = allocationQuote;
         return this;
       }
 
-      public Builder Withfees_allocated_leg(string? fees_allocated_leg)
+      public Builder WithFeesAllocatedLeg(string? feesAllocatedLeg)
       {
-        this.fees_allocated_leg = fees_allocated_leg;
+        this.feesAllocatedLeg = feesAllocatedLeg;
         return this;
       }
 

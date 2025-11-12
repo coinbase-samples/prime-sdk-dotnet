@@ -18,129 +18,129 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class RFQProductDetails
+  public class RfqProductDetails
   {
     /// <summary>
     /// Whether the product is tradable via RFQ
     /// </summary>
     [JsonPropertyName("tradable")]
-    public bool? tradable { get; set; }
+    public bool? Tradable { get; set; }
 
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("min_notional_size")]
-    public string? min_notional_size { get; set; }
+    public string? MinNotionalSize { get; set; }
 
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("max_notional_size")]
-    public string? max_notional_size { get; set; }
+    public string? MaxNotionalSize { get; set; }
 
     /// <summary>
     /// Minimum base size for RFQ
     /// </summary>
     [JsonPropertyName("min_base_size")]
-    public string? min_base_size { get; set; }
+    public string? MinBaseSize { get; set; }
 
     /// <summary>
     /// Maximum base size for RFQ
     /// </summary>
     [JsonPropertyName("max_base_size")]
-    public string? max_base_size { get; set; }
+    public string? MaxBaseSize { get; set; }
 
     /// <summary>
     /// Minimum quote size for RFQ
     /// </summary>
     [JsonPropertyName("min_quote_size")]
-    public string? min_quote_size { get; set; }
+    public string? MinQuoteSize { get; set; }
 
     /// <summary>
     /// Maximum quote size for RFQ
     /// </summary>
     [JsonPropertyName("max_quote_size")]
-    public string? max_quote_size { get; set; }
+    public string? MaxQuoteSize { get; set; }
 
-    public RFQProductDetails() { }
+    public RfqProductDetails() { }
 
-    public RFQProductDetails(Builder builder)
+    public RfqProductDetails(Builder builder)
     {
-      this.tradable = builder.tradable;
-      this.min_notional_size = builder.min_notional_size;
-      this.max_notional_size = builder.max_notional_size;
-      this.min_base_size = builder.min_base_size;
-      this.max_base_size = builder.max_base_size;
-      this.min_quote_size = builder.min_quote_size;
-      this.max_quote_size = builder.max_quote_size;
+      this.Tradable = builder.tradable;
+      this.MinNotionalSize = builder.minNotionalSize;
+      this.MaxNotionalSize = builder.maxNotionalSize;
+      this.MinBaseSize = builder.minBaseSize;
+      this.MaxBaseSize = builder.maxBaseSize;
+      this.MinQuoteSize = builder.minQuoteSize;
+      this.MaxQuoteSize = builder.maxQuoteSize;
     }
 
     public class Builder
     {
-      private bool? tradable;
+      internal bool? tradable;
 
-      private string? min_notional_size;
+      internal string? minNotionalSize;
 
-      private string? max_notional_size;
+      internal string? maxNotionalSize;
 
-      private string? min_base_size;
+      internal string? minBaseSize;
 
-      private string? max_base_size;
+      internal string? maxBaseSize;
 
-      private string? min_quote_size;
+      internal string? minQuoteSize;
 
-      private string? max_quote_size;
+      internal string? maxQuoteSize;
 
-      public Builder Withtradable(bool? tradable)
+      public Builder WithTradable(bool? tradable)
       {
         this.tradable = tradable;
         return this;
       }
 
-      public Builder Withmin_notional_size(string? min_notional_size)
+      public Builder WithMinNotionalSize(string? minNotionalSize)
       {
-        this.min_notional_size = min_notional_size;
+        this.minNotionalSize = minNotionalSize;
         return this;
       }
 
-      public Builder Withmax_notional_size(string? max_notional_size)
+      public Builder WithMaxNotionalSize(string? maxNotionalSize)
       {
-        this.max_notional_size = max_notional_size;
+        this.maxNotionalSize = maxNotionalSize;
         return this;
       }
 
-      public Builder Withmin_base_size(string? min_base_size)
+      public Builder WithMinBaseSize(string? minBaseSize)
       {
-        this.min_base_size = min_base_size;
+        this.minBaseSize = minBaseSize;
         return this;
       }
 
-      public Builder Withmax_base_size(string? max_base_size)
+      public Builder WithMaxBaseSize(string? maxBaseSize)
       {
-        this.max_base_size = max_base_size;
+        this.maxBaseSize = maxBaseSize;
         return this;
       }
 
-      public Builder Withmin_quote_size(string? min_quote_size)
+      public Builder WithMinQuoteSize(string? minQuoteSize)
       {
-        this.min_quote_size = min_quote_size;
+        this.minQuoteSize = minQuoteSize;
         return this;
       }
 
-      public Builder Withmax_quote_size(string? max_quote_size)
+      public Builder WithMaxQuoteSize(string? maxQuoteSize)
       {
-        this.max_quote_size = max_quote_size;
+        this.maxQuoteSize = maxQuoteSize;
         return this;
       }
 
-      public RFQProductDetails Build()
+      public RfqProductDetails Build()
       {
-        return new RFQProductDetails(this);
+        return new RfqProductDetails(this);
       }
     }
   }

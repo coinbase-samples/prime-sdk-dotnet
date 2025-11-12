@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MatchMetadata
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// The reference id of the match
     /// </summary>
     [JsonPropertyName("reference_id")]
-    public string? reference_id { get; set; }
+    public string? ReferenceId { get; set; }
 
     /// <summary>
     /// The settlement date of the match
     /// </summary>
     [JsonPropertyName("settlement_date")]
-    public string? settlement_date { get; set; }
+    public string? SettlementDate { get; set; }
 
     public MatchMetadata() { }
 
     public MatchMetadata(Builder builder)
     {
-      this.reference_id = builder.reference_id;
-      this.settlement_date = builder.settlement_date;
+      this.ReferenceId = builder.referenceId;
+      this.SettlementDate = builder.settlementDate;
     }
 
     public class Builder
     {
-      private string? reference_id;
+      internal string? referenceId;
 
-      private string? settlement_date;
+      internal string? settlementDate;
 
-      public Builder Withreference_id(string? reference_id)
+      public Builder WithReferenceId(string? referenceId)
       {
-        this.reference_id = reference_id;
+        this.referenceId = referenceId;
         return this;
       }
 
-      public Builder Withsettlement_date(string? settlement_date)
+      public Builder WithSettlementDate(string? settlementDate)
       {
-        this.settlement_date = settlement_date;
+        this.settlementDate = settlementDate;
         return this;
       }
 

@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MarginCallRecord
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the margin call
     /// </summary>
     [JsonPropertyName("margin_call_id")]
-    public string? margin_call_id { get; set; }
+    public string? MarginCallId { get; set; }
 
     /// <summary>
     /// The initial margin call amount in notional value
     /// </summary>
     [JsonPropertyName("initial_notional_amount")]
-    public string? initial_notional_amount { get; set; }
+    public string? InitialNotionalAmount { get; set; }
 
     /// <summary>
     /// The outstanding margin call amount in notional value
     /// </summary>
     [JsonPropertyName("outstanding_notional_amount")]
-    public string? outstanding_notional_amount { get; set; }
+    public string? OutstandingNotionalAmount { get; set; }
 
     /// <summary>
     /// The time the margin call is created in RFC3330 format
     /// </summary>
     [JsonPropertyName("created_at")]
-    public string? created_at { get; set; }
+    public string? CreatedAt { get; set; }
 
     /// <summary>
     /// The time the margin call is due in RFC3339 format
     /// </summary>
     [JsonPropertyName("due_at")]
-    public string? due_at { get; set; }
+    public string? DueAt { get; set; }
 
     public MarginCallRecord() { }
 
     public MarginCallRecord(Builder builder)
     {
-      this.margin_call_id = builder.margin_call_id;
-      this.initial_notional_amount = builder.initial_notional_amount;
-      this.outstanding_notional_amount = builder.outstanding_notional_amount;
-      this.created_at = builder.created_at;
-      this.due_at = builder.due_at;
+      this.MarginCallId = builder.marginCallId;
+      this.InitialNotionalAmount = builder.initialNotionalAmount;
+      this.OutstandingNotionalAmount = builder.outstandingNotionalAmount;
+      this.CreatedAt = builder.createdAt;
+      this.DueAt = builder.dueAt;
     }
 
     public class Builder
     {
-      private string? margin_call_id;
+      internal string? marginCallId;
 
-      private string? initial_notional_amount;
+      internal string? initialNotionalAmount;
 
-      private string? outstanding_notional_amount;
+      internal string? outstandingNotionalAmount;
 
-      private string? created_at;
+      internal string? createdAt;
 
-      private string? due_at;
+      internal string? dueAt;
 
-      public Builder Withmargin_call_id(string? margin_call_id)
+      public Builder WithMarginCallId(string? marginCallId)
       {
-        this.margin_call_id = margin_call_id;
+        this.marginCallId = marginCallId;
         return this;
       }
 
-      public Builder Withinitial_notional_amount(string? initial_notional_amount)
+      public Builder WithInitialNotionalAmount(string? initialNotionalAmount)
       {
-        this.initial_notional_amount = initial_notional_amount;
+        this.initialNotionalAmount = initialNotionalAmount;
         return this;
       }
 
-      public Builder Withoutstanding_notional_amount(string? outstanding_notional_amount)
+      public Builder WithOutstandingNotionalAmount(string? outstandingNotionalAmount)
       {
-        this.outstanding_notional_amount = outstanding_notional_amount;
+        this.outstandingNotionalAmount = outstandingNotionalAmount;
         return this;
       }
 
-      public Builder Withcreated_at(string? created_at)
+      public Builder WithCreatedAt(string? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withdue_at(string? due_at)
+      public Builder WithDueAt(string? dueAt)
       {
-        this.due_at = due_at;
+        this.dueAt = dueAt;
         return this;
       }
 

@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class RpcConfig
@@ -29,35 +29,35 @@ namespace CoinbaseSdk.Prime.Model
     /// If true, transaction will not be broadcast to the network
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
-    public bool? skip_broadcast { get; set; }
+    public bool? SkipBroadcast { get; set; }
 
     /// <summary>
-    /// Custom blockchain node RPC URL. (EVM-only)
+    /// Custom blockchain node RpcConfig URL. (EVM-only)
     /// </summary>
     [JsonPropertyName("url")]
-    public string? url { get; set; }
+    public string? Url { get; set; }
 
     public RpcConfig() { }
 
     public RpcConfig(Builder builder)
     {
-      this.skip_broadcast = builder.skip_broadcast;
-      this.url = builder.url;
+      this.SkipBroadcast = builder.skipBroadcast;
+      this.Url = builder.url;
     }
 
     public class Builder
     {
-      private bool? skip_broadcast;
+      internal bool? skipBroadcast;
 
-      private string? url;
+      internal string? url;
 
-      public Builder Withskip_broadcast(bool? skip_broadcast)
+      public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
-        this.skip_broadcast = skip_broadcast;
+        this.skipBroadcast = skipBroadcast;
         return this;
       }
 
-      public Builder Withurl(string? url)
+      public Builder WithUrl(string? url)
       {
         this.url = url;
         return this;

@@ -18,54 +18,54 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class NaturalPersonName
   {
     [JsonPropertyName("first_name")]
-    public string? first_name { get; set; }
+    public string? FirstName { get; set; }
 
     [JsonPropertyName("middle_name")]
-    public string? middle_name { get; set; }
+    public string? MiddleName { get; set; }
 
     [JsonPropertyName("last_name")]
-    public string? last_name { get; set; }
+    public string? LastName { get; set; }
 
     public NaturalPersonName() { }
 
     public NaturalPersonName(Builder builder)
     {
-      this.first_name = builder.first_name;
-      this.middle_name = builder.middle_name;
-      this.last_name = builder.last_name;
+      this.FirstName = builder.firstName;
+      this.MiddleName = builder.middleName;
+      this.LastName = builder.lastName;
     }
 
     public class Builder
     {
-      private string? first_name;
+      internal string? firstName;
 
-      private string? middle_name;
+      internal string? middleName;
 
-      private string? last_name;
+      internal string? lastName;
 
-      public Builder Withfirst_name(string? first_name)
+      public Builder WithFirstName(string? firstName)
       {
-        this.first_name = first_name;
+        this.firstName = firstName;
         return this;
       }
 
-      public Builder Withmiddle_name(string? middle_name)
+      public Builder WithMiddleName(string? middleName)
       {
-        this.middle_name = middle_name;
+        this.middleName = middleName;
         return this;
       }
 
-      public Builder Withlast_name(string? last_name)
+      public Builder WithLastName(string? lastName)
       {
-        this.last_name = last_name;
+        this.lastName = lastName;
         return this;
       }
 

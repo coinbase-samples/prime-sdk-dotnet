@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class ExistingLocate
@@ -29,172 +29,172 @@ namespace CoinbaseSdk.Prime.Model
     /// The locate ID
     /// </summary>
     [JsonPropertyName("locate_id")]
-    public string? locate_id { get; set; }
+    public string? LocateId { get; set; }
 
     /// <summary>
     /// The unique ID of the entity
     /// </summary>
     [JsonPropertyName("entity_id")]
-    public string? entity_id { get; set; }
+    public string? EntityId { get; set; }
 
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The requested locate amount
     /// </summary>
     [JsonPropertyName("requested_amount")]
-    public string? requested_amount { get; set; }
+    public string? RequestedAmount { get; set; }
 
     /// <summary>
-    /// The interest rate of PM loan
+    /// The interest rate of Pm loan
     /// </summary>
     [JsonPropertyName("interest_rate")]
-    public string? interest_rate { get; set; }
+    public string? InterestRate { get; set; }
 
     /// <summary>
     /// The locate status
     /// </summary>
     [JsonPropertyName("status")]
-    public string? status { get; set; }
+    public string? Status { get; set; }
 
     /// <summary>
     /// The approved locate amount
     /// </summary>
     [JsonPropertyName("approved_amount")]
-    public string? approved_amount { get; set; }
+    public string? ApprovedAmount { get; set; }
 
     /// <summary>
     /// Deprecated: Use locate_date instead
     /// </summary>
     [JsonPropertyName("conversion_date")]
-    public string? conversion_date { get; set; }
+    public string? ConversionDate { get; set; }
 
     /// <summary>
     /// The date when the locate was submitted in RFC3339 format
     /// </summary>
     [JsonPropertyName("created_at")]
-    public string? created_at { get; set; }
+    public string? CreatedAt { get; set; }
 
     /// <summary>
     /// The locate date from the CreateNewLocatesRequest in RFC3339 format
     /// </summary>
     [JsonPropertyName("locate_date")]
-    public string? locate_date { get; set; }
+    public string? LocateDate { get; set; }
 
     public ExistingLocate() { }
 
     public ExistingLocate(Builder builder)
     {
-      this.locate_id = builder.locate_id;
-      this.entity_id = builder.entity_id;
-      this.portfolio_id = builder.portfolio_id;
-      this.symbol = builder.symbol;
-      this.requested_amount = builder.requested_amount;
-      this.interest_rate = builder.interest_rate;
-      this.status = builder.status;
-      this.approved_amount = builder.approved_amount;
-      this.conversion_date = builder.conversion_date;
-      this.created_at = builder.created_at;
-      this.locate_date = builder.locate_date;
+      this.LocateId = builder.locateId;
+      this.EntityId = builder.entityId;
+      this.PortfolioId = builder.portfolioId;
+      this.Symbol = builder.symbol;
+      this.RequestedAmount = builder.requestedAmount;
+      this.InterestRate = builder.interestRate;
+      this.Status = builder.status;
+      this.ApprovedAmount = builder.approvedAmount;
+      this.ConversionDate = builder.conversionDate;
+      this.CreatedAt = builder.createdAt;
+      this.LocateDate = builder.locateDate;
     }
 
     public class Builder
     {
-      private string? locate_id;
+      internal string? locateId;
 
-      private string? entity_id;
+      internal string? entityId;
 
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? requested_amount;
+      internal string? requestedAmount;
 
-      private string? interest_rate;
+      internal string? interestRate;
 
-      private string? status;
+      internal string? status;
 
-      private string? approved_amount;
+      internal string? approvedAmount;
 
-      private string? conversion_date;
+      internal string? conversionDate;
 
-      private string? created_at;
+      internal string? createdAt;
 
-      private string? locate_date;
+      internal string? locateDate;
 
-      public Builder Withlocate_id(string? locate_id)
+      public Builder WithLocateId(string? locateId)
       {
-        this.locate_id = locate_id;
+        this.locateId = locateId;
         return this;
       }
 
-      public Builder Withentity_id(string? entity_id)
+      public Builder WithEntityId(string? entityId)
       {
-        this.entity_id = entity_id;
+        this.entityId = entityId;
         return this;
       }
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withrequested_amount(string? requested_amount)
+      public Builder WithRequestedAmount(string? requestedAmount)
       {
-        this.requested_amount = requested_amount;
+        this.requestedAmount = requestedAmount;
         return this;
       }
 
-      public Builder Withinterest_rate(string? interest_rate)
+      public Builder WithInterestRate(string? interestRate)
       {
-        this.interest_rate = interest_rate;
+        this.interestRate = interestRate;
         return this;
       }
 
-      public Builder Withstatus(string? status)
+      public Builder WithStatus(string? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder Withapproved_amount(string? approved_amount)
+      public Builder WithApprovedAmount(string? approvedAmount)
       {
-        this.approved_amount = approved_amount;
+        this.approvedAmount = approvedAmount;
         return this;
       }
 
-      public Builder Withconversion_date(string? conversion_date)
+      public Builder WithConversionDate(string? conversionDate)
       {
-        this.conversion_date = conversion_date;
+        this.conversionDate = conversionDate;
         return this;
       }
 
-      public Builder Withcreated_at(string? created_at)
+      public Builder WithCreatedAt(string? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withlocate_date(string? locate_date)
+      public Builder WithLocateDate(string? locateDate)
       {
-        this.locate_date = locate_date;
+        this.locateDate = locateDate;
         return this;
       }
 

@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class FuturesSweep
   {
@@ -29,76 +30,76 @@ namespace CoinbaseSdk.Prime.Model
     /// Sweep ID
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("requested_amount")]
-    public SweepAmount? requested_amount { get; set; }
+    public SweepAmount? RequestedAmount { get; set; }
 
     /// <summary>
     /// Should sweep all
     /// </summary>
     [JsonPropertyName("should_sweep_all")]
-    public bool? should_sweep_all { get; set; }
+    public bool? ShouldSweepAll { get; set; }
 
     [JsonPropertyName("status")]
-    public FuturesSweepStatus? status { get; set; }
+    public FuturesSweepStatus? Status { get; set; }
 
     /// <summary>
     /// Scheduled time
     /// </summary>
     [JsonPropertyName("scheduled_time")]
-    public DateTime? scheduled_time { get; set; }
+    public DateTime? ScheduledTime { get; set; }
 
     public FuturesSweep() { }
 
     public FuturesSweep(Builder builder)
     {
-      this.id = builder.id;
-      this.requested_amount = builder.requested_amount;
-      this.should_sweep_all = builder.should_sweep_all;
-      this.status = builder.status;
-      this.scheduled_time = builder.scheduled_time;
+      this.Id = builder.id;
+      this.RequestedAmount = builder.requestedAmount;
+      this.ShouldSweepAll = builder.shouldSweepAll;
+      this.Status = builder.status;
+      this.ScheduledTime = builder.scheduledTime;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private SweepAmount? requested_amount;
+      internal SweepAmount? requestedAmount;
 
-      private bool? should_sweep_all;
+      internal bool? shouldSweepAll;
 
-      private FuturesSweepStatus? status;
+      internal FuturesSweepStatus? status;
 
-      private DateTime? scheduled_time;
+      internal DateTime? scheduledTime;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withrequested_amount(SweepAmount? requested_amount)
+      public Builder WithRequestedAmount(SweepAmount? requestedAmount)
       {
-        this.requested_amount = requested_amount;
+        this.requestedAmount = requestedAmount;
         return this;
       }
 
-      public Builder Withshould_sweep_all(bool? should_sweep_all)
+      public Builder WithShouldSweepAll(bool? shouldSweepAll)
       {
-        this.should_sweep_all = should_sweep_all;
+        this.shouldSweepAll = shouldSweepAll;
         return this;
       }
 
-      public Builder Withstatus(FuturesSweepStatus? status)
+      public Builder WithStatus(FuturesSweepStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder Withscheduled_time(DateTime? scheduled_time)
+      public Builder WithScheduledTime(DateTime? scheduledTime)
       {
-        this.scheduled_time = scheduled_time;
+        this.scheduledTime = scheduledTime;
         return this;
       }
 

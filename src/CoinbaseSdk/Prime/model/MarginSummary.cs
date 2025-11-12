@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MarginSummary
@@ -29,484 +29,484 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the entity
     /// </summary>
     [JsonPropertyName("entity_id")]
-    public string? entity_id { get; set; }
+    public string? EntityId { get; set; }
 
     /// <summary>
     /// The margin equity at the entity level. Margin Equity &#x3D; LMV + SMV + Trading Cash Balance + Short Collateral - Pending Withdrawals
     /// </summary>
     [JsonPropertyName("margin_equity")]
-    public string? margin_equity { get; set; }
+    public string? MarginEquity { get; set; }
 
     /// <summary>
     /// USD notional value of required equity in entity portfolios
     /// </summary>
     [JsonPropertyName("margin_requirement")]
-    public string? margin_requirement { get; set; }
+    public string? MarginRequirement { get; set; }
 
     /// <summary>
     /// margin_equity - margin_requirement
     /// </summary>
     [JsonPropertyName("excess_deficit")]
-    public string? excess_deficit { get; set; }
+    public string? ExcessDeficit { get; set; }
 
     /// <summary>
     /// The raw amount of portfolio margin credit used
     /// </summary>
     [JsonPropertyName("pm_credit_consumed")]
-    public string? pm_credit_consumed { get; set; }
+    public string? PmCreditConsumed { get; set; }
 
     /// <summary>
     /// The maximum trade finance credit limit. This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_credit_limit")]
-    public string? tf_credit_limit { get; set; }
+    public string? TfCreditLimit { get; set; }
 
     /// <summary>
     /// The amount of trade finance credit used (USD). This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_credit_consumed")]
-    public string? tf_credit_consumed { get; set; }
+    public string? TfCreditConsumed { get; set; }
 
     /// <summary>
     /// TF Asset Adjusted Value (USD). This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_adjusted_asset_value")]
-    public string? tf_adjusted_asset_value { get; set; }
+    public string? TfAdjustedAssetValue { get; set; }
 
     /// <summary>
     /// TF Adjusted Liability Value (USD). This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_adjusted_liability_value")]
-    public string? tf_adjusted_liability_value { get; set; }
+    public string? TfAdjustedLiabilityValue { get; set; }
 
     /// <summary>
     /// The amount of adjusted credit used. This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_adjusted_credit_consumed")]
-    public string? tf_adjusted_credit_consumed { get; set; }
+    public string? TfAdjustedCreditConsumed { get; set; }
 
     /// <summary>
     /// The amount of adjusted equity. This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_adjusted_equity")]
-    public string? tf_adjusted_equity { get; set; }
+    public string? TfAdjustedEquity { get; set; }
 
     /// <summary>
     /// Whether or not a entity is frozen due to balance outstanding or other reason
     /// </summary>
     [JsonPropertyName("frozen")]
-    public bool? frozen { get; set; }
+    public bool? Frozen { get; set; }
 
     /// <summary>
     /// The reason why a entity is frozen
     /// </summary>
     [JsonPropertyName("frozen_reason")]
-    public string? frozen_reason { get; set; }
+    public string? FrozenReason { get; set; }
 
     /// <summary>
     /// Whether TF is enabled for the entity. This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_enabled")]
-    public bool? tf_enabled { get; set; }
+    public bool? TfEnabled { get; set; }
 
     /// <summary>
-    /// Whether PM is enabled for the entity
+    /// Whether Pm is enabled for the entity
     /// </summary>
     [JsonPropertyName("pm_enabled")]
-    public bool? pm_enabled { get; set; }
+    public bool? PmEnabled { get; set; }
 
     /// <summary>
     /// Market rates for the list of assets
     /// </summary>
     [JsonPropertyName("market_rates")]
-    public List<MarketRate>? market_rates { get; set; }
+    public List<MarketRate>? MarketRates { get; set; }
 
     /// <summary>
     /// Asset Balances across portfolios
     /// </summary>
     [JsonPropertyName("asset_balances")]
-    public List<AssetBalance>? asset_balances { get; set; }
+    public List<AssetBalance>? AssetBalances { get; set; }
 
     /// <summary>
     /// Trade finance debit loan amounts. This field is deprecated and will be removed in the future.
     /// </summary>
     [JsonPropertyName("tf_loans")]
-    public List<LoanInfo>? tf_loans { get; set; }
+    public List<LoanInfo>? TfLoans { get; set; }
 
     /// <summary>
     /// Portfolio Margin debit loan amounts
     /// </summary>
     [JsonPropertyName("pm_loans")]
-    public List<LoanInfo>? pm_loans { get; set; }
+    public List<LoanInfo>? PmLoans { get; set; }
 
     /// <summary>
     /// Short collateral amounts
     /// </summary>
     [JsonPropertyName("short_collateral")]
-    public List<LoanInfo>? short_collateral { get; set; }
+    public List<LoanInfo>? ShortCollateral { get; set; }
 
     /// <summary>
     /// Gross market value (GMV) &#x3D; LMV + Abs (SMV)
     /// </summary>
     [JsonPropertyName("gross_market_value")]
-    public string? gross_market_value { get; set; }
+    public string? GrossMarketValue { get; set; }
 
     /// <summary>
     /// Net Market Value (NMV) &#x3D; LMV + SMV
     /// </summary>
     [JsonPropertyName("net_market_value")]
-    public string? net_market_value { get; set; }
+    public string? NetMarketValue { get; set; }
 
     /// <summary>
     /// Long Market Value (LMV) &#x3D; Sum of positive notional for all assets
     /// </summary>
     [JsonPropertyName("long_market_value")]
-    public string? long_market_value { get; set; }
+    public string? LongMarketValue { get; set; }
 
     /// <summary>
     /// Non_Marginable LMV: Sum of positive notional for each non-margin eligible coin
     /// </summary>
     [JsonPropertyName("non_marginable_long_market_value")]
-    public string? non_marginable_long_market_value { get; set; }
+    public string? NonMarginableLongMarketValue { get; set; }
 
     /// <summary>
     /// Short Market Value (SMV) &#x3D; Sum of negative notional for each margin eligible coin
     /// </summary>
     [JsonPropertyName("short_market_value")]
-    public string? short_market_value { get; set; }
+    public string? ShortMarketValue { get; set; }
 
     /// <summary>
     /// Gross Leverage &#x3D; GMV / Margin Requirement
     /// </summary>
     [JsonPropertyName("gross_leverage")]
-    public string? gross_leverage { get; set; }
+    public string? GrossLeverage { get; set; }
 
     /// <summary>
     /// Net Exposure &#x3D; (LMV + SMV) / GMV
     /// </summary>
     [JsonPropertyName("net_exposure")]
-    public string? net_exposure { get; set; }
+    public string? NetExposure { get; set; }
 
     [JsonPropertyName("portfolio_stress_triggered")]
-    public MarginAddOn? portfolio_stress_triggered { get; set; }
+    public MarginAddOn? PortfolioStressTriggered { get; set; }
 
     /// <summary>
-    /// PM asset info netted across the entity
+    /// Pm asset info netted across the entity
     /// </summary>
     [JsonPropertyName("pm_asset_info")]
-    public List<PMAssetInfo>? pm_asset_info { get; set; }
+    public List<PmAssetInfo>? PmAssetInfo { get; set; }
 
     /// <summary>
-    /// PM limit that monitors gross notional borrowings (crypto + fiat)
+    /// Pm limit that monitors gross notional borrowings (crypto + fiat)
     /// </summary>
     [JsonPropertyName("pm_credit_limit")]
-    public string? pm_credit_limit { get; set; }
+    public string? PmCreditLimit { get; set; }
 
     /// <summary>
-    /// PM limit that monitors excess deficit
+    /// Pm limit that monitors excess deficit
     /// </summary>
     [JsonPropertyName("pm_margin_limit")]
-    public string? pm_margin_limit { get; set; }
+    public string? PmMarginLimit { get; set; }
 
     /// <summary>
     /// The amount of the margin limit that is consumed by the excess deficit
     /// </summary>
     [JsonPropertyName("pm_margin_consumed")]
-    public string? pm_margin_consumed { get; set; }
+    public string? PmMarginConsumed { get; set; }
 
     public MarginSummary() { }
 
     public MarginSummary(Builder builder)
     {
-      this.entity_id = builder.entity_id;
-      this.margin_equity = builder.margin_equity;
-      this.margin_requirement = builder.margin_requirement;
-      this.excess_deficit = builder.excess_deficit;
-      this.pm_credit_consumed = builder.pm_credit_consumed;
-      this.tf_credit_limit = builder.tf_credit_limit;
-      this.tf_credit_consumed = builder.tf_credit_consumed;
-      this.tf_adjusted_asset_value = builder.tf_adjusted_asset_value;
-      this.tf_adjusted_liability_value = builder.tf_adjusted_liability_value;
-      this.tf_adjusted_credit_consumed = builder.tf_adjusted_credit_consumed;
-      this.tf_adjusted_equity = builder.tf_adjusted_equity;
-      this.frozen = builder.frozen;
-      this.frozen_reason = builder.frozen_reason;
-      this.tf_enabled = builder.tf_enabled;
-      this.pm_enabled = builder.pm_enabled;
-      this.market_rates = builder.market_rates;
-      this.asset_balances = builder.asset_balances;
-      this.tf_loans = builder.tf_loans;
-      this.pm_loans = builder.pm_loans;
-      this.short_collateral = builder.short_collateral;
-      this.gross_market_value = builder.gross_market_value;
-      this.net_market_value = builder.net_market_value;
-      this.long_market_value = builder.long_market_value;
-      this.non_marginable_long_market_value = builder.non_marginable_long_market_value;
-      this.short_market_value = builder.short_market_value;
-      this.gross_leverage = builder.gross_leverage;
-      this.net_exposure = builder.net_exposure;
-      this.portfolio_stress_triggered = builder.portfolio_stress_triggered;
-      this.pm_asset_info = builder.pm_asset_info;
-      this.pm_credit_limit = builder.pm_credit_limit;
-      this.pm_margin_limit = builder.pm_margin_limit;
-      this.pm_margin_consumed = builder.pm_margin_consumed;
+      this.EntityId = builder.entityId;
+      this.MarginEquity = builder.marginEquity;
+      this.MarginRequirement = builder.marginRequirement;
+      this.ExcessDeficit = builder.excessDeficit;
+      this.PmCreditConsumed = builder.pmCreditConsumed;
+      this.TfCreditLimit = builder.tfCreditLimit;
+      this.TfCreditConsumed = builder.tfCreditConsumed;
+      this.TfAdjustedAssetValue = builder.tfAdjustedAssetValue;
+      this.TfAdjustedLiabilityValue = builder.tfAdjustedLiabilityValue;
+      this.TfAdjustedCreditConsumed = builder.tfAdjustedCreditConsumed;
+      this.TfAdjustedEquity = builder.tfAdjustedEquity;
+      this.Frozen = builder.frozen;
+      this.FrozenReason = builder.frozenReason;
+      this.TfEnabled = builder.tfEnabled;
+      this.PmEnabled = builder.pmEnabled;
+      this.MarketRates = builder.marketRates;
+      this.AssetBalances = builder.assetBalances;
+      this.TfLoans = builder.tfLoans;
+      this.PmLoans = builder.pmLoans;
+      this.ShortCollateral = builder.shortCollateral;
+      this.GrossMarketValue = builder.grossMarketValue;
+      this.NetMarketValue = builder.netMarketValue;
+      this.LongMarketValue = builder.longMarketValue;
+      this.NonMarginableLongMarketValue = builder.nonMarginableLongMarketValue;
+      this.ShortMarketValue = builder.shortMarketValue;
+      this.GrossLeverage = builder.grossLeverage;
+      this.NetExposure = builder.netExposure;
+      this.PortfolioStressTriggered = builder.portfolioStressTriggered;
+      this.PmAssetInfo = builder.pmAssetInfo;
+      this.PmCreditLimit = builder.pmCreditLimit;
+      this.PmMarginLimit = builder.pmMarginLimit;
+      this.PmMarginConsumed = builder.pmMarginConsumed;
     }
 
     public class Builder
     {
-      private string? entity_id;
+      internal string? entityId;
 
-      private string? margin_equity;
+      internal string? marginEquity;
 
-      private string? margin_requirement;
+      internal string? marginRequirement;
 
-      private string? excess_deficit;
+      internal string? excessDeficit;
 
-      private string? pm_credit_consumed;
+      internal string? pmCreditConsumed;
 
-      private string? tf_credit_limit;
+      internal string? tfCreditLimit;
 
-      private string? tf_credit_consumed;
+      internal string? tfCreditConsumed;
 
-      private string? tf_adjusted_asset_value;
+      internal string? tfAdjustedAssetValue;
 
-      private string? tf_adjusted_liability_value;
+      internal string? tfAdjustedLiabilityValue;
 
-      private string? tf_adjusted_credit_consumed;
+      internal string? tfAdjustedCreditConsumed;
 
-      private string? tf_adjusted_equity;
+      internal string? tfAdjustedEquity;
 
-      private bool? frozen;
+      internal bool? frozen;
 
-      private string? frozen_reason;
+      internal string? frozenReason;
 
-      private bool? tf_enabled;
+      internal bool? tfEnabled;
 
-      private bool? pm_enabled;
+      internal bool? pmEnabled;
 
-      private List<MarketRate>? market_rates;
+      internal List<MarketRate>? marketRates;
 
-      private List<AssetBalance>? asset_balances;
+      internal List<AssetBalance>? assetBalances;
 
-      private List<LoanInfo>? tf_loans;
+      internal List<LoanInfo>? tfLoans;
 
-      private List<LoanInfo>? pm_loans;
+      internal List<LoanInfo>? pmLoans;
 
-      private List<LoanInfo>? short_collateral;
+      internal List<LoanInfo>? shortCollateral;
 
-      private string? gross_market_value;
+      internal string? grossMarketValue;
 
-      private string? net_market_value;
+      internal string? netMarketValue;
 
-      private string? long_market_value;
+      internal string? longMarketValue;
 
-      private string? non_marginable_long_market_value;
+      internal string? nonMarginableLongMarketValue;
 
-      private string? short_market_value;
+      internal string? shortMarketValue;
 
-      private string? gross_leverage;
+      internal string? grossLeverage;
 
-      private string? net_exposure;
+      internal string? netExposure;
 
-      private MarginAddOn? portfolio_stress_triggered;
+      internal MarginAddOn? portfolioStressTriggered;
 
-      private List<PMAssetInfo>? pm_asset_info;
+      internal List<PmAssetInfo>? pmAssetInfo;
 
-      private string? pm_credit_limit;
+      internal string? pmCreditLimit;
 
-      private string? pm_margin_limit;
+      internal string? pmMarginLimit;
 
-      private string? pm_margin_consumed;
+      internal string? pmMarginConsumed;
 
-      public Builder Withentity_id(string? entity_id)
+      public Builder WithEntityId(string? entityId)
       {
-        this.entity_id = entity_id;
+        this.entityId = entityId;
         return this;
       }
 
-      public Builder Withmargin_equity(string? margin_equity)
+      public Builder WithMarginEquity(string? marginEquity)
       {
-        this.margin_equity = margin_equity;
+        this.marginEquity = marginEquity;
         return this;
       }
 
-      public Builder Withmargin_requirement(string? margin_requirement)
+      public Builder WithMarginRequirement(string? marginRequirement)
       {
-        this.margin_requirement = margin_requirement;
+        this.marginRequirement = marginRequirement;
         return this;
       }
 
-      public Builder Withexcess_deficit(string? excess_deficit)
+      public Builder WithExcessDeficit(string? excessDeficit)
       {
-        this.excess_deficit = excess_deficit;
+        this.excessDeficit = excessDeficit;
         return this;
       }
 
-      public Builder Withpm_credit_consumed(string? pm_credit_consumed)
+      public Builder WithPmCreditConsumed(string? pmCreditConsumed)
       {
-        this.pm_credit_consumed = pm_credit_consumed;
+        this.pmCreditConsumed = pmCreditConsumed;
         return this;
       }
 
-      public Builder Withtf_credit_limit(string? tf_credit_limit)
+      public Builder WithTfCreditLimit(string? tfCreditLimit)
       {
-        this.tf_credit_limit = tf_credit_limit;
+        this.tfCreditLimit = tfCreditLimit;
         return this;
       }
 
-      public Builder Withtf_credit_consumed(string? tf_credit_consumed)
+      public Builder WithTfCreditConsumed(string? tfCreditConsumed)
       {
-        this.tf_credit_consumed = tf_credit_consumed;
+        this.tfCreditConsumed = tfCreditConsumed;
         return this;
       }
 
-      public Builder Withtf_adjusted_asset_value(string? tf_adjusted_asset_value)
+      public Builder WithTfAdjustedAssetValue(string? tfAdjustedAssetValue)
       {
-        this.tf_adjusted_asset_value = tf_adjusted_asset_value;
+        this.tfAdjustedAssetValue = tfAdjustedAssetValue;
         return this;
       }
 
-      public Builder Withtf_adjusted_liability_value(string? tf_adjusted_liability_value)
+      public Builder WithTfAdjustedLiabilityValue(string? tfAdjustedLiabilityValue)
       {
-        this.tf_adjusted_liability_value = tf_adjusted_liability_value;
+        this.tfAdjustedLiabilityValue = tfAdjustedLiabilityValue;
         return this;
       }
 
-      public Builder Withtf_adjusted_credit_consumed(string? tf_adjusted_credit_consumed)
+      public Builder WithTfAdjustedCreditConsumed(string? tfAdjustedCreditConsumed)
       {
-        this.tf_adjusted_credit_consumed = tf_adjusted_credit_consumed;
+        this.tfAdjustedCreditConsumed = tfAdjustedCreditConsumed;
         return this;
       }
 
-      public Builder Withtf_adjusted_equity(string? tf_adjusted_equity)
+      public Builder WithTfAdjustedEquity(string? tfAdjustedEquity)
       {
-        this.tf_adjusted_equity = tf_adjusted_equity;
+        this.tfAdjustedEquity = tfAdjustedEquity;
         return this;
       }
 
-      public Builder Withfrozen(bool? frozen)
+      public Builder WithFrozen(bool? frozen)
       {
         this.frozen = frozen;
         return this;
       }
 
-      public Builder Withfrozen_reason(string? frozen_reason)
+      public Builder WithFrozenReason(string? frozenReason)
       {
-        this.frozen_reason = frozen_reason;
+        this.frozenReason = frozenReason;
         return this;
       }
 
-      public Builder Withtf_enabled(bool? tf_enabled)
+      public Builder WithTfEnabled(bool? tfEnabled)
       {
-        this.tf_enabled = tf_enabled;
+        this.tfEnabled = tfEnabled;
         return this;
       }
 
-      public Builder Withpm_enabled(bool? pm_enabled)
+      public Builder WithPmEnabled(bool? pmEnabled)
       {
-        this.pm_enabled = pm_enabled;
+        this.pmEnabled = pmEnabled;
         return this;
       }
 
-      public Builder Withmarket_rates(List<MarketRate>? market_rates)
+      public Builder WithMarketRates(List<MarketRate>? marketRates)
       {
-        this.market_rates = market_rates;
+        this.marketRates = marketRates;
         return this;
       }
 
-      public Builder Withasset_balances(List<AssetBalance>? asset_balances)
+      public Builder WithAssetBalances(List<AssetBalance>? assetBalances)
       {
-        this.asset_balances = asset_balances;
+        this.assetBalances = assetBalances;
         return this;
       }
 
-      public Builder Withtf_loans(List<LoanInfo>? tf_loans)
+      public Builder WithTfLoans(List<LoanInfo>? tfLoans)
       {
-        this.tf_loans = tf_loans;
+        this.tfLoans = tfLoans;
         return this;
       }
 
-      public Builder Withpm_loans(List<LoanInfo>? pm_loans)
+      public Builder WithPmLoans(List<LoanInfo>? pmLoans)
       {
-        this.pm_loans = pm_loans;
+        this.pmLoans = pmLoans;
         return this;
       }
 
-      public Builder Withshort_collateral(List<LoanInfo>? short_collateral)
+      public Builder WithShortCollateral(List<LoanInfo>? shortCollateral)
       {
-        this.short_collateral = short_collateral;
+        this.shortCollateral = shortCollateral;
         return this;
       }
 
-      public Builder Withgross_market_value(string? gross_market_value)
+      public Builder WithGrossMarketValue(string? grossMarketValue)
       {
-        this.gross_market_value = gross_market_value;
+        this.grossMarketValue = grossMarketValue;
         return this;
       }
 
-      public Builder Withnet_market_value(string? net_market_value)
+      public Builder WithNetMarketValue(string? netMarketValue)
       {
-        this.net_market_value = net_market_value;
+        this.netMarketValue = netMarketValue;
         return this;
       }
 
-      public Builder Withlong_market_value(string? long_market_value)
+      public Builder WithLongMarketValue(string? longMarketValue)
       {
-        this.long_market_value = long_market_value;
+        this.longMarketValue = longMarketValue;
         return this;
       }
 
-      public Builder Withnon_marginable_long_market_value(string? non_marginable_long_market_value)
+      public Builder WithNonMarginableLongMarketValue(string? nonMarginableLongMarketValue)
       {
-        this.non_marginable_long_market_value = non_marginable_long_market_value;
+        this.nonMarginableLongMarketValue = nonMarginableLongMarketValue;
         return this;
       }
 
-      public Builder Withshort_market_value(string? short_market_value)
+      public Builder WithShortMarketValue(string? shortMarketValue)
       {
-        this.short_market_value = short_market_value;
+        this.shortMarketValue = shortMarketValue;
         return this;
       }
 
-      public Builder Withgross_leverage(string? gross_leverage)
+      public Builder WithGrossLeverage(string? grossLeverage)
       {
-        this.gross_leverage = gross_leverage;
+        this.grossLeverage = grossLeverage;
         return this;
       }
 
-      public Builder Withnet_exposure(string? net_exposure)
+      public Builder WithNetExposure(string? netExposure)
       {
-        this.net_exposure = net_exposure;
+        this.netExposure = netExposure;
         return this;
       }
 
-      public Builder Withportfolio_stress_triggered(MarginAddOn? portfolio_stress_triggered)
+      public Builder WithPortfolioStressTriggered(MarginAddOn? portfolioStressTriggered)
       {
-        this.portfolio_stress_triggered = portfolio_stress_triggered;
+        this.portfolioStressTriggered = portfolioStressTriggered;
         return this;
       }
 
-      public Builder Withpm_asset_info(List<PMAssetInfo>? pm_asset_info)
+      public Builder WithPmAssetInfo(List<PmAssetInfo>? pmAssetInfo)
       {
-        this.pm_asset_info = pm_asset_info;
+        this.pmAssetInfo = pmAssetInfo;
         return this;
       }
 
-      public Builder Withpm_credit_limit(string? pm_credit_limit)
+      public Builder WithPmCreditLimit(string? pmCreditLimit)
       {
-        this.pm_credit_limit = pm_credit_limit;
+        this.pmCreditLimit = pmCreditLimit;
         return this;
       }
 
-      public Builder Withpm_margin_limit(string? pm_margin_limit)
+      public Builder WithPmMarginLimit(string? pmMarginLimit)
       {
-        this.pm_margin_limit = pm_margin_limit;
+        this.pmMarginLimit = pmMarginLimit;
         return this;
       }
 
-      public Builder Withpm_margin_consumed(string? pm_margin_consumed)
+      public Builder WithPmMarginConsumed(string? pmMarginConsumed)
       {
-        this.pm_margin_consumed = pm_margin_consumed;
+        this.pmMarginConsumed = pmMarginConsumed;
         return this;
       }
 

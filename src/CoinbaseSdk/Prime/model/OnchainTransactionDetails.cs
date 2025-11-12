@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class OnchainTransactionDetails
   {
@@ -29,136 +30,136 @@ namespace CoinbaseSdk.Prime.Model
     /// The signed transaction data
     /// </summary>
     [JsonPropertyName("signed_transaction")]
-    public string? signed_transaction { get; set; }
+    public string? SignedTransaction { get; set; }
 
     [JsonPropertyName("risk_assessment")]
-    public RiskAssessment? risk_assessment { get; set; }
+    public RiskAssessment? RiskAssessment { get; set; }
 
     /// <summary>
     /// The blockchain network chain ID. Will be empty for Solana transactions.
     /// </summary>
     [JsonPropertyName("chain_id")]
-    public string? chain_id { get; set; }
+    public string? ChainId { get; set; }
 
     /// <summary>
     /// The transaction nonce. Only present for EVM-based blockchain transactions.
     /// </summary>
     [JsonPropertyName("nonce")]
-    public string? nonce { get; set; }
+    public string? Nonce { get; set; }
 
     /// <summary>
     /// The ID of the transaction that this transaction replaced
     /// </summary>
     [JsonPropertyName("replaced_transaction_id")]
-    public string? replaced_transaction_id { get; set; }
+    public string? ReplacedTransactionId { get; set; }
 
     /// <summary>
     /// The destination address for the transaction
     /// </summary>
     [JsonPropertyName("destination_address")]
-    public string? destination_address { get; set; }
+    public string? DestinationAddress { get; set; }
 
     /// <summary>
     /// If set to true, the transaction will not be broadcast to the network. You can still retrieve the signed transaction from the GetTransaction endpoint by transaction ID once the transaction is created.
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
-    public bool? skip_broadcast { get; set; }
+    public bool? SkipBroadcast { get; set; }
 
     /// <summary>
     /// Reason for transaction failure if applicable
     /// </summary>
     [JsonPropertyName("failure_reason")]
-    public string? failure_reason { get; set; }
+    public string? FailureReason { get; set; }
 
     [JsonPropertyName("signing_status")]
-    public SigningStatus? signing_status { get; set; }
+    public SigningStatus? SigningStatus { get; set; }
 
     public OnchainTransactionDetails() { }
 
     public OnchainTransactionDetails(Builder builder)
     {
-      this.signed_transaction = builder.signed_transaction;
-      this.risk_assessment = builder.risk_assessment;
-      this.chain_id = builder.chain_id;
-      this.nonce = builder.nonce;
-      this.replaced_transaction_id = builder.replaced_transaction_id;
-      this.destination_address = builder.destination_address;
-      this.skip_broadcast = builder.skip_broadcast;
-      this.failure_reason = builder.failure_reason;
-      this.signing_status = builder.signing_status;
+      this.SignedTransaction = builder.signedTransaction;
+      this.RiskAssessment = builder.riskAssessment;
+      this.ChainId = builder.chainId;
+      this.Nonce = builder.nonce;
+      this.ReplacedTransactionId = builder.replacedTransactionId;
+      this.DestinationAddress = builder.destinationAddress;
+      this.SkipBroadcast = builder.skipBroadcast;
+      this.FailureReason = builder.failureReason;
+      this.SigningStatus = builder.signingStatus;
     }
 
     public class Builder
     {
-      private string? signed_transaction;
+      internal string? signedTransaction;
 
-      private RiskAssessment? risk_assessment;
+      internal RiskAssessment? riskAssessment;
 
-      private string? chain_id;
+      internal string? chainId;
 
-      private string? nonce;
+      internal string? nonce;
 
-      private string? replaced_transaction_id;
+      internal string? replacedTransactionId;
 
-      private string? destination_address;
+      internal string? destinationAddress;
 
-      private bool? skip_broadcast;
+      internal bool? skipBroadcast;
 
-      private string? failure_reason;
+      internal string? failureReason;
 
-      private SigningStatus? signing_status;
+      internal SigningStatus? signingStatus;
 
-      public Builder Withsigned_transaction(string? signed_transaction)
+      public Builder WithSignedTransaction(string? signedTransaction)
       {
-        this.signed_transaction = signed_transaction;
+        this.signedTransaction = signedTransaction;
         return this;
       }
 
-      public Builder Withrisk_assessment(RiskAssessment? risk_assessment)
+      public Builder WithRiskAssessment(RiskAssessment? riskAssessment)
       {
-        this.risk_assessment = risk_assessment;
+        this.riskAssessment = riskAssessment;
         return this;
       }
 
-      public Builder Withchain_id(string? chain_id)
+      public Builder WithChainId(string? chainId)
       {
-        this.chain_id = chain_id;
+        this.chainId = chainId;
         return this;
       }
 
-      public Builder Withnonce(string? nonce)
+      public Builder WithNonce(string? nonce)
       {
         this.nonce = nonce;
         return this;
       }
 
-      public Builder Withreplaced_transaction_id(string? replaced_transaction_id)
+      public Builder WithReplacedTransactionId(string? replacedTransactionId)
       {
-        this.replaced_transaction_id = replaced_transaction_id;
+        this.replacedTransactionId = replacedTransactionId;
         return this;
       }
 
-      public Builder Withdestination_address(string? destination_address)
+      public Builder WithDestinationAddress(string? destinationAddress)
       {
-        this.destination_address = destination_address;
+        this.destinationAddress = destinationAddress;
         return this;
       }
 
-      public Builder Withskip_broadcast(bool? skip_broadcast)
+      public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
-        this.skip_broadcast = skip_broadcast;
+        this.skipBroadcast = skipBroadcast;
         return this;
       }
 
-      public Builder Withfailure_reason(string? failure_reason)
+      public Builder WithFailureReason(string? failureReason)
       {
-        this.failure_reason = failure_reason;
+        this.failureReason = failureReason;
         return this;
       }
 
-      public Builder Withsigning_status(SigningStatus? signing_status)
+      public Builder WithSigningStatus(SigningStatus? signingStatus)
       {
-        this.signing_status = signing_status;
+        this.signingStatus = signingStatus;
         return this;
       }
 

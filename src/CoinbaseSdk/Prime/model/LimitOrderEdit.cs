@@ -18,114 +18,114 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class LimitOrderEdit
   {
     [JsonPropertyName("price")]
-    public string? price { get; set; }
+    public string? Price { get; set; }
 
     [JsonPropertyName("size")]
-    public string? size { get; set; }
+    public string? Size { get; set; }
 
     [JsonPropertyName("display_size")]
-    public string? display_size { get; set; }
+    public string? DisplaySize { get; set; }
 
     [JsonPropertyName("stop_price")]
-    public string? stop_price { get; set; }
+    public string? StopPrice { get; set; }
 
     [JsonPropertyName("stop_limit_price")]
-    public string? stop_limit_price { get; set; }
+    public string? StopLimitPrice { get; set; }
 
     [JsonPropertyName("end_time")]
-    public DateTime? end_time { get; set; }
+    public DateTime? EndTime { get; set; }
 
     [JsonPropertyName("accept_time")]
-    public DateTime? accept_time { get; set; }
+    public DateTime? AcceptTime { get; set; }
 
     [JsonPropertyName("client_order_id")]
-    public string? client_order_id { get; set; }
+    public string? ClientOrderId { get; set; }
 
     public LimitOrderEdit() { }
 
     public LimitOrderEdit(Builder builder)
     {
-      this.price = builder.price;
-      this.size = builder.size;
-      this.display_size = builder.display_size;
-      this.stop_price = builder.stop_price;
-      this.stop_limit_price = builder.stop_limit_price;
-      this.end_time = builder.end_time;
-      this.accept_time = builder.accept_time;
-      this.client_order_id = builder.client_order_id;
+      this.Price = builder.price;
+      this.Size = builder.size;
+      this.DisplaySize = builder.displaySize;
+      this.StopPrice = builder.stopPrice;
+      this.StopLimitPrice = builder.stopLimitPrice;
+      this.EndTime = builder.endTime;
+      this.AcceptTime = builder.acceptTime;
+      this.ClientOrderId = builder.clientOrderId;
     }
 
     public class Builder
     {
-      private string? price;
+      internal string? price;
 
-      private string? size;
+      internal string? size;
 
-      private string? display_size;
+      internal string? displaySize;
 
-      private string? stop_price;
+      internal string? stopPrice;
 
-      private string? stop_limit_price;
+      internal string? stopLimitPrice;
 
-      private DateTime? end_time;
+      internal DateTime? endTime;
 
-      private DateTime? accept_time;
+      internal DateTime? acceptTime;
 
-      private string? client_order_id;
+      internal string? clientOrderId;
 
-      public Builder Withprice(string? price)
+      public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder Withsize(string? size)
+      public Builder WithSize(string? size)
       {
         this.size = size;
         return this;
       }
 
-      public Builder Withdisplay_size(string? display_size)
+      public Builder WithDisplaySize(string? displaySize)
       {
-        this.display_size = display_size;
+        this.displaySize = displaySize;
         return this;
       }
 
-      public Builder Withstop_price(string? stop_price)
+      public Builder WithStopPrice(string? stopPrice)
       {
-        this.stop_price = stop_price;
+        this.stopPrice = stopPrice;
         return this;
       }
 
-      public Builder Withstop_limit_price(string? stop_limit_price)
+      public Builder WithStopLimitPrice(string? stopLimitPrice)
       {
-        this.stop_limit_price = stop_limit_price;
+        this.stopLimitPrice = stopLimitPrice;
         return this;
       }
 
-      public Builder Withend_time(DateTime? end_time)
+      public Builder WithEndTime(DateTime? endTime)
       {
-        this.end_time = end_time;
+        this.endTime = endTime;
         return this;
       }
 
-      public Builder Withaccept_time(DateTime? accept_time)
+      public Builder WithAcceptTime(DateTime? acceptTime)
       {
-        this.accept_time = accept_time;
+        this.acceptTime = acceptTime;
         return this;
       }
 
-      public Builder Withclient_order_id(string? client_order_id)
+      public Builder WithClientOrderId(string? clientOrderId)
       {
-        this.client_order_id = client_order_id;
+        this.clientOrderId = clientOrderId;
         return this;
       }
 

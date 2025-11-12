@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Asset
@@ -29,95 +29,95 @@ namespace CoinbaseSdk.Prime.Model
     /// The name of the asset
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// The mutable series of letters used to identify the asset
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The number of decimals supported for the asset
     /// </summary>
     [JsonPropertyName("decimal_precision")]
-    public string? decimal_precision { get; set; }
+    public string? DecimalPrecision { get; set; }
 
     /// <summary>
     /// Indicates whether this asset can be traded
     /// </summary>
     [JsonPropertyName("trading_supported")]
-    public bool? trading_supported { get; set; }
+    public bool? TradingSupported { get; set; }
 
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("explorer_url")]
-    public string? explorer_url { get; set; }
+    public string? ExplorerUrl { get; set; }
 
     /// <summary>
     /// List of networks supported by this asset
     /// </summary>
     [JsonPropertyName("networks")]
-    public List<NetworkDetails>? networks { get; set; }
+    public List<NetworkDetails>? Networks { get; set; }
 
     public Asset() { }
 
     public Asset(Builder builder)
     {
-      this.name = builder.name;
-      this.symbol = builder.symbol;
-      this.decimal_precision = builder.decimal_precision;
-      this.trading_supported = builder.trading_supported;
-      this.explorer_url = builder.explorer_url;
-      this.networks = builder.networks;
+      this.Name = builder.name;
+      this.Symbol = builder.symbol;
+      this.DecimalPrecision = builder.decimalPrecision;
+      this.TradingSupported = builder.tradingSupported;
+      this.ExplorerUrl = builder.explorerUrl;
+      this.Networks = builder.networks;
     }
 
     public class Builder
     {
-      private string? name;
+      internal string? name;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? decimal_precision;
+      internal string? decimalPrecision;
 
-      private bool? trading_supported;
+      internal bool? tradingSupported;
 
-      private string? explorer_url;
+      internal string? explorerUrl;
 
-      private List<NetworkDetails>? networks;
+      internal List<NetworkDetails>? networks;
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withdecimal_precision(string? decimal_precision)
+      public Builder WithDecimalPrecision(string? decimalPrecision)
       {
-        this.decimal_precision = decimal_precision;
+        this.decimalPrecision = decimalPrecision;
         return this;
       }
 
-      public Builder Withtrading_supported(bool? trading_supported)
+      public Builder WithTradingSupported(bool? tradingSupported)
       {
-        this.trading_supported = trading_supported;
+        this.tradingSupported = tradingSupported;
         return this;
       }
 
-      public Builder Withexplorer_url(string? explorer_url)
+      public Builder WithExplorerUrl(string? explorerUrl)
       {
-        this.explorer_url = explorer_url;
+        this.explorerUrl = explorerUrl;
         return this;
       }
 
-      public Builder Withnetworks(List<NetworkDetails>? networks)
+      public Builder WithNetworks(List<NetworkDetails>? networks)
       {
         this.networks = networks;
         return this;

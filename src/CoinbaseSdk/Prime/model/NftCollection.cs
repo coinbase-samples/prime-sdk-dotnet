@@ -18,39 +18,39 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class NFTCollection
+  public class NftCollection
   {
     /// <summary>
-    /// NFT collection name
+    /// Nft collection name
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
-    public NFTCollection() { }
+    public NftCollection() { }
 
-    public NFTCollection(Builder builder)
+    public NftCollection(Builder builder)
     {
-      this.name = builder.name;
+      this.Name = builder.name;
     }
 
     public class Builder
     {
-      private string? name;
+      internal string? name;
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public NFTCollection Build()
+      public NftCollection Build()
       {
-        return new NFTCollection(this);
+        return new NftCollection(this);
       }
     }
   }

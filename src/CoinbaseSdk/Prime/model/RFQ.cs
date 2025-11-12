@@ -18,111 +18,112 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-  public class RFQ
+  public class Rfq
   {
     [JsonPropertyName("product_id")]
-    public string product_id { get; set; }
+    public string ProductId { get; set; } = default!;
 
     [JsonPropertyName("side")]
-    public OrderSide side { get; set; }
+    public OrderSide Side { get; set; } = default!;
 
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
     [JsonPropertyName("client_quote_id")]
-    public string client_quote_id { get; set; }
+    public string ClientQuoteId { get; set; } = default!;
 
     [JsonPropertyName("base_quantity")]
-    public string? base_quantity { get; set; }
+    public string? BaseQuantity { get; set; }
 
     [JsonPropertyName("quote_value")]
-    public string? quote_value { get; set; }
+    public string? QuoteValue { get; set; }
 
     [JsonPropertyName("limit_price")]
-    public string limit_price { get; set; }
+    public string LimitPrice { get; set; } = default!;
 
     [JsonPropertyName("settl_currency")]
-    public string? settl_currency { get; set; }
+    public string? SettlCurrency { get; set; }
 
-    public RFQ() { }
+    public Rfq() { }
 
-    public RFQ(Builder builder)
+    public Rfq(Builder builder)
     {
-      this.product_id = builder.product_id;
-      this.side = builder.side;
-      this.client_quote_id = builder.client_quote_id;
-      this.base_quantity = builder.base_quantity;
-      this.quote_value = builder.quote_value;
-      this.limit_price = builder.limit_price;
-      this.settl_currency = builder.settl_currency;
+      this.ProductId = builder.productId;
+      this.Side = builder.side;
+      this.ClientQuoteId = builder.clientQuoteId;
+      this.BaseQuantity = builder.baseQuantity;
+      this.QuoteValue = builder.quoteValue;
+      this.LimitPrice = builder.limitPrice;
+      this.SettlCurrency = builder.settlCurrency;
     }
 
     public class Builder
     {
-      private string product_id;
+      internal string productId = default!;
 
-      private OrderSide side;
+      internal OrderSide side = default!;
 
-      private string client_quote_id;
+      internal string clientQuoteId = default!;
 
-      private string? base_quantity;
+      internal string? baseQuantity;
 
-      private string? quote_value;
+      internal string? quoteValue;
 
-      private string limit_price;
+      internal string limitPrice = default!;
 
-      private string? settl_currency;
+      internal string? settlCurrency;
 
-      public Builder Withproduct_id(string product_id)
+      public Builder WithProductId(string productId)
       {
-        this.product_id = product_id;
+        this.productId = productId;
         return this;
       }
 
-      public Builder Withside(OrderSide side)
+      public Builder WithSide(OrderSide side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder Withclient_quote_id(string client_quote_id)
+      public Builder WithClientQuoteId(string clientQuoteId)
       {
-        this.client_quote_id = client_quote_id;
+        this.clientQuoteId = clientQuoteId;
         return this;
       }
 
-      public Builder Withbase_quantity(string? base_quantity)
+      public Builder WithBaseQuantity(string? baseQuantity)
       {
-        this.base_quantity = base_quantity;
+        this.baseQuantity = baseQuantity;
         return this;
       }
 
-      public Builder Withquote_value(string? quote_value)
+      public Builder WithQuoteValue(string? quoteValue)
       {
-        this.quote_value = quote_value;
+        this.quoteValue = quoteValue;
         return this;
       }
 
-      public Builder Withlimit_price(string limit_price)
+      public Builder WithLimitPrice(string limitPrice)
       {
-        this.limit_price = limit_price;
+        this.limitPrice = limitPrice;
         return this;
       }
 
-      public Builder Withsettl_currency(string? settl_currency)
+      public Builder WithSettlCurrency(string? settlCurrency)
       {
-        this.settl_currency = settl_currency;
+        this.settlCurrency = settlCurrency;
         return this;
       }
 
-      public RFQ Build()
+      public Rfq Build()
       {
-        return new RFQ(this);
+        return new Rfq(this);
       }
     }
   }

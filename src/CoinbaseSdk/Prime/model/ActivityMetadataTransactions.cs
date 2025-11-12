@@ -18,28 +18,28 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class ActivityMetadataTransactions
   {
     [JsonPropertyName("consensus")]
-    public ActivityMetadataConsensus? consensus { get; set; }
+    public ActivityMetadataConsensus? Consensus { get; set; }
 
     public ActivityMetadataTransactions() { }
 
     public ActivityMetadataTransactions(Builder builder)
     {
-      this.consensus = builder.consensus;
+      this.Consensus = builder.consensus;
     }
 
     public class Builder
     {
-      private ActivityMetadataConsensus? consensus;
+      internal ActivityMetadataConsensus? consensus;
 
-      public Builder Withconsensus(ActivityMetadataConsensus? consensus)
+      public Builder WithConsensus(ActivityMetadataConsensus? consensus)
       {
         this.consensus = consensus;
         return this;

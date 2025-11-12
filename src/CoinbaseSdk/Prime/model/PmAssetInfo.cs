@@ -18,279 +18,279 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class PMAssetInfo
+  public class PmAssetInfo
   {
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// Nominal amount of the currency
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// Spot price for the currency
     /// </summary>
     [JsonPropertyName("price")]
-    public string? price { get; set; }
+    public string? Price { get; set; }
 
     /// <summary>
     /// Notional amount of the currency
     /// </summary>
     [JsonPropertyName("notional_amount")]
-    public string? notional_amount { get; set; }
+    public string? NotionalAmount { get; set; }
 
     /// <summary>
     /// Asset tier of the currency
     /// </summary>
     [JsonPropertyName("asset_tier")]
-    public string? asset_tier { get; set; }
+    public string? AssetTier { get; set; }
 
     /// <summary>
     /// Whether the currency is margin eligible
     /// </summary>
     [JsonPropertyName("margin_eligible")]
-    public bool? margin_eligible { get; set; }
+    public bool? MarginEligible { get; set; }
 
     /// <summary>
     /// Base margin requirement of the currency
     /// </summary>
     [JsonPropertyName("base_margin_requirement")]
-    public string? base_margin_requirement { get; set; }
+    public string? BaseMarginRequirement { get; set; }
 
     /// <summary>
     /// Notional amount of the currency&#39;s base margin requirement
     /// </summary>
     [JsonPropertyName("base_margin_requirement_notional")]
-    public string? base_margin_requirement_notional { get; set; }
+    public string? BaseMarginRequirementNotional { get; set; }
 
     /// <summary>
     /// The 30d adv of the currency
     /// </summary>
     [JsonPropertyName("adv_30d")]
-    public string? adv_30d { get; set; }
+    public string? Adv30d { get; set; }
 
     /// <summary>
     /// Historic 5d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_5d_vol")]
-    public string? hist_5d_vol { get; set; }
+    public string? Hist5dVol { get; set; }
 
     /// <summary>
     /// Historic 30d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_30d_vol")]
-    public string? hist_30d_vol { get; set; }
+    public string? Hist30dVol { get; set; }
 
     /// <summary>
     /// Historic 90d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_90d_vol")]
-    public string? hist_90d_vol { get; set; }
+    public string? Hist90dVol { get; set; }
 
     /// <summary>
     /// Volatility margin addon of the currency position
     /// </summary>
     [JsonPropertyName("volatility_addon")]
-    public string? volatility_addon { get; set; }
+    public string? VolatilityAddon { get; set; }
 
     /// <summary>
     /// Liquidity margin addon of the currency position
     /// </summary>
     [JsonPropertyName("liquidity_addon")]
-    public string? liquidity_addon { get; set; }
+    public string? LiquidityAddon { get; set; }
 
     /// <summary>
     /// Total position margin of the currency
     /// </summary>
     [JsonPropertyName("total_position_margin")]
-    public string? total_position_margin { get; set; }
+    public string? TotalPositionMargin { get; set; }
 
     /// <summary>
     /// Nominal short position of the currency
     /// </summary>
     [JsonPropertyName("short_nominal")]
-    public string? short_nominal { get; set; }
+    public string? ShortNominal { get; set; }
 
     /// <summary>
     /// Nominal long position of the currency
     /// </summary>
     [JsonPropertyName("long_nominal")]
-    public string? long_nominal { get; set; }
+    public string? LongNominal { get; set; }
 
-    public PMAssetInfo() { }
+    public PmAssetInfo() { }
 
-    public PMAssetInfo(Builder builder)
+    public PmAssetInfo(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
-      this.price = builder.price;
-      this.notional_amount = builder.notional_amount;
-      this.asset_tier = builder.asset_tier;
-      this.margin_eligible = builder.margin_eligible;
-      this.base_margin_requirement = builder.base_margin_requirement;
-      this.base_margin_requirement_notional = builder.base_margin_requirement_notional;
-      this.adv_30d = builder.adv_30d;
-      this.hist_5d_vol = builder.hist_5d_vol;
-      this.hist_30d_vol = builder.hist_30d_vol;
-      this.hist_90d_vol = builder.hist_90d_vol;
-      this.volatility_addon = builder.volatility_addon;
-      this.liquidity_addon = builder.liquidity_addon;
-      this.total_position_margin = builder.total_position_margin;
-      this.short_nominal = builder.short_nominal;
-      this.long_nominal = builder.long_nominal;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
+      this.Price = builder.price;
+      this.NotionalAmount = builder.notionalAmount;
+      this.AssetTier = builder.assetTier;
+      this.MarginEligible = builder.marginEligible;
+      this.BaseMarginRequirement = builder.baseMarginRequirement;
+      this.BaseMarginRequirementNotional = builder.baseMarginRequirementNotional;
+      this.Adv30d = builder.adv30d;
+      this.Hist5dVol = builder.hist5dVol;
+      this.Hist30dVol = builder.hist30dVol;
+      this.Hist90dVol = builder.hist90dVol;
+      this.VolatilityAddon = builder.volatilityAddon;
+      this.LiquidityAddon = builder.liquidityAddon;
+      this.TotalPositionMargin = builder.totalPositionMargin;
+      this.ShortNominal = builder.shortNominal;
+      this.LongNominal = builder.longNominal;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      private string? price;
+      internal string? price;
 
-      private string? notional_amount;
+      internal string? notionalAmount;
 
-      private string? asset_tier;
+      internal string? assetTier;
 
-      private bool? margin_eligible;
+      internal bool? marginEligible;
 
-      private string? base_margin_requirement;
+      internal string? baseMarginRequirement;
 
-      private string? base_margin_requirement_notional;
+      internal string? baseMarginRequirementNotional;
 
-      private string? adv_30d;
+      internal string? adv30d;
 
-      private string? hist_5d_vol;
+      internal string? hist5dVol;
 
-      private string? hist_30d_vol;
+      internal string? hist30dVol;
 
-      private string? hist_90d_vol;
+      internal string? hist90dVol;
 
-      private string? volatility_addon;
+      internal string? volatilityAddon;
 
-      private string? liquidity_addon;
+      internal string? liquidityAddon;
 
-      private string? total_position_margin;
+      internal string? totalPositionMargin;
 
-      private string? short_nominal;
+      internal string? shortNominal;
 
-      private string? long_nominal;
+      internal string? longNominal;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withprice(string? price)
+      public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder Withnotional_amount(string? notional_amount)
+      public Builder WithNotionalAmount(string? notionalAmount)
       {
-        this.notional_amount = notional_amount;
+        this.notionalAmount = notionalAmount;
         return this;
       }
 
-      public Builder Withasset_tier(string? asset_tier)
+      public Builder WithAssetTier(string? assetTier)
       {
-        this.asset_tier = asset_tier;
+        this.assetTier = assetTier;
         return this;
       }
 
-      public Builder Withmargin_eligible(bool? margin_eligible)
+      public Builder WithMarginEligible(bool? marginEligible)
       {
-        this.margin_eligible = margin_eligible;
+        this.marginEligible = marginEligible;
         return this;
       }
 
-      public Builder Withbase_margin_requirement(string? base_margin_requirement)
+      public Builder WithBaseMarginRequirement(string? baseMarginRequirement)
       {
-        this.base_margin_requirement = base_margin_requirement;
+        this.baseMarginRequirement = baseMarginRequirement;
         return this;
       }
 
-      public Builder Withbase_margin_requirement_notional(string? base_margin_requirement_notional)
+      public Builder WithBaseMarginRequirementNotional(string? baseMarginRequirementNotional)
       {
-        this.base_margin_requirement_notional = base_margin_requirement_notional;
+        this.baseMarginRequirementNotional = baseMarginRequirementNotional;
         return this;
       }
 
-      public Builder Withadv_30d(string? adv_30d)
+      public Builder WithAdv30d(string? adv30d)
       {
-        this.adv_30d = adv_30d;
+        this.adv30d = adv30d;
         return this;
       }
 
-      public Builder Withhist_5d_vol(string? hist_5d_vol)
+      public Builder WithHist5dVol(string? hist5dVol)
       {
-        this.hist_5d_vol = hist_5d_vol;
+        this.hist5dVol = hist5dVol;
         return this;
       }
 
-      public Builder Withhist_30d_vol(string? hist_30d_vol)
+      public Builder WithHist30dVol(string? hist30dVol)
       {
-        this.hist_30d_vol = hist_30d_vol;
+        this.hist30dVol = hist30dVol;
         return this;
       }
 
-      public Builder Withhist_90d_vol(string? hist_90d_vol)
+      public Builder WithHist90dVol(string? hist90dVol)
       {
-        this.hist_90d_vol = hist_90d_vol;
+        this.hist90dVol = hist90dVol;
         return this;
       }
 
-      public Builder Withvolatility_addon(string? volatility_addon)
+      public Builder WithVolatilityAddon(string? volatilityAddon)
       {
-        this.volatility_addon = volatility_addon;
+        this.volatilityAddon = volatilityAddon;
         return this;
       }
 
-      public Builder Withliquidity_addon(string? liquidity_addon)
+      public Builder WithLiquidityAddon(string? liquidityAddon)
       {
-        this.liquidity_addon = liquidity_addon;
+        this.liquidityAddon = liquidityAddon;
         return this;
       }
 
-      public Builder Withtotal_position_margin(string? total_position_margin)
+      public Builder WithTotalPositionMargin(string? totalPositionMargin)
       {
-        this.total_position_margin = total_position_margin;
+        this.totalPositionMargin = totalPositionMargin;
         return this;
       }
 
-      public Builder Withshort_nominal(string? short_nominal)
+      public Builder WithShortNominal(string? shortNominal)
       {
-        this.short_nominal = short_nominal;
+        this.shortNominal = shortNominal;
         return this;
       }
 
-      public Builder Withlong_nominal(string? long_nominal)
+      public Builder WithLongNominal(string? longNominal)
       {
-        this.long_nominal = long_nominal;
+        this.longNominal = longNominal;
         return this;
       }
 
-      public PMAssetInfo Build()
+      public PmAssetInfo Build()
       {
-        return new PMAssetInfo(this);
+        return new PmAssetInfo(this);
       }
     }
   }

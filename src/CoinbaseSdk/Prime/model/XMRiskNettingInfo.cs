@@ -18,231 +18,231 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class XMRiskNettingInfo
+  public class XmRiskNettingInfo
   {
     /// <summary>
     /// Nodal Margin Requirement (NMR) is the margin requirement for all futures positions, derived from the Nodal model
     /// </summary>
     [JsonPropertyName("nodal_margin_requirement")]
-    public string? nodal_margin_requirement { get; set; }
+    public string? NodalMarginRequirement { get; set; }
 
     /// <summary>
-    /// Portfolio Margin Requirement (PMR) is the margin requirement for all spot positions, derived from the XM model
+    /// Portfolio Margin Requirement (PmR) is the margin requirement for all spot positions, derived from the Xm model
     /// </summary>
     [JsonPropertyName("portfolio_margin_requirement")]
-    public string? portfolio_margin_requirement { get; set; }
+    public string? PortfolioMarginRequirement { get; set; }
 
     /// <summary>
-    /// Integrated Portfolio Margin Requirement (IPMR) is the margin requirement for all spot positions + futures positions with underlying assets eligible in Portfolio Margin, via the XM model with one-leg netting
+    /// Integrated Portfolio Margin Requirement (IPMR) is the margin requirement for all spot positions + futures positions with underlying assets eligible in Portfolio Margin, via the Xm model with one-leg netting
     /// </summary>
     [JsonPropertyName("integrated_portfolio_margin_requirement")]
-    public string? integrated_portfolio_margin_requirement { get; set; }
+    public string? IntegratedPortfolioMarginRequirement { get; set; }
 
     /// <summary>
     /// Ineligible Futures Margin Requirement (IFMR) is the margin requirement for IPMR-ineligible futures contracts
     /// </summary>
     [JsonPropertyName("ineligible_futures_margin_requirement")]
-    public string? ineligible_futures_margin_requirement { get; set; }
+    public string? IneligibleFuturesMarginRequirement { get; set; }
 
     /// <summary>
     /// Position margin requirement for all spot positions
     /// </summary>
     [JsonPropertyName("position_margin_requirement")]
-    public string? position_margin_requirement { get; set; }
+    public string? PositionMarginRequirement { get; set; }
 
     /// <summary>
     /// Portfolio margin addon for all spot positions
     /// </summary>
     [JsonPropertyName("portfolio_margin_addon")]
-    public string? portfolio_margin_addon { get; set; }
+    public string? PortfolioMarginAddon { get; set; }
 
     /// <summary>
     /// Position margin requirement for spot + futures positions
     /// </summary>
     [JsonPropertyName("integrated_position_margin_requirement")]
-    public string? integrated_position_margin_requirement { get; set; }
+    public string? IntegratedPositionMarginRequirement { get; set; }
 
     /// <summary>
     /// Portfolio margin addon for spot + futures positions
     /// </summary>
     [JsonPropertyName("integrated_portfolio_margin_addon")]
-    public string? integrated_portfolio_margin_addon { get; set; }
+    public string? IntegratedPortfolioMarginAddon { get; set; }
 
     /// <summary>
     /// Post-netting USD notional for all futures positions
     /// </summary>
     [JsonPropertyName("netted_futures_notional")]
-    public string? netted_futures_notional { get; set; }
+    public string? NettedFuturesNotional { get; set; }
 
     /// <summary>
     /// Total basis gross market value of all XM-eligible positions (i.e. crypto underliers)
     /// </summary>
     [JsonPropertyName("total_gmv_basis")]
-    public string? total_gmv_basis { get; set; }
+    public string? TotalGmvBasis { get; set; }
 
     /// <summary>
     /// Integrated Portfolio Margin cash balance
     /// </summary>
     [JsonPropertyName("ipm_cash_balance")]
-    public string? ipm_cash_balance { get; set; }
+    public string? IpmCashBalance { get; set; }
 
     [JsonPropertyName("integrated_scenario_addon")]
-    public MarginAddOn? integrated_scenario_addon { get; set; }
+    public MarginAddOn? IntegratedScenarioAddon { get; set; }
 
     /// <summary>
     /// All integrated scenario add-ons
     /// </summary>
     [JsonPropertyName("all_integrated_scenario_addons")]
-    public List<MarginAddOn>? all_integrated_scenario_addons { get; set; }
+    public List<MarginAddOn>? AllIntegratedScenarioAddons { get; set; }
 
     /// <summary>
     /// Netted positions used in the model calculation
     /// </summary>
     [JsonPropertyName("xm_positions")]
-    public List<XMPosition>? xm_positions { get; set; }
+    public List<XmPosition>? XmPositions { get; set; }
 
-    public XMRiskNettingInfo() { }
+    public XmRiskNettingInfo() { }
 
-    public XMRiskNettingInfo(Builder builder)
+    public XmRiskNettingInfo(Builder builder)
     {
-      this.nodal_margin_requirement = builder.nodal_margin_requirement;
-      this.portfolio_margin_requirement = builder.portfolio_margin_requirement;
-      this.integrated_portfolio_margin_requirement = builder.integrated_portfolio_margin_requirement;
-      this.ineligible_futures_margin_requirement = builder.ineligible_futures_margin_requirement;
-      this.position_margin_requirement = builder.position_margin_requirement;
-      this.portfolio_margin_addon = builder.portfolio_margin_addon;
-      this.integrated_position_margin_requirement = builder.integrated_position_margin_requirement;
-      this.integrated_portfolio_margin_addon = builder.integrated_portfolio_margin_addon;
-      this.netted_futures_notional = builder.netted_futures_notional;
-      this.total_gmv_basis = builder.total_gmv_basis;
-      this.ipm_cash_balance = builder.ipm_cash_balance;
-      this.integrated_scenario_addon = builder.integrated_scenario_addon;
-      this.all_integrated_scenario_addons = builder.all_integrated_scenario_addons;
-      this.xm_positions = builder.xm_positions;
+      this.NodalMarginRequirement = builder.nodalMarginRequirement;
+      this.PortfolioMarginRequirement = builder.portfolioMarginRequirement;
+      this.IntegratedPortfolioMarginRequirement = builder.integratedPortfolioMarginRequirement;
+      this.IneligibleFuturesMarginRequirement = builder.ineligibleFuturesMarginRequirement;
+      this.PositionMarginRequirement = builder.positionMarginRequirement;
+      this.PortfolioMarginAddon = builder.portfolioMarginAddon;
+      this.IntegratedPositionMarginRequirement = builder.integratedPositionMarginRequirement;
+      this.IntegratedPortfolioMarginAddon = builder.integratedPortfolioMarginAddon;
+      this.NettedFuturesNotional = builder.nettedFuturesNotional;
+      this.TotalGmvBasis = builder.totalGmvBasis;
+      this.IpmCashBalance = builder.ipmCashBalance;
+      this.IntegratedScenarioAddon = builder.integratedScenarioAddon;
+      this.AllIntegratedScenarioAddons = builder.allIntegratedScenarioAddons;
+      this.XmPositions = builder.xmPositions;
     }
 
     public class Builder
     {
-      private string? nodal_margin_requirement;
+      internal string? nodalMarginRequirement;
 
-      private string? portfolio_margin_requirement;
+      internal string? portfolioMarginRequirement;
 
-      private string? integrated_portfolio_margin_requirement;
+      internal string? integratedPortfolioMarginRequirement;
 
-      private string? ineligible_futures_margin_requirement;
+      internal string? ineligibleFuturesMarginRequirement;
 
-      private string? position_margin_requirement;
+      internal string? positionMarginRequirement;
 
-      private string? portfolio_margin_addon;
+      internal string? portfolioMarginAddon;
 
-      private string? integrated_position_margin_requirement;
+      internal string? integratedPositionMarginRequirement;
 
-      private string? integrated_portfolio_margin_addon;
+      internal string? integratedPortfolioMarginAddon;
 
-      private string? netted_futures_notional;
+      internal string? nettedFuturesNotional;
 
-      private string? total_gmv_basis;
+      internal string? totalGmvBasis;
 
-      private string? ipm_cash_balance;
+      internal string? ipmCashBalance;
 
-      private MarginAddOn? integrated_scenario_addon;
+      internal MarginAddOn? integratedScenarioAddon;
 
-      private List<MarginAddOn>? all_integrated_scenario_addons;
+      internal List<MarginAddOn>? allIntegratedScenarioAddons;
 
-      private List<XMPosition>? xm_positions;
+      internal List<XmPosition>? xmPositions;
 
-      public Builder Withnodal_margin_requirement(string? nodal_margin_requirement)
+      public Builder WithNodalMarginRequirement(string? nodalMarginRequirement)
       {
-        this.nodal_margin_requirement = nodal_margin_requirement;
+        this.nodalMarginRequirement = nodalMarginRequirement;
         return this;
       }
 
-      public Builder Withportfolio_margin_requirement(string? portfolio_margin_requirement)
+      public Builder WithPortfolioMarginRequirement(string? portfolioMarginRequirement)
       {
-        this.portfolio_margin_requirement = portfolio_margin_requirement;
+        this.portfolioMarginRequirement = portfolioMarginRequirement;
         return this;
       }
 
-      public Builder Withintegrated_portfolio_margin_requirement(string? integrated_portfolio_margin_requirement)
+      public Builder WithIntegratedPortfolioMarginRequirement(string? integratedPortfolioMarginRequirement)
       {
-        this.integrated_portfolio_margin_requirement = integrated_portfolio_margin_requirement;
+        this.integratedPortfolioMarginRequirement = integratedPortfolioMarginRequirement;
         return this;
       }
 
-      public Builder Withineligible_futures_margin_requirement(string? ineligible_futures_margin_requirement)
+      public Builder WithIneligibleFuturesMarginRequirement(string? ineligibleFuturesMarginRequirement)
       {
-        this.ineligible_futures_margin_requirement = ineligible_futures_margin_requirement;
+        this.ineligibleFuturesMarginRequirement = ineligibleFuturesMarginRequirement;
         return this;
       }
 
-      public Builder Withposition_margin_requirement(string? position_margin_requirement)
+      public Builder WithPositionMarginRequirement(string? positionMarginRequirement)
       {
-        this.position_margin_requirement = position_margin_requirement;
+        this.positionMarginRequirement = positionMarginRequirement;
         return this;
       }
 
-      public Builder Withportfolio_margin_addon(string? portfolio_margin_addon)
+      public Builder WithPortfolioMarginAddon(string? portfolioMarginAddon)
       {
-        this.portfolio_margin_addon = portfolio_margin_addon;
+        this.portfolioMarginAddon = portfolioMarginAddon;
         return this;
       }
 
-      public Builder Withintegrated_position_margin_requirement(string? integrated_position_margin_requirement)
+      public Builder WithIntegratedPositionMarginRequirement(string? integratedPositionMarginRequirement)
       {
-        this.integrated_position_margin_requirement = integrated_position_margin_requirement;
+        this.integratedPositionMarginRequirement = integratedPositionMarginRequirement;
         return this;
       }
 
-      public Builder Withintegrated_portfolio_margin_addon(string? integrated_portfolio_margin_addon)
+      public Builder WithIntegratedPortfolioMarginAddon(string? integratedPortfolioMarginAddon)
       {
-        this.integrated_portfolio_margin_addon = integrated_portfolio_margin_addon;
+        this.integratedPortfolioMarginAddon = integratedPortfolioMarginAddon;
         return this;
       }
 
-      public Builder Withnetted_futures_notional(string? netted_futures_notional)
+      public Builder WithNettedFuturesNotional(string? nettedFuturesNotional)
       {
-        this.netted_futures_notional = netted_futures_notional;
+        this.nettedFuturesNotional = nettedFuturesNotional;
         return this;
       }
 
-      public Builder Withtotal_gmv_basis(string? total_gmv_basis)
+      public Builder WithTotalGmvBasis(string? totalGmvBasis)
       {
-        this.total_gmv_basis = total_gmv_basis;
+        this.totalGmvBasis = totalGmvBasis;
         return this;
       }
 
-      public Builder Withipm_cash_balance(string? ipm_cash_balance)
+      public Builder WithIpmCashBalance(string? ipmCashBalance)
       {
-        this.ipm_cash_balance = ipm_cash_balance;
+        this.ipmCashBalance = ipmCashBalance;
         return this;
       }
 
-      public Builder Withintegrated_scenario_addon(MarginAddOn? integrated_scenario_addon)
+      public Builder WithIntegratedScenarioAddon(MarginAddOn? integratedScenarioAddon)
       {
-        this.integrated_scenario_addon = integrated_scenario_addon;
+        this.integratedScenarioAddon = integratedScenarioAddon;
         return this;
       }
 
-      public Builder Withall_integrated_scenario_addons(List<MarginAddOn>? all_integrated_scenario_addons)
+      public Builder WithAllIntegratedScenarioAddons(List<MarginAddOn>? allIntegratedScenarioAddons)
       {
-        this.all_integrated_scenario_addons = all_integrated_scenario_addons;
+        this.allIntegratedScenarioAddons = allIntegratedScenarioAddons;
         return this;
       }
 
-      public Builder Withxm_positions(List<XMPosition>? xm_positions)
+      public Builder WithXmPositions(List<XmPosition>? xmPositions)
       {
-        this.xm_positions = xm_positions;
+        this.xmPositions = xmPositions;
         return this;
       }
 
-      public XMRiskNettingInfo Build()
+      public XmRiskNettingInfo Build()
       {
-        return new XMRiskNettingInfo(this);
+        return new XmRiskNettingInfo(this);
       }
     }
   }

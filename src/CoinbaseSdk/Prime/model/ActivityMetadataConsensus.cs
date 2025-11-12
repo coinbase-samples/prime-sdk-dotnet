@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class ActivityMetadataConsensus
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// Deadline for approval of an activity
     /// </summary>
     [JsonPropertyName("approval_deadline")]
-    public string? approval_deadline { get; set; }
+    public string? ApprovalDeadline { get; set; }
 
     /// <summary>
     /// If activity has passed consensus threshold
     /// </summary>
     [JsonPropertyName("has_passed_consensus")]
-    public bool? has_passed_consensus { get; set; }
+    public bool? HasPassedConsensus { get; set; }
 
     public ActivityMetadataConsensus() { }
 
     public ActivityMetadataConsensus(Builder builder)
     {
-      this.approval_deadline = builder.approval_deadline;
-      this.has_passed_consensus = builder.has_passed_consensus;
+      this.ApprovalDeadline = builder.approvalDeadline;
+      this.HasPassedConsensus = builder.hasPassedConsensus;
     }
 
     public class Builder
     {
-      private string? approval_deadline;
+      internal string? approvalDeadline;
 
-      private bool? has_passed_consensus;
+      internal bool? hasPassedConsensus;
 
-      public Builder Withapproval_deadline(string? approval_deadline)
+      public Builder WithApprovalDeadline(string? approvalDeadline)
       {
-        this.approval_deadline = approval_deadline;
+        this.approvalDeadline = approvalDeadline;
         return this;
       }
 
-      public Builder Withhas_passed_consensus(bool? has_passed_consensus)
+      public Builder WithHasPassedConsensus(bool? hasPassedConsensus)
       {
-        this.has_passed_consensus = has_passed_consensus;
+        this.hasPassedConsensus = hasPassedConsensus;
         return this;
       }
 

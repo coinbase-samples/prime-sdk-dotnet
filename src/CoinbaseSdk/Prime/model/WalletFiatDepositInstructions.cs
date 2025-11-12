@@ -18,90 +18,91 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class WalletFiatDepositInstructions
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("type")]
-    public WalletDepositInstructionType? type { get; set; }
+    public WalletDepositInstructionType? Type { get; set; }
 
     [JsonPropertyName("account_number")]
-    public string? account_number { get; set; }
+    public string? AccountNumber { get; set; }
 
     [JsonPropertyName("routing_number")]
-    public string? routing_number { get; set; }
+    public string? RoutingNumber { get; set; }
 
     [JsonPropertyName("reference_code")]
-    public string? reference_code { get; set; }
+    public string? ReferenceCode { get; set; }
 
     public WalletFiatDepositInstructions() { }
 
     public WalletFiatDepositInstructions(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.type = builder.type;
-      this.account_number = builder.account_number;
-      this.routing_number = builder.routing_number;
-      this.reference_code = builder.reference_code;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.Type = builder.type;
+      this.AccountNumber = builder.accountNumber;
+      this.RoutingNumber = builder.routingNumber;
+      this.ReferenceCode = builder.referenceCode;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private WalletDepositInstructionType? type;
+      internal WalletDepositInstructionType? type;
 
-      private string? account_number;
+      internal string? accountNumber;
 
-      private string? routing_number;
+      internal string? routingNumber;
 
-      private string? reference_code;
+      internal string? referenceCode;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withtype(WalletDepositInstructionType? type)
+      public Builder WithType(WalletDepositInstructionType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withaccount_number(string? account_number)
+      public Builder WithAccountNumber(string? accountNumber)
       {
-        this.account_number = account_number;
+        this.accountNumber = accountNumber;
         return this;
       }
 
-      public Builder Withrouting_number(string? routing_number)
+      public Builder WithRoutingNumber(string? routingNumber)
       {
-        this.routing_number = routing_number;
+        this.routingNumber = routingNumber;
         return this;
       }
 
-      public Builder Withreference_code(string? reference_code)
+      public Builder WithReferenceCode(string? referenceCode)
       {
-        this.reference_code = reference_code;
+        this.referenceCode = referenceCode;
         return this;
       }
 

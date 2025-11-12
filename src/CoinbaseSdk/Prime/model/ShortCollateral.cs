@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class ShortCollateral
@@ -29,67 +29,67 @@ namespace CoinbaseSdk.Prime.Model
     /// Existing short collateral balance
     /// </summary>
     [JsonPropertyName("old_balance")]
-    public string? old_balance { get; set; }
+    public string? OldBalance { get; set; }
 
     /// <summary>
     /// New short collateral balance required
     /// </summary>
     [JsonPropertyName("new_balance")]
-    public string? new_balance { get; set; }
+    public string? NewBalance { get; set; }
 
     /// <summary>
     /// Loan interest rate
     /// </summary>
     [JsonPropertyName("loan_interest_rate")]
-    public string? loan_interest_rate { get; set; }
+    public string? LoanInterestRate { get; set; }
 
     /// <summary>
     /// Collateral interest rate
     /// </summary>
     [JsonPropertyName("collateral_interest_rate")]
-    public string? collateral_interest_rate { get; set; }
+    public string? CollateralInterestRate { get; set; }
 
     public ShortCollateral() { }
 
     public ShortCollateral(Builder builder)
     {
-      this.old_balance = builder.old_balance;
-      this.new_balance = builder.new_balance;
-      this.loan_interest_rate = builder.loan_interest_rate;
-      this.collateral_interest_rate = builder.collateral_interest_rate;
+      this.OldBalance = builder.oldBalance;
+      this.NewBalance = builder.newBalance;
+      this.LoanInterestRate = builder.loanInterestRate;
+      this.CollateralInterestRate = builder.collateralInterestRate;
     }
 
     public class Builder
     {
-      private string? old_balance;
+      internal string? oldBalance;
 
-      private string? new_balance;
+      internal string? newBalance;
 
-      private string? loan_interest_rate;
+      internal string? loanInterestRate;
 
-      private string? collateral_interest_rate;
+      internal string? collateralInterestRate;
 
-      public Builder Withold_balance(string? old_balance)
+      public Builder WithOldBalance(string? oldBalance)
       {
-        this.old_balance = old_balance;
+        this.oldBalance = oldBalance;
         return this;
       }
 
-      public Builder Withnew_balance(string? new_balance)
+      public Builder WithNewBalance(string? newBalance)
       {
-        this.new_balance = new_balance;
+        this.newBalance = newBalance;
         return this;
       }
 
-      public Builder Withloan_interest_rate(string? loan_interest_rate)
+      public Builder WithLoanInterestRate(string? loanInterestRate)
       {
-        this.loan_interest_rate = loan_interest_rate;
+        this.loanInterestRate = loanInterestRate;
         return this;
       }
 
-      public Builder Withcollateral_interest_rate(string? collateral_interest_rate)
+      public Builder WithCollateralInterestRate(string? collateralInterestRate)
       {
-        this.collateral_interest_rate = collateral_interest_rate;
+        this.collateralInterestRate = collateralInterestRate;
         return this;
       }
 

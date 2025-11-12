@@ -18,82 +18,83 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class AssetChange
   {
     [JsonPropertyName("type")]
-    public AssetChangeType? type { get; set; }
+    public AssetChangeType? Type { get; set; }
 
     /// <summary>
     /// The currency symbol associated with the balance operation
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The amount in whole units being transferred or approved
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     [JsonPropertyName("collection")]
-    public NFTCollection? collection { get; set; }
+    public NftCollection? Collection { get; set; }
 
     [JsonPropertyName("item")]
-    public NFTItem? item { get; set; }
+    public NftItem? Item { get; set; }
 
     public AssetChange() { }
 
     public AssetChange(Builder builder)
     {
-      this.type = builder.type;
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
-      this.collection = builder.collection;
-      this.item = builder.item;
+      this.Type = builder.type;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
+      this.Collection = builder.collection;
+      this.Item = builder.item;
     }
 
     public class Builder
     {
-      private AssetChangeType? type;
+      internal AssetChangeType? type;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      private NFTCollection? collection;
+      internal NftCollection? collection;
 
-      private NFTItem? item;
+      internal NftItem? item;
 
-      public Builder Withtype(AssetChangeType? type)
+      public Builder WithType(AssetChangeType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withcollection(NFTCollection? collection)
+      public Builder WithCollection(NftCollection? collection)
       {
         this.collection = collection;
         return this;
       }
 
-      public Builder Withitem(NFTItem? item)
+      public Builder WithItem(NftItem? item)
       {
         this.item = item;
         return this;

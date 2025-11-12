@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class PostTradeCreditInformation
@@ -29,169 +29,169 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The currency symbol credit is denoted in
     /// </summary>
     [JsonPropertyName("currency")]
-    public string? currency { get; set; }
+    public string? Currency { get; set; }
 
     /// <summary>
     /// The maximum credit limit
     /// </summary>
     [JsonPropertyName("limit")]
-    public string? limit { get; set; }
+    public string? Limit { get; set; }
 
     /// <summary>
     /// The amount of credit used
     /// </summary>
     [JsonPropertyName("utilized")]
-    public string? utilized { get; set; }
+    public string? Utilized { get; set; }
 
     /// <summary>
     /// The amount of credit available
     /// </summary>
     [JsonPropertyName("available")]
-    public string? available { get; set; }
+    public string? Available { get; set; }
 
     /// <summary>
     /// Whether or not a portfolio is frozen due to balance outstanding or other reason
     /// </summary>
     [JsonPropertyName("frozen")]
-    public bool? frozen { get; set; }
+    public bool? Frozen { get; set; }
 
     /// <summary>
     /// The reason why the portfolio is frozen
     /// </summary>
     [JsonPropertyName("frozen_reason")]
-    public string? frozen_reason { get; set; }
+    public string? FrozenReason { get; set; }
 
     [JsonPropertyName("amounts_due")]
-    public List<AmountDue>? amounts_due { get; set; }
+    public List<AmountDue>? AmountsDue { get; set; }
 
     /// <summary>
     /// Whether the portfolio has credit enabled
     /// </summary>
     [JsonPropertyName("enabled")]
-    public bool? enabled { get; set; }
+    public bool? Enabled { get; set; }
 
     /// <summary>
     /// The amount of adjusted credit used
     /// </summary>
     [JsonPropertyName("adjusted_credit_utilized")]
-    public string? adjusted_credit_utilized { get; set; }
+    public string? AdjustedCreditUtilized { get; set; }
 
     /// <summary>
     /// The amount of adjusted portfolio equity
     /// </summary>
     [JsonPropertyName("adjusted_portfolio_equity")]
-    public string? adjusted_portfolio_equity { get; set; }
+    public string? AdjustedPortfolioEquity { get; set; }
 
     public PostTradeCreditInformation() { }
 
     public PostTradeCreditInformation(Builder builder)
     {
-      this.portfolio_id = builder.portfolio_id;
-      this.currency = builder.currency;
-      this.limit = builder.limit;
-      this.utilized = builder.utilized;
-      this.available = builder.available;
-      this.frozen = builder.frozen;
-      this.frozen_reason = builder.frozen_reason;
-      this.amounts_due = builder.amounts_due;
-      this.enabled = builder.enabled;
-      this.adjusted_credit_utilized = builder.adjusted_credit_utilized;
-      this.adjusted_portfolio_equity = builder.adjusted_portfolio_equity;
+      this.PortfolioId = builder.portfolioId;
+      this.Currency = builder.currency;
+      this.Limit = builder.limit;
+      this.Utilized = builder.utilized;
+      this.Available = builder.available;
+      this.Frozen = builder.frozen;
+      this.FrozenReason = builder.frozenReason;
+      this.AmountsDue = builder.amountsDue;
+      this.Enabled = builder.enabled;
+      this.AdjustedCreditUtilized = builder.adjustedCreditUtilized;
+      this.AdjustedPortfolioEquity = builder.adjustedPortfolioEquity;
     }
 
     public class Builder
     {
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? currency;
+      internal string? currency;
 
-      private string? limit;
+      internal string? limit;
 
-      private string? utilized;
+      internal string? utilized;
 
-      private string? available;
+      internal string? available;
 
-      private bool? frozen;
+      internal bool? frozen;
 
-      private string? frozen_reason;
+      internal string? frozenReason;
 
-      private List<AmountDue>? amounts_due;
+      internal List<AmountDue>? amountsDue;
 
-      private bool? enabled;
+      internal bool? enabled;
 
-      private string? adjusted_credit_utilized;
+      internal string? adjustedCreditUtilized;
 
-      private string? adjusted_portfolio_equity;
+      internal string? adjustedPortfolioEquity;
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withcurrency(string? currency)
+      public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder Withlimit(string? limit)
+      public Builder WithLimit(string? limit)
       {
         this.limit = limit;
         return this;
       }
 
-      public Builder Withutilized(string? utilized)
+      public Builder WithUtilized(string? utilized)
       {
         this.utilized = utilized;
         return this;
       }
 
-      public Builder Withavailable(string? available)
+      public Builder WithAvailable(string? available)
       {
         this.available = available;
         return this;
       }
 
-      public Builder Withfrozen(bool? frozen)
+      public Builder WithFrozen(bool? frozen)
       {
         this.frozen = frozen;
         return this;
       }
 
-      public Builder Withfrozen_reason(string? frozen_reason)
+      public Builder WithFrozenReason(string? frozenReason)
       {
-        this.frozen_reason = frozen_reason;
+        this.frozenReason = frozenReason;
         return this;
       }
 
-      public Builder Withamounts_due(List<AmountDue>? amounts_due)
+      public Builder WithAmountsDue(List<AmountDue>? amountsDue)
       {
-        this.amounts_due = amounts_due;
+        this.amountsDue = amountsDue;
         return this;
       }
 
-      public Builder Withenabled(bool? enabled)
+      public Builder WithEnabled(bool? enabled)
       {
         this.enabled = enabled;
         return this;
       }
 
-      public Builder Withadjusted_credit_utilized(string? adjusted_credit_utilized)
+      public Builder WithAdjustedCreditUtilized(string? adjustedCreditUtilized)
       {
-        this.adjusted_credit_utilized = adjusted_credit_utilized;
+        this.adjustedCreditUtilized = adjustedCreditUtilized;
         return this;
       }
 
-      public Builder Withadjusted_portfolio_equity(string? adjusted_portfolio_equity)
+      public Builder WithAdjustedPortfolioEquity(string? adjustedPortfolioEquity)
       {
-        this.adjusted_portfolio_equity = adjusted_portfolio_equity;
+        this.adjustedPortfolioEquity = adjustedPortfolioEquity;
         return this;
       }
 

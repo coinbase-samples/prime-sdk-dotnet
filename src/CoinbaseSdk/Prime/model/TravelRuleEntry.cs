@@ -18,138 +18,138 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class TravelRuleEntry
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("blockchain_address")]
-    public BlockchainAddress? blockchain_address { get; set; }
+    public BlockchainAddress? BlockchainAddress { get; set; }
 
     [JsonPropertyName("originator")]
-    public TravelRuleParty? originator { get; set; }
+    public TravelRuleParty? Originator { get; set; }
 
     [JsonPropertyName("beneficiary")]
-    public TravelRuleParty? beneficiary { get; set; }
+    public TravelRuleParty? Beneficiary { get; set; }
 
     [JsonPropertyName("vasp")]
-    public VASP? vasp { get; set; }
+    public VASP? Vasp { get; set; }
 
     [JsonPropertyName("wallet_details")]
-    public TravelRuleWalletDetails? wallet_details { get; set; }
+    public TravelRuleWalletDetails? WalletDetails { get; set; }
 
     [JsonPropertyName("transfer_purpose")]
-    public string? transfer_purpose { get; set; }
+    public string? TransferPurpose { get; set; }
 
     [JsonPropertyName("is_self_certified")]
-    public bool? is_self_certified { get; set; }
+    public bool? IsSelfCertified { get; set; }
 
     [JsonPropertyName("is_intermediary")]
-    public bool? is_intermediary { get; set; }
+    public bool? IsIntermediary { get; set; }
 
     [JsonPropertyName("is_self")]
-    public bool? is_self { get; set; }
+    public bool? IsSelf { get; set; }
 
     public TravelRuleEntry() { }
 
     public TravelRuleEntry(Builder builder)
     {
-      this.id = builder.id;
-      this.blockchain_address = builder.blockchain_address;
-      this.originator = builder.originator;
-      this.beneficiary = builder.beneficiary;
-      this.vasp = builder.vasp;
-      this.wallet_details = builder.wallet_details;
-      this.transfer_purpose = builder.transfer_purpose;
-      this.is_self_certified = builder.is_self_certified;
-      this.is_intermediary = builder.is_intermediary;
-      this.is_self = builder.is_self;
+      this.Id = builder.id;
+      this.BlockchainAddress = builder.blockchainAddress;
+      this.Originator = builder.originator;
+      this.Beneficiary = builder.beneficiary;
+      this.Vasp = builder.vasp;
+      this.WalletDetails = builder.walletDetails;
+      this.TransferPurpose = builder.transferPurpose;
+      this.IsSelfCertified = builder.isSelfCertified;
+      this.IsIntermediary = builder.isIntermediary;
+      this.IsSelf = builder.isSelf;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private BlockchainAddress? blockchain_address;
+      internal BlockchainAddress? blockchainAddress;
 
-      private TravelRuleParty? originator;
+      internal TravelRuleParty? originator;
 
-      private TravelRuleParty? beneficiary;
+      internal TravelRuleParty? beneficiary;
 
-      private VASP? vasp;
+      internal VASP? vasp;
 
-      private TravelRuleWalletDetails? wallet_details;
+      internal TravelRuleWalletDetails? walletDetails;
 
-      private string? transfer_purpose;
+      internal string? transferPurpose;
 
-      private bool? is_self_certified;
+      internal bool? isSelfCertified;
 
-      private bool? is_intermediary;
+      internal bool? isIntermediary;
 
-      private bool? is_self;
+      internal bool? isSelf;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withblockchain_address(BlockchainAddress? blockchain_address)
+      public Builder WithBlockchainAddress(BlockchainAddress? blockchainAddress)
       {
-        this.blockchain_address = blockchain_address;
+        this.blockchainAddress = blockchainAddress;
         return this;
       }
 
-      public Builder Withoriginator(TravelRuleParty? originator)
+      public Builder WithOriginator(TravelRuleParty? originator)
       {
         this.originator = originator;
         return this;
       }
 
-      public Builder Withbeneficiary(TravelRuleParty? beneficiary)
+      public Builder WithBeneficiary(TravelRuleParty? beneficiary)
       {
         this.beneficiary = beneficiary;
         return this;
       }
 
-      public Builder Withvasp(VASP? vasp)
+      public Builder WithVasp(VASP? vasp)
       {
         this.vasp = vasp;
         return this;
       }
 
-      public Builder Withwallet_details(TravelRuleWalletDetails? wallet_details)
+      public Builder WithWalletDetails(TravelRuleWalletDetails? walletDetails)
       {
-        this.wallet_details = wallet_details;
+        this.walletDetails = walletDetails;
         return this;
       }
 
-      public Builder Withtransfer_purpose(string? transfer_purpose)
+      public Builder WithTransferPurpose(string? transferPurpose)
       {
-        this.transfer_purpose = transfer_purpose;
+        this.transferPurpose = transferPurpose;
         return this;
       }
 
-      public Builder Withis_self_certified(bool? is_self_certified)
+      public Builder WithIsSelfCertified(bool? isSelfCertified)
       {
-        this.is_self_certified = is_self_certified;
+        this.isSelfCertified = isSelfCertified;
         return this;
       }
 
-      public Builder Withis_intermediary(bool? is_intermediary)
+      public Builder WithIsIntermediary(bool? isIntermediary)
       {
-        this.is_intermediary = is_intermediary;
+        this.isIntermediary = isIntermediary;
         return this;
       }
 
-      public Builder Withis_self(bool? is_self)
+      public Builder WithIsSelf(bool? isSelf)
       {
-        this.is_self = is_self;
+        this.isSelf = isSelf;
         return this;
       }
 

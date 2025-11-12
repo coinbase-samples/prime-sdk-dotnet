@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class WalletClaimRewardsInputs
@@ -29,20 +29,20 @@ namespace CoinbaseSdk.Prime.Model
     /// Optional amount to claim rewards (ETH only). If omitted, the wallet will claim the maximum amount available
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     public WalletClaimRewardsInputs() { }
 
     public WalletClaimRewardsInputs(Builder builder)
     {
-      this.amount = builder.amount;
+      this.Amount = builder.amount;
     }
 
     public class Builder
     {
-      private string? amount;
+      internal string? amount;
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;

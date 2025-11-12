@@ -18,52 +18,52 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class DateOfBirth
   {
     [JsonPropertyName("year")]
-    public long? year { get; set; }
+    public long? Year { get; set; }
 
     [JsonPropertyName("month")]
-    public long? month { get; set; }
+    public long? Month { get; set; }
 
     [JsonPropertyName("day")]
-    public long? day { get; set; }
+    public long? Day { get; set; }
 
     public DateOfBirth() { }
 
     public DateOfBirth(Builder builder)
     {
-      this.year = builder.year;
-      this.month = builder.month;
-      this.day = builder.day;
+      this.Year = builder.year;
+      this.Month = builder.month;
+      this.Day = builder.day;
     }
 
     public class Builder
     {
-      private long? year;
+      internal long? year;
 
-      private long? month;
+      internal long? month;
 
-      private long? day;
+      internal long? day;
 
-      public Builder Withyear(long? year)
+      public Builder WithYear(long? year)
       {
         this.year = year;
         return this;
       }
 
-      public Builder Withmonth(long? month)
+      public Builder WithMonth(long? month)
       {
         this.month = month;
         return this;
       }
 
-      public Builder Withday(long? day)
+      public Builder WithDay(long? day)
       {
         this.day = day;
         return this;

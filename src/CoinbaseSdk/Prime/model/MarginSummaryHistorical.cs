@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MarginSummaryHistorical
@@ -29,49 +29,49 @@ namespace CoinbaseSdk.Prime.Model
     /// The UTC date time used for conversion
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
-    public string? conversion_datetime { get; set; }
+    public string? ConversionDatetime { get; set; }
 
     /// <summary>
     /// The date used for conversion
     /// </summary>
     [JsonPropertyName("conversion_date")]
-    public string? conversion_date { get; set; }
+    public string? ConversionDate { get; set; }
 
     [JsonPropertyName("margin_summary")]
-    public MarginSummary? margin_summary { get; set; }
+    public MarginSummary? MarginSummary { get; set; }
 
     public MarginSummaryHistorical() { }
 
     public MarginSummaryHistorical(Builder builder)
     {
-      this.conversion_datetime = builder.conversion_datetime;
-      this.conversion_date = builder.conversion_date;
-      this.margin_summary = builder.margin_summary;
+      this.ConversionDatetime = builder.conversionDatetime;
+      this.ConversionDate = builder.conversionDate;
+      this.MarginSummary = builder.marginSummary;
     }
 
     public class Builder
     {
-      private string? conversion_datetime;
+      internal string? conversionDatetime;
 
-      private string? conversion_date;
+      internal string? conversionDate;
 
-      private MarginSummary? margin_summary;
+      internal MarginSummary? marginSummary;
 
-      public Builder Withconversion_datetime(string? conversion_datetime)
+      public Builder WithConversionDatetime(string? conversionDatetime)
       {
-        this.conversion_datetime = conversion_datetime;
+        this.conversionDatetime = conversionDatetime;
         return this;
       }
 
-      public Builder Withconversion_date(string? conversion_date)
+      public Builder WithConversionDate(string? conversionDate)
       {
-        this.conversion_date = conversion_date;
+        this.conversionDate = conversionDate;
         return this;
       }
 
-      public Builder Withmargin_summary(MarginSummary? margin_summary)
+      public Builder WithMarginSummary(MarginSummary? marginSummary)
       {
-        this.margin_summary = margin_summary;
+        this.marginSummary = marginSummary;
         return this;
       }
 

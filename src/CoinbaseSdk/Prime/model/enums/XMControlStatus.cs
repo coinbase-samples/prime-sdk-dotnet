@@ -18,13 +18,14 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
-  public enum XMControlStatus
+  public enum XmControlStatus
   {
-    XMCONTROLSTATUSUNSPECIFIED,
+    XmCONTROLSTATUSUNSPECIFIED,
     TRADESANDWITHDRAWALS,
     TRADESONLY,
     SESSIONLOCKED

@@ -18,78 +18,79 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class AddressGroup
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("network_type")]
-    public NetworkType? network_type { get; set; }
+    public NetworkType? NetworkType { get; set; }
 
     [JsonPropertyName("addresses")]
-    public List<AddressEntry>? addresses { get; set; }
+    public List<AddressEntry>? Addresses { get; set; }
 
     [JsonPropertyName("added_at")]
-    public DateTime? added_at { get; set; }
+    public DateTime? AddedAt { get; set; }
 
     public AddressGroup() { }
 
     public AddressGroup(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.network_type = builder.network_type;
-      this.addresses = builder.addresses;
-      this.added_at = builder.added_at;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.NetworkType = builder.networkType;
+      this.Addresses = builder.addresses;
+      this.AddedAt = builder.addedAt;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private NetworkType? network_type;
+      internal NetworkType? networkType;
 
-      private List<AddressEntry>? addresses;
+      internal List<AddressEntry>? addresses;
 
-      private DateTime? added_at;
+      internal DateTime? addedAt;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withnetwork_type(NetworkType? network_type)
+      public Builder WithNetworkType(NetworkType? networkType)
       {
-        this.network_type = network_type;
+        this.networkType = networkType;
         return this;
       }
 
-      public Builder Withaddresses(List<AddressEntry>? addresses)
+      public Builder WithAddresses(List<AddressEntry>? addresses)
       {
         this.addresses = addresses;
         return this;
       }
 
-      public Builder Withadded_at(DateTime? added_at)
+      public Builder WithAddedAt(DateTime? addedAt)
       {
-        this.added_at = added_at;
+        this.addedAt = addedAt;
         return this;
       }
 

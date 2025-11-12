@@ -18,126 +18,127 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Invoice
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("billing_month")]
-    public int? billing_month { get; set; }
+    public int? BillingMonth { get; set; }
 
     [JsonPropertyName("billing_year")]
-    public int? billing_year { get; set; }
+    public int? BillingYear { get; set; }
 
     [JsonPropertyName("due_date")]
-    public string? due_date { get; set; }
+    public string? DueDate { get; set; }
 
     [JsonPropertyName("invoice_number")]
-    public string? invoice_number { get; set; }
+    public string? InvoiceNumber { get; set; }
 
     [JsonPropertyName("state")]
-    public InvoiceState? state { get; set; }
+    public InvoiceState? State { get; set; }
 
     [JsonPropertyName("usd_amount_paid")]
-    public double? usd_amount_paid { get; set; }
+    public double? UsdAmountPaid { get; set; }
 
     [JsonPropertyName("usd_amount_owed")]
-    public double? usd_amount_owed { get; set; }
+    public double? UsdAmountOwed { get; set; }
 
     [JsonPropertyName("invoice_items")]
-    public List<InvoiceItem>? invoice_items { get; set; }
+    public List<InvoiceItem>? InvoiceItems { get; set; }
 
     public Invoice() { }
 
     public Invoice(Builder builder)
     {
-      this.id = builder.id;
-      this.billing_month = builder.billing_month;
-      this.billing_year = builder.billing_year;
-      this.due_date = builder.due_date;
-      this.invoice_number = builder.invoice_number;
-      this.state = builder.state;
-      this.usd_amount_paid = builder.usd_amount_paid;
-      this.usd_amount_owed = builder.usd_amount_owed;
-      this.invoice_items = builder.invoice_items;
+      this.Id = builder.id;
+      this.BillingMonth = builder.billingMonth;
+      this.BillingYear = builder.billingYear;
+      this.DueDate = builder.dueDate;
+      this.InvoiceNumber = builder.invoiceNumber;
+      this.State = builder.state;
+      this.UsdAmountPaid = builder.usdAmountPaid;
+      this.UsdAmountOwed = builder.usdAmountOwed;
+      this.InvoiceItems = builder.invoiceItems;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private int? billing_month;
+      internal int? billingMonth;
 
-      private int? billing_year;
+      internal int? billingYear;
 
-      private string? due_date;
+      internal string? dueDate;
 
-      private string? invoice_number;
+      internal string? invoiceNumber;
 
-      private InvoiceState? state;
+      internal InvoiceState? state;
 
-      private double? usd_amount_paid;
+      internal double? usdAmountPaid;
 
-      private double? usd_amount_owed;
+      internal double? usdAmountOwed;
 
-      private List<InvoiceItem>? invoice_items;
+      internal List<InvoiceItem>? invoiceItems;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withbilling_month(int? billing_month)
+      public Builder WithBillingMonth(int? billingMonth)
       {
-        this.billing_month = billing_month;
+        this.billingMonth = billingMonth;
         return this;
       }
 
-      public Builder Withbilling_year(int? billing_year)
+      public Builder WithBillingYear(int? billingYear)
       {
-        this.billing_year = billing_year;
+        this.billingYear = billingYear;
         return this;
       }
 
-      public Builder Withdue_date(string? due_date)
+      public Builder WithDueDate(string? dueDate)
       {
-        this.due_date = due_date;
+        this.dueDate = dueDate;
         return this;
       }
 
-      public Builder Withinvoice_number(string? invoice_number)
+      public Builder WithInvoiceNumber(string? invoiceNumber)
       {
-        this.invoice_number = invoice_number;
+        this.invoiceNumber = invoiceNumber;
         return this;
       }
 
-      public Builder Withstate(InvoiceState? state)
+      public Builder WithState(InvoiceState? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder Withusd_amount_paid(double? usd_amount_paid)
+      public Builder WithUsdAmountPaid(double? usdAmountPaid)
       {
-        this.usd_amount_paid = usd_amount_paid;
+        this.usdAmountPaid = usdAmountPaid;
         return this;
       }
 
-      public Builder Withusd_amount_owed(double? usd_amount_owed)
+      public Builder WithUsdAmountOwed(double? usdAmountOwed)
       {
-        this.usd_amount_owed = usd_amount_owed;
+        this.usdAmountOwed = usdAmountOwed;
         return this;
       }
 
-      public Builder Withinvoice_items(List<InvoiceItem>? invoice_items)
+      public Builder WithInvoiceItems(List<InvoiceItem>? invoiceItems)
       {
-        this.invoice_items = invoice_items;
+        this.invoiceItems = invoiceItems;
         return this;
       }
 

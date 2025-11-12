@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class CreateATransferBetweenTwoWallets
@@ -29,67 +29,67 @@ namespace CoinbaseSdk.Prime.Model
     /// The amount in whole units to send
     /// </summary>
     [JsonPropertyName("amount")]
-    public string amount { get; set; }
+    public string Amount { get; set; } = default!;
 
     /// <summary>
     /// The UUID of the destination wallet
     /// </summary>
     [JsonPropertyName("destination")]
-    public string destination { get; set; }
+    public string Destination { get; set; } = default!;
 
     /// <summary>
     /// The idempotency key associated with this transfer
     /// </summary>
     [JsonPropertyName("idempotency_key")]
-    public string idempotency_key { get; set; }
+    public string IdempotencyKey { get; set; } = default!;
 
     /// <summary>
     /// The currency symbol to transfer
     /// </summary>
     [JsonPropertyName("currency_symbol")]
-    public string currency_symbol { get; set; }
+    public string CurrencySymbol { get; set; } = default!;
 
     public CreateATransferBetweenTwoWallets() { }
 
     public CreateATransferBetweenTwoWallets(Builder builder)
     {
-      this.amount = builder.amount;
-      this.destination = builder.destination;
-      this.idempotency_key = builder.idempotency_key;
-      this.currency_symbol = builder.currency_symbol;
+      this.Amount = builder.amount;
+      this.Destination = builder.destination;
+      this.IdempotencyKey = builder.idempotencyKey;
+      this.CurrencySymbol = builder.currencySymbol;
     }
 
     public class Builder
     {
-      private string amount;
+      internal string amount = default!;
 
-      private string destination;
+      internal string destination = default!;
 
-      private string idempotency_key;
+      internal string idempotencyKey = default!;
 
-      private string currency_symbol;
+      internal string currencySymbol = default!;
 
-      public Builder Withamount(string amount)
+      public Builder WithAmount(string amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withdestination(string destination)
+      public Builder WithDestination(string destination)
       {
         this.destination = destination;
         return this;
       }
 
-      public Builder Withidempotency_key(string idempotency_key)
+      public Builder WithIdempotencyKey(string idempotencyKey)
       {
-        this.idempotency_key = idempotency_key;
+        this.idempotencyKey = idempotencyKey;
         return this;
       }
 
-      public Builder Withcurrency_symbol(string currency_symbol)
+      public Builder WithCurrencySymbol(string currencySymbol)
       {
-        this.currency_symbol = currency_symbol;
+        this.currencySymbol = currencySymbol;
         return this;
       }
 

@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Locate
@@ -29,50 +29,50 @@ namespace CoinbaseSdk.Prime.Model
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The available quantity located
     /// </summary>
     [JsonPropertyName("quantity")]
-    public string? quantity { get; set; }
+    public string? Quantity { get; set; }
 
     /// <summary>
     /// The interest rate for located symbol
     /// </summary>
     [JsonPropertyName("rate")]
-    public string? rate { get; set; }
+    public string? Rate { get; set; }
 
     public Locate() { }
 
     public Locate(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.quantity = builder.quantity;
-      this.rate = builder.rate;
+      this.Symbol = builder.symbol;
+      this.Quantity = builder.quantity;
+      this.Rate = builder.rate;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? quantity;
+      internal string? quantity;
 
-      private string? rate;
+      internal string? rate;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withquantity(string? quantity)
+      public Builder WithQuantity(string? quantity)
       {
         this.quantity = quantity;
         return this;
       }
 
-      public Builder Withrate(string? rate)
+      public Builder WithRate(string? rate)
       {
         this.rate = rate;
         return this;

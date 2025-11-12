@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Conversion
@@ -29,64 +29,64 @@ namespace CoinbaseSdk.Prime.Model
     /// Conversion details
     /// </summary>
     [JsonPropertyName("conversion_details")]
-    public List<ConversionDetail>? conversion_details { get; set; }
+    public List<ConversionDetail>? ConversionDetails { get; set; }
 
     [JsonPropertyName("short_collateral")]
-    public ShortCollateral? short_collateral { get; set; }
+    public ShortCollateral? ShortCollateral { get; set; }
 
     /// <summary>
     /// The UTC date time used for conversion
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
-    public string? conversion_datetime { get; set; }
+    public string? ConversionDatetime { get; set; }
 
     /// <summary>
     /// Portfolio Id
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     public Conversion() { }
 
     public Conversion(Builder builder)
     {
-      this.conversion_details = builder.conversion_details;
-      this.short_collateral = builder.short_collateral;
-      this.conversion_datetime = builder.conversion_datetime;
-      this.portfolio_id = builder.portfolio_id;
+      this.ConversionDetails = builder.conversionDetails;
+      this.ShortCollateral = builder.shortCollateral;
+      this.ConversionDatetime = builder.conversionDatetime;
+      this.PortfolioId = builder.portfolioId;
     }
 
     public class Builder
     {
-      private List<ConversionDetail>? conversion_details;
+      internal List<ConversionDetail>? conversionDetails;
 
-      private ShortCollateral? short_collateral;
+      internal ShortCollateral? shortCollateral;
 
-      private string? conversion_datetime;
+      internal string? conversionDatetime;
 
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      public Builder Withconversion_details(List<ConversionDetail>? conversion_details)
+      public Builder WithConversionDetails(List<ConversionDetail>? conversionDetails)
       {
-        this.conversion_details = conversion_details;
+        this.conversionDetails = conversionDetails;
         return this;
       }
 
-      public Builder Withshort_collateral(ShortCollateral? short_collateral)
+      public Builder WithShortCollateral(ShortCollateral? shortCollateral)
       {
-        this.short_collateral = short_collateral;
+        this.shortCollateral = shortCollateral;
         return this;
       }
 
-      public Builder Withconversion_datetime(string? conversion_datetime)
+      public Builder WithConversionDatetime(string? conversionDatetime)
       {
-        this.conversion_datetime = conversion_datetime;
+        this.conversionDatetime = conversionDatetime;
         return this;
       }
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 

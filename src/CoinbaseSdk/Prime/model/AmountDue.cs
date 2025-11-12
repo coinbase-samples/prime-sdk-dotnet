@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class AmountDue
@@ -29,52 +29,52 @@ namespace CoinbaseSdk.Prime.Model
     /// The currency this loan is due in
     /// </summary>
     [JsonPropertyName("currency")]
-    public string? currency { get; set; }
+    public string? Currency { get; set; }
 
     /// <summary>
     /// The amount due
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// The date this settlement is due, expressed in UTC
     /// </summary>
     [JsonPropertyName("due_date")]
-    public DateTime? due_date { get; set; }
+    public DateTime? DueDate { get; set; }
 
     public AmountDue() { }
 
     public AmountDue(Builder builder)
     {
-      this.currency = builder.currency;
-      this.amount = builder.amount;
-      this.due_date = builder.due_date;
+      this.Currency = builder.currency;
+      this.Amount = builder.amount;
+      this.DueDate = builder.dueDate;
     }
 
     public class Builder
     {
-      private string? currency;
+      internal string? currency;
 
-      private string? amount;
+      internal string? amount;
 
-      private DateTime? due_date;
+      internal DateTime? dueDate;
 
-      public Builder Withcurrency(string? currency)
+      public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withdue_date(DateTime? due_date)
+      public Builder WithDueDate(DateTime? dueDate)
       {
-        this.due_date = due_date;
+        this.dueDate = dueDate;
         return this;
       }
 

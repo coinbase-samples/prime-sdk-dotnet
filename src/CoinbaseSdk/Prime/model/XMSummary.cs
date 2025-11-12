@@ -18,156 +18,156 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
-  public class XMSummary
+  public class XmSummary
   {
     /// <summary>
-    /// Cross Margin Margin Requirement (XMMR) notional
+    /// Cross Margin Margin Requirement (XmMR) notional
     /// </summary>
     [JsonPropertyName("margin_requirement")]
-    public string? margin_requirement { get; set; }
+    public string? MarginRequirement { get; set; }
 
     /// <summary>
     /// Equity notional
     /// </summary>
     [JsonPropertyName("account_equity")]
-    public string? account_equity { get; set; }
+    public string? AccountEquity { get; set; }
 
     /// <summary>
-    /// Equity - XMMR (margin excess is &gt; 0)
+    /// Equity - XmMR (margin excess is &gt; 0)
     /// </summary>
     [JsonPropertyName("margin_excess_shortfall")]
-    public string? margin_excess_shortfall { get; set; }
+    public string? MarginExcessShortfall { get; set; }
 
     /// <summary>
-    /// Credit consumed from Cross Margin Credit Limit (XMCL)
+    /// Credit consumed from Cross Margin Credit Limit (XmCL)
     /// </summary>
     [JsonPropertyName("consumed_credit")]
-    public string? consumed_credit { get; set; }
+    public string? ConsumedCredit { get; set; }
 
     /// <summary>
-    /// XM Credit Limit (XMCL) is the maximum notional USD of total fiat and digital asset loans
+    /// XM Credit Limit (XmCL) is the maximum notional USD of total fiat and digital asset loans
     /// </summary>
     [JsonPropertyName("xm_credit_limit")]
-    public string? xm_credit_limit { get; set; }
+    public string? XmCreditLimit { get; set; }
 
     /// <summary>
-    /// XM Margin Limit (XMML) is the maximum notional USD deficit
+    /// XM Margin Limit (XmML) is the maximum notional USD deficit
     /// </summary>
     [JsonPropertyName("xm_margin_limit")]
-    public string? xm_margin_limit { get; set; }
+    public string? XmMarginLimit { get; set; }
 
     /// <summary>
     /// Equity attributed by spot
     /// </summary>
     [JsonPropertyName("spot_equity")]
-    public string? spot_equity { get; set; }
+    public string? SpotEquity { get; set; }
 
     /// <summary>
     /// Equity attributed by futures
     /// </summary>
     [JsonPropertyName("futures_equity")]
-    public string? futures_equity { get; set; }
+    public string? FuturesEquity { get; set; }
 
     [JsonPropertyName("risk_netting_info")]
-    public XMRiskNettingInfo? risk_netting_info { get; set; }
+    public XmRiskNettingInfo? RiskNettingInfo { get; set; }
 
-    public XMSummary() { }
+    public XmSummary() { }
 
-    public XMSummary(Builder builder)
+    public XmSummary(Builder builder)
     {
-      this.margin_requirement = builder.margin_requirement;
-      this.account_equity = builder.account_equity;
-      this.margin_excess_shortfall = builder.margin_excess_shortfall;
-      this.consumed_credit = builder.consumed_credit;
-      this.xm_credit_limit = builder.xm_credit_limit;
-      this.xm_margin_limit = builder.xm_margin_limit;
-      this.spot_equity = builder.spot_equity;
-      this.futures_equity = builder.futures_equity;
-      this.risk_netting_info = builder.risk_netting_info;
+      this.MarginRequirement = builder.marginRequirement;
+      this.AccountEquity = builder.accountEquity;
+      this.MarginExcessShortfall = builder.marginExcessShortfall;
+      this.ConsumedCredit = builder.consumedCredit;
+      this.XmCreditLimit = builder.xmCreditLimit;
+      this.XmMarginLimit = builder.xmMarginLimit;
+      this.SpotEquity = builder.spotEquity;
+      this.FuturesEquity = builder.futuresEquity;
+      this.RiskNettingInfo = builder.riskNettingInfo;
     }
 
     public class Builder
     {
-      private string? margin_requirement;
+      internal string? marginRequirement;
 
-      private string? account_equity;
+      internal string? accountEquity;
 
-      private string? margin_excess_shortfall;
+      internal string? marginExcessShortfall;
 
-      private string? consumed_credit;
+      internal string? consumedCredit;
 
-      private string? xm_credit_limit;
+      internal string? xmCreditLimit;
 
-      private string? xm_margin_limit;
+      internal string? xmMarginLimit;
 
-      private string? spot_equity;
+      internal string? spotEquity;
 
-      private string? futures_equity;
+      internal string? futuresEquity;
 
-      private XMRiskNettingInfo? risk_netting_info;
+      internal XmRiskNettingInfo? riskNettingInfo;
 
-      public Builder Withmargin_requirement(string? margin_requirement)
+      public Builder WithMarginRequirement(string? marginRequirement)
       {
-        this.margin_requirement = margin_requirement;
+        this.marginRequirement = marginRequirement;
         return this;
       }
 
-      public Builder Withaccount_equity(string? account_equity)
+      public Builder WithAccountEquity(string? accountEquity)
       {
-        this.account_equity = account_equity;
+        this.accountEquity = accountEquity;
         return this;
       }
 
-      public Builder Withmargin_excess_shortfall(string? margin_excess_shortfall)
+      public Builder WithMarginExcessShortfall(string? marginExcessShortfall)
       {
-        this.margin_excess_shortfall = margin_excess_shortfall;
+        this.marginExcessShortfall = marginExcessShortfall;
         return this;
       }
 
-      public Builder Withconsumed_credit(string? consumed_credit)
+      public Builder WithConsumedCredit(string? consumedCredit)
       {
-        this.consumed_credit = consumed_credit;
+        this.consumedCredit = consumedCredit;
         return this;
       }
 
-      public Builder Withxm_credit_limit(string? xm_credit_limit)
+      public Builder WithXmCreditLimit(string? xmCreditLimit)
       {
-        this.xm_credit_limit = xm_credit_limit;
+        this.xmCreditLimit = xmCreditLimit;
         return this;
       }
 
-      public Builder Withxm_margin_limit(string? xm_margin_limit)
+      public Builder WithXmMarginLimit(string? xmMarginLimit)
       {
-        this.xm_margin_limit = xm_margin_limit;
+        this.xmMarginLimit = xmMarginLimit;
         return this;
       }
 
-      public Builder Withspot_equity(string? spot_equity)
+      public Builder WithSpotEquity(string? spotEquity)
       {
-        this.spot_equity = spot_equity;
+        this.spotEquity = spotEquity;
         return this;
       }
 
-      public Builder Withfutures_equity(string? futures_equity)
+      public Builder WithFuturesEquity(string? futuresEquity)
       {
-        this.futures_equity = futures_equity;
+        this.futuresEquity = futuresEquity;
         return this;
       }
 
-      public Builder Withrisk_netting_info(XMRiskNettingInfo? risk_netting_info)
+      public Builder WithRiskNettingInfo(XmRiskNettingInfo? riskNettingInfo)
       {
-        this.risk_netting_info = risk_netting_info;
+        this.riskNettingInfo = riskNettingInfo;
         return this;
       }
 
-      public XMSummary Build()
+      public XmSummary Build()
       {
-        return new XMSummary(this);
+        return new XmSummary(this);
       }
     }
   }

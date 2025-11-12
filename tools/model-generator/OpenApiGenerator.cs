@@ -43,7 +43,7 @@ public class OpenApiGenerator
     var projectRoot = FindProjectRoot();
     var ignoreFile = Path.Combine(projectRoot, "tools", "model-generator", ".openapi-generator-ignore");
     var targetIgnoreFile = Path.Combine(rawOutputDir, ".openapi-generator-ignore");
-    
+
     if (File.Exists(ignoreFile))
     {
       File.Copy(ignoreFile, targetIgnoreFile, overwrite: true);
@@ -132,7 +132,7 @@ public class OpenApiGenerator
       "--additional-properties", "optionalAssemblyInfo=false",
       "--additional-properties", "optionalEmitDefaultValues=false",
       "--additional-properties", "hideGenerationTimestamp=true",
-      "--additional-properties", "modelPropertyNaming=original",
+      "--additional-properties", "modelPropertyNaming=PascalCase",
       "--additional-properties", "enumPropertyNaming=UPPERCASE",
       "--additional-properties", "generateApiTests=false",
       "--additional-properties", "generateModelTests=false"

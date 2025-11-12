@@ -28,7 +28,7 @@ namespace CoinbaseSdk.Prime.Futures
     /// Array of futures sweeps.
     /// </summary>
     [JsonPropertyName("sweeps")]
-    public FcmFuturesSweep[] Sweeps { get; set; } = [];
+    public FuturesSweep[] Sweeps { get; set; } = [];
 
     [JsonPropertyName("auto_sweep")]
     public bool AutoSweep { get; set; }

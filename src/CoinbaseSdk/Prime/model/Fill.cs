@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Fill
   {
@@ -29,199 +30,199 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the fill
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The order ID of the fill
     /// </summary>
     [JsonPropertyName("order_id")]
-    public string? order_id { get; set; }
+    public string? OrderId { get; set; }
 
     /// <summary>
     /// The product ID of the fill
     /// </summary>
     [JsonPropertyName("product_id")]
-    public string? product_id { get; set; }
+    public string? ProductId { get; set; }
 
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
     [JsonPropertyName("client_product_id")]
-    public string? client_product_id { get; set; }
+    public string? ClientProductId { get; set; }
 
     [JsonPropertyName("side")]
-    public OrderSide? side { get; set; }
+    public OrderSide? Side { get; set; }
 
     /// <summary>
     /// Filled size (in base asset units)
     /// </summary>
     [JsonPropertyName("filled_quantity")]
-    public string? filled_quantity { get; set; }
+    public string? FilledQuantity { get; set; }
 
     /// <summary>
     /// Filled value (in quote asset units)
     /// </summary>
     [JsonPropertyName("filled_value")]
-    public string? filled_value { get; set; }
+    public string? FilledValue { get; set; }
 
     /// <summary>
     /// The price of the fill
     /// </summary>
     [JsonPropertyName("price")]
-    public string? price { get; set; }
+    public string? Price { get; set; }
 
     /// <summary>
     /// The date and time of the fill
     /// </summary>
     [JsonPropertyName("time")]
-    public DateTime? time { get; set; }
+    public DateTime? Time { get; set; }
 
     /// <summary>
     /// The commission incurred for the fill
     /// </summary>
     [JsonPropertyName("commission")]
-    public string? commission { get; set; }
+    public string? Commission { get; set; }
 
     /// <summary>
     /// The name of the venue
     /// </summary>
     [JsonPropertyName("venue")]
-    public string? venue { get; set; }
+    public string? Venue { get; set; }
 
     /// <summary>
     /// The venue fees incurred for the fill
     /// </summary>
     [JsonPropertyName("venue_fees")]
-    public string? venue_fees { get; set; }
+    public string? VenueFees { get; set; }
 
     /// <summary>
     /// The CES commission incurred for the fill
     /// </summary>
     [JsonPropertyName("ces_commission")]
-    public string? ces_commission { get; set; }
+    public string? CesCommission { get; set; }
 
     public Fill() { }
 
     public Fill(Builder builder)
     {
-      this.id = builder.id;
-      this.order_id = builder.order_id;
-      this.product_id = builder.product_id;
-      this.client_product_id = builder.client_product_id;
-      this.side = builder.side;
-      this.filled_quantity = builder.filled_quantity;
-      this.filled_value = builder.filled_value;
-      this.price = builder.price;
-      this.time = builder.time;
-      this.commission = builder.commission;
-      this.venue = builder.venue;
-      this.venue_fees = builder.venue_fees;
-      this.ces_commission = builder.ces_commission;
+      this.Id = builder.id;
+      this.OrderId = builder.orderId;
+      this.ProductId = builder.productId;
+      this.ClientProductId = builder.clientProductId;
+      this.Side = builder.side;
+      this.FilledQuantity = builder.filledQuantity;
+      this.FilledValue = builder.filledValue;
+      this.Price = builder.price;
+      this.Time = builder.time;
+      this.Commission = builder.commission;
+      this.Venue = builder.venue;
+      this.VenueFees = builder.venueFees;
+      this.CesCommission = builder.cesCommission;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? order_id;
+      internal string? orderId;
 
-      private string? product_id;
+      internal string? productId;
 
-      private string? client_product_id;
+      internal string? clientProductId;
 
-      private OrderSide? side;
+      internal OrderSide? side;
 
-      private string? filled_quantity;
+      internal string? filledQuantity;
 
-      private string? filled_value;
+      internal string? filledValue;
 
-      private string? price;
+      internal string? price;
 
-      private DateTime? time;
+      internal DateTime? time;
 
-      private string? commission;
+      internal string? commission;
 
-      private string? venue;
+      internal string? venue;
 
-      private string? venue_fees;
+      internal string? venueFees;
 
-      private string? ces_commission;
+      internal string? cesCommission;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withorder_id(string? order_id)
+      public Builder WithOrderId(string? orderId)
       {
-        this.order_id = order_id;
+        this.orderId = orderId;
         return this;
       }
 
-      public Builder Withproduct_id(string? product_id)
+      public Builder WithProductId(string? productId)
       {
-        this.product_id = product_id;
+        this.productId = productId;
         return this;
       }
 
-      public Builder Withclient_product_id(string? client_product_id)
+      public Builder WithClientProductId(string? clientProductId)
       {
-        this.client_product_id = client_product_id;
+        this.clientProductId = clientProductId;
         return this;
       }
 
-      public Builder Withside(OrderSide? side)
+      public Builder WithSide(OrderSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder Withfilled_quantity(string? filled_quantity)
+      public Builder WithFilledQuantity(string? filledQuantity)
       {
-        this.filled_quantity = filled_quantity;
+        this.filledQuantity = filledQuantity;
         return this;
       }
 
-      public Builder Withfilled_value(string? filled_value)
+      public Builder WithFilledValue(string? filledValue)
       {
-        this.filled_value = filled_value;
+        this.filledValue = filledValue;
         return this;
       }
 
-      public Builder Withprice(string? price)
+      public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder Withtime(DateTime? time)
+      public Builder WithTime(DateTime? time)
       {
         this.time = time;
         return this;
       }
 
-      public Builder Withcommission(string? commission)
+      public Builder WithCommission(string? commission)
       {
         this.commission = commission;
         return this;
       }
 
-      public Builder Withvenue(string? venue)
+      public Builder WithVenue(string? venue)
       {
         this.venue = venue;
         return this;
       }
 
-      public Builder Withvenue_fees(string? venue_fees)
+      public Builder WithVenueFees(string? venueFees)
       {
-        this.venue_fees = venue_fees;
+        this.venueFees = venueFees;
         return this;
       }
 
-      public Builder Withces_commission(string? ces_commission)
+      public Builder WithCesCommission(string? cesCommission)
       {
-        this.ces_commission = ces_commission;
+        this.cesCommission = cesCommission;
         return this;
       }
 

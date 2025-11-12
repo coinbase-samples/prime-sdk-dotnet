@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class RiskAssessment
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// Indicates if the transaction has been flagged for compliance concerns
     /// </summary>
     [JsonPropertyName("compliance_risk_detected")]
-    public bool? compliance_risk_detected { get; set; }
+    public bool? ComplianceRiskDetected { get; set; }
 
     /// <summary>
     /// Indicates if the transaction has been flagged for security concerns
     /// </summary>
     [JsonPropertyName("security_risk_detected")]
-    public bool? security_risk_detected { get; set; }
+    public bool? SecurityRiskDetected { get; set; }
 
     public RiskAssessment() { }
 
     public RiskAssessment(Builder builder)
     {
-      this.compliance_risk_detected = builder.compliance_risk_detected;
-      this.security_risk_detected = builder.security_risk_detected;
+      this.ComplianceRiskDetected = builder.complianceRiskDetected;
+      this.SecurityRiskDetected = builder.securityRiskDetected;
     }
 
     public class Builder
     {
-      private bool? compliance_risk_detected;
+      internal bool? complianceRiskDetected;
 
-      private bool? security_risk_detected;
+      internal bool? securityRiskDetected;
 
-      public Builder Withcompliance_risk_detected(bool? compliance_risk_detected)
+      public Builder WithComplianceRiskDetected(bool? complianceRiskDetected)
       {
-        this.compliance_risk_detected = compliance_risk_detected;
+        this.complianceRiskDetected = complianceRiskDetected;
         return this;
       }
 
-      public Builder Withsecurity_risk_detected(bool? security_risk_detected)
+      public Builder WithSecurityRiskDetected(bool? securityRiskDetected)
       {
-        this.security_risk_detected = security_risk_detected;
+        this.securityRiskDetected = securityRiskDetected;
         return this;
       }
 

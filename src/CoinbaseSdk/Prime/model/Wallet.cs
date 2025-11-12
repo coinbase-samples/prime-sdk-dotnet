@@ -18,112 +18,113 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Wallet
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     [JsonPropertyName("type")]
-    public WalletType? type { get; set; }
+    public WalletType? Type { get; set; }
 
     [JsonPropertyName("created_at")]
-    public DateTime? created_at { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     [JsonPropertyName("address")]
-    public string? address { get; set; }
+    public string? Address { get; set; }
 
     [JsonPropertyName("visibility")]
-    public WalletVisibility? visibility { get; set; }
+    public WalletVisibility? Visibility { get; set; }
 
     [JsonPropertyName("network")]
-    public Network? network { get; set; }
+    public Network? Network { get; set; }
 
     public Wallet() { }
 
     public Wallet(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.symbol = builder.symbol;
-      this.type = builder.type;
-      this.created_at = builder.created_at;
-      this.address = builder.address;
-      this.visibility = builder.visibility;
-      this.network = builder.network;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.Symbol = builder.symbol;
+      this.Type = builder.type;
+      this.CreatedAt = builder.createdAt;
+      this.Address = builder.address;
+      this.Visibility = builder.visibility;
+      this.Network = builder.network;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private WalletType? type;
+      internal WalletType? type;
 
-      private DateTime? created_at;
+      internal DateTime? createdAt;
 
-      private string? address;
+      internal string? address;
 
-      private WalletVisibility? visibility;
+      internal WalletVisibility? visibility;
 
-      private Network? network;
+      internal Network? network;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withtype(WalletType? type)
+      public Builder WithType(WalletType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withcreated_at(DateTime? created_at)
+      public Builder WithCreatedAt(DateTime? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withaddress(string? address)
+      public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
 
-      public Builder Withvisibility(WalletVisibility? visibility)
+      public Builder WithVisibility(WalletVisibility? visibility)
       {
         this.visibility = visibility;
         return this;
       }
 
-      public Builder Withnetwork(Network? network)
+      public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;

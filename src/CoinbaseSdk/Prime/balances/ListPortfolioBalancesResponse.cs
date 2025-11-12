@@ -18,18 +18,19 @@ namespace CoinbaseSdk.Prime.Balances
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class ListPortfolioBalancesResponse
   {
     public Balance[] Balances { get; set; } = [];
 
-    public BalanceType Type { get; set; }
+    public PortfolioBalanceType Type { get; set; }
 
     [JsonPropertyName("trading_balances")]
-    public TotalBalance? TradingBalances { get; set; }
+    public Balance? TradingBalances { get; set; }
 
     [JsonPropertyName("vault_balances")]
-    public TotalBalance? VaultBalances { get; set; }
+    public Balance? VaultBalances { get; set; }
 
     public ListPortfolioBalancesResponse() { }
   }

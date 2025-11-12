@@ -18,54 +18,54 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class VASP
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("country_code")]
-    public string? country_code { get; set; }
+    public string? CountryCode { get; set; }
 
     [JsonPropertyName("lei_number")]
-    public string? lei_number { get; set; }
+    public string? LeiNumber { get; set; }
 
     public VASP() { }
 
     public VASP(Builder builder)
     {
-      this.id = builder.id;
-      this.country_code = builder.country_code;
-      this.lei_number = builder.lei_number;
+      this.Id = builder.id;
+      this.CountryCode = builder.countryCode;
+      this.LeiNumber = builder.leiNumber;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? country_code;
+      internal string? countryCode;
 
-      private string? lei_number;
+      internal string? leiNumber;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withcountry_code(string? country_code)
+      public Builder WithCountryCode(string? countryCode)
       {
-        this.country_code = country_code;
+        this.countryCode = countryCode;
         return this;
       }
 
-      public Builder Withlei_number(string? lei_number)
+      public Builder WithLeiNumber(string? leiNumber)
       {
-        this.lei_number = lei_number;
+        this.leiNumber = leiNumber;
         return this;
       }
 

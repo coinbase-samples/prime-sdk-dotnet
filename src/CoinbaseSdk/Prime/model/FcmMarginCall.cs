@@ -18,108 +18,109 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-  public class FCMMarginCall
+  public class FcmMarginCall
   {
     [JsonPropertyName("type")]
-    public FCMMarginCallType? type { get; set; }
+    public FcmMarginCallType? Type { get; set; }
 
     [JsonPropertyName("state")]
-    public FCMMarginCallState? state { get; set; }
+    public FcmMarginCallState? State { get; set; }
 
     /// <summary>
     /// Initial margin call amount to settle
     /// </summary>
     [JsonPropertyName("initial_amount")]
-    public string? initial_amount { get; set; }
+    public string? InitialAmount { get; set; }
 
     /// <summary>
     /// Remaining margin call amount to settle
     /// </summary>
     [JsonPropertyName("remaining_amount")]
-    public string? remaining_amount { get; set; }
+    public string? RemainingAmount { get; set; }
 
     /// <summary>
     /// Business date when the margin call was opened
     /// </summary>
     [JsonPropertyName("business_date")]
-    public DateTime? business_date { get; set; }
+    public DateTime? BusinessDate { get; set; }
 
     /// <summary>
     /// The deadline by which the margin call must be satisfied
     /// </summary>
     [JsonPropertyName("cure_deadline")]
-    public DateTime? cure_deadline { get; set; }
+    public DateTime? CureDeadline { get; set; }
 
-    public FCMMarginCall() { }
+    public FcmMarginCall() { }
 
-    public FCMMarginCall(Builder builder)
+    public FcmMarginCall(Builder builder)
     {
-      this.type = builder.type;
-      this.state = builder.state;
-      this.initial_amount = builder.initial_amount;
-      this.remaining_amount = builder.remaining_amount;
-      this.business_date = builder.business_date;
-      this.cure_deadline = builder.cure_deadline;
+      this.Type = builder.type;
+      this.State = builder.state;
+      this.InitialAmount = builder.initialAmount;
+      this.RemainingAmount = builder.remainingAmount;
+      this.BusinessDate = builder.businessDate;
+      this.CureDeadline = builder.cureDeadline;
     }
 
     public class Builder
     {
-      private FCMMarginCallType? type;
+      internal FcmMarginCallType? type;
 
-      private FCMMarginCallState? state;
+      internal FcmMarginCallState? state;
 
-      private string? initial_amount;
+      internal string? initialAmount;
 
-      private string? remaining_amount;
+      internal string? remainingAmount;
 
-      private DateTime? business_date;
+      internal DateTime? businessDate;
 
-      private DateTime? cure_deadline;
+      internal DateTime? cureDeadline;
 
-      public Builder Withtype(FCMMarginCallType? type)
+      public Builder WithType(FcmMarginCallType? type)
       {
         this.type = type;
         return this;
       }
 
-      public Builder Withstate(FCMMarginCallState? state)
+      public Builder WithState(FcmMarginCallState? state)
       {
         this.state = state;
         return this;
       }
 
-      public Builder Withinitial_amount(string? initial_amount)
+      public Builder WithInitialAmount(string? initialAmount)
       {
-        this.initial_amount = initial_amount;
+        this.initialAmount = initialAmount;
         return this;
       }
 
-      public Builder Withremaining_amount(string? remaining_amount)
+      public Builder WithRemainingAmount(string? remainingAmount)
       {
-        this.remaining_amount = remaining_amount;
+        this.remainingAmount = remainingAmount;
         return this;
       }
 
-      public Builder Withbusiness_date(DateTime? business_date)
+      public Builder WithBusinessDate(DateTime? businessDate)
       {
-        this.business_date = business_date;
+        this.businessDate = businessDate;
         return this;
       }
 
-      public Builder Withcure_deadline(DateTime? cure_deadline)
+      public Builder WithCureDeadline(DateTime? cureDeadline)
       {
-        this.cure_deadline = cure_deadline;
+        this.cureDeadline = cureDeadline;
         return this;
       }
 
-      public FCMMarginCall Build()
+      public FcmMarginCall Build()
       {
-        return new FCMMarginCall(this);
+        return new FcmMarginCall(this);
       }
     }
   }

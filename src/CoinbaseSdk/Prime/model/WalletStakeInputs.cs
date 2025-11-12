@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class WalletStakeInputs
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// Optional amount to stake (ETH only). If omitted, the wallet will stake the maximum amount available
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// Optional validator address, defaults to Coinbase validator. For SOL, must be the vote account address. Ignored for ETH.
     /// </summary>
     [JsonPropertyName("validator_address")]
-    public string? validator_address { get; set; }
+    public string? ValidatorAddress { get; set; }
 
     public WalletStakeInputs() { }
 
     public WalletStakeInputs(Builder builder)
     {
-      this.amount = builder.amount;
-      this.validator_address = builder.validator_address;
+      this.Amount = builder.amount;
+      this.ValidatorAddress = builder.validatorAddress;
     }
 
     public class Builder
     {
-      private string? amount;
+      internal string? amount;
 
-      private string? validator_address;
+      internal string? validatorAddress;
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withvalidator_address(string? validator_address)
+      public Builder WithValidatorAddress(string? validatorAddress)
       {
-        this.validator_address = validator_address;
+        this.validatorAddress = validatorAddress;
         return this;
       }
 

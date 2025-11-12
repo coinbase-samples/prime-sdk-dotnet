@@ -18,150 +18,165 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class NetworkDetails
   {
     [JsonPropertyName("network")]
-    public Network? network { get; set; }
+    public Network? Network { get; set; }
 
     /// <summary>
     /// The name of the network
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// The maximum number of decimals supported for this network
     /// </summary>
     [JsonPropertyName("max_decimals")]
-    public string? max_decimals { get; set; }
+    public string? MaxDecimals { get; set; }
 
     /// <summary>
     /// Indicates whether this network is the default network for the asset
     /// </summary>
     [JsonPropertyName("default")]
-    public bool? VarDefault { get; set; }
+    public bool? Default { get; set; }
 
     /// <summary>
     /// Indicates whether this network supports trading
     /// </summary>
     [JsonPropertyName("trading_supported")]
-    public bool? trading_supported { get; set; }
+    public bool? TradingSupported { get; set; }
 
     /// <summary>
     /// Indicates whether this network supports vault
     /// </summary>
     [JsonPropertyName("vault_supported")]
-    public bool? vault_supported { get; set; }
+    public bool? VaultSupported { get; set; }
 
     /// <summary>
     /// Indicates whether this network supports prime custody
     /// </summary>
     [JsonPropertyName("prime_custody_supported")]
-    public bool? prime_custody_supported { get; set; }
+    public bool? PrimeCustodySupported { get; set; }
 
     /// <summary>
     /// Indicates whether this network requires a destination tag
     /// </summary>
     [JsonPropertyName("destination_tag_required")]
-    public bool? destination_tag_required { get; set; }
+    public bool? DestinationTagRequired { get; set; }
 
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("network_link")]
-    public string? network_link { get; set; }
+    public string? NetworkLink { get; set; }
+
+    /// <summary>
+    /// Indicates the symbol that can be used to query other endpoints, related to transactions, wallets, and activities, to get information particularly for this asset on the network
+    /// </summary>
+    [JsonPropertyName("network_scoped_symbol")]
+    public string? NetworkScopedSymbol { get; set; }
 
     public NetworkDetails() { }
 
     public NetworkDetails(Builder builder)
     {
-      this.network = builder.network;
-      this.name = builder.name;
-      this.max_decimals = builder.max_decimals;
-      this.VarDefault = builder.VarDefault;
-      this.trading_supported = builder.trading_supported;
-      this.vault_supported = builder.vault_supported;
-      this.prime_custody_supported = builder.prime_custody_supported;
-      this.destination_tag_required = builder.destination_tag_required;
-      this.network_link = builder.network_link;
+      this.Network = builder.network;
+      this.Name = builder.name;
+      this.MaxDecimals = builder.maxDecimals;
+      this.Default = builder.varDefault;
+      this.TradingSupported = builder.tradingSupported;
+      this.VaultSupported = builder.vaultSupported;
+      this.PrimeCustodySupported = builder.primeCustodySupported;
+      this.DestinationTagRequired = builder.destinationTagRequired;
+      this.NetworkLink = builder.networkLink;
+      this.NetworkScopedSymbol = builder.networkScopedSymbol;
     }
 
     public class Builder
     {
-      private Network? network;
+      internal Network? network;
 
-      private string? name;
+      internal string? name;
 
-      private string? max_decimals;
+      internal string? maxDecimals;
 
-      private bool? VarDefault;
+      internal bool? varDefault;
 
-      private bool? trading_supported;
+      internal bool? tradingSupported;
 
-      private bool? vault_supported;
+      internal bool? vaultSupported;
 
-      private bool? prime_custody_supported;
+      internal bool? primeCustodySupported;
 
-      private bool? destination_tag_required;
+      internal bool? destinationTagRequired;
 
-      private string? network_link;
+      internal string? networkLink;
 
-      public Builder Withnetwork(Network? network)
+      internal string? networkScopedSymbol;
+
+      public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withmax_decimals(string? max_decimals)
+      public Builder WithMaxDecimals(string? maxDecimals)
       {
-        this.max_decimals = max_decimals;
+        this.maxDecimals = maxDecimals;
         return this;
       }
 
-      public Builder WithVarDefault(bool? VarDefault)
+      public Builder WithDefault(bool? varDefault)
       {
-        this.VarDefault = VarDefault;
+        this.varDefault = varDefault;
         return this;
       }
 
-      public Builder Withtrading_supported(bool? trading_supported)
+      public Builder WithTradingSupported(bool? tradingSupported)
       {
-        this.trading_supported = trading_supported;
+        this.tradingSupported = tradingSupported;
         return this;
       }
 
-      public Builder Withvault_supported(bool? vault_supported)
+      public Builder WithVaultSupported(bool? vaultSupported)
       {
-        this.vault_supported = vault_supported;
+        this.vaultSupported = vaultSupported;
         return this;
       }
 
-      public Builder Withprime_custody_supported(bool? prime_custody_supported)
+      public Builder WithPrimeCustodySupported(bool? primeCustodySupported)
       {
-        this.prime_custody_supported = prime_custody_supported;
+        this.primeCustodySupported = primeCustodySupported;
         return this;
       }
 
-      public Builder Withdestination_tag_required(bool? destination_tag_required)
+      public Builder WithDestinationTagRequired(bool? destinationTagRequired)
       {
-        this.destination_tag_required = destination_tag_required;
+        this.destinationTagRequired = destinationTagRequired;
         return this;
       }
 
-      public Builder Withnetwork_link(string? network_link)
+      public Builder WithNetworkLink(string? networkLink)
       {
-        this.network_link = network_link;
+        this.networkLink = networkLink;
+        return this;
+      }
+
+      public Builder WithNetworkScopedSymbol(string? networkScopedSymbol)
+      {
+        this.networkScopedSymbol = networkScopedSymbol;
         return this;
       }
 

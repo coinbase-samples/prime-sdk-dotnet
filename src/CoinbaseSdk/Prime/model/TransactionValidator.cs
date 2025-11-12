@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class TransactionValidator
   {
@@ -29,49 +30,49 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID of the transaction which staked to this validator
     /// </summary>
     [JsonPropertyName("transaction_id")]
-    public string transaction_id { get; set; }
+    public string TransactionId { get; set; } = default!;
 
     /// <summary>
     /// The address (public key) of the validator
     /// </summary>
     [JsonPropertyName("validator_address")]
-    public string validator_address { get; set; }
+    public string ValidatorAddress { get; set; } = default!;
 
     [JsonPropertyName("validator_status")]
-    public ValidatorStatus validator_status { get; set; }
+    public ValidatorStatus ValidatorStatus { get; set; } = default!;
 
     public TransactionValidator() { }
 
     public TransactionValidator(Builder builder)
     {
-      this.transaction_id = builder.transaction_id;
-      this.validator_address = builder.validator_address;
-      this.validator_status = builder.validator_status;
+      this.TransactionId = builder.transactionId;
+      this.ValidatorAddress = builder.validatorAddress;
+      this.ValidatorStatus = builder.validatorStatus;
     }
 
     public class Builder
     {
-      private string transaction_id;
+      internal string transactionId = default!;
 
-      private string validator_address;
+      internal string validatorAddress = default!;
 
-      private ValidatorStatus validator_status;
+      internal ValidatorStatus validatorStatus = default!;
 
-      public Builder Withtransaction_id(string transaction_id)
+      public Builder WithTransactionId(string transactionId)
       {
-        this.transaction_id = transaction_id;
+        this.transactionId = transactionId;
         return this;
       }
 
-      public Builder Withvalidator_address(string validator_address)
+      public Builder WithValidatorAddress(string validatorAddress)
       {
-        this.validator_address = validator_address;
+        this.validatorAddress = validatorAddress;
         return this;
       }
 
-      public Builder Withvalidator_status(ValidatorStatus validator_status)
+      public Builder WithValidatorStatus(ValidatorStatus validatorStatus)
       {
-        this.validator_status = validator_status;
+        this.validatorStatus = validatorStatus;
         return this;
       }
 

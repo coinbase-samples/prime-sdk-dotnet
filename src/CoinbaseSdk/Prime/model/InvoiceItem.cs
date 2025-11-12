@@ -18,112 +18,113 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class InvoiceItem
   {
     [JsonPropertyName("description")]
-    public string? description { get; set; }
+    public string? Description { get; set; }
 
     [JsonPropertyName("currency_symbol")]
-    public string? currency_symbol { get; set; }
+    public string? CurrencySymbol { get; set; }
 
     [JsonPropertyName("invoice_type")]
-    public InvoiceType? invoice_type { get; set; }
+    public InvoiceType? InvoiceType { get; set; }
 
     [JsonPropertyName("rate")]
-    public double? rate { get; set; }
+    public double? Rate { get; set; }
 
     [JsonPropertyName("quantity")]
-    public double? quantity { get; set; }
+    public double? Quantity { get; set; }
 
     [JsonPropertyName("price")]
-    public double? price { get; set; }
+    public double? Price { get; set; }
 
     [JsonPropertyName("average_auc")]
-    public double? average_auc { get; set; }
+    public double? AverageAuc { get; set; }
 
     [JsonPropertyName("total")]
-    public double? total { get; set; }
+    public double? Total { get; set; }
 
     public InvoiceItem() { }
 
     public InvoiceItem(Builder builder)
     {
-      this.description = builder.description;
-      this.currency_symbol = builder.currency_symbol;
-      this.invoice_type = builder.invoice_type;
-      this.rate = builder.rate;
-      this.quantity = builder.quantity;
-      this.price = builder.price;
-      this.average_auc = builder.average_auc;
-      this.total = builder.total;
+      this.Description = builder.description;
+      this.CurrencySymbol = builder.currencySymbol;
+      this.InvoiceType = builder.invoiceType;
+      this.Rate = builder.rate;
+      this.Quantity = builder.quantity;
+      this.Price = builder.price;
+      this.AverageAuc = builder.averageAuc;
+      this.Total = builder.total;
     }
 
     public class Builder
     {
-      private string? description;
+      internal string? description;
 
-      private string? currency_symbol;
+      internal string? currencySymbol;
 
-      private InvoiceType? invoice_type;
+      internal InvoiceType? invoiceType;
 
-      private double? rate;
+      internal double? rate;
 
-      private double? quantity;
+      internal double? quantity;
 
-      private double? price;
+      internal double? price;
 
-      private double? average_auc;
+      internal double? averageAuc;
 
-      private double? total;
+      internal double? total;
 
-      public Builder Withdescription(string? description)
+      public Builder WithDescription(string? description)
       {
         this.description = description;
         return this;
       }
 
-      public Builder Withcurrency_symbol(string? currency_symbol)
+      public Builder WithCurrencySymbol(string? currencySymbol)
       {
-        this.currency_symbol = currency_symbol;
+        this.currencySymbol = currencySymbol;
         return this;
       }
 
-      public Builder Withinvoice_type(InvoiceType? invoice_type)
+      public Builder WithInvoiceType(InvoiceType? invoiceType)
       {
-        this.invoice_type = invoice_type;
+        this.invoiceType = invoiceType;
         return this;
       }
 
-      public Builder Withrate(double? rate)
+      public Builder WithRate(double? rate)
       {
         this.rate = rate;
         return this;
       }
 
-      public Builder Withquantity(double? quantity)
+      public Builder WithQuantity(double? quantity)
       {
         this.quantity = quantity;
         return this;
       }
 
-      public Builder Withprice(double? price)
+      public Builder WithPrice(double? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder Withaverage_auc(double? average_auc)
+      public Builder WithAverageAuc(double? averageAuc)
       {
-        this.average_auc = average_auc;
+        this.averageAuc = averageAuc;
         return this;
       }
 
-      public Builder Withtotal(double? total)
+      public Builder WithTotal(double? total)
       {
         this.total = total;
         return this;

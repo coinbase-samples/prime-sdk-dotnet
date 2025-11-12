@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class MarginAddOn
   {
@@ -29,34 +30,34 @@ namespace CoinbaseSdk.Prime.Model
     /// margin add on amount
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     [JsonPropertyName("add_on_type")]
-    public MarginAddOnType? add_on_type { get; set; }
+    public MarginAddOnType? AddOnType { get; set; }
 
     public MarginAddOn() { }
 
     public MarginAddOn(Builder builder)
     {
-      this.amount = builder.amount;
-      this.add_on_type = builder.add_on_type;
+      this.Amount = builder.amount;
+      this.AddOnType = builder.addOnType;
     }
 
     public class Builder
     {
-      private string? amount;
+      internal string? amount;
 
-      private MarginAddOnType? add_on_type;
+      internal MarginAddOnType? addOnType;
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withadd_on_type(MarginAddOnType? add_on_type)
+      public Builder WithAddOnType(MarginAddOnType? addOnType)
       {
-        this.add_on_type = add_on_type;
+        this.addOnType = addOnType;
         return this;
       }
 

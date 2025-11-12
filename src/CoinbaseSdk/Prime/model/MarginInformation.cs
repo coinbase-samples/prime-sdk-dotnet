@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MarginInformation
@@ -29,34 +29,34 @@ namespace CoinbaseSdk.Prime.Model
     /// The current margin call records
     /// </summary>
     [JsonPropertyName("margin_call_records")]
-    public List<MarginCallRecord>? margin_call_records { get; set; }
+    public List<MarginCallRecord>? MarginCallRecords { get; set; }
 
     [JsonPropertyName("margin_summary")]
-    public MarginSummary? margin_summary { get; set; }
+    public MarginSummary? MarginSummary { get; set; }
 
     public MarginInformation() { }
 
     public MarginInformation(Builder builder)
     {
-      this.margin_call_records = builder.margin_call_records;
-      this.margin_summary = builder.margin_summary;
+      this.MarginCallRecords = builder.marginCallRecords;
+      this.MarginSummary = builder.marginSummary;
     }
 
     public class Builder
     {
-      private List<MarginCallRecord>? margin_call_records;
+      internal List<MarginCallRecord>? marginCallRecords;
 
-      private MarginSummary? margin_summary;
+      internal MarginSummary? marginSummary;
 
-      public Builder Withmargin_call_records(List<MarginCallRecord>? margin_call_records)
+      public Builder WithMarginCallRecords(List<MarginCallRecord>? marginCallRecords)
       {
-        this.margin_call_records = margin_call_records;
+        this.marginCallRecords = marginCallRecords;
         return this;
       }
 
-      public Builder Withmargin_summary(MarginSummary? margin_summary)
+      public Builder WithMarginSummary(MarginSummary? marginSummary)
       {
-        this.margin_summary = margin_summary;
+        this.marginSummary = marginSummary;
         return this;
       }
 

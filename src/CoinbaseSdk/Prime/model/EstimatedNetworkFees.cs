@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class EstimatedNetworkFees
@@ -29,37 +29,37 @@ namespace CoinbaseSdk.Prime.Model
     /// Estimated lower bound for networks fees (in whole units)
     /// </summary>
     [JsonPropertyName("lower_bound")]
-    public string? lower_bound { get; set; }
+    public string? LowerBound { get; set; }
 
     /// <summary>
     /// Estimated upper bound for network fees (in whole units)
     /// </summary>
     [JsonPropertyName("upper_bound")]
-    public string? upper_bound { get; set; }
+    public string? UpperBound { get; set; }
 
     public EstimatedNetworkFees() { }
 
     public EstimatedNetworkFees(Builder builder)
     {
-      this.lower_bound = builder.lower_bound;
-      this.upper_bound = builder.upper_bound;
+      this.LowerBound = builder.lowerBound;
+      this.UpperBound = builder.upperBound;
     }
 
     public class Builder
     {
-      private string? lower_bound;
+      internal string? lowerBound;
 
-      private string? upper_bound;
+      internal string? upperBound;
 
-      public Builder Withlower_bound(string? lower_bound)
+      public Builder WithLowerBound(string? lowerBound)
       {
-        this.lower_bound = lower_bound;
+        this.lowerBound = lowerBound;
         return this;
       }
 
-      public Builder Withupper_bound(string? upper_bound)
+      public Builder WithUpperBound(string? upperBound)
       {
-        this.upper_bound = upper_bound;
+        this.upperBound = upperBound;
         return this;
       }
 

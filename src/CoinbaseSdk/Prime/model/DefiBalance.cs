@@ -18,54 +18,54 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class DefiBalance
   {
     [JsonPropertyName("network")]
-    public string? network { get; set; }
+    public string? Network { get; set; }
 
     [JsonPropertyName("protocol")]
-    public string? protocol { get; set; }
+    public string? Protocol { get; set; }
 
     [JsonPropertyName("net_usd_value")]
-    public string? net_usd_value { get; set; }
+    public string? NetUsdValue { get; set; }
 
     public DefiBalance() { }
 
     public DefiBalance(Builder builder)
     {
-      this.network = builder.network;
-      this.protocol = builder.protocol;
-      this.net_usd_value = builder.net_usd_value;
+      this.Network = builder.network;
+      this.Protocol = builder.protocol;
+      this.NetUsdValue = builder.netUsdValue;
     }
 
     public class Builder
     {
-      private string? network;
+      internal string? network;
 
-      private string? protocol;
+      internal string? protocol;
 
-      private string? net_usd_value;
+      internal string? netUsdValue;
 
-      public Builder Withnetwork(string? network)
+      public Builder WithNetwork(string? network)
       {
         this.network = network;
         return this;
       }
 
-      public Builder Withprotocol(string? protocol)
+      public Builder WithProtocol(string? protocol)
       {
         this.protocol = protocol;
         return this;
       }
 
-      public Builder Withnet_usd_value(string? net_usd_value)
+      public Builder WithNetUsdValue(string? netUsdValue)
       {
-        this.net_usd_value = net_usd_value;
+        this.netUsdValue = netUsdValue;
         return this;
       }
 

@@ -18,103 +18,103 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Candle
   {
     [JsonPropertyName("timestamp")]
-    public DateTime? timestamp { get; set; }
+    public DateTime? Timestamp { get; set; }
 
     /// <summary>
     /// Opening price for the period
     /// </summary>
     [JsonPropertyName("open")]
-    public string? open { get; set; }
+    public string? Open { get; set; }
 
     /// <summary>
     /// Highest price during the period
     /// </summary>
     [JsonPropertyName("high")]
-    public string? high { get; set; }
+    public string? High { get; set; }
 
     /// <summary>
     /// Lowest price during the period
     /// </summary>
     [JsonPropertyName("low")]
-    public string? low { get; set; }
+    public string? Low { get; set; }
 
     /// <summary>
     /// Closing price for the period
     /// </summary>
     [JsonPropertyName("close")]
-    public string? close { get; set; }
+    public string? Close { get; set; }
 
     /// <summary>
     /// Volume traded during the period
     /// </summary>
     [JsonPropertyName("volume")]
-    public string? volume { get; set; }
+    public string? Volume { get; set; }
 
     public Candle() { }
 
     public Candle(Builder builder)
     {
-      this.timestamp = builder.timestamp;
-      this.open = builder.open;
-      this.high = builder.high;
-      this.low = builder.low;
-      this.close = builder.close;
-      this.volume = builder.volume;
+      this.Timestamp = builder.timestamp;
+      this.Open = builder.open;
+      this.High = builder.high;
+      this.Low = builder.low;
+      this.Close = builder.close;
+      this.Volume = builder.volume;
     }
 
     public class Builder
     {
-      private DateTime? timestamp;
+      internal DateTime? timestamp;
 
-      private string? open;
+      internal string? open;
 
-      private string? high;
+      internal string? high;
 
-      private string? low;
+      internal string? low;
 
-      private string? close;
+      internal string? close;
 
-      private string? volume;
+      internal string? volume;
 
-      public Builder Withtimestamp(DateTime? timestamp)
+      public Builder WithTimestamp(DateTime? timestamp)
       {
         this.timestamp = timestamp;
         return this;
       }
 
-      public Builder Withopen(string? open)
+      public Builder WithOpen(string? open)
       {
         this.open = open;
         return this;
       }
 
-      public Builder Withhigh(string? high)
+      public Builder WithHigh(string? high)
       {
         this.high = high;
         return this;
       }
 
-      public Builder Withlow(string? low)
+      public Builder WithLow(string? low)
       {
         this.low = low;
         return this;
       }
 
-      public Builder Withclose(string? close)
+      public Builder WithClose(string? close)
       {
         this.close = close;
         return this;
       }
 
-      public Builder Withvolume(string? volume)
+      public Builder WithVolume(string? volume)
       {
         this.volume = volume;
         return this;

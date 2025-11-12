@@ -18,126 +18,126 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class OrderEdit
   {
     [JsonPropertyName("price")]
-    public string? price { get; set; }
+    public string? Price { get; set; }
 
     [JsonPropertyName("base_quantity")]
-    public string? base_quantity { get; set; }
+    public string? BaseQuantity { get; set; }
 
     [JsonPropertyName("quote_value")]
-    public string? quote_value { get; set; }
+    public string? QuoteValue { get; set; }
 
     [JsonPropertyName("display_base_size")]
-    public string? display_base_size { get; set; }
+    public string? DisplayBaseSize { get; set; }
 
     [JsonPropertyName("display_quote_size")]
-    public string? display_quote_size { get; set; }
+    public string? DisplayQuoteSize { get; set; }
 
     [JsonPropertyName("stop_price")]
-    public string? stop_price { get; set; }
+    public string? StopPrice { get; set; }
 
     [JsonPropertyName("expiry_time")]
-    public DateTime? expiry_time { get; set; }
+    public DateTime? ExpiryTime { get; set; }
 
     [JsonPropertyName("accept_time")]
-    public DateTime? accept_time { get; set; }
+    public DateTime? AcceptTime { get; set; }
 
     [JsonPropertyName("client_order_id")]
-    public string? client_order_id { get; set; }
+    public string? ClientOrderId { get; set; }
 
     public OrderEdit() { }
 
     public OrderEdit(Builder builder)
     {
-      this.price = builder.price;
-      this.base_quantity = builder.base_quantity;
-      this.quote_value = builder.quote_value;
-      this.display_base_size = builder.display_base_size;
-      this.display_quote_size = builder.display_quote_size;
-      this.stop_price = builder.stop_price;
-      this.expiry_time = builder.expiry_time;
-      this.accept_time = builder.accept_time;
-      this.client_order_id = builder.client_order_id;
+      this.Price = builder.price;
+      this.BaseQuantity = builder.baseQuantity;
+      this.QuoteValue = builder.quoteValue;
+      this.DisplayBaseSize = builder.displayBaseSize;
+      this.DisplayQuoteSize = builder.displayQuoteSize;
+      this.StopPrice = builder.stopPrice;
+      this.ExpiryTime = builder.expiryTime;
+      this.AcceptTime = builder.acceptTime;
+      this.ClientOrderId = builder.clientOrderId;
     }
 
     public class Builder
     {
-      private string? price;
+      internal string? price;
 
-      private string? base_quantity;
+      internal string? baseQuantity;
 
-      private string? quote_value;
+      internal string? quoteValue;
 
-      private string? display_base_size;
+      internal string? displayBaseSize;
 
-      private string? display_quote_size;
+      internal string? displayQuoteSize;
 
-      private string? stop_price;
+      internal string? stopPrice;
 
-      private DateTime? expiry_time;
+      internal DateTime? expiryTime;
 
-      private DateTime? accept_time;
+      internal DateTime? acceptTime;
 
-      private string? client_order_id;
+      internal string? clientOrderId;
 
-      public Builder Withprice(string? price)
+      public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
 
-      public Builder Withbase_quantity(string? base_quantity)
+      public Builder WithBaseQuantity(string? baseQuantity)
       {
-        this.base_quantity = base_quantity;
+        this.baseQuantity = baseQuantity;
         return this;
       }
 
-      public Builder Withquote_value(string? quote_value)
+      public Builder WithQuoteValue(string? quoteValue)
       {
-        this.quote_value = quote_value;
+        this.quoteValue = quoteValue;
         return this;
       }
 
-      public Builder Withdisplay_base_size(string? display_base_size)
+      public Builder WithDisplayBaseSize(string? displayBaseSize)
       {
-        this.display_base_size = display_base_size;
+        this.displayBaseSize = displayBaseSize;
         return this;
       }
 
-      public Builder Withdisplay_quote_size(string? display_quote_size)
+      public Builder WithDisplayQuoteSize(string? displayQuoteSize)
       {
-        this.display_quote_size = display_quote_size;
+        this.displayQuoteSize = displayQuoteSize;
         return this;
       }
 
-      public Builder Withstop_price(string? stop_price)
+      public Builder WithStopPrice(string? stopPrice)
       {
-        this.stop_price = stop_price;
+        this.stopPrice = stopPrice;
         return this;
       }
 
-      public Builder Withexpiry_time(DateTime? expiry_time)
+      public Builder WithExpiryTime(DateTime? expiryTime)
       {
-        this.expiry_time = expiry_time;
+        this.expiryTime = expiryTime;
         return this;
       }
 
-      public Builder Withaccept_time(DateTime? accept_time)
+      public Builder WithAcceptTime(DateTime? acceptTime)
       {
-        this.accept_time = accept_time;
+        this.acceptTime = acceptTime;
         return this;
       }
 
-      public Builder Withclient_order_id(string? client_order_id)
+      public Builder WithClientOrderId(string? clientOrderId)
       {
-        this.client_order_id = client_order_id;
+        this.clientOrderId = clientOrderId;
         return this;
       }
 

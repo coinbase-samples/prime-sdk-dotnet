@@ -18,40 +18,40 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class AggregatedFiatBalance
   {
     [JsonPropertyName("total")]
-    public string? total { get; set; }
+    public string? Total { get; set; }
 
     [JsonPropertyName("holds")]
-    public string? holds { get; set; }
+    public string? Holds { get; set; }
 
     public AggregatedFiatBalance() { }
 
     public AggregatedFiatBalance(Builder builder)
     {
-      this.total = builder.total;
-      this.holds = builder.holds;
+      this.Total = builder.total;
+      this.Holds = builder.holds;
     }
 
     public class Builder
     {
-      private string? total;
+      internal string? total;
 
-      private string? holds;
+      internal string? holds;
 
-      public Builder Withtotal(string? total)
+      public Builder WithTotal(string? total)
       {
         this.total = total;
         return this;
       }
 
-      public Builder Withholds(string? holds)
+      public Builder WithHolds(string? holds)
       {
         this.holds = holds;
         return this;

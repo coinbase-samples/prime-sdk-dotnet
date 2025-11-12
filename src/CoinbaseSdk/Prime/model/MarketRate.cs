@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class MarketRate
@@ -29,35 +29,35 @@ namespace CoinbaseSdk.Prime.Model
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The current market rate of currency
     /// </summary>
     [JsonPropertyName("rate")]
-    public string? rate { get; set; }
+    public string? Rate { get; set; }
 
     public MarketRate() { }
 
     public MarketRate(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.rate = builder.rate;
+      this.Symbol = builder.symbol;
+      this.Rate = builder.rate;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? rate;
+      internal string? rate;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withrate(string? rate)
+      public Builder WithRate(string? rate)
       {
         this.rate = rate;
         return this;

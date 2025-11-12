@@ -43,7 +43,7 @@ public static class GetPortfolio
       var portfoliosService = new PortfoliosService(client);
 
       // Build request
-      var request = new GetPortfolioRequest.GetPortfolioRequestBuilder().WithPortfolioId(portfolioId).Build();
+      var request = new GetPortfolioRequest(portfolioId);
 
       // Execute request
       var response = portfoliosService.GetPortfolio(request);

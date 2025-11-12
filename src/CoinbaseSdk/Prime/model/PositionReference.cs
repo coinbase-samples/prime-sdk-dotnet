@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class PositionReference
   {
@@ -29,32 +30,32 @@ namespace CoinbaseSdk.Prime.Model
     /// Reference ID
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("type")]
-    public PositionReferenceType? type { get; set; }
+    public PositionReferenceType? Type { get; set; }
 
     public PositionReference() { }
 
     public PositionReference(Builder builder)
     {
-      this.id = builder.id;
-      this.type = builder.type;
+      this.Id = builder.id;
+      this.Type = builder.type;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private PositionReferenceType? type;
+      internal PositionReferenceType? type;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withtype(PositionReferenceType? type)
+      public Builder WithType(PositionReferenceType? type)
       {
         this.type = type;
         return this;

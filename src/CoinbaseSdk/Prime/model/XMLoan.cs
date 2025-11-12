@@ -18,141 +18,142 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-  public class XMLoan
+  public class XmLoan
   {
     /// <summary>
     /// Financing loan UUID
     /// </summary>
     [JsonPropertyName("loan_id")]
-    public string? loan_id { get; set; }
+    public string? LoanId { get; set; }
 
     [JsonPropertyName("loan_party")]
-    public XMParty? loan_party { get; set; }
+    public XmParty? LoanParty { get; set; }
 
     /// <summary>
     /// Loan principal currency
     /// </summary>
     [JsonPropertyName("principal_currency")]
-    public string? principal_currency { get; set; }
+    public string? PrincipalCurrency { get; set; }
 
     /// <summary>
     /// Loan principal currency market price
     /// </summary>
     [JsonPropertyName("principal_currency_market_price")]
-    public string? principal_currency_market_price { get; set; }
+    public string? PrincipalCurrencyMarketPrice { get; set; }
 
     /// <summary>
     /// Principal amount (nominal) as of loan initiation
     /// </summary>
     [JsonPropertyName("initial_principal_amount")]
-    public string? initial_principal_amount { get; set; }
+    public string? InitialPrincipalAmount { get; set; }
 
     /// <summary>
     /// Current outstanding amount (nominal)
     /// </summary>
     [JsonPropertyName("outstanding_principal_amount")]
-    public string? outstanding_principal_amount { get; set; }
+    public string? OutstandingPrincipalAmount { get; set; }
 
     /// <summary>
     /// Timestamp when the loan was created / initiated
     /// </summary>
     [JsonPropertyName("created_at")]
-    public DateTime? created_at { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     /// <summary>
     /// Timestamp when the loan was last updated
     /// </summary>
     [JsonPropertyName("updated_at")]
-    public DateTime? updated_at { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
-    public XMLoan() { }
+    public XmLoan() { }
 
-    public XMLoan(Builder builder)
+    public XmLoan(Builder builder)
     {
-      this.loan_id = builder.loan_id;
-      this.loan_party = builder.loan_party;
-      this.principal_currency = builder.principal_currency;
-      this.principal_currency_market_price = builder.principal_currency_market_price;
-      this.initial_principal_amount = builder.initial_principal_amount;
-      this.outstanding_principal_amount = builder.outstanding_principal_amount;
-      this.created_at = builder.created_at;
-      this.updated_at = builder.updated_at;
+      this.LoanId = builder.loanId;
+      this.LoanParty = builder.loanParty;
+      this.PrincipalCurrency = builder.principalCurrency;
+      this.PrincipalCurrencyMarketPrice = builder.principalCurrencyMarketPrice;
+      this.InitialPrincipalAmount = builder.initialPrincipalAmount;
+      this.OutstandingPrincipalAmount = builder.outstandingPrincipalAmount;
+      this.CreatedAt = builder.createdAt;
+      this.UpdatedAt = builder.updatedAt;
     }
 
     public class Builder
     {
-      private string? loan_id;
+      internal string? loanId;
 
-      private XMParty? loan_party;
+      internal XmParty? loanParty;
 
-      private string? principal_currency;
+      internal string? principalCurrency;
 
-      private string? principal_currency_market_price;
+      internal string? principalCurrencyMarketPrice;
 
-      private string? initial_principal_amount;
+      internal string? initialPrincipalAmount;
 
-      private string? outstanding_principal_amount;
+      internal string? outstandingPrincipalAmount;
 
-      private DateTime? created_at;
+      internal DateTime? createdAt;
 
-      private DateTime? updated_at;
+      internal DateTime? updatedAt;
 
-      public Builder Withloan_id(string? loan_id)
+      public Builder WithLoanId(string? loanId)
       {
-        this.loan_id = loan_id;
+        this.loanId = loanId;
         return this;
       }
 
-      public Builder Withloan_party(XMParty? loan_party)
+      public Builder WithLoanParty(XmParty? loanParty)
       {
-        this.loan_party = loan_party;
+        this.loanParty = loanParty;
         return this;
       }
 
-      public Builder Withprincipal_currency(string? principal_currency)
+      public Builder WithPrincipalCurrency(string? principalCurrency)
       {
-        this.principal_currency = principal_currency;
+        this.principalCurrency = principalCurrency;
         return this;
       }
 
-      public Builder Withprincipal_currency_market_price(string? principal_currency_market_price)
+      public Builder WithPrincipalCurrencyMarketPrice(string? principalCurrencyMarketPrice)
       {
-        this.principal_currency_market_price = principal_currency_market_price;
+        this.principalCurrencyMarketPrice = principalCurrencyMarketPrice;
         return this;
       }
 
-      public Builder Withinitial_principal_amount(string? initial_principal_amount)
+      public Builder WithInitialPrincipalAmount(string? initialPrincipalAmount)
       {
-        this.initial_principal_amount = initial_principal_amount;
+        this.initialPrincipalAmount = initialPrincipalAmount;
         return this;
       }
 
-      public Builder Withoutstanding_principal_amount(string? outstanding_principal_amount)
+      public Builder WithOutstandingPrincipalAmount(string? outstandingPrincipalAmount)
       {
-        this.outstanding_principal_amount = outstanding_principal_amount;
+        this.outstandingPrincipalAmount = outstandingPrincipalAmount;
         return this;
       }
 
-      public Builder Withcreated_at(DateTime? created_at)
+      public Builder WithCreatedAt(DateTime? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withupdated_at(DateTime? updated_at)
+      public Builder WithUpdatedAt(DateTime? updatedAt)
       {
-        this.updated_at = updated_at;
+        this.updatedAt = updatedAt;
         return this;
       }
 
-      public XMLoan Build()
+      public XmLoan Build()
       {
-        return new XMLoan(this);
+        return new XmLoan(this);
       }
     }
   }

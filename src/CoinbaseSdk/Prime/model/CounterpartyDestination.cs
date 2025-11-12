@@ -18,30 +18,30 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class CounterpartyDestination
   {
     [JsonPropertyName("counterparty_id")]
-    public string? counterparty_id { get; set; }
+    public string? CounterpartyId { get; set; }
 
     public CounterpartyDestination() { }
 
     public CounterpartyDestination(Builder builder)
     {
-      this.counterparty_id = builder.counterparty_id;
+      this.CounterpartyId = builder.counterpartyId;
     }
 
     public class Builder
     {
-      private string? counterparty_id;
+      internal string? counterpartyId;
 
-      public Builder Withcounterparty_id(string? counterparty_id)
+      public Builder WithCounterpartyId(string? counterpartyId)
       {
-        this.counterparty_id = counterparty_id;
+        this.counterpartyId = counterpartyId;
         return this;
       }
 

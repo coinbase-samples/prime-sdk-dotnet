@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class DisplayUser
@@ -29,52 +29,52 @@ namespace CoinbaseSdk.Prime.Model
     /// User UUID
     /// </summary>
     [JsonPropertyName("id")]
-    public string id { get; set; }
+    public string Id { get; set; } = default!;
 
     /// <summary>
     /// User full name
     /// </summary>
     [JsonPropertyName("name")]
-    public string name { get; set; }
+    public string Name { get; set; } = default!;
 
     /// <summary>
     /// User avatar URL
     /// </summary>
     [JsonPropertyName("avatar_url")]
-    public string avatar_url { get; set; }
+    public string AvatarUrl { get; set; } = default!;
 
     public DisplayUser() { }
 
     public DisplayUser(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.avatar_url = builder.avatar_url;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.AvatarUrl = builder.avatarUrl;
     }
 
     public class Builder
     {
-      private string id;
+      internal string id = default!;
 
-      private string name;
+      internal string name = default!;
 
-      private string avatar_url;
+      internal string avatarUrl = default!;
 
-      public Builder Withid(string id)
+      public Builder WithId(string id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string name)
+      public Builder WithName(string name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withavatar_url(string avatar_url)
+      public Builder WithAvatarUrl(string avatarUrl)
       {
-        this.avatar_url = avatar_url;
+        this.avatarUrl = avatarUrl;
         return this;
       }
 

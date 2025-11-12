@@ -18,42 +18,43 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class TravelRuleWalletDetails
   {
     [JsonPropertyName("wallet_type")]
-    public TravelRuleWalletType? wallet_type { get; set; }
+    public TravelRuleWalletType? WalletType { get; set; }
 
     [JsonPropertyName("wallet_address")]
-    public BlockchainAddress? wallet_address { get; set; }
+    public BlockchainAddress? WalletAddress { get; set; }
 
     public TravelRuleWalletDetails() { }
 
     public TravelRuleWalletDetails(Builder builder)
     {
-      this.wallet_type = builder.wallet_type;
-      this.wallet_address = builder.wallet_address;
+      this.WalletType = builder.walletType;
+      this.WalletAddress = builder.walletAddress;
     }
 
     public class Builder
     {
-      private TravelRuleWalletType? wallet_type;
+      internal TravelRuleWalletType? walletType;
 
-      private BlockchainAddress? wallet_address;
+      internal BlockchainAddress? walletAddress;
 
-      public Builder Withwallet_type(TravelRuleWalletType? wallet_type)
+      public Builder WithWalletType(TravelRuleWalletType? walletType)
       {
-        this.wallet_type = wallet_type;
+        this.walletType = walletType;
         return this;
       }
 
-      public Builder Withwallet_address(BlockchainAddress? wallet_address)
+      public Builder WithWalletAddress(BlockchainAddress? walletAddress)
       {
-        this.wallet_address = wallet_address;
+        this.walletAddress = walletAddress;
         return this;
       }
 

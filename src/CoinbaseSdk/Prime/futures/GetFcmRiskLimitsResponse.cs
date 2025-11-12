@@ -17,11 +17,11 @@
 namespace CoinbaseSdk.Prime.Futures
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
 
   public class GetFcmRiskLimitsResponse
   {
-    [JsonPropertyName("risk_limits")]
-    public FcmRiskLimit[]? RiskLimits { get; set; }
+    // TODO: Define proper structure based on API spec
+    // [JsonPropertyName("risk_limits")]
+    // public RiskLimit[]? RiskLimits { get; set; }
   }
 }

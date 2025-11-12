@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class EntityBalance
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The display symbol for the asset
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The long balance
     /// </summary>
     [JsonPropertyName("long_amount")]
-    public string? long_amount { get; set; }
+    public string? LongAmount { get; set; }
 
     /// <summary>
     /// The long balance in notional value
     /// </summary>
     [JsonPropertyName("long_notional")]
-    public string? long_notional { get; set; }
+    public string? LongNotional { get; set; }
 
     /// <summary>
     /// The short balance
     /// </summary>
     [JsonPropertyName("short_amount")]
-    public string? short_amount { get; set; }
+    public string? ShortAmount { get; set; }
 
     /// <summary>
     /// The short balance in notional value
     /// </summary>
     [JsonPropertyName("short_notional")]
-    public string? short_notional { get; set; }
+    public string? ShortNotional { get; set; }
 
     public EntityBalance() { }
 
     public EntityBalance(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.long_amount = builder.long_amount;
-      this.long_notional = builder.long_notional;
-      this.short_amount = builder.short_amount;
-      this.short_notional = builder.short_notional;
+      this.Symbol = builder.symbol;
+      this.LongAmount = builder.longAmount;
+      this.LongNotional = builder.longNotional;
+      this.ShortAmount = builder.shortAmount;
+      this.ShortNotional = builder.shortNotional;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? long_amount;
+      internal string? longAmount;
 
-      private string? long_notional;
+      internal string? longNotional;
 
-      private string? short_amount;
+      internal string? shortAmount;
 
-      private string? short_notional;
+      internal string? shortNotional;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withlong_amount(string? long_amount)
+      public Builder WithLongAmount(string? longAmount)
       {
-        this.long_amount = long_amount;
+        this.longAmount = longAmount;
         return this;
       }
 
-      public Builder Withlong_notional(string? long_notional)
+      public Builder WithLongNotional(string? longNotional)
       {
-        this.long_notional = long_notional;
+        this.longNotional = longNotional;
         return this;
       }
 
-      public Builder Withshort_amount(string? short_amount)
+      public Builder WithShortAmount(string? shortAmount)
       {
-        this.short_amount = short_amount;
+        this.shortAmount = shortAmount;
         return this;
       }
 
-      public Builder Withshort_notional(string? short_notional)
+      public Builder WithShortNotional(string? shortNotional)
       {
-        this.short_notional = short_notional;
+        this.shortNotional = shortNotional;
         return this;
       }
 

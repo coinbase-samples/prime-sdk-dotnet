@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Position
@@ -29,64 +29,64 @@ namespace CoinbaseSdk.Prime.Model
     /// Asset symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// The long position based on &#39;reference&#39; value
     /// </summary>
     [JsonPropertyName("long")]
-    public string? VarLong { get; set; }
+    public string? Long { get; set; }
 
     /// <summary>
     /// The short position based on &#39;reference&#39; value
     /// </summary>
     [JsonPropertyName("short")]
-    public string? VarShort { get; set; }
+    public string? Short { get; set; }
 
     [JsonPropertyName("position_reference")]
-    public PositionReference? position_reference { get; set; }
+    public PositionReference? PositionReference { get; set; }
 
     public Position() { }
 
     public Position(Builder builder)
     {
-      this.symbol = builder.symbol;
-      this.VarLong = builder.VarLong;
-      this.VarShort = builder.VarShort;
-      this.position_reference = builder.position_reference;
+      this.Symbol = builder.symbol;
+      this.Long = builder.varLong;
+      this.Short = builder.varShort;
+      this.PositionReference = builder.positionReference;
     }
 
     public class Builder
     {
-      private string? symbol;
+      internal string? symbol;
 
-      private string? VarLong;
+      internal string? varLong;
 
-      private string? VarShort;
+      internal string? varShort;
 
-      private PositionReference? position_reference;
+      internal PositionReference? positionReference;
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder WithVarLong(string? VarLong)
+      public Builder WithLong(string? varLong)
       {
-        this.VarLong = VarLong;
+        this.varLong = varLong;
         return this;
       }
 
-      public Builder WithVarShort(string? VarShort)
+      public Builder WithShort(string? varShort)
       {
-        this.VarShort = VarShort;
+        this.varShort = varShort;
         return this;
       }
 
-      public Builder Withposition_reference(PositionReference? position_reference)
+      public Builder WithPositionReference(PositionReference? positionReference)
       {
-        this.position_reference = position_reference;
+        this.positionReference = positionReference;
         return this;
       }
 

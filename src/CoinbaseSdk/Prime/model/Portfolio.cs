@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class Portfolio
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// The name of the portfolio
     /// </summary>
     [JsonPropertyName("name")]
-    public string? name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// The ID of the entity to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("entity_id")]
-    public string? entity_id { get; set; }
+    public string? EntityId { get; set; }
 
     /// <summary>
     /// The ID of the organization to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("organization_id")]
-    public string? organization_id { get; set; }
+    public string? OrganizationId { get; set; }
 
     /// <summary>
     /// The name of the entity to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("entity_name")]
-    public string? entity_name { get; set; }
+    public string? EntityName { get; set; }
 
     public Portfolio() { }
 
     public Portfolio(Builder builder)
     {
-      this.id = builder.id;
-      this.name = builder.name;
-      this.entity_id = builder.entity_id;
-      this.organization_id = builder.organization_id;
-      this.entity_name = builder.entity_name;
+      this.Id = builder.id;
+      this.Name = builder.name;
+      this.EntityId = builder.entityId;
+      this.OrganizationId = builder.organizationId;
+      this.EntityName = builder.entityName;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? name;
+      internal string? name;
 
-      private string? entity_id;
+      internal string? entityId;
 
-      private string? organization_id;
+      internal string? organizationId;
 
-      private string? entity_name;
+      internal string? entityName;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withname(string? name)
+      public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
 
-      public Builder Withentity_id(string? entity_id)
+      public Builder WithEntityId(string? entityId)
       {
-        this.entity_id = entity_id;
+        this.entityId = entityId;
         return this;
       }
 
-      public Builder Withorganization_id(string? organization_id)
+      public Builder WithOrganizationId(string? organizationId)
       {
-        this.organization_id = organization_id;
+        this.organizationId = organizationId;
         return this;
       }
 
-      public Builder Withentity_name(string? entity_name)
+      public Builder WithEntityName(string? entityName)
       {
-        this.entity_name = entity_name;
+        this.entityName = entityName;
         return this;
       }
 

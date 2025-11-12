@@ -18,177 +18,178 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-  public class XMMarginCall
+  public class XmMarginCall
   {
     /// <summary>
     /// Financing margin call UUID
     /// </summary>
     [JsonPropertyName("margin_call_id")]
-    public string? margin_call_id { get; set; }
+    public string? MarginCallId { get; set; }
 
     /// <summary>
     /// Margin call currency
     /// </summary>
     [JsonPropertyName("currency")]
-    public string? currency { get; set; }
+    public string? Currency { get; set; }
 
     /// <summary>
     /// Call amount (notional) as of the margin call creation
     /// </summary>
     [JsonPropertyName("initial_notional_amount")]
-    public string? initial_notional_amount { get; set; }
+    public string? InitialNotionalAmount { get; set; }
 
     /// <summary>
     /// Current outstanding call amount (notional)
     /// </summary>
     [JsonPropertyName("outstanding_notional_amount")]
-    public string? outstanding_notional_amount { get; set; }
+    public string? OutstandingNotionalAmount { get; set; }
 
     [JsonPropertyName("margin_call_type")]
-    public XMCallType? margin_call_type { get; set; }
+    public XmCallType? MarginCallType { get; set; }
 
     [JsonPropertyName("margin_call_status")]
-    public XMCallStatus? margin_call_status { get; set; }
+    public XmCallStatus? MarginCallStatus { get; set; }
 
     [JsonPropertyName("called_with_margin_level")]
-    public XMMarginLevel? called_with_margin_level { get; set; }
+    public XmMarginLevel? CalledWithMarginLevel { get; set; }
 
     [JsonPropertyName("called_with_margin_summary")]
-    public XMSummary? called_with_margin_summary { get; set; }
+    public XmSummary? CalledWithMarginSummary { get; set; }
 
     /// <summary>
     /// Timestamp when the margin call settlement is due
     /// </summary>
     [JsonPropertyName("due_at")]
-    public DateTime? due_at { get; set; }
+    public DateTime? DueAt { get; set; }
 
     /// <summary>
     /// Timestamp when the margin call was created
     /// </summary>
     [JsonPropertyName("created_at")]
-    public DateTime? created_at { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
     /// <summary>
     /// Timestamp when the margin call was last updated
     /// </summary>
     [JsonPropertyName("updated_at")]
-    public DateTime? updated_at { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
-    public XMMarginCall() { }
+    public XmMarginCall() { }
 
-    public XMMarginCall(Builder builder)
+    public XmMarginCall(Builder builder)
     {
-      this.margin_call_id = builder.margin_call_id;
-      this.currency = builder.currency;
-      this.initial_notional_amount = builder.initial_notional_amount;
-      this.outstanding_notional_amount = builder.outstanding_notional_amount;
-      this.margin_call_type = builder.margin_call_type;
-      this.margin_call_status = builder.margin_call_status;
-      this.called_with_margin_level = builder.called_with_margin_level;
-      this.called_with_margin_summary = builder.called_with_margin_summary;
-      this.due_at = builder.due_at;
-      this.created_at = builder.created_at;
-      this.updated_at = builder.updated_at;
+      this.MarginCallId = builder.marginCallId;
+      this.Currency = builder.currency;
+      this.InitialNotionalAmount = builder.initialNotionalAmount;
+      this.OutstandingNotionalAmount = builder.outstandingNotionalAmount;
+      this.MarginCallType = builder.marginCallType;
+      this.MarginCallStatus = builder.marginCallStatus;
+      this.CalledWithMarginLevel = builder.calledWithMarginLevel;
+      this.CalledWithMarginSummary = builder.calledWithMarginSummary;
+      this.DueAt = builder.dueAt;
+      this.CreatedAt = builder.createdAt;
+      this.UpdatedAt = builder.updatedAt;
     }
 
     public class Builder
     {
-      private string? margin_call_id;
+      internal string? marginCallId;
 
-      private string? currency;
+      internal string? currency;
 
-      private string? initial_notional_amount;
+      internal string? initialNotionalAmount;
 
-      private string? outstanding_notional_amount;
+      internal string? outstandingNotionalAmount;
 
-      private XMCallType? margin_call_type;
+      internal XmCallType? marginCallType;
 
-      private XMCallStatus? margin_call_status;
+      internal XmCallStatus? marginCallStatus;
 
-      private XMMarginLevel? called_with_margin_level;
+      internal XmMarginLevel? calledWithMarginLevel;
 
-      private XMSummary? called_with_margin_summary;
+      internal XmSummary? calledWithMarginSummary;
 
-      private DateTime? due_at;
+      internal DateTime? dueAt;
 
-      private DateTime? created_at;
+      internal DateTime? createdAt;
 
-      private DateTime? updated_at;
+      internal DateTime? updatedAt;
 
-      public Builder Withmargin_call_id(string? margin_call_id)
+      public Builder WithMarginCallId(string? marginCallId)
       {
-        this.margin_call_id = margin_call_id;
+        this.marginCallId = marginCallId;
         return this;
       }
 
-      public Builder Withcurrency(string? currency)
+      public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
 
-      public Builder Withinitial_notional_amount(string? initial_notional_amount)
+      public Builder WithInitialNotionalAmount(string? initialNotionalAmount)
       {
-        this.initial_notional_amount = initial_notional_amount;
+        this.initialNotionalAmount = initialNotionalAmount;
         return this;
       }
 
-      public Builder Withoutstanding_notional_amount(string? outstanding_notional_amount)
+      public Builder WithOutstandingNotionalAmount(string? outstandingNotionalAmount)
       {
-        this.outstanding_notional_amount = outstanding_notional_amount;
+        this.outstandingNotionalAmount = outstandingNotionalAmount;
         return this;
       }
 
-      public Builder Withmargin_call_type(XMCallType? margin_call_type)
+      public Builder WithMarginCallType(XmCallType? marginCallType)
       {
-        this.margin_call_type = margin_call_type;
+        this.marginCallType = marginCallType;
         return this;
       }
 
-      public Builder Withmargin_call_status(XMCallStatus? margin_call_status)
+      public Builder WithMarginCallStatus(XmCallStatus? marginCallStatus)
       {
-        this.margin_call_status = margin_call_status;
+        this.marginCallStatus = marginCallStatus;
         return this;
       }
 
-      public Builder Withcalled_with_margin_level(XMMarginLevel? called_with_margin_level)
+      public Builder WithCalledWithMarginLevel(XmMarginLevel? calledWithMarginLevel)
       {
-        this.called_with_margin_level = called_with_margin_level;
+        this.calledWithMarginLevel = calledWithMarginLevel;
         return this;
       }
 
-      public Builder Withcalled_with_margin_summary(XMSummary? called_with_margin_summary)
+      public Builder WithCalledWithMarginSummary(XmSummary? calledWithMarginSummary)
       {
-        this.called_with_margin_summary = called_with_margin_summary;
+        this.calledWithMarginSummary = calledWithMarginSummary;
         return this;
       }
 
-      public Builder Withdue_at(DateTime? due_at)
+      public Builder WithDueAt(DateTime? dueAt)
       {
-        this.due_at = due_at;
+        this.dueAt = dueAt;
         return this;
       }
 
-      public Builder Withcreated_at(DateTime? created_at)
+      public Builder WithCreatedAt(DateTime? createdAt)
       {
-        this.created_at = created_at;
+        this.createdAt = createdAt;
         return this;
       }
 
-      public Builder Withupdated_at(DateTime? updated_at)
+      public Builder WithUpdatedAt(DateTime? updatedAt)
       {
-        this.updated_at = updated_at;
+        this.updatedAt = updatedAt;
         return this;
       }
 
-      public XMMarginCall Build()
+      public XmMarginCall Build()
       {
-        return new XMMarginCall(this);
+        return new XmMarginCall(this);
       }
     }
   }

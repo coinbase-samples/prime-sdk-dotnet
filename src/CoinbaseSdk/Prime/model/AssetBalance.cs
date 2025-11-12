@@ -18,9 +18,9 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class AssetBalance
@@ -29,82 +29,82 @@ namespace CoinbaseSdk.Prime.Model
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     /// <summary>
     /// Balance amount
     /// </summary>
     [JsonPropertyName("amount")]
-    public string? amount { get; set; }
+    public string? Amount { get; set; }
 
     /// <summary>
     /// Notional balance amount
     /// </summary>
     [JsonPropertyName("notional_amount")]
-    public string? notional_amount { get; set; }
+    public string? NotionalAmount { get; set; }
 
     /// <summary>
     /// Conversion rate
     /// </summary>
     [JsonPropertyName("conversion_rate")]
-    public string? conversion_rate { get; set; }
+    public string? ConversionRate { get; set; }
 
     public AssetBalance() { }
 
     public AssetBalance(Builder builder)
     {
-      this.portfolio_id = builder.portfolio_id;
-      this.symbol = builder.symbol;
-      this.amount = builder.amount;
-      this.notional_amount = builder.notional_amount;
-      this.conversion_rate = builder.conversion_rate;
+      this.PortfolioId = builder.portfolioId;
+      this.Symbol = builder.symbol;
+      this.Amount = builder.amount;
+      this.NotionalAmount = builder.notionalAmount;
+      this.ConversionRate = builder.conversionRate;
     }
 
     public class Builder
     {
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private string? amount;
+      internal string? amount;
 
-      private string? notional_amount;
+      internal string? notionalAmount;
 
-      private string? conversion_rate;
+      internal string? conversionRate;
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withamount(string? amount)
+      public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
 
-      public Builder Withnotional_amount(string? notional_amount)
+      public Builder WithNotionalAmount(string? notionalAmount)
       {
-        this.notional_amount = notional_amount;
+        this.notionalAmount = notionalAmount;
         return this;
       }
 
-      public Builder Withconversion_rate(string? conversion_rate)
+      public Builder WithConversionRate(string? conversionRate)
       {
-        this.conversion_rate = conversion_rate;
+        this.conversionRate = conversionRate;
         return this;
       }
 

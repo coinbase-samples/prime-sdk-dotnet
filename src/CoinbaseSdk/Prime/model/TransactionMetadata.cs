@@ -18,42 +18,54 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
 
   public class TransactionMetadata
   {
     [JsonPropertyName("match_metadata")]
-    public MatchMetadata? match_metadata { get; set; }
+    public MatchMetadata? MatchMetadata { get; set; }
 
     [JsonPropertyName("onchain_transaction_metadata")]
-    public OnchainTransactionMetadata? onchain_transaction_metadata { get; set; }
+    public OnchainTransactionMetadata? OnchainTransactionMetadata { get; set; }
+
+    [JsonPropertyName("reward_metadata")]
+    public RewardMetadata? RewardMetadata { get; set; }
 
     public TransactionMetadata() { }
 
     public TransactionMetadata(Builder builder)
     {
-      this.match_metadata = builder.match_metadata;
-      this.onchain_transaction_metadata = builder.onchain_transaction_metadata;
+      this.MatchMetadata = builder.matchMetadata;
+      this.OnchainTransactionMetadata = builder.onchainTransactionMetadata;
+      this.RewardMetadata = builder.rewardMetadata;
     }
 
     public class Builder
     {
-      private MatchMetadata? match_metadata;
+      internal MatchMetadata? matchMetadata;
 
-      private OnchainTransactionMetadata? onchain_transaction_metadata;
+      internal OnchainTransactionMetadata? onchainTransactionMetadata;
 
-      public Builder Withmatch_metadata(MatchMetadata? match_metadata)
+      internal RewardMetadata? rewardMetadata;
+
+      public Builder WithMatchMetadata(MatchMetadata? matchMetadata)
       {
-        this.match_metadata = match_metadata;
+        this.matchMetadata = matchMetadata;
         return this;
       }
 
-      public Builder Withweb3_transaction_metadata(OnchainTransactionMetadata? onchain_transaction_metadata)
+      public Builder WithWeb3TransactionMetadata(OnchainTransactionMetadata? onchainTransactionMetadata)
       {
-        this.onchain_transaction_metadata = onchain_transaction_metadata;
+        this.onchainTransactionMetadata = onchainTransactionMetadata;
+        return this;
+      }
+
+      public Builder WithRewardMetadata(RewardMetadata? rewardMetadata)
+      {
+        this.rewardMetadata = rewardMetadata;
         return this;
       }
 

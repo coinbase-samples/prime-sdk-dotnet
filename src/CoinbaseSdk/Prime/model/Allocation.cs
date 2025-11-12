@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Allocation
   {
@@ -29,226 +30,226 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID that ties together an allocation and all of its legs.
     /// </summary>
     [JsonPropertyName("root_id")]
-    public string? root_id { get; set; }
+    public string? RootId { get; set; }
 
     /// <summary>
     /// The ID of the allocation if this allocation is a reversal. In this case, the root_id would be the original allocation ID.
     /// </summary>
     [JsonPropertyName("reversal_id")]
-    public string? reversal_id { get; set; }
+    public string? ReversalId { get; set; }
 
     /// <summary>
     /// Time the final leg of the root allocation was completed.
     /// </summary>
     [JsonPropertyName("allocation_completed_at")]
-    public DateTime? allocation_completed_at { get; set; }
+    public DateTime? AllocationCompletedAt { get; set; }
 
     /// <summary>
     /// The ID of the user that created the allocation.
     /// </summary>
     [JsonPropertyName("user_id")]
-    public string? user_id { get; set; }
+    public string? UserId { get; set; }
 
     /// <summary>
     /// The ID of the product of the orders allocated.
     /// </summary>
     [JsonPropertyName("product_id")]
-    public string? product_id { get; set; }
+    public string? ProductId { get; set; }
 
     [JsonPropertyName("side")]
-    public OrderSide? side { get; set; }
+    public OrderSide? Side { get; set; }
 
     /// <summary>
     /// Price the allocation was done at.
     /// </summary>
     [JsonPropertyName("avg_price")]
-    public string? avg_price { get; set; }
+    public string? AvgPrice { get; set; }
 
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("base_quantity")]
-    public string? base_quantity { get; set; }
+    public string? BaseQuantity { get; set; }
 
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("quote_value")]
-    public string? quote_value { get; set; }
+    public string? QuoteValue { get; set; }
 
     /// <summary>
     /// Fees from original trade execution allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("fees_allocated")]
-    public string? fees_allocated { get; set; }
+    public string? FeesAllocated { get; set; }
 
     [JsonPropertyName("status")]
-    public AllocationStatus? status { get; set; }
+    public AllocationStatus? Status { get; set; }
 
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("source")]
-    public string? source { get; set; }
+    public string? Source { get; set; }
 
     /// <summary>
     /// All order IDs that were aggregated to calculate the avg_price, quantity to allocate in each leg. Each order_id should tie back to the single allocation root_id.
     /// </summary>
     [JsonPropertyName("order_ids")]
-    public List<string>? order_ids { get; set; }
+    public List<string>? OrderIds { get; set; }
 
     /// <summary>
     /// Array of objects, each containing the leg ID, destination portfolio ID and amount in chosen units allocated to each portfolio: [{leg_id, portfolio_id, allocation_base, allocation_quote}, {leg_id, portfolio_id, allocation_base, allocation_quote}...]
     /// </summary>
     [JsonPropertyName("destinations")]
-    public List<DestinationAlloc>? destinations { get; set; }
+    public List<DestinationAlloc>? Destinations { get; set; }
 
     /// <summary>
     /// The netting ID of the allocation, not empty if the allocation was submitted as part of a net allocation
     /// </summary>
     [JsonPropertyName("netting_id")]
-    public string? netting_id { get; set; }
+    public string? NettingId { get; set; }
 
     public Allocation() { }
 
     public Allocation(Builder builder)
     {
-      this.root_id = builder.root_id;
-      this.reversal_id = builder.reversal_id;
-      this.allocation_completed_at = builder.allocation_completed_at;
-      this.user_id = builder.user_id;
-      this.product_id = builder.product_id;
-      this.side = builder.side;
-      this.avg_price = builder.avg_price;
-      this.base_quantity = builder.base_quantity;
-      this.quote_value = builder.quote_value;
-      this.fees_allocated = builder.fees_allocated;
-      this.status = builder.status;
-      this.source = builder.source;
-      this.order_ids = builder.order_ids;
-      this.destinations = builder.destinations;
-      this.netting_id = builder.netting_id;
+      this.RootId = builder.rootId;
+      this.ReversalId = builder.reversalId;
+      this.AllocationCompletedAt = builder.allocationCompletedAt;
+      this.UserId = builder.userId;
+      this.ProductId = builder.productId;
+      this.Side = builder.side;
+      this.AvgPrice = builder.avgPrice;
+      this.BaseQuantity = builder.baseQuantity;
+      this.QuoteValue = builder.quoteValue;
+      this.FeesAllocated = builder.feesAllocated;
+      this.Status = builder.status;
+      this.Source = builder.source;
+      this.OrderIds = builder.orderIds;
+      this.Destinations = builder.destinations;
+      this.NettingId = builder.nettingId;
     }
 
     public class Builder
     {
-      private string? root_id;
+      internal string? rootId;
 
-      private string? reversal_id;
+      internal string? reversalId;
 
-      private DateTime? allocation_completed_at;
+      internal DateTime? allocationCompletedAt;
 
-      private string? user_id;
+      internal string? userId;
 
-      private string? product_id;
+      internal string? productId;
 
-      private OrderSide? side;
+      internal OrderSide? side;
 
-      private string? avg_price;
+      internal string? avgPrice;
 
-      private string? base_quantity;
+      internal string? baseQuantity;
 
-      private string? quote_value;
+      internal string? quoteValue;
 
-      private string? fees_allocated;
+      internal string? feesAllocated;
 
-      private AllocationStatus? status;
+      internal AllocationStatus? status;
 
-      private string? source;
+      internal string? source;
 
-      private List<string>? order_ids;
+      internal List<string>? orderIds;
 
-      private List<DestinationAlloc>? destinations;
+      internal List<DestinationAlloc>? destinations;
 
-      private string? netting_id;
+      internal string? nettingId;
 
-      public Builder Withroot_id(string? root_id)
+      public Builder WithRootId(string? rootId)
       {
-        this.root_id = root_id;
+        this.rootId = rootId;
         return this;
       }
 
-      public Builder Withreversal_id(string? reversal_id)
+      public Builder WithReversalId(string? reversalId)
       {
-        this.reversal_id = reversal_id;
+        this.reversalId = reversalId;
         return this;
       }
 
-      public Builder Withallocation_completed_at(DateTime? allocation_completed_at)
+      public Builder WithAllocationCompletedAt(DateTime? allocationCompletedAt)
       {
-        this.allocation_completed_at = allocation_completed_at;
+        this.allocationCompletedAt = allocationCompletedAt;
         return this;
       }
 
-      public Builder Withuser_id(string? user_id)
+      public Builder WithUserId(string? userId)
       {
-        this.user_id = user_id;
+        this.userId = userId;
         return this;
       }
 
-      public Builder Withproduct_id(string? product_id)
+      public Builder WithProductId(string? productId)
       {
-        this.product_id = product_id;
+        this.productId = productId;
         return this;
       }
 
-      public Builder Withside(OrderSide? side)
+      public Builder WithSide(OrderSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder Withavg_price(string? avg_price)
+      public Builder WithAvgPrice(string? avgPrice)
       {
-        this.avg_price = avg_price;
+        this.avgPrice = avgPrice;
         return this;
       }
 
-      public Builder Withbase_quantity(string? base_quantity)
+      public Builder WithBaseQuantity(string? baseQuantity)
       {
-        this.base_quantity = base_quantity;
+        this.baseQuantity = baseQuantity;
         return this;
       }
 
-      public Builder Withquote_value(string? quote_value)
+      public Builder WithQuoteValue(string? quoteValue)
       {
-        this.quote_value = quote_value;
+        this.quoteValue = quoteValue;
         return this;
       }
 
-      public Builder Withfees_allocated(string? fees_allocated)
+      public Builder WithFeesAllocated(string? feesAllocated)
       {
-        this.fees_allocated = fees_allocated;
+        this.feesAllocated = feesAllocated;
         return this;
       }
 
-      public Builder Withstatus(AllocationStatus? status)
+      public Builder WithStatus(AllocationStatus? status)
       {
         this.status = status;
         return this;
       }
 
-      public Builder Withsource(string? source)
+      public Builder WithSource(string? source)
       {
         this.source = source;
         return this;
       }
 
-      public Builder Withorder_ids(List<string>? order_ids)
+      public Builder WithOrderIds(List<string>? orderIds)
       {
-        this.order_ids = order_ids;
+        this.orderIds = orderIds;
         return this;
       }
 
-      public Builder Withdestinations(List<DestinationAlloc>? destinations)
+      public Builder WithDestinations(List<DestinationAlloc>? destinations)
       {
         this.destinations = destinations;
         return this;
       }
 
-      public Builder Withnetting_id(string? netting_id)
+      public Builder WithNettingId(string? nettingId)
       {
-        this.netting_id = netting_id;
+        this.nettingId = nettingId;
         return this;
       }
 

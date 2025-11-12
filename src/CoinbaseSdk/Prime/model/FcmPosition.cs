@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class FcmPosition
   {
@@ -29,124 +30,124 @@ namespace CoinbaseSdk.Prime.Model
     /// Product ID
     /// </summary>
     [JsonPropertyName("product_id")]
-    public string? product_id { get; set; }
+    public string? ProductId { get; set; }
 
     [JsonPropertyName("side")]
-    public FcmPositionSide? side { get; set; }
+    public FcmPositionSide? Side { get; set; }
 
     /// <summary>
     /// Number of contracts
     /// </summary>
     [JsonPropertyName("number_of_contracts")]
-    public string? number_of_contracts { get; set; }
+    public string? NumberOfContracts { get; set; }
 
     /// <summary>
     /// Daily realized PNL
     /// </summary>
     [JsonPropertyName("daily_realized_pnl")]
-    public string? daily_realized_pnl { get; set; }
+    public string? DailyRealizedPnl { get; set; }
 
     /// <summary>
     /// Unrealized PNL
     /// </summary>
     [JsonPropertyName("unrealized_pnl")]
-    public string? unrealized_pnl { get; set; }
+    public string? UnrealizedPnl { get; set; }
 
     /// <summary>
     /// Current price of position
     /// </summary>
     [JsonPropertyName("current_price")]
-    public string? current_price { get; set; }
+    public string? CurrentPrice { get; set; }
 
     /// <summary>
     /// Average entry price
     /// </summary>
     [JsonPropertyName("avg_entry_price")]
-    public string? avg_entry_price { get; set; }
+    public string? AvgEntryPrice { get; set; }
 
     /// <summary>
     /// Expiration time of position
     /// </summary>
     [JsonPropertyName("expiration_time")]
-    public DateTime? expiration_time { get; set; }
+    public DateTime? ExpirationTime { get; set; }
 
     public FcmPosition() { }
 
     public FcmPosition(Builder builder)
     {
-      this.product_id = builder.product_id;
-      this.side = builder.side;
-      this.number_of_contracts = builder.number_of_contracts;
-      this.daily_realized_pnl = builder.daily_realized_pnl;
-      this.unrealized_pnl = builder.unrealized_pnl;
-      this.current_price = builder.current_price;
-      this.avg_entry_price = builder.avg_entry_price;
-      this.expiration_time = builder.expiration_time;
+      this.ProductId = builder.productId;
+      this.Side = builder.side;
+      this.NumberOfContracts = builder.numberOfContracts;
+      this.DailyRealizedPnl = builder.dailyRealizedPnl;
+      this.UnrealizedPnl = builder.unrealizedPnl;
+      this.CurrentPrice = builder.currentPrice;
+      this.AvgEntryPrice = builder.avgEntryPrice;
+      this.ExpirationTime = builder.expirationTime;
     }
 
     public class Builder
     {
-      private string? product_id;
+      internal string? productId;
 
-      private FcmPositionSide? side;
+      internal FcmPositionSide? side;
 
-      private string? number_of_contracts;
+      internal string? numberOfContracts;
 
-      private string? daily_realized_pnl;
+      internal string? dailyRealizedPnl;
 
-      private string? unrealized_pnl;
+      internal string? unrealizedPnl;
 
-      private string? current_price;
+      internal string? currentPrice;
 
-      private string? avg_entry_price;
+      internal string? avgEntryPrice;
 
-      private DateTime? expiration_time;
+      internal DateTime? expirationTime;
 
-      public Builder Withproduct_id(string? product_id)
+      public Builder WithProductId(string? productId)
       {
-        this.product_id = product_id;
+        this.productId = productId;
         return this;
       }
 
-      public Builder Withside(FcmPositionSide? side)
+      public Builder WithSide(FcmPositionSide? side)
       {
         this.side = side;
         return this;
       }
 
-      public Builder Withnumber_of_contracts(string? number_of_contracts)
+      public Builder WithNumberOfContracts(string? numberOfContracts)
       {
-        this.number_of_contracts = number_of_contracts;
+        this.numberOfContracts = numberOfContracts;
         return this;
       }
 
-      public Builder Withdaily_realized_pnl(string? daily_realized_pnl)
+      public Builder WithDailyRealizedPnl(string? dailyRealizedPnl)
       {
-        this.daily_realized_pnl = daily_realized_pnl;
+        this.dailyRealizedPnl = dailyRealizedPnl;
         return this;
       }
 
-      public Builder Withunrealized_pnl(string? unrealized_pnl)
+      public Builder WithUnrealizedPnl(string? unrealizedPnl)
       {
-        this.unrealized_pnl = unrealized_pnl;
+        this.unrealizedPnl = unrealizedPnl;
         return this;
       }
 
-      public Builder Withcurrent_price(string? current_price)
+      public Builder WithCurrentPrice(string? currentPrice)
       {
-        this.current_price = current_price;
+        this.currentPrice = currentPrice;
         return this;
       }
 
-      public Builder Withavg_entry_price(string? avg_entry_price)
+      public Builder WithAvgEntryPrice(string? avgEntryPrice)
       {
-        this.avg_entry_price = avg_entry_price;
+        this.avgEntryPrice = avgEntryPrice;
         return this;
       }
 
-      public Builder Withexpiration_time(DateTime? expiration_time)
+      public Builder WithExpirationTime(DateTime? expirationTime)
       {
-        this.expiration_time = expiration_time;
+        this.expirationTime = expirationTime;
         return this;
       }
 

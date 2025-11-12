@@ -18,90 +18,91 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class PaymentMethodSummary
   {
     [JsonPropertyName("id")]
-    public string? id { get; set; }
+    public string? Id { get; set; }
 
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     [JsonPropertyName("payment_method_type")]
-    public PaymentMethodType? payment_method_type { get; set; }
+    public PaymentMethodType? PaymentMethodType { get; set; }
 
     [JsonPropertyName("bank_name")]
-    public string? bank_name { get; set; }
+    public string? BankName { get; set; }
 
     [JsonPropertyName("account_number")]
-    public string? account_number { get; set; }
+    public string? AccountNumber { get; set; }
 
     [JsonPropertyName("bank_name_2")]
-    public string? bank_name_2 { get; set; }
+    public string? BankName2 { get; set; }
 
     public PaymentMethodSummary() { }
 
     public PaymentMethodSummary(Builder builder)
     {
-      this.id = builder.id;
-      this.symbol = builder.symbol;
-      this.payment_method_type = builder.payment_method_type;
-      this.bank_name = builder.bank_name;
-      this.account_number = builder.account_number;
-      this.bank_name_2 = builder.bank_name_2;
+      this.Id = builder.id;
+      this.Symbol = builder.symbol;
+      this.PaymentMethodType = builder.paymentMethodType;
+      this.BankName = builder.bankName;
+      this.AccountNumber = builder.accountNumber;
+      this.BankName2 = builder.bankName2;
     }
 
     public class Builder
     {
-      private string? id;
+      internal string? id;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private PaymentMethodType? payment_method_type;
+      internal PaymentMethodType? paymentMethodType;
 
-      private string? bank_name;
+      internal string? bankName;
 
-      private string? account_number;
+      internal string? accountNumber;
 
-      private string? bank_name_2;
+      internal string? bankName2;
 
-      public Builder Withid(string? id)
+      public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withpayment_method_type(PaymentMethodType? payment_method_type)
+      public Builder WithPaymentMethodType(PaymentMethodType? paymentMethodType)
       {
-        this.payment_method_type = payment_method_type;
+        this.paymentMethodType = paymentMethodType;
         return this;
       }
 
-      public Builder Withbank_name(string? bank_name)
+      public Builder WithBankName(string? bankName)
       {
-        this.bank_name = bank_name;
+        this.bankName = bankName;
         return this;
       }
 
-      public Builder Withaccount_number(string? account_number)
+      public Builder WithAccountNumber(string? accountNumber)
       {
-        this.account_number = account_number;
+        this.accountNumber = accountNumber;
         return this;
       }
 
-      public Builder Withbank_name_2(string? bank_name_2)
+      public Builder WithBankName2(string? bankName2)
       {
-        this.bank_name_2 = bank_name_2;
+        this.bankName2 = bankName2;
         return this;
       }
 

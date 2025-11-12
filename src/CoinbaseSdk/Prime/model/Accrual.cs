@@ -18,10 +18,11 @@
  *  Do not edit the class manually.
  */
 
+
 namespace CoinbaseSdk.Prime.Model
 {
-  using CoinbaseSdk.Prime.Model.Enums;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class Accrual
   {
@@ -29,253 +30,253 @@ namespace CoinbaseSdk.Prime.Model
     /// The accrual ID
     /// </summary>
     [JsonPropertyName("accrual_id")]
-    public string? accrual_id { get; set; }
+    public string? AccrualId { get; set; }
 
     /// <summary>
     /// The date of accrual in UTC
     /// </summary>
     [JsonPropertyName("date")]
-    public string? date { get; set; }
+    public string? Date { get; set; }
 
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
-    public string? portfolio_id { get; set; }
+    public string? PortfolioId { get; set; }
 
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
-    public string? symbol { get; set; }
+    public string? Symbol { get; set; }
 
     [JsonPropertyName("loan_type")]
-    public LoanType? loan_type { get; set; }
+    public LoanType? LoanType { get; set; }
 
     /// <summary>
     /// The daily or annualized interest rate for the loan, see rate_type
     /// </summary>
     [JsonPropertyName("interest_rate")]
-    public string? interest_rate { get; set; }
+    public string? InterestRate { get; set; }
 
     /// <summary>
     /// Daily accrual amount in the principal currency
     /// </summary>
     [JsonPropertyName("nominal_accrual")]
-    public string? nominal_accrual { get; set; }
+    public string? NominalAccrual { get; set; }
 
     /// <summary>
     /// Daily USD accrued interest
     /// </summary>
     [JsonPropertyName("notional_accrual")]
-    public string? notional_accrual { get; set; }
+    public string? NotionalAccrual { get; set; }
 
     /// <summary>
     /// Accrual rate used to convert from principal to USD accrual
     /// </summary>
     [JsonPropertyName("conversion_rate")]
-    public string? conversion_rate { get; set; }
+    public string? ConversionRate { get; set; }
 
     /// <summary>
     /// Outstanding principal of the loan
     /// </summary>
     [JsonPropertyName("loan_amount")]
-    public string? loan_amount { get; set; }
+    public string? LoanAmount { get; set; }
 
     [JsonPropertyName("benchmark")]
-    public Benchmark? benchmark { get; set; }
+    public Benchmark? Benchmark { get; set; }
 
     /// <summary>
     /// Daily interest rate fetched from the benchmark source
     /// </summary>
     [JsonPropertyName("benchmark_rate")]
-    public string? benchmark_rate { get; set; }
+    public string? BenchmarkRate { get; set; }
 
     /// <summary>
     /// Daily spread offset from the benchmark rate
     /// </summary>
     [JsonPropertyName("spread")]
-    public string? spread { get; set; }
+    public string? Spread { get; set; }
 
     [JsonPropertyName("rate_type")]
-    public RateType? rate_type { get; set; }
+    public RateType? RateType { get; set; }
 
     /// <summary>
     /// Outstanding principal of the loan in USD
     /// </summary>
     [JsonPropertyName("loan_amount_notional")]
-    public string? loan_amount_notional { get; set; }
+    public string? LoanAmountNotional { get; set; }
 
     /// <summary>
     /// Settled open borrow as of start-of-day in the principal currency
     /// </summary>
     [JsonPropertyName("nominal_open_borrow_sod")]
-    public string? nominal_open_borrow_sod { get; set; }
+    public string? NominalOpenBorrowSod { get; set; }
 
     /// <summary>
     /// Settled open borrow as of start-of-day in USD
     /// </summary>
     [JsonPropertyName("notional_open_borrow_sod")]
-    public string? notional_open_borrow_sod { get; set; }
+    public string? NotionalOpenBorrowSod { get; set; }
 
     public Accrual() { }
 
     public Accrual(Builder builder)
     {
-      this.accrual_id = builder.accrual_id;
-      this.date = builder.date;
-      this.portfolio_id = builder.portfolio_id;
-      this.symbol = builder.symbol;
-      this.loan_type = builder.loan_type;
-      this.interest_rate = builder.interest_rate;
-      this.nominal_accrual = builder.nominal_accrual;
-      this.notional_accrual = builder.notional_accrual;
-      this.conversion_rate = builder.conversion_rate;
-      this.loan_amount = builder.loan_amount;
-      this.benchmark = builder.benchmark;
-      this.benchmark_rate = builder.benchmark_rate;
-      this.spread = builder.spread;
-      this.rate_type = builder.rate_type;
-      this.loan_amount_notional = builder.loan_amount_notional;
-      this.nominal_open_borrow_sod = builder.nominal_open_borrow_sod;
-      this.notional_open_borrow_sod = builder.notional_open_borrow_sod;
+      this.AccrualId = builder.accrualId;
+      this.Date = builder.date;
+      this.PortfolioId = builder.portfolioId;
+      this.Symbol = builder.symbol;
+      this.LoanType = builder.loanType;
+      this.InterestRate = builder.interestRate;
+      this.NominalAccrual = builder.nominalAccrual;
+      this.NotionalAccrual = builder.notionalAccrual;
+      this.ConversionRate = builder.conversionRate;
+      this.LoanAmount = builder.loanAmount;
+      this.Benchmark = builder.benchmark;
+      this.BenchmarkRate = builder.benchmarkRate;
+      this.Spread = builder.spread;
+      this.RateType = builder.rateType;
+      this.LoanAmountNotional = builder.loanAmountNotional;
+      this.NominalOpenBorrowSod = builder.nominalOpenBorrowSod;
+      this.NotionalOpenBorrowSod = builder.notionalOpenBorrowSod;
     }
 
     public class Builder
     {
-      private string? accrual_id;
+      internal string? accrualId;
 
-      private string? date;
+      internal string? date;
 
-      private string? portfolio_id;
+      internal string? portfolioId;
 
-      private string? symbol;
+      internal string? symbol;
 
-      private LoanType? loan_type;
+      internal LoanType? loanType;
 
-      private string? interest_rate;
+      internal string? interestRate;
 
-      private string? nominal_accrual;
+      internal string? nominalAccrual;
 
-      private string? notional_accrual;
+      internal string? notionalAccrual;
 
-      private string? conversion_rate;
+      internal string? conversionRate;
 
-      private string? loan_amount;
+      internal string? loanAmount;
 
-      private Benchmark? benchmark;
+      internal Benchmark? benchmark;
 
-      private string? benchmark_rate;
+      internal string? benchmarkRate;
 
-      private string? spread;
+      internal string? spread;
 
-      private RateType? rate_type;
+      internal RateType? rateType;
 
-      private string? loan_amount_notional;
+      internal string? loanAmountNotional;
 
-      private string? nominal_open_borrow_sod;
+      internal string? nominalOpenBorrowSod;
 
-      private string? notional_open_borrow_sod;
+      internal string? notionalOpenBorrowSod;
 
-      public Builder Withaccrual_id(string? accrual_id)
+      public Builder WithAccrualId(string? accrualId)
       {
-        this.accrual_id = accrual_id;
+        this.accrualId = accrualId;
         return this;
       }
 
-      public Builder Withdate(string? date)
+      public Builder WithDate(string? date)
       {
         this.date = date;
         return this;
       }
 
-      public Builder Withportfolio_id(string? portfolio_id)
+      public Builder WithPortfolioId(string? portfolioId)
       {
-        this.portfolio_id = portfolio_id;
+        this.portfolioId = portfolioId;
         return this;
       }
 
-      public Builder Withsymbol(string? symbol)
+      public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
 
-      public Builder Withloan_type(LoanType? loan_type)
+      public Builder WithLoanType(LoanType? loanType)
       {
-        this.loan_type = loan_type;
+        this.loanType = loanType;
         return this;
       }
 
-      public Builder Withinterest_rate(string? interest_rate)
+      public Builder WithInterestRate(string? interestRate)
       {
-        this.interest_rate = interest_rate;
+        this.interestRate = interestRate;
         return this;
       }
 
-      public Builder Withnominal_accrual(string? nominal_accrual)
+      public Builder WithNominalAccrual(string? nominalAccrual)
       {
-        this.nominal_accrual = nominal_accrual;
+        this.nominalAccrual = nominalAccrual;
         return this;
       }
 
-      public Builder Withnotional_accrual(string? notional_accrual)
+      public Builder WithNotionalAccrual(string? notionalAccrual)
       {
-        this.notional_accrual = notional_accrual;
+        this.notionalAccrual = notionalAccrual;
         return this;
       }
 
-      public Builder Withconversion_rate(string? conversion_rate)
+      public Builder WithConversionRate(string? conversionRate)
       {
-        this.conversion_rate = conversion_rate;
+        this.conversionRate = conversionRate;
         return this;
       }
 
-      public Builder Withloan_amount(string? loan_amount)
+      public Builder WithLoanAmount(string? loanAmount)
       {
-        this.loan_amount = loan_amount;
+        this.loanAmount = loanAmount;
         return this;
       }
 
-      public Builder Withbenchmark(Benchmark? benchmark)
+      public Builder WithBenchmark(Benchmark? benchmark)
       {
         this.benchmark = benchmark;
         return this;
       }
 
-      public Builder Withbenchmark_rate(string? benchmark_rate)
+      public Builder WithBenchmarkRate(string? benchmarkRate)
       {
-        this.benchmark_rate = benchmark_rate;
+        this.benchmarkRate = benchmarkRate;
         return this;
       }
 
-      public Builder Withspread(string? spread)
+      public Builder WithSpread(string? spread)
       {
         this.spread = spread;
         return this;
       }
 
-      public Builder Withrate_type(RateType? rate_type)
+      public Builder WithRateType(RateType? rateType)
       {
-        this.rate_type = rate_type;
+        this.rateType = rateType;
         return this;
       }
 
-      public Builder Withloan_amount_notional(string? loan_amount_notional)
+      public Builder WithLoanAmountNotional(string? loanAmountNotional)
       {
-        this.loan_amount_notional = loan_amount_notional;
+        this.loanAmountNotional = loanAmountNotional;
         return this;
       }
 
-      public Builder Withnominal_open_borrow_sod(string? nominal_open_borrow_sod)
+      public Builder WithNominalOpenBorrowSod(string? nominalOpenBorrowSod)
       {
-        this.nominal_open_borrow_sod = nominal_open_borrow_sod;
+        this.nominalOpenBorrowSod = nominalOpenBorrowSod;
         return this;
       }
 
-      public Builder Withnotional_open_borrow_sod(string? notional_open_borrow_sod)
+      public Builder WithNotionalOpenBorrowSod(string? notionalOpenBorrowSod)
       {
-        this.notional_open_borrow_sod = notional_open_borrow_sod;
+        this.notionalOpenBorrowSod = notionalOpenBorrowSod;
         return this;
       }
 

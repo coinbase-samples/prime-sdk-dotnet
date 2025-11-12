@@ -14,6 +14,7 @@
  *  limitations under the License.
  */
 
+using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Logging;
 
@@ -69,15 +70,34 @@ public class PostProcessor
     { "coinbaseBrokerageProxyEventsMaterializedApi", "" },
     { "publicRestApi", "" },
     { "PublicRestApi", "" },
-    // Preserve all-caps acronym casing
-    { "FcmMarginCall", "FCMMarginCall" },
-    { "XmLoan", "XMLoan" },
-    { "XmMarginCall", "XMMarginCall" },
-    { "XmSummary", "XMSummary" },
     // Simplify verbose model names
     { "CreateOnchainTransactionRequestEvmParams", "EvmParams" },
     { "FcmFuturesSweepRequestAmount", "SweepAmount" },
-    { "FcmFuturesSweep", "FuturesSweep" }
+    { "FcmFuturesSweep", "FuturesSweep" },
+    // Fix type name mismatches (handwritten files and generated)
+    { "EvmParam ", "EvmParams " },
+    { "EvmParam?", "EvmParams?" },
+    { "EvmParam>", "EvmParams>" },
+    { "RPC ", "RpcConfig " },
+    { "RPC?", "RpcConfig?" },
+    { "RPC>", "RpcConfig>" },
+    { "BalanceType ", "PortfolioBalanceType " },
+    { "BalanceType>", "PortfolioBalanceType>" },
+    { "BalanceType;", "PortfolioBalanceType;" },
+    { "BalanceType{", "PortfolioBalanceType{" }
+  };
+
+  // Acronym normalization map to keep type names PascalCase (aligns with Java generator)
+  private static readonly List<(string Acronym, string Normalized)> AcronymMappings = new()
+  {
+    ("FCM", "Fcm"),
+    ("XML", "Xml"),
+    ("XM", "Xm"),
+    ("PM", "Pm"),
+    ("RFQ", "Rfq"),
+    ("NFT", "Nft"),
+    ("EVM", "Evm"),
+    ("VASP", "Vasp")
   };
 
   public PostProcessor(ILogger<PostProcessor> logger, string tempDir, string outputDir, string enumsDir)
@@ -209,25 +229,44 @@ public class PostProcessor
 
   private bool ShouldIgnore(string name)
   {
-    var ignorePatterns = new[]
+    if (name.EndsWith("Request", StringComparison.Ordinal) ||
+        name.EndsWith("Response", StringComparison.Ordinal))
     {
-      "Request", "Response", "Google", "AllOf", "OneOf", "AnyOf",
-      "RequestIsARequestTo", "AbstractOpenApiSchema"
-    };
+      return true;
+    }
 
-    return ignorePatterns.Any(pattern => name.Contains(pattern));
+    if (name.StartsWith("Google", StringComparison.Ordinal))
+    {
+      return true;
+    }
+
+    if (name.Contains("AllOf", StringComparison.Ordinal) ||
+        name.Contains("OneOf", StringComparison.Ordinal) ||
+        name.Contains("AnyOf", StringComparison.Ordinal))
+    {
+      return true;
+    }
+
+    if (name.Contains("RequestIsARequestTo", StringComparison.Ordinal) ||
+        name.Equals("AbstractOpenApiSchema", StringComparison.Ordinal))
+    {
+      return true;
+    }
+
+    return false;
   }
 
   private async Task ProcessEnumFileAsync(string filePath)
   {
     var content = await File.ReadAllTextAsync(filePath);
     var className = ExtractClassName(content);
+    var originalClassName = className;
+    var originalFileName = Path.GetFileName(filePath);
 
     // Apply content replacements to ALL files (matching Java applyContentReplacements logic)
     content = ApplyContentReplacements(content);
 
     // Strip prefixes from class name (matching Java stripCommonPrefixes logic)
-    var originalClassName = className;
     className = StripCommonPrefixes(className);
 
     if (className != originalClassName)
@@ -245,8 +284,10 @@ public class PostProcessor
     // Handle case-only filename changes
     HandleCaseVariants(_enumsDir, fileName);
 
-    // Custom templates already produce correct output - just fix package
-    content = content.Replace("namespace CoinbaseSdk.Prime.Model", "namespace CoinbaseSdk.Prime.Model.Enums");
+    // Remove stale files produced before renaming rules converged
+    RemoveStaleFile(_enumsDir, originalFileName, fileName, className, isEnum: true);
+
+    content = DeduplicateUsings(content);
 
     await File.WriteAllTextAsync(outputPath, content);
 
@@ -266,12 +307,13 @@ public class PostProcessor
   {
     var content = await File.ReadAllTextAsync(filePath);
     var className = ExtractClassName(content);
+    var originalClassName = className;
+    var originalFileName = Path.GetFileName(filePath);
 
     // Apply content replacements to ALL files (matching Java applyContentReplacements logic)
     content = ApplyContentReplacements(content);
 
     // Strip prefixes from class name (matching Java stripCommonPrefixes logic)
-    var originalClassName = className;
     className = StripCommonPrefixes(className);
 
     if (className != originalClassName)
@@ -295,14 +337,20 @@ public class PostProcessor
       className = className.Replace("Web3", "Onchain");
     }
 
+    // Fix constructor names to match final class name
+    content = FixConstructorNames(content, className);
+
     var outputPath = Path.Combine(_outputDir, fileName);
     var existsBefore = File.Exists(outputPath);
 
     // Handle case-only filename changes
     HandleCaseVariants(_outputDir, fileName);
 
-    // Custom templates already produce correct output - just fix enum imports
-    content = FixEnumImports(content);
+    // Remove stale files produced before renaming rules converged
+    RemoveStaleFile(_outputDir, originalFileName, fileName, className, isEnum: false);
+
+    content = ApplyEnumMappings(content);
+    content = DeduplicateUsings(content);
 
     await File.WriteAllTextAsync(outputPath, content);
 
@@ -338,10 +386,9 @@ public class PostProcessor
   }
 
   /// <summary>
-  /// Fixes enum imports to use the enums namespace and applies special case enum name mappings.
-  /// Handles both import statements and type references throughout the content.
+  /// Applies special case enum name mappings to match the renamed enum files.
   /// </summary>
-  private string FixEnumImports(string content)
+  private string ApplyEnumMappings(string content)
   {
     // Get list of all actual enum names from enums directory
     var actualEnumNames = new HashSet<string>();
@@ -374,17 +421,25 @@ public class PostProcessor
         _logger.LogDebug("Applied enum mapping: {Original} -> {New}", strippedName, actualEnumName);
       }
     }
-
-    // Add using statement for enums if not already present
-    if (!content.Contains("using CoinbaseSdk.Prime.Model.Enums;"))
+    var referencesEnum = actualEnumNames.Any(enumName => Regex.IsMatch(content, $@"\b{Regex.Escape(enumName)}\b"));
+    if (referencesEnum && !content.Contains("using CoinbaseSdk.Prime.Model.Enums;", StringComparison.Ordinal))
     {
-      content = Regex.Replace(
-        content,
-        @"(namespace\s+CoinbaseSdk\.Prime\.Model\s*\{?\s*\n)",
-        "$1  using CoinbaseSdk.Prime.Model.Enums;\n"
-      );
+      if (content.Contains("using System.Text.Json.Serialization;", StringComparison.Ordinal))
+      {
+        content = content.Replace(
+          "using System.Text.Json.Serialization;\n",
+          "using System.Text.Json.Serialization;\n  using CoinbaseSdk.Prime.Model.Enums;\n",
+          StringComparison.Ordinal);
+      }
+      else
+      {
+        content = Regex.Replace(
+          content,
+          @"(namespace\s+CoinbaseSdk\.Prime\.Model\s*\{?\s*\n)",
+          "$1  using CoinbaseSdk.Prime.Model.Enums;\n",
+          RegexOptions.None);
+      }
     }
-
     return content;
   }
   /// <summary>
@@ -399,7 +454,45 @@ public class PostProcessor
     {
       content = content.Replace(replacement.Key, replacement.Value);
     }
+    content = NormalizeAcronymsInContent(content);
     return content;
+  }
+
+  private string NormalizeAcronyms(string value)
+  {
+    var result = value;
+
+    foreach (var (acronym, normalized) in AcronymMappings)
+    {
+      result = Regex.Replace(result, $@"\b{Regex.Escape(acronym)}(?=[A-Z])", normalized);
+
+      if (result.EndsWith(acronym, StringComparison.Ordinal))
+      {
+        result = string.Concat(result.AsSpan(0, result.Length - acronym.Length), normalized);
+      }
+    }
+
+    return result;
+  }
+
+  private string NormalizeAcronymsInContent(string content)
+  {
+    var result = content;
+
+    foreach (var (acronym, normalized) in AcronymMappings)
+    {
+      // Replace acronyms in various contexts, but NOT in constructor names or Build() return types
+      // Match: VASP followed by PascalCase identifier (e.g., VASPBalance -> VaspBalance)
+      result = Regex.Replace(result, $@"\b{Regex.Escape(acronym)}(?=[A-Z](?!_))", normalized);
+      // Match: VASP followed by space and lowercase letter (e.g., "VASP value" -> "Vasp value")
+      result = Regex.Replace(result, $@"\b{Regex.Escape(acronym)}(?=\s+[a-z])", normalized);
+      // Match: VASP followed by delimiter, but NOT followed by ( or ) (to preserve constructors and Build())
+      result = Regex.Replace(result, $@"\b{Regex.Escape(acronym)}(?=[<>;])", normalized);
+      // Match: VASP followed by dot (for namespace/member access)
+      result = Regex.Replace(result, $@"\b{Regex.Escape(acronym)}(?=\.)", normalized);
+    }
+
+    return result;
   }
 
 
@@ -427,6 +520,97 @@ public class PostProcessor
   }
 
   /// <summary>
+  /// Fix constructor names and Build() return type to match the final class name.
+  /// This handles cases where acronym normalization changed constructor names
+  /// but the class name remained an acronym (e.g., class VASP with Vasp() constructor).
+  /// </summary>
+  private string FixConstructorNames(string content, string className)
+  {
+    // Find all potential constructor-like patterns (public Xxx( and new Xxx()
+    // and replace them with the correct class name
+
+    // Pattern 1: public ConstructorName() - match any identifier followed by (
+    // Pattern 2: public ConstructorName(Builder - match any identifier followed by (Builder
+    // Pattern 3: new ConstructorName(this) - in Builder.Build()
+    // Pattern 4: public ClassName Build() - return type in Build method
+
+    // Find incorrect constructor names by looking for patterns that might be wrong
+    foreach (var (acronym, normalized) in AcronymMappings)
+    {
+      if (className == acronym)
+      {
+        // Class name is the acronym (e.g., VASP), so constructors should use acronym
+        // Fix: public Vasp() -> public VASP()
+        content = Regex.Replace(content, $@"public {normalized}\s*\(", $"public {acronym}(");
+        // Fix: new Vasp(this) -> new VASP(this)
+        content = Regex.Replace(content, $@"new {normalized}\s*\(", $"new {acronym}(");
+        // Fix: public Vasp Build() -> public VASP Build()
+        content = Regex.Replace(content, $@"public {normalized} Build\(\)", $"public {acronym} Build()");
+      }
+      else if (className == normalized)
+      {
+        // Class name is normalized (e.g., Vasp), so constructors should use normalized form
+        // Fix: public VASP() -> public Vasp()
+        content = Regex.Replace(content, $@"public {acronym}\s*\(", $"public {normalized}(");
+        // Fix: new VASP(this) -> new Vasp(this)
+        content = Regex.Replace(content, $@"new {acronym}\s*\(", $"new {normalized}(");
+        // Fix: public VASP Build() -> public Vasp Build()
+        content = Regex.Replace(content, $@"public {acronym} Build\(\)", $"public {normalized} Build()");
+      }
+    }
+
+    return content;
+  }
+
+  private void RemoveStaleFile(string directory, string originalFileName, string newFileName, string typeName, bool isEnum)
+  {
+    if (!Directory.Exists(directory))
+    {
+      return;
+    }
+
+    if (string.IsNullOrWhiteSpace(typeName))
+    {
+      return;
+    }
+
+    // Delete stale file that matches the old generator output name
+    if (!string.Equals(originalFileName, newFileName, StringComparison.OrdinalIgnoreCase))
+    {
+      var oldPath = Path.Combine(directory, originalFileName);
+      if (File.Exists(oldPath))
+      {
+        File.Delete(oldPath);
+        _logger.LogInformation(
+          "Deleted stale {Kind} file from previous naming: {FileName}",
+          isEnum ? "enum" : "model",
+          originalFileName);
+      }
+    }
+
+    // Delete any other file in the directory that still defines this type (guards against historic duplicates)
+    foreach (var path in Directory.GetFiles(directory, "*.cs"))
+    {
+      var fileName = Path.GetFileName(path);
+      if (fileName.Equals(newFileName, StringComparison.OrdinalIgnoreCase))
+      {
+        continue;
+      }
+
+      var content = File.ReadAllText(path);
+      if (Regex.IsMatch(content, $@"public\s+(?:class|enum)\s+{Regex.Escape(typeName)}\b"))
+      {
+        File.Delete(path);
+        _logger.LogInformation(
+          "Deleted duplicate {Kind} definition for {TypeName}: {FileName}",
+          isEnum ? "enum" : "model",
+          typeName,
+          fileName);
+      }
+    }
+  }
+
+  /// <summary>
   /// Apply file path replacements to strip common prefixes from class names.
   /// Matches prime-sdk-java stripCommonPrefixes() behavior.
   /// </summary>
@@ -443,6 +627,30 @@ public class PostProcessor
       }
     }
 
-    return result;
+    return NormalizeAcronyms(result);
+  }
+
+  private string DeduplicateUsings(string content)
+  {
+    var lines = content.Split('\n');
+    var seen = new HashSet<string>(StringComparer.Ordinal);
+    var builder = new StringBuilder();
+
+    foreach (var line in lines)
+    {
+      var trimmed = line.Trim();
+      if (trimmed.StartsWith("using ", StringComparison.Ordinal) && trimmed.EndsWith(";", StringComparison.Ordinal))
+      {
+        if (!seen.Add(trimmed))
+        {
+          continue;
+        }
+      }
+
+      builder.Append(line);
+      builder.Append('\n');
+    }
+
+    return builder.ToString().TrimEnd('\n') + '\n';
   }
 }
