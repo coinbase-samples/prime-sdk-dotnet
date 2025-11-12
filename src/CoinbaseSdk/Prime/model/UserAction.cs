@@ -28,19 +28,16 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("action")]
     public Action? Action { get; set; }
-
     /// <summary>
     /// Id of the user who executed the action
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
-
     /// <summary>
     /// Time the action was taken
     /// </summary>
     [JsonPropertyName("timestamp")]
     public string? Timestamp { get; set; }
-
     public UserAction() { }
 
     public UserAction(Builder builder)
@@ -53,29 +50,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private Action? action;
-
       private string? userId;
-
       private string? timestamp;
-
       public Builder WithAction(Action? action)
       {
         this.action = action;
         return this;
       }
-
       public Builder WithUserId(string? userId)
       {
         this.userId = userId;
         return this;
       }
-
       public Builder WithTimestamp(string? timestamp)
       {
         this.timestamp = timestamp;
         return this;
       }
-
       public UserAction Build()
       {
         return new UserAction(this);

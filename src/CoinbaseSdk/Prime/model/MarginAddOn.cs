@@ -31,10 +31,8 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     [JsonPropertyName("add_on_type")]
     public MarginAddOnType? AddOnType { get; set; }
-
     public MarginAddOn() { }
 
     public MarginAddOn(Builder builder)
@@ -46,21 +44,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? amount;
-
       private MarginAddOnType? addOnType;
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithAddOnType(MarginAddOnType? addOnType)
       {
         this.addOnType = addOnType;
         return this;
       }
-
       public MarginAddOn Build()
       {
         return new MarginAddOn(this);

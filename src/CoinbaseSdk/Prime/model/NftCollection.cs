@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     public NftCollection() { }
 
     public NftCollection(Builder builder)
@@ -41,13 +40,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? name;
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public NftCollection Build()
       {
         return new NftCollection(this);

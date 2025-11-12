@@ -31,121 +31,97 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The wallet ID of the transaction
     /// </summary>
     [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
-
     /// <summary>
     /// The portfolio ID of the transaction
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     [JsonPropertyName("type")]
     public TransactionType? Type { get; set; }
-
     [JsonPropertyName("status")]
     public TransactionStatus? Status { get; set; }
-
     /// <summary>
     /// The asset symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The transaction creation time (as a UTC timestamp)
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// The transaction completion time (as a UTC timestamp)
     /// </summary>
     [JsonPropertyName("completed_at")]
     public DateTime? CompletedAt { get; set; }
-
     /// <summary>
     /// The transaction amount in whole units
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     [JsonPropertyName("transfer_from")]
     public TransferLocation? TransferFrom { get; set; }
-
     [JsonPropertyName("transfer_to")]
     public TransferLocation? TransferTo { get; set; }
-
     /// <summary>
     /// The blockchain network fees (in whole units) required in order to broadcast the transaction
     /// </summary>
     [JsonPropertyName("network_fees")]
     public string? NetworkFees { get; set; }
-
     /// <summary>
     /// The fees that the customer paid for the transaction (in whole units)
     /// </summary>
     [JsonPropertyName("fees")]
     public string? Fees { get; set; }
-
     /// <summary>
     /// The asset in which fees will be paid
     /// </summary>
     [JsonPropertyName("fee_symbol")]
     public string? FeeSymbol { get; set; }
-
     /// <summary>
     /// The cryptocurrency network transaction hashes/IDs generated upon broadcast
     /// </summary>
     [JsonPropertyName("blockchain_ids")]
     public List<string>? BlockchainIds { get; set; }
-
     /// <summary>
     /// The 8 character alphanumeric short form id for the transaction
     /// </summary>
     [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
-
     /// <summary>
     /// The destination asset symbol
     /// </summary>
     [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
-
     [JsonPropertyName("estimated_network_fees")]
     public EstimatedNetworkFees? EstimatedNetworkFees { get; set; }
-
     /// <summary>
     /// The network name specific to onchain/onchain wallet transactions
     /// </summary>
     [JsonPropertyName("network")]
     public string? Network { get; set; }
-
     /// <summary>
     /// The estimated asset changes (onchain)
     /// </summary>
     [JsonPropertyName("estimated_asset_changes")]
     public List<AssetChange>? EstimatedAssetChanges { get; set; }
-
     [JsonPropertyName("metadata")]
     public TransactionMetadata? Metadata { get; set; }
-
     /// <summary>
     /// The idempotency key associated with the transaction creation request
     /// </summary>
     [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
-
     [JsonPropertyName("onchain_details")]
     public OnchainTransactionDetails? OnchainDetails { get; set; }
-
     [JsonPropertyName("network_info")]
     public Network? NetworkInfo { get; set; }
-
     public Transaction() { }
 
     public Transaction(Builder builder)
@@ -179,197 +155,149 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? walletId;
-
       private string? portfolioId;
-
       private TransactionType? type;
-
       private TransactionStatus? status;
-
       private string? symbol;
-
       private DateTime? createdAt;
-
       private DateTime? completedAt;
-
       private string? amount;
-
       private TransferLocation? transferFrom;
-
       private TransferLocation? transferTo;
-
       private string? networkFees;
-
       private string? fees;
-
       private string? feeSymbol;
-
       private List<string>? blockchainIds;
-
       private string? transactionId;
-
       private string? destinationSymbol;
-
       private EstimatedNetworkFees? estimatedNetworkFees;
-
       private string? network;
-
       private List<AssetChange>? estimatedAssetChanges;
-
       private TransactionMetadata? metadata;
-
       private string? idempotencyKey;
-
       private OnchainTransactionDetails? onchainDetails;
-
       private Network? networkInfo;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithWalletId(string? walletId)
       {
         this.walletId = walletId;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithType(TransactionType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithStatus(TransactionStatus? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithCreatedAt(DateTime? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithCompletedAt(DateTime? completedAt)
       {
         this.completedAt = completedAt;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithTransferFrom(TransferLocation? transferFrom)
       {
         this.transferFrom = transferFrom;
         return this;
       }
-
       public Builder WithTransferTo(TransferLocation? transferTo)
       {
         this.transferTo = transferTo;
         return this;
       }
-
       public Builder WithNetworkFees(string? networkFees)
       {
         this.networkFees = networkFees;
         return this;
       }
-
       public Builder WithFees(string? fees)
       {
         this.fees = fees;
         return this;
       }
-
       public Builder WithFeeSymbol(string? feeSymbol)
       {
         this.feeSymbol = feeSymbol;
         return this;
       }
-
       public Builder WithBlockchainIds(List<string>? blockchainIds)
       {
         this.blockchainIds = blockchainIds;
         return this;
       }
-
       public Builder WithTransactionId(string? transactionId)
       {
         this.transactionId = transactionId;
         return this;
       }
-
       public Builder WithDestinationSymbol(string? destinationSymbol)
       {
         this.destinationSymbol = destinationSymbol;
         return this;
       }
-
       public Builder WithEstimatedNetworkFees(EstimatedNetworkFees? estimatedNetworkFees)
       {
         this.estimatedNetworkFees = estimatedNetworkFees;
         return this;
       }
-
       public Builder WithNetwork(string? network)
       {
         this.network = network;
         return this;
       }
-
       public Builder WithEstimatedAssetChanges(List<AssetChange>? estimatedAssetChanges)
       {
         this.estimatedAssetChanges = estimatedAssetChanges;
         return this;
       }
-
       public Builder WithMetadata(TransactionMetadata? metadata)
       {
         this.metadata = metadata;
         return this;
       }
-
       public Builder WithIdempotencyKey(string? idempotencyKey)
       {
         this.idempotencyKey = idempotencyKey;
         return this;
       }
-
       public Builder WithOnchainDetails(OnchainTransactionDetails? onchainDetails)
       {
         this.onchainDetails = onchainDetails;
         return this;
       }
-
       public Builder WithNetworkInfo(Network? networkInfo)
       {
         this.networkInfo = networkInfo;
         return this;
       }
-
       public Transaction Build()
       {
         return new Transaction(this);

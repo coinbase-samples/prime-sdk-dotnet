@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Balance amount
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// Notional balance amount
     /// </summary>
     [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
-
     /// <summary>
     /// Conversion rate
     /// </summary>
     [JsonPropertyName("conversion_rate")]
     public string? ConversionRate { get; set; }
-
     public AssetBalance() { }
 
     public AssetBalance(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? portfolioId;
-
       private string? symbol;
-
       private string? amount;
-
       private string? notionalAmount;
-
       private string? conversionRate;
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithNotionalAmount(string? notionalAmount)
       {
         this.notionalAmount = notionalAmount;
         return this;
       }
-
       public Builder WithConversionRate(string? conversionRate)
       {
         this.conversionRate = conversionRate;
         return this;
       }
-
       public AssetBalance Build()
       {
         return new AssetBalance(this);

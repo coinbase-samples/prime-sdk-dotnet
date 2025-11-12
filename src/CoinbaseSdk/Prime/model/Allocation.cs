@@ -31,85 +31,70 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("root_id")]
     public string? RootId { get; set; }
-
     /// <summary>
     /// The ID of the allocation if this allocation is a reversal. In this case, the root_id would be the original allocation ID.
     /// </summary>
     [JsonPropertyName("reversal_id")]
     public string? ReversalId { get; set; }
-
     /// <summary>
     /// Time the final leg of the root allocation was completed.
     /// </summary>
     [JsonPropertyName("allocation_completed_at")]
     public DateTime? AllocationCompletedAt { get; set; }
-
     /// <summary>
     /// The ID of the user that created the allocation.
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
-
     /// <summary>
     /// The ID of the product of the orders allocated.
     /// </summary>
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
-
     /// <summary>
     /// Price the allocation was done at.
     /// </summary>
     [JsonPropertyName("avg_price")]
     public string? AvgPrice { get; set; }
-
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-
     /// <summary>
     /// Fees from original trade execution allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("fees_allocated")]
     public string? FeesAllocated { get; set; }
-
     [JsonPropertyName("status")]
     public AllocationStatus? Status { get; set; }
-
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("source")]
     public string? Source { get; set; }
-
     /// <summary>
     /// All order IDs that were aggregated to calculate the avg_price, quantity to allocate in each leg. Each order_id should tie back to the single allocation root_id.
     /// </summary>
     [JsonPropertyName("order_ids")]
     public List<string>? OrderIds { get; set; }
-
     /// <summary>
     /// Array of objects, each containing the leg ID, destination portfolio ID and amount in chosen units allocated to each portfolio: [{leg_id, portfolio_id, allocation_base, allocation_quote}, {leg_id, portfolio_id, allocation_base, allocation_quote}...]
     /// </summary>
     [JsonPropertyName("destinations")]
     public List<DestinationAlloc>? Destinations { get; set; }
-
     /// <summary>
     /// The netting ID of the allocation, not empty if the allocation was submitted as part of a net allocation
     /// </summary>
     [JsonPropertyName("netting_id")]
     public string? NettingId { get; set; }
-
     public Allocation() { }
 
     public Allocation(Builder builder)
@@ -134,125 +119,95 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? rootId;
-
       private string? reversalId;
-
       private DateTime? allocationCompletedAt;
-
       private string? userId;
-
       private string? productId;
-
       private OrderSide? side;
-
       private string? avgPrice;
-
       private string? baseQuantity;
-
       private string? quoteValue;
-
       private string? feesAllocated;
-
       private AllocationStatus? status;
-
       private string? source;
-
       private List<string>? orderIds;
-
       private List<DestinationAlloc>? destinations;
-
       private string? nettingId;
-
       public Builder WithRootId(string? rootId)
       {
         this.rootId = rootId;
         return this;
       }
-
       public Builder WithReversalId(string? reversalId)
       {
         this.reversalId = reversalId;
         return this;
       }
-
       public Builder WithAllocationCompletedAt(DateTime? allocationCompletedAt)
       {
         this.allocationCompletedAt = allocationCompletedAt;
         return this;
       }
-
       public Builder WithUserId(string? userId)
       {
         this.userId = userId;
         return this;
       }
-
       public Builder WithProductId(string? productId)
       {
         this.productId = productId;
         return this;
       }
-
       public Builder WithSide(OrderSide? side)
       {
         this.side = side;
         return this;
       }
-
       public Builder WithAvgPrice(string? avgPrice)
       {
         this.avgPrice = avgPrice;
         return this;
       }
-
       public Builder WithBaseQuantity(string? baseQuantity)
       {
         this.baseQuantity = baseQuantity;
         return this;
       }
-
       public Builder WithQuoteValue(string? quoteValue)
       {
         this.quoteValue = quoteValue;
         return this;
       }
-
       public Builder WithFeesAllocated(string? feesAllocated)
       {
         this.feesAllocated = feesAllocated;
         return this;
       }
-
       public Builder WithStatus(AllocationStatus? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithSource(string? source)
       {
         this.source = source;
         return this;
       }
-
       public Builder WithOrderIds(List<string>? orderIds)
       {
         this.orderIds = orderIds;
         return this;
       }
-
       public Builder WithDestinations(List<DestinationAlloc>? destinations)
       {
         this.destinations = destinations;
         return this;
       }
-
       public Builder WithNettingId(string? nettingId)
       {
         this.nettingId = nettingId;
         return this;
       }
-
       public Allocation Build()
       {
         return new Allocation(this);

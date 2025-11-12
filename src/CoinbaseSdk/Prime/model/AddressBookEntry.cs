@@ -31,73 +31,60 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
-
     /// <summary>
     /// Currency symbol
     /// </summary>
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
-
     /// <summary>
     /// Name for this address book entry
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
-
     /// <summary>
     /// Cryptocurrency address
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
-
     /// <summary>
     /// Memo or destination tag for currencies which support them
     /// </summary>
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
-
     /// <summary>
     /// Name of the account identifier. For instance Destination Tag
     /// </summary>
     [JsonPropertyName("account_identifier_name")]
     public string? AccountIdentifierName { get; set; }
-
     /// <summary>
     /// State of this address book entry
     /// </summary>
     [JsonPropertyName("state")]
     public string State { get; set; } = default!;
-
     /// <summary>
     /// Link to a blockchain explorer
     /// </summary>
     [JsonPropertyName("explorer_link")]
     public string? ExplorerLink { get; set; }
-
     /// <summary>
     /// When this entry was last used for a transaction
     /// </summary>
     [JsonPropertyName("last_used_at")]
     public DateTime? LastUsedAt { get; set; }
-
     /// <summary>
     /// When this entry was added to the address book
     /// </summary>
     [JsonPropertyName("added_at")]
     public DateTime? AddedAt { get; set; }
-
     [JsonPropertyName("added_by")]
     public DisplayUser AddedBy { get; set; } = default!;
-
     [JsonPropertyName("type")]
     public AddressBookType? Type { get; set; }
-
     /// <summary>
     /// counterparty id
     /// </summary>
     [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
-
     public AddressBookEntry() { }
 
     public AddressBookEntry(Builder builder)
@@ -120,109 +107,83 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string id = default!;
-
       private string? currencySymbol;
-
       private string name = default!;
-
       private string? address;
-
       private string? accountIdentifier;
-
       private string? accountIdentifierName;
-
       private string state = default!;
-
       private string? explorerLink;
-
       private DateTime? lastUsedAt;
-
       private DateTime? addedAt;
-
       private DisplayUser addedBy = default!;
-
       private AddressBookType? type;
-
       private string? counterpartyId;
-
       public Builder WithId(string id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithCurrencySymbol(string? currencySymbol)
       {
         this.currencySymbol = currencySymbol;
         return this;
       }
-
       public Builder WithName(string name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
-
       public Builder WithAccountIdentifier(string? accountIdentifier)
       {
         this.accountIdentifier = accountIdentifier;
         return this;
       }
-
       public Builder WithAccountIdentifierName(string? accountIdentifierName)
       {
         this.accountIdentifierName = accountIdentifierName;
         return this;
       }
-
       public Builder WithState(string state)
       {
         this.state = state;
         return this;
       }
-
       public Builder WithExplorerLink(string? explorerLink)
       {
         this.explorerLink = explorerLink;
         return this;
       }
-
       public Builder WithLastUsedAt(DateTime? lastUsedAt)
       {
         this.lastUsedAt = lastUsedAt;
         return this;
       }
-
       public Builder WithAddedAt(DateTime? addedAt)
       {
         this.addedAt = addedAt;
         return this;
       }
-
       public Builder WithAddedBy(DisplayUser addedBy)
       {
         this.addedBy = addedBy;
         return this;
       }
-
       public Builder WithType(AddressBookType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithCounterpartyId(string? counterpartyId)
       {
         this.counterpartyId = counterpartyId;
         return this;
       }
-
       public AddressBookEntry Build()
       {
         return new AddressBookEntry(this);

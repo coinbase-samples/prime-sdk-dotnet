@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The symbol for the base currency
     /// </summary>
     [JsonPropertyName("base_currency")]
     public string? BaseCurrency { get; set; }
-
     /// <summary>
     /// The symbol for the quote currency
     /// </summary>
     [JsonPropertyName("quote_currency")]
     public string? QuoteCurrency { get; set; }
-
     /// <summary>
     /// The buying power for the base currency
     /// </summary>
     [JsonPropertyName("base_buying_power")]
     public string? BaseBuyingPower { get; set; }
-
     /// <summary>
     /// The buying power for the quote currency
     /// </summary>
     [JsonPropertyName("quote_buying_power")]
     public string? QuoteBuyingPower { get; set; }
-
     public BuyingPower() { }
 
     public BuyingPower(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? portfolioId;
-
       private string? baseCurrency;
-
       private string? quoteCurrency;
-
       private string? baseBuyingPower;
-
       private string? quoteBuyingPower;
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithBaseCurrency(string? baseCurrency)
       {
         this.baseCurrency = baseCurrency;
         return this;
       }
-
       public Builder WithQuoteCurrency(string? quoteCurrency)
       {
         this.quoteCurrency = quoteCurrency;
         return this;
       }
-
       public Builder WithBaseBuyingPower(string? baseBuyingPower)
       {
         this.baseBuyingPower = baseBuyingPower;
         return this;
       }
-
       public Builder WithQuoteBuyingPower(string? quoteBuyingPower)
       {
         this.quoteBuyingPower = quoteBuyingPower;
         return this;
       }
-
       public BuyingPower Build()
       {
         return new BuyingPower(this);

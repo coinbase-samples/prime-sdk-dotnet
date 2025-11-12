@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("consensus")]
     public ActivityMetadataConsensus? Consensus { get; set; }
-
     public ActivityMetadataAccount() { }
 
     public ActivityMetadataAccount(Builder builder)
@@ -38,13 +37,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private ActivityMetadataConsensus? consensus;
-
       public Builder WithConsensus(ActivityMetadataConsensus? consensus)
       {
         this.consensus = consensus;
         return this;
       }
-
       public ActivityMetadataAccount Build()
       {
         return new ActivityMetadataAccount(this);

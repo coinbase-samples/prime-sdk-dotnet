@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("first_name")]
     public string? FirstName { get; set; }
-
     [JsonPropertyName("middle_name")]
     public string? MiddleName { get; set; }
-
     [JsonPropertyName("last_name")]
     public string? LastName { get; set; }
-
     public NaturalPersonName() { }
 
     public NaturalPersonName(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? firstName;
-
       private string? middleName;
-
       private string? lastName;
-
       public Builder WithFirstName(string? firstName)
       {
         this.firstName = firstName;
         return this;
       }
-
       public Builder WithMiddleName(string? middleName)
       {
         this.middleName = middleName;
         return this;
       }
-
       public Builder WithLastName(string? lastName)
       {
         this.lastName = lastName;
         return this;
       }
-
       public NaturalPersonName Build()
       {
         return new NaturalPersonName(this);

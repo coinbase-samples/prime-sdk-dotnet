@@ -28,10 +28,8 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("wallet_type")]
     public TravelRuleWalletType? WalletType { get; set; }
-
     [JsonPropertyName("wallet_address")]
     public BlockchainAddress? WalletAddress { get; set; }
-
     public TravelRuleWalletDetails() { }
 
     public TravelRuleWalletDetails(Builder builder)
@@ -43,21 +41,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private TravelRuleWalletType? walletType;
-
       private BlockchainAddress? walletAddress;
-
       public Builder WithWalletType(TravelRuleWalletType? walletType)
       {
         this.walletType = walletType;
         return this;
       }
-
       public Builder WithWalletAddress(BlockchainAddress? walletAddress)
       {
         this.walletAddress = walletAddress;
         return this;
       }
-
       public TravelRuleWalletDetails Build()
       {
         return new TravelRuleWalletDetails(this);

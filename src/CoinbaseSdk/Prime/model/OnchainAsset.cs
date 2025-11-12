@@ -27,31 +27,26 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("network")]
     public string? Network { get; set; }
-
     /// <summary>
     /// Contract Address of this asset (empty for native assets).
     /// </summary>
     [JsonPropertyName("contract_address")]
     public string? ContractAddress { get; set; }
-
     /// <summary>
     /// Symbol of this asset.
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Token ID of this asset (empty for non  Nft assets).
     /// </summary>
     [JsonPropertyName("token_id")]
     public string? TokenId { get; set; }
-
     /// <summary>
     /// Name of this asset, either the name of the crypto token or the Nft collection name.
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     public OnchainAsset() { }
 
     public OnchainAsset(Builder builder)
@@ -66,45 +61,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? network;
-
       private string? contractAddress;
-
       private string? symbol;
-
       private string? tokenId;
-
       private string? name;
-
       public Builder WithNetwork(string? network)
       {
         this.network = network;
         return this;
       }
-
       public Builder WithContractAddress(string? contractAddress)
       {
         this.contractAddress = contractAddress;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithTokenId(string? tokenId)
       {
         this.tokenId = tokenId;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public OnchainAsset Build()
       {
         return new OnchainAsset(this);

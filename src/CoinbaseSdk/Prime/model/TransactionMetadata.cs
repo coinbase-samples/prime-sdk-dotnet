@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("match_metadata")]
     public MatchMetadata? MatchMetadata { get; set; }
-
     [JsonPropertyName("onchain_transaction_metadata")]
     public OnchainTransactionMetadata? OnchainTransactionMetadata { get; set; }
-
     [JsonPropertyName("reward_metadata")]
     public RewardMetadata? RewardMetadata { get; set; }
-
     public TransactionMetadata() { }
 
     public TransactionMetadata(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private MatchMetadata? matchMetadata;
-
       private OnchainTransactionMetadata? onchainTransactionMetadata;
-
       private RewardMetadata? rewardMetadata;
-
       public Builder WithMatchMetadata(MatchMetadata? matchMetadata)
       {
         this.matchMetadata = matchMetadata;
         return this;
       }
-
       public Builder WithWeb3TransactionMetadata(OnchainTransactionMetadata? onchainTransactionMetadata)
       {
         this.onchainTransactionMetadata = onchainTransactionMetadata;
         return this;
       }
-
       public Builder WithRewardMetadata(RewardMetadata? rewardMetadata)
       {
         this.rewardMetadata = rewardMetadata;
         return this;
       }
-
       public TransactionMetadata Build()
       {
         return new TransactionMetadata(this);

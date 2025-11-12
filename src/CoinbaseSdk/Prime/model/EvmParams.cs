@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("disable_dynamic_gas")]
     public bool? DisableDynamicGas { get; set; }
-
     /// <summary>
     /// Option to disable dynamic nonce when creating a transaction. Defaults to false.
     /// </summary>
     [JsonPropertyName("disable_dynamic_nonce")]
     public bool? DisableDynamicNonce { get; set; }
-
     /// <summary>
     /// Transaction ID to replace (for speed-up/cancel operations). Common use cases: 1) Gas Price Adjustments: When a transaction is stuck due to low gas price, a new transaction with the same nonce but higher gas price can be submitted to replace it. 2) Transaction Cancellation: A user might want to cancel a pending transaction by replacing it with a new transaction (often a 0-value transfer to themselves with higher gas price). Note: When using this field, the disable_dynamic_nonce option must be set to false because the nonce would be automatically managed by the system.
     /// </summary>
     [JsonPropertyName("replaced_transaction_id")]
     public string? ReplacedTransactionId { get; set; }
-
     /// <summary>
     /// Chain ID for Evm transactions. (EVM-only)
     /// </summary>
     [JsonPropertyName("chain_id")]
     public string? ChainId { get; set; }
-
     /// <summary>
     /// Network name for Evm transactions. (EVM-only)
     /// </summary>
     [JsonPropertyName("network_name")]
     public string? NetworkName { get; set; }
-
     public EvmParams() { }
 
     public EvmParams(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool? disableDynamicGas;
-
       private bool? disableDynamicNonce;
-
       private string? replacedTransactionId;
-
       private string? chainId;
-
       private string? networkName;
-
       public Builder WithDisableDynamicGas(bool? disableDynamicGas)
       {
         this.disableDynamicGas = disableDynamicGas;
         return this;
       }
-
       public Builder WithDisableDynamicNonce(bool? disableDynamicNonce)
       {
         this.disableDynamicNonce = disableDynamicNonce;
         return this;
       }
-
       public Builder WithReplacedTransactionId(string? replacedTransactionId)
       {
         this.replacedTransactionId = replacedTransactionId;
         return this;
       }
-
       public Builder WithChainId(string? chainId)
       {
         this.chainId = chainId;
         return this;
       }
-
       public Builder WithNetworkName(string? networkName)
       {
         this.networkName = networkName;
         return this;
       }
-
       public EvmParams Build()
       {
         return new EvmParams(this);

@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("old_balance")]
     public string? OldBalance { get; set; }
-
     /// <summary>
     /// New short collateral balance required
     /// </summary>
     [JsonPropertyName("new_balance")]
     public string? NewBalance { get; set; }
-
     /// <summary>
     /// Loan interest rate
     /// </summary>
     [JsonPropertyName("loan_interest_rate")]
     public string? LoanInterestRate { get; set; }
-
     /// <summary>
     /// Collateral interest rate
     /// </summary>
     [JsonPropertyName("collateral_interest_rate")]
     public string? CollateralInterestRate { get; set; }
-
     public ShortCollateral() { }
 
     public ShortCollateral(Builder builder)
@@ -62,37 +58,29 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? oldBalance;
-
       private string? newBalance;
-
       private string? loanInterestRate;
-
       private string? collateralInterestRate;
-
       public Builder WithOldBalance(string? oldBalance)
       {
         this.oldBalance = oldBalance;
         return this;
       }
-
       public Builder WithNewBalance(string? newBalance)
       {
         this.newBalance = newBalance;
         return this;
       }
-
       public Builder WithLoanInterestRate(string? loanInterestRate)
       {
         this.loanInterestRate = loanInterestRate;
         return this;
       }
-
       public Builder WithCollateralInterestRate(string? collateralInterestRate)
       {
         this.collateralInterestRate = collateralInterestRate;
         return this;
       }
-
       public ShortCollateral Build()
       {
         return new ShortCollateral(this);

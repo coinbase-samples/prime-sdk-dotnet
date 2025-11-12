@@ -27,37 +27,31 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("timestamp")]
     public DateTime? Timestamp { get; set; }
-
     /// <summary>
     /// Opening price for the period
     /// </summary>
     [JsonPropertyName("open")]
     public string? Open { get; set; }
-
     /// <summary>
     /// Highest price during the period
     /// </summary>
     [JsonPropertyName("high")]
     public string? High { get; set; }
-
     /// <summary>
     /// Lowest price during the period
     /// </summary>
     [JsonPropertyName("low")]
     public string? Low { get; set; }
-
     /// <summary>
     /// Closing price for the period
     /// </summary>
     [JsonPropertyName("close")]
     public string? Close { get; set; }
-
     /// <summary>
     /// Volume traded during the period
     /// </summary>
     [JsonPropertyName("volume")]
     public string? Volume { get; set; }
-
     public Candle() { }
 
     public Candle(Builder builder)
@@ -73,53 +67,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private DateTime? timestamp;
-
       private string? open;
-
       private string? high;
-
       private string? low;
-
       private string? close;
-
       private string? volume;
-
       public Builder WithTimestamp(DateTime? timestamp)
       {
         this.timestamp = timestamp;
         return this;
       }
-
       public Builder WithOpen(string? open)
       {
         this.open = open;
         return this;
       }
-
       public Builder WithHigh(string? high)
       {
         this.high = high;
         return this;
       }
-
       public Builder WithLow(string? low)
       {
         this.low = low;
         return this;
       }
-
       public Builder WithClose(string? close)
       {
         this.close = close;
         return this;
       }
-
       public Builder WithVolume(string? volume)
       {
         this.volume = volume;
         return this;
       }
-
       public Candle Build()
       {
         return new Candle(this);

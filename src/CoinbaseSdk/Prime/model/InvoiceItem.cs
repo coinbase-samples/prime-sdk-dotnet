@@ -28,28 +28,20 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
-
     [JsonPropertyName("invoice_type")]
     public InvoiceType? InvoiceType { get; set; }
-
     [JsonPropertyName("rate")]
     public double? Rate { get; set; }
-
     [JsonPropertyName("quantity")]
     public double? Quantity { get; set; }
-
     [JsonPropertyName("price")]
     public double? Price { get; set; }
-
     [JsonPropertyName("average_auc")]
     public double? AverageAuc { get; set; }
-
     [JsonPropertyName("total")]
     public double? Total { get; set; }
-
     public InvoiceItem() { }
 
     public InvoiceItem(Builder builder)
@@ -67,69 +59,53 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? description;
-
       private string? currencySymbol;
-
       private InvoiceType? invoiceType;
-
       private double? rate;
-
       private double? quantity;
-
       private double? price;
-
       private double? averageAuc;
-
       private double? total;
-
       public Builder WithDescription(string? description)
       {
         this.description = description;
         return this;
       }
-
       public Builder WithCurrencySymbol(string? currencySymbol)
       {
         this.currencySymbol = currencySymbol;
         return this;
       }
-
       public Builder WithInvoiceType(InvoiceType? invoiceType)
       {
         this.invoiceType = invoiceType;
         return this;
       }
-
       public Builder WithRate(double? rate)
       {
         this.rate = rate;
         return this;
       }
-
       public Builder WithQuantity(double? quantity)
       {
         this.quantity = quantity;
         return this;
       }
-
       public Builder WithPrice(double? price)
       {
         this.price = price;
         return this;
       }
-
       public Builder WithAverageAuc(double? averageAuc)
       {
         this.averageAuc = averageAuc;
         return this;
       }
-
       public Builder WithTotal(double? total)
       {
         this.total = total;
         return this;
       }
-
       public InvoiceItem Build()
       {
         return new InvoiceItem(this);

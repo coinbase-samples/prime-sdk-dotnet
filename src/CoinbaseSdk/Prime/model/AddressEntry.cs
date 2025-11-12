@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     [JsonPropertyName("address")]
     public string? Address { get; set; }
-
     [JsonPropertyName("chain_ids")]
     public List<string>? ChainIds { get; set; }
-
     public AddressEntry() { }
 
     public AddressEntry(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? name;
-
       private string? address;
-
       private List<string>? chainIds;
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
-
       public Builder WithChainIds(List<string>? chainIds)
       {
         this.chainIds = chainIds;
         return this;
       }
-
       public AddressEntry Build()
       {
         return new AddressEntry(this);

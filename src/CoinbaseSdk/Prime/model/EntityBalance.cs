@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The long balance
     /// </summary>
     [JsonPropertyName("long_amount")]
     public string? LongAmount { get; set; }
-
     /// <summary>
     /// The long balance in notional value
     /// </summary>
     [JsonPropertyName("long_notional")]
     public string? LongNotional { get; set; }
-
     /// <summary>
     /// The short balance
     /// </summary>
     [JsonPropertyName("short_amount")]
     public string? ShortAmount { get; set; }
-
     /// <summary>
     /// The short balance in notional value
     /// </summary>
     [JsonPropertyName("short_notional")]
     public string? ShortNotional { get; set; }
-
     public EntityBalance() { }
 
     public EntityBalance(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? longAmount;
-
       private string? longNotional;
-
       private string? shortAmount;
-
       private string? shortNotional;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithLongAmount(string? longAmount)
       {
         this.longAmount = longAmount;
         return this;
       }
-
       public Builder WithLongNotional(string? longNotional)
       {
         this.longNotional = longNotional;
         return this;
       }
-
       public Builder WithShortAmount(string? shortAmount)
       {
         this.shortAmount = shortAmount;
         return this;
       }
-
       public Builder WithShortNotional(string? shortNotional)
       {
         this.shortNotional = shortNotional;
         return this;
       }
-
       public EntityBalance Build()
       {
         return new EntityBalance(this);

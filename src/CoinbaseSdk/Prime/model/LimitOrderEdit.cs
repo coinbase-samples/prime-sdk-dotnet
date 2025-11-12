@@ -27,28 +27,20 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("price")]
     public string? Price { get; set; }
-
     [JsonPropertyName("size")]
     public string? Size { get; set; }
-
     [JsonPropertyName("display_size")]
     public string? DisplaySize { get; set; }
-
     [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
-
     [JsonPropertyName("stop_limit_price")]
     public string? StopLimitPrice { get; set; }
-
     [JsonPropertyName("end_time")]
     public DateTime? EndTime { get; set; }
-
     [JsonPropertyName("accept_time")]
     public DateTime? AcceptTime { get; set; }
-
     [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
-
     public LimitOrderEdit() { }
 
     public LimitOrderEdit(Builder builder)
@@ -66,69 +58,53 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? price;
-
       private string? size;
-
       private string? displaySize;
-
       private string? stopPrice;
-
       private string? stopLimitPrice;
-
       private DateTime? endTime;
-
       private DateTime? acceptTime;
-
       private string? clientOrderId;
-
       public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
-
       public Builder WithSize(string? size)
       {
         this.size = size;
         return this;
       }
-
       public Builder WithDisplaySize(string? displaySize)
       {
         this.displaySize = displaySize;
         return this;
       }
-
       public Builder WithStopPrice(string? stopPrice)
       {
         this.stopPrice = stopPrice;
         return this;
       }
-
       public Builder WithStopLimitPrice(string? stopLimitPrice)
       {
         this.stopLimitPrice = stopLimitPrice;
         return this;
       }
-
       public Builder WithEndTime(DateTime? endTime)
       {
         this.endTime = endTime;
         return this;
       }
-
       public Builder WithAcceptTime(DateTime? acceptTime)
       {
         this.acceptTime = acceptTime;
         return this;
       }
-
       public Builder WithClientOrderId(string? clientOrderId)
       {
         this.clientOrderId = clientOrderId;
         return this;
       }
-
       public LimitOrderEdit Build()
       {
         return new LimitOrderEdit(this);

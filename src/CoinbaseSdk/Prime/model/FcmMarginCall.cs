@@ -28,34 +28,28 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("type")]
     public FcmMarginCallType? Type { get; set; }
-
     [JsonPropertyName("state")]
     public FcmMarginCallState? State { get; set; }
-
     /// <summary>
     /// Initial margin call amount to settle
     /// </summary>
     [JsonPropertyName("initial_amount")]
     public string? InitialAmount { get; set; }
-
     /// <summary>
     /// Remaining margin call amount to settle
     /// </summary>
     [JsonPropertyName("remaining_amount")]
     public string? RemainingAmount { get; set; }
-
     /// <summary>
     /// Business date when the margin call was opened
     /// </summary>
     [JsonPropertyName("business_date")]
     public DateTime? BusinessDate { get; set; }
-
     /// <summary>
     /// The deadline by which the margin call must be satisfied
     /// </summary>
     [JsonPropertyName("cure_deadline")]
     public DateTime? CureDeadline { get; set; }
-
     public FcmMarginCall() { }
 
     public FcmMarginCall(Builder builder)
@@ -71,53 +65,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private FcmMarginCallType? type;
-
       private FcmMarginCallState? state;
-
       private string? initialAmount;
-
       private string? remainingAmount;
-
       private DateTime? businessDate;
-
       private DateTime? cureDeadline;
-
       public Builder WithType(FcmMarginCallType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithState(FcmMarginCallState? state)
       {
         this.state = state;
         return this;
       }
-
       public Builder WithInitialAmount(string? initialAmount)
       {
         this.initialAmount = initialAmount;
         return this;
       }
-
       public Builder WithRemainingAmount(string? remainingAmount)
       {
         this.remainingAmount = remainingAmount;
         return this;
       }
-
       public Builder WithBusinessDate(DateTime? businessDate)
       {
         this.businessDate = businessDate;
         return this;
       }
-
       public Builder WithCureDeadline(DateTime? cureDeadline)
       {
         this.cureDeadline = cureDeadline;
         return this;
       }
-
       public FcmMarginCall Build()
       {
         return new FcmMarginCall(this);

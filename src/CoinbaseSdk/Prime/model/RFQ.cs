@@ -28,28 +28,21 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("product_id")]
     public string ProductId { get; set; } = default!;
-
     [JsonPropertyName("side")]
     public OrderSide Side { get; set; } = default!;
-
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
     [JsonPropertyName("client_quote_id")]
     public string ClientQuoteId { get; set; } = default!;
-
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-
     [JsonPropertyName("limit_price")]
     public string LimitPrice { get; set; } = default!;
-
     [JsonPropertyName("settl_currency")]
     public string? SettlCurrency { get; set; }
-
     public Rfq() { }
 
     public Rfq(Builder builder)
@@ -66,61 +59,47 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string productId = default!;
-
       private OrderSide side = default!;
-
       private string clientQuoteId = default!;
-
       private string? baseQuantity;
-
       private string? quoteValue;
-
       private string limitPrice = default!;
-
       private string? settlCurrency;
-
       public Builder WithProductId(string productId)
       {
         this.productId = productId;
         return this;
       }
-
       public Builder WithSide(OrderSide side)
       {
         this.side = side;
         return this;
       }
-
       public Builder WithClientQuoteId(string clientQuoteId)
       {
         this.clientQuoteId = clientQuoteId;
         return this;
       }
-
       public Builder WithBaseQuantity(string? baseQuantity)
       {
         this.baseQuantity = baseQuantity;
         return this;
       }
-
       public Builder WithQuoteValue(string? quoteValue)
       {
         this.quoteValue = quoteValue;
         return this;
       }
-
       public Builder WithLimitPrice(string limitPrice)
       {
         this.limitPrice = limitPrice;
         return this;
       }
-
       public Builder WithSettlCurrency(string? settlCurrency)
       {
         this.settlCurrency = settlCurrency;
         return this;
       }
-
       public Rfq Build()
       {
         return new Rfq(this);

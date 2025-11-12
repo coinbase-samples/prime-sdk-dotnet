@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
-
     public PortfolioStakingMetadata() { }
 
     public PortfolioStakingMetadata(Builder builder)
@@ -41,13 +40,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? externalId;
-
       public Builder WithExternalId(string? externalId)
       {
         this.externalId = externalId;
         return this;
       }
-
       public PortfolioStakingMetadata Build()
       {
         return new PortfolioStakingMetadata(this);

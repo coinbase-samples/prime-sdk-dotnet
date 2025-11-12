@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The fee in bps
     /// </summary>
     [JsonPropertyName("fee")]
     public string? Fee { get; set; }
-
     public TieredPricingFee() { }
 
     public TieredPricingFee(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? fee;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithFee(string? fee)
       {
         this.fee = fee;
         return this;
       }
-
       public TieredPricingFee Build()
       {
         return new TieredPricingFee(this);

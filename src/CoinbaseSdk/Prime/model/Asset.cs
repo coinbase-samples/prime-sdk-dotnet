@@ -30,37 +30,31 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The mutable series of letters used to identify the asset
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The number of decimals supported for the asset
     /// </summary>
     [JsonPropertyName("decimal_precision")]
     public string? DecimalPrecision { get; set; }
-
     /// <summary>
     /// Indicates whether this asset can be traded
     /// </summary>
     [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
-
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("explorer_url")]
     public string? ExplorerUrl { get; set; }
-
     /// <summary>
     /// List of networks supported by this asset
     /// </summary>
     [JsonPropertyName("networks")]
     public List<NetworkDetails>? Networks { get; set; }
-
     public Asset() { }
 
     public Asset(Builder builder)
@@ -76,53 +70,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? name;
-
       private string? symbol;
-
       private string? decimalPrecision;
-
       private bool? tradingSupported;
-
       private string? explorerUrl;
-
       private List<NetworkDetails>? networks;
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithDecimalPrecision(string? decimalPrecision)
       {
         this.decimalPrecision = decimalPrecision;
         return this;
       }
-
       public Builder WithTradingSupported(bool? tradingSupported)
       {
         this.tradingSupported = tradingSupported;
         return this;
       }
-
       public Builder WithExplorerUrl(string? explorerUrl)
       {
         this.explorerUrl = explorerUrl;
         return this;
       }
-
       public Builder WithNetworks(List<NetworkDetails>? networks)
       {
         this.networks = networks;
         return this;
       }
-
       public Asset Build()
       {
         return new Asset(this);

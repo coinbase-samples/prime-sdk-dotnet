@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The name of the portfolio
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The ID of the entity to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-
     /// <summary>
     /// The ID of the organization to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("organization_id")]
     public string? OrganizationId { get; set; }
-
     /// <summary>
     /// The name of the entity to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("entity_name")]
     public string? EntityName { get; set; }
-
     public Portfolio() { }
 
     public Portfolio(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? name;
-
       private string? entityId;
-
       private string? organizationId;
-
       private string? entityName;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithEntityId(string? entityId)
       {
         this.entityId = entityId;
         return this;
       }
-
       public Builder WithOrganizationId(string? organizationId)
       {
         this.organizationId = organizationId;
         return this;
       }
-
       public Builder WithEntityName(string? entityName)
       {
         this.entityName = entityName;
         return this;
       }
-
       public Portfolio Build()
       {
         return new Portfolio(this);

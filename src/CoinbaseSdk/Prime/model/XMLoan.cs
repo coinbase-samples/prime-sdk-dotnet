@@ -31,46 +31,38 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("loan_id")]
     public string? LoanId { get; set; }
-
     [JsonPropertyName("loan_party")]
     public XmParty? LoanParty { get; set; }
-
     /// <summary>
     /// Loan principal currency
     /// </summary>
     [JsonPropertyName("principal_currency")]
     public string? PrincipalCurrency { get; set; }
-
     /// <summary>
     /// Loan principal currency market price
     /// </summary>
     [JsonPropertyName("principal_currency_market_price")]
     public string? PrincipalCurrencyMarketPrice { get; set; }
-
     /// <summary>
     /// Principal amount (nominal) as of loan initiation
     /// </summary>
     [JsonPropertyName("initial_principal_amount")]
     public string? InitialPrincipalAmount { get; set; }
-
     /// <summary>
     /// Current outstanding amount (nominal)
     /// </summary>
     [JsonPropertyName("outstanding_principal_amount")]
     public string? OutstandingPrincipalAmount { get; set; }
-
     /// <summary>
     /// Timestamp when the loan was created / initiated
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// Timestamp when the loan was last updated
     /// </summary>
     [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
-
     public XmLoan() { }
 
     public XmLoan(Builder builder)
@@ -88,69 +80,53 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? loanId;
-
       private XmParty? loanParty;
-
       private string? principalCurrency;
-
       private string? principalCurrencyMarketPrice;
-
       private string? initialPrincipalAmount;
-
       private string? outstandingPrincipalAmount;
-
       private DateTime? createdAt;
-
       private DateTime? updatedAt;
-
       public Builder WithLoanId(string? loanId)
       {
         this.loanId = loanId;
         return this;
       }
-
       public Builder WithLoanParty(XmParty? loanParty)
       {
         this.loanParty = loanParty;
         return this;
       }
-
       public Builder WithPrincipalCurrency(string? principalCurrency)
       {
         this.principalCurrency = principalCurrency;
         return this;
       }
-
       public Builder WithPrincipalCurrencyMarketPrice(string? principalCurrencyMarketPrice)
       {
         this.principalCurrencyMarketPrice = principalCurrencyMarketPrice;
         return this;
       }
-
       public Builder WithInitialPrincipalAmount(string? initialPrincipalAmount)
       {
         this.initialPrincipalAmount = initialPrincipalAmount;
         return this;
       }
-
       public Builder WithOutstandingPrincipalAmount(string? outstandingPrincipalAmount)
       {
         this.outstandingPrincipalAmount = outstandingPrincipalAmount;
         return this;
       }
-
       public Builder WithCreatedAt(DateTime? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithUpdatedAt(DateTime? updatedAt)
       {
         this.updatedAt = updatedAt;
         return this;
       }
-
       public XmLoan Build()
       {
         return new XmLoan(this);

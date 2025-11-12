@@ -31,76 +31,63 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The order ID of the fill
     /// </summary>
     [JsonPropertyName("order_id")]
     public string? OrderId { get; set; }
-
     /// <summary>
     /// The product ID of the fill
     /// </summary>
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
     [JsonPropertyName("client_product_id")]
     public string? ClientProductId { get; set; }
-
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
-
     /// <summary>
     /// Filled size (in base asset units)
     /// </summary>
     [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
-
     /// <summary>
     /// Filled value (in quote asset units)
     /// </summary>
     [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
-
     /// <summary>
     /// The price of the fill
     /// </summary>
     [JsonPropertyName("price")]
     public string? Price { get; set; }
-
     /// <summary>
     /// The date and time of the fill
     /// </summary>
     [JsonPropertyName("time")]
     public DateTime? Time { get; set; }
-
     /// <summary>
     /// The commission incurred for the fill
     /// </summary>
     [JsonPropertyName("commission")]
     public string? Commission { get; set; }
-
     /// <summary>
     /// The name of the venue
     /// </summary>
     [JsonPropertyName("venue")]
     public string? Venue { get; set; }
-
     /// <summary>
     /// The venue fees incurred for the fill
     /// </summary>
     [JsonPropertyName("venue_fees")]
     public string? VenueFees { get; set; }
-
     /// <summary>
     /// The CES commission incurred for the fill
     /// </summary>
     [JsonPropertyName("ces_commission")]
     public string? CesCommission { get; set; }
-
     public Fill() { }
 
     public Fill(Builder builder)
@@ -123,109 +110,83 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? orderId;
-
       private string? productId;
-
       private string? clientProductId;
-
       private OrderSide? side;
-
       private string? filledQuantity;
-
       private string? filledValue;
-
       private string? price;
-
       private DateTime? time;
-
       private string? commission;
-
       private string? venue;
-
       private string? venueFees;
-
       private string? cesCommission;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithOrderId(string? orderId)
       {
         this.orderId = orderId;
         return this;
       }
-
       public Builder WithProductId(string? productId)
       {
         this.productId = productId;
         return this;
       }
-
       public Builder WithClientProductId(string? clientProductId)
       {
         this.clientProductId = clientProductId;
         return this;
       }
-
       public Builder WithSide(OrderSide? side)
       {
         this.side = side;
         return this;
       }
-
       public Builder WithFilledQuantity(string? filledQuantity)
       {
         this.filledQuantity = filledQuantity;
         return this;
       }
-
       public Builder WithFilledValue(string? filledValue)
       {
         this.filledValue = filledValue;
         return this;
       }
-
       public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
-
       public Builder WithTime(DateTime? time)
       {
         this.time = time;
         return this;
       }
-
       public Builder WithCommission(string? commission)
       {
         this.commission = commission;
         return this;
       }
-
       public Builder WithVenue(string? venue)
       {
         this.venue = venue;
         return this;
       }
-
       public Builder WithVenueFees(string? venueFees)
       {
         this.venueFees = venueFees;
         return this;
       }
-
       public Builder WithCesCommission(string? cesCommission)
       {
         this.cesCommission = cesCommission;
         return this;
       }
-
       public Fill Build()
       {
         return new Fill(this);

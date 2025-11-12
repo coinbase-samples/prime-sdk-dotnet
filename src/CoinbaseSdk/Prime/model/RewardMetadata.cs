@@ -28,7 +28,6 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("subtype")]
     public RewardSubtype? Subtype { get; set; }
-
     public RewardMetadata() { }
 
     public RewardMetadata(Builder builder)
@@ -39,13 +38,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private RewardSubtype? subtype;
-
       public Builder WithSubtype(RewardSubtype? subtype)
       {
         this.subtype = subtype;
         return this;
       }
-
       public RewardMetadata Build()
       {
         return new RewardMetadata(this);

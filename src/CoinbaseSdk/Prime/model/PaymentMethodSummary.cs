@@ -28,22 +28,16 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     [JsonPropertyName("payment_method_type")]
     public PaymentMethodType? PaymentMethodType { get; set; }
-
     [JsonPropertyName("bank_name")]
     public string? BankName { get; set; }
-
     [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
-
     [JsonPropertyName("bank_name_2")]
     public string? BankName2 { get; set; }
-
     public PaymentMethodSummary() { }
 
     public PaymentMethodSummary(Builder builder)
@@ -59,53 +53,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? symbol;
-
       private PaymentMethodType? paymentMethodType;
-
       private string? bankName;
-
       private string? accountNumber;
-
       private string? bankName2;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithPaymentMethodType(PaymentMethodType? paymentMethodType)
       {
         this.paymentMethodType = paymentMethodType;
         return this;
       }
-
       public Builder WithBankName(string? bankName)
       {
         this.bankName = bankName;
         return this;
       }
-
       public Builder WithAccountNumber(string? accountNumber)
       {
         this.accountNumber = accountNumber;
         return this;
       }
-
       public Builder WithBankName2(string? bankName2)
       {
         this.bankName2 = bankName2;
         return this;
       }
-
       public PaymentMethodSummary Build()
       {
         return new PaymentMethodSummary(this);

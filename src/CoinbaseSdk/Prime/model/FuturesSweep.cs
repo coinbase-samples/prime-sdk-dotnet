@@ -31,25 +31,20 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("requested_amount")]
     public SweepAmount? RequestedAmount { get; set; }
-
     /// <summary>
     /// Should sweep all
     /// </summary>
     [JsonPropertyName("should_sweep_all")]
     public bool? ShouldSweepAll { get; set; }
-
     [JsonPropertyName("status")]
     public FuturesSweepStatus? Status { get; set; }
-
     /// <summary>
     /// Scheduled time
     /// </summary>
     [JsonPropertyName("scheduled_time")]
     public DateTime? ScheduledTime { get; set; }
-
     public FuturesSweep() { }
 
     public FuturesSweep(Builder builder)
@@ -64,45 +59,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private SweepAmount? requestedAmount;
-
       private bool? shouldSweepAll;
-
       private FuturesSweepStatus? status;
-
       private DateTime? scheduledTime;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithRequestedAmount(SweepAmount? requestedAmount)
       {
         this.requestedAmount = requestedAmount;
         return this;
       }
-
       public Builder WithShouldSweepAll(bool? shouldSweepAll)
       {
         this.shouldSweepAll = shouldSweepAll;
         return this;
       }
-
       public Builder WithStatus(FuturesSweepStatus? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithScheduledTime(DateTime? scheduledTime)
       {
         this.scheduledTime = scheduledTime;
         return this;
       }
-
       public FuturesSweep Build()
       {
         return new FuturesSweep(this);

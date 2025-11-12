@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("approval_deadline")]
     public string? ApprovalDeadline { get; set; }
-
     /// <summary>
     /// If activity has passed consensus threshold
     /// </summary>
     [JsonPropertyName("has_passed_consensus")]
     public bool? HasPassedConsensus { get; set; }
-
     public ActivityMetadataConsensus() { }
 
     public ActivityMetadataConsensus(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? approvalDeadline;
-
       private bool? hasPassedConsensus;
-
       public Builder WithApprovalDeadline(string? approvalDeadline)
       {
         this.approvalDeadline = approvalDeadline;
         return this;
       }
-
       public Builder WithHasPassedConsensus(bool? hasPassedConsensus)
       {
         this.hasPassedConsensus = hasPassedConsensus;
         return this;
       }
-
       public ActivityMetadataConsensus Build()
       {
         return new ActivityMetadataConsensus(this);

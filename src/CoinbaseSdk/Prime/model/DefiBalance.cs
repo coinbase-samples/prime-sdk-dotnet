@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("network")]
     public string? Network { get; set; }
-
     [JsonPropertyName("protocol")]
     public string? Protocol { get; set; }
-
     [JsonPropertyName("net_usd_value")]
     public string? NetUsdValue { get; set; }
-
     public DefiBalance() { }
 
     public DefiBalance(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? network;
-
       private string? protocol;
-
       private string? netUsdValue;
-
       public Builder WithNetwork(string? network)
       {
         this.network = network;
         return this;
       }
-
       public Builder WithProtocol(string? protocol)
       {
         this.protocol = protocol;
         return this;
       }
-
       public Builder WithNetUsdValue(string? netUsdValue)
       {
         this.netUsdValue = netUsdValue;
         return this;
       }
-
       public DefiBalance Build()
       {
         return new DefiBalance(this);

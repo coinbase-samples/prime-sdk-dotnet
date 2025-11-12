@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// Optional validator address, defaults to Coinbase validator. For SOL, must be the vote account address. Ignored for ETH.
     /// </summary>
     [JsonPropertyName("validator_address")]
     public string? ValidatorAddress { get; set; }
-
     public WalletStakeInputs() { }
 
     public WalletStakeInputs(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? amount;
-
       private string? validatorAddress;
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithValidatorAddress(string? validatorAddress)
       {
         this.validatorAddress = validatorAddress;
         return this;
       }
-
       public WalletStakeInputs Build()
       {
         return new WalletStakeInputs(this);

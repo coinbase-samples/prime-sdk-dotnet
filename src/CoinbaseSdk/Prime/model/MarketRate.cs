@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The current market rate of currency
     /// </summary>
     [JsonPropertyName("rate")]
     public string? Rate { get; set; }
-
     public MarketRate() { }
 
     public MarketRate(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? rate;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithRate(string? rate)
       {
         this.rate = rate;
         return this;
       }
-
       public MarketRate Build()
       {
         return new MarketRate(this);

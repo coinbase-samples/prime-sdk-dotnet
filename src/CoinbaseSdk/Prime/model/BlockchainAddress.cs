@@ -30,16 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
-
     /// <summary>
     /// The account identifier (used on some chains to distinguish accounts using the same address)
     /// </summary>
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
-
     [JsonPropertyName("network")]
     public Network? Network { get; set; }
-
     public BlockchainAddress() { }
 
     public BlockchainAddress(Builder builder)
@@ -52,29 +49,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? address;
-
       private string? accountIdentifier;
-
       private Network? network;
-
       public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
-
       public Builder WithAccountIdentifier(string? accountIdentifier)
       {
         this.accountIdentifier = accountIdentifier;
         return this;
       }
-
       public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;
       }
-
       public BlockchainAddress Build()
       {
         return new BlockchainAddress(this);

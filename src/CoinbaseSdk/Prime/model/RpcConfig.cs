@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
     public bool? SkipBroadcast { get; set; }
-
     /// <summary>
     /// Custom blockchain node RpcConfig URL. (EVM-only)
     /// </summary>
     [JsonPropertyName("url")]
     public string? Url { get; set; }
-
     public RpcConfig() { }
 
     public RpcConfig(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool? skipBroadcast;
-
       private string? url;
-
       public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
         this.skipBroadcast = skipBroadcast;
         return this;
       }
-
       public Builder WithUrl(string? url)
       {
         this.url = url;
         return this;
       }
-
       public RpcConfig Build()
       {
         return new RpcConfig(this);

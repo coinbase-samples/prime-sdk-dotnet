@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
-
     /// <summary>
     /// The settlement date of the match
     /// </summary>
     [JsonPropertyName("settlement_date")]
     public string? SettlementDate { get; set; }
-
     public MatchMetadata() { }
 
     public MatchMetadata(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? referenceId;
-
       private string? settlementDate;
-
       public Builder WithReferenceId(string? referenceId)
       {
         this.referenceId = referenceId;
         return this;
       }
-
       public Builder WithSettlementDate(string? settlementDate)
       {
         this.settlementDate = settlementDate;
         return this;
       }
-
       public MatchMetadata Build()
       {
         return new MatchMetadata(this);

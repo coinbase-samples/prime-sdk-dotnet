@@ -31,79 +31,62 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// A reference for orders and transactions, n/a for other category types
     /// </summary>
     [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
-
     [JsonPropertyName("category")]
     public ActivityCategory? Category { get; set; }
-
     [JsonPropertyName("type")]
     public PrimeActivityType? Type { get; set; }
-
     [JsonPropertyName("secondary_type")]
     public ActivitySecondaryType? SecondaryType { get; set; }
-
     [JsonPropertyName("status")]
     public ActivityStatus? Status { get; set; }
-
     /// <summary>
     /// Id of user who created the activity
     /// </summary>
     [JsonPropertyName("created_by")]
     public string? CreatedBy { get; set; }
-
     /// <summary>
     /// Title of the activity
     /// </summary>
     [JsonPropertyName("title")]
     public string? Title { get; set; }
-
     /// <summary>
     /// Description detail of the activity
     /// </summary>
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-
     /// <summary>
     /// Actions related to the Activity
     /// </summary>
     [JsonPropertyName("user_actions")]
     public List<UserAction>? UserActions { get; set; }
-
     [JsonPropertyName("transactions_metadata")]
     public ActivityMetadataTransactions? TransactionsMetadata { get; set; }
-
     [JsonPropertyName("account_metadata")]
     public ActivityMetadataAccount? AccountMetadata { get; set; }
-
     [JsonPropertyName("orders_metadata")]
     public Object? OrdersMetadata { get; set; }
-
     /// <summary>
     /// List of currencies included in an activity
     /// </summary>
     [JsonPropertyName("symbols")]
     public List<string>? Symbols { get; set; }
-
     /// <summary>
     /// Time activity was created at
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// Time for latest status update of account activity
     /// </summary>
     [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
-
     [JsonPropertyName("hierarchy_type")]
     public HierarchyType? HierarchyType { get; set; }
-
     public Activity() { }
 
     public Activity(Builder builder)
@@ -130,141 +113,107 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? referenceId;
-
       private ActivityCategory? category;
-
       private PrimeActivityType? type;
-
       private ActivitySecondaryType? secondaryType;
-
       private ActivityStatus? status;
-
       private string? createdBy;
-
       private string? title;
-
       private string? description;
-
       private List<UserAction>? userActions;
-
       private ActivityMetadataTransactions? transactionsMetadata;
-
       private ActivityMetadataAccount? accountMetadata;
-
       private Object? ordersMetadata;
-
       private List<string>? symbols;
-
       private string? createdAt;
-
       private string? updatedAt;
-
       private HierarchyType? hierarchyType;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithReferenceId(string? referenceId)
       {
         this.referenceId = referenceId;
         return this;
       }
-
       public Builder WithCategory(ActivityCategory? category)
       {
         this.category = category;
         return this;
       }
-
       public Builder WithType(PrimeActivityType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithSecondaryType(ActivitySecondaryType? secondaryType)
       {
         this.secondaryType = secondaryType;
         return this;
       }
-
       public Builder WithStatus(ActivityStatus? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithCreatedBy(string? createdBy)
       {
         this.createdBy = createdBy;
         return this;
       }
-
       public Builder WithTitle(string? title)
       {
         this.title = title;
         return this;
       }
-
       public Builder WithDescription(string? description)
       {
         this.description = description;
         return this;
       }
-
       public Builder WithUserActions(List<UserAction>? userActions)
       {
         this.userActions = userActions;
         return this;
       }
-
       public Builder WithTransactionsMetadata(ActivityMetadataTransactions? transactionsMetadata)
       {
         this.transactionsMetadata = transactionsMetadata;
         return this;
       }
-
       public Builder WithAccountMetadata(ActivityMetadataAccount? accountMetadata)
       {
         this.accountMetadata = accountMetadata;
         return this;
       }
-
       public Builder WithOrdersMetadata(Object? ordersMetadata)
       {
         this.ordersMetadata = ordersMetadata;
         return this;
       }
-
       public Builder WithSymbols(List<string>? symbols)
       {
         this.symbols = symbols;
         return this;
       }
-
       public Builder WithCreatedAt(string? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithUpdatedAt(string? updatedAt)
       {
         this.updatedAt = updatedAt;
         return this;
       }
-
       public Builder WithHierarchyType(HierarchyType? hierarchyType)
       {
         this.hierarchyType = hierarchyType;
         return this;
       }
-
       public Activity Build()
       {
         return new Activity(this);

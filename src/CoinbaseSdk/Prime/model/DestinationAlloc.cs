@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("leg_id")]
     public string? LegId { get; set; }
-
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("allocation_base")]
     public string? AllocationBase { get; set; }
-
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("allocation_quote")]
     public string? AllocationQuote { get; set; }
-
     /// <summary>
     /// Pro rata fees for each leg. Adding up the fees for each leg will sum up to equal the total allocation level fees.
     /// </summary>
     [JsonPropertyName("fees_allocated_leg")]
     public string? FeesAllocatedLeg { get; set; }
-
     public DestinationAlloc() { }
 
     public DestinationAlloc(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? legId;
-
       private string? portfolioId;
-
       private string? allocationBase;
-
       private string? allocationQuote;
-
       private string? feesAllocatedLeg;
-
       public Builder WithLegId(string? legId)
       {
         this.legId = legId;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithAllocationBase(string? allocationBase)
       {
         this.allocationBase = allocationBase;
         return this;
       }
-
       public Builder WithAllocationQuote(string? allocationQuote)
       {
         this.allocationQuote = allocationQuote;
         return this;
       }
-
       public Builder WithFeesAllocatedLeg(string? feesAllocatedLeg)
       {
         this.feesAllocatedLeg = feesAllocatedLeg;
         return this;
       }
-
       public DestinationAlloc Build()
       {
         return new DestinationAlloc(this);

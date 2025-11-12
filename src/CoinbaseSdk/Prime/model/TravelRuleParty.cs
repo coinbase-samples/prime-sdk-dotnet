@@ -27,19 +27,14 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     [JsonPropertyName("detailed_address")]
     public DetailedAddress? DetailedAddress { get; set; }
-
     [JsonPropertyName("natural_person_name")]
     public NaturalPersonName? NaturalPersonName { get; set; }
-
     [JsonPropertyName("date_of_birth")]
     public DateOfBirth? DateOfBirth { get; set; }
-
     [JsonPropertyName("telephone_number")]
     public string? TelephoneNumber { get; set; }
-
     public TravelRuleParty() { }
 
     public TravelRuleParty(Builder builder)
@@ -54,45 +49,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? name;
-
       private DetailedAddress? detailedAddress;
-
       private NaturalPersonName? naturalPersonName;
-
       private DateOfBirth? dateOfBirth;
-
       private string? telephoneNumber;
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithDetailedAddress(DetailedAddress? detailedAddress)
       {
         this.detailedAddress = detailedAddress;
         return this;
       }
-
       public Builder WithNaturalPersonName(NaturalPersonName? naturalPersonName)
       {
         this.naturalPersonName = naturalPersonName;
         return this;
       }
-
       public Builder WithDateOfBirth(DateOfBirth? dateOfBirth)
       {
         this.dateOfBirth = dateOfBirth;
         return this;
       }
-
       public Builder WithTelephoneNumber(string? telephoneNumber)
       {
         this.telephoneNumber = telephoneNumber;
         return this;
       }
-
       public TravelRuleParty Build()
       {
         return new TravelRuleParty(this);

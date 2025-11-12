@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("compliance_risk_detected")]
     public bool? ComplianceRiskDetected { get; set; }
-
     /// <summary>
     /// Indicates if the transaction has been flagged for security concerns
     /// </summary>
     [JsonPropertyName("security_risk_detected")]
     public bool? SecurityRiskDetected { get; set; }
-
     public RiskAssessment() { }
 
     public RiskAssessment(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool? complianceRiskDetected;
-
       private bool? securityRiskDetected;
-
       public Builder WithComplianceRiskDetected(bool? complianceRiskDetected)
       {
         this.complianceRiskDetected = complianceRiskDetected;
         return this;
       }
-
       public Builder WithSecurityRiskDetected(bool? securityRiskDetected)
       {
         this.securityRiskDetected = securityRiskDetected;
         return this;
       }
-
       public RiskAssessment Build()
       {
         return new RiskAssessment(this);

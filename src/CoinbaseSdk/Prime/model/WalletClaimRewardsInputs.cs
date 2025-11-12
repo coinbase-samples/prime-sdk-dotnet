@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     public WalletClaimRewardsInputs() { }
 
     public WalletClaimRewardsInputs(Builder builder)
@@ -41,13 +40,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? amount;
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public WalletClaimRewardsInputs Build()
       {
         return new WalletClaimRewardsInputs(this);

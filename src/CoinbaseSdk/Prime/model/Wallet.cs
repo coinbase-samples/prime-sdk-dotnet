@@ -28,28 +28,20 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     [JsonPropertyName("type")]
     public WalletType? Type { get; set; }
-
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     [JsonPropertyName("address")]
     public string? Address { get; set; }
-
     [JsonPropertyName("visibility")]
     public WalletVisibility? Visibility { get; set; }
-
     [JsonPropertyName("network")]
     public Network? Network { get; set; }
-
     public Wallet() { }
 
     public Wallet(Builder builder)
@@ -67,69 +59,53 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? name;
-
       private string? symbol;
-
       private WalletType? type;
-
       private DateTime? createdAt;
-
       private string? address;
-
       private WalletVisibility? visibility;
-
       private Network? network;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithType(WalletType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithCreatedAt(DateTime? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithAddress(string? address)
       {
         this.address = address;
         return this;
       }
-
       public Builder WithVisibility(WalletVisibility? visibility)
       {
         this.visibility = visibility;
         return this;
       }
-
       public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;
       }
-
       public Wallet Build()
       {
         return new Wallet(this);

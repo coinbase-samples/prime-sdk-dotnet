@@ -30,67 +30,56 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("locate_id")]
     public string? LocateId { get; set; }
-
     /// <summary>
     /// The unique ID of the entity
     /// </summary>
     [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The requested locate amount
     /// </summary>
     [JsonPropertyName("requested_amount")]
     public string? RequestedAmount { get; set; }
-
     /// <summary>
     /// The interest rate of Pm loan
     /// </summary>
     [JsonPropertyName("interest_rate")]
     public string? InterestRate { get; set; }
-
     /// <summary>
     /// The locate status
     /// </summary>
     [JsonPropertyName("status")]
     public string? Status { get; set; }
-
     /// <summary>
     /// The approved locate amount
     /// </summary>
     [JsonPropertyName("approved_amount")]
     public string? ApprovedAmount { get; set; }
-
     /// <summary>
     /// Deprecated: Use locate_date instead
     /// </summary>
     [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
-
     /// <summary>
     /// The date when the locate was submitted in RFC3339 format
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// The locate date from the CreateNewLocatesRequest in RFC3339 format
     /// </summary>
     [JsonPropertyName("locate_date")]
     public string? LocateDate { get; set; }
-
     public ExistingLocate() { }
 
     public ExistingLocate(Builder builder)
@@ -111,93 +100,71 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? locateId;
-
       private string? entityId;
-
       private string? portfolioId;
-
       private string? symbol;
-
       private string? requestedAmount;
-
       private string? interestRate;
-
       private string? status;
-
       private string? approvedAmount;
-
       private string? conversionDate;
-
       private string? createdAt;
-
       private string? locateDate;
-
       public Builder WithLocateId(string? locateId)
       {
         this.locateId = locateId;
         return this;
       }
-
       public Builder WithEntityId(string? entityId)
       {
         this.entityId = entityId;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithRequestedAmount(string? requestedAmount)
       {
         this.requestedAmount = requestedAmount;
         return this;
       }
-
       public Builder WithInterestRate(string? interestRate)
       {
         this.interestRate = interestRate;
         return this;
       }
-
       public Builder WithStatus(string? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithApprovedAmount(string? approvedAmount)
       {
         this.approvedAmount = approvedAmount;
         return this;
       }
-
       public Builder WithConversionDate(string? conversionDate)
       {
         this.conversionDate = conversionDate;
         return this;
       }
-
       public Builder WithCreatedAt(string? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithLocateDate(string? locateDate)
       {
         this.locateDate = locateDate;
         return this;
       }
-
       public ExistingLocate Build()
       {
         return new ExistingLocate(this);

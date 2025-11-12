@@ -30,22 +30,18 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("conversion_details")]
     public List<ConversionDetail>? ConversionDetails { get; set; }
-
     [JsonPropertyName("short_collateral")]
     public ShortCollateral? ShortCollateral { get; set; }
-
     /// <summary>
     /// The UTC date time used for conversion
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
-
     /// <summary>
     /// Portfolio Id
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     public Conversion() { }
 
     public Conversion(Builder builder)
@@ -59,37 +55,29 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private List<ConversionDetail>? conversionDetails;
-
       private ShortCollateral? shortCollateral;
-
       private string? conversionDatetime;
-
       private string? portfolioId;
-
       public Builder WithConversionDetails(List<ConversionDetail>? conversionDetails)
       {
         this.conversionDetails = conversionDetails;
         return this;
       }
-
       public Builder WithShortCollateral(ShortCollateral? shortCollateral)
       {
         this.shortCollateral = shortCollateral;
         return this;
       }
-
       public Builder WithConversionDatetime(string? conversionDatetime)
       {
         this.conversionDatetime = conversionDatetime;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Conversion Build()
       {
         return new Conversion(this);

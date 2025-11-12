@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("success")]
     public bool Success { get; set; } = default!;
-
     /// <summary>
     /// The netting_id for the post net allocation
     /// </summary>
     [JsonPropertyName("netting_id")]
     public string NettingId { get; set; } = default!;
-
     /// <summary>
     /// The allocation id of the buy allocation in net allocation
     /// </summary>
     [JsonPropertyName("buy_allocation_id")]
     public string BuyAllocationId { get; set; } = default!;
-
     /// <summary>
     /// The allocation id of the sell allocation in net allocation
     /// </summary>
     [JsonPropertyName("sell_allocation_id")]
     public string SellAllocationId { get; set; } = default!;
-
     /// <summary>
     /// The failure reason for the post net allocation
     /// </summary>
     [JsonPropertyName("failure_reason")]
     public string FailureReason { get; set; } = default!;
-
     public CreateNetAllocationResponseBody() { }
 
     public CreateNetAllocationResponseBody(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool success = default!;
-
       private string nettingId = default!;
-
       private string buyAllocationId = default!;
-
       private string sellAllocationId = default!;
-
       private string failureReason = default!;
-
       public Builder WithSuccess(bool success)
       {
         this.success = success;
         return this;
       }
-
       public Builder WithNettingId(string nettingId)
       {
         this.nettingId = nettingId;
         return this;
       }
-
       public Builder WithBuyAllocationId(string buyAllocationId)
       {
         this.buyAllocationId = buyAllocationId;
         return this;
       }
-
       public Builder WithSellAllocationId(string sellAllocationId)
       {
         this.sellAllocationId = sellAllocationId;
         return this;
       }
-
       public Builder WithFailureReason(string failureReason)
       {
         this.failureReason = failureReason;
         return this;
       }
-
       public CreateNetAllocationResponseBody Build()
       {
         return new CreateNetAllocationResponseBody(this);

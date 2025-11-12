@@ -28,25 +28,20 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("type")]
     public AssetChangeType? Type { get; set; }
-
     /// <summary>
     /// The currency symbol associated with the balance operation
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The amount in whole units being transferred or approved
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     [JsonPropertyName("collection")]
     public NftCollection? Collection { get; set; }
-
     [JsonPropertyName("item")]
     public NftItem? Item { get; set; }
-
     public AssetChange() { }
 
     public AssetChange(Builder builder)
@@ -61,45 +56,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private AssetChangeType? type;
-
       private string? symbol;
-
       private string? amount;
-
       private NftCollection? collection;
-
       private NftItem? item;
-
       public Builder WithType(AssetChangeType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithCollection(NftCollection? collection)
       {
         this.collection = collection;
         return this;
       }
-
       public Builder WithItem(NftItem? item)
       {
         this.item = item;
         return this;
       }
-
       public AssetChange Build()
       {
         return new AssetChange(this);

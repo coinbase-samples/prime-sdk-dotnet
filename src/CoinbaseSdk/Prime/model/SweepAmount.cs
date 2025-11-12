@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// Amount
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     public SweepAmount() { }
 
     public SweepAmount(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? currency;
-
       private string? amount;
-
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public SweepAmount Build()
       {
         return new SweepAmount(this);

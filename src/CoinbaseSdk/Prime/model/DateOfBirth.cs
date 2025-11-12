@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("year")]
     public long? Year { get; set; }
-
     [JsonPropertyName("month")]
     public long? Month { get; set; }
-
     [JsonPropertyName("day")]
     public long? Day { get; set; }
-
     public DateOfBirth() { }
 
     public DateOfBirth(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private long? year;
-
       private long? month;
-
       private long? day;
-
       public Builder WithYear(long? year)
       {
         this.year = year;
         return this;
       }
-
       public Builder WithMonth(long? month)
       {
         this.month = month;
         return this;
       }
-
       public Builder WithDay(long? day)
       {
         this.day = day;
         return this;
       }
-
       public DateOfBirth Build()
       {
         return new DateOfBirth(this);

@@ -31,94 +31,77 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("accrual_id")]
     public string? AccrualId { get; set; }
-
     /// <summary>
     /// The date of accrual in UTC
     /// </summary>
     [JsonPropertyName("date")]
     public string? Date { get; set; }
-
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     [JsonPropertyName("loan_type")]
     public LoanType? LoanType { get; set; }
-
     /// <summary>
     /// The daily or annualized interest rate for the loan, see rate_type
     /// </summary>
     [JsonPropertyName("interest_rate")]
     public string? InterestRate { get; set; }
-
     /// <summary>
     /// Daily accrual amount in the principal currency
     /// </summary>
     [JsonPropertyName("nominal_accrual")]
     public string? NominalAccrual { get; set; }
-
     /// <summary>
     /// Daily USD accrued interest
     /// </summary>
     [JsonPropertyName("notional_accrual")]
     public string? NotionalAccrual { get; set; }
-
     /// <summary>
     /// Accrual rate used to convert from principal to USD accrual
     /// </summary>
     [JsonPropertyName("conversion_rate")]
     public string? ConversionRate { get; set; }
-
     /// <summary>
     /// Outstanding principal of the loan
     /// </summary>
     [JsonPropertyName("loan_amount")]
     public string? LoanAmount { get; set; }
-
     [JsonPropertyName("benchmark")]
     public Benchmark? Benchmark { get; set; }
-
     /// <summary>
     /// Daily interest rate fetched from the benchmark source
     /// </summary>
     [JsonPropertyName("benchmark_rate")]
     public string? BenchmarkRate { get; set; }
-
     /// <summary>
     /// Daily spread offset from the benchmark rate
     /// </summary>
     [JsonPropertyName("spread")]
     public string? Spread { get; set; }
-
     [JsonPropertyName("rate_type")]
     public RateType? RateType { get; set; }
-
     /// <summary>
     /// Outstanding principal of the loan in USD
     /// </summary>
     [JsonPropertyName("loan_amount_notional")]
     public string? LoanAmountNotional { get; set; }
-
     /// <summary>
     /// Settled open borrow as of start-of-day in the principal currency
     /// </summary>
     [JsonPropertyName("nominal_open_borrow_sod")]
     public string? NominalOpenBorrowSod { get; set; }
-
     /// <summary>
     /// Settled open borrow as of start-of-day in USD
     /// </summary>
     [JsonPropertyName("notional_open_borrow_sod")]
     public string? NotionalOpenBorrowSod { get; set; }
-
     public Accrual() { }
 
     public Accrual(Builder builder)
@@ -145,141 +128,107 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? accrualId;
-
       private string? date;
-
       private string? portfolioId;
-
       private string? symbol;
-
       private LoanType? loanType;
-
       private string? interestRate;
-
       private string? nominalAccrual;
-
       private string? notionalAccrual;
-
       private string? conversionRate;
-
       private string? loanAmount;
-
       private Benchmark? benchmark;
-
       private string? benchmarkRate;
-
       private string? spread;
-
       private RateType? rateType;
-
       private string? loanAmountNotional;
-
       private string? nominalOpenBorrowSod;
-
       private string? notionalOpenBorrowSod;
-
       public Builder WithAccrualId(string? accrualId)
       {
         this.accrualId = accrualId;
         return this;
       }
-
       public Builder WithDate(string? date)
       {
         this.date = date;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithLoanType(LoanType? loanType)
       {
         this.loanType = loanType;
         return this;
       }
-
       public Builder WithInterestRate(string? interestRate)
       {
         this.interestRate = interestRate;
         return this;
       }
-
       public Builder WithNominalAccrual(string? nominalAccrual)
       {
         this.nominalAccrual = nominalAccrual;
         return this;
       }
-
       public Builder WithNotionalAccrual(string? notionalAccrual)
       {
         this.notionalAccrual = notionalAccrual;
         return this;
       }
-
       public Builder WithConversionRate(string? conversionRate)
       {
         this.conversionRate = conversionRate;
         return this;
       }
-
       public Builder WithLoanAmount(string? loanAmount)
       {
         this.loanAmount = loanAmount;
         return this;
       }
-
       public Builder WithBenchmark(Benchmark? benchmark)
       {
         this.benchmark = benchmark;
         return this;
       }
-
       public Builder WithBenchmarkRate(string? benchmarkRate)
       {
         this.benchmarkRate = benchmarkRate;
         return this;
       }
-
       public Builder WithSpread(string? spread)
       {
         this.spread = spread;
         return this;
       }
-
       public Builder WithRateType(RateType? rateType)
       {
         this.rateType = rateType;
         return this;
       }
-
       public Builder WithLoanAmountNotional(string? loanAmountNotional)
       {
         this.loanAmountNotional = loanAmountNotional;
         return this;
       }
-
       public Builder WithNominalOpenBorrowSod(string? nominalOpenBorrowSod)
       {
         this.nominalOpenBorrowSod = nominalOpenBorrowSod;
         return this;
       }
-
       public Builder WithNotionalOpenBorrowSod(string? notionalOpenBorrowSod)
       {
         this.notionalOpenBorrowSod = notionalOpenBorrowSod;
         return this;
       }
-
       public Accrual Build()
       {
         return new Accrual(this);

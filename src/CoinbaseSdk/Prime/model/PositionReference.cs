@@ -31,10 +31,8 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("type")]
     public PositionReferenceType? Type { get; set; }
-
     public PositionReference() { }
 
     public PositionReference(Builder builder)
@@ -46,21 +44,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private PositionReferenceType? type;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithType(PositionReferenceType? type)
       {
         this.type = type;
         return this;
       }
-
       public PositionReference Build()
       {
         return new PositionReference(this);

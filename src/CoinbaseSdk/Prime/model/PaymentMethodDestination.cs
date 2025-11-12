@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("payment_method_id")]
     public string? PaymentMethodId { get; set; }
-
     public PaymentMethodDestination() { }
 
     public PaymentMethodDestination(Builder builder)
@@ -38,13 +37,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? paymentMethodId;
-
       public Builder WithPaymentMethodId(string? paymentMethodId)
       {
         this.paymentMethodId = paymentMethodId;
         return this;
       }
-
       public PaymentMethodDestination Build()
       {
         return new PaymentMethodDestination(this);

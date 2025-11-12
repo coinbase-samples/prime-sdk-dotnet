@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Withdrawal power
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     public WithdrawalPower() { }
 
     public WithdrawalPower(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? amount;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public WithdrawalPower Build()
       {
         return new WithdrawalPower(this);

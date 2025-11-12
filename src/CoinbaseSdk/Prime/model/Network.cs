@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The network type: mainnet, testnet, etc
     /// </summary>
     [JsonPropertyName("type")]
     public string? Type { get; set; }
-
     public Network() { }
 
     public Network(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? type;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithType(string? type)
       {
         this.type = type;
         return this;
       }
-
       public Network Build()
       {
         return new Network(this);

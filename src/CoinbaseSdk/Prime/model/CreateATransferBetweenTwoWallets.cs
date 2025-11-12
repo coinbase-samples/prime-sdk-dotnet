@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
-
     /// <summary>
     /// The UUID of the destination wallet
     /// </summary>
     [JsonPropertyName("destination")]
     public string Destination { get; set; } = default!;
-
     /// <summary>
     /// The idempotency key associated with this transfer
     /// </summary>
     [JsonPropertyName("idempotency_key")]
     public string IdempotencyKey { get; set; } = default!;
-
     /// <summary>
     /// The currency symbol to transfer
     /// </summary>
     [JsonPropertyName("currency_symbol")]
     public string CurrencySymbol { get; set; } = default!;
-
     public CreateATransferBetweenTwoWallets() { }
 
     public CreateATransferBetweenTwoWallets(Builder builder)
@@ -62,37 +58,29 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string amount = default!;
-
       private string destination = default!;
-
       private string idempotencyKey = default!;
-
       private string currencySymbol = default!;
-
       public Builder WithAmount(string amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithDestination(string destination)
       {
         this.destination = destination;
         return this;
       }
-
       public Builder WithIdempotencyKey(string idempotencyKey)
       {
         this.idempotencyKey = idempotencyKey;
         return this;
       }
-
       public Builder WithCurrencySymbol(string currencySymbol)
       {
         this.currencySymbol = currencySymbol;
         return this;
       }
-
       public CreateATransferBetweenTwoWallets Build()
       {
         return new CreateATransferBetweenTwoWallets(this);

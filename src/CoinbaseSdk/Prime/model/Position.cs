@@ -30,22 +30,18 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The long position based on &#39;reference&#39; value
     /// </summary>
     [JsonPropertyName("long")]
     public string? Long { get; set; }
-
     /// <summary>
     /// The short position based on &#39;reference&#39; value
     /// </summary>
     [JsonPropertyName("short")]
     public string? Short { get; set; }
-
     [JsonPropertyName("position_reference")]
     public PositionReference? PositionReference { get; set; }
-
     public Position() { }
 
     public Position(Builder builder)
@@ -59,37 +55,29 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? varLong;
-
       private string? varShort;
-
       private PositionReference? positionReference;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithLong(string? varLong)
       {
         this.varLong = varLong;
         return this;
       }
-
       public Builder WithShort(string? varShort)
       {
         this.varShort = varShort;
         return this;
       }
-
       public Builder WithPositionReference(PositionReference? positionReference)
       {
         this.positionReference = positionReference;
         return this;
       }
-
       public Position Build()
       {
         return new Position(this);

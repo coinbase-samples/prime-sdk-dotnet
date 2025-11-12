@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("country_code")]
     public string? CountryCode { get; set; }
-
     [JsonPropertyName("lei_number")]
     public string? LeiNumber { get; set; }
-
     public VASP() { }
 
     public VASP(Builder builder)
@@ -46,29 +43,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? countryCode;
-
       private string? leiNumber;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithCountryCode(string? countryCode)
       {
         this.countryCode = countryCode;
         return this;
       }
-
       public Builder WithLeiNumber(string? leiNumber)
       {
         this.leiNumber = leiNumber;
         return this;
       }
-
       public VASP Build()
       {
         return new VASP(this);

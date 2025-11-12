@@ -27,10 +27,8 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("total")]
     public string? Total { get; set; }
-
     [JsonPropertyName("holds")]
     public string? Holds { get; set; }
-
     public AggregatedFiatBalance() { }
 
     public AggregatedFiatBalance(Builder builder)
@@ -42,21 +40,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? total;
-
       private string? holds;
-
       public Builder WithTotal(string? total)
       {
         this.total = total;
         return this;
       }
-
       public Builder WithHolds(string? holds)
       {
         this.holds = holds;
         return this;
       }
-
       public AggregatedFiatBalance Build()
       {
         return new AggregatedFiatBalance(this);

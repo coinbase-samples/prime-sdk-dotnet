@@ -28,28 +28,22 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("control_status")]
     public XmControlStatus? ControlStatus { get; set; }
-
     [JsonPropertyName("call_status")]
     public XmEntityCallStatus? CallStatus { get; set; }
-
     [JsonPropertyName("margin_level")]
     public XmMarginLevel? MarginLevel { get; set; }
-
     [JsonPropertyName("margin_summary")]
     public XmSummary? MarginSummary { get; set; }
-
     /// <summary>
     /// List of active Xm margin calls
     /// </summary>
     [JsonPropertyName("active_margin_calls")]
     public List<XmMarginCall>? ActiveMarginCalls { get; set; }
-
     /// <summary>
     /// List of active Xm loans
     /// </summary>
     [JsonPropertyName("active_loans")]
     public List<XmLoan>? ActiveLoans { get; set; }
-
     public CrossMarginOverview() { }
 
     public CrossMarginOverview(Builder builder)
@@ -65,53 +59,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private XmControlStatus? controlStatus;
-
       private XmEntityCallStatus? callStatus;
-
       private XmMarginLevel? marginLevel;
-
       private XmSummary? marginSummary;
-
       private List<XmMarginCall>? activeMarginCalls;
-
       private List<XmLoan>? activeLoans;
-
       public Builder WithControlStatus(XmControlStatus? controlStatus)
       {
         this.controlStatus = controlStatus;
         return this;
       }
-
       public Builder WithCallStatus(XmEntityCallStatus? callStatus)
       {
         this.callStatus = callStatus;
         return this;
       }
-
       public Builder WithMarginLevel(XmMarginLevel? marginLevel)
       {
         this.marginLevel = marginLevel;
         return this;
       }
-
       public Builder WithMarginSummary(XmSummary? marginSummary)
       {
         this.marginSummary = marginSummary;
         return this;
       }
-
       public Builder WithActiveMarginCalls(List<XmMarginCall>? activeMarginCalls)
       {
         this.activeMarginCalls = activeMarginCalls;
         return this;
       }
-
       public Builder WithActiveLoans(List<XmLoan>? activeLoans)
       {
         this.activeLoans = activeLoans;
         return this;
       }
-
       public CrossMarginOverview Build()
       {
         return new CrossMarginOverview(this);

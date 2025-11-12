@@ -31,49 +31,40 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("signed_transaction")]
     public string? SignedTransaction { get; set; }
-
     [JsonPropertyName("risk_assessment")]
     public RiskAssessment? RiskAssessment { get; set; }
-
     /// <summary>
     /// The blockchain network chain ID. Will be empty for Solana transactions.
     /// </summary>
     [JsonPropertyName("chain_id")]
     public string? ChainId { get; set; }
-
     /// <summary>
     /// The transaction nonce. Only present for EVM-based blockchain transactions.
     /// </summary>
     [JsonPropertyName("nonce")]
     public string? Nonce { get; set; }
-
     /// <summary>
     /// The ID of the transaction that this transaction replaced
     /// </summary>
     [JsonPropertyName("replaced_transaction_id")]
     public string? ReplacedTransactionId { get; set; }
-
     /// <summary>
     /// The destination address for the transaction
     /// </summary>
     [JsonPropertyName("destination_address")]
     public string? DestinationAddress { get; set; }
-
     /// <summary>
     /// If set to true, the transaction will not be broadcast to the network. You can still retrieve the signed transaction from the GetTransaction endpoint by transaction ID once the transaction is created.
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
     public bool? SkipBroadcast { get; set; }
-
     /// <summary>
     /// Reason for transaction failure if applicable
     /// </summary>
     [JsonPropertyName("failure_reason")]
     public string? FailureReason { get; set; }
-
     [JsonPropertyName("signing_status")]
     public SigningStatus? SigningStatus { get; set; }
-
     public OnchainTransactionDetails() { }
 
     public OnchainTransactionDetails(Builder builder)
@@ -92,77 +83,59 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? signedTransaction;
-
       private RiskAssessment? riskAssessment;
-
       private string? chainId;
-
       private string? nonce;
-
       private string? replacedTransactionId;
-
       private string? destinationAddress;
-
       private bool? skipBroadcast;
-
       private string? failureReason;
-
       private SigningStatus? signingStatus;
-
       public Builder WithSignedTransaction(string? signedTransaction)
       {
         this.signedTransaction = signedTransaction;
         return this;
       }
-
       public Builder WithRiskAssessment(RiskAssessment? riskAssessment)
       {
         this.riskAssessment = riskAssessment;
         return this;
       }
-
       public Builder WithChainId(string? chainId)
       {
         this.chainId = chainId;
         return this;
       }
-
       public Builder WithNonce(string? nonce)
       {
         this.nonce = nonce;
         return this;
       }
-
       public Builder WithReplacedTransactionId(string? replacedTransactionId)
       {
         this.replacedTransactionId = replacedTransactionId;
         return this;
       }
-
       public Builder WithDestinationAddress(string? destinationAddress)
       {
         this.destinationAddress = destinationAddress;
         return this;
       }
-
       public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
         this.skipBroadcast = skipBroadcast;
         return this;
       }
-
       public Builder WithFailureReason(string? failureReason)
       {
         this.failureReason = failureReason;
         return this;
       }
-
       public Builder WithSigningStatus(SigningStatus? signingStatus)
       {
         this.signingStatus = signingStatus;
         return this;
       }
-
       public OnchainTransactionDetails Build()
       {
         return new OnchainTransactionDetails(this);

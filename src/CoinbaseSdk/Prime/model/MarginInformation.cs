@@ -30,10 +30,8 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("margin_call_records")]
     public List<MarginCallRecord>? MarginCallRecords { get; set; }
-
     [JsonPropertyName("margin_summary")]
     public MarginSummary? MarginSummary { get; set; }
-
     public MarginInformation() { }
 
     public MarginInformation(Builder builder)
@@ -45,21 +43,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private List<MarginCallRecord>? marginCallRecords;
-
       private MarginSummary? marginSummary;
-
       public Builder WithMarginCallRecords(List<MarginCallRecord>? marginCallRecords)
       {
         this.marginCallRecords = marginCallRecords;
         return this;
       }
-
       public Builder WithMarginSummary(MarginSummary? marginSummary)
       {
         this.marginSummary = marginSummary;
         return this;
       }
-
       public MarginInformation Build()
       {
         return new MarginInformation(this);

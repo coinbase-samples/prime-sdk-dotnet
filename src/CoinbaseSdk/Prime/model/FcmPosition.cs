@@ -31,46 +31,38 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
     [JsonPropertyName("side")]
     public FcmPositionSide? Side { get; set; }
-
     /// <summary>
     /// Number of contracts
     /// </summary>
     [JsonPropertyName("number_of_contracts")]
     public string? NumberOfContracts { get; set; }
-
     /// <summary>
     /// Daily realized PNL
     /// </summary>
     [JsonPropertyName("daily_realized_pnl")]
     public string? DailyRealizedPnl { get; set; }
-
     /// <summary>
     /// Unrealized PNL
     /// </summary>
     [JsonPropertyName("unrealized_pnl")]
     public string? UnrealizedPnl { get; set; }
-
     /// <summary>
     /// Current price of position
     /// </summary>
     [JsonPropertyName("current_price")]
     public string? CurrentPrice { get; set; }
-
     /// <summary>
     /// Average entry price
     /// </summary>
     [JsonPropertyName("avg_entry_price")]
     public string? AvgEntryPrice { get; set; }
-
     /// <summary>
     /// Expiration time of position
     /// </summary>
     [JsonPropertyName("expiration_time")]
     public DateTime? ExpirationTime { get; set; }
-
     public FcmPosition() { }
 
     public FcmPosition(Builder builder)
@@ -88,69 +80,53 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? productId;
-
       private FcmPositionSide? side;
-
       private string? numberOfContracts;
-
       private string? dailyRealizedPnl;
-
       private string? unrealizedPnl;
-
       private string? currentPrice;
-
       private string? avgEntryPrice;
-
       private DateTime? expirationTime;
-
       public Builder WithProductId(string? productId)
       {
         this.productId = productId;
         return this;
       }
-
       public Builder WithSide(FcmPositionSide? side)
       {
         this.side = side;
         return this;
       }
-
       public Builder WithNumberOfContracts(string? numberOfContracts)
       {
         this.numberOfContracts = numberOfContracts;
         return this;
       }
-
       public Builder WithDailyRealizedPnl(string? dailyRealizedPnl)
       {
         this.dailyRealizedPnl = dailyRealizedPnl;
         return this;
       }
-
       public Builder WithUnrealizedPnl(string? unrealizedPnl)
       {
         this.unrealizedPnl = unrealizedPnl;
         return this;
       }
-
       public Builder WithCurrentPrice(string? currentPrice)
       {
         this.currentPrice = currentPrice;
         return this;
       }
-
       public Builder WithAvgEntryPrice(string? avgEntryPrice)
       {
         this.avgEntryPrice = avgEntryPrice;
         return this;
       }
-
       public Builder WithExpirationTime(DateTime? expirationTime)
       {
         this.expirationTime = expirationTime;
         return this;
       }
-
       public FcmPosition Build()
       {
         return new FcmPosition(this);

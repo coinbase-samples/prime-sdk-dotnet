@@ -28,16 +28,13 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("asset")]
     public OnchainAsset? Asset { get; set; }
-
     /// <summary>
     /// The total amount in whole units with full precision.
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     [JsonPropertyName("visibility_status")]
     public VisibilityStatus? VisibilityStatus { get; set; }
-
     public OnchainBalance() { }
 
     public OnchainBalance(Builder builder)
@@ -50,29 +47,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private OnchainAsset? asset;
-
       private string? amount;
-
       private VisibilityStatus? visibilityStatus;
-
       public Builder WithAsset(OnchainAsset? asset)
       {
         this.asset = asset;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithVisibilityStatus(VisibilityStatus? visibilityStatus)
       {
         this.visibilityStatus = visibilityStatus;
         return this;
       }
-
       public OnchainBalance Build()
       {
         return new OnchainBalance(this);

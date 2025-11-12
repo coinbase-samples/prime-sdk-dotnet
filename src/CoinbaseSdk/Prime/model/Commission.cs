@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("type")]
     public string? Type { get; set; }
-
     /// <summary>
     /// Commission rate (in whole percentage. Commission of 15bps is \&quot;0.0015\&quot;)
     /// </summary>
     [JsonPropertyName("rate")]
     public string? Rate { get; set; }
-
     /// <summary>
     /// Average 30 days over past 3 months (e.g. 90 days divided by 3)
     /// </summary>
     [JsonPropertyName("trading_volume")]
     public string? TradingVolume { get; set; }
-
     public Commission() { }
 
     public Commission(Builder builder)
@@ -55,29 +52,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? type;
-
       private string? rate;
-
       private string? tradingVolume;
-
       public Builder WithType(string? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithRate(string? rate)
       {
         this.rate = rate;
         return this;
       }
-
       public Builder WithTradingVolume(string? tradingVolume)
       {
         this.tradingVolume = tradingVolume;
         return this;
       }
-
       public Commission Build()
       {
         return new Commission(this);

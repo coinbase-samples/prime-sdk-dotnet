@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// The amount due
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// The date this settlement is due, expressed in UTC
     /// </summary>
     [JsonPropertyName("due_date")]
     public DateTime? DueDate { get; set; }
-
     public AmountDue() { }
 
     public AmountDue(Builder builder)
@@ -55,29 +52,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? currency;
-
       private string? amount;
-
       private DateTime? dueDate;
-
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithDueDate(DateTime? dueDate)
       {
         this.dueDate = dueDate;
         return this;
       }
-
       public AmountDue Build()
       {
         return new AmountDue(this);

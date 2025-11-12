@@ -30,151 +30,126 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// Current market price
     /// </summary>
     [JsonPropertyName("market_price")]
     public string? MarketPrice { get; set; }
-
     /// <summary>
     /// True if margin eligible, false otherwise
     /// </summary>
     [JsonPropertyName("margin_eligible")]
     public bool? MarginEligible { get; set; }
-
     /// <summary>
     /// Total market capitalization
     /// </summary>
     [JsonPropertyName("market_cap")]
     public string? MarketCap { get; set; }
-
     /// <summary>
     /// Average daily volume calculated over a 30-day period
     /// </summary>
     [JsonPropertyName("adv30_days")]
     public string? Adv30Days { get; set; }
-
     /// <summary>
     /// Historic volatility calculated over a 5-day period
     /// </summary>
     [JsonPropertyName("hist5d_vol")]
     public string? Hist5dVol { get; set; }
-
     /// <summary>
     /// Historic volatility calculated over a 30-day period
     /// </summary>
     [JsonPropertyName("hist30d_vol")]
     public string? Hist30dVol { get; set; }
-
     /// <summary>
     /// Historic volatility calculated over a 90-day period
     /// </summary>
     [JsonPropertyName("hist90d_vol")]
     public string? Hist90dVol { get; set; }
-
     /// <summary>
     /// Base margin requirement for the specific asset
     /// </summary>
     [JsonPropertyName("margin_requirement")]
     public string? MarginRequirement { get; set; }
-
     /// <summary>
     /// Xm spot balance nominal
     /// </summary>
     [JsonPropertyName("spot_balance")]
     public string? SpotBalance { get; set; }
-
     /// <summary>
     /// Xm spot balance notional
     /// </summary>
     [JsonPropertyName("spot_balance_notional")]
     public string? SpotBalanceNotional { get; set; }
-
     /// <summary>
     /// Pre-netted spot total position margin
     /// </summary>
     [JsonPropertyName("spot_total_position_margin")]
     public string? SpotTotalPositionMargin { get; set; }
-
     /// <summary>
     /// Xm futures balance nominal
     /// </summary>
     [JsonPropertyName("futures_balance")]
     public string? FuturesBalance { get; set; }
-
     /// <summary>
     /// Xm futures balance notional
     /// </summary>
     [JsonPropertyName("futures_balance_notional")]
     public string? FuturesBalanceNotional { get; set; }
-
     /// <summary>
     /// Pre-netted futures total position margin
     /// </summary>
     [JsonPropertyName("futures_total_position_margin")]
     public string? FuturesTotalPositionMargin { get; set; }
-
     /// <summary>
     /// Basis GMV &#x3D; |futures| + |spot| - |unnetted position|
     /// </summary>
     [JsonPropertyName("gmv_basis")]
     public string? GmvBasis { get; set; }
-
     /// <summary>
     /// Base margin requirement notional
     /// </summary>
     [JsonPropertyName("base_requirement")]
     public string? BaseRequirement { get; set; }
-
     /// <summary>
     /// Effective liquidity add-on for the short positions
     /// </summary>
     [JsonPropertyName("liq_shorts_add_on")]
     public string? LiqShortsAddOn { get; set; }
-
     /// <summary>
     /// Effective liquidity add-on for the long positions
     /// </summary>
     [JsonPropertyName("liq_longs_add_on")]
     public string? LiqLongsAddOn { get; set; }
-
     /// <summary>
     /// Effective volatility add-on for the short positions
     /// </summary>
     [JsonPropertyName("vol_shorts_add_on")]
     public string? VolShortsAddOn { get; set; }
-
     /// <summary>
     /// Effective volatility add-on for the long positions
     /// </summary>
     [JsonPropertyName("vol_longs_add_on")]
     public string? VolLongsAddOn { get; set; }
-
     /// <summary>
     /// 5-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol5days_add_on")]
     public string? Vol5daysAddOn { get; set; }
-
     /// <summary>
     /// 30-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol30days_add_on")]
     public string? Vol30daysAddOn { get; set; }
-
     /// <summary>
     /// 90-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol90days_add_on")]
     public string? Vol90daysAddOn { get; set; }
-
     /// <summary>
     /// Total margin required
     /// </summary>
     [JsonPropertyName("total_position_margin")]
     public string? TotalPositionMargin { get; set; }
-
     public XmPosition() { }
 
     public XmPosition(Builder builder)
@@ -209,205 +184,155 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? currency;
-
       private string? marketPrice;
-
       private bool? marginEligible;
-
       private string? marketCap;
-
       private string? adv30Days;
-
       private string? hist5dVol;
-
       private string? hist30dVol;
-
       private string? hist90dVol;
-
       private string? marginRequirement;
-
       private string? spotBalance;
-
       private string? spotBalanceNotional;
-
       private string? spotTotalPositionMargin;
-
       private string? futuresBalance;
-
       private string? futuresBalanceNotional;
-
       private string? futuresTotalPositionMargin;
-
       private string? gmvBasis;
-
       private string? baseRequirement;
-
       private string? liqShortsAddOn;
-
       private string? liqLongsAddOn;
-
       private string? volShortsAddOn;
-
       private string? volLongsAddOn;
-
       private string? vol5daysAddOn;
-
       private string? vol30daysAddOn;
-
       private string? vol90daysAddOn;
-
       private string? totalPositionMargin;
-
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
-
       public Builder WithMarketPrice(string? marketPrice)
       {
         this.marketPrice = marketPrice;
         return this;
       }
-
       public Builder WithMarginEligible(bool? marginEligible)
       {
         this.marginEligible = marginEligible;
         return this;
       }
-
       public Builder WithMarketCap(string? marketCap)
       {
         this.marketCap = marketCap;
         return this;
       }
-
       public Builder WithAdv30Days(string? adv30Days)
       {
         this.adv30Days = adv30Days;
         return this;
       }
-
       public Builder WithHist5dVol(string? hist5dVol)
       {
         this.hist5dVol = hist5dVol;
         return this;
       }
-
       public Builder WithHist30dVol(string? hist30dVol)
       {
         this.hist30dVol = hist30dVol;
         return this;
       }
-
       public Builder WithHist90dVol(string? hist90dVol)
       {
         this.hist90dVol = hist90dVol;
         return this;
       }
-
       public Builder WithMarginRequirement(string? marginRequirement)
       {
         this.marginRequirement = marginRequirement;
         return this;
       }
-
       public Builder WithSpotBalance(string? spotBalance)
       {
         this.spotBalance = spotBalance;
         return this;
       }
-
       public Builder WithSpotBalanceNotional(string? spotBalanceNotional)
       {
         this.spotBalanceNotional = spotBalanceNotional;
         return this;
       }
-
       public Builder WithSpotTotalPositionMargin(string? spotTotalPositionMargin)
       {
         this.spotTotalPositionMargin = spotTotalPositionMargin;
         return this;
       }
-
       public Builder WithFuturesBalance(string? futuresBalance)
       {
         this.futuresBalance = futuresBalance;
         return this;
       }
-
       public Builder WithFuturesBalanceNotional(string? futuresBalanceNotional)
       {
         this.futuresBalanceNotional = futuresBalanceNotional;
         return this;
       }
-
       public Builder WithFuturesTotalPositionMargin(string? futuresTotalPositionMargin)
       {
         this.futuresTotalPositionMargin = futuresTotalPositionMargin;
         return this;
       }
-
       public Builder WithGmvBasis(string? gmvBasis)
       {
         this.gmvBasis = gmvBasis;
         return this;
       }
-
       public Builder WithBaseRequirement(string? baseRequirement)
       {
         this.baseRequirement = baseRequirement;
         return this;
       }
-
       public Builder WithLiqShortsAddOn(string? liqShortsAddOn)
       {
         this.liqShortsAddOn = liqShortsAddOn;
         return this;
       }
-
       public Builder WithLiqLongsAddOn(string? liqLongsAddOn)
       {
         this.liqLongsAddOn = liqLongsAddOn;
         return this;
       }
-
       public Builder WithVolShortsAddOn(string? volShortsAddOn)
       {
         this.volShortsAddOn = volShortsAddOn;
         return this;
       }
-
       public Builder WithVolLongsAddOn(string? volLongsAddOn)
       {
         this.volLongsAddOn = volLongsAddOn;
         return this;
       }
-
       public Builder WithVol5daysAddOn(string? vol5daysAddOn)
       {
         this.vol5daysAddOn = vol5daysAddOn;
         return this;
       }
-
       public Builder WithVol30daysAddOn(string? vol30daysAddOn)
       {
         this.vol30daysAddOn = vol30daysAddOn;
         return this;
       }
-
       public Builder WithVol90daysAddOn(string? vol90daysAddOn)
       {
         this.vol90daysAddOn = vol90daysAddOn;
         return this;
       }
-
       public Builder WithTotalPositionMargin(string? totalPositionMargin)
       {
         this.totalPositionMargin = totalPositionMargin;
         return this;
       }
-
       public XmPosition Build()
       {
         return new XmPosition(this);

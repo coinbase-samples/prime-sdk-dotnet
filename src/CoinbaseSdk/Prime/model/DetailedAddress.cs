@@ -27,25 +27,18 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("address_1")]
     public string? Address1 { get; set; }
-
     [JsonPropertyName("address_2")]
     public string? Address2 { get; set; }
-
     [JsonPropertyName("address_3")]
     public string? Address3 { get; set; }
-
     [JsonPropertyName("city")]
     public string? City { get; set; }
-
     [JsonPropertyName("state")]
     public string? State { get; set; }
-
     [JsonPropertyName("country_code")]
     public string? CountryCode { get; set; }
-
     [JsonPropertyName("postal_code")]
     public string? PostalCode { get; set; }
-
     public DetailedAddress() { }
 
     public DetailedAddress(Builder builder)
@@ -62,61 +55,47 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? address1;
-
       private string? address2;
-
       private string? address3;
-
       private string? city;
-
       private string? state;
-
       private string? countryCode;
-
       private string? postalCode;
-
       public Builder WithAddress1(string? address1)
       {
         this.address1 = address1;
         return this;
       }
-
       public Builder WithAddress2(string? address2)
       {
         this.address2 = address2;
         return this;
       }
-
       public Builder WithAddress3(string? address3)
       {
         this.address3 = address3;
         return this;
       }
-
       public Builder WithCity(string? city)
       {
         this.city = city;
         return this;
       }
-
       public Builder WithState(string? state)
       {
         this.state = state;
         return this;
       }
-
       public Builder WithCountryCode(string? countryCode)
       {
         this.countryCode = countryCode;
         return this;
       }
-
       public Builder WithPostalCode(string? postalCode)
       {
         this.postalCode = postalCode;
         return this;
       }
-
       public DetailedAddress Build()
       {
         return new DetailedAddress(this);

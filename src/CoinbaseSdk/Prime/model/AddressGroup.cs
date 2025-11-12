@@ -28,19 +28,14 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     [JsonPropertyName("network_type")]
     public NetworkType? NetworkType { get; set; }
-
     [JsonPropertyName("addresses")]
     public List<AddressEntry>? Addresses { get; set; }
-
     [JsonPropertyName("added_at")]
     public DateTime? AddedAt { get; set; }
-
     public AddressGroup() { }
 
     public AddressGroup(Builder builder)
@@ -55,45 +50,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? name;
-
       private NetworkType? networkType;
-
       private List<AddressEntry>? addresses;
-
       private DateTime? addedAt;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithNetworkType(NetworkType? networkType)
       {
         this.networkType = networkType;
         return this;
       }
-
       public Builder WithAddresses(List<AddressEntry>? addresses)
       {
         this.addresses = addresses;
         return this;
       }
-
       public Builder WithAddedAt(DateTime? addedAt)
       {
         this.addedAt = addedAt;
         return this;
       }
-
       public AddressGroup Build()
       {
         return new AddressGroup(this);

@@ -30,16 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
-
     /// <summary>
     /// The date used for conversion
     /// </summary>
     [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
-
     [JsonPropertyName("margin_summary")]
     public MarginSummary? MarginSummary { get; set; }
-
     public MarginSummaryHistorical() { }
 
     public MarginSummaryHistorical(Builder builder)
@@ -52,29 +49,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? conversionDatetime;
-
       private string? conversionDate;
-
       private MarginSummary? marginSummary;
-
       public Builder WithConversionDatetime(string? conversionDatetime)
       {
         this.conversionDatetime = conversionDatetime;
         return this;
       }
-
       public Builder WithConversionDate(string? conversionDate)
       {
         this.conversionDate = conversionDate;
         return this;
       }
-
       public Builder WithMarginSummary(MarginSummary? marginSummary)
       {
         this.marginSummary = marginSummary;
         return this;
       }
-
       public MarginSummaryHistorical Build()
       {
         return new MarginSummaryHistorical(this);

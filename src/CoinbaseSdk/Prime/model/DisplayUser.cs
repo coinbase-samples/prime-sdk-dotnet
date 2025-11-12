@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
-
     /// <summary>
     /// User full name
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
-
     /// <summary>
     /// User avatar URL
     /// </summary>
     [JsonPropertyName("avatar_url")]
     public string AvatarUrl { get; set; } = default!;
-
     public DisplayUser() { }
 
     public DisplayUser(Builder builder)
@@ -55,29 +52,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string id = default!;
-
       private string name = default!;
-
       private string avatarUrl = default!;
-
       public Builder WithId(string id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithAvatarUrl(string avatarUrl)
       {
         this.avatarUrl = avatarUrl;
         return this;
       }
-
       public DisplayUser Build()
       {
         return new DisplayUser(this);

@@ -28,22 +28,16 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     [JsonPropertyName("type")]
     public WalletDepositInstructionType? Type { get; set; }
-
     [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
-
     [JsonPropertyName("routing_number")]
     public string? RoutingNumber { get; set; }
-
     [JsonPropertyName("reference_code")]
     public string? ReferenceCode { get; set; }
-
     public WalletFiatDepositInstructions() { }
 
     public WalletFiatDepositInstructions(Builder builder)
@@ -59,53 +53,41 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? name;
-
       private WalletDepositInstructionType? type;
-
       private string? accountNumber;
-
       private string? routingNumber;
-
       private string? referenceCode;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithType(WalletDepositInstructionType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithAccountNumber(string? accountNumber)
       {
         this.accountNumber = accountNumber;
         return this;
       }
-
       public Builder WithRoutingNumber(string? routingNumber)
       {
         this.routingNumber = routingNumber;
         return this;
       }
-
       public Builder WithReferenceCode(string? referenceCode)
       {
         this.referenceCode = referenceCode;
         return this;
       }
-
       public WalletFiatDepositInstructions Build()
       {
         return new WalletFiatDepositInstructions(this);

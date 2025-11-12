@@ -30,64 +30,53 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The currency symbol credit is denoted in
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// The maximum credit limit
     /// </summary>
     [JsonPropertyName("limit")]
     public string? Limit { get; set; }
-
     /// <summary>
     /// The amount of credit used
     /// </summary>
     [JsonPropertyName("utilized")]
     public string? Utilized { get; set; }
-
     /// <summary>
     /// The amount of credit available
     /// </summary>
     [JsonPropertyName("available")]
     public string? Available { get; set; }
-
     /// <summary>
     /// Whether or not a portfolio is frozen due to balance outstanding or other reason
     /// </summary>
     [JsonPropertyName("frozen")]
     public bool? Frozen { get; set; }
-
     /// <summary>
     /// The reason why the portfolio is frozen
     /// </summary>
     [JsonPropertyName("frozen_reason")]
     public string? FrozenReason { get; set; }
-
     [JsonPropertyName("amounts_due")]
     public List<AmountDue>? AmountsDue { get; set; }
-
     /// <summary>
     /// Whether the portfolio has credit enabled
     /// </summary>
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
-
     /// <summary>
     /// The amount of adjusted credit used
     /// </summary>
     [JsonPropertyName("adjusted_credit_utilized")]
     public string? AdjustedCreditUtilized { get; set; }
-
     /// <summary>
     /// The amount of adjusted portfolio equity
     /// </summary>
     [JsonPropertyName("adjusted_portfolio_equity")]
     public string? AdjustedPortfolioEquity { get; set; }
-
     public PostTradeCreditInformation() { }
 
     public PostTradeCreditInformation(Builder builder)
@@ -108,93 +97,71 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? portfolioId;
-
       private string? currency;
-
       private string? limit;
-
       private string? utilized;
-
       private string? available;
-
       private bool? frozen;
-
       private string? frozenReason;
-
       private List<AmountDue>? amountsDue;
-
       private bool? enabled;
-
       private string? adjustedCreditUtilized;
-
       private string? adjustedPortfolioEquity;
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
         return this;
       }
-
       public Builder WithLimit(string? limit)
       {
         this.limit = limit;
         return this;
       }
-
       public Builder WithUtilized(string? utilized)
       {
         this.utilized = utilized;
         return this;
       }
-
       public Builder WithAvailable(string? available)
       {
         this.available = available;
         return this;
       }
-
       public Builder WithFrozen(bool? frozen)
       {
         this.frozen = frozen;
         return this;
       }
-
       public Builder WithFrozenReason(string? frozenReason)
       {
         this.frozenReason = frozenReason;
         return this;
       }
-
       public Builder WithAmountsDue(List<AmountDue>? amountsDue)
       {
         this.amountsDue = amountsDue;
         return this;
       }
-
       public Builder WithEnabled(bool? enabled)
       {
         this.enabled = enabled;
         return this;
       }
-
       public Builder WithAdjustedCreditUtilized(string? adjustedCreditUtilized)
       {
         this.adjustedCreditUtilized = adjustedCreditUtilized;
         return this;
       }
-
       public Builder WithAdjustedPortfolioEquity(string? adjustedPortfolioEquity)
       {
         this.adjustedPortfolioEquity = adjustedPortfolioEquity;
         return this;
       }
-
       public PostTradeCreditInformation Build()
       {
         return new PostTradeCreditInformation(this);

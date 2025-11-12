@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("allocation_leg_id")]
     public string AllocationLegId { get; set; } = default!;
-
     /// <summary>
     /// The ID of the destination portfolio of the allocation leg
     /// </summary>
     [JsonPropertyName("destination_portfolio_id")]
     public string DestinationPortfolioId { get; set; } = default!;
-
     /// <summary>
     /// The amount size for the allocation leg
     /// </summary>
     [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
-
     public AllocationLeg() { }
 
     public AllocationLeg(Builder builder)
@@ -55,29 +52,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string allocationLegId = default!;
-
       private string destinationPortfolioId = default!;
-
       private string amount = default!;
-
       public Builder WithAllocationLegId(string allocationLegId)
       {
         this.allocationLegId = allocationLegId;
         return this;
       }
-
       public Builder WithDestinationPortfolioId(string destinationPortfolioId)
       {
         this.destinationPortfolioId = destinationPortfolioId;
         return this;
       }
-
       public Builder WithAmount(string amount)
       {
         this.amount = amount;
         return this;
       }
-
       public AllocationLeg Build()
       {
         return new AllocationLeg(this);

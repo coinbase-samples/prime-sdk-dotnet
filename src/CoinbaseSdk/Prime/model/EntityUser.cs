@@ -31,28 +31,23 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The name of the user
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The email of the user
     /// </summary>
     [JsonPropertyName("email")]
     public string? Email { get; set; }
-
     /// <summary>
     /// The entity to which this user and associated permissions are identified
     /// </summary>
     [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-
     [JsonPropertyName("role")]
     public UserRole? Role { get; set; }
-
     public EntityUser() { }
 
     public EntityUser(Builder builder)
@@ -67,45 +62,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? name;
-
       private string? email;
-
       private string? entityId;
-
       private UserRole? role;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithEmail(string? email)
       {
         this.email = email;
         return this;
       }
-
       public Builder WithEntityId(string? entityId)
       {
         this.entityId = entityId;
         return this;
       }
-
       public Builder WithRole(UserRole? role)
       {
         this.role = role;
         return this;
       }
-
       public EntityUser Build()
       {
         return new EntityUser(this);

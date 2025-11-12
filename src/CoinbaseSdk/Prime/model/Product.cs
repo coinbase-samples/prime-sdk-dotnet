@@ -31,58 +31,48 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The smallest permitted unit of denomination for the base asset (varies by product)
     /// </summary>
     [JsonPropertyName("base_increment")]
     public string? BaseIncrement { get; set; }
-
     /// <summary>
     /// The smallest permitted unit of denomination for the quote asset (varies by product)
     /// </summary>
     [JsonPropertyName("quote_increment")]
     public string? QuoteIncrement { get; set; }
-
     /// <summary>
     /// The minimum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_min_size")]
     public string? BaseMinSize { get; set; }
-
     /// <summary>
     /// The minimum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_min_size")]
     public string? QuoteMinSize { get; set; }
-
     /// <summary>
     /// The maximum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_max_size")]
     public string? BaseMaxSize { get; set; }
-
     /// <summary>
     /// The maximum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_max_size")]
     public string? QuoteMaxSize { get; set; }
-
     /// <summary>
     /// Permissions given to the user for a product
     /// </summary>
     [JsonPropertyName("permissions")]
     public List<ProductPermissions>? Permissions { get; set; }
-
     /// <summary>
     /// The smallest permitted price increment for the product
     /// </summary>
     [JsonPropertyName("price_increment")]
     public string? PriceIncrement { get; set; }
-
     [JsonPropertyName("rfq_product_details")]
     public RfqProductDetails? RfqProductDetails { get; set; }
-
     public Product() { }
 
     public Product(Builder builder)
@@ -102,85 +92,65 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? baseIncrement;
-
       private string? quoteIncrement;
-
       private string? baseMinSize;
-
       private string? quoteMinSize;
-
       private string? baseMaxSize;
-
       private string? quoteMaxSize;
-
       private List<ProductPermissions>? permissions;
-
       private string? priceIncrement;
-
       private RfqProductDetails? rfqProductDetails;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithBaseIncrement(string? baseIncrement)
       {
         this.baseIncrement = baseIncrement;
         return this;
       }
-
       public Builder WithQuoteIncrement(string? quoteIncrement)
       {
         this.quoteIncrement = quoteIncrement;
         return this;
       }
-
       public Builder WithBaseMinSize(string? baseMinSize)
       {
         this.baseMinSize = baseMinSize;
         return this;
       }
-
       public Builder WithQuoteMinSize(string? quoteMinSize)
       {
         this.quoteMinSize = quoteMinSize;
         return this;
       }
-
       public Builder WithBaseMaxSize(string? baseMaxSize)
       {
         this.baseMaxSize = baseMaxSize;
         return this;
       }
-
       public Builder WithQuoteMaxSize(string? quoteMaxSize)
       {
         this.quoteMaxSize = quoteMaxSize;
         return this;
       }
-
       public Builder WithPermissions(List<ProductPermissions>? permissions)
       {
         this.permissions = permissions;
         return this;
       }
-
       public Builder WithPriceIncrement(string? priceIncrement)
       {
         this.priceIncrement = priceIncrement;
         return this;
       }
-
       public Builder WithRfqProductDetails(RfqProductDetails? rfqProductDetails)
       {
         this.rfqProductDetails = rfqProductDetails;
         return this;
       }
-
       public Product Build()
       {
         return new Product(this);

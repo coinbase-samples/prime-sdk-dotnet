@@ -31,37 +31,30 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
-
     [JsonPropertyName("unstake_type")]
     public UnstakeType? UnstakeType { get; set; }
-
     /// <summary>
     /// Estimated date when unstaking will complete (ISO 8601 format)
     /// </summary>
     [JsonPropertyName("finishing_at")]
     public DateTime? FinishingAt { get; set; }
-
     /// <summary>
     /// Estimated hours until this unstaking request completes
     /// </summary>
     [JsonPropertyName("remaining_hours")]
     public long? RemainingHours { get; set; }
-
     /// <summary>
     /// Timestamp when the unstake request was originally created
     /// </summary>
     [JsonPropertyName("requested_at")]
     public DateTime? RequestedAt { get; set; }
-
     [JsonPropertyName("estimate_type")]
     public EstimateType EstimateType { get; set; } = default!;
-
     /// <summary>
     /// Detailed explanation of the estimate status for display to users.
     /// </summary>
     [JsonPropertyName("estimate_description")]
     public string EstimateDescription { get; set; } = default!;
-
     public UnstakingStatus() { }
 
     public UnstakingStatus(Builder builder)
@@ -78,61 +71,47 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string amount = default!;
-
       private UnstakeType? unstakeType;
-
       private DateTime? finishingAt;
-
       private long? remainingHours;
-
       private DateTime? requestedAt;
-
       private EstimateType estimateType = default!;
-
       private string estimateDescription = default!;
-
       public Builder WithAmount(string amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithUnstakeType(UnstakeType? unstakeType)
       {
         this.unstakeType = unstakeType;
         return this;
       }
-
       public Builder WithFinishingAt(DateTime? finishingAt)
       {
         this.finishingAt = finishingAt;
         return this;
       }
-
       public Builder WithRemainingHours(long? remainingHours)
       {
         this.remainingHours = remainingHours;
         return this;
       }
-
       public Builder WithRequestedAt(DateTime? requestedAt)
       {
         this.requestedAt = requestedAt;
         return this;
       }
-
       public Builder WithEstimateType(EstimateType estimateType)
       {
         this.estimateType = estimateType;
         return this;
       }
-
       public Builder WithEstimateDescription(string estimateDescription)
       {
         this.estimateDescription = estimateDescription;
         return this;
       }
-
       public UnstakingStatus Build()
       {
         return new UnstakingStatus(this);

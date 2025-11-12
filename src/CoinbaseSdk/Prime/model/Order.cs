@@ -31,181 +31,149 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The ID of the user that created the order
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
-
     /// <summary>
     /// The ID of the portfolio that owns the order
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The ID of the product being traded by the order
     /// </summary>
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
-
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
     [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
-
     [JsonPropertyName("type")]
     public OrderType? Type { get; set; }
-
     /// <summary>
     /// Order size in base asset units (either &#x60;base_quantity&#x60; or &#x60;quote_value&#x60; is required)
     /// </summary>
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-
     /// <summary>
     /// Order size in quote asset units, i.e. the amount the user wants to spend (when buying) or receive (when selling); the quantity in base units will be determined based on the market liquidity and indicated &#x60;quote_value&#x60;. Either &#x60;base_quantity&#x60; or &#x60;quote_value&#x60; is required
     /// </summary>
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-
     /// <summary>
     /// The limit price (required for TWAP, VWAP, LIMIT and STOP_LIMIT orders)
     /// </summary>
     [JsonPropertyName("limit_price")]
     public string? LimitPrice { get; set; }
-
     /// <summary>
     /// The start time of the order in UTC (only applies to TWAP, VWAP orders.)
     /// </summary>
     [JsonPropertyName("start_time")]
     public DateTime? StartTime { get; set; }
-
     /// <summary>
     /// The expiry time of the order in UTC (applies to TWAP, VWAP, LIMIT, and STOP_LIMIT orders with &#x60;time_in_force&#x60; set to &#x60;GTD&#x60;)
     /// </summary>
     [JsonPropertyName("expiry_time")]
     public DateTime? ExpiryTime { get; set; }
-
     [JsonPropertyName("status")]
     public OrderStatus? Status { get; set; }
-
     [JsonPropertyName("time_in_force")]
     public TimeInForceType? TimeInForce { get; set; }
-
     /// <summary>
     /// The order creation time as a UTC timestamp
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// Size filled (in base asset units)
     /// </summary>
     [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
-
     /// <summary>
     /// Market value filled (in quote asset units)
     /// </summary>
     [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
-
     /// <summary>
     /// Indicates the average &#x60;filled_price&#x60;
     /// </summary>
     [JsonPropertyName("average_filled_price")]
     public string? AverageFilledPrice { get; set; }
-
     /// <summary>
     /// Total commission paid on this order (in quote asset units) - - only applicable for partially- or fully-filled orders
     /// </summary>
     [JsonPropertyName("commission")]
     public string? Commission { get; set; }
-
     /// <summary>
     /// Fee charged by the exchange for Cost Plus commission configurations. Exchange fee will be 0 for All In commission configurations.
     /// </summary>
     [JsonPropertyName("exchange_fee")]
     public string? ExchangeFee { get; set; }
-
     /// <summary>
     /// historical pov for the order
     /// </summary>
     [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
-
     /// <summary>
     /// Specifies the stop price at which the order activates. The order is activated if the last trade price on Coinbase Exchange crosses the stop price specified on the order
     /// </summary>
     [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
-
     /// <summary>
     /// Indicates the average &#x60;filled_price&#x60; net of commissions and fees
     /// </summary>
     [JsonPropertyName("net_average_filled_price")]
     public string? NetAverageFilledPrice { get; set; }
-
     /// <summary>
     /// Indicates a user friendly message for regarding various aspects of the order such as cancellation or rejection reasons
     /// </summary>
     [JsonPropertyName("user_context")]
     public string? UserContext { get; set; }
-
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
     [JsonPropertyName("client_product_id")]
     public string? ClientProductId { get; set; }
-
     /// <summary>
     /// Post-only flag - indicates whether the order was placed as post-only
     /// </summary>
     [JsonPropertyName("post_only")]
     public bool? PostOnly { get; set; }
-
     /// <summary>
     /// The history of order edits (deprecated: use edit_history instead)
     /// </summary>
     [JsonPropertyName("order_edit_history")]
     public List<LimitOrderEdit>? OrderEditHistory { get; set; }
-
     /// <summary>
     /// Indicates if this was a raise exact order (size inclusive of fees for sell orders in quote)
     /// </summary>
     [JsonPropertyName("is_raise_exact")]
     public bool? IsRaiseExact { get; set; }
-
     /// <summary>
     /// Display size for the order
     /// </summary>
     [JsonPropertyName("display_size")]
     public string? DisplaySize { get; set; }
-
     /// <summary>
     /// The history of order edits
     /// </summary>
     [JsonPropertyName("edit_history")]
     public List<OrderEdit>? EditHistory { get; set; }
-
     /// <summary>
     /// The maximum order size that will show up on venue order books (in quote currency).
     /// </summary>
     [JsonPropertyName("display_quote_size")]
     public string? DisplayQuoteSize { get; set; }
-
     /// <summary>
     /// The maximum order size that will show up on venue order books (in base currency).
     /// </summary>
     [JsonPropertyName("display_base_size")]
     public string? DisplayBaseSize { get; set; }
-
     public Order() { }
 
     public Order(Builder builder)
@@ -247,261 +215,197 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? id;
-
       private string? userId;
-
       private string? portfolioId;
-
       private string? productId;
-
       private OrderSide? side;
-
       private string? clientOrderId;
-
       private OrderType? type;
-
       private string? baseQuantity;
-
       private string? quoteValue;
-
       private string? limitPrice;
-
       private DateTime? startTime;
-
       private DateTime? expiryTime;
-
       private OrderStatus? status;
-
       private TimeInForceType? timeInForce;
-
       private DateTime? createdAt;
-
       private string? filledQuantity;
-
       private string? filledValue;
-
       private string? averageFilledPrice;
-
       private string? commission;
-
       private string? exchangeFee;
-
       private string? historicalPov;
-
       private string? stopPrice;
-
       private string? netAverageFilledPrice;
-
       private string? userContext;
-
       private string? clientProductId;
-
       private bool? postOnly;
-
       private List<LimitOrderEdit>? orderEditHistory;
-
       private bool? isRaiseExact;
-
       private string? displaySize;
-
       private List<OrderEdit>? editHistory;
-
       private string? displayQuoteSize;
-
       private string? displayBaseSize;
-
       public Builder WithId(string? id)
       {
         this.id = id;
         return this;
       }
-
       public Builder WithUserId(string? userId)
       {
         this.userId = userId;
         return this;
       }
-
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
         return this;
       }
-
       public Builder WithProductId(string? productId)
       {
         this.productId = productId;
         return this;
       }
-
       public Builder WithSide(OrderSide? side)
       {
         this.side = side;
         return this;
       }
-
       public Builder WithClientOrderId(string? clientOrderId)
       {
         this.clientOrderId = clientOrderId;
         return this;
       }
-
       public Builder WithType(OrderType? type)
       {
         this.type = type;
         return this;
       }
-
       public Builder WithBaseQuantity(string? baseQuantity)
       {
         this.baseQuantity = baseQuantity;
         return this;
       }
-
       public Builder WithQuoteValue(string? quoteValue)
       {
         this.quoteValue = quoteValue;
         return this;
       }
-
       public Builder WithLimitPrice(string? limitPrice)
       {
         this.limitPrice = limitPrice;
         return this;
       }
-
       public Builder WithStartTime(DateTime? startTime)
       {
         this.startTime = startTime;
         return this;
       }
-
       public Builder WithExpiryTime(DateTime? expiryTime)
       {
         this.expiryTime = expiryTime;
         return this;
       }
-
       public Builder WithStatus(OrderStatus? status)
       {
         this.status = status;
         return this;
       }
-
       public Builder WithTimeInForce(TimeInForceType? timeInForce)
       {
         this.timeInForce = timeInForce;
         return this;
       }
-
       public Builder WithCreatedAt(DateTime? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithFilledQuantity(string? filledQuantity)
       {
         this.filledQuantity = filledQuantity;
         return this;
       }
-
       public Builder WithFilledValue(string? filledValue)
       {
         this.filledValue = filledValue;
         return this;
       }
-
       public Builder WithAverageFilledPrice(string? averageFilledPrice)
       {
         this.averageFilledPrice = averageFilledPrice;
         return this;
       }
-
       public Builder WithCommission(string? commission)
       {
         this.commission = commission;
         return this;
       }
-
       public Builder WithExchangeFee(string? exchangeFee)
       {
         this.exchangeFee = exchangeFee;
         return this;
       }
-
       public Builder WithHistoricalPov(string? historicalPov)
       {
         this.historicalPov = historicalPov;
         return this;
       }
-
       public Builder WithStopPrice(string? stopPrice)
       {
         this.stopPrice = stopPrice;
         return this;
       }
-
       public Builder WithNetAverageFilledPrice(string? netAverageFilledPrice)
       {
         this.netAverageFilledPrice = netAverageFilledPrice;
         return this;
       }
-
       public Builder WithUserContext(string? userContext)
       {
         this.userContext = userContext;
         return this;
       }
-
       public Builder WithClientProductId(string? clientProductId)
       {
         this.clientProductId = clientProductId;
         return this;
       }
-
       public Builder WithPostOnly(bool? postOnly)
       {
         this.postOnly = postOnly;
         return this;
       }
-
       public Builder WithOrderEditHistory(List<LimitOrderEdit>? orderEditHistory)
       {
         this.orderEditHistory = orderEditHistory;
         return this;
       }
-
       public Builder WithIsRaiseExact(bool? isRaiseExact)
       {
         this.isRaiseExact = isRaiseExact;
         return this;
       }
-
       public Builder WithDisplaySize(string? displaySize)
       {
         this.displaySize = displaySize;
         return this;
       }
-
       public Builder WithEditHistory(List<OrderEdit>? editHistory)
       {
         this.editHistory = editHistory;
         return this;
       }
-
       public Builder WithDisplayQuoteSize(string? displayQuoteSize)
       {
         this.displayQuoteSize = displayQuoteSize;
         return this;
       }
-
       public Builder WithDisplayBaseSize(string? displayBaseSize)
       {
         this.displayBaseSize = displayBaseSize;
         return this;
       }
-
       public Order Build()
       {
         return new Order(this);

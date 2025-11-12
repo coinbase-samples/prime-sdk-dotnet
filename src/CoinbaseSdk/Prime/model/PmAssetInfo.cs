@@ -30,103 +30,86 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Nominal amount of the currency
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// Spot price for the currency
     /// </summary>
     [JsonPropertyName("price")]
     public string? Price { get; set; }
-
     /// <summary>
     /// Notional amount of the currency
     /// </summary>
     [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
-
     /// <summary>
     /// Asset tier of the currency
     /// </summary>
     [JsonPropertyName("asset_tier")]
     public string? AssetTier { get; set; }
-
     /// <summary>
     /// Whether the currency is margin eligible
     /// </summary>
     [JsonPropertyName("margin_eligible")]
     public bool? MarginEligible { get; set; }
-
     /// <summary>
     /// Base margin requirement of the currency
     /// </summary>
     [JsonPropertyName("base_margin_requirement")]
     public string? BaseMarginRequirement { get; set; }
-
     /// <summary>
     /// Notional amount of the currency&#39;s base margin requirement
     /// </summary>
     [JsonPropertyName("base_margin_requirement_notional")]
     public string? BaseMarginRequirementNotional { get; set; }
-
     /// <summary>
     /// The 30d adv of the currency
     /// </summary>
     [JsonPropertyName("adv_30d")]
     public string? Adv30d { get; set; }
-
     /// <summary>
     /// Historic 5d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_5d_vol")]
     public string? Hist5dVol { get; set; }
-
     /// <summary>
     /// Historic 30d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_30d_vol")]
     public string? Hist30dVol { get; set; }
-
     /// <summary>
     /// Historic 90d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_90d_vol")]
     public string? Hist90dVol { get; set; }
-
     /// <summary>
     /// Volatility margin addon of the currency position
     /// </summary>
     [JsonPropertyName("volatility_addon")]
     public string? VolatilityAddon { get; set; }
-
     /// <summary>
     /// Liquidity margin addon of the currency position
     /// </summary>
     [JsonPropertyName("liquidity_addon")]
     public string? LiquidityAddon { get; set; }
-
     /// <summary>
     /// Total position margin of the currency
     /// </summary>
     [JsonPropertyName("total_position_margin")]
     public string? TotalPositionMargin { get; set; }
-
     /// <summary>
     /// Nominal short position of the currency
     /// </summary>
     [JsonPropertyName("short_nominal")]
     public string? ShortNominal { get; set; }
-
     /// <summary>
     /// Nominal long position of the currency
     /// </summary>
     [JsonPropertyName("long_nominal")]
     public string? LongNominal { get; set; }
-
     public PmAssetInfo() { }
 
     public PmAssetInfo(Builder builder)
@@ -153,141 +136,107 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? amount;
-
       private string? price;
-
       private string? notionalAmount;
-
       private string? assetTier;
-
       private bool? marginEligible;
-
       private string? baseMarginRequirement;
-
       private string? baseMarginRequirementNotional;
-
       private string? adv30d;
-
       private string? hist5dVol;
-
       private string? hist30dVol;
-
       private string? hist90dVol;
-
       private string? volatilityAddon;
-
       private string? liquidityAddon;
-
       private string? totalPositionMargin;
-
       private string? shortNominal;
-
       private string? longNominal;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithAmount(string? amount)
       {
         this.amount = amount;
         return this;
       }
-
       public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
-
       public Builder WithNotionalAmount(string? notionalAmount)
       {
         this.notionalAmount = notionalAmount;
         return this;
       }
-
       public Builder WithAssetTier(string? assetTier)
       {
         this.assetTier = assetTier;
         return this;
       }
-
       public Builder WithMarginEligible(bool? marginEligible)
       {
         this.marginEligible = marginEligible;
         return this;
       }
-
       public Builder WithBaseMarginRequirement(string? baseMarginRequirement)
       {
         this.baseMarginRequirement = baseMarginRequirement;
         return this;
       }
-
       public Builder WithBaseMarginRequirementNotional(string? baseMarginRequirementNotional)
       {
         this.baseMarginRequirementNotional = baseMarginRequirementNotional;
         return this;
       }
-
       public Builder WithAdv30d(string? adv30d)
       {
         this.adv30d = adv30d;
         return this;
       }
-
       public Builder WithHist5dVol(string? hist5dVol)
       {
         this.hist5dVol = hist5dVol;
         return this;
       }
-
       public Builder WithHist30dVol(string? hist30dVol)
       {
         this.hist30dVol = hist30dVol;
         return this;
       }
-
       public Builder WithHist90dVol(string? hist90dVol)
       {
         this.hist90dVol = hist90dVol;
         return this;
       }
-
       public Builder WithVolatilityAddon(string? volatilityAddon)
       {
         this.volatilityAddon = volatilityAddon;
         return this;
       }
-
       public Builder WithLiquidityAddon(string? liquidityAddon)
       {
         this.liquidityAddon = liquidityAddon;
         return this;
       }
-
       public Builder WithTotalPositionMargin(string? totalPositionMargin)
       {
         this.totalPositionMargin = totalPositionMargin;
         return this;
       }
-
       public Builder WithShortNominal(string? shortNominal)
       {
         this.shortNominal = shortNominal;
         return this;
       }
-
       public Builder WithLongNominal(string? longNominal)
       {
         this.longNominal = longNominal;
         return this;
       }
-
       public PmAssetInfo Build()
       {
         return new PmAssetInfo(this);

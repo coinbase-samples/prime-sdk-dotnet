@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("success")]
     public bool Success { get; set; } = default!;
-
     /// <summary>
     /// The allocation id for the post allocation
     /// </summary>
     [JsonPropertyName("allocation_id")]
     public string AllocationId { get; set; } = default!;
-
     /// <summary>
     /// The failure reason for the post allocation
     /// </summary>
     [JsonPropertyName("failure_reason")]
     public string FailureReason { get; set; } = default!;
-
     public CreateAllocationResponseBody() { }
 
     public CreateAllocationResponseBody(Builder builder)
@@ -55,29 +52,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool success = default!;
-
       private string allocationId = default!;
-
       private string failureReason = default!;
-
       public Builder WithSuccess(bool success)
       {
         this.success = success;
         return this;
       }
-
       public Builder WithAllocationId(string allocationId)
       {
         this.allocationId = allocationId;
         return this;
       }
-
       public Builder WithFailureReason(string failureReason)
       {
         this.failureReason = failureReason;
         return this;
       }
-
       public CreateAllocationResponseBody Build()
       {
         return new CreateAllocationResponseBody(this);

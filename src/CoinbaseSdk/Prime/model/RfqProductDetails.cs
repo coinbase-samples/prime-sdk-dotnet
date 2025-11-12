@@ -30,43 +30,36 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("tradable")]
     public bool? Tradable { get; set; }
-
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("min_notional_size")]
     public string? MinNotionalSize { get; set; }
-
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("max_notional_size")]
     public string? MaxNotionalSize { get; set; }
-
     /// <summary>
     /// Minimum base size for RFQ
     /// </summary>
     [JsonPropertyName("min_base_size")]
     public string? MinBaseSize { get; set; }
-
     /// <summary>
     /// Maximum base size for RFQ
     /// </summary>
     [JsonPropertyName("max_base_size")]
     public string? MaxBaseSize { get; set; }
-
     /// <summary>
     /// Minimum quote size for RFQ
     /// </summary>
     [JsonPropertyName("min_quote_size")]
     public string? MinQuoteSize { get; set; }
-
     /// <summary>
     /// Maximum quote size for RFQ
     /// </summary>
     [JsonPropertyName("max_quote_size")]
     public string? MaxQuoteSize { get; set; }
-
     public RfqProductDetails() { }
 
     public RfqProductDetails(Builder builder)
@@ -83,61 +76,47 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private bool? tradable;
-
       private string? minNotionalSize;
-
       private string? maxNotionalSize;
-
       private string? minBaseSize;
-
       private string? maxBaseSize;
-
       private string? minQuoteSize;
-
       private string? maxQuoteSize;
-
       public Builder WithTradable(bool? tradable)
       {
         this.tradable = tradable;
         return this;
       }
-
       public Builder WithMinNotionalSize(string? minNotionalSize)
       {
         this.minNotionalSize = minNotionalSize;
         return this;
       }
-
       public Builder WithMaxNotionalSize(string? maxNotionalSize)
       {
         this.maxNotionalSize = maxNotionalSize;
         return this;
       }
-
       public Builder WithMinBaseSize(string? minBaseSize)
       {
         this.minBaseSize = minBaseSize;
         return this;
       }
-
       public Builder WithMaxBaseSize(string? maxBaseSize)
       {
         this.maxBaseSize = maxBaseSize;
         return this;
       }
-
       public Builder WithMinQuoteSize(string? minQuoteSize)
       {
         this.minQuoteSize = minQuoteSize;
         return this;
       }
-
       public Builder WithMaxQuoteSize(string? maxQuoteSize)
       {
         this.maxQuoteSize = maxQuoteSize;
         return this;
       }
-
       public RfqProductDetails Build()
       {
         return new RfqProductDetails(this);

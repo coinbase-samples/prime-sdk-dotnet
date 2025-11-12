@@ -31,16 +31,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("transaction_id")]
     public string TransactionId { get; set; } = default!;
-
     /// <summary>
     /// The address (public key) of the validator
     /// </summary>
     [JsonPropertyName("validator_address")]
     public string ValidatorAddress { get; set; } = default!;
-
     [JsonPropertyName("validator_status")]
     public ValidatorStatus ValidatorStatus { get; set; } = default!;
-
     public TransactionValidator() { }
 
     public TransactionValidator(Builder builder)
@@ -53,29 +50,23 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string transactionId = default!;
-
       private string validatorAddress = default!;
-
       private ValidatorStatus validatorStatus = default!;
-
       public Builder WithTransactionId(string transactionId)
       {
         this.transactionId = transactionId;
         return this;
       }
-
       public Builder WithValidatorAddress(string validatorAddress)
       {
         this.validatorAddress = validatorAddress;
         return this;
       }
-
       public Builder WithValidatorStatus(ValidatorStatus validatorStatus)
       {
         this.validatorStatus = validatorStatus;
         return this;
       }
-
       public TransactionValidator Build()
       {
         return new TransactionValidator(this);

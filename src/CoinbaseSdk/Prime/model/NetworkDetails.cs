@@ -27,61 +27,51 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("network")]
     public Network? Network { get; set; }
-
     /// <summary>
     /// The name of the network
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The maximum number of decimals supported for this network
     /// </summary>
     [JsonPropertyName("max_decimals")]
     public string? MaxDecimals { get; set; }
-
     /// <summary>
     /// Indicates whether this network is the default network for the asset
     /// </summary>
     [JsonPropertyName("default")]
     public bool? Default { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports trading
     /// </summary>
     [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports vault
     /// </summary>
     [JsonPropertyName("vault_supported")]
     public bool? VaultSupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports prime custody
     /// </summary>
     [JsonPropertyName("prime_custody_supported")]
     public bool? PrimeCustodySupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network requires a destination tag
     /// </summary>
     [JsonPropertyName("destination_tag_required")]
     public bool? DestinationTagRequired { get; set; }
-
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("network_link")]
     public string? NetworkLink { get; set; }
-
     /// <summary>
     /// Indicates the symbol that can be used to query other endpoints, related to transactions, wallets, and activities, to get information particularly for this asset on the network
     /// </summary>
     [JsonPropertyName("network_scoped_symbol")]
     public string? NetworkScopedSymbol { get; set; }
-
     public NetworkDetails() { }
 
     public NetworkDetails(Builder builder)
@@ -101,85 +91,65 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private Network? network;
-
       private string? name;
-
       private string? maxDecimals;
-
       private bool? varDefault;
-
       private bool? tradingSupported;
-
       private bool? vaultSupported;
-
       private bool? primeCustodySupported;
-
       private bool? destinationTagRequired;
-
       private string? networkLink;
-
       private string? networkScopedSymbol;
-
       public Builder WithNetwork(Network? network)
       {
         this.network = network;
         return this;
       }
-
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-
       public Builder WithMaxDecimals(string? maxDecimals)
       {
         this.maxDecimals = maxDecimals;
         return this;
       }
-
       public Builder WithDefault(bool? varDefault)
       {
         this.varDefault = varDefault;
         return this;
       }
-
       public Builder WithTradingSupported(bool? tradingSupported)
       {
         this.tradingSupported = tradingSupported;
         return this;
       }
-
       public Builder WithVaultSupported(bool? vaultSupported)
       {
         this.vaultSupported = vaultSupported;
         return this;
       }
-
       public Builder WithPrimeCustodySupported(bool? primeCustodySupported)
       {
         this.primeCustodySupported = primeCustodySupported;
         return this;
       }
-
       public Builder WithDestinationTagRequired(bool? destinationTagRequired)
       {
         this.destinationTagRequired = destinationTagRequired;
         return this;
       }
-
       public Builder WithNetworkLink(string? networkLink)
       {
         this.networkLink = networkLink;
         return this;
       }
-
       public Builder WithNetworkScopedSymbol(string? networkScopedSymbol)
       {
         this.networkScopedSymbol = networkScopedSymbol;
         return this;
       }
-
       public NetworkDetails Build()
       {
         return new NetworkDetails(this);

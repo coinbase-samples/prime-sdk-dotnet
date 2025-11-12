@@ -30,43 +30,36 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Trade finance balance after the conversion
     /// </summary>
     [JsonPropertyName("tf_balance")]
     public string? TfBalance { get; set; }
-
     /// <summary>
     /// Notional trade finance balance after the conversion
     /// </summary>
     [JsonPropertyName("notional_tf_balance")]
     public string? NotionalTfBalance { get; set; }
-
     /// <summary>
     /// Converted balance
     /// </summary>
     [JsonPropertyName("converted_balance")]
     public string? ConvertedBalance { get; set; }
-
     /// <summary>
     /// Notional converted balance
     /// </summary>
     [JsonPropertyName("notional_converted_balance")]
     public string? NotionalConvertedBalance { get; set; }
-
     /// <summary>
     /// Interest rate
     /// </summary>
     [JsonPropertyName("interest_rate")]
     public string? InterestRate { get; set; }
-
     /// <summary>
     /// Conversion rate
     /// </summary>
     [JsonPropertyName("conversion_rate")]
     public string? ConversionRate { get; set; }
-
     public ConversionDetail() { }
 
     public ConversionDetail(Builder builder)
@@ -83,61 +76,47 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? symbol;
-
       private string? tfBalance;
-
       private string? notionalTfBalance;
-
       private string? convertedBalance;
-
       private string? notionalConvertedBalance;
-
       private string? interestRate;
-
       private string? conversionRate;
-
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
         return this;
       }
-
       public Builder WithTfBalance(string? tfBalance)
       {
         this.tfBalance = tfBalance;
         return this;
       }
-
       public Builder WithNotionalTfBalance(string? notionalTfBalance)
       {
         this.notionalTfBalance = notionalTfBalance;
         return this;
       }
-
       public Builder WithConvertedBalance(string? convertedBalance)
       {
         this.convertedBalance = convertedBalance;
         return this;
       }
-
       public Builder WithNotionalConvertedBalance(string? notionalConvertedBalance)
       {
         this.notionalConvertedBalance = notionalConvertedBalance;
         return this;
       }
-
       public Builder WithInterestRate(string? interestRate)
       {
         this.interestRate = interestRate;
         return this;
       }
-
       public Builder WithConversionRate(string? conversionRate)
       {
         this.conversionRate = conversionRate;
         return this;
       }
-
       public ConversionDetail Build()
       {
         return new ConversionDetail(this);

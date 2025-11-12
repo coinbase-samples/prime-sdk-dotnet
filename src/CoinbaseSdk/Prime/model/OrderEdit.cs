@@ -27,31 +27,22 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("price")]
     public string? Price { get; set; }
-
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-
     [JsonPropertyName("display_base_size")]
     public string? DisplayBaseSize { get; set; }
-
     [JsonPropertyName("display_quote_size")]
     public string? DisplayQuoteSize { get; set; }
-
     [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
-
     [JsonPropertyName("expiry_time")]
     public DateTime? ExpiryTime { get; set; }
-
     [JsonPropertyName("accept_time")]
     public DateTime? AcceptTime { get; set; }
-
     [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
-
     public OrderEdit() { }
 
     public OrderEdit(Builder builder)
@@ -70,77 +61,59 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? price;
-
       private string? baseQuantity;
-
       private string? quoteValue;
-
       private string? displayBaseSize;
-
       private string? displayQuoteSize;
-
       private string? stopPrice;
-
       private DateTime? expiryTime;
-
       private DateTime? acceptTime;
-
       private string? clientOrderId;
-
       public Builder WithPrice(string? price)
       {
         this.price = price;
         return this;
       }
-
       public Builder WithBaseQuantity(string? baseQuantity)
       {
         this.baseQuantity = baseQuantity;
         return this;
       }
-
       public Builder WithQuoteValue(string? quoteValue)
       {
         this.quoteValue = quoteValue;
         return this;
       }
-
       public Builder WithDisplayBaseSize(string? displayBaseSize)
       {
         this.displayBaseSize = displayBaseSize;
         return this;
       }
-
       public Builder WithDisplayQuoteSize(string? displayQuoteSize)
       {
         this.displayQuoteSize = displayQuoteSize;
         return this;
       }
-
       public Builder WithStopPrice(string? stopPrice)
       {
         this.stopPrice = stopPrice;
         return this;
       }
-
       public Builder WithExpiryTime(DateTime? expiryTime)
       {
         this.expiryTime = expiryTime;
         return this;
       }
-
       public Builder WithAcceptTime(DateTime? acceptTime)
       {
         this.acceptTime = acceptTime;
         return this;
       }
-
       public Builder WithClientOrderId(string? clientOrderId)
       {
         this.clientOrderId = clientOrderId;
         return this;
       }
-
       public OrderEdit Build()
       {
         return new OrderEdit(this);

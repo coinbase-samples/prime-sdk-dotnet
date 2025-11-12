@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("label")]
     public string? Label { get; set; }
-
     /// <summary>
     /// The confirmed asset changes (onchain)
     /// </summary>
     [JsonPropertyName("confirmed_asset_changes")]
     public List<AssetChange>? ConfirmedAssetChanges { get; set; }
-
     public OnchainTransactionMetadata() { }
 
     public OnchainTransactionMetadata(Builder builder)
@@ -48,21 +46,17 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? label;
-
       private List<AssetChange>? confirmedAssetChanges;
-
       public Builder WithLabel(string? label)
       {
         this.label = label;
         return this;
       }
-
       public Builder WithConfirmedAssetChanges(List<AssetChange>? confirmedAssetChanges)
       {
         this.confirmedAssetChanges = confirmedAssetChanges;
         return this;
       }
-
       public OnchainTransactionMetadata Build()
       {
         return new OnchainTransactionMetadata(this);

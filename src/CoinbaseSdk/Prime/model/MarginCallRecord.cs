@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("margin_call_id")]
     public string? MarginCallId { get; set; }
-
     /// <summary>
     /// The initial margin call amount in notional value
     /// </summary>
     [JsonPropertyName("initial_notional_amount")]
     public string? InitialNotionalAmount { get; set; }
-
     /// <summary>
     /// The outstanding margin call amount in notional value
     /// </summary>
     [JsonPropertyName("outstanding_notional_amount")]
     public string? OutstandingNotionalAmount { get; set; }
-
     /// <summary>
     /// The time the margin call is created in RFC3330 format
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// The time the margin call is due in RFC3339 format
     /// </summary>
     [JsonPropertyName("due_at")]
     public string? DueAt { get; set; }
-
     public MarginCallRecord() { }
 
     public MarginCallRecord(Builder builder)
@@ -69,45 +64,35 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? marginCallId;
-
       private string? initialNotionalAmount;
-
       private string? outstandingNotionalAmount;
-
       private string? createdAt;
-
       private string? dueAt;
-
       public Builder WithMarginCallId(string? marginCallId)
       {
         this.marginCallId = marginCallId;
         return this;
       }
-
       public Builder WithInitialNotionalAmount(string? initialNotionalAmount)
       {
         this.initialNotionalAmount = initialNotionalAmount;
         return this;
       }
-
       public Builder WithOutstandingNotionalAmount(string? outstandingNotionalAmount)
       {
         this.outstandingNotionalAmount = outstandingNotionalAmount;
         return this;
       }
-
       public Builder WithCreatedAt(string? createdAt)
       {
         this.createdAt = createdAt;
         return this;
       }
-
       public Builder WithDueAt(string? dueAt)
       {
         this.dueAt = dueAt;
         return this;
       }
-
       public MarginCallRecord Build()
       {
         return new MarginCallRecord(this);

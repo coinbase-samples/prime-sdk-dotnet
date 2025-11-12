@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
-
     public CounterpartyDestination() { }
 
     public CounterpartyDestination(Builder builder)
@@ -38,13 +37,11 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
       private string? counterpartyId;
-
       public Builder WithCounterpartyId(string? counterpartyId)
       {
         this.counterpartyId = counterpartyId;
         return this;
       }
-
       public CounterpartyDestination Build()
       {
         return new CounterpartyDestination(this);
