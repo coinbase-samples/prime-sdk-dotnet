@@ -33,6 +33,7 @@ namespace CoinbaseSdk.Prime.Model.Enums
     TRADER,
     FULLTRADER,
     TEAMMANAGER,
-    APPROVER
+    APPROVER,
+    TAXMANAGER
   }
 }
