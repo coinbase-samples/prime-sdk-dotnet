@@ -16,57 +16,57 @@
 
 namespace CoinbaseSdk.Prime.Common
 {
-    using System.Text.Json.Serialization;
-    using CoinbaseSdk.Prime.Model.Enums;
+  using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
-    public class Pagination
+  public class Pagination
+  {
+    [JsonPropertyName("next_cursor")]
+    public string? NextCursor { get; set; }
+
+    [JsonPropertyName("sort_direction")]
+    public SortDirection? SortDirection { get; set; }
+
+    [JsonPropertyName("has_next")]
+    public bool HasNext { get; set; }
+
+    public Pagination() { }
+
+    public class Builder
     {
-        [JsonPropertyName("next_cursor")]
-        public string? NextCursor { get; set; }
+      private string? nextCursor;
+      private SortDirection? sortDirection;
+      private bool hasNext;
 
-        [JsonPropertyName("sort_direction")]
-        public SortDirection? SortDirection { get; set; }
+      public Builder() { }
 
-        [JsonPropertyName("has_next")]
-        public bool HasNext { get; set; }
+      public Builder NextCursor(string? nextCursor)
+      {
+        this.nextCursor = nextCursor;
+        return this;
+      }
 
-        public Pagination() { }
+      public Builder SortDirection(SortDirection? sortDirection)
+      {
+        this.sortDirection = sortDirection;
+        return this;
+      }
 
-        public class Builder
+      public Builder HasNext(bool hasNext)
+      {
+        this.hasNext = hasNext;
+        return this;
+      }
+
+      public Pagination Build()
+      {
+        return new Pagination
         {
-            private string? nextCursor;
-            private SortDirection? sortDirection;
-            private bool hasNext;
-
-            public Builder() { }
-
-            public Builder NextCursor(string? nextCursor)
-            {
-                this.nextCursor = nextCursor;
-                return this;
-            }
-
-            public Builder SortDirection(SortDirection? sortDirection)
-            {
-                this.sortDirection = sortDirection;
-                return this;
-            }
-
-            public Builder HasNext(bool hasNext)
-            {
-                this.hasNext = hasNext;
-                return this;
-            }
-
-            public Pagination Build()
-            {
-                return new Pagination
-                {
-                    NextCursor = nextCursor,
-                    SortDirection = sortDirection,
-                    HasNext = hasNext
-                };
-            }
-        }
+          NextCursor = nextCursor,
+          SortDirection = sortDirection,
+          HasNext = hasNext
+        };
+      }
     }
+  }
 }

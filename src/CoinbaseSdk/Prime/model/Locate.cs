@@ -30,11 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
+
     /// <summary>
     /// The available quantity located
     /// </summary>
     [JsonPropertyName("quantity")]
     public string? Quantity { get; set; }
+
     /// <summary>
     /// The interest rate for located symbol
     /// </summary>
@@ -51,9 +53,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? symbol;
       internal string? quantity;
       internal string? rate;
+#pragma warning restore SA1307, SA1401
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
@@ -75,5 +79,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

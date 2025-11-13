@@ -42,8 +42,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal List<MarginCallRecord>? marginCallRecords;
       internal MarginSummary? marginSummary;
+#pragma warning restore SA1307, SA1401
       public Builder WithMarginCallRecords(List<MarginCallRecord>? marginCallRecords)
       {
         this.marginCallRecords = marginCallRecords;
@@ -60,5 +62,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

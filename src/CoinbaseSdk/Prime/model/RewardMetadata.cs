@@ -37,7 +37,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal RewardSubtype? subtype;
+#pragma warning restore SA1307, SA1401
       public Builder WithSubtype(RewardSubtype? subtype)
       {
         this.subtype = subtype;
@@ -49,5 +51,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

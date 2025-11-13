@@ -30,16 +30,19 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
+
     /// <summary>
     /// The UUID of the destination wallet
     /// </summary>
     [JsonPropertyName("destination")]
     public string Destination { get; set; } = default!;
+
     /// <summary>
     /// The idempotency key associated with this transfer
     /// </summary>
     [JsonPropertyName("idempotency_key")]
     public string IdempotencyKey { get; set; } = default!;
+
     /// <summary>
     /// The currency symbol to transfer
     /// </summary>
@@ -57,10 +60,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string amount = default!;
       internal string destination = default!;
       internal string idempotencyKey = default!;
       internal string currencySymbol = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithAmount(string amount)
       {
         this.amount = amount;
@@ -87,5 +92,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

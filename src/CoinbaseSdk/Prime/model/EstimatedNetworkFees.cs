@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("lower_bound")]
     public string? LowerBound { get; set; }
+
     /// <summary>
     /// Estimated upper bound for network fees (in whole units)
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? lowerBound;
       internal string? upperBound;
+#pragma warning restore SA1307, SA1401
       public Builder WithLowerBound(string? lowerBound)
       {
         this.lowerBound = lowerBound;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

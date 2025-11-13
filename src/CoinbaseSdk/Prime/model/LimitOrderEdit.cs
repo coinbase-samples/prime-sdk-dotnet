@@ -57,6 +57,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? price;
       internal string? size;
       internal string? displaySize;
@@ -65,6 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       internal DateTime? endTime;
       internal DateTime? acceptTime;
       internal string? clientOrderId;
+#pragma warning restore SA1307, SA1401
       public Builder WithPrice(string? price)
       {
         this.price = price;
@@ -111,5 +113,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

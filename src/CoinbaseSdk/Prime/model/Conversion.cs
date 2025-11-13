@@ -32,11 +32,13 @@ namespace CoinbaseSdk.Prime.Model
     public List<ConversionDetail>? ConversionDetails { get; set; }
     [JsonPropertyName("short_collateral")]
     public ShortCollateral? ShortCollateral { get; set; }
+
     /// <summary>
     /// The UTC date time used for conversion
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
+
     /// <summary>
     /// Portfolio Id
     /// </summary>
@@ -54,10 +56,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal List<ConversionDetail>? conversionDetails;
       internal ShortCollateral? shortCollateral;
       internal string? conversionDatetime;
       internal string? portfolioId;
+#pragma warning restore SA1307, SA1401
       public Builder WithConversionDetails(List<ConversionDetail>? conversionDetails)
       {
         this.conversionDetails = conversionDetails;
@@ -84,5 +88,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

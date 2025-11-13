@@ -39,7 +39,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? name;
+#pragma warning restore SA1307, SA1401
       public Builder WithName(string? name)
       {
         this.name = name;
@@ -51,5 +53,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -49,11 +49,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? id;
       internal string? name;
       internal NetworkType? networkType;
       internal List<AddressEntry>? addresses;
       internal DateTime? addedAt;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
         this.id = id;
@@ -85,5 +87,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

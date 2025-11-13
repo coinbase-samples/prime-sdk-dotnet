@@ -28,16 +28,19 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("type")]
     public TransferLocationType? Type { get; set; }
+
     /// <summary>
     /// The value of the transfer location: payment method ID, wallet ID or crypto address
     /// </summary>
     [JsonPropertyName("value")]
     public string? Value { get; set; }
+
     /// <summary>
     /// The crypto address of the transfer location
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
     /// <summary>
     /// The tag/memo of the address, if applicable - - required for certain assets (e.g. XRP, XLM, etc.)
     /// </summary>
@@ -55,10 +58,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal TransferLocationType? type;
       internal string? value;
       internal string? address;
       internal string? accountIdentifier;
+#pragma warning restore SA1307, SA1401
       public Builder WithType(TransferLocationType? type)
       {
         this.type = type;
@@ -85,5 +90,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

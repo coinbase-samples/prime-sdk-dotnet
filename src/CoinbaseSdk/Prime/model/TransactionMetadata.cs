@@ -42,9 +42,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal MatchMetadata? matchMetadata;
       internal OnchainTransactionMetadata? onchainTransactionMetadata;
       internal RewardMetadata? rewardMetadata;
+#pragma warning restore SA1307, SA1401
       public Builder WithMatchMetadata(MatchMetadata? matchMetadata)
       {
         this.matchMetadata = matchMetadata;
@@ -66,5 +68,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

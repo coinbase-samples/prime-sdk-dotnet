@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
+
     /// <summary>
     /// The settlement date of the match
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? referenceId;
       internal string? settlementDate;
+#pragma warning restore SA1307, SA1401
       public Builder WithReferenceId(string? referenceId)
       {
         this.referenceId = referenceId;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

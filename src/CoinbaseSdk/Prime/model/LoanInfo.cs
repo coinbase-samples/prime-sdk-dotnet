@@ -30,21 +30,25 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
+
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
+
     /// <summary>
     /// Balance amount
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
+
     /// <summary>
     /// Notional balance amount
     /// </summary>
     [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
+
     /// <summary>
     /// Settlement due date
     /// </summary>
@@ -63,11 +67,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? portfolioId;
       internal string? symbol;
       internal string? amount;
       internal string? notionalAmount;
       internal string? dueDate;
+#pragma warning restore SA1307, SA1401
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
@@ -99,5 +105,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

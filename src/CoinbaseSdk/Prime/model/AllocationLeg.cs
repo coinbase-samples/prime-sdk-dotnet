@@ -30,11 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("allocation_leg_id")]
     public string AllocationLegId { get; set; } = default!;
+
     /// <summary>
     /// The ID of the destination portfolio of the allocation leg
     /// </summary>
     [JsonPropertyName("destination_portfolio_id")]
     public string DestinationPortfolioId { get; set; } = default!;
+
     /// <summary>
     /// The amount size for the allocation leg
     /// </summary>
@@ -51,9 +53,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string allocationLegId = default!;
       internal string destinationPortfolioId = default!;
       internal string amount = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithAllocationLegId(string allocationLegId)
       {
         this.allocationLegId = allocationLegId;
@@ -75,5 +79,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

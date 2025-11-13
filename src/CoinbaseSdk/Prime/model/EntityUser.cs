@@ -31,16 +31,19 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
     /// <summary>
     /// The name of the user
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
     /// <summary>
     /// The email of the user
     /// </summary>
     [JsonPropertyName("email")]
     public string? Email { get; set; }
+
     /// <summary>
     /// The entity to which this user and associated permissions are identified
     /// </summary>
@@ -61,11 +64,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? id;
       internal string? name;
       internal string? email;
       internal string? entityId;
       internal UserRole? role;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
         this.id = id;
@@ -97,5 +102,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -36,7 +36,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? paymentMethodId;
+#pragma warning restore SA1307, SA1401
       public Builder WithPaymentMethodId(string? paymentMethodId)
       {
         this.paymentMethodId = paymentMethodId;
@@ -48,5 +50,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

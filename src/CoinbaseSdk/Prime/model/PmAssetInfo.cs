@@ -30,81 +30,97 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
+
     /// <summary>
     /// Nominal amount of the currency
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
+
     /// <summary>
     /// Spot price for the currency
     /// </summary>
     [JsonPropertyName("price")]
     public string? Price { get; set; }
+
     /// <summary>
     /// Notional amount of the currency
     /// </summary>
     [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
+
     /// <summary>
     /// Asset tier of the currency
     /// </summary>
     [JsonPropertyName("asset_tier")]
     public string? AssetTier { get; set; }
+
     /// <summary>
     /// Whether the currency is margin eligible
     /// </summary>
     [JsonPropertyName("margin_eligible")]
     public bool? MarginEligible { get; set; }
+
     /// <summary>
     /// Base margin requirement of the currency
     /// </summary>
     [JsonPropertyName("base_margin_requirement")]
     public string? BaseMarginRequirement { get; set; }
+
     /// <summary>
     /// Notional amount of the currency&#39;s base margin requirement
     /// </summary>
     [JsonPropertyName("base_margin_requirement_notional")]
     public string? BaseMarginRequirementNotional { get; set; }
+
     /// <summary>
     /// The 30d adv of the currency
     /// </summary>
     [JsonPropertyName("adv_30d")]
     public string? Adv30d { get; set; }
+
     /// <summary>
     /// Historic 5d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_5d_vol")]
     public string? Hist5dVol { get; set; }
+
     /// <summary>
     /// Historic 30d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_30d_vol")]
     public string? Hist30dVol { get; set; }
+
     /// <summary>
     /// Historic 90d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_90d_vol")]
     public string? Hist90dVol { get; set; }
+
     /// <summary>
     /// Volatility margin addon of the currency position
     /// </summary>
     [JsonPropertyName("volatility_addon")]
     public string? VolatilityAddon { get; set; }
+
     /// <summary>
     /// Liquidity margin addon of the currency position
     /// </summary>
     [JsonPropertyName("liquidity_addon")]
     public string? LiquidityAddon { get; set; }
+
     /// <summary>
     /// Total position margin of the currency
     /// </summary>
     [JsonPropertyName("total_position_margin")]
     public string? TotalPositionMargin { get; set; }
+
     /// <summary>
     /// Nominal short position of the currency
     /// </summary>
     [JsonPropertyName("short_nominal")]
     public string? ShortNominal { get; set; }
+
     /// <summary>
     /// Nominal long position of the currency
     /// </summary>
@@ -135,6 +151,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? symbol;
       internal string? amount;
       internal string? price;
@@ -152,6 +169,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? totalPositionMargin;
       internal string? shortNominal;
       internal string? longNominal;
+#pragma warning restore SA1307, SA1401
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
@@ -243,5 +261,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

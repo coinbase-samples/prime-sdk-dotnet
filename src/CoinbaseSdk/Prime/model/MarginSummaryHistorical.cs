@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
+
     /// <summary>
     /// The date used for conversion
     /// </summary>
@@ -48,9 +49,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? conversionDatetime;
       internal string? conversionDate;
       internal MarginSummary? marginSummary;
+#pragma warning restore SA1307, SA1401
       public Builder WithConversionDatetime(string? conversionDatetime)
       {
         this.conversionDatetime = conversionDatetime;
@@ -72,5 +75,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

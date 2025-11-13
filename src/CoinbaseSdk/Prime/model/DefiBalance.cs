@@ -42,9 +42,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? network;
       internal string? protocol;
       internal string? netUsdValue;
+#pragma warning restore SA1307, SA1401
       public Builder WithNetwork(string? network)
       {
         this.network = network;
@@ -66,5 +68,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

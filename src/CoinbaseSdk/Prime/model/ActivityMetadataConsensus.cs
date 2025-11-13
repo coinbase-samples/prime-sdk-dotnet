@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("approval_deadline")]
     public string? ApprovalDeadline { get; set; }
+
     /// <summary>
     /// If activity has passed consensus threshold
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? approvalDeadline;
       internal bool? hasPassedConsensus;
+#pragma warning restore SA1307, SA1401
       public Builder WithApprovalDeadline(string? approvalDeadline)
       {
         this.approvalDeadline = approvalDeadline;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -39,8 +39,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? total;
       internal string? holds;
+#pragma warning restore SA1307, SA1401
       public Builder WithTotal(string? total)
       {
         this.total = total;
@@ -57,5 +59,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

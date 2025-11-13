@@ -30,121 +30,145 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
+
     /// <summary>
     /// Current market price
     /// </summary>
     [JsonPropertyName("market_price")]
     public string? MarketPrice { get; set; }
+
     /// <summary>
     /// True if margin eligible, false otherwise
     /// </summary>
     [JsonPropertyName("margin_eligible")]
     public bool? MarginEligible { get; set; }
+
     /// <summary>
     /// Total market capitalization
     /// </summary>
     [JsonPropertyName("market_cap")]
     public string? MarketCap { get; set; }
+
     /// <summary>
     /// Average daily volume calculated over a 30-day period
     /// </summary>
     [JsonPropertyName("adv30_days")]
     public string? Adv30Days { get; set; }
+
     /// <summary>
     /// Historic volatility calculated over a 5-day period
     /// </summary>
     [JsonPropertyName("hist5d_vol")]
     public string? Hist5dVol { get; set; }
+
     /// <summary>
     /// Historic volatility calculated over a 30-day period
     /// </summary>
     [JsonPropertyName("hist30d_vol")]
     public string? Hist30dVol { get; set; }
+
     /// <summary>
     /// Historic volatility calculated over a 90-day period
     /// </summary>
     [JsonPropertyName("hist90d_vol")]
     public string? Hist90dVol { get; set; }
+
     /// <summary>
     /// Base margin requirement for the specific asset
     /// </summary>
     [JsonPropertyName("margin_requirement")]
     public string? MarginRequirement { get; set; }
+
     /// <summary>
     /// Xm spot balance nominal
     /// </summary>
     [JsonPropertyName("spot_balance")]
     public string? SpotBalance { get; set; }
+
     /// <summary>
     /// Xm spot balance notional
     /// </summary>
     [JsonPropertyName("spot_balance_notional")]
     public string? SpotBalanceNotional { get; set; }
+
     /// <summary>
     /// Pre-netted spot total position margin
     /// </summary>
     [JsonPropertyName("spot_total_position_margin")]
     public string? SpotTotalPositionMargin { get; set; }
+
     /// <summary>
     /// Xm futures balance nominal
     /// </summary>
     [JsonPropertyName("futures_balance")]
     public string? FuturesBalance { get; set; }
+
     /// <summary>
     /// Xm futures balance notional
     /// </summary>
     [JsonPropertyName("futures_balance_notional")]
     public string? FuturesBalanceNotional { get; set; }
+
     /// <summary>
     /// Pre-netted futures total position margin
     /// </summary>
     [JsonPropertyName("futures_total_position_margin")]
     public string? FuturesTotalPositionMargin { get; set; }
+
     /// <summary>
     /// Basis GMV &#x3D; |futures| + |spot| - |unnetted position|
     /// </summary>
     [JsonPropertyName("gmv_basis")]
     public string? GmvBasis { get; set; }
+
     /// <summary>
     /// Base margin requirement notional
     /// </summary>
     [JsonPropertyName("base_requirement")]
     public string? BaseRequirement { get; set; }
+
     /// <summary>
     /// Effective liquidity add-on for the short positions
     /// </summary>
     [JsonPropertyName("liq_shorts_add_on")]
     public string? LiqShortsAddOn { get; set; }
+
     /// <summary>
     /// Effective liquidity add-on for the long positions
     /// </summary>
     [JsonPropertyName("liq_longs_add_on")]
     public string? LiqLongsAddOn { get; set; }
+
     /// <summary>
     /// Effective volatility add-on for the short positions
     /// </summary>
     [JsonPropertyName("vol_shorts_add_on")]
     public string? VolShortsAddOn { get; set; }
+
     /// <summary>
     /// Effective volatility add-on for the long positions
     /// </summary>
     [JsonPropertyName("vol_longs_add_on")]
     public string? VolLongsAddOn { get; set; }
+
     /// <summary>
     /// 5-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol5days_add_on")]
     public string? Vol5daysAddOn { get; set; }
+
     /// <summary>
     /// 30-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol30days_add_on")]
     public string? Vol30daysAddOn { get; set; }
+
     /// <summary>
     /// 90-day volatility add-on
     /// </summary>
     [JsonPropertyName("vol90days_add_on")]
     public string? Vol90daysAddOn { get; set; }
+
     /// <summary>
     /// Total margin required
     /// </summary>
@@ -183,6 +207,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? currency;
       internal string? marketPrice;
       internal bool? marginEligible;
@@ -208,6 +233,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? vol30daysAddOn;
       internal string? vol90daysAddOn;
       internal string? totalPositionMargin;
+#pragma warning restore SA1307, SA1401
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
@@ -339,5 +365,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

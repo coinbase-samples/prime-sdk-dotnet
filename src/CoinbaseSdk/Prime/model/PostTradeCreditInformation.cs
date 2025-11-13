@@ -30,31 +30,37 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
+
     /// <summary>
     /// The currency symbol credit is denoted in
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
+
     /// <summary>
     /// The maximum credit limit
     /// </summary>
     [JsonPropertyName("limit")]
     public string? Limit { get; set; }
+
     /// <summary>
     /// The amount of credit used
     /// </summary>
     [JsonPropertyName("utilized")]
     public string? Utilized { get; set; }
+
     /// <summary>
     /// The amount of credit available
     /// </summary>
     [JsonPropertyName("available")]
     public string? Available { get; set; }
+
     /// <summary>
     /// Whether or not a portfolio is frozen due to balance outstanding or other reason
     /// </summary>
     [JsonPropertyName("frozen")]
     public bool? Frozen { get; set; }
+
     /// <summary>
     /// The reason why the portfolio is frozen
     /// </summary>
@@ -62,16 +68,19 @@ namespace CoinbaseSdk.Prime.Model
     public string? FrozenReason { get; set; }
     [JsonPropertyName("amounts_due")]
     public List<AmountDue>? AmountsDue { get; set; }
+
     /// <summary>
     /// Whether the portfolio has credit enabled
     /// </summary>
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
+
     /// <summary>
     /// The amount of adjusted credit used
     /// </summary>
     [JsonPropertyName("adjusted_credit_utilized")]
     public string? AdjustedCreditUtilized { get; set; }
+
     /// <summary>
     /// The amount of adjusted portfolio equity
     /// </summary>
@@ -96,6 +105,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? portfolioId;
       internal string? currency;
       internal string? limit;
@@ -107,6 +117,7 @@ namespace CoinbaseSdk.Prime.Model
       internal bool? enabled;
       internal string? adjustedCreditUtilized;
       internal string? adjustedPortfolioEquity;
+#pragma warning restore SA1307, SA1401
       public Builder WithPortfolioId(string? portfolioId)
       {
         this.portfolioId = portfolioId;
@@ -168,5 +179,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

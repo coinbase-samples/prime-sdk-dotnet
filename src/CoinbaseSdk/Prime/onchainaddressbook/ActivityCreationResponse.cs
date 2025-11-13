@@ -21,13 +21,13 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
 
   public class ActivityCreationResponse
   {
-     [JsonPropertyName("activity_type")]
-     public CustodyActivityType ActivityType { get; set; }
+    [JsonPropertyName("activity_type")]
+    public CustodyActivityType ActivityType { get; set; }
 
-     [JsonPropertyName("num_approvals_remaining")]
-     public int NumApprovalsRemaining { get; set; }
+    [JsonPropertyName("num_approvals_remaining")]
+    public int NumApprovalsRemaining { get; set; }
 
-     [JsonPropertyName("activity_id")]
-     required public string ActivityId { get; set; }
+    [JsonPropertyName("activity_id")]
+    required public string ActivityId { get; set; }
   }
 }

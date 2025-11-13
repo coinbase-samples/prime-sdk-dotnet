@@ -42,9 +42,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal long? year;
       internal long? month;
       internal long? day;
+#pragma warning restore SA1307, SA1401
       public Builder WithYear(long? year)
       {
         this.year = year;
@@ -66,5 +68,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

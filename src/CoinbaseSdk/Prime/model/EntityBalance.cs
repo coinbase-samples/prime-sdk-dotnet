@@ -30,21 +30,25 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
+
     /// <summary>
     /// The long balance
     /// </summary>
     [JsonPropertyName("long_amount")]
     public string? LongAmount { get; set; }
+
     /// <summary>
     /// The long balance in notional value
     /// </summary>
     [JsonPropertyName("long_notional")]
     public string? LongNotional { get; set; }
+
     /// <summary>
     /// The short balance
     /// </summary>
     [JsonPropertyName("short_amount")]
     public string? ShortAmount { get; set; }
+
     /// <summary>
     /// The short balance in notional value
     /// </summary>
@@ -63,11 +67,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? symbol;
       internal string? longAmount;
       internal string? longNotional;
       internal string? shortAmount;
       internal string? shortNotional;
+#pragma warning restore SA1307, SA1401
       public Builder WithSymbol(string? symbol)
       {
         this.symbol = symbol;
@@ -99,5 +105,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

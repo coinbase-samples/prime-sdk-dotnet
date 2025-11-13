@@ -31,6 +31,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("transaction_id")]
     public string TransactionId { get; set; } = default!;
+
     /// <summary>
     /// The address (public key) of the validator
     /// </summary>
@@ -49,9 +50,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string transactionId = default!;
       internal string validatorAddress = default!;
       internal ValidatorStatus validatorStatus = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithTransactionId(string transactionId)
       {
         this.transactionId = transactionId;
@@ -73,5 +76,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

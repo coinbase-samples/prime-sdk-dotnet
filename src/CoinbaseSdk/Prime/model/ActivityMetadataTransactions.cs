@@ -36,7 +36,9 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal ActivityMetadataConsensus? consensus;
+#pragma warning restore SA1307, SA1401
       public Builder WithConsensus(ActivityMetadataConsensus? consensus)
       {
         this.consensus = consensus;
@@ -48,5 +50,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

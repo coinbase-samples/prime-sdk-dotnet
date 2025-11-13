@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
     /// <summary>
     /// The account identifier (used on some chains to distinguish accounts using the same address)
     /// </summary>
@@ -48,9 +49,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? address;
       internal string? accountIdentifier;
       internal Network? network;
+#pragma warning restore SA1307, SA1401
       public Builder WithAddress(string? address)
       {
         this.address = address;
@@ -72,5 +75,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

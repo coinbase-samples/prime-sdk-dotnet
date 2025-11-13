@@ -40,8 +40,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal TravelRuleWalletType? walletType;
       internal BlockchainAddress? walletAddress;
+#pragma warning restore SA1307, SA1401
       public Builder WithWalletType(TravelRuleWalletType? walletType)
       {
         this.walletType = walletType;
@@ -58,5 +60,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

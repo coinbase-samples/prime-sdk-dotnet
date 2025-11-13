@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     public string ProductId { get; set; } = default!;
     [JsonPropertyName("side")]
     public OrderSide Side { get; set; } = default!;
+
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
@@ -58,6 +59,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string productId = default!;
       internal OrderSide side = default!;
       internal string clientQuoteId = default!;
@@ -65,6 +67,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? quoteValue;
       internal string limitPrice = default!;
       internal string? settlCurrency;
+#pragma warning restore SA1307, SA1401
       public Builder WithProductId(string productId)
       {
         this.productId = productId;
@@ -106,5 +109,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

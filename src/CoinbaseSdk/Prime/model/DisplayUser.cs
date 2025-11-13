@@ -30,11 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
+
     /// <summary>
     /// User full name
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
+
     /// <summary>
     /// User avatar URL
     /// </summary>
@@ -51,9 +53,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string id = default!;
       internal string name = default!;
       internal string avatarUrl = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string id)
       {
         this.id = id;
@@ -75,5 +79,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

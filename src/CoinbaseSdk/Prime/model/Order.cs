@@ -31,16 +31,19 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
     /// <summary>
     /// The ID of the user that created the order
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
+
     /// <summary>
     /// The ID of the portfolio that owns the order
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
+
     /// <summary>
     /// The ID of the product being traded by the order
     /// </summary>
@@ -48,6 +51,7 @@ namespace CoinbaseSdk.Prime.Model
     public string? ProductId { get; set; }
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
+
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
@@ -55,26 +59,31 @@ namespace CoinbaseSdk.Prime.Model
     public string? ClientOrderId { get; set; }
     [JsonPropertyName("type")]
     public OrderType? Type { get; set; }
+
     /// <summary>
     /// Order size in base asset units (either &#x60;base_quantity&#x60; or &#x60;quote_value&#x60; is required)
     /// </summary>
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
+
     /// <summary>
     /// Order size in quote asset units, i.e. the amount the user wants to spend (when buying) or receive (when selling); the quantity in base units will be determined based on the market liquidity and indicated &#x60;quote_value&#x60;. Either &#x60;base_quantity&#x60; or &#x60;quote_value&#x60; is required
     /// </summary>
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
+
     /// <summary>
     /// The limit price (required for TWAP, VWAP, LIMIT and STOP_LIMIT orders)
     /// </summary>
     [JsonPropertyName("limit_price")]
     public string? LimitPrice { get; set; }
+
     /// <summary>
     /// The start time of the order in UTC (only applies to TWAP, VWAP orders.)
     /// </summary>
     [JsonPropertyName("start_time")]
     public DateTime? StartTime { get; set; }
+
     /// <summary>
     /// The expiry time of the order in UTC (applies to TWAP, VWAP, LIMIT, and STOP_LIMIT orders with &#x60;time_in_force&#x60; set to &#x60;GTD&#x60;)
     /// </summary>
@@ -84,91 +93,109 @@ namespace CoinbaseSdk.Prime.Model
     public OrderStatus? Status { get; set; }
     [JsonPropertyName("time_in_force")]
     public TimeInForceType? TimeInForce { get; set; }
+
     /// <summary>
     /// The order creation time as a UTC timestamp
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
+
     /// <summary>
     /// Size filled (in base asset units)
     /// </summary>
     [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
+
     /// <summary>
     /// Market value filled (in quote asset units)
     /// </summary>
     [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
+
     /// <summary>
     /// Indicates the average &#x60;filled_price&#x60;
     /// </summary>
     [JsonPropertyName("average_filled_price")]
     public string? AverageFilledPrice { get; set; }
+
     /// <summary>
     /// Total commission paid on this order (in quote asset units) - - only applicable for partially- or fully-filled orders
     /// </summary>
     [JsonPropertyName("commission")]
     public string? Commission { get; set; }
+
     /// <summary>
     /// Fee charged by the exchange for Cost Plus commission configurations. Exchange fee will be 0 for All In commission configurations.
     /// </summary>
     [JsonPropertyName("exchange_fee")]
     public string? ExchangeFee { get; set; }
+
     /// <summary>
     /// historical pov for the order
     /// </summary>
     [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
+
     /// <summary>
     /// Specifies the stop price at which the order activates. The order is activated if the last trade price on Coinbase Exchange crosses the stop price specified on the order
     /// </summary>
     [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
+
     /// <summary>
     /// Indicates the average &#x60;filled_price&#x60; net of commissions and fees
     /// </summary>
     [JsonPropertyName("net_average_filled_price")]
     public string? NetAverageFilledPrice { get; set; }
+
     /// <summary>
     /// Indicates a user friendly message for regarding various aspects of the order such as cancellation or rejection reasons
     /// </summary>
     [JsonPropertyName("user_context")]
     public string? UserContext { get; set; }
+
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
     [JsonPropertyName("client_product_id")]
     public string? ClientProductId { get; set; }
+
     /// <summary>
     /// Post-only flag - indicates whether the order was placed as post-only
     /// </summary>
     [JsonPropertyName("post_only")]
     public bool? PostOnly { get; set; }
+
     /// <summary>
     /// The history of order edits (deprecated: use edit_history instead)
     /// </summary>
     [JsonPropertyName("order_edit_history")]
     public List<LimitOrderEdit>? OrderEditHistory { get; set; }
+
     /// <summary>
     /// Indicates if this was a raise exact order (size inclusive of fees for sell orders in quote)
     /// </summary>
     [JsonPropertyName("is_raise_exact")]
     public bool? IsRaiseExact { get; set; }
+
     /// <summary>
     /// Display size for the order
     /// </summary>
     [JsonPropertyName("display_size")]
     public string? DisplaySize { get; set; }
+
     /// <summary>
     /// The history of order edits
     /// </summary>
     [JsonPropertyName("edit_history")]
     public List<OrderEdit>? EditHistory { get; set; }
+
     /// <summary>
     /// The maximum order size that will show up on venue order books (in quote currency).
     /// </summary>
     [JsonPropertyName("display_quote_size")]
     public string? DisplayQuoteSize { get; set; }
+
     /// <summary>
     /// The maximum order size that will show up on venue order books (in base currency).
     /// </summary>
@@ -214,6 +241,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? id;
       internal string? userId;
       internal string? portfolioId;
@@ -246,6 +274,7 @@ namespace CoinbaseSdk.Prime.Model
       internal List<OrderEdit>? editHistory;
       internal string? displayQuoteSize;
       internal string? displayBaseSize;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
         this.id = id;
@@ -412,5 +441,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

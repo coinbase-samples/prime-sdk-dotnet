@@ -34,11 +34,13 @@ namespace CoinbaseSdk.Prime.Model
     public XmMarginLevel? MarginLevel { get; set; }
     [JsonPropertyName("margin_summary")]
     public XmSummary? MarginSummary { get; set; }
+
     /// <summary>
     /// List of active Xm margin calls
     /// </summary>
     [JsonPropertyName("active_margin_calls")]
     public List<XmMarginCall>? ActiveMarginCalls { get; set; }
+
     /// <summary>
     /// List of active Xm loans
     /// </summary>
@@ -58,12 +60,14 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal XmControlStatus? controlStatus;
       internal XmEntityCallStatus? callStatus;
       internal XmMarginLevel? marginLevel;
       internal XmSummary? marginSummary;
       internal List<XmMarginCall>? activeMarginCalls;
       internal List<XmLoan>? activeLoans;
+#pragma warning restore SA1307, SA1401
       public Builder WithControlStatus(XmControlStatus? controlStatus)
       {
         this.controlStatus = controlStatus;
@@ -100,5 +104,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

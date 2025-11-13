@@ -33,31 +33,37 @@ namespace CoinbaseSdk.Prime.Model
     public string? ProductId { get; set; }
     [JsonPropertyName("side")]
     public FcmPositionSide? Side { get; set; }
+
     /// <summary>
     /// Number of contracts
     /// </summary>
     [JsonPropertyName("number_of_contracts")]
     public string? NumberOfContracts { get; set; }
+
     /// <summary>
     /// Daily realized PNL
     /// </summary>
     [JsonPropertyName("daily_realized_pnl")]
     public string? DailyRealizedPnl { get; set; }
+
     /// <summary>
     /// Unrealized PNL
     /// </summary>
     [JsonPropertyName("unrealized_pnl")]
     public string? UnrealizedPnl { get; set; }
+
     /// <summary>
     /// Current price of position
     /// </summary>
     [JsonPropertyName("current_price")]
     public string? CurrentPrice { get; set; }
+
     /// <summary>
     /// Average entry price
     /// </summary>
     [JsonPropertyName("avg_entry_price")]
     public string? AvgEntryPrice { get; set; }
+
     /// <summary>
     /// Expiration time of position
     /// </summary>
@@ -79,6 +85,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? productId;
       internal FcmPositionSide? side;
       internal string? numberOfContracts;
@@ -87,6 +94,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? currentPrice;
       internal string? avgEntryPrice;
       internal DateTime? expirationTime;
+#pragma warning restore SA1307, SA1401
       public Builder WithProductId(string? productId)
       {
         this.productId = productId;
@@ -133,5 +141,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
     public bool? SkipBroadcast { get; set; }
+
     /// <summary>
     /// Custom blockchain node RpcConfig URL. (EVM-only)
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal bool? skipBroadcast;
       internal string? url;
+#pragma warning restore SA1307, SA1401
       public Builder WithSkipBroadcast(bool? skipBroadcast)
       {
         this.skipBroadcast = skipBroadcast;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

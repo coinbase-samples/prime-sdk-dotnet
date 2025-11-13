@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("label")]
     public string? Label { get; set; }
+
     /// <summary>
     /// The confirmed asset changes (onchain)
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? label;
       internal List<AssetChange>? confirmedAssetChanges;
+#pragma warning restore SA1307, SA1401
       public Builder WithLabel(string? label)
       {
         this.label = label;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

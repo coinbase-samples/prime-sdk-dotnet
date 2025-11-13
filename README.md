@@ -52,11 +52,16 @@ Run examples from the PrimeExample project:
 # List available examples
 dotnet run --project src/CoinbaseSdk/PrimeExample list
 
-# Run specific examples
+# Run examples via Program.cs
 dotnet run --project src/CoinbaseSdk/PrimeExample ListPortfolios
-dotnet run --project src/CoinbaseSdk/PrimeExample GetActivity --activityId <activity-id>
 dotnet run --project src/CoinbaseSdk/PrimeExample GetPortfolio --portfolioId <portfolio-id>
 dotnet run --project src/CoinbaseSdk/PrimeExample ListAssets --entityId <entity-id>
+
+# Run standalone file-based examples (.NET 10+)
+dotnet run --file src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.cs -- --activityId <activity-id>
+
+# Or with executable permissions on Unix:
+./src/CoinbaseSdk/PrimeExample/examples/activities/GetActivity.cs --activityId <activity-id>
 ```
 
 Set optional environment variables for convenience:

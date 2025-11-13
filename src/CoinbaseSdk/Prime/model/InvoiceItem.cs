@@ -58,6 +58,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? description;
       internal string? currencySymbol;
       internal InvoiceType? invoiceType;
@@ -66,6 +67,7 @@ namespace CoinbaseSdk.Prime.Model
       internal double? price;
       internal double? averageAuc;
       internal double? total;
+#pragma warning restore SA1307, SA1401
       public Builder WithDescription(string? description)
       {
         this.description = description;
@@ -112,5 +114,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

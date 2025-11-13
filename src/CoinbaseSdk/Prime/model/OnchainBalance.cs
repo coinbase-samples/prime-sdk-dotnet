@@ -28,6 +28,7 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("asset")]
     public OnchainAsset? Asset { get; set; }
+
     /// <summary>
     /// The total amount in whole units with full precision.
     /// </summary>
@@ -46,9 +47,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal OnchainAsset? asset;
       internal string? amount;
       internal VisibilityStatus? visibilityStatus;
+#pragma warning restore SA1307, SA1401
       public Builder WithAsset(OnchainAsset? asset)
       {
         this.asset = asset;
@@ -70,5 +73,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

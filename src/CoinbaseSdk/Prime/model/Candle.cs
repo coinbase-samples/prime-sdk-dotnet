@@ -27,26 +27,31 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("timestamp")]
     public DateTime? Timestamp { get; set; }
+
     /// <summary>
     /// Opening price for the period
     /// </summary>
     [JsonPropertyName("open")]
     public string? Open { get; set; }
+
     /// <summary>
     /// Highest price during the period
     /// </summary>
     [JsonPropertyName("high")]
     public string? High { get; set; }
+
     /// <summary>
     /// Lowest price during the period
     /// </summary>
     [JsonPropertyName("low")]
     public string? Low { get; set; }
+
     /// <summary>
     /// Closing price for the period
     /// </summary>
     [JsonPropertyName("close")]
     public string? Close { get; set; }
+
     /// <summary>
     /// Volume traded during the period
     /// </summary>
@@ -66,12 +71,14 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal DateTime? timestamp;
       internal string? open;
       internal string? high;
       internal string? low;
       internal string? close;
       internal string? volume;
+#pragma warning restore SA1307, SA1401
       public Builder WithTimestamp(DateTime? timestamp)
       {
         this.timestamp = timestamp;
@@ -108,5 +115,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

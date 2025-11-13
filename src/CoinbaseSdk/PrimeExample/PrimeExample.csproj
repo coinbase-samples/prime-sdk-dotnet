@@ -30,4 +30,9 @@
     <PackageReference Include="Spectre.Console" Version="0.47.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Exclude file-based programs from project compilation -->
+    <Compile Remove="examples\activities\GetActivity.cs" />
+  </ItemGroup>
+
 </Project>

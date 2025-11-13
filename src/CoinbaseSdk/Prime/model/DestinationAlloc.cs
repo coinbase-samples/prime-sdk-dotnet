@@ -30,21 +30,25 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("leg_id")]
     public string? LegId { get; set; }
+
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
+
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("allocation_base")]
     public string? AllocationBase { get; set; }
+
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("allocation_quote")]
     public string? AllocationQuote { get; set; }
+
     /// <summary>
     /// Pro rata fees for each leg. Adding up the fees for each leg will sum up to equal the total allocation level fees.
     /// </summary>
@@ -63,11 +67,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? legId;
       internal string? portfolioId;
       internal string? allocationBase;
       internal string? allocationQuote;
       internal string? feesAllocatedLeg;
+#pragma warning restore SA1307, SA1401
       public Builder WithLegId(string? legId)
       {
         this.legId = legId;
@@ -99,5 +105,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

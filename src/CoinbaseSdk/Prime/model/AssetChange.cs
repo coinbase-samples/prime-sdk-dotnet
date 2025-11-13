@@ -28,11 +28,13 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("type")]
     public AssetChangeType? Type { get; set; }
+
     /// <summary>
     /// The currency symbol associated with the balance operation
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
+
     /// <summary>
     /// The amount in whole units being transferred or approved
     /// </summary>
@@ -55,11 +57,13 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal AssetChangeType? type;
       internal string? symbol;
       internal string? amount;
       internal NftCollection? collection;
       internal NftItem? item;
+#pragma warning restore SA1307, SA1401
       public Builder WithType(AssetChangeType? type)
       {
         this.type = type;
@@ -91,5 +95,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

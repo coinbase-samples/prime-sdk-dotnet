@@ -31,46 +31,55 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
+
     /// <summary>
     /// Currency symbol
     /// </summary>
     [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
+
     /// <summary>
     /// Name for this address book entry
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
+
     /// <summary>
     /// Cryptocurrency address
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
     /// <summary>
     /// Memo or destination tag for currencies which support them
     /// </summary>
     [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
+
     /// <summary>
     /// Name of the account identifier. For instance Destination Tag
     /// </summary>
     [JsonPropertyName("account_identifier_name")]
     public string? AccountIdentifierName { get; set; }
+
     /// <summary>
     /// State of this address book entry
     /// </summary>
     [JsonPropertyName("state")]
     public string State { get; set; } = default!;
+
     /// <summary>
     /// Link to a blockchain explorer
     /// </summary>
     [JsonPropertyName("explorer_link")]
     public string? ExplorerLink { get; set; }
+
     /// <summary>
     /// When this entry was last used for a transaction
     /// </summary>
     [JsonPropertyName("last_used_at")]
     public DateTime? LastUsedAt { get; set; }
+
     /// <summary>
     /// When this entry was added to the address book
     /// </summary>
@@ -80,6 +89,7 @@ namespace CoinbaseSdk.Prime.Model
     public DisplayUser AddedBy { get; set; } = default!;
     [JsonPropertyName("type")]
     public AddressBookType? Type { get; set; }
+
     /// <summary>
     /// counterparty id
     /// </summary>
@@ -106,6 +116,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string id = default!;
       internal string? currencySymbol;
       internal string name = default!;
@@ -119,6 +130,7 @@ namespace CoinbaseSdk.Prime.Model
       internal DisplayUser addedBy = default!;
       internal AddressBookType? type;
       internal string? counterpartyId;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string id)
       {
         this.id = id;
@@ -190,5 +202,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

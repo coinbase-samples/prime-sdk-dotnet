@@ -1,3 +1,4 @@
+#!/usr/bin/env -S dotnet run --file
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -14,45 +15,54 @@
  * limitations under the License.
  */
 
+#:project ../../../Prime
+#:project ../../
+#:package Newtonsoft.Json@13.0.3
+
 using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.PrimeExample.Common;
 
-namespace CoinbaseSdk.PrimeExample.Examples.Activities;
-
-/// <summary>
-/// Example demonstrating how to retrieve a specific activity by ID
-/// </summary>
-public static class GetActivity
+// Parse command line arguments
+string? activityId = null;
+for (int i = 0; i < args.Length; i++)
 {
-  /// <summary>
-  /// Retrieves a specific activity by ID
-  /// </summary>
-  /// <param name="activityId">The activity ID to retrieve</param>
-  /// <returns>True if successful, false otherwise</returns>
-  public static bool Run(string activityId)
-  {
-    try
+    if (args[i] == "--activityId" && i + 1 < args.Length)
     {
-      // Create client and service
-      var client = CoinbasePrimeClient.FromEnv();
-      var activitiesService = new ActivitiesService(client);
-
-      // Build request
-      var request = new GetActivityRequest(activityId);
-
-      // Execute request
-      var response = activitiesService.GetActivity(request);
-
-      // Print response
-      PrettyPrinter.PrintResponse("GetActivityResponse", response);
-
-      return true;
+        activityId = args[i + 1];
+        break;
     }
-    catch (Exception ex)
-    {
-      PrettyPrinter.PrintError("Error retrieving activity", ex);
-      return false;
-    }
-  }
+}
+
+if (string.IsNullOrEmpty(activityId))
+{
+    PrettyPrinter.PrintUsage(
+        "Usage: dotnet run --file GetActivity.cs -- --activityId <activity-id>",
+        "dotnet run --file GetActivity.cs -- --activityId a4df04eb-9d7a-4583-971c-290c935771d6"
+    );
+    Environment.ExitCode = 1;
+    return;
+}
+
+try
+{
+    // Create client and service
+    var client = CoinbasePrimeClient.FromEnv();
+    var activitiesService = new ActivitiesService(client);
+
+    // Build request
+    var request = new GetActivityRequest(activityId);
+
+    // Execute request
+    var response = activitiesService.GetActivity(request);
+
+    // Print response
+    PrettyPrinter.PrintResponse("GetActivityResponse", response);
+
+    Environment.ExitCode = 0;
+}
+catch (Exception ex)
+{
+    PrettyPrinter.PrintError("Error retrieving activity", ex);
+    Environment.ExitCode = 1;
 }

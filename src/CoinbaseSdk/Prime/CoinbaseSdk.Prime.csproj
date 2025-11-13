@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoinbaseSdk.Core" Version="0.0.1" />
+    <ProjectReference Include="/Users/nickmorgan/projects/core-dotnet/serializer/src/CoinbaseSdk/Core/CoinbaseSdk.Core.csproj" />
     <PackageReference Include="DotNetEnv" Version="3.1.1" />
   </ItemGroup>
 

@@ -30,11 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("success")]
     public bool Success { get; set; } = default!;
+
     /// <summary>
     /// The allocation id for the post allocation
     /// </summary>
     [JsonPropertyName("allocation_id")]
     public string AllocationId { get; set; } = default!;
+
     /// <summary>
     /// The failure reason for the post allocation
     /// </summary>
@@ -51,9 +53,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal bool success = default!;
       internal string allocationId = default!;
       internal string failureReason = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithSuccess(bool success)
       {
         this.success = success;
@@ -75,5 +79,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -30,16 +30,19 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("old_balance")]
     public string? OldBalance { get; set; }
+
     /// <summary>
     /// New short collateral balance required
     /// </summary>
     [JsonPropertyName("new_balance")]
     public string? NewBalance { get; set; }
+
     /// <summary>
     /// Loan interest rate
     /// </summary>
     [JsonPropertyName("loan_interest_rate")]
     public string? LoanInterestRate { get; set; }
+
     /// <summary>
     /// Collateral interest rate
     /// </summary>
@@ -57,10 +60,12 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? oldBalance;
       internal string? newBalance;
       internal string? loanInterestRate;
       internal string? collateralInterestRate;
+#pragma warning restore SA1307, SA1401
       public Builder WithOldBalance(string? oldBalance)
       {
         this.oldBalance = oldBalance;
@@ -87,5 +92,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

@@ -30,11 +30,13 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("type")]
     public string? Type { get; set; }
+
     /// <summary>
     /// Commission rate (in whole percentage. Commission of 15bps is \&quot;0.0015\&quot;)
     /// </summary>
     [JsonPropertyName("rate")]
     public string? Rate { get; set; }
+
     /// <summary>
     /// Average 30 days over past 3 months (e.g. 90 days divided by 3)
     /// </summary>
@@ -51,9 +53,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? type;
       internal string? rate;
       internal string? tradingVolume;
+#pragma warning restore SA1307, SA1401
       public Builder WithType(string? type)
       {
         this.type = type;
@@ -75,5 +79,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

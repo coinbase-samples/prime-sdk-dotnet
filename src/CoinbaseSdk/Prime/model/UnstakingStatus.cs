@@ -33,16 +33,19 @@ namespace CoinbaseSdk.Prime.Model
     public string Amount { get; set; } = default!;
     [JsonPropertyName("unstake_type")]
     public UnstakeType? UnstakeType { get; set; }
+
     /// <summary>
     /// Estimated date when unstaking will complete (ISO 8601 format)
     /// </summary>
     [JsonPropertyName("finishing_at")]
     public DateTime? FinishingAt { get; set; }
+
     /// <summary>
     /// Estimated hours until this unstaking request completes
     /// </summary>
     [JsonPropertyName("remaining_hours")]
     public long? RemainingHours { get; set; }
+
     /// <summary>
     /// Timestamp when the unstake request was originally created
     /// </summary>
@@ -50,6 +53,7 @@ namespace CoinbaseSdk.Prime.Model
     public DateTime? RequestedAt { get; set; }
     [JsonPropertyName("estimate_type")]
     public EstimateType EstimateType { get; set; } = default!;
+
     /// <summary>
     /// Detailed explanation of the estimate status for display to users.
     /// </summary>
@@ -70,6 +74,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string amount = default!;
       internal UnstakeType? unstakeType;
       internal DateTime? finishingAt;
@@ -77,6 +82,7 @@ namespace CoinbaseSdk.Prime.Model
       internal DateTime? requestedAt;
       internal EstimateType estimateType = default!;
       internal string estimateDescription = default!;
+#pragma warning restore SA1307, SA1401
       public Builder WithAmount(string amount)
       {
         this.amount = amount;
@@ -118,5 +124,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

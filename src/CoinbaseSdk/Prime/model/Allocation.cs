@@ -31,21 +31,25 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("root_id")]
     public string? RootId { get; set; }
+
     /// <summary>
     /// The ID of the allocation if this allocation is a reversal. In this case, the root_id would be the original allocation ID.
     /// </summary>
     [JsonPropertyName("reversal_id")]
     public string? ReversalId { get; set; }
+
     /// <summary>
     /// Time the final leg of the root allocation was completed.
     /// </summary>
     [JsonPropertyName("allocation_completed_at")]
     public DateTime? AllocationCompletedAt { get; set; }
+
     /// <summary>
     /// The ID of the user that created the allocation.
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
+
     /// <summary>
     /// The ID of the product of the orders allocated.
     /// </summary>
@@ -53,21 +57,25 @@ namespace CoinbaseSdk.Prime.Model
     public string? ProductId { get; set; }
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
+
     /// <summary>
     /// Price the allocation was done at.
     /// </summary>
     [JsonPropertyName("avg_price")]
     public string? AvgPrice { get; set; }
+
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
     [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
+
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
     [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
+
     /// <summary>
     /// Fees from original trade execution allocated in quote asset units.
     /// </summary>
@@ -75,21 +83,25 @@ namespace CoinbaseSdk.Prime.Model
     public string? FeesAllocated { get; set; }
     [JsonPropertyName("status")]
     public AllocationStatus? Status { get; set; }
+
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
     [JsonPropertyName("source")]
     public string? Source { get; set; }
+
     /// <summary>
     /// All order IDs that were aggregated to calculate the avg_price, quantity to allocate in each leg. Each order_id should tie back to the single allocation root_id.
     /// </summary>
     [JsonPropertyName("order_ids")]
     public List<string>? OrderIds { get; set; }
+
     /// <summary>
     /// Array of objects, each containing the leg ID, destination portfolio ID and amount in chosen units allocated to each portfolio: [{leg_id, portfolio_id, allocation_base, allocation_quote}, {leg_id, portfolio_id, allocation_base, allocation_quote}...]
     /// </summary>
     [JsonPropertyName("destinations")]
     public List<DestinationAlloc>? Destinations { get; set; }
+
     /// <summary>
     /// The netting ID of the allocation, not empty if the allocation was submitted as part of a net allocation
     /// </summary>
@@ -118,6 +130,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? rootId;
       internal string? reversalId;
       internal DateTime? allocationCompletedAt;
@@ -133,6 +146,7 @@ namespace CoinbaseSdk.Prime.Model
       internal List<string>? orderIds;
       internal List<DestinationAlloc>? destinations;
       internal string? nettingId;
+#pragma warning restore SA1307, SA1401
       public Builder WithRootId(string? rootId)
       {
         this.rootId = rootId;
@@ -214,5 +228,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

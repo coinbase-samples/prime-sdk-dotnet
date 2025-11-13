@@ -58,6 +58,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? id;
       internal string? name;
       internal string? symbol;
@@ -66,6 +67,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? address;
       internal WalletVisibility? visibility;
       internal Network? network;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
         this.id = id;
@@ -112,5 +114,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

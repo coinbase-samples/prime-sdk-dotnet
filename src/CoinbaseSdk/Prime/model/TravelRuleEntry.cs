@@ -63,6 +63,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? id;
       internal BlockchainAddress? blockchainAddress;
       internal TravelRuleParty? originator;
@@ -73,6 +74,7 @@ namespace CoinbaseSdk.Prime.Model
       internal bool? isSelfCertified;
       internal bool? isIntermediary;
       internal bool? isSelf;
+#pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
         this.id = id;
@@ -129,5 +131,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

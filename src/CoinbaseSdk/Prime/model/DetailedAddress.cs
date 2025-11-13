@@ -54,6 +54,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? address1;
       internal string? address2;
       internal string? address3;
@@ -61,6 +62,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? state;
       internal string? countryCode;
       internal string? postalCode;
+#pragma warning restore SA1307, SA1401
       public Builder WithAddress1(string? address1)
       {
         this.address1 = address1;
@@ -102,5 +104,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

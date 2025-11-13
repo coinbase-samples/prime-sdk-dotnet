@@ -28,11 +28,13 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("action")]
     public Action? Action { get; set; }
+
     /// <summary>
     /// Id of the user who executed the action
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
+
     /// <summary>
     /// Time the action was taken
     /// </summary>
@@ -49,9 +51,11 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal Action? action;
       internal string? userId;
       internal string? timestamp;
+#pragma warning restore SA1307, SA1401
       public Builder WithAction(Action? action)
       {
         this.action = action;
@@ -73,5 +77,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

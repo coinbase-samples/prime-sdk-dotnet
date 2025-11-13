@@ -30,6 +30,7 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
+
     /// <summary>
     /// Amount
     /// </summary>
@@ -45,8 +46,10 @@ namespace CoinbaseSdk.Prime.Model
 
     public class Builder
     {
+#pragma warning disable SA1307, SA1401
       internal string? currency;
       internal string? amount;
+#pragma warning restore SA1307, SA1401
       public Builder WithCurrency(string? currency)
       {
         this.currency = currency;
@@ -63,5 +66,4 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
-
 }

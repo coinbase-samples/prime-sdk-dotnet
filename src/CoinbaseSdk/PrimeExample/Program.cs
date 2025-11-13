@@ -16,7 +16,6 @@
 
 using System.CommandLine;
 using CoinbaseSdk.PrimeExample.Common;
-using CoinbaseSdk.PrimeExample.Examples.Activities;
 using CoinbaseSdk.PrimeExample.Examples.Assets;
 using CoinbaseSdk.PrimeExample.Examples.Portfolios;
 using Spectre.Console;
@@ -46,7 +45,6 @@ public class Program
         rootCommand.AddCommand(listCommand);
 
         // Add example commands
-        rootCommand.AddCommand(GetActivityCommand.CreateCommand());
         rootCommand.AddCommand(ListAssetsCommand.CreateCommand());
         rootCommand.AddCommand(GetPortfolioCommand.CreateCommand());
         rootCommand.AddCommand(ListPortfoliosCommand.CreateCommand());
@@ -68,7 +66,6 @@ public class Program
             .AddColumn("Command")
             .AddColumn("Description");
 
-        table.AddRow("Activities", "GetActivity", "Retrieve a specific activity by ID");
         table.AddRow("Assets", "ListAssets", "List assets for an entity");
         table.AddRow("Portfolios", "GetPortfolio", "Retrieve portfolio information");
         table.AddRow("Portfolios", "ListPortfolios", "List all portfolios");
@@ -79,7 +76,6 @@ public class Program
         Console.WriteLine("Usage: dotnet run -- [command] [options]");
         Console.WriteLine("Examples:");
         Console.WriteLine("  dotnet run -- ListPortfolios");
-        Console.WriteLine("  dotnet run -- GetActivity --activityId a4df04eb-9d7a-4583-971c-290c935771d6");
         Console.WriteLine("  dotnet run -- GetPortfolio --portfolioId your-portfolio-id");
         Console.WriteLine("  dotnet run -- ListAssets --entityId your-entity-id");
         AnsiConsole.WriteLine();
