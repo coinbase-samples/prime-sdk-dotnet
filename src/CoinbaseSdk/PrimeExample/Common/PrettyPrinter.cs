@@ -29,7 +29,8 @@ public static class PrettyPrinter
         Formatting = Formatting.Indented,
         NullValueHandling = NullValueHandling.Include,
         ContractResolver = new CamelCasePropertyNamesContractResolver(),
-        DateFormatHandling = DateFormatHandling.IsoDateFormat
+        DateFormatHandling = DateFormatHandling.IsoDateFormat,
+        Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
     };
 
     /// <summary>

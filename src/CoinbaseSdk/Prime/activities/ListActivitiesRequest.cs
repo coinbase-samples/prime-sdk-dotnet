@@ -28,9 +28,9 @@ namespace CoinbaseSdk.Prime.Activities
 
     public string[] Symbols { get; set; } = [];
 
-    public ActivityCategory[] Categories { get; set; } = [];
+    public ActivityCategory?[] Categories { get; set; } = [];
 
-    public ActivityStatus[] Statuses { get; set; } = [];
+    public ActivityStatus?[] Statuses { get; set; } = [];
 
     [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
@@ -42,8 +42,8 @@ namespace CoinbaseSdk.Prime.Activities
     {
       private string? _portfolioId;
       private string[]? _symbols;
-      private ActivityCategory[]? _categories;
-      private ActivityStatus[]? _statuses;
+      private ActivityCategory?[]? _categories;
+      private ActivityStatus?[]? _statuses;
       private string? _startTime;
       private string? _endTime;
       private string? _cursor;
@@ -62,13 +62,13 @@ namespace CoinbaseSdk.Prime.Activities
         return this;
       }
 
-      public Builder WithCategories(ActivityCategory[] categories)
+      public Builder WithCategories(ActivityCategory?[] categories)
       {
         _categories = categories;
         return this;
       }
 
-      public Builder WithStatuses(ActivityStatus[] statuses)
+      public Builder WithStatuses(ActivityStatus?[] statuses)
       {
         _statuses = statuses;
         return this;

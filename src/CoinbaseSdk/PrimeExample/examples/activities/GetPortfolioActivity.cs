@@ -1,3 +1,4 @@
+#!/usr/bin/env -S dotnet run --file
 /*
  * Copyright 2025-present Coinbase Global, Inc.
  *
@@ -14,69 +15,71 @@
  * limitations under the License.
  */
 
+#:project ../../../Prime
+#:project ../../
+#:package Newtonsoft.Json@13.0.3
+
 using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.PrimeExample.Common;
 
-namespace CoinbaseSdk.PrimeExample.Examples.Activities;
+// Load environment variables
+DotNetEnv.Env.TraversePath().Load();
 
-/// <summary>
-/// Example demonstrating how to get a portfolio activity
-/// </summary>
-public static class GetPortfolioActivity
+// Parse command line arguments
+string? portfolioId = null;
+string? activityId = null;
+
+for (int i = 0; i < args.Length; i++)
 {
-    /// <summary>
-    /// Gets a specific portfolio activity
-    /// </summary>
-    /// <param name="args">Command line arguments</param>
-    /// <returns>True if successful, false otherwise</returns>
-    public static bool Execute(string[] args)
+    if (args[i] == "--portfolioId" && i + 1 < args.Length)
     {
-        // Parse named arguments
-        string? portfolioId = null;
-        string? activityId = null;
-
-        for (int i = 0; i < args.Length; i++)
-        {
-            if (args[i] == "--portfolioId" && i + 1 < args.Length)
-            {
-                portfolioId = args[++i];
-            }
-            else if (args[i] == "--activityId" && i + 1 < args.Length)
-            {
-                activityId = args[++i];
-            }
-        }
-
-        if (string.IsNullOrEmpty(portfolioId) || string.IsNullOrEmpty(activityId))
-        {
-            PrettyPrinter.PrintError("Error", new ArgumentException("PortfolioId and ActivityId are required. Provide via --portfolioId and --activityId parameters."));
-            return false;
-        }
-
-        try
-        {
-            // Create client and service
-            var client = CoinbasePrimeClient.FromEnv();
-            var activitiesService = new ActivitiesService(client);
-
-            // Build request
-            var request = new GetPortfolioActivityRequest.Builder()
-                .WithPortfolioId(portfolioId)
-                .WithActivityId(activityId)
-                .Build();
-
-            // Execute request
-            var response = activitiesService.GetPortfolioActivity(request);
-
-            // Print response
-            PrettyPrinter.PrintResponse("GetActivityResponse", response);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            PrettyPrinter.PrintError("Error retrieving activity", ex);
-            return false;
-        }
+        portfolioId = args[i + 1];
     }
+    else if (args[i] == "--activityId" && i + 1 < args.Length)
+    {
+        activityId = args[i + 1];
+    }
+}
+
+// Fallback to environment variable for portfolioId
+if (string.IsNullOrEmpty(portfolioId))
+{
+    portfolioId = Environment.GetEnvironmentVariable("PRIME_PORTFOLIO_ID");
+}
+
+if (string.IsNullOrEmpty(portfolioId) || string.IsNullOrEmpty(activityId))
+{
+    PrettyPrinter.PrintUsage(
+        "Usage: dotnet run --file GetPortfolioActivity.cs -- --portfolioId <portfolio-id> --activityId <activity-id>",
+        "dotnet run --file GetPortfolioActivity.cs -- --portfolioId 89765432-1012-3456-7890-123456789012 --activityId a4df04eb-9d7a-4583-971c-290c935771d6"
+    );
+    Environment.ExitCode = 1;
+    return;
+}
+
+try
+{
+    // Create client and service
+    var client = CoinbasePrimeClient.FromEnv();
+    var activitiesService = new ActivitiesService(client);
+
+    // Build request
+    var request = new GetPortfolioActivityRequest.Builder()
+        .WithPortfolioId(portfolioId)
+        .WithActivityId(activityId)
+        .Build();
+
+    // Execute request
+    var response = activitiesService.GetPortfolioActivity(request);
+
+    // Print response
+    PrettyPrinter.PrintResponse("GetPortfolioActivityResponse", response);
+
+    Environment.ExitCode = 0;
+}
+catch (Exception ex)
+{
+    PrettyPrinter.PrintError("Error retrieving portfolio activity", ex);
+    Environment.ExitCode = 1;
 }
