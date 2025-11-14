@@ -23,158 +23,160 @@ using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.Prime.Model.Enums;
 using CoinbaseSdk.PrimeExample.Common;
+using System.CommandLine;
 
 // Load environment variables
 DotNetEnv.Env.TraversePath().Load();
 
-// Parse command line arguments
-string? entityId = null;
-string? symbolsStr = null;
-string? categoriesStr = null;
-string? startTime = null;
-string? endTime = null;
-string? cursor = null;
-string? sortDirectionStr = null;
-int limit = 100;
+var entityIdOption = new Option<string?>(
+    name: "--entityId",
+    description: "The Entity ID");
 
-for (int i = 0; i < args.Length; i++)
+var symbolsOption = new Option<string?>(
+    name: "--symbols",
+    description: "Comma-separated list of symbols");
+
+var categoriesOption = new Option<string?>(
+    name: "--categories",
+    description: "Comma-separated list of categories");
+
+var startTimeOption = new Option<string?>(
+    name: "--startTime",
+    description: "Start time (UTC)");
+
+var endTimeOption = new Option<string?>(
+    name: "--endTime",
+    description: "End time (UTC)");
+
+var cursorOption = new Option<string?>(
+    name: "--cursor",
+    description: "Cursor for pagination");
+
+var sortDirectionOption = new Option<string?>(
+    name: "--sortDirection",
+    description: "Sort direction (ASC/DESC)");
+
+var limitOption = new Option<int>(
+    name: "--limit",
+    getDefaultValue: () => 100,
+    description: "Number of results to return");
+
+var rootCommand = new RootCommand("List activities for an entity")
 {
-    if (args[i] == "--entityId" && i + 1 < args.Length)
-    {
-        entityId = args[i + 1];
-    }
-    else if (args[i] == "--symbols" && i + 1 < args.Length)
-    {
-        symbolsStr = args[i + 1];
-    }
-    else if (args[i] == "--categories" && i + 1 < args.Length)
-    {
-        categoriesStr = args[i + 1];
-    }
-    else if (args[i] == "--startTime" && i + 1 < args.Length)
-    {
-        startTime = args[i + 1];
-    }
-    else if (args[i] == "--endTime" && i + 1 < args.Length)
-    {
-        endTime = args[i + 1];
-    }
-    else if (args[i] == "--cursor" && i + 1 < args.Length)
-    {
-        cursor = args[i + 1];
-    }
-    else if (args[i] == "--sortDirection" && i + 1 < args.Length)
-    {
-        sortDirectionStr = args[i + 1];
-    }
-    else if (args[i] == "--limit" && i + 1 < args.Length)
-    {
-        int.TryParse(args[i + 1], out limit);
-    }
-}
+    entityIdOption,
+    symbolsOption,
+    categoriesOption,
+    startTimeOption,
+    endTimeOption,
+    cursorOption,
+    sortDirectionOption,
+    limitOption
+};
 
-// Fallback to environment variable for entityId
-if (string.IsNullOrEmpty(entityId))
+rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime, cursor, sortDirectionStr, limit) =>
 {
-    entityId = Environment.GetEnvironmentVariable("PRIME_ENTITY_ID");
-}
-
-if (string.IsNullOrEmpty(entityId))
-{
-    PrettyPrinter.PrintUsage(
-        "Usage: dotnet run --file ListEntityActivities.cs -- --entityId <entity-id> [options]",
-        "dotnet run --file ListEntityActivities.cs -- --entityId 89765432-1012-3456-7890-123456789012 --symbols BTC,ETH --categories PAYMENT,TRANSFER --limit 10 --sortDirection DESC"
-    );
-    Environment.ExitCode = 1;
-    return;
-}
-
-try
-{
-    Console.WriteLine($"Using Entity ID: {entityId}");
-
-    // Create client and service
-    var client = CoinbasePrimeClient.FromEnv();
-    var activitiesService = new ActivitiesService(client);
-
-    // Build request
-    var requestBuilder = new ListEntityActivitiesRequest.Builder()
-        .WithEntityId(entityId)
-        .WithLimit(limit);
-
-    if (!string.IsNullOrEmpty(symbolsStr))
+    // Fallback to environment variable for entityId
+    if (string.IsNullOrEmpty(entityId))
     {
-        var symbols = symbolsStr.Split(',').Select(s => s.Trim()).ToArray();
-        requestBuilder.WithSymbols(symbols);
-        Console.WriteLine($"Filtering by symbols: {string.Join(", ", symbols)}");
+        entityId = Environment.GetEnvironmentVariable("PRIME_ENTITY_ID");
     }
 
-    if (!string.IsNullOrEmpty(categoriesStr))
+    if (string.IsNullOrEmpty(entityId))
     {
-        var categoryStrings = categoriesStr.Split(',').Select(s => s.Trim()).ToArray();
-        var categories = new List<ActivityCategory?>();
-        foreach (var catStr in categoryStrings)
+        Console.Error.WriteLine("Error: --entityId is required (or set PRIME_ENTITY_ID env var).");
+        Environment.ExitCode = 1;
+        return;
+    }
+
+    try
+    {
+        Console.WriteLine($"Using Entity ID: {entityId}");
+
+        // Create client and service
+        var client = CoinbasePrimeClient.FromEnv();
+        var activitiesService = new ActivitiesService(client);
+
+        // Build request
+        var requestBuilder = new ListEntityActivitiesRequest.Builder()
+            .WithEntityId(entityId)
+            .WithLimit(limit);
+
+        if (!string.IsNullOrEmpty(symbolsStr))
         {
-            if (Enum.TryParse<ActivityCategory>(catStr, true, out var category))
+            var symbols = symbolsStr.Split(',').Select(s => s.Trim()).ToArray();
+            requestBuilder.WithSymbols(symbols);
+            Console.WriteLine($"Filtering by symbols: {string.Join(", ", symbols)}");
+        }
+
+        if (!string.IsNullOrEmpty(categoriesStr))
+        {
+            var categoryStrings = categoriesStr.Split(',').Select(s => s.Trim()).ToArray();
+            var categories = new List<ActivityCategory?>();
+            foreach (var catStr in categoryStrings)
             {
-                categories.Add(category);
+                if (Enum.TryParse<ActivityCategory>(catStr, true, out var category))
+                {
+                    categories.Add(category);
+                }
+                else
+                {
+                    Console.Error.WriteLine($"Invalid category: {catStr}");
+                    Environment.ExitCode = 1;
+                    return;
+                }
+            }
+            requestBuilder.WithCategories(categories.ToArray());
+            Console.WriteLine($"Filtering by categories: {string.Join(", ", categoryStrings)}");
+        }
+
+        if (!string.IsNullOrEmpty(startTime))
+        {
+            requestBuilder.WithStartTime(startTime);
+            Console.WriteLine($"Start Time: {startTime}");
+        }
+
+        if (!string.IsNullOrEmpty(endTime))
+        {
+            requestBuilder.WithEndTime(endTime);
+            Console.WriteLine($"End Time: {endTime}");
+        }
+
+        if (!string.IsNullOrEmpty(cursor))
+        {
+            requestBuilder.WithCursor(cursor);
+            Console.WriteLine($"Cursor: {cursor}");
+        }
+
+        if (!string.IsNullOrEmpty(sortDirectionStr))
+        {
+            if (Enum.TryParse<SortDirection>(sortDirectionStr, true, out var sortDirection))
+            {
+                requestBuilder.WithSortDirection(sortDirection);
+                Console.WriteLine($"Sort Direction: {sortDirection}");
             }
             else
             {
-                Console.Error.WriteLine($"Invalid category: {catStr}");
+                Console.Error.WriteLine($"Invalid sort direction: {sortDirectionStr}");
                 Environment.ExitCode = 1;
                 return;
             }
         }
-        requestBuilder.WithCategories(categories.ToArray());
-        Console.WriteLine($"Filtering by categories: {string.Join(", ", categoryStrings)}");
-    }
 
-    if (!string.IsNullOrEmpty(startTime))
+        var request = requestBuilder.Build();
+
+        // Execute request
+        var response = activitiesService.ListEntityActivities(request);
+
+        // Print response
+        PrettyPrinter.PrintResponse("ListEntityActivitiesResponse", response);
+
+        Environment.ExitCode = 0;
+    }
+    catch (Exception ex)
     {
-        requestBuilder.WithStartTime(startTime);
-        Console.WriteLine($"Start Time: {startTime}");
+        PrettyPrinter.PrintError("Error listing entity activities", ex);
+        Environment.ExitCode = 1;
     }
+}, entityIdOption, symbolsOption, categoriesOption, startTimeOption, endTimeOption, cursorOption, sortDirectionOption, limitOption);
 
-    if (!string.IsNullOrEmpty(endTime))
-    {
-        requestBuilder.WithEndTime(endTime);
-        Console.WriteLine($"End Time: {endTime}");
-    }
-
-    if (!string.IsNullOrEmpty(cursor))
-    {
-        requestBuilder.WithCursor(cursor);
-        Console.WriteLine($"Cursor: {cursor}");
-    }
-
-    if (!string.IsNullOrEmpty(sortDirectionStr))
-    {
-        if (Enum.TryParse<SortDirection>(sortDirectionStr, true, out var sortDirection))
-        {
-            requestBuilder.WithSortDirection(sortDirection);
-            Console.WriteLine($"Sort Direction: {sortDirection}");
-        }
-        else
-        {
-            Console.Error.WriteLine($"Invalid sort direction: {sortDirectionStr}");
-            Environment.ExitCode = 1;
-            return;
-        }
-    }
-
-    var request = requestBuilder.Build();
-
-    // Execute request
-    var response = activitiesService.ListEntityActivities(request);
-
-    // Print response
-    PrettyPrinter.PrintResponse("ListEntityActivitiesResponse", response);
-
-    Environment.ExitCode = 0;
-}
-catch (Exception ex)
-{
-    PrettyPrinter.PrintError("Error listing entity activities", ex);
-    Environment.ExitCode = 1;
-}
+return rootCommand.Invoke(args);

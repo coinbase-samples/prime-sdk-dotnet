@@ -22,64 +22,72 @@
 using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.PrimeExample.Common;
+using System.CommandLine;
 
 // Load environment variables
 DotNetEnv.Env.TraversePath().Load();
 
-// Parse command line arguments
-string? portfolioId = null;
-string? activityId = null;
+var portfolioIdOption = new Option<string?>(
+    name: "--portfolioId",
+    description: "The Portfolio ID");
 
-for (int i = 0; i < args.Length; i++)
+var activityIdOption = new Option<string?>(
+    name: "--activityId",
+    description: "The Activity ID");
+
+var rootCommand = new RootCommand("Get portfolio activity by ID")
 {
-    if (args[i] == "--portfolioId" && i + 1 < args.Length)
+    portfolioIdOption,
+    activityIdOption
+};
+
+rootCommand.SetHandler((portfolioId, activityId) =>
+{
+    // Fallback to environment variable for portfolioId
+    if (string.IsNullOrEmpty(portfolioId))
     {
-        portfolioId = args[i + 1];
+        portfolioId = Environment.GetEnvironmentVariable("PRIME_PORTFOLIO_ID");
     }
-    else if (args[i] == "--activityId" && i + 1 < args.Length)
+
+    if (string.IsNullOrEmpty(portfolioId))
     {
-        activityId = args[i + 1];
+        Console.Error.WriteLine("Error: --portfolioId is required (or set PRIME_PORTFOLIO_ID env var).");
+        Environment.ExitCode = 1;
+        return;
     }
-}
 
-// Fallback to environment variable for portfolioId
-if (string.IsNullOrEmpty(portfolioId))
-{
-    portfolioId = Environment.GetEnvironmentVariable("PRIME_PORTFOLIO_ID");
-}
+    if (string.IsNullOrEmpty(activityId))
+    {
+        Console.Error.WriteLine("Error: --activityId is required.");
+        Environment.ExitCode = 1;
+        return;
+    }
 
-if (string.IsNullOrEmpty(portfolioId) || string.IsNullOrEmpty(activityId))
-{
-    PrettyPrinter.PrintUsage(
-        "Usage: dotnet run --file GetPortfolioActivity.cs -- --portfolioId <portfolio-id> --activityId <activity-id>",
-        "dotnet run --file GetPortfolioActivity.cs -- --portfolioId 89765432-1012-3456-7890-123456789012 --activityId a4df04eb-9d7a-4583-971c-290c935771d6"
-    );
-    Environment.ExitCode = 1;
-    return;
-}
+    try
+    {
+        // Create client and service
+        var client = CoinbasePrimeClient.FromEnv();
+        var activitiesService = new ActivitiesService(client);
 
-try
-{
-    // Create client and service
-    var client = CoinbasePrimeClient.FromEnv();
-    var activitiesService = new ActivitiesService(client);
+        // Build request
+        var request = new GetPortfolioActivityRequest.Builder()
+            .WithPortfolioId(portfolioId)
+            .WithActivityId(activityId)
+            .Build();
 
-    // Build request
-    var request = new GetPortfolioActivityRequest.Builder()
-        .WithPortfolioId(portfolioId)
-        .WithActivityId(activityId)
-        .Build();
+        // Execute request
+        var response = activitiesService.GetPortfolioActivity(request);
 
-    // Execute request
-    var response = activitiesService.GetPortfolioActivity(request);
+        // Print response
+        PrettyPrinter.PrintResponse("GetPortfolioActivityResponse", response);
 
-    // Print response
-    PrettyPrinter.PrintResponse("GetPortfolioActivityResponse", response);
+        Environment.ExitCode = 0;
+    }
+    catch (Exception ex)
+    {
+        PrettyPrinter.PrintError("Error retrieving portfolio activity", ex);
+        Environment.ExitCode = 1;
+    }
+}, portfolioIdOption, activityIdOption);
 
-    Environment.ExitCode = 0;
-}
-catch (Exception ex)
-{
-    PrettyPrinter.PrintError("Error retrieving portfolio activity", ex);
-    Environment.ExitCode = 1;
-}
+return rootCommand.Invoke(args);

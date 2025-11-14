@@ -22,47 +22,48 @@
 using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.PrimeExample.Common;
+using System.CommandLine;
 
-// Parse command line arguments
-string? activityId = null;
-for (int i = 0; i < args.Length; i++)
+var activityIdOption = new Option<string?>(
+    name: "--activityId",
+    description: "The Activity ID");
+
+var rootCommand = new RootCommand("Get activity by ID")
 {
-    if (args[i] == "--activityId" && i + 1 < args.Length)
+    activityIdOption
+};
+
+rootCommand.SetHandler((activityId) =>
+{
+    if (string.IsNullOrEmpty(activityId))
     {
-        activityId = args[i + 1];
-        break;
+        Console.Error.WriteLine("Error: --activityId is required.");
+        Environment.ExitCode = 1;
+        return;
     }
-}
 
-if (string.IsNullOrEmpty(activityId))
-{
-    PrettyPrinter.PrintUsage(
-        "Usage: dotnet run --file GetActivity.cs -- --activityId <activity-id>",
-        "dotnet run --file GetActivity.cs -- --activityId a4df04eb-9d7a-4583-971c-290c935771d6"
-    );
-    Environment.ExitCode = 1;
-    return;
-}
+    try
+    {
+        // Create client and service
+        var client = CoinbasePrimeClient.FromEnv();
+        var activitiesService = new ActivitiesService(client);
 
-try
-{
-    // Create client and service
-    var client = CoinbasePrimeClient.FromEnv();
-    var activitiesService = new ActivitiesService(client);
+        // Build request
+        var request = new GetActivityRequest(activityId);
 
-    // Build request
-    var request = new GetActivityRequest(activityId);
+        // Execute request
+        var response = activitiesService.GetActivity(request);
 
-    // Execute request
-    var response = activitiesService.GetActivity(request);
+        // Print response
+        PrettyPrinter.PrintResponse("GetActivityResponse", response);
 
-    // Print response
-    PrettyPrinter.PrintResponse("GetActivityResponse", response);
+        Environment.ExitCode = 0;
+    }
+    catch (Exception ex)
+    {
+        PrettyPrinter.PrintError("Error retrieving activity", ex);
+        Environment.ExitCode = 1;
+    }
+}, activityIdOption);
 
-    Environment.ExitCode = 0;
-}
-catch (Exception ex)
-{
-    PrettyPrinter.PrintError("Error retrieving activity", ex);
-    Environment.ExitCode = 1;
-}
+return rootCommand.Invoke(args);
