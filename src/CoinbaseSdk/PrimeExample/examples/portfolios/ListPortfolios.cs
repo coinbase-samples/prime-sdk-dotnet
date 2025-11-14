@@ -16,7 +16,7 @@
 
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.Prime.Portfolios;
-using CoinbaseSdk.PrimeExample.Common;
+using CoinbaseSdk.Prime.Common;
 
 namespace CoinbaseSdk.PrimeExample.Examples.Portfolios;
 

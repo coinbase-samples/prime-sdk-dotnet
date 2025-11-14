@@ -21,7 +21,7 @@
 
 using CoinbaseSdk.Prime.Activities;
 using CoinbaseSdk.Prime.Client;
-using CoinbaseSdk.PrimeExample.Common;
+using CoinbaseSdk.Prime.Common;
 using System.CommandLine;
 
 var activityIdOption = new Option<string?>(

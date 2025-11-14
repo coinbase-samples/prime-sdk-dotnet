@@ -41,9 +41,9 @@ namespace CoinbaseSdk.Prime.Activities
     public class Builder
     {
       private string? _portfolioId;
-      private string[]? _symbols;
-      private ActivityCategory?[]? _categories;
-      private ActivityStatus?[]? _statuses;
+      private string[] _symbols = [];
+      private ActivityCategory?[] _categories = [];
+      private ActivityStatus?[] _statuses = [];
       private string? _startTime;
       private string? _endTime;
       private string? _cursor;
