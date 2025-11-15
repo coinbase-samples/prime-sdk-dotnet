@@ -48,19 +48,6 @@ var endTimeOption = new Option<string?>(
     name: "--endTime",
     description: "End time (UTC)");
 
-var cursorOption = new Option<string?>(
-    name: "--cursor",
-    description: "Cursor for pagination");
-
-var sortDirectionOption = new Option<string?>(
-    name: "--sortDirection",
-    description: "Sort direction (ASC/DESC)");
-
-var limitOption = new Option<int>(
-    name: "--limit",
-    getDefaultValue: () => 100,
-    description: "Number of results to return");
-
 var rootCommand = new RootCommand("List activities for an entity")
 {
     entityIdOption,
@@ -68,18 +55,11 @@ var rootCommand = new RootCommand("List activities for an entity")
     categoriesOption,
     startTimeOption,
     endTimeOption,
-    cursorOption,
-    sortDirectionOption,
-    limitOption
 };
 
-rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime, cursor, sortDirectionStr, limit) =>
+rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime) =>
 {
-    // Fallback to environment variable for entityId
-    if (string.IsNullOrEmpty(entityId))
-    {
-        entityId = Environment.GetEnvironmentVariable("PRIME_ENTITY_ID");
-    }
+    entityId ??= Environment.GetEnvironmentVariable("PRIME_ENTITY_ID");
 
     if (string.IsNullOrEmpty(entityId))
     {
@@ -98,14 +78,12 @@ rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime,
 
         // Build request
         var requestBuilder = new ListEntityActivitiesRequest.Builder()
-            .WithEntityId(entityId)
-            .WithLimit(limit);
+            .WithEntityId(entityId);
 
         if (!string.IsNullOrEmpty(symbolsStr))
         {
             var symbols = symbolsStr.Split(',').Select(s => s.Trim()).ToArray();
             requestBuilder.WithSymbols(symbols);
-            Console.WriteLine($"Filtering by symbols: {string.Join(", ", symbols)}");
         }
 
         if (!string.IsNullOrEmpty(categoriesStr))
@@ -125,44 +103,22 @@ rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime,
                     return;
                 }
             }
-            requestBuilder.WithCategories(categories.ToArray());
-            Console.WriteLine($"Filtering by categories: {string.Join(", ", categoryStrings)}");
+            requestBuilder.WithCategories([.. categories]);
         }
 
         if (!string.IsNullOrEmpty(startTime))
         {
             requestBuilder.WithStartTime(startTime);
-            Console.WriteLine($"Start Time: {startTime}");
         }
 
         if (!string.IsNullOrEmpty(endTime))
         {
             requestBuilder.WithEndTime(endTime);
-            Console.WriteLine($"End Time: {endTime}");
-        }
-
-        if (!string.IsNullOrEmpty(cursor))
-        {
-            requestBuilder.WithCursor(cursor);
-            Console.WriteLine($"Cursor: {cursor}");
-        }
-
-        if (!string.IsNullOrEmpty(sortDirectionStr))
-        {
-            if (Enum.TryParse<SortDirection>(sortDirectionStr, true, out var sortDirection))
-            {
-                requestBuilder.WithSortDirection(sortDirection);
-                Console.WriteLine($"Sort Direction: {sortDirection}");
-            }
-            else
-            {
-                Console.Error.WriteLine($"Invalid sort direction: {sortDirectionStr}");
-                Environment.ExitCode = 1;
-                return;
-            }
         }
 
         var request = requestBuilder.Build();
+
+        PrettyPrinter.PrintResponse("ListEntityActivitiesRequest", request);
 
         // Execute request
         var response = activitiesService.ListEntityActivities(request);
@@ -177,6 +133,6 @@ rootCommand.SetHandler((entityId, symbolsStr, categoriesStr, startTime, endTime,
         PrettyPrinter.PrintError("Error listing entity activities", ex);
         Environment.ExitCode = 1;
     }
-}, entityIdOption, symbolsOption, categoriesOption, startTimeOption, endTimeOption, cursorOption, sortDirectionOption, limitOption);
+}, entityIdOption, symbolsOption, categoriesOption, startTimeOption, endTimeOption);
 
 return rootCommand.Invoke(args);
