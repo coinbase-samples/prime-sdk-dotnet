@@ -27,55 +27,46 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("network")]
     public Network? Network { get; set; }
-
     /// <summary>
     /// The name of the network
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The maximum number of decimals supported for this network
     /// </summary>
     [JsonPropertyName("max_decimals")]
     public string? MaxDecimals { get; set; }
-
     /// <summary>
     /// Indicates whether this network is the default network for the asset
     /// </summary>
     [JsonPropertyName("default")]
     public bool? Default { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports trading
     /// </summary>
     [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports vault
     /// </summary>
     [JsonPropertyName("vault_supported")]
     public bool? VaultSupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network supports prime custody
     /// </summary>
     [JsonPropertyName("prime_custody_supported")]
     public bool? PrimeCustodySupported { get; set; }
-
     /// <summary>
     /// Indicates whether this network requires a destination tag
     /// </summary>
     [JsonPropertyName("destination_tag_required")]
     public bool? DestinationTagRequired { get; set; }
-
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("network_link")]
     public string? NetworkLink { get; set; }
-
     /// <summary>
     /// Indicates the symbol that can be used to query other endpoints, related to transactions, wallets, and activities, to get information particularly for this asset on the network
     /// </summary>
@@ -167,4 +158,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

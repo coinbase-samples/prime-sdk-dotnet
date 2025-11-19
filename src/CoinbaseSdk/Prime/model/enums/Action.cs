@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<Action>) )]
   public enum Action
   {
-    OTHERACTION,
-    ACTIONAPPROVE,
-    ACTIONREJECT,
-    ACTIONINITIATE,
-    ACTIONCANCEL
+    OTHER_ACTION,
+    ACTION_APPROVE,
+    ACTION_REJECT,
+    ACTION_INITIATE,
+    ACTION_CANCEL
   }
 }

@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The network type: mainnet, testnet, etc
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

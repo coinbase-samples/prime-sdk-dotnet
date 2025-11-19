@@ -27,25 +27,21 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("network")]
     public string? Network { get; set; }
-
     /// <summary>
     /// Contract Address of this asset (empty for native assets).
     /// </summary>
     [JsonPropertyName("contract_address")]
     public string? ContractAddress { get; set; }
-
     /// <summary>
     /// Symbol of this asset.
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Token ID of this asset (empty for non  Nft assets).
     /// </summary>
     [JsonPropertyName("token_id")]
     public string? TokenId { get; set; }
-
     /// <summary>
     /// Name of this asset, either the name of the crypto token or the Nft collection name.
     /// </summary>
@@ -102,4 +98,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

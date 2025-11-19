@@ -23,16 +23,17 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<CandlesGranularity>) )]
   public enum CandlesGranularity
   {
-    ONEMINUTE,
-    FIVEMINUTES,
-    FIFTEENMINUTES,
-    ONEHOUR,
-    SIXHOURS,
-    ONEDAY,
-    THIRTYMINUTES,
-    TWOHOURS,
-    FOURHOURS
+    ONE_MINUTE,
+    FIVE_MINUTES,
+    FIFTEEN_MINUTES,
+    ONE_HOUR,
+    SIX_HOURS,
+    ONE_DAY,
+    THIRTY_MINUTES,
+    TWO_HOURS,
+    FOUR_HOURS
   }
 }

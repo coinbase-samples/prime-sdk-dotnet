@@ -31,13 +31,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The wallet ID of the transaction
     /// </summary>
     [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
-
     /// <summary>
     /// The portfolio ID of the transaction
     /// </summary>
@@ -47,25 +45,21 @@ namespace CoinbaseSdk.Prime.Model
     public TransactionType? Type { get; set; }
     [JsonPropertyName("status")]
     public TransactionStatus? Status { get; set; }
-
     /// <summary>
     /// The asset symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The transaction creation time (as a UTC timestamp)
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// The transaction completion time (as a UTC timestamp)
     /// </summary>
     [JsonPropertyName("completed_at")]
     public DateTime? CompletedAt { get; set; }
-
     /// <summary>
     /// The transaction amount in whole units
     /// </summary>
@@ -75,37 +69,31 @@ namespace CoinbaseSdk.Prime.Model
     public TransferLocation? TransferFrom { get; set; }
     [JsonPropertyName("transfer_to")]
     public TransferLocation? TransferTo { get; set; }
-
     /// <summary>
     /// The blockchain network fees (in whole units) required in order to broadcast the transaction
     /// </summary>
     [JsonPropertyName("network_fees")]
     public string? NetworkFees { get; set; }
-
     /// <summary>
     /// The fees that the customer paid for the transaction (in whole units)
     /// </summary>
     [JsonPropertyName("fees")]
     public string? Fees { get; set; }
-
     /// <summary>
     /// The asset in which fees will be paid
     /// </summary>
     [JsonPropertyName("fee_symbol")]
     public string? FeeSymbol { get; set; }
-
     /// <summary>
     /// The cryptocurrency network transaction hashes/IDs generated upon broadcast
     /// </summary>
     [JsonPropertyName("blockchain_ids")]
     public List<string>? BlockchainIds { get; set; }
-
     /// <summary>
     /// The 8 character alphanumeric short form id for the transaction
     /// </summary>
     [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
-
     /// <summary>
     /// The destination asset symbol
     /// </summary>
@@ -113,13 +101,11 @@ namespace CoinbaseSdk.Prime.Model
     public string? DestinationSymbol { get; set; }
     [JsonPropertyName("estimated_network_fees")]
     public EstimatedNetworkFees? EstimatedNetworkFees { get; set; }
-
     /// <summary>
     /// The network name specific to onchain/onchain wallet transactions
     /// </summary>
     [JsonPropertyName("network")]
     public string? Network { get; set; }
-
     /// <summary>
     /// The estimated asset changes (onchain)
     /// </summary>
@@ -127,7 +113,6 @@ namespace CoinbaseSdk.Prime.Model
     public List<AssetChange>? EstimatedAssetChanges { get; set; }
     [JsonPropertyName("metadata")]
     public TransactionMetadata? Metadata { get; set; }
-
     /// <summary>
     /// The idempotency key associated with the transaction creation request
     /// </summary>
@@ -321,4 +306,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     public string ProductId { get; set; } = default!;
     [JsonPropertyName("side")]
     public OrderSide Side { get; set; } = default!;
-
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
@@ -109,4 +108,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -51,4 +51,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -30,37 +30,31 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("tradable")]
     public bool? Tradable { get; set; }
-
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("min_notional_size")]
     public string? MinNotionalSize { get; set; }
-
     /// <summary>
     /// Deprecated: Value will be an empty string
     /// </summary>
     [JsonPropertyName("max_notional_size")]
     public string? MaxNotionalSize { get; set; }
-
     /// <summary>
     /// Minimum base size for RFQ
     /// </summary>
     [JsonPropertyName("min_base_size")]
     public string? MinBaseSize { get; set; }
-
     /// <summary>
     /// Maximum base size for RFQ
     /// </summary>
     [JsonPropertyName("max_base_size")]
     public string? MaxBaseSize { get; set; }
-
     /// <summary>
     /// Minimum quote size for RFQ
     /// </summary>
     [JsonPropertyName("min_quote_size")]
     public string? MinQuoteSize { get; set; }
-
     /// <summary>
     /// Maximum quote size for RFQ
     /// </summary>
@@ -131,4 +125,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

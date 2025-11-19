@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// Amount
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

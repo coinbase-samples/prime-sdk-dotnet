@@ -23,6 +23,7 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<UserRole>) )]
   public enum UserRole
   {
     AUDITOR,
@@ -31,9 +32,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
     INITIATOR,
     REVIEWER,
     TRADER,
-    FULLTRADER,
-    TEAMMANAGER,
+    FULL_TRADER,
+    TEAM_MANAGER,
     APPROVER,
-    TAXMANAGER
+    TAX_MANAGER
   }
 }

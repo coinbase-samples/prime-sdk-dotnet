@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// Withdrawal power
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -30,19 +30,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("old_balance")]
     public string? OldBalance { get; set; }
-
     /// <summary>
     /// New short collateral balance required
     /// </summary>
     [JsonPropertyName("new_balance")]
     public string? NewBalance { get; set; }
-
     /// <summary>
     /// Loan interest rate
     /// </summary>
     [JsonPropertyName("loan_interest_rate")]
     public string? LoanInterestRate { get; set; }
-
     /// <summary>
     /// Collateral interest rate
     /// </summary>
@@ -92,4 +89,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

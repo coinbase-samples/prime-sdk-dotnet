@@ -31,7 +31,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// A reference for orders and transactions, n/a for other category types
     /// </summary>
@@ -45,25 +44,21 @@ namespace CoinbaseSdk.Prime.Model
     public ActivitySecondaryType? SecondaryType { get; set; }
     [JsonPropertyName("status")]
     public ActivityStatus? Status { get; set; }
-
     /// <summary>
     /// Id of user who created the activity
     /// </summary>
     [JsonPropertyName("created_by")]
     public string? CreatedBy { get; set; }
-
     /// <summary>
     /// Title of the activity
     /// </summary>
     [JsonPropertyName("title")]
     public string? Title { get; set; }
-
     /// <summary>
     /// Description detail of the activity
     /// </summary>
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-
     /// <summary>
     /// Actions related to the Activity
     /// </summary>
@@ -75,19 +70,16 @@ namespace CoinbaseSdk.Prime.Model
     public ActivityMetadataAccount? AccountMetadata { get; set; }
     [JsonPropertyName("orders_metadata")]
     public Object? OrdersMetadata { get; set; }
-
     /// <summary>
     /// List of currencies included in an activity
     /// </summary>
     [JsonPropertyName("symbols")]
     public List<string>? Symbols { get; set; }
-
     /// <summary>
     /// Time activity was created at
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// Time for latest status update of account activity
     /// </summary>
@@ -230,4 +222,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

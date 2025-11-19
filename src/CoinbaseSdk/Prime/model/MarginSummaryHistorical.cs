@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
-
     /// <summary>
     /// The date used for conversion
     /// </summary>
@@ -75,4 +74,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

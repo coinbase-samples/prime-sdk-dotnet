@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<PortfolioBalanceType>) )]
   public enum PortfolioBalanceType
   {
-    TRADINGBALANCES,
-    VAULTBALANCES,
-    TOTALBALANCES,
-    PRIMECUSTODYBALANCES,
-    UNIFIEDTOTALBALANCES
+    TRADING_BALANCES,
+    VAULT_BALANCES,
+    TOTAL_BALANCES,
+    PRIME_CUSTODY_BALANCES,
+    UNIFIED_TOTAL_BALANCES
   }
 }

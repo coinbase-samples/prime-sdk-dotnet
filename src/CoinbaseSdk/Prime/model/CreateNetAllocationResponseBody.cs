@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("success")]
     public bool Success { get; set; } = default!;
-
     /// <summary>
     /// The netting_id for the post net allocation
     /// </summary>
     [JsonPropertyName("netting_id")]
     public string NettingId { get; set; } = default!;
-
     /// <summary>
     /// The allocation id of the buy allocation in net allocation
     /// </summary>
     [JsonPropertyName("buy_allocation_id")]
     public string BuyAllocationId { get; set; } = default!;
-
     /// <summary>
     /// The allocation id of the sell allocation in net allocation
     /// </summary>
     [JsonPropertyName("sell_allocation_id")]
     public string SellAllocationId { get; set; } = default!;
-
     /// <summary>
     /// The failure reason for the post net allocation
     /// </summary>
@@ -105,4 +101,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

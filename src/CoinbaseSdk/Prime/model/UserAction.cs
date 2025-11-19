@@ -28,13 +28,11 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("action")]
     public Action? Action { get; set; }
-
     /// <summary>
     /// Id of the user who executed the action
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
-
     /// <summary>
     /// Time the action was taken
     /// </summary>
@@ -77,4 +75,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

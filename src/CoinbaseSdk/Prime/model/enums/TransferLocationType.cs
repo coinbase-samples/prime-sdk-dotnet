@@ -23,13 +23,14 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<TransferLocationType>) )]
   public enum TransferLocationType
   {
-    PAYMENTMETHOD,
+    PAYMENT_METHOD,
     WALLET,
     ADDRESS,
     OTHER,
-    MULTIPLEADDRESSES,
-    COUNTERPARTYID
+    MULTIPLE_ADDRESSES,
+    COUNTERPARTY_ID
   }
 }

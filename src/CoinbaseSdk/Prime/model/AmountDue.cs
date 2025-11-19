@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// The amount due
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// The date this settlement is due, expressed in UTC
     /// </summary>
@@ -79,4 +77,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

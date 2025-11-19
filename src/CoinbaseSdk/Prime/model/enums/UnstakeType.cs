@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<UnstakeType>) )]
   public enum UnstakeType
   {
-    UNSTAKETYPEUNSPECIFIED,
-    UNSTAKETYPEPARTIAL,
-    UNSTAKETYPEFULL
+    UNSTAKE_TYPE_UNSPECIFIED,
+    UNSTAKE_TYPE_PARTIAL,
+    UNSTAKE_TYPE_FULL
   }
 }

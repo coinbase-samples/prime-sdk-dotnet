@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The name of the portfolio
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The ID of the entity to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-
     /// <summary>
     /// The ID of the organization to which the portfolio is associated
     /// </summary>
     [JsonPropertyName("organization_id")]
     public string? OrganizationId { get; set; }
-
     /// <summary>
     /// The name of the entity to which the portfolio is associated
     /// </summary>
@@ -105,4 +101,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

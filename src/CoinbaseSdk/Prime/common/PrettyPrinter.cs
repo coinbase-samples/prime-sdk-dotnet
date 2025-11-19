@@ -16,21 +16,17 @@
 
 namespace CoinbaseSdk.Prime.Common
 {
+  using System.Linq;
   using System.Text.Json;
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Serialization;
 
   /// <summary>
   /// Utility class for pretty printing objects to the console with JSON formatting.
   /// </summary>
   public static class PrettyPrinter
   {
-    private static readonly JsonSerializerOptions PrettySettings = new ()
-    {
-      WriteIndented = true,
-      DefaultIgnoreCondition = JsonIgnoreCondition.Never,
-      PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-      Converters = { new JsonStringEnumConverter() }
-    };
+    private static readonly JsonSerializerOptions PrettySettings = CreatePrettySettings();
 
     /// <summary>
     /// Pretty prints an object to the console with a title header.
@@ -126,6 +122,22 @@ namespace CoinbaseSdk.Prime.Common
       }
 
       Console.WriteLine();
+    }
+
+    private static JsonSerializerOptions CreatePrettySettings()
+    {
+      JsonSerializerOptions options = PrimeJsonSerializerOptionsFactory.Clone();
+      options.WriteIndented = true;
+      options.DefaultIgnoreCondition = JsonIgnoreCondition.Never;
+
+      // Ensure enums render as strings even if downstream overrides remove the converter.
+      bool hasStringEnumConverter = options.Converters.Any(converter => converter is JsonStringEnumConverter);
+      if (!hasStringEnumConverter)
+      {
+        options.Converters.Add(new JsonStringEnumConverter());
+      }
+
+      return options;
     }
   }
 }

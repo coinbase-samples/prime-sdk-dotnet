@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<AssetChangeType>) )]
   public enum AssetChangeType
   {
-    BALANCETRANSFER,
-    BALANCEAPPROVAL,
-    ITEMTRANSFER,
-    ITEMAPPROVAL,
-    ITEMAPPROVALALL
+    BALANCE_TRANSFER,
+    BALANCE_APPROVAL,
+    ITEM_TRANSFER,
+    ITEM_APPROVAL,
+    ITEM_APPROVAL_ALL
   }
 }

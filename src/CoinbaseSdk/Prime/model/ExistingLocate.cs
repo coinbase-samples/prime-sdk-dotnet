@@ -30,61 +30,51 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("locate_id")]
     public string? LocateId { get; set; }
-
     /// <summary>
     /// The unique ID of the entity
     /// </summary>
     [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The currency symbol
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The requested locate amount
     /// </summary>
     [JsonPropertyName("requested_amount")]
     public string? RequestedAmount { get; set; }
-
     /// <summary>
     /// The interest rate of Pm loan
     /// </summary>
     [JsonPropertyName("interest_rate")]
     public string? InterestRate { get; set; }
-
     /// <summary>
     /// The locate status
     /// </summary>
     [JsonPropertyName("status")]
     public string? Status { get; set; }
-
     /// <summary>
     /// The approved locate amount
     /// </summary>
     [JsonPropertyName("approved_amount")]
     public string? ApprovedAmount { get; set; }
-
     /// <summary>
     /// Deprecated: Use locate_date instead
     /// </summary>
     [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
-
     /// <summary>
     /// The date when the locate was submitted in RFC3339 format
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// The locate date from the CreateNewLocatesRequest in RFC3339 format
     /// </summary>
@@ -183,4 +173,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

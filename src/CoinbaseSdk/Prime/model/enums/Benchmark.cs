@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<Benchmark>) )]
   public enum Benchmark
   {
-    BENCHMARKUNSET,
+    BENCHMARK_UNSET,
     ZERO,
-    SOFR360,
-    SOFR365,
-    CRYPTORFR
+    SOFR_360,
+    SOFR_365,
+    CRYPTO_RFR
   }
 }

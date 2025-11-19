@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-
     /// <summary>
     /// The symbol for the base currency
     /// </summary>
     [JsonPropertyName("base_currency")]
     public string? BaseCurrency { get; set; }
-
     /// <summary>
     /// The symbol for the quote currency
     /// </summary>
     [JsonPropertyName("quote_currency")]
     public string? QuoteCurrency { get; set; }
-
     /// <summary>
     /// The buying power for the base currency
     /// </summary>
     [JsonPropertyName("base_buying_power")]
     public string? BaseBuyingPower { get; set; }
-
     /// <summary>
     /// The buying power for the quote currency
     /// </summary>
@@ -105,4 +101,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<RateType>) )]
   public enum RateType
   {
-    RATETYPEUNSET,
+    RATE_TYPE_UNSET,
     BPS,
-    APR360,
-    APR365,
+    APR_360,
+    APR_365,
     APR
   }
 }

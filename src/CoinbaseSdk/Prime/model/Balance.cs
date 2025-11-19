@@ -30,73 +30,61 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The total amount in whole units with full precision. Includes the &#x60;holds&#x60; amount.
     /// </summary>
     [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-
     /// <summary>
     /// Amount that is currently held in obligation to an open order&#39;s position or a pending withdrawal
     /// </summary>
     [JsonPropertyName("holds")]
     public string? Holds { get; set; }
-
     /// <summary>
     /// Amount that is currently locked due to bonding/staking, potentially subject to an unbonding period, in whole units
     /// </summary>
     [JsonPropertyName("bonded_amount")]
     public string? BondedAmount { get; set; }
-
     /// <summary>
     /// Amount that must remain in the wallet due to the protocol, in whole units
     /// </summary>
     [JsonPropertyName("reserved_amount")]
     public string? ReservedAmount { get; set; }
-
     /// <summary>
     /// Amount that is in the process of unbonding, in whole units
     /// </summary>
     [JsonPropertyName("unbonding_amount")]
     public string? UnbondingAmount { get; set; }
-
     /// <summary>
     /// Unrealized amount subject to a vesting schedule, in whole units
     /// </summary>
     [JsonPropertyName("unvested_amount")]
     public string? UnvestedAmount { get; set; }
-
     /// <summary>
     /// Pending bonding/staking rewards that have not yet been realized, in whole units
     /// </summary>
     [JsonPropertyName("pending_rewards_amount")]
     public string? PendingRewardsAmount { get; set; }
-
     /// <summary>
     /// Previously realized bonding/staking rewards, in whole units
     /// </summary>
     [JsonPropertyName("past_rewards_amount")]
     public string? PastRewardsAmount { get; set; }
-
     /// <summary>
     /// Amount available for bonding/staking, in whole units
     /// </summary>
     [JsonPropertyName("bondable_amount")]
     public string? BondableAmount { get; set; }
-
     /// <summary>
     /// Amount available to withdraw, in whole units
     /// </summary>
     [JsonPropertyName("withdrawable_amount")]
     public string? WithdrawableAmount { get; set; }
-
     /// <summary>
     /// The total amount in fiat unit
     /// </summary>
     [JsonPropertyName("fiat_amount")]
     public string? FiatAmount { get; set; }
-
     /// <summary>
     /// Amount available for unbonding/unstaking, in whole units
     /// </summary>
@@ -209,4 +197,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

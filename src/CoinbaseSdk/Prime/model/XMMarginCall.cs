@@ -31,19 +31,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("margin_call_id")]
     public string? MarginCallId { get; set; }
-
     /// <summary>
     /// Margin call currency
     /// </summary>
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
     /// <summary>
     /// Call amount (notional) as of the margin call creation
     /// </summary>
     [JsonPropertyName("initial_notional_amount")]
     public string? InitialNotionalAmount { get; set; }
-
     /// <summary>
     /// Current outstanding call amount (notional)
     /// </summary>
@@ -57,19 +54,16 @@ namespace CoinbaseSdk.Prime.Model
     public XmMarginLevel? CalledWithMarginLevel { get; set; }
     [JsonPropertyName("called_with_margin_summary")]
     public XmSummary? CalledWithMarginSummary { get; set; }
-
     /// <summary>
     /// Timestamp when the margin call settlement is due
     /// </summary>
     [JsonPropertyName("due_at")]
     public DateTime? DueAt { get; set; }
-
     /// <summary>
     /// Timestamp when the margin call was created
     /// </summary>
     [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-
     /// <summary>
     /// Timestamp when the margin call was last updated
     /// </summary>
@@ -168,4 +162,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

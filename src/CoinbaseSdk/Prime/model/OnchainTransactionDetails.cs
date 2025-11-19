@@ -33,37 +33,31 @@ namespace CoinbaseSdk.Prime.Model
     public string? SignedTransaction { get; set; }
     [JsonPropertyName("risk_assessment")]
     public RiskAssessment? RiskAssessment { get; set; }
-
     /// <summary>
     /// The blockchain network chain ID. Will be empty for Solana transactions.
     /// </summary>
     [JsonPropertyName("chain_id")]
     public string? ChainId { get; set; }
-
     /// <summary>
     /// The transaction nonce. Only present for EVM-based blockchain transactions.
     /// </summary>
     [JsonPropertyName("nonce")]
     public string? Nonce { get; set; }
-
     /// <summary>
     /// The ID of the transaction that this transaction replaced
     /// </summary>
     [JsonPropertyName("replaced_transaction_id")]
     public string? ReplacedTransactionId { get; set; }
-
     /// <summary>
     /// The destination address for the transaction
     /// </summary>
     [JsonPropertyName("destination_address")]
     public string? DestinationAddress { get; set; }
-
     /// <summary>
     /// If set to true, the transaction will not be broadcast to the network. You can still retrieve the signed transaction from the GetTransaction endpoint by transaction ID once the transaction is created.
     /// </summary>
     [JsonPropertyName("skip_broadcast")]
     public bool? SkipBroadcast { get; set; }
-
     /// <summary>
     /// Reason for transaction failure if applicable
     /// </summary>
@@ -150,4 +144,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("approval_deadline")]
     public string? ApprovalDeadline { get; set; }
-
     /// <summary>
     /// If activity has passed consensus threshold
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

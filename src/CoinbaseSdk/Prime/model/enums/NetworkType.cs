@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<NetworkType>) )]
   public enum NetworkType
   {
-    NETWORKTYPEUNSPECIFIED,
-    NETWORKTYPEEVM,
-    NETWORKTYPESOLANA
+    NETWORK_TYPE_UNSPECIFIED,
+    NETWORK_TYPE_EVM,
+    NETWORK_TYPE_SOLANA
   }
 }

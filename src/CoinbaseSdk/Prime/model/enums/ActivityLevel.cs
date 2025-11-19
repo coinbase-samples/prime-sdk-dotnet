@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<ActivityLevel>) )]
   public enum ActivityLevel
   {
-    ACTIVITYLEVELALL,
-    ACTIVITYLEVELPORTFOLIO,
-    ACTIVITYLEVELENTITY
+    ACTIVITY_LEVEL_ALL,
+    ACTIVITY_LEVEL_PORTFOLIO,
+    ACTIVITY_LEVEL_ENTITY
   }
 }

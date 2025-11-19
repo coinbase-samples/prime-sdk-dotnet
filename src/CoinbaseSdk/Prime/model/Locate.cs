@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The available quantity located
     /// </summary>
     [JsonPropertyName("quantity")]
     public string? Quantity { get; set; }
-
     /// <summary>
     /// The interest rate for located symbol
     /// </summary>
@@ -79,4 +77,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

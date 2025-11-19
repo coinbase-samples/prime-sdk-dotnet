@@ -31,19 +31,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The order ID of the fill
     /// </summary>
     [JsonPropertyName("order_id")]
     public string? OrderId { get; set; }
-
     /// <summary>
     /// The product ID of the fill
     /// </summary>
     [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
@@ -51,49 +48,41 @@ namespace CoinbaseSdk.Prime.Model
     public string? ClientProductId { get; set; }
     [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
-
     /// <summary>
     /// Filled size (in base asset units)
     /// </summary>
     [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
-
     /// <summary>
     /// Filled value (in quote asset units)
     /// </summary>
     [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
-
     /// <summary>
     /// The price of the fill
     /// </summary>
     [JsonPropertyName("price")]
     public string? Price { get; set; }
-
     /// <summary>
     /// The date and time of the fill
     /// </summary>
     [JsonPropertyName("time")]
     public DateTime? Time { get; set; }
-
     /// <summary>
     /// The commission incurred for the fill
     /// </summary>
     [JsonPropertyName("commission")]
     public string? Commission { get; set; }
-
     /// <summary>
     /// The name of the venue
     /// </summary>
     [JsonPropertyName("venue")]
     public string? Venue { get; set; }
-
     /// <summary>
     /// The venue fees incurred for the fill
     /// </summary>
     [JsonPropertyName("venue_fees")]
     public string? VenueFees { get; set; }
-
     /// <summary>
     /// The CES commission incurred for the fill
     /// </summary>
@@ -206,4 +195,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

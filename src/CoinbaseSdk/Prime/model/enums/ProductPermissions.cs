@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<ProductPermissions>) )]
   public enum ProductPermissions
   {
-    PRODUCTPERMISSIONREAD,
-    PRODUCTPERMISSIONTRADE,
-    PRODUCTPERMISSIONLENDING
+    PRODUCT_PERMISSION_READ,
+    PRODUCT_PERMISSION_TRADE,
+    PRODUCT_PERMISSION_LENDING
   }
 }

@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<WalletVisibility>) )]
   public enum WalletVisibility
   {
-    WALLETVISIBILITYUNSPECIFIED,
-    WALLETVISIBILITYVISIBLE,
-    WALLETVISIBILITYHIDDEN
+    WALLET_VISIBILITY_UNSPECIFIED,
+    WALLET_VISIBILITY_VISIBLE,
+    WALLET_VISIBILITY_HIDDEN
   }
 }

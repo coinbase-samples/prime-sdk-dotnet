@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<MarginAddOnType>) )]
   public enum MarginAddOnType
   {
-    MARGINADDONTYPEUNSPECIFIED,
-    SINGLECOINSTRESS,
-    CONCENTRATIONSTRESS,
-    MACROSTRESS,
-    SHORTBIASEDSTRESS
+    MARGIN_ADD_ON_TYPE_UNSPECIFIED,
+    SINGLE_COIN_STRESS,
+    CONCENTRATION_STRESS,
+    MACRO_STRESS,
+    SHORT_BIASED_STRESS
   }
 }

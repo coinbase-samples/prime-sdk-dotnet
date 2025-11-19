@@ -80,11 +80,11 @@ public class PostProcessor
     { "EvmParam>", "EvmParams>" },
     { "RPC ", "RpcConfig " },
     { "RPC?", "RpcConfig?" },
-    { "RPC>", "RpcConfig>" },
-    { "BalanceType ", "PortfolioBalanceType " },
-    { "BalanceType>", "PortfolioBalanceType>" },
-    { "BalanceType;", "PortfolioBalanceType;" },
-    { "BalanceType{", "PortfolioBalanceType{" }
+    { "RPC>", "RpcConfig>" }
+    // { "BalanceType ", "PortfolioBalanceType " },
+    // { "BalanceType>", "PortfolioBalanceType>" },
+    // { "BalanceType;", "PortfolioBalanceType;" },
+    // { "BalanceType{", "PortfolioBalanceType{" }
   };
 
   // Acronym normalization map to keep type names PascalCase (aligns with Java generator)

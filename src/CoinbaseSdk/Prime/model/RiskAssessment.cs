@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("compliance_risk_detected")]
     public bool? ComplianceRiskDetected { get; set; }
-
     /// <summary>
     /// Indicates if the transaction has been flagged for security concerns
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -34,13 +34,11 @@ namespace CoinbaseSdk.Prime.Model
     public XmMarginLevel? MarginLevel { get; set; }
     [JsonPropertyName("margin_summary")]
     public XmSummary? MarginSummary { get; set; }
-
     /// <summary>
     /// List of active Xm margin calls
     /// </summary>
     [JsonPropertyName("active_margin_calls")]
     public List<XmMarginCall>? ActiveMarginCalls { get; set; }
-
     /// <summary>
     /// List of active Xm loans
     /// </summary>
@@ -104,4 +102,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -23,9 +23,10 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<XmParty>) )]
   public enum XmParty
   {
-    XmPARTYUNSPECIFIED,
+    XM_PARTY_UNSPECIFIED,
     CBE,
     FCM
   }

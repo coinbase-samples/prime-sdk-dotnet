@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     public FcmMarginCallType? Type { get; set; }
     [JsonPropertyName("state")]
     public FcmMarginCallState? State { get; set; }
-
     /// <summary>
     /// Initial margin call amount to settle
     /// </summary>
     [JsonPropertyName("initial_amount")]
     public string? InitialAmount { get; set; }
-
     /// <summary>
     /// Remaining margin call amount to settle
     /// </summary>
     [JsonPropertyName("remaining_amount")]
     public string? RemainingAmount { get; set; }
-
     /// <summary>
     /// Business date when the margin call was opened
     /// </summary>
     [JsonPropertyName("business_date")]
     public DateTime? BusinessDate { get; set; }
-
     /// <summary>
     /// The deadline by which the margin call must be satisfied
     /// </summary>
@@ -112,4 +108,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

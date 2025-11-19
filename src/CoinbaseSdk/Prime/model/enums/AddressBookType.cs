@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<AddressBookType>) )]
   public enum AddressBookType
   {
-    ADDRESSBOOKTYPEUNSPECIFIED,
-    ADDRESSBOOKTYPEADDRESS,
-    ADDRESSBOOKTYPECOUNTERPARTYID
+    ADDRESS_BOOK_TYPE_UNSPECIFIED,
+    ADDRESS_BOOK_TYPE_ADDRESS,
+    ADDRESS_BOOK_TYPE_COUNTERPARTY_ID
   }
 }

@@ -31,19 +31,16 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The name of the user
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The email of the user
     /// </summary>
     [JsonPropertyName("email")]
     public string? Email { get; set; }
-
     /// <summary>
     /// The entity to which this user and associated permissions are identified
     /// </summary>
@@ -102,4 +99,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

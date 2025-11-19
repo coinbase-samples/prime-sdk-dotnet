@@ -28,13 +28,11 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("type")]
     public AssetChangeType? Type { get; set; }
-
     /// <summary>
     /// The currency symbol associated with the balance operation
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The amount in whole units being transferred or approved
     /// </summary>
@@ -95,4 +93,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

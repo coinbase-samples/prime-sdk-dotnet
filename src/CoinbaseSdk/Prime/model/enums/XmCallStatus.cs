@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<XmCallStatus>) )]
   public enum XmCallStatus
   {
-    XmCALLSTATUSUNSPECIFIED,
-    CALLSTATUSOPEN,
-    CALLSTATUSAGED,
-    CALLSTATUSSETTLED,
-    CALLSTATUSCANCELED
+    XM_CALL_STATUS_UNSPECIFIED,
+    CALL_STATUS_OPEN,
+    CALL_STATUS_AGED,
+    CALL_STATUS_SETTLED,
+    CALL_STATUS_CANCELED
   }
 }

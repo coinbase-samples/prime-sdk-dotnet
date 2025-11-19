@@ -23,14 +23,15 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<LoanType>) )]
   public enum LoanType
   {
-    LOANTYPEUNSET,
-    BILATERALLENDING,
-    TRADEFINANCE,
-    PORTFOLIOMARGIN,
-    SHORTCOLLATERALLOAN,
-    SHORTCOLLATERAL,
-    CROSSMARGIN
+    LOAN_TYPE_UNSET,
+    BILATERAL_LENDING,
+    TRADE_FINANCE,
+    PORTFOLIO_MARGIN,
+    SHORT_COLLATERAL_LOAN,
+    SHORT_COLLATERAL,
+    CROSS_MARGIN
   }
 }

@@ -23,6 +23,7 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<OrderType>) )]
   public enum OrderType
   {
     MARKET,
@@ -30,7 +31,7 @@ namespace CoinbaseSdk.Prime.Model.Enums
     TWAP,
     BLOCK,
     VWAP,
-    STOPLIMIT,
+    STOP_LIMIT,
     RFQ,
     PEG
   }

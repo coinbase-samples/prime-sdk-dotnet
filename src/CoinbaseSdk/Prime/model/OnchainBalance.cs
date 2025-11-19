@@ -28,7 +28,6 @@ namespace CoinbaseSdk.Prime.Model
   {
     [JsonPropertyName("asset")]
     public OnchainAsset? Asset { get; set; }
-
     /// <summary>
     /// The total amount in whole units with full precision.
     /// </summary>
@@ -73,4 +72,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -23,11 +23,12 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<XmControlStatus>) )]
   public enum XmControlStatus
   {
-    XmCONTROLSTATUSUNSPECIFIED,
-    TRADESANDWITHDRAWALS,
-    TRADESONLY,
-    SESSIONLOCKED
+    XM_CONTROL_STATUS_UNSPECIFIED,
+    TRADES_AND_WITHDRAWALS,
+    TRADES_ONLY,
+    SESSION_LOCKED
   }
 }

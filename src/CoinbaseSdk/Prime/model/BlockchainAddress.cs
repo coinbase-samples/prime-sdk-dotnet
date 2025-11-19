@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
-
     /// <summary>
     /// The account identifier (used on some chains to distinguish accounts using the same address)
     /// </summary>
@@ -75,4 +74,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

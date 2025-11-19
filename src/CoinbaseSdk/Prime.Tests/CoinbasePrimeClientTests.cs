@@ -30,7 +30,7 @@ namespace CoinbaseSdk.Prime.Tests
     {
       // Arrange
       var expectedVersion = Assembly.GetAssembly(typeof(CoinbasePrimeClient))?.GetName().Version?.ToString(3);
-      
+
       // Act & Assert
       Assert.NotNull(expectedVersion);
       Assert.NotEqual("0.0.0", expectedVersion);
@@ -40,18 +40,13 @@ namespace CoinbaseSdk.Prime.Tests
     public void SendRequestAsync_ShouldIncludePrimeSdkVersionHeader()
     {
       // Arrange
-      var credentials = new CoinbaseCredentials
-      {
-        AccessKey = "test-key",
-        Passphrase = "test-passphrase",
-        SigningKey = "test-secret"
-      };
+      var credentials = new CoinbaseCredentials("test-key", "test-passphrase", "test-secret");
       var client = new TestableCoinbasePrimeClient(credentials);
       var expectedVersion = Assembly.GetAssembly(typeof(CoinbasePrimeClient))?.GetName().Version?.ToString(3);
-      
+
       // Act
       var request = client.CreateTestRequest("/test", HttpMethod.Get, null);
-      
+
       // Assert
       Assert.True(request.Headers.ContainsKey("User-Agent"));
       Assert.Equal($"prime-sdk-dotnet/{expectedVersion}", request.Headers["User-Agent"]);
@@ -62,7 +57,7 @@ namespace CoinbaseSdk.Prime.Tests
     {
       // Arrange & Act
       var version = Assembly.GetAssembly(typeof(CoinbasePrimeClient))?.GetName().Version?.ToString(3);
-      
+
       // Assert
       Assert.NotEqual("0.0.0", version);
       Assert.NotNull(version);
@@ -88,9 +83,9 @@ namespace CoinbaseSdk.Prime.Tests
       // Get the current version using reflection to access the private SdkVersion field
       var sdkVersionField = typeof(CoinbasePrimeClient).GetField("SdkVersion", BindingFlags.NonPublic | BindingFlags.Static);
       var sdkVersion = sdkVersionField?.GetValue(null)?.ToString() ?? "0.0.0";
-      
+
       request.Headers["User-Agent"] = $"prime-sdk-dotnet/{sdkVersion}";
-      
+
       return request;
     }
   }

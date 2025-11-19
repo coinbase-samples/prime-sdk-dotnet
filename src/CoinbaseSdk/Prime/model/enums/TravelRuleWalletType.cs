@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<TravelRuleWalletType>) )]
   public enum TravelRuleWalletType
   {
-    TRAVELRULEWALLETTYPEUNSPECIFIED,
-    TRAVELRULEWALLETTYPEVASP,
-    TRAVELRULEWALLETTYPESELFCUSTODIED
+    TRAVEL_RULE_WALLET_TYPE_UNSPECIFIED,
+    TRAVEL_RULE_WALLET_TYPE_VASP,
+    TRAVEL_RULE_WALLET_TYPE_SELF_CUSTODIED
   }
 }

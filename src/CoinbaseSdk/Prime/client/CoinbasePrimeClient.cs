@@ -49,12 +49,7 @@ namespace CoinbaseSdk.Prime.Client
         Environment.GetEnvironmentVariable("PRIME_SIGNING_KEY")
         ?? throw new CoinbaseClientException("PRIME_SIGNING_KEY is required");
 
-      var credentials = new CoinbaseCredentials()
-      {
-        AccessKey = accessKey,
-        Passphrase = passphrase,
-        SigningKey = signingKey,
-      };
+      var credentials = new CoinbaseCredentials(accessKey, passphrase, signingKey);
 
       return new CoinbasePrimeClient(credentials);
     }

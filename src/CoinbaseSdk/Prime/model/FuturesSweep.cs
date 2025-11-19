@@ -33,7 +33,6 @@ namespace CoinbaseSdk.Prime.Model
     public string? Id { get; set; }
     [JsonPropertyName("requested_amount")]
     public SweepAmount? RequestedAmount { get; set; }
-
     /// <summary>
     /// Should sweep all
     /// </summary>
@@ -41,7 +40,6 @@ namespace CoinbaseSdk.Prime.Model
     public bool? ShouldSweepAll { get; set; }
     [JsonPropertyName("status")]
     public FuturesSweepStatus? Status { get; set; }
-
     /// <summary>
     /// Scheduled time
     /// </summary>
@@ -98,4 +96,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

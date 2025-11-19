@@ -31,7 +31,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("transaction_id")]
     public string TransactionId { get; set; } = default!;
-
     /// <summary>
     /// The address (public key) of the validator
     /// </summary>
@@ -76,4 +75,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

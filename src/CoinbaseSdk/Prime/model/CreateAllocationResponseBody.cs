@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("success")]
     public bool Success { get; set; } = default!;
-
     /// <summary>
     /// The allocation id for the post allocation
     /// </summary>
     [JsonPropertyName("allocation_id")]
     public string AllocationId { get; set; } = default!;
-
     /// <summary>
     /// The failure reason for the post allocation
     /// </summary>
@@ -79,4 +77,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

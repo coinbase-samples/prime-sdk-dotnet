@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<NetworkFamily>) )]
   public enum NetworkFamily
   {
-    NETWORKFAMILYUNSPECIFIED,
-    NETWORKFAMILYEVM,
-    NETWORKFAMILYSOLANA
+    NETWORK_FAMILY_UNSPECIFIED,
+    NETWORK_FAMILY_EVM,
+    NETWORK_FAMILY_SOLANA
   }
 }

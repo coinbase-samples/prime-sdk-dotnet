@@ -30,31 +30,26 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
     /// <summary>
     /// The mutable series of letters used to identify the asset
     /// </summary>
     [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-
     /// <summary>
     /// The number of decimals supported for the asset
     /// </summary>
     [JsonPropertyName("decimal_precision")]
     public string? DecimalPrecision { get; set; }
-
     /// <summary>
     /// Indicates whether this asset can be traded
     /// </summary>
     [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
-
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
     [JsonPropertyName("explorer_url")]
     public string? ExplorerUrl { get; set; }
-
     /// <summary>
     /// List of networks supported by this asset
     /// </summary>
@@ -118,4 +113,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -1,4 +1,5 @@
+  [JsonConverter(typeof(JsonStringEnumConverter<{{classname}}>) )]
   public enum {{classname}}
   {
-{{#allowableValues}}{{#enumVars}}    {{name}}{{^-last}},{{/-last}}
+{{#allowableValues}}{{#enumVars}}    {{value}}{{^-last}},{{/-last}}
 {{/enumVars}}{{/allowableValues}}  }

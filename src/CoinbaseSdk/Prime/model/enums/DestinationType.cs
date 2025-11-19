@@ -23,11 +23,12 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<DestinationType>) )]
   public enum DestinationType
   {
-    DESTINATIONPAYMENTMETHOD,
-    DESTINATIONBLOCKCHAIN,
-    DESTINATIONWALLET,
-    DESTINATIONCOUNTERPARTY
+    DESTINATION_PAYMENT_METHOD,
+    DESTINATION_BLOCKCHAIN,
+    DESTINATION_WALLET,
+    DESTINATION_COUNTERPARTY
   }
 }

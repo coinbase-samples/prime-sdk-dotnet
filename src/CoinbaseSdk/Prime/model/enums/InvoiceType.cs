@@ -23,13 +23,14 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<InvoiceType>) )]
   public enum InvoiceType
   {
-    INVOICETYPEUNSPECIFIED,
-    INVOICETYPEAUCFEE,
-    INVOICETYPEMINIMUMFEE,
-    INVOICETYPEWITHDRAWALFEE,
-    INVOICETYPENEWWALLETFEE,
-    INVOICETYPESTAKINGFEE
+    INVOICE_TYPE_UNSPECIFIED,
+    INVOICE_TYPE_AUC_FEE,
+    INVOICE_TYPE_MINIMUM_FEE,
+    INVOICE_TYPE_WITHDRAWAL_FEE,
+    INVOICE_TYPE_NEW_WALLET_FEE,
+    INVOICE_TYPE_STAKING_FEE
   }
 }

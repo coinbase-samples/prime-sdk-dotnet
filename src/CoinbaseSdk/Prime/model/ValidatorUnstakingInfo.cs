@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("validator_address")]
     public string ValidatorAddress { get; set; } = default!;
-
     /// <summary>
     /// List of active unstaking requests for this validator
     /// </summary>
@@ -66,4 +65,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

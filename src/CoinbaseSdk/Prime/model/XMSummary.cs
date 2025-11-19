@@ -30,43 +30,36 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("margin_requirement")]
     public string? MarginRequirement { get; set; }
-
     /// <summary>
     /// Equity notional
     /// </summary>
     [JsonPropertyName("account_equity")]
     public string? AccountEquity { get; set; }
-
     /// <summary>
     /// Equity - XmMR (margin excess is &gt; 0)
     /// </summary>
     [JsonPropertyName("margin_excess_shortfall")]
     public string? MarginExcessShortfall { get; set; }
-
     /// <summary>
     /// Credit consumed from Cross Margin Credit Limit (XmCL)
     /// </summary>
     [JsonPropertyName("consumed_credit")]
     public string? ConsumedCredit { get; set; }
-
     /// <summary>
     /// XM Credit Limit (XmCL) is the maximum notional USD of total fiat and digital asset loans
     /// </summary>
     [JsonPropertyName("xm_credit_limit")]
     public string? XmCreditLimit { get; set; }
-
     /// <summary>
     /// XM Margin Limit (XmML) is the maximum notional USD deficit
     /// </summary>
     [JsonPropertyName("xm_margin_limit")]
     public string? XmMarginLimit { get; set; }
-
     /// <summary>
     /// Equity attributed by spot
     /// </summary>
     [JsonPropertyName("spot_equity")]
     public string? SpotEquity { get; set; }
-
     /// <summary>
     /// Equity attributed by futures
     /// </summary>
@@ -153,4 +146,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

@@ -30,25 +30,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("margin_call_id")]
     public string? MarginCallId { get; set; }
-
     /// <summary>
     /// The initial margin call amount in notional value
     /// </summary>
     [JsonPropertyName("initial_notional_amount")]
     public string? InitialNotionalAmount { get; set; }
-
     /// <summary>
     /// The outstanding margin call amount in notional value
     /// </summary>
     [JsonPropertyName("outstanding_notional_amount")]
     public string? OutstandingNotionalAmount { get; set; }
-
     /// <summary>
     /// The time the margin call is created in RFC3330 format
     /// </summary>
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
-
     /// <summary>
     /// The time the margin call is due in RFC3339 format
     /// </summary>
@@ -105,4 +101,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

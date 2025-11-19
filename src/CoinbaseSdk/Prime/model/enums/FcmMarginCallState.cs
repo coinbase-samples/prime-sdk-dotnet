@@ -23,12 +23,13 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<FcmMarginCallState>) )]
   public enum FcmMarginCallState
   {
-    FcmMARGINCALLSTATEUNSPECIFIED,
-    FcmMARGINCALLSTATECLOSED,
-    FcmMARGINCALLSTATEROLLEDOVER,
-    FcmMARGINCALLSTATEDEFAULT,
-    FcmMARGINCALLSTATEOFFICIAL
+    FCM_MARGIN_CALL_STATE_UNSPECIFIED,
+    FCM_MARGIN_CALL_STATE_CLOSED,
+    FCM_MARGIN_CALL_STATE_ROLLED_OVER,
+    FCM_MARGIN_CALL_STATE_DEFAULT,
+    FCM_MARGIN_CALL_STATE_OFFICIAL
   }
 }

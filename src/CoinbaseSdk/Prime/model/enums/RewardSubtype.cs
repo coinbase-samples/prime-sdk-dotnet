@@ -23,13 +23,14 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<RewardSubtype>) )]
   public enum RewardSubtype
   {
-    MEVREWARD,
-    INFLATIONREWARD,
-    BLOCKREWARD,
-    VALIDATORREWARD,
-    TRANSACTIONREWARD,
-    STAKINGFEEREBATEREWARD
+    MEV_REWARD,
+    INFLATION_REWARD,
+    BLOCK_REWARD,
+    VALIDATOR_REWARD,
+    TRANSACTION_REWARD,
+    STAKING_FEE_REBATE_REWARD
   }
 }

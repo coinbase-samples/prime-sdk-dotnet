@@ -31,49 +31,41 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
     /// <summary>
     /// The smallest permitted unit of denomination for the base asset (varies by product)
     /// </summary>
     [JsonPropertyName("base_increment")]
     public string? BaseIncrement { get; set; }
-
     /// <summary>
     /// The smallest permitted unit of denomination for the quote asset (varies by product)
     /// </summary>
     [JsonPropertyName("quote_increment")]
     public string? QuoteIncrement { get; set; }
-
     /// <summary>
     /// The minimum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_min_size")]
     public string? BaseMinSize { get; set; }
-
     /// <summary>
     /// The minimum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_min_size")]
     public string? QuoteMinSize { get; set; }
-
     /// <summary>
     /// The maximum size (in base asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("base_max_size")]
     public string? BaseMaxSize { get; set; }
-
     /// <summary>
     /// The maximum size (in quote asset units) for which an order can be placed
     /// </summary>
     [JsonPropertyName("quote_max_size")]
     public string? QuoteMaxSize { get; set; }
-
     /// <summary>
     /// Permissions given to the user for a product
     /// </summary>
     [JsonPropertyName("permissions")]
     public List<ProductPermissions>? Permissions { get; set; }
-
     /// <summary>
     /// The smallest permitted price increment for the product
     /// </summary>
@@ -167,4 +159,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

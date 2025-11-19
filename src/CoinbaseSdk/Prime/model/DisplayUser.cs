@@ -30,13 +30,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
-
     /// <summary>
     /// User full name
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
-
     /// <summary>
     /// User avatar URL
     /// </summary>
@@ -79,4 +77,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

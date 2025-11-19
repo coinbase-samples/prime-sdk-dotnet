@@ -23,11 +23,12 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<TimeInForceType>) )]
   public enum TimeInForceType
   {
-    GOODUNTILDATETIME,
-    GOODUNTILCANCELLED,
-    IMMEDIATEORCANCEL,
-    FILLORKILL
+    GOOD_UNTIL_DATE_TIME,
+    GOOD_UNTIL_CANCELLED,
+    IMMEDIATE_OR_CANCEL,
+    FILL_OR_KILL
   }
 }

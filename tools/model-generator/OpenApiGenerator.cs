@@ -133,7 +133,7 @@ public class OpenApiGenerator
       "--additional-properties", "optionalEmitDefaultValues=false",
       "--additional-properties", "hideGenerationTimestamp=true",
       "--additional-properties", "modelPropertyNaming=PascalCase",
-      "--additional-properties", "enumPropertyNaming=UPPERCASE",
+      "--additional-properties", "enumPropertyNaming=original",
       "--additional-properties", "generateApiTests=false",
       "--additional-properties", "generateModelTests=false"
     };

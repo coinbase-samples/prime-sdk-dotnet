@@ -23,13 +23,14 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<XmMarginLevel>) )]
   public enum XmMarginLevel
   {
-    XmMARGINLEVELUNSPECIFIED,
-    HEALTHYTHRESHOLD,
-    DEFICITTHRESHOLD,
-    WARNINGTHRESHOLD,
-    URGENTMARGINCALLTHRESHOLD,
-    LIQUIDATIONTHRESHOLD
+    XM_MARGIN_LEVEL_UNSPECIFIED,
+    HEALTHY_THRESHOLD,
+    DEFICIT_THRESHOLD,
+    WARNING_THRESHOLD,
+    URGENT_MARGIN_CALL_THRESHOLD,
+    LIQUIDATION_THRESHOLD
   }
 }

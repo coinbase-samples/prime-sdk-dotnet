@@ -33,19 +33,16 @@ namespace CoinbaseSdk.Prime.Model
     public string Amount { get; set; } = default!;
     [JsonPropertyName("unstake_type")]
     public UnstakeType? UnstakeType { get; set; }
-
     /// <summary>
     /// Estimated date when unstaking will complete (ISO 8601 format)
     /// </summary>
     [JsonPropertyName("finishing_at")]
     public DateTime? FinishingAt { get; set; }
-
     /// <summary>
     /// Estimated hours until this unstaking request completes
     /// </summary>
     [JsonPropertyName("remaining_hours")]
     public long? RemainingHours { get; set; }
-
     /// <summary>
     /// Timestamp when the unstake request was originally created
     /// </summary>
@@ -53,7 +50,6 @@ namespace CoinbaseSdk.Prime.Model
     public DateTime? RequestedAt { get; set; }
     [JsonPropertyName("estimate_type")]
     public EstimateType EstimateType { get; set; } = default!;
-
     /// <summary>
     /// Detailed explanation of the estimate status for display to users.
     /// </summary>
@@ -124,4 +120,5 @@ namespace CoinbaseSdk.Prime.Model
       }
     }
   }
+
 }

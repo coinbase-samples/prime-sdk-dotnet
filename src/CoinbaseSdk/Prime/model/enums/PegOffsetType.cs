@@ -23,10 +23,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  [JsonConverter(typeof(JsonStringEnumConverter<PegOffsetType>) )]
   public enum PegOffsetType
   {
-    PEGOFFSETTYPEPRICE,
-    PEGOFFSETTYPEBPS,
-    PEGOFFSETTYPEDEPTH
+    PEG_OFFSET_TYPE_PRICE,
+    PEG_OFFSET_TYPE_BPS,
+    PEG_OFFSET_TYPE_DEPTH
   }
 }
