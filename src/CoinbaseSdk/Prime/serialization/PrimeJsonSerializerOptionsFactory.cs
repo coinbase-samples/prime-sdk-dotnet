@@ -17,10 +17,7 @@
 namespace CoinbaseSdk.Prime.Serialization
 {
     using System;
-    using System.Linq;
     using System.Text.Json;
-    using System.Text.Json.Serialization;
-    using System.Text.Json.Serialization.Metadata;
     using CoinbaseSdk.Core.Serialization;
 
     /// <summary>
@@ -29,9 +26,7 @@ namespace CoinbaseSdk.Prime.Serialization
     /// </summary>
     internal static class PrimeJsonSerializerOptionsFactory
     {
-        private static readonly object InitializationLock = new ();
         private static readonly Lazy<JsonSerializerOptions> CachedOptions = new (CreateOptions);
-        private static bool defaultsConfigured;
 
         /// <summary>
         /// Gets the cached serializer options used throughout the SDK.
@@ -45,62 +40,7 @@ namespace CoinbaseSdk.Prime.Serialization
 
         private static JsonSerializerOptions CreateOptions()
         {
-            EnsureJsonUtilityDefaults();
-            var options = new JsonSerializerOptions(JsonUtility.DefaultOptions);
-            ApplyPrimeDefaults(options);
-            return options;
-        }
-
-        private static void EnsureJsonUtilityDefaults()
-        {
-            if (defaultsConfigured)
-            {
-                return;
-            }
-
-            lock (InitializationLock)
-            {
-                if (defaultsConfigured)
-                {
-                    return;
-                }
-
-                JsonUtility.ConfigureDefaults(ApplyPrimeDefaults);
-                defaultsConfigured = true;
-            }
-        }
-
-        private static void ApplyPrimeDefaults(JsonSerializerOptions options)
-        {
-            if (options == null)
-            {
-                throw new ArgumentNullException(nameof(options));
-            }
-
-            options.PropertyNameCaseInsensitive = true;
-            options.TypeInfoResolver ??= new DefaultJsonTypeInfoResolver();
-
-            EnsureConverter<JsonStringEnumConverter>(options);
-
-            // Ensure enums gracefully handle unknown wire values.
-            if (!options.Converters.OfType<NullOnUnknownEnumConverter>().Any())
-            {
-                options.Converters.Add(new NullOnUnknownEnumConverter());
-            }
-
-            if (!options.Converters.OfType<UtcIso8601DateTimeOffsetConverter>().Any())
-            {
-                options.Converters.Add(new UtcIso8601DateTimeOffsetConverter());
-            }
-        }
-
-        private static void EnsureConverter<TConverter>(JsonSerializerOptions options)
-            where TConverter : JsonConverter, new()
-        {
-            if (!options.Converters.OfType<TConverter>().Any())
-            {
-                options.Converters.Add(new TConverter());
-            }
+            return new JsonSerializerOptions(JsonUtility.DefaultOptions);
         }
     }
 }

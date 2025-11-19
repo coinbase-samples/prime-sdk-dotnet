@@ -52,6 +52,7 @@ namespace CoinbaseSdk.Prime.Common
       catch (Exception ex)
       {
         Console.WriteLine($"Error serializing object: {ex.Message}");
+        Console.WriteLine(ex);
         Console.WriteLine(obj.ToString());
       }
 
@@ -78,6 +79,7 @@ namespace CoinbaseSdk.Prime.Common
       catch (Exception ex)
       {
         Console.WriteLine($"Error serializing object: {ex.Message}");
+        Console.WriteLine(ex);
         Console.WriteLine(obj.ToString());
       }
     }

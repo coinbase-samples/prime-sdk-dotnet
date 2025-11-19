@@ -73,17 +73,7 @@ PRIME_PORTFOLIO_ID=your-portfolio-id
 
 ## JSON Serialization
 
-The SDK now relies on the shared `CoinbaseSdk.Core.Serialization.JsonUtility` defaults for all request/response payloads. The defaults include camelCase property names, tolerant enum handling, and ISO-8601 timestamps powered by `PrimeJsonSerializerOptionsFactory`.
+The SDK relies entirely on the shared `CoinbaseSdk.Core.Serialization.JsonUtility` defaults for all request/response payloads. Those defaults already include camelCase property names, tolerant enum handling (via `NullOnUnknownEnumConverter`), and ISO-8601 timestamps backed by `UtcIso8601DateTimeOffsetConverter`.
 
-Most developers do not need to touch the serializer options. If you do need to customize serialization, register an override **before** constructing any Prime clients:
-
-```csharp
-JsonUtility.ConfigureDefaults(options =>
-{
-    options.PropertyNamingPolicy = null; // use PascalCase
-    options.Converters.Add(new MyCustomConverter());
-});
-```
-
-The Prime SDK will automatically pick up the updated defaults the next time you instantiate `CoinbasePrimeClient` (or any other Coinbase SDK built on `CoinbaseSdk.Core`).
+Global overrides have been removed to keep the serialization surface deterministic across packages. If you need custom behavior, create your own `JsonSerializerOptions` instance and pass it through a custom `IJsonUtility` implementation (or a derived `CoinbaseClient`) for your application-specific calls instead of mutating global state.
 
