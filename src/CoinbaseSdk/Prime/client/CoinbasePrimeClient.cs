@@ -54,37 +54,20 @@ namespace CoinbaseSdk.Prime.Client
       return new CoinbasePrimeClient(credentials);
     }
 
-    public override async Task<T> SendRequestAsync<T>(
-      HttpMethod method,
-      string path,
-      object options,
-      HttpStatusCode[] expectedStatusCodes,
-      CancellationToken cancellationToken,
-      CallOptions? callOptions = null)
+    /// <summary>
+    /// Configures the request by adding Prime SDK-specific headers.
+    /// </summary>
+    protected override void ConfigureRequest(CoinbaseHttpRequest request)
     {
-      CoinbaseHttpRequest request = new (
-        $"{ApiBasePath}{path}",
-        method.Method,
-        Credentials,
-        options,
-        JsonUtility
-      );
-
       // Attach SDK version header to all requests
       request.Headers["User-Agent"] = $"prime-sdk-dotnet/{SdkVersion}";
+    }
 
-      // Send the HTTP request
-      CoinbaseResponse response;
-      try
-      {
-        response = await HttpClient.SendAsyncRequest(request, callOptions, cancellationToken);
-      }
-      catch (Exception ex)
-      {
-        throw new CoinbaseClientException(ex.Message, ex);
-      }
-
-      // If the response is successful return the content as type T
+    /// <summary>
+    /// Validates the response and handles Prime-specific error deserialization.
+    /// </summary>
+    protected override void ValidateResponse(CoinbaseResponse response, HttpStatusCode[] expectedStatusCodes)
+    {
       if (!expectedStatusCodes.Contains(response.StatusCode))
       {
         CoinbasePrimeErrorMessage errorMessage;
@@ -98,8 +81,6 @@ namespace CoinbaseSdk.Prime.Client
         }
         throw errorMessage.CreateCoinbaseException();
       }
-
-      return JsonUtility.Deserialize<T>(response.Content);
     }
   }
 }

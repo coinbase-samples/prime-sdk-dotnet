@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Coinbase Prime .NET SDK</Description>
     <Version>0.4.0</Version>
-    <Authors>Coinbase Solutions Architecture</Authors>
+    <Authors>Coinbase</Authors>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
