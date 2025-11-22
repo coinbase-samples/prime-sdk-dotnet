@@ -35,19 +35,30 @@ namespace CoinbaseSdk.Prime.Client
     public CoinbasePrimeClient(CoinbaseCredentials credentials, string apiBasePath)
       : base(credentials, apiBasePath) { }
 
-    public static CoinbasePrimeClient FromEnv()
+    public static CoinbasePrimeClient FromEnv(bool loadEnvFile = true)
     {
-      DotNetEnv.Env.TraversePath().Load();
+      if (loadEnvFile)
+      {
+        DotNetEnv.Env.TraversePath().Load();
+      }
 
-      var accessKey =
-        Environment.GetEnvironmentVariable("PRIME_ACCESS_KEY")
-        ?? throw new CoinbaseClientException("PRIME_ACCESS_KEY is required");
-      var passphrase =
-        Environment.GetEnvironmentVariable("PRIME_PASSPHRASE")
-        ?? throw new CoinbaseClientException("PRIME_PASSPHRASE is required");
-      var signingKey =
-        Environment.GetEnvironmentVariable("PRIME_SIGNING_KEY")
-        ?? throw new CoinbaseClientException("PRIME_SIGNING_KEY is required");
+      var accessKey = Environment.GetEnvironmentVariable("PRIME_ACCESS_KEY");
+      if (string.IsNullOrWhiteSpace(accessKey))
+      {
+        throw new CoinbaseClientException("PRIME_ACCESS_KEY is required");
+      }
+
+      var passphrase = Environment.GetEnvironmentVariable("PRIME_PASSPHRASE");
+      if (string.IsNullOrWhiteSpace(passphrase))
+      {
+        throw new CoinbaseClientException("PRIME_PASSPHRASE is required");
+      }
+
+      var signingKey = Environment.GetEnvironmentVariable("PRIME_SIGNING_KEY");
+      if (string.IsNullOrWhiteSpace(signingKey))
+      {
+        throw new CoinbaseClientException("PRIME_SIGNING_KEY is required");
+      }
 
       var credentials = new CoinbaseCredentials(accessKey, passphrase, signingKey);
 

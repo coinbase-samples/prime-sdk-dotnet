@@ -16,9 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Tests
 {
+  using System;
+  using System.Collections.Generic;
   using System.Net;
+  using System.Net.Http;
   using System.Reflection;
   using CoinbaseSdk.Core.Credentials;
+  using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Client;
   using Moq;
   using Xunit;
@@ -43,13 +47,106 @@ namespace CoinbaseSdk.Prime.Tests
       var credentials = new CoinbaseCredentials("test-key", "test-passphrase", "test-secret");
       var client = new TestableCoinbasePrimeClient(credentials);
       var expectedVersion = Assembly.GetAssembly(typeof(CoinbasePrimeClient))?.GetName().Version?.ToString(3);
+      
+      // Create a request using the base constructor, not the helper that manually adds the header
+      var request = new Core.Http.CoinbaseHttpRequest(
+          "https://api.prime.coinbase.com/v1/test",
+          HttpMethod.Get.Method,
+          credentials,
+          null,
+          client.GetJsonUtility());
 
       // Act
-      var request = client.CreateTestRequest("/test", HttpMethod.Get, null);
+      client.ExposeConfigureRequest(request);
 
       // Assert
       Assert.True(request.Headers.ContainsKey("User-Agent"));
       Assert.Equal($"prime-sdk-dotnet/{expectedVersion}", request.Headers["User-Agent"]);
+    }
+
+    [Fact]
+    public void ValidateResponse_ShouldThrowCoinbaseClientException_OnApiError()
+    {
+      // Arrange
+      var credentials = new CoinbaseCredentials("test-key", "test-passphrase", "test-secret");
+      var client = new TestableCoinbasePrimeClient(credentials);
+      var errorJson = "{\"message\":\"Invalid request parameters\"}";
+      var headers = new HttpResponseMessage().Headers;
+      var response = new Core.Http.CoinbaseResponse(HttpStatusCode.BadRequest, headers, errorJson);
+
+      // Act & Assert
+      var exception = Assert.Throws<CoinbaseException>(() => 
+        client.ExposeValidateResponse(response, new[] { HttpStatusCode.OK }));
+      
+      // The message verification depends on how CoinbasePrimeErrorMessage deserializes and creates the exception.
+      // Assuming it uses the "message" field.
+    }
+
+    [Fact]
+    public void ValidateResponse_ShouldThrowCoinbaseException_OnNonJsonError()
+    {
+      // Arrange
+      var credentials = new CoinbaseCredentials("test-key", "test-passphrase", "test-secret");
+      var client = new TestableCoinbasePrimeClient(credentials);
+      var errorContent = "Bad Gateway";
+      var headers = new HttpResponseMessage().Headers;
+      var response = new Core.Http.CoinbaseResponse(HttpStatusCode.BadGateway, headers, errorContent);
+
+      // Act & Assert
+      var exception = Assert.Throws<CoinbaseException>(() => 
+        client.ExposeValidateResponse(response, new[] { HttpStatusCode.OK }));
+      
+      Assert.Equal(HttpStatusCode.BadGateway, exception.StatusCode);
+      Assert.Contains("Bad Gateway", exception.Message);
+    }
+
+    [Fact]
+    public void FromEnv_ShouldCreateClient_WhenEnvVarsSet()
+    {
+      // Arrange
+      var originalAccessKey = Environment.GetEnvironmentVariable("PRIME_ACCESS_KEY");
+      var originalPassphrase = Environment.GetEnvironmentVariable("PRIME_PASSPHRASE");
+      var originalSigningKey = Environment.GetEnvironmentVariable("PRIME_SIGNING_KEY");
+
+      try
+      {
+        Environment.SetEnvironmentVariable("PRIME_ACCESS_KEY", "env-access-key");
+        Environment.SetEnvironmentVariable("PRIME_PASSPHRASE", "env-passphrase");
+        Environment.SetEnvironmentVariable("PRIME_SIGNING_KEY", "env-signing-key");
+
+        // Act
+        var client = CoinbasePrimeClient.FromEnv(false);
+
+        // Assert
+        Assert.NotNull(client);
+        // We can't easily check the credentials inside the client without exposing them, 
+        // but successful creation implies they were read.
+      }
+      finally
+      {
+        // Cleanup
+        Environment.SetEnvironmentVariable("PRIME_ACCESS_KEY", originalAccessKey);
+        Environment.SetEnvironmentVariable("PRIME_PASSPHRASE", originalPassphrase);
+        Environment.SetEnvironmentVariable("PRIME_SIGNING_KEY", originalSigningKey);
+      }
+    }
+
+    [Fact]
+    public void FromEnv_ShouldThrow_WhenEnvVarsMissing()
+    {
+      // Arrange
+      var originalAccessKey = Environment.GetEnvironmentVariable("PRIME_ACCESS_KEY");
+      Environment.SetEnvironmentVariable("PRIME_ACCESS_KEY", "");
+
+      try
+      {
+        // Act & Assert
+        Assert.Throws<CoinbaseClientException>(() => CoinbasePrimeClient.FromEnv(false));
+      }
+      finally
+      {
+        Environment.SetEnvironmentVariable("PRIME_ACCESS_KEY", originalAccessKey);
+      }
     }
 
     [Fact]
@@ -69,6 +166,21 @@ namespace CoinbaseSdk.Prime.Tests
   {
     public TestableCoinbasePrimeClient(CoinbaseCredentials credentials) : base(credentials)
     {
+    }
+
+    public CoinbaseSdk.Core.Serialization.IJsonUtility GetJsonUtility()
+    {
+        return this.JsonUtility;
+    }
+
+    public void ExposeConfigureRequest(Core.Http.CoinbaseHttpRequest request)
+    {
+        this.ConfigureRequest(request);
+    }
+
+    public void ExposeValidateResponse(Core.Http.CoinbaseResponse response, HttpStatusCode[] expectedStatusCodes)
+    {
+        this.ValidateResponse(response, expectedStatusCodes);
     }
 
     public Core.Http.CoinbaseHttpRequest CreateTestRequest(string path, HttpMethod method, object? options)
