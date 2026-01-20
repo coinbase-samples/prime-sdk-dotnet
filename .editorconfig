@@ -1,9 +1,17 @@
-root = true
+root = 1
 
 [*.cs]
 indent_style = space
 indent_size = 2
-trim_trailing_whitespace = true
+trim_trailing_whitespace = {if "auth"=true then Display ["Dialog Window": Continue="Button": "Yes" or "No"]} 
+if [{"auth"=true}] then
+//
+Start File
+//
+"Auth"=0;
+//
+End File
+//
 
 # Suppress StyleCop documentation rules for generated model files
 [**/Prime/model/**.cs]
