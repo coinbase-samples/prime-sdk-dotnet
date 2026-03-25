@@ -76,6 +76,12 @@ namespace CoinbaseSdk.Prime.Model
     public string? PriceIncrement { get; set; }
     [JsonPropertyName("rfq_product_details")]
     public RfqProductDetails? RfqProductDetails { get; set; }
+    [JsonPropertyName("product_type")]
+    public ProductType? ProductType { get; set; }
+    [JsonPropertyName("fcm_trading_session_details")]
+    public FcmTradingSessionDetails? FcmTradingSessionDetails { get; set; }
+    [JsonPropertyName("future_product_details")]
+    public FutureProductDetails? FutureProductDetails { get; set; }
     public Product() { }
 
     public Product(Builder builder)
@@ -90,6 +96,9 @@ namespace CoinbaseSdk.Prime.Model
       this.Permissions = builder.permissions;
       this.PriceIncrement = builder.priceIncrement;
       this.RfqProductDetails = builder.rfqProductDetails;
+      this.ProductType = builder.productType;
+      this.FcmTradingSessionDetails = builder.fcmTradingSessionDetails;
+      this.FutureProductDetails = builder.futureProductDetails;
     }
 
     public class Builder
@@ -105,6 +114,9 @@ namespace CoinbaseSdk.Prime.Model
       internal List<ProductPermissions>? permissions;
       internal string? priceIncrement;
       internal RfqProductDetails? rfqProductDetails;
+      internal ProductType? productType;
+      internal FcmTradingSessionDetails? fcmTradingSessionDetails;
+      internal FutureProductDetails? futureProductDetails;
 #pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
@@ -154,6 +166,21 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithRfqProductDetails(RfqProductDetails? rfqProductDetails)
       {
         this.rfqProductDetails = rfqProductDetails;
+        return this;
+      }
+      public Builder WithProductType(ProductType? productType)
+      {
+        this.productType = productType;
+        return this;
+      }
+      public Builder WithFcmTradingSessionDetails(FcmTradingSessionDetails? fcmTradingSessionDetails)
+      {
+        this.fcmTradingSessionDetails = fcmTradingSessionDetails;
+        return this;
+      }
+      public Builder WithFutureProductDetails(FutureProductDetails? futureProductDetails)
+      {
+        this.futureProductDetails = futureProductDetails;
         return this;
       }
       public Product Build()

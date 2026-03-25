@@ -1,5 +1,59 @@
 # Changelog
 
+## [0.5.0] - 2026-MAR-30
+
+### Added
+
+- **New Service Area**
+  - `AdvancedTransfersService` with 4 endpoints:
+    - `ListAdvancedTransfers`
+    - `CreateAdvancedTransfer`
+    - `CancelAdvancedTransfer`
+    - `ListAdvancedTransferTransactions`
+
+- **New API Endpoints**
+  - `FuturesService.GetFcmEquity`
+  - `ProductsService.GetCandles`
+  - `TransactionsService.GetTransactionTravelRuleData`
+  - `TransactionsService.SubmitDepositTravelRuleData`
+  - `StakingService.GetStakingStatus`
+  - `StakingService.PreviewUnstake`
+  - `StakingService.GetUnstakingStatus`
+
+- **New Domain Models**
+  - `AdvancedTransfer`, `BlindMatchMetadata`, `CommissionDetailTotal`
+  - `FcmScheduledMaintenance`, `FcmTradingSessionDetails`
+  - `FundMovement`, `FutureProductDetails`, `PerpetualProductDetails`
+  - `RequestToSubmitTravelRuleDataForAnExistingDepositTransaction`
+  - `StakingStatus`, `TravelRuleData`
+  - `ValidatorAllocation`, `ValidatorStakingInfo`
+
+- **New Enums**
+  - `AdvancedTransferState`, `AdvancedTransferType`
+  - `ContractExpiryType`, `ExpiringContractStatus`
+  - `FcmMarginHealthState`, `FcmTradingSessionClosedReason`, `FcmTradingSessionState`
+  - `ProductType`, `RiskManagementType`, `SecondaryPermission`, `StakeType`
+
+- **Examples**
+  - Added examples for all 11 new endpoints
+
+### Changed
+
+- **Updated Request Classes**
+  - `CreateOrderRequest`: added `peg_offset_type`, `offset`, `wig_level`
+  - `GetOrderPreviewRequest`: added `settl_currency`, `postOnly`, `display_quote_size`, `display_base_size`, `peg_offset_type`, `offset`, `wig_level`
+  - `CreateWithdrawalRequest`: added `travel_rule_data`
+  - `ListActivitiesRequest`: added `get_network_unified_activities`
+  - `ListEntityActivitiesRequest`: added `get_network_unified_activities`
+  - `ListPortfolioTransactionsRequest`: added `get_network_unified_transactions`, `travel_rule_status`
+  - `ListWalletsRequest`: added `get_network_unified_wallets`
+  - `ListPortfolioProductsRequest`: added `product_type`, `contract_expiry_type`, `expiring_contract_status`
+  - `CreateOnchainTransactionRequest`: added `raw_unsigned_txn`
+
+- **Updated Models** (via model generator)
+  - `Balance`, `EntityUser`, `Fill`, `Order`, `PortfolioUser`, `Product`, `TravelRuleParty`, `WalletUnstakeInputs`
+  - `RewardSubtype` enum updated with new values
+
 ## [0.4.0] - 2025-DEC-23
 
 ### Added

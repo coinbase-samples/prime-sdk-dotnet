@@ -203,5 +203,57 @@ namespace CoinbaseSdk.Prime.Transactions
         options,
         cancellationToken);
     }
+
+    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetTransactionTravelRuleDataResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetTransactionTravelRuleDataResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public SubmitDepositTravelRuleDataResponse SubmitDepositTravelRuleData(
+      SubmitDepositTravelRuleDataRequest request,
+      CallOptions? options = null)
+    {
+      return Request<SubmitDepositTravelRuleDataResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule/deposit",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<SubmitDepositTravelRuleDataResponse> SubmitDepositTravelRuleDataAsync(
+      SubmitDepositTravelRuleDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<SubmitDepositTravelRuleDataResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule/deposit",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

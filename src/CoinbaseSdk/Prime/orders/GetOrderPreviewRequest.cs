@@ -59,6 +59,27 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
 
+    [JsonPropertyName("settl_currency")]
+    public string? SettlCurrency { get; set; }
+
+    [JsonPropertyName("postOnly")]
+    public bool? PostOnly { get; set; }
+
+    [JsonPropertyName("display_quote_size")]
+    public string? DisplayQuoteSize { get; set; }
+
+    [JsonPropertyName("display_base_size")]
+    public string? DisplayBaseSize { get; set; }
+
+    [JsonPropertyName("peg_offset_type")]
+    public PegOffsetType? PegOffsetType { get; set; }
+
+    [JsonPropertyName("offset")]
+    public string? Offset { get; set; }
+
+    [JsonPropertyName("wig_level")]
+    public string? WigLevel { get; set; }
+
     public class GetOrderPreviewRequestBuilder
     {
       private string? _portfolioId;
@@ -74,6 +95,13 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _expiryTime;
       private bool? _isRaiseExact;
       private string? _historicalPov;
+      private string? _settlCurrency;
+      private bool? _postOnly;
+      private string? _displayQuoteSize;
+      private string? _displayBaseSize;
+      private PegOffsetType? _pegOffsetType;
+      private string? _offset;
+      private string? _wigLevel;
 
       public GetOrderPreviewRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -153,6 +181,48 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
+      public GetOrderPreviewRequestBuilder WithSettlCurrency(string settlCurrency)
+      {
+        _settlCurrency = settlCurrency;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithPostOnly(bool postOnly)
+      {
+        _postOnly = postOnly;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithDisplayQuoteSize(string displayQuoteSize)
+      {
+        _displayQuoteSize = displayQuoteSize;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithDisplayBaseSize(string displayBaseSize)
+      {
+        _displayBaseSize = displayBaseSize;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithPegOffsetType(PegOffsetType pegOffsetType)
+      {
+        _pegOffsetType = pegOffsetType;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithOffset(string offset)
+      {
+        _offset = offset;
+        return this;
+      }
+
+      public GetOrderPreviewRequestBuilder WithWigLevel(string wigLevel)
+      {
+        _wigLevel = wigLevel;
+        return this;
+      }
+
       /// <summary>
       /// Validates the request.
       /// </summary>
@@ -187,6 +257,13 @@ namespace CoinbaseSdk.Prime.Orders
           ExpiryTime = _expiryTime,
           IsRaiseExact = _isRaiseExact,
           HistoricalPov = _historicalPov,
+          SettlCurrency = _settlCurrency,
+          PostOnly = _postOnly,
+          DisplayQuoteSize = _displayQuoteSize,
+          DisplayBaseSize = _displayBaseSize,
+          PegOffsetType = _pegOffsetType,
+          Offset = _offset,
+          WigLevel = _wigLevel,
         };
       }
     }

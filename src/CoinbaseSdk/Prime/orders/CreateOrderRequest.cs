@@ -139,9 +139,15 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("post_only")]
     public bool? PostOnly { get; set; }
 
-    /// <summary>
-    /// Builder class for creating CreateOrderRequest instances.
-    /// </summary>
+    [JsonPropertyName("peg_offset_type")]
+    public PegOffsetType? PegOffsetType { get; set; }
+
+    [JsonPropertyName("offset")]
+    public string? Offset { get; set; }
+
+    [JsonPropertyName("wig_level")]
+    public string? WigLevel { get; set; }
+
     public class CreateOrderRequestBuilder
     {
       private string? _portfolioId;
@@ -163,6 +169,9 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _historicalPov;
       private string? _settlCurrency;
       private bool? _postOnly;
+      private PegOffsetType? _pegOffsetType;
+      private string? _offset;
+      private string? _wigLevel;
 
       public CreateOrderRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -278,6 +287,24 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
+      public CreateOrderRequestBuilder WithPegOffsetType(PegOffsetType pegOffsetType)
+      {
+        _pegOffsetType = pegOffsetType;
+        return this;
+      }
+
+      public CreateOrderRequestBuilder WithOffset(string offset)
+      {
+        _offset = offset;
+        return this;
+      }
+
+      public CreateOrderRequestBuilder WithWigLevel(string wigLevel)
+      {
+        _wigLevel = wigLevel;
+        return this;
+      }
+
       /// <summary>
       /// Validates the builder.
       /// </summary>
@@ -318,6 +345,9 @@ namespace CoinbaseSdk.Prime.Orders
           HistoricalPov = _historicalPov,
           SettlCurrency = _settlCurrency,
           PostOnly = _postOnly,
+          PegOffsetType = _pegOffsetType,
+          Offset = _offset,
+          WigLevel = _wigLevel,
         };
       }
     }

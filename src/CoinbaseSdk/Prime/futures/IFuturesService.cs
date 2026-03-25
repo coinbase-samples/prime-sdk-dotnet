@@ -107,5 +107,14 @@ namespace CoinbaseSdk.Prime.Futures
         SetFcmSettingsRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
+
+    GetFcmEquityResponse GetFcmEquity(
+        GetFcmEquityRequest request,
+        CallOptions? options = null);
+
+    Task<GetFcmEquityResponse> GetFcmEquityAsync(
+        GetFcmEquityRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
   }
 }

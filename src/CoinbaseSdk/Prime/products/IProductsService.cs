@@ -28,5 +28,14 @@ namespace CoinbaseSdk.Prime.Products
       ListPortfolioProductsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
+
+    public GetCandlesResponse GetCandles(
+      GetCandlesRequest request,
+      CallOptions? options = null);
+
+    public Task<GetCandlesResponse> GetCandlesAsync(
+      GetCandlesRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
   }
 }

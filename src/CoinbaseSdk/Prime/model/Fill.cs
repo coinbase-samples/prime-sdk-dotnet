@@ -91,6 +91,10 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("ces_commission")]
     public string? CesCommission { get; set; }
+    [JsonPropertyName("product_type")]
+    public ProductType? ProductType { get; set; }
+    [JsonPropertyName("commission_detail_total")]
+    public CommissionDetailTotal? CommissionDetailTotal { get; set; }
     public Fill() { }
 
     public Fill(Builder builder)
@@ -108,6 +112,8 @@ namespace CoinbaseSdk.Prime.Model
       this.Venue = builder.venue;
       this.VenueFees = builder.venueFees;
       this.CesCommission = builder.cesCommission;
+      this.ProductType = builder.productType;
+      this.CommissionDetailTotal = builder.commissionDetailTotal;
     }
 
     public class Builder
@@ -126,6 +132,8 @@ namespace CoinbaseSdk.Prime.Model
       internal string? venue;
       internal string? venueFees;
       internal string? cesCommission;
+      internal ProductType? productType;
+      internal CommissionDetailTotal? commissionDetailTotal;
 #pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
@@ -190,6 +198,16 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithCesCommission(string? cesCommission)
       {
         this.cesCommission = cesCommission;
+        return this;
+      }
+      public Builder WithProductType(ProductType? productType)
+      {
+        this.productType = productType;
+        return this;
+      }
+      public Builder WithCommissionDetailTotal(CommissionDetailTotal? commissionDetailTotal)
+      {
+        this.commissionDetailTotal = commissionDetailTotal;
         return this;
       }
       public Fill Build()

@@ -56,6 +56,16 @@ namespace CoinbaseSdk.Prime.Model
     public string? EntityId { get; set; }
     [JsonPropertyName("role")]
     public UserRole? Role { get; set; }
+    /// <summary>
+    /// All primary roles assigned to the user.
+    /// </summary>
+    [JsonPropertyName("roles")]
+    public List<UserRole>? Roles { get; set; }
+    /// <summary>
+    /// All secondary permissions assigned to the user.
+    /// </summary>
+    [JsonPropertyName("secondary_permissions")]
+    public List<SecondaryPermission>? SecondaryPermissions { get; set; }
     public PortfolioUser() { }
 
     public PortfolioUser(Builder builder)
@@ -66,6 +76,8 @@ namespace CoinbaseSdk.Prime.Model
       this.PortfolioId = builder.portfolioId;
       this.EntityId = builder.entityId;
       this.Role = builder.role;
+      this.Roles = builder.roles;
+      this.SecondaryPermissions = builder.secondaryPermissions;
     }
 
     public class Builder
@@ -77,6 +89,8 @@ namespace CoinbaseSdk.Prime.Model
       internal string? portfolioId;
       internal string? entityId;
       internal UserRole? role;
+      internal List<UserRole>? roles;
+      internal List<SecondaryPermission>? secondaryPermissions;
 #pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
@@ -106,6 +120,16 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithRole(UserRole? role)
       {
         this.role = role;
+        return this;
+      }
+      public Builder WithRoles(List<UserRole>? roles)
+      {
+        this.roles = roles;
+        return this;
+      }
+      public Builder WithSecondaryPermissions(List<SecondaryPermission>? secondaryPermissions)
+      {
+        this.secondaryPermissions = secondaryPermissions;
         return this;
       }
       public PortfolioUser Build()

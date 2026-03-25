@@ -282,5 +282,31 @@ namespace CoinbaseSdk.Prime.Futures
         options,
         cancellationToken);
     }
+
+    public GetFcmEquityResponse GetFcmEquity(
+      GetFcmEquityRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetFcmEquityResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/equity",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetFcmEquityResponse> GetFcmEquityAsync(
+      GetFcmEquityRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetFcmEquityResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/equity",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
   }
 }

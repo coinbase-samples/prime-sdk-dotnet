@@ -38,6 +38,9 @@ namespace CoinbaseSdk.Prime.Activities
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
+    [JsonPropertyName("get_network_unified_activities")]
+    public bool? GetNetworkUnifiedActivities { get; set; }
+
     public class Builder
     {
       private string? _portfolioId;
@@ -46,6 +49,7 @@ namespace CoinbaseSdk.Prime.Activities
       private ActivityStatus?[] _statuses = [];
       private string? _startTime;
       private string? _endTime;
+      private bool? _getNetworkUnifiedActivities;
       private string? _cursor;
       private SortDirection? _sortDirection;
       private int? _limit;
@@ -83,6 +87,12 @@ namespace CoinbaseSdk.Prime.Activities
       public Builder WithEndTime(string endTime)
       {
         _endTime = endTime;
+        return this;
+      }
+
+      public Builder WithGetNetworkUnifiedActivities(bool getNetworkUnifiedActivities)
+      {
+        _getNetworkUnifiedActivities = getNetworkUnifiedActivities;
         return this;
       }
 
@@ -131,6 +141,7 @@ namespace CoinbaseSdk.Prime.Activities
           Statuses = _statuses ?? [],
           StartTime = _startTime,
           EndTime = _endTime,
+          GetNetworkUnifiedActivities = _getNetworkUnifiedActivities,
           Cursor = _cursor,
           SortDirection = _sortDirection,
           Limit = _limit,

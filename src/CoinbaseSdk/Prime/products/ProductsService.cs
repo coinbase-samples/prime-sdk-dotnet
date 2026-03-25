@@ -48,5 +48,31 @@ namespace CoinbaseSdk.Prime.Products
         options,
         cancellationToken);
     }
+
+    public GetCandlesResponse GetCandles(
+      GetCandlesRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetCandlesResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/candles",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetCandlesResponse> GetCandlesAsync(
+      GetCandlesRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetCandlesResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/candles",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

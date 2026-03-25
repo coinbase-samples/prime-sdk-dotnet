@@ -38,6 +38,12 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
+    [JsonPropertyName("get_network_unified_transactions")]
+    public bool? GetNetworkUnifiedTransactions { get; set; }
+
+    [JsonPropertyName("travel_rule_status")]
+    public string[]? TravelRuleStatus { get; set; }
+
     public class Builder
     {
       private string? _portfolioId;
@@ -45,6 +51,8 @@ namespace CoinbaseSdk.Prime.Transactions
       private TransactionType[] _types = [];
       private string? _startTime;
       private string? _endTime;
+      private bool? _getNetworkUnifiedTransactions;
+      private string[]? _travelRuleStatus;
       private string? _cursor;
       private SortDirection? _sortDirection;
       private int? _limit;
@@ -76,6 +84,18 @@ namespace CoinbaseSdk.Prime.Transactions
       public Builder WithEndTime(string endTime)
       {
         _endTime = endTime;
+        return this;
+      }
+
+      public Builder WithGetNetworkUnifiedTransactions(bool getNetworkUnifiedTransactions)
+      {
+        _getNetworkUnifiedTransactions = getNetworkUnifiedTransactions;
+        return this;
+      }
+
+      public Builder WithTravelRuleStatus(string[] travelRuleStatus)
+      {
+        _travelRuleStatus = travelRuleStatus;
         return this;
       }
 
@@ -123,6 +143,8 @@ namespace CoinbaseSdk.Prime.Transactions
           Types = _types,
           StartTime = _startTime,
           EndTime = _endTime,
+          GetNetworkUnifiedTransactions = _getNetworkUnifiedTransactions,
+          TravelRuleStatus = _travelRuleStatus,
           Cursor = _cursor,
           SortDirection = _sortDirection,
           Limit = _limit,

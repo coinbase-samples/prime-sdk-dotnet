@@ -192,6 +192,10 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("wig_level")]
     public string? WigLevel { get; set; }
+    [JsonPropertyName("product_type")]
+    public ProductType? ProductType { get; set; }
+    [JsonPropertyName("commission_detail_total")]
+    public CommissionDetailTotal? CommissionDetailTotal { get; set; }
     public Order() { }
 
     public Order(Builder builder)
@@ -231,6 +235,8 @@ namespace CoinbaseSdk.Prime.Model
       this.PegOffsetType = builder.pegOffsetType;
       this.Offset = builder.offset;
       this.WigLevel = builder.wigLevel;
+      this.ProductType = builder.productType;
+      this.CommissionDetailTotal = builder.commissionDetailTotal;
     }
 
     public class Builder
@@ -271,6 +277,8 @@ namespace CoinbaseSdk.Prime.Model
       internal string? pegOffsetType;
       internal string? offset;
       internal string? wigLevel;
+      internal ProductType? productType;
+      internal CommissionDetailTotal? commissionDetailTotal;
 #pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
       {
@@ -445,6 +453,16 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithWigLevel(string? wigLevel)
       {
         this.wigLevel = wigLevel;
+        return this;
+      }
+      public Builder WithProductType(ProductType? productType)
+      {
+        this.productType = productType;
+        return this;
+      }
+      public Builder WithCommissionDetailTotal(CommissionDetailTotal? commissionDetailTotal)
+      {
+        this.commissionDetailTotal = commissionDetailTotal;
         return this;
       }
       public Order Build()

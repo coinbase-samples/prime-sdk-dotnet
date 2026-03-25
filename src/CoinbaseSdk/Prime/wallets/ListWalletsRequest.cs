@@ -29,5 +29,8 @@ namespace CoinbaseSdk.Prime.Wallets
     public WalletType Type { get; set; }
 
     public string[] Symbols { get; set; } = [];
+
+    [JsonPropertyName("get_network_unified_wallets")]
+    public bool? GetNetworkUnifiedWallets { get; set; }
   }
 }

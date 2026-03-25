@@ -73,5 +73,32 @@ namespace CoinbaseSdk.Prime.Staking
         ListTransactionValidatorsRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
+
+    public GetStakingStatusResponse GetStakingStatus(
+        GetStakingStatusRequest request,
+        CallOptions? options = null);
+
+    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
+        GetStakingStatusRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
+
+    public PreviewUnstakeResponse PreviewUnstake(
+        PreviewUnstakeRequest request,
+        CallOptions? options = null);
+
+    public Task<PreviewUnstakeResponse> PreviewUnstakeAsync(
+        PreviewUnstakeRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
+
+    public GetUnstakingStatusResponse GetUnstakingStatus(
+        GetUnstakingStatusRequest request,
+        CallOptions? options = null);
+
+    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
+        GetUnstakingStatusRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
   }
 }

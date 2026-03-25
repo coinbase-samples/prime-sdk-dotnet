@@ -25,52 +25,102 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   public class TravelRuleParty
   {
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("detailed_address")]
-    public DetailedAddress? DetailedAddress { get; set; }
     [JsonPropertyName("natural_person_name")]
     public NaturalPersonName? NaturalPersonName { get; set; }
+    [JsonPropertyName("address")]
+    public DetailedAddress? Address { get; set; }
+    [JsonPropertyName("wallet_type")]
+    public TravelRuleWalletType? WalletType { get; set; }
+    [JsonPropertyName("vasp_id")]
+    public string? VaspId { get; set; }
+    [JsonPropertyName("vasp_name")]
+    public string? VaspName { get; set; }
+    /// <summary>
+    /// Personal identifier for travel rule compliance. For individuals: passport number, national ID, driver&#39;s license. For institutions: LEI (Legal Entity Identifier).
+    /// </summary>
+    [JsonPropertyName("personal_id")]
+    public string? PersonalId { get; set; }
     [JsonPropertyName("date_of_birth")]
     public DateOfBirth? DateOfBirth { get; set; }
+    /// <summary>
+    /// Telephone number for contact purposes.
+    /// </summary>
     [JsonPropertyName("telephone_number")]
     public string? TelephoneNumber { get; set; }
+    /// <summary>
+    /// Account identifier for travel rule compliance. If not provided, defaults to portfolio ID.
+    /// </summary>
+    [JsonPropertyName("account_id")]
+    public string? AccountId { get; set; }
     public TravelRuleParty() { }
 
     public TravelRuleParty(Builder builder)
     {
       this.Name = builder.name;
-      this.DetailedAddress = builder.detailedAddress;
       this.NaturalPersonName = builder.naturalPersonName;
+      this.Address = builder.address;
+      this.WalletType = builder.walletType;
+      this.VaspId = builder.vaspId;
+      this.VaspName = builder.vaspName;
+      this.PersonalId = builder.personalId;
       this.DateOfBirth = builder.dateOfBirth;
       this.TelephoneNumber = builder.telephoneNumber;
+      this.AccountId = builder.accountId;
     }
 
     public class Builder
     {
 #pragma warning disable SA1307, SA1401
       internal string? name;
-      internal DetailedAddress? detailedAddress;
       internal NaturalPersonName? naturalPersonName;
+      internal DetailedAddress? address;
+      internal TravelRuleWalletType? walletType;
+      internal string? vaspId;
+      internal string? vaspName;
+      internal string? personalId;
       internal DateOfBirth? dateOfBirth;
       internal string? telephoneNumber;
+      internal string? accountId;
 #pragma warning restore SA1307, SA1401
       public Builder WithName(string? name)
       {
         this.name = name;
         return this;
       }
-      public Builder WithDetailedAddress(DetailedAddress? detailedAddress)
-      {
-        this.detailedAddress = detailedAddress;
-        return this;
-      }
       public Builder WithNaturalPersonName(NaturalPersonName? naturalPersonName)
       {
         this.naturalPersonName = naturalPersonName;
+        return this;
+      }
+      public Builder WithAddress(DetailedAddress? address)
+      {
+        this.address = address;
+        return this;
+      }
+      public Builder WithWalletType(TravelRuleWalletType? walletType)
+      {
+        this.walletType = walletType;
+        return this;
+      }
+      public Builder WithVaspId(string? vaspId)
+      {
+        this.vaspId = vaspId;
+        return this;
+      }
+      public Builder WithVaspName(string? vaspName)
+      {
+        this.vaspName = vaspName;
+        return this;
+      }
+      public Builder WithPersonalId(string? personalId)
+      {
+        this.personalId = personalId;
         return this;
       }
       public Builder WithDateOfBirth(DateOfBirth? dateOfBirth)
@@ -81,6 +131,11 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithTelephoneNumber(string? telephoneNumber)
       {
         this.telephoneNumber = telephoneNumber;
+        return this;
+      }
+      public Builder WithAccountId(string? accountId)
+      {
+        this.accountId = accountId;
         return this;
       }
       public TravelRuleParty Build()

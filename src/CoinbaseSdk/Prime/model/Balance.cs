@@ -93,6 +93,11 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("unbondable_amount")]
     public string? UnbondableAmount { get; set; }
+    /// <summary>
+    /// ETH staking rewards currently available to claim, in whole units. This field is returned only in GetWalletBalance responses for ETH wallets. It is omitted or empty for portfolio-level responses and for non-ETH assets; use pending_rewards_amount where applicable.
+    /// </summary>
+    [JsonPropertyName("claimable_rewards_amount")]
+    public string? ClaimableRewardsAmount { get; set; }
     public Balance() { }
 
     public Balance(Builder builder)
@@ -110,6 +115,7 @@ namespace CoinbaseSdk.Prime.Model
       this.WithdrawableAmount = builder.withdrawableAmount;
       this.FiatAmount = builder.fiatAmount;
       this.UnbondableAmount = builder.unbondableAmount;
+      this.ClaimableRewardsAmount = builder.claimableRewardsAmount;
     }
 
     public class Builder
@@ -128,6 +134,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? withdrawableAmount;
       internal string? fiatAmount;
       internal string? unbondableAmount;
+      internal string? claimableRewardsAmount;
 #pragma warning restore SA1307, SA1401
       public Builder WithSymbol(string? symbol)
       {
@@ -192,6 +199,11 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithUnbondableAmount(string? unbondableAmount)
       {
         this.unbondableAmount = unbondableAmount;
+        return this;
+      }
+      public Builder WithClaimableRewardsAmount(string? claimableRewardsAmount)
+      {
+        this.claimableRewardsAmount = claimableRewardsAmount;
         return this;
       }
       public Balance Build()

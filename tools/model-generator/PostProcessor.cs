@@ -80,7 +80,8 @@ public class PostProcessor
     { "EvmParam>", "EvmParams>" },
     { "RPC ", "RpcConfig " },
     { "RPC?", "RpcConfig?" },
-    { "RPC>", "RpcConfig>" }
+    { "RPC>", "RpcConfig>" },
+    { "GoogleTypeDate", "DateOfBirth" }
     // { "BalanceType ", "PortfolioBalanceType " },
     // { "BalanceType>", "PortfolioBalanceType>" },
     // { "BalanceType;", "PortfolioBalanceType;" },

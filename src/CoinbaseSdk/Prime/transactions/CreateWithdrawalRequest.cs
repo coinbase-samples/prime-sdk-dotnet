@@ -49,6 +49,9 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonPropertyName("counterparty")]
     public CounterpartyDestination? Counterparty { get; set; }
 
+    [JsonPropertyName("travel_rule_data")]
+    public TravelRuleData? TravelRuleData { get; set; }
+
     public class Builder
     {
       private string? _portfolioId;
@@ -60,6 +63,7 @@ namespace CoinbaseSdk.Prime.Transactions
       private PaymentMethodDestination? _paymentMethod;
       private BlockchainAddress? _blockchainAddress;
       private CounterpartyDestination? _counterparty;
+      private TravelRuleData? _travelRuleData;
 
       public Builder WithPortfolioId(string portfolioId)
       {
@@ -115,6 +119,12 @@ namespace CoinbaseSdk.Prime.Transactions
         return this;
       }
 
+      public Builder WithTravelRuleData(TravelRuleData travelRuleData)
+      {
+        _travelRuleData = travelRuleData;
+        return this;
+      }
+
       /// <summary>
       /// Validate the builder.
       /// </summary>
@@ -149,7 +159,8 @@ namespace CoinbaseSdk.Prime.Transactions
           CurrencySymbol = _currencySymbol,
           PaymentMethod = _paymentMethod,
           BlockchainAddress = _blockchainAddress,
-          Counterparty = _counterparty
+          Counterparty = _counterparty,
+          TravelRuleData = _travelRuleData
         };
       }
     }

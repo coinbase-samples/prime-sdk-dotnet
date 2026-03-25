@@ -82,5 +82,23 @@ namespace CoinbaseSdk.Prime.Transactions
         CreateOnchainTransactionRequest request,
         CallOptions? options = null,
         CancellationToken cancellationToken = default);
+
+    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
+        GetTransactionTravelRuleDataRequest request,
+        CallOptions? options = null);
+
+    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
+        GetTransactionTravelRuleDataRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
+
+    public SubmitDepositTravelRuleDataResponse SubmitDepositTravelRuleData(
+        SubmitDepositTravelRuleDataRequest request,
+        CallOptions? options = null);
+
+    public Task<SubmitDepositTravelRuleDataResponse> SubmitDepositTravelRuleDataAsync(
+        SubmitDepositTravelRuleDataRequest request,
+        CallOptions? options = null,
+        CancellationToken cancellationToken = default);
   }
 }

@@ -178,5 +178,83 @@ namespace CoinbaseSdk.Prime.Staking
         options,
         cancellationToken);
     }
+
+    public GetStakingStatusResponse GetStakingStatus(
+      GetStakingStatusRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetStakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
+      GetStakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetStakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    public PreviewUnstakeResponse PreviewUnstake(
+      PreviewUnstakeRequest request,
+      CallOptions? options = null)
+    {
+      return Request<PreviewUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/preview",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<PreviewUnstakeResponse> PreviewUnstakeAsync(
+      PreviewUnstakeRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<PreviewUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/preview",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    public GetUnstakingStatusResponse GetUnstakingStatus(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetUnstakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetUnstakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
   }
 }
