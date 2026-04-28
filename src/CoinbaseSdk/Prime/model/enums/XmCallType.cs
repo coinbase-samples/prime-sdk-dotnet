@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<XmCallType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<XmCallType>))]
   public enum XmCallType
   {
     XM_CALL_TYPE_UNSPECIFIED,

@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<TimeInForceType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<TimeInForceType>))]
   public enum TimeInForceType
   {
     GOOD_UNTIL_DATE_TIME,

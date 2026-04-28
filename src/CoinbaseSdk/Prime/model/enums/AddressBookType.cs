@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<AddressBookType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<AddressBookType>))]
   public enum AddressBookType
   {
     ADDRESS_BOOK_TYPE_UNSPECIFIED,

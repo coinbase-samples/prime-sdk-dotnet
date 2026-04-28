@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<CustodyActivityType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<CustodyActivityType>))]
   public enum CustodyActivityType
   {
     ACTIVITY_TYPE_GOVERNANCE_VOTE,

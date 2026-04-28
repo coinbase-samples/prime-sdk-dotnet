@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<FcmTradingSessionState>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<FcmTradingSessionState>))]
   public enum FcmTradingSessionState
   {
     FCM_TRADING_SESSION_STATE_UNDEFINED,

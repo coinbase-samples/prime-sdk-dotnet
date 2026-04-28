@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<FcmMarginHealthState>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<FcmMarginHealthState>))]
   public enum FcmMarginHealthState
   {
     FCM_MARGIN_HEALTH_STATE_UNSPECIFIED,

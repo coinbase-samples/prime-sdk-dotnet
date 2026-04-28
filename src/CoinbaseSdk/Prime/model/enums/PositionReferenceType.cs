@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<PositionReferenceType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<PositionReferenceType>))]
   public enum PositionReferenceType
   {
     POSITION_REFERENCE_TYPE_UNSPECIFIED,

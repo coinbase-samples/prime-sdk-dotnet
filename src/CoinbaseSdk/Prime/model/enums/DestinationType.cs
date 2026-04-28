@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<DestinationType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<DestinationType>))]
   public enum DestinationType
   {
     DESTINATION_PAYMENT_METHOD,

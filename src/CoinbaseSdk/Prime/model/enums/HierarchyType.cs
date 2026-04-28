@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<HierarchyType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<HierarchyType>))]
   public enum HierarchyType
   {
     HIERARCHY_TYPE_UNSPECIFIED,

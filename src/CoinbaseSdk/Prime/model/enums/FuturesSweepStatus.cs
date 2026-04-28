@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<FuturesSweepStatus>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<FuturesSweepStatus>))]
   public enum FuturesSweepStatus
   {
     FCM_FUTURES_SWEEP_STATUS_UNSPECIFIED,

@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<SecondaryPermission>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<SecondaryPermission>))]
   public enum SecondaryPermission
   {
     VIDEO_APPROVER,

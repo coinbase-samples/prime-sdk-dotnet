@@ -46,6 +46,17 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.AdvancedTransfer
     }
 
     [SkippableFact]
+    public void GetPortfolioCounterparty_Sync()
+    {
+      this.SkipIfNoCredentials();
+      this.RethrowIfBootstrapFailed();
+      new AdvancedTransferService(this.Client).GetPortfolioCounterparty(
+        new GetPortfolioCounterpartyRequest.GetPortfolioCounterpartyRequestBuilder()
+          .WithPortfolioId(this.Fixture.Ids.PortfolioId!)
+          .Build());
+    }
+
+    [SkippableFact]
     public async Task ListAdvancedTransferTransactions_WhenTransferExists()
     {
       this.SkipIfNoCredentials();

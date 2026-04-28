@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<FcmTradingSessionClosedReason>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<FcmTradingSessionClosedReason>))]
   public enum FcmTradingSessionClosedReason
   {
     FCM_TRADING_SESSION_CLOSED_REASON_UNDEFINED,

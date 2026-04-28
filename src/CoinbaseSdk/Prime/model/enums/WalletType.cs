@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<WalletType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<WalletType>))]
   public enum WalletType
   {
     VAULT,

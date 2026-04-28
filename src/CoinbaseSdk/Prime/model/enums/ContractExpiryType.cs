@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<ContractExpiryType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<ContractExpiryType>))]
   public enum ContractExpiryType
   {
     CONTRACT_EXPIRY_TYPE_UNSPECIFIED,

@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<RiskManagementType>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<RiskManagementType>))]
   public enum RiskManagementType
   {
     RISK_MANAGEMENT_TYPE_UNSPECIFIED,

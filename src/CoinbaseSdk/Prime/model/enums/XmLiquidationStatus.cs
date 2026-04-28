@@ -25,8 +25,9 @@
 namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Common;
 
-  [JsonConverter(typeof(JsonStringEnumConverter<XmLiquidationStatus>))]
+  [JsonConverter(typeof(LenientJsonStringEnumConverter<XmLiquidationStatus>))]
   public enum XmLiquidationStatus
   {
     XM_LIQUIDATION_STATUS_UNSET,
