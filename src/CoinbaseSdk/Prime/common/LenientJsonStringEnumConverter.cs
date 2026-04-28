@@ -20,40 +20,100 @@ namespace CoinbaseSdk.Prime.Common
   using System.Text.Json.Serialization;
 
   /// <summary>
-  /// A JSON converter for enums that returns the default enum value (0) when an unknown string is
-  /// encountered, rather than throwing a <see cref="JsonException"/>. Useful when the API may return
-  /// new role or status values not yet present in the SDK enum.
+  /// A <see cref="JsonConverterFactory"/> for enum types that returns <c>null</c> (for nullable
+  /// fields) or skips (for non-nullable fields) when an unrecognized string value is encountered,
+  /// rather than throwing a <see cref="JsonException"/>. This matches the behavior of the Java SDK
+  /// which uses <c>READ_UNKNOWN_ENUM_VALUES_AS_NULL</c>.
   /// </summary>
   /// <typeparam name="T">The enum type to convert.</typeparam>
-  public class LenientJsonStringEnumConverter<T> : JsonConverter<T>
+  public class LenientJsonStringEnumConverter<T> : JsonConverterFactory
     where T : struct, Enum
   {
     /// <inheritdoc/>
-    public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override bool CanConvert(Type typeToConvert)
     {
-      if (reader.TokenType == JsonTokenType.String)
+      return typeToConvert == typeof(T) || typeToConvert == typeof(T?);
+    }
+
+    /// <inheritdoc/>
+    public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+    {
+      if (typeToConvert == typeof(T?))
       {
-        var str = reader.GetString();
-        if (str != null && Enum.TryParse<T>(str, ignoreCase: false, out var result))
+        return new NullableEnumConverter();
+      }
+
+      return new NonNullableEnumConverter();
+    }
+
+    private sealed class NullableEnumConverter : JsonConverter<T?>
+    {
+      public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+      {
+        if (reader.TokenType == JsonTokenType.Null)
         {
-          return result;
+          return null;
+        }
+
+        if (reader.TokenType == JsonTokenType.String)
+        {
+          var str = reader.GetString();
+          if (str != null && Enum.TryParse<T>(str, ignoreCase: false, out var result))
+          {
+            return result;
+          }
+
+          return null;
+        }
+
+        if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out var intValue))
+        {
+          return (T)(object)intValue;
+        }
+
+        return null;
+      }
+
+      public override void Write(Utf8JsonWriter writer, T? value, JsonSerializerOptions options)
+      {
+        if (value.HasValue)
+        {
+          writer.WriteStringValue(value.Value.ToString());
+        }
+        else
+        {
+          writer.WriteNullValue();
+        }
+      }
+    }
+
+    private sealed class NonNullableEnumConverter : JsonConverter<T>
+    {
+      public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+      {
+        if (reader.TokenType == JsonTokenType.String)
+        {
+          var str = reader.GetString();
+          if (str != null && Enum.TryParse<T>(str, ignoreCase: false, out var result))
+          {
+            return result;
+          }
+
+          return default;
+        }
+
+        if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out var intValue))
+        {
+          return (T)(object)intValue;
         }
 
         return default;
       }
 
-      if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out var intValue))
+      public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
       {
-        return (T)(object)intValue;
+        writer.WriteStringValue(value.ToString());
       }
-
-      return default;
-    }
-
-    /// <inheritdoc/>
-    public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
-    {
-      writer.WriteStringValue(value.ToString());
     }
   }
 }
