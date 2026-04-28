@@ -14,31 +14,19 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Staking
+namespace CoinbaseSdk.Prime.AdvancedTransfer
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
-  /// Preview Unstake.
+  /// Get Portfolio Counterparty ID.
   /// </summary>
-  public class PreviewUnstakeResponse
+  public class GetPortfolioCounterpartyResponse
   {
-    [JsonPropertyName("estimated_amount")]
-    public string? EstimatedAmount { get; set; }
+    [JsonPropertyName("counterparty")]
+    public Counterparty Counterparty { get; set; }
 
-    [JsonPropertyName("wallet_id")]
-    public string? WalletId { get; set; }
-
-    [JsonPropertyName("wallet_address")]
-    public string? WalletAddress { get; set; }
-
-    [JsonPropertyName("current_timestamp")]
-    public string? CurrentTimestamp { get; set; }
-
-    [JsonPropertyName("validators")]
-    public ValidatorUnstakePreview[] Validators { get; set; } = [];
-
-    public PreviewUnstakeResponse() { }
+    public GetPortfolioCounterpartyResponse() { }
   }
 }

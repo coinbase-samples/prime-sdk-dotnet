@@ -41,5 +41,15 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
       var start = end.AddHours(-5);
       return (start.ToString("O"), end.ToString("O"));
     }
+
+    /// <summary>
+    /// Returns a window small enough for FIVE_MINUTES candles (max 350 candles = ~29 hours).
+    /// </summary>
+    public static (string Start, string End) LastDay()
+    {
+      var end = DateTimeOffset.UtcNow;
+      var start = end.AddHours(-24);
+      return (start.ToString("O"), end.ToString("O"));
+    }
   }
 }

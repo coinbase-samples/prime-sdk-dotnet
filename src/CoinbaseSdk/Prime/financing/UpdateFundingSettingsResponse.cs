@@ -14,31 +14,24 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Staking
+namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
 
   /// <summary>
-  /// Preview Unstake.
+  /// Update Funding Settings (Beta).
   /// </summary>
-  public class PreviewUnstakeResponse
+  public class UpdateFundingSettingsResponse
   {
-    [JsonPropertyName("estimated_amount")]
-    public string? EstimatedAmount { get; set; }
+    [JsonPropertyName("activity_id")]
+    public string? ActivityId { get; set; }
 
-    [JsonPropertyName("wallet_id")]
-    public string? WalletId { get; set; }
+    [JsonPropertyName("activity_type")]
+    public string? ActivityType { get; set; }
 
-    [JsonPropertyName("wallet_address")]
-    public string? WalletAddress { get; set; }
+    [JsonPropertyName("num_approvals_remaining")]
+    public int? NumApprovalsRemaining { get; set; }
 
-    [JsonPropertyName("current_timestamp")]
-    public string? CurrentTimestamp { get; set; }
-
-    [JsonPropertyName("validators")]
-    public ValidatorUnstakePreview[] Validators { get; set; } = [];
-
-    public PreviewUnstakeResponse() { }
+    public UpdateFundingSettingsResponse() { }
   }
 }

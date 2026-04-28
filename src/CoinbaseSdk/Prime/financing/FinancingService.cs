@@ -455,5 +455,34 @@ namespace CoinbaseSdk.Prime.Financing
         options,
         cancellationToken);
     }
+
+    /// <summary>
+    /// Update Funding Settings (Beta).
+    /// </summary>
+    public UpdateFundingSettingsResponse UpdateFundingSettings(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding-settings",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding-settings",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
   }
 }

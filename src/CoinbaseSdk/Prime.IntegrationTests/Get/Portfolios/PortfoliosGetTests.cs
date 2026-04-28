@@ -57,16 +57,5 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Portfolios
       Assert.NotNull(r);
       Assert.NotNull(r.Portfolio);
     }
-
-    [SkippableFact]
-    public void GetPortfolioCounterparty_Sync()
-    {
-      this.SkipIfNoCredentials();
-      this.RethrowIfBootstrapFailed();
-      var r = new PortfoliosService(this.Client).GetPortfolioCounterparty(
-        new GetPortfolioCounterpartyRequest.GetPortfolioCounterpartyRequestBuilder()
-          .WithPortfolioId(this.Fixture.Ids.PortfolioId!).Build());
-      Assert.NotNull(r);
-    }
   }
 }

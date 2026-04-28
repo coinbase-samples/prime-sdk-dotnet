@@ -197,5 +197,17 @@ namespace CoinbaseSdk.Prime.Financing
       GetPortfolioWithdrawalPowerRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Update Funding Settings (Beta).
+    /// </summary>
+    public UpdateFundingSettingsResponse UpdateFundingSettings(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null);
+
+    public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
   }
 }

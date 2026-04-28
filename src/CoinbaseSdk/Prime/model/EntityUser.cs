@@ -55,7 +55,7 @@ namespace CoinbaseSdk.Prime.Model
     /// All primary roles assigned to the user.
     /// </summary>
     [JsonPropertyName("roles")]
-    public List<UserRole>? Roles { get; set; }
+    public List<UserRole?>? Roles { get; set; }
     /// <summary>
     /// All secondary permissions assigned to the user.
     /// </summary>
@@ -82,7 +82,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? email;
       internal string? entityId;
       internal UserRole? role;
-      internal List<UserRole>? roles;
+      internal List<UserRole?>? roles;
       internal List<SecondaryPermission>? secondaryPermissions;
 #pragma warning restore SA1307, SA1401
       public Builder WithId(string? id)
@@ -110,7 +110,7 @@ namespace CoinbaseSdk.Prime.Model
         this.role = role;
         return this;
       }
-      public Builder WithRoles(List<UserRole>? roles)
+      public Builder WithRoles(List<UserRole?>? roles)
       {
         this.roles = roles;
         return this;

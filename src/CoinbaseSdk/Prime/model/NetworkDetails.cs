@@ -75,6 +75,21 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     [JsonPropertyName("network_scoped_symbol")]
     public string? NetworkScopedSymbol { get; set; }
+    /// <summary>
+    /// The minimum withdrawal amount for this network. Applies to trading, prime custody, and vault wallets.
+    /// </summary>
+    [JsonPropertyName("min_withdrawal_amount")]
+    public string? MinWithdrawalAmount { get; set; }
+    /// <summary>
+    /// The platform maximum withdrawal amount for this network. Applies to trading, prime custody, and vault wallets. Note that Prime Transfer policies may override this value.
+    /// </summary>
+    [JsonPropertyName("max_withdrawal_amount")]
+    public string? MaxWithdrawalAmount { get; set; }
+    /// <summary>
+    /// The minimum deposit amount for this network. Applies to trading, prime custody, and vault wallets.
+    /// </summary>
+    [JsonPropertyName("min_deposit_amount")]
+    public string? MinDepositAmount { get; set; }
     public NetworkDetails() { }
 
     public NetworkDetails(Builder builder)
@@ -89,6 +104,9 @@ namespace CoinbaseSdk.Prime.Model
       this.DestinationTagRequired = builder.destinationTagRequired;
       this.NetworkLink = builder.networkLink;
       this.NetworkScopedSymbol = builder.networkScopedSymbol;
+      this.MinWithdrawalAmount = builder.minWithdrawalAmount;
+      this.MaxWithdrawalAmount = builder.maxWithdrawalAmount;
+      this.MinDepositAmount = builder.minDepositAmount;
     }
 
     public class Builder
@@ -104,6 +122,9 @@ namespace CoinbaseSdk.Prime.Model
       internal bool? destinationTagRequired;
       internal string? networkLink;
       internal string? networkScopedSymbol;
+      internal string? minWithdrawalAmount;
+      internal string? maxWithdrawalAmount;
+      internal string? minDepositAmount;
 #pragma warning restore SA1307, SA1401
       public Builder WithNetwork(Network? network)
       {
@@ -153,6 +174,21 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithNetworkScopedSymbol(string? networkScopedSymbol)
       {
         this.networkScopedSymbol = networkScopedSymbol;
+        return this;
+      }
+      public Builder WithMinWithdrawalAmount(string? minWithdrawalAmount)
+      {
+        this.minWithdrawalAmount = minWithdrawalAmount;
+        return this;
+      }
+      public Builder WithMaxWithdrawalAmount(string? maxWithdrawalAmount)
+      {
+        this.maxWithdrawalAmount = maxWithdrawalAmount;
+        return this;
+      }
+      public Builder WithMinDepositAmount(string? minDepositAmount)
+      {
+        this.minDepositAmount = minDepositAmount;
         return this;
       }
       public NetworkDetails Build()

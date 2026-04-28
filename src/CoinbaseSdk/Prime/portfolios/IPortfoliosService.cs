@@ -41,17 +41,5 @@ namespace CoinbaseSdk.Prime.Portfolios
       GetPortfolioRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get Portfolio Counterparty ID.
-    /// </summary>
-    public GetPortfolioCounterpartyResponse GetPortfolioCounterparty(
-      GetPortfolioCounterpartyRequest request,
-      CallOptions? options = null);
-
-    public Task<GetPortfolioCounterpartyResponse> GetPortfolioCounterpartyAsync(
-      GetPortfolioCounterpartyRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
   }
 }
