@@ -5,6 +5,7 @@ generated/
 [Bb]in/
 [Oo]bj/
 *.nupkg
+artifacts/
 
 # user
 *.user
