@@ -24,6 +24,8 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
 
     public string? WalletId { get; set; }
 
+    public string? OnchainWalletId { get; set; }
+
     public string? OrderId { get; set; }
 
     public string? ActivityId { get; set; }

@@ -96,7 +96,10 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Wallets
       this.SkipIfNullOrEmpty(this.Fixture.Ids.WalletId, "No wallet id.");
       new WalletsService(this.Client).GetWalletDepositInstructions(
         new GetWalletDepositInstructionsRequest.GetWalletDepositInstructionsRequestBuilder()
-          .WithPortfolioId(this.Fixture.Ids.PortfolioId!).WithWalletId(this.Fixture.Ids.WalletId).Build());
+          .WithPortfolioId(this.Fixture.Ids.PortfolioId!)
+          .WithWalletId(this.Fixture.Ids.WalletId)
+          .WithDepositType("CRYPTO")
+          .Build());
     }
   }
 }

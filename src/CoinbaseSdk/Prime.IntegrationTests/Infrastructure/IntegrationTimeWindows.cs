@@ -24,5 +24,22 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
       var start = end.AddDays(-7);
       return (start.ToString("O"), end.ToString("O"));
     }
+
+    public static (string Start, string End) Last30Days()
+    {
+      var end = DateTimeOffset.UtcNow;
+      var start = end.AddDays(-30);
+      return (start.ToString("O"), end.ToString("O"));
+    }
+
+    /// <summary>
+    /// Returns a window small enough for ONE_MINUTE candles (max 350 candles).
+    /// </summary>
+    public static (string Start, string End) LastFiveHours()
+    {
+      var end = DateTimeOffset.UtcNow;
+      var start = end.AddHours(-5);
+      return (start.ToString("O"), end.ToString("O"));
+    }
   }
 }

@@ -16,6 +16,8 @@
 
 namespace CoinbaseSdk.Prime.IntegrationTests.Get.Activities
 {
+  using System.Net;
+  using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Activities;
   using CoinbaseSdk.Prime.IntegrationTests.Infrastructure;
   using CoinbaseSdk.Prime.Model.Enums;
@@ -159,19 +161,27 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Activities
       this.RethrowIfBootstrapFailed();
       this.SkipIfNullOrEmpty(this.Fixture.Ids.EntityId, "Set PRIME_ENTITY_ID or use a portfolio with entity metadata.");
       var w = IntegrationTimeWindows.Last7Days();
-      var r = await new ActivitiesService(this.Client).ListEntityActivitiesAsync(
-        new ListEntityActivitiesRequest.ListEntityActivitiesRequestBuilder()
-          .WithEntityId(this.Fixture.Ids.EntityId)
-          .WithActivityLevel(ActivityLevel.ACTIVITY_LEVEL_ALL)
-          .WithSymbols(new[] { "BTC" })
-          .WithCategories(new ActivityCategory?[] { ActivityCategory.ACTIVITY_CATEGORY_ACCOUNT })
-          .WithStatuses(new ActivityStatus?[] { ActivityStatus.ACTIVITY_STATUS_COMPLETED })
-          .WithStartTime(w.Start)
-          .WithEndTime(w.End)
-          .WithLimit(10)
-          .WithSortDirection(SortDirection.ASC)
-          .Build());
-      Assert.NotNull(r);
+      try
+      {
+        var r = await new ActivitiesService(this.Client).ListEntityActivitiesAsync(
+          new ListEntityActivitiesRequest.ListEntityActivitiesRequestBuilder()
+            .WithEntityId(this.Fixture.Ids.EntityId)
+            .WithActivityLevel(ActivityLevel.ACTIVITY_LEVEL_ALL)
+            .WithSymbols(new[] { "BTC" })
+            .WithCategories(new ActivityCategory?[] { ActivityCategory.ACTIVITY_CATEGORY_ACCOUNT })
+            .WithStatuses(new ActivityStatus?[] { ActivityStatus.ACTIVITY_STATUS_COMPLETED })
+            .WithStartTime(w.Start)
+            .WithEndTime(w.End)
+            .WithLimit(10)
+            .WithSortDirection(SortDirection.ASC)
+            .Build());
+        Assert.NotNull(r);
+      }
+      catch (CoinbaseException ex) when (ex.StatusCode == HttpStatusCode.Forbidden ||
+                                         ex.StatusCode == HttpStatusCode.Unauthorized)
+      {
+        this.SkipBecause("No permission to list entity activities for this portfolio's entity.");
+      }
     }
   }
 }

@@ -59,21 +59,22 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Products
     {
       this.SkipIfNoCredentials();
       this.RethrowIfBootstrapFailed();
-      var w = IntegrationTimeWindows.Last7Days();
+      var shortWindow = IntegrationTimeWindows.LastFiveHours();
+      var dailyWindow = IntegrationTimeWindows.Last7Days();
       new ProductsService(this.Client).GetCandles(
         new GetCandlesRequest.GetCandlesRequestBuilder()
           .WithPortfolioId(this.Fixture.Ids.PortfolioId!)
           .WithProductId(this.Fixture.Ids.ProductId)
-          .WithStartTime(w.Start)
-          .WithEndTime(w.End)
+          .WithStartTime(shortWindow.Start)
+          .WithEndTime(shortWindow.End)
           .WithGranularity("ONE_MINUTE")
           .Build());
       new ProductsService(this.Client).GetCandles(
         new GetCandlesRequest.GetCandlesRequestBuilder()
           .WithPortfolioId(this.Fixture.Ids.PortfolioId!)
           .WithProductId(this.Fixture.Ids.ProductId)
-          .WithStartTime(w.Start)
-          .WithEndTime(w.End)
+          .WithStartTime(dailyWindow.Start)
+          .WithEndTime(dailyWindow.End)
           .WithGranularity("FIVE_MINUTE")
           .Build());
     }

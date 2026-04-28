@@ -88,9 +88,11 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Transactions
           new GetTransactionTravelRuleDataRequest.GetTransactionTravelRuleDataRequestBuilder()
             .WithPortfolioId(this.Fixture.Ids.PortfolioId!).WithTransactionId(this.Fixture.Ids.TransactionId).Build());
       }
-      catch (CoinbaseException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+      catch (CoinbaseException ex) when (ex.StatusCode == HttpStatusCode.NotFound ||
+                                         ex.StatusCode == HttpStatusCode.Forbidden ||
+                                         (ex.Message != null && ex.Message.Contains("not enabled")))
       {
-        this.SkipBecause("Travel rule data not available for this transaction.");
+        this.SkipBecause("Travel rule data not available for this portfolio or transaction.");
       }
     }
   }

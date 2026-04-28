@@ -51,7 +51,7 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Orders
           .WithProductIds(new[] { this.Fixture.Ids.ProductId })
           .WithOrderType(OrderType.LIMIT)
           .WithOrderSide(OrderSide.BUY)
-          .WithOrderStatuses(new[] { OrderStatus.OPEN, OrderStatus.FILLED })
+          .WithOrderStatuses(new[] { OrderStatus.FILLED })
           .WithStartDate(w.Start)
           .WithEndDate(w.End)
           .WithLimit(20)

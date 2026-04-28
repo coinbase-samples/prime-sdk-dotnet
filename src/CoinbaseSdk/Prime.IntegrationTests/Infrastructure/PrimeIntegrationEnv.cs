@@ -18,6 +18,22 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
 {
   internal static class PrimeIntegrationEnv
   {
+    static PrimeIntegrationEnv()
+    {
+      var dir = AppContext.BaseDirectory;
+      while (!string.IsNullOrEmpty(dir))
+      {
+        var candidate = Path.Combine(dir, ".env");
+        if (File.Exists(candidate))
+        {
+          DotNetEnv.Env.Load(candidate, new DotNetEnv.LoadOptions(clobberExistingVars: false));
+          break;
+        }
+
+        dir = Path.GetDirectoryName(dir);
+      }
+    }
+
     public static string? Get(string name) => Environment.GetEnvironmentVariable(name);
 
     public static bool IsTruthy(string? value) =>

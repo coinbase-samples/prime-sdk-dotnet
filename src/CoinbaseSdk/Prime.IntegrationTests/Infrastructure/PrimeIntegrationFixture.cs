@@ -110,6 +110,7 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
     {
       var portfolios = new PortfoliosService(this.Client);
       var walletEnv = PrimeIntegrationEnv.Get("PRIME_WALLET_ID");
+      var onchainWalletEnv = PrimeIntegrationEnv.Get("PRIME_ONCHAIN_WALLET_ID");
       var orderEnv = PrimeIntegrationEnv.Get("PRIME_ORDER_ID");
       var activityEnv = PrimeIntegrationEnv.Get("PRIME_ACTIVITY_ID");
       var txEnv = PrimeIntegrationEnv.Get("PRIME_TRANSACTION_ID");
@@ -170,6 +171,24 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
         this.Ids.WalletId = w.Wallets?.FirstOrDefault()?.Id;
       }
 
+      if (!string.IsNullOrEmpty(onchainWalletEnv))
+      {
+        this.Ids.OnchainWalletId = onchainWalletEnv;
+      }
+      else
+      {
+        var ws2 = new WalletsService(this.Client);
+        var ow = await IntegrationRetry
+          .ExecuteWithRetryAsync(() => ws2.ListWalletsAsync(
+            new ListWalletsRequest.ListWalletsRequestBuilder()
+              .WithPortfolioId(this.Ids.PortfolioId!)
+              .WithType("ONCHAIN")
+              .WithLimit(5)
+              .Build()))
+          .ConfigureAwait(false);
+        this.Ids.OnchainWalletId = ow.Wallets?.FirstOrDefault()?.Id;
+      }
+
       if (!string.IsNullOrEmpty(orderEnv))
       {
         this.Ids.OrderId = orderEnv;
@@ -228,10 +247,13 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Infrastructure
       else
       {
         var al = new AllocationsService(this.Client);
+        var window = IntegrationTimeWindows.Last30Days();
         var r = await IntegrationRetry
           .ExecuteWithRetryAsync(() => al.ListPortfolioAllocationsAsync(
             new ListPortfolioAllocationsRequest.ListPortfolioAllocationsRequestBuilder()
               .WithPortfolioId(this.Ids.PortfolioId!)
+              .WithStartDate(window.Start)
+              .WithEndDate(window.End)
               .WithLimit(10)
               .Build()))
           .ConfigureAwait(false);

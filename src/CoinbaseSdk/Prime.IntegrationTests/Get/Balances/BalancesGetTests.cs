@@ -106,11 +106,11 @@ namespace CoinbaseSdk.Prime.IntegrationTests.Get.Balances
     {
       this.SkipIfNoCredentials();
       this.RethrowIfBootstrapFailed();
-      this.SkipIfNullOrEmpty(this.Fixture.Ids.WalletId, "No wallet id; set PRIME_WALLET_ID or have a VAULT wallet.");
+      this.SkipIfNullOrEmpty(this.Fixture.Ids.OnchainWalletId, "No onchain wallet id; set PRIME_ONCHAIN_WALLET_ID.");
       var r = await new BalancesService(this.Client).ListOnchainWalletBalancesAsync(
         new ListOnchainWalletBalancesRequest.ListOnchainWalletBalancesRequestBuilder()
           .WithPortfolioId(this.Fixture.Ids.PortfolioId!)
-          .WithWalletId(this.Fixture.Ids.WalletId)
+          .WithWalletId(this.Fixture.Ids.OnchainWalletId)
           .WithVisibilityStatuses(new[] { VisibilityStatus.VISIBLE })
           .WithLimit(10)
           .WithSortDirection(SortDirection.ASC)
