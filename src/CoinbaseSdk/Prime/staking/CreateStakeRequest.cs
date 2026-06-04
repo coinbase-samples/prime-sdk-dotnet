@@ -35,14 +35,18 @@ namespace CoinbaseSdk.Prime.Staking
     public string? IdempotencyKey { get; set; }
 
     [JsonPropertyName("inputs")]
-    public WalletStakeInputs Inputs { get; set; }
+    public WalletStakeInputs? Inputs { get; set; }
+
+    [JsonPropertyName("metadata")]
+    public WalletStakingMetadata? Metadata { get; set; }
 
     public class CreateStakeRequestBuilder
     {
       private string? _portfolioId;
       private string? _walletId;
       private string? _idempotencyKey;
-      private WalletStakeInputs _inputs;
+      private WalletStakeInputs? _inputs;
+      private WalletStakingMetadata? _metadata;
 
       public CreateStakeRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -62,9 +66,15 @@ namespace CoinbaseSdk.Prime.Staking
         return this;
       }
 
-      public CreateStakeRequestBuilder WithInputs(WalletStakeInputs inputs)
+      public CreateStakeRequestBuilder WithInputs(WalletStakeInputs? inputs)
       {
         _inputs = inputs;
+        return this;
+      }
+
+      public CreateStakeRequestBuilder WithMetadata(WalletStakingMetadata? metadata)
+      {
+        _metadata = metadata;
         return this;
       }
 
@@ -87,6 +97,7 @@ namespace CoinbaseSdk.Prime.Staking
         {
           IdempotencyKey = _idempotencyKey,
           Inputs = _inputs,
+          Metadata = _metadata,
         };
       }
     }
