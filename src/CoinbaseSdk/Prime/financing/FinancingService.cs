@@ -17,12 +17,27 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Net;
+  using System.Threading;
+  using System.Threading.Tasks;
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
+  using CoinbaseSdk.Prime.Client;
 
   public class FinancingService(ICoinbaseClient client) : CoinbaseService(client), IFinancingService
   {
+    private ICoinbaseClient CreateV2Client()
+    {
+      if (this.Client is CoinbasePrimeClient primeClient)
+      {
+        return primeClient.WithApiVersion("v2");
+      }
+
+      return new CoinbasePrimeClient(
+        this.Client.Credentials,
+        PrimeApiPaths.VersionedApiBasePath(this.Client.ApiBasePath, "v2"));
+    }
+
     /// <summary>
     /// List Interest Accruals.
     /// </summary>
@@ -53,7 +68,7 @@ namespace CoinbaseSdk.Prime.Financing
     }
 
     /// <summary>
-    /// Get Cross Margin Overview.
+    /// Get Exchange Cross Margin Overview.
     /// </summary>
     public GetCrossMarginOverviewResponse GetCrossMarginOverview(
       GetCrossMarginOverviewRequest request,
@@ -450,6 +465,121 @@ namespace CoinbaseSdk.Prime.Financing
       return RequestAsync<GetPortfolioWithdrawalPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/withdrawal_power",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Prime Cross Margin Overview.
+    /// </summary>
+    public GetCrossMarginPrimeOverviewResponse GetCrossMarginPrimeOverview(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null)
+    {
+      return this.GetCrossMarginPrimeOverviewAsync(request, options, default)
+        .ConfigureAwait(false)
+        .GetAwaiter()
+        .GetResult();
+    }
+
+    public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      var v2Client = this.CreateV2Client();
+      return v2Client.SendRequestAsync<GetCrossMarginPrimeOverviewResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/cross_margin/prime",
+        null,
+        [HttpStatusCode.OK],
+        cancellationToken,
+        options);
+    }
+
+    /// <summary>
+    /// Get Cross Margin Risk Parameters.
+    /// </summary>
+    public GetCrossMarginRiskParametersResponse GetCrossMarginRiskParameters(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetCrossMarginRiskParametersResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/cross_margin/risk_parameters",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetCrossMarginRiskParametersResponse> GetCrossMarginRiskParametersAsync(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetCrossMarginRiskParametersResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/cross_margin/risk_parameters",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Market Data.
+    /// </summary>
+    public GetMarketDataResponse GetMarketData(
+      GetMarketDataRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetMarketDataResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/market_data",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetMarketDataResponse> GetMarketDataAsync(
+      GetMarketDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetMarketDataResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/market_data",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Update Funding Settings.
+    /// </summary>
+    public UpdateFundingSettingsResponse UpdateFundingSettings(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding_settings",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding_settings",
         [HttpStatusCode.OK],
         request,
         options,

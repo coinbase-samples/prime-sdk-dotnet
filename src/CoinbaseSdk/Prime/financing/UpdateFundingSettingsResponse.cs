@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,16 +17,21 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
 
   /// <summary>
-  /// Get Exchange Cross Margin Overview.
+  /// Update Funding Settings.
   /// </summary>
-  public class GetCrossMarginOverviewResponse
+  public class UpdateFundingSettingsResponse
   {
-    [JsonPropertyName("overview")]
-    public CrossMarginOverview Overview { get; set; }
+    [JsonPropertyName("activity_id")]
+    public string? ActivityId { get; set; }
 
-    public GetCrossMarginOverviewResponse() { }
+    [JsonPropertyName("activity_type")]
+    public string? ActivityType { get; set; }
+
+    [JsonPropertyName("num_approvals_remaining")]
+    public int? NumApprovalsRemaining { get; set; }
+
+    public UpdateFundingSettingsResponse() { }
   }
 }

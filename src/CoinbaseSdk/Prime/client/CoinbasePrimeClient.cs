@@ -35,6 +35,27 @@ namespace CoinbaseSdk.Prime.Client
     public CoinbasePrimeClient(CoinbaseCredentials credentials, string apiBasePath)
       : base(credentials, apiBasePath) { }
 
+    /// <summary>
+    /// Returns a new client with the given base path; credentials and behavior are otherwise unchanged.
+    /// Prefer this for single-call version overrides (e.g. v2) without mutating the shared client.
+    /// </summary>
+    /// <param name="apiBasePath">API base path (e.g. <c>api.prime.coinbase.com/v2</c>).</param>
+    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
+    public CoinbasePrimeClient WithApiBasePath(string apiBasePath)
+    {
+      return new CoinbasePrimeClient(this.Credentials, apiBasePath);
+    }
+
+    /// <summary>
+    /// Returns a new client whose base path uses <paramref name="version"/> instead of a trailing <c>/vN</c> segment.
+    /// </summary>
+    /// <param name="version">Target API version (e.g. <c>v2</c>).</param>
+    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
+    public CoinbasePrimeClient WithApiVersion(string version)
+    {
+      return this.WithApiBasePath(PrimeApiPaths.VersionedApiBasePath(this.ApiBasePath, version));
+    }
+
     public static CoinbasePrimeClient FromEnv(bool loadEnvFile = true)
     {
       if (loadEnvFile)

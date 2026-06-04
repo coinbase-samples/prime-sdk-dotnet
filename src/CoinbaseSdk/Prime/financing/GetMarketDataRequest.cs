@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,22 +18,45 @@ namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
+  using CoinbaseSdk.Prime.Common;
+  using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
-  /// Get Exchange Cross Margin Overview.
+  /// Get Market Data.
   /// </summary>
-  public class GetCrossMarginOverviewRequest(string entityId)
+  public class GetMarketDataRequest(string entityId) : PaginatedRequest
   {
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    public class GetCrossMarginOverviewRequestBuilder
+    public class GetMarketDataRequestBuilder
     {
       private string? _entityId;
+      private string? _cursor;
+      private SortDirection? _sortDirection;
+      private int? _limit;
 
-      public GetCrossMarginOverviewRequestBuilder WithEntityId(string entityId)
+      public GetMarketDataRequestBuilder WithEntityId(string entityId)
       {
         _entityId = entityId;
+        return this;
+      }
+
+      public GetMarketDataRequestBuilder WithCursor(string cursor)
+      {
+        _cursor = cursor;
+        return this;
+      }
+
+      public GetMarketDataRequestBuilder WithSortDirection(SortDirection sortDirection)
+      {
+        _sortDirection = sortDirection;
+        return this;
+      }
+
+      public GetMarketDataRequestBuilder WithLimit(int limit)
+      {
+        _limit = limit;
         return this;
       }
 
@@ -45,11 +68,14 @@ namespace CoinbaseSdk.Prime.Financing
         }
       }
 
-      public GetCrossMarginOverviewRequest Build()
+      public GetMarketDataRequest Build()
       {
         Validate();
-        return new GetCrossMarginOverviewRequest(_entityId!)
+        return new GetMarketDataRequest(_entityId!)
         {
+          Cursor = _cursor,
+          SortDirection = _sortDirection,
+          Limit = _limit,
         };
       }
     }
