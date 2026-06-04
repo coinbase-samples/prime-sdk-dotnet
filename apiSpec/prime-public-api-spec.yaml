@@ -371,6 +371,70 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/coinbase.public_rest_api.GetCrossMarginRiskParametersResponse'
+  /v1/entities/{entity_id}/funding_settings:
+    post:
+      tags:
+      - Financing
+      summary: Update Funding Settings
+      description: Sets FCM funding configuration for the entity and submits the desired
+        configuration to Prime API for approval.
+      operationId: PrimeRESTAPI_UpdateFundingSettings
+      parameters:
+      - name: entity_id
+        in: path
+        description: Prime Entity ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - automatic_conversion_enabled
+              - automatic_excess_return_enabled
+              - automatic_loan_enabled
+              - designated_funding_portfolio_id
+              - excess_funds_target_amount
+              type: object
+              properties:
+                designated_funding_portfolio_id:
+                  type: string
+                  description: Set the Derivatives Funding Portfolio that will be
+                    used to fund FCM margin calls and receive excess margin sweeps.
+                    Only one portfolio per entity.
+                  example: a0724c0c-0f9e-4525-baf4-1aa8fce77eb2
+                automatic_conversion_enabled:
+                  type: boolean
+                  description: "When true, USDC in your Derivatives Funding Portfolio\
+                    \ will be converted to USD to meet FCM margin calls (Auto-Convert\
+                    \ USDC)."
+                automatic_loan_enabled:
+                  type: boolean
+                  description: "When true, Coinbase affiliates may initiate loans\
+                    \ on your behalf to meet FCM margin calls, per your Lending agreement.\
+                    \ Available to Portfolio Margin or Cross Margin clients only.\
+                    \ (Auto-Initiate Loans)"
+                automatic_excess_return_enabled:
+                  type: boolean
+                  description: "When true, any FCM account balance above your margin\
+                    \ requirements will be automatically swept back to your Derivatives\
+                    \ funding portfolio. (Auto-Return Excess Margin)"
+                excess_funds_target_amount:
+                  type: string
+                  description: "Weekend Buying Power: Setting a target amount to maintain\
+                    \ in your Futures account above margin requirements. You can only\
+                    \ withdraw funds in excess of this amount."
+                  example: "1000.00"
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coinbase.public_rest_api.UpdateFundingSettingsResponse'
+      x-codegen-request-body-name: body
   /v1/entities/{entity_id}/futures/auto_sweep:
     post:
       tags:
@@ -3134,7 +3198,6 @@ paths:
           application/json:
             schema:
               required:
-              - amount
               - currency_symbol
               - idempotency_key
               type: object
@@ -3152,6 +3215,8 @@ paths:
                   description: The quantity of the chosen currency to unstake
                 metadata:
                   $ref: '#/components/schemas/coinbase.public_rest_api.PortfolioStakingMetadata'
+                validator_provider:
+                  $ref: '#/components/schemas/coinbase.public_rest_api.ValidatorProvider'
         required: true
       responses:
         "200":
@@ -3940,6 +4005,9 @@ paths:
                     the original response
                 inputs:
                   $ref: '#/components/schemas/coinbase.public_rest_api.WalletClaimRewardsInputs'
+              description: |-
+                StakingClaimRewardsRequest represents a request to claim staking rewards.
+                Intentionally omits WalletStakingMetadata; see WalletStakingMetadata for rationale.
         required: true
       responses:
         "200":
@@ -3983,6 +4051,8 @@ paths:
                     execution. Subsequent requests using the same key will fail
                 inputs:
                   $ref: '#/components/schemas/coinbase.public_rest_api.WalletStakeInputs'
+                metadata:
+                  $ref: '#/components/schemas/coinbase.public_rest_api.WalletStakingMetadata'
               description: StakingInitiateRequest represents a request to initiate
                 a staking operation.
         required: true
@@ -4057,6 +4127,8 @@ paths:
                     execution. Subsequent requests using the same key will fail
                 inputs:
                   $ref: '#/components/schemas/coinbase.public_rest_api.WalletUnstakeInputs'
+                metadata:
+                  $ref: '#/components/schemas/coinbase.public_rest_api.WalletStakingMetadata'
               description: StakingUnstakeRequest represents a request to initiate
                 an unstaking operation.
         required: true
@@ -4504,73 +4576,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/coinbase.public_rest_api.GetCrossMarginPrimeOverviewResponse'
-  /v1/entities/{entity_id}/funding_settings:
-    post:
-      tags:
-      - Financing
-      summary: Update Funding Settings (Beta)
-      description: Sets FCM funding configuration for the entity and submits the desired
-        configuration to Prime API for approval.
-      operationId: PrimeBeta_SetFundingSettings
-      parameters:
-      - name: entity_id
-        in: path
-        description: Prime Entity ID
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              required:
-              - automatic_conversion_enabled
-              - automatic_excess_return_enabled
-              - automatic_loan_enabled
-              - designated_funding_portfolio_id
-              - excess_funds_target_amount
-              type: object
-              properties:
-                designated_funding_portfolio_id:
-                  type: string
-                  description: Set the Derivatives Funding Portfolio that will be
-                    used to fund FCM margin calls and receive excess margin sweeps.
-                    Only one portfolio per entity.
-                  example: a0724c0c-0f9e-4525-baf4-1aa8fce77eb2
-                automatic_conversion_enabled:
-                  type: boolean
-                  description: "When true, USDC in your Derivatives Funding Portfolio\
-                    \ will be converted to USD to meet FCM margin calls (Auto-Convert\
-                    \ USDC)."
-                automatic_loan_enabled:
-                  type: boolean
-                  description: "When true, Coinbase affiliates may initiate loans\
-                    \ on your behalf to meet FCM margin calls, per your Lending agreement.\
-                    \ Available to Portfolio Margin or Cross Margin clients only.\
-                    \ (Auto-Initiate Loans)"
-                automatic_excess_return_enabled:
-                  type: boolean
-                  description: "When true, any FCM account balance above your margin\
-                    \ requirements will be automatically swept back to your Derivatives\
-                    \ funding portfolio. (Auto-Return Excess Margin)"
-                excess_funds_target_amount:
-                  type: string
-                  description: "Weekend Buying Power: Setting a target amount to maintain\
-                    \ in your Futures account above margin requirements. You can only\
-                    \ withdraw funds in excess of this amount."
-                  example: "1000.00"
-              description: |-
-                SetFundingSettingsRequest sets FCM funding configuration for an entity (creates a PCS proposal).
-                entity_id is also bound from the URL path.
-        required: true
-      responses:
-        "200":
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/coinbase.public_rest_api.beta.SetFundingSettingsResponse'
-      x-codegen-request-body-name: body
 components:
   schemas:
     coinbase.brokerage.proxy.events.materialized.api.LimitOrderEdit:
@@ -9741,6 +9746,19 @@ components:
           description: Detailed explanation of the estimate status for display to
             users.
           example: Live estimate based on current network conditions
+    coinbase.public_rest_api.UpdateFundingSettingsResponse:
+      type: object
+      properties:
+        activity_id:
+          type: string
+          description: Identifier for the created activity / proposal
+        activity_type:
+          type: string
+          description: Type of the activity (e.g. PCS proposal type)
+        num_approvals_remaining:
+          type: integer
+          description: Number of approvals still required before the change applies
+          format: int32
     coinbase.public_rest_api.UserAction:
       type: object
       properties:
@@ -9795,6 +9813,22 @@ components:
       description: |-
         ValidatorAllocation specifies the validator and amount for staking or unstaking.
         Used for granular ETH V2 validator-level staking or unstaking operations.
+    coinbase.public_rest_api.ValidatorProvider:
+      type: string
+      description: |-
+        ValidatorProvider enumerates the ETH validator service providers that PPA accepts on
+        PortfolioStakingUnstakeRequest.validator_provider. The enum names map 1:1 to the display
+        names returned by ISS GetUsedValidators (service_provider field) and shown in the Prime
+        UI. Keep in sync with staking/internal/asset/ethereum.mapServiceProviderToDisplayName.
+      default: VALIDATOR_PROVIDER_UNSPECIFIED
+      enum:
+      - VALIDATOR_PROVIDER_UNSPECIFIED
+      - VALIDATOR_PROVIDER_COINBASE_CLOUD
+      - VALIDATOR_PROVIDER_MAVAN
+      - VALIDATOR_PROVIDER_FIGMENT
+      - VALIDATOR_PROVIDER_CODEFI
+      - VALIDATOR_PROVIDER_ATTESTANT
+      - VALIDATOR_PROVIDER_GALAXY
     coinbase.public_rest_api.ValidatorStakingInfo:
       required:
       - statuses
@@ -9980,6 +10014,19 @@ components:
       description: |-
         WalletStakeInputs contains the custom inputs for staking operations on a wallet.
         Requirements and supported fields vary by asset type.
+    coinbase.public_rest_api.WalletStakingMetadata:
+      type: object
+      properties:
+        external_id:
+          type: string
+          description: An optional custom identifier (up to 255 bytes) to attach to
+            the transaction. This is not a searchable transaction field. Retries with
+            the same idempotency_key must use the same external_id; a differing value
+            on retry will be silently ignored.
+      description: |-
+        WalletStakingMetadata contains optional metadata for wallet staking requests.
+        external_id tags the discrete TWS transaction stake/unstake create; automatic reward crediting (e.g. SOL inflation) does not produce one.
+        StakingClaimRewardsRequest intentionally omits this field; add metadata to claim rewards only if a supported network's claim flow creates a discrete TWS transaction clients need to tag.
     coinbase.public_rest_api.WalletType:
       title: Indicates the wallet type
       type: string
@@ -10624,21 +10671,6 @@ components:
         * [google.type.TimeOfDay][google.type.TimeOfDay]
         * [google.type.DateTime][google.type.DateTime]
         * [google.protobuf.Timestamp][google.protobuf.Timestamp]
-    coinbase.public_rest_api.beta.SetFundingSettingsResponse:
-      type: object
-      properties:
-        activity_id:
-          type: string
-          description: Identifier for the created activity / proposal
-        activity_type:
-          type: string
-          description: Type of the activity (e.g. PCS proposal type)
-        num_approvals_remaining:
-          type: integer
-          description: Number of approvals still required before the change applies
-          format: int32
-      description: SetFundingSettingsResponse returns PCS activity metadata after
-        the proposal is created.
     public_rest_apiCreateAllocationRequest:
       type: object
       properties:
