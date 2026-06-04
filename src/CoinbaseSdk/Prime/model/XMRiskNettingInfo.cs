@@ -31,8 +31,8 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Derivatives Clearing Organization Margin Requirement (DMR) is the margin requirement for all futures positions, derived from the Derivatives Clearing Organization model
     /// </summary>
-    [JsonPropertyName("nodal_margin_requirement")]
-    public string? NodalMarginRequirement { get; set; }
+    [JsonPropertyName("dco_margin_requirement")]
+    public string? DcoMarginRequirement { get; set; }
     /// <summary>
     /// Portfolio Margin Requirement (PmR) is the margin requirement for all spot positions, derived from the Xm model
     /// </summary>
@@ -99,7 +99,7 @@ namespace CoinbaseSdk.Prime.Model
 
     public XmRiskNettingInfo(Builder builder)
     {
-      this.NodalMarginRequirement = builder.nodalMarginRequirement;
+      this.DcoMarginRequirement = builder.dcoMarginRequirement;
       this.PortfolioMarginRequirement = builder.portfolioMarginRequirement;
       this.IntegratedPortfolioMarginRequirement = builder.integratedPortfolioMarginRequirement;
       this.IneligibleFuturesMarginRequirement = builder.ineligibleFuturesMarginRequirement;
@@ -118,7 +118,7 @@ namespace CoinbaseSdk.Prime.Model
     public class Builder
     {
 #pragma warning disable SA1307, SA1401
-      internal string? nodalMarginRequirement;
+      internal string? dcoMarginRequirement;
       internal string? portfolioMarginRequirement;
       internal string? integratedPortfolioMarginRequirement;
       internal string? ineligibleFuturesMarginRequirement;
@@ -133,9 +133,9 @@ namespace CoinbaseSdk.Prime.Model
       internal List<MarginAddOn>? allIntegratedScenarioAddons;
       internal List<XmPosition>? xmPositions;
 #pragma warning restore SA1307, SA1401
-      public Builder WithNodalMarginRequirement(string? nodalMarginRequirement)
+      public Builder WithDcoMarginRequirement(string? dcoMarginRequirement)
       {
-        this.nodalMarginRequirement = nodalMarginRequirement;
+        this.dcoMarginRequirement = dcoMarginRequirement;
         return this;
       }
       public Builder WithPortfolioMarginRequirement(string? portfolioMarginRequirement)

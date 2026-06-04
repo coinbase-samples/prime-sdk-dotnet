@@ -38,6 +38,9 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("price_inclusive_of_fees")]
     public string? PriceInclusiveOfFees { get; set; }
 
+    [JsonPropertyName("quote_duration_ms")]
+    public string? QuoteDurationMs { get; set; }
+
     public CreateQuoteResponse() { }
   }
 }

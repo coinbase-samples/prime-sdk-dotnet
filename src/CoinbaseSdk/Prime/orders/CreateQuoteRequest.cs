@@ -49,6 +49,9 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonPropertyName("settl_currency")]
     public string? SettlCurrency { get; set; }
 
+    [JsonPropertyName("quote_duration_ms")]
+    public string? QuoteDurationMs { get; set; }
+
     public class CreateQuoteRequestBuilder
     {
       private string? _portfolioId;
@@ -59,6 +62,7 @@ namespace CoinbaseSdk.Prime.Orders
       private string? _quoteValue;
       private string? _limitPrice;
       private string? _settlCurrency;
+      private string? _quoteDurationMs;
 
       public CreateQuoteRequestBuilder WithPortfolioId(string portfolioId)
       {
@@ -108,6 +112,12 @@ namespace CoinbaseSdk.Prime.Orders
         return this;
       }
 
+      public CreateQuoteRequestBuilder WithQuoteDurationMs(string? quoteDurationMs)
+      {
+        _quoteDurationMs = quoteDurationMs;
+        return this;
+      }
+
       private void Validate()
       {
         if (string.IsNullOrWhiteSpace(_portfolioId))
@@ -128,6 +138,7 @@ namespace CoinbaseSdk.Prime.Orders
           QuoteValue = _quoteValue,
           LimitPrice = _limitPrice,
           SettlCurrency = _settlCurrency,
+          QuoteDurationMs = _quoteDurationMs,
         };
       }
     }
