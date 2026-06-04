@@ -67,5 +67,17 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
       ListAdvancedTransferTransactionsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get Portfolio Counterparty ID.
+    /// </summary>
+    public GetPortfolioCounterpartyIdResponse GetPortfolioCounterpartyId(
+      GetPortfolioCounterpartyIdRequest request,
+      CallOptions? options = null);
+
+    public Task<GetPortfolioCounterpartyIdResponse> GetPortfolioCounterpartyIdAsync(
+      GetPortfolioCounterpartyIdRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
   }
 }

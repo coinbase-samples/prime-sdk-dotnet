@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Portfolios
+namespace CoinbaseSdk.Prime.AdvancedTransfer
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
@@ -22,16 +22,16 @@ namespace CoinbaseSdk.Prime.Portfolios
   /// <summary>
   /// Get Portfolio Counterparty ID.
   /// </summary>
-  public class GetPortfolioCounterpartyRequest(string portfolioId)
+  public class GetPortfolioCounterpartyIdRequest(string portfolioId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    public class GetPortfolioCounterpartyRequestBuilder
+    public class GetPortfolioCounterpartyIdRequestBuilder
     {
       private string? _portfolioId;
 
-      public GetPortfolioCounterpartyRequestBuilder WithPortfolioId(string portfolioId)
+      public GetPortfolioCounterpartyIdRequestBuilder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
@@ -45,10 +45,10 @@ namespace CoinbaseSdk.Prime.Portfolios
         }
       }
 
-      public GetPortfolioCounterpartyRequest Build()
+      public GetPortfolioCounterpartyIdRequest Build()
       {
         Validate();
-        return new GetPortfolioCounterpartyRequest(_portfolioId!)
+        return new GetPortfolioCounterpartyIdRequest(_portfolioId!)
         {
         };
       }
