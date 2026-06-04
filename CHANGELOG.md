@@ -1,7 +1,37 @@
 # Changelog
 
-## [0.5.0] - 2026-APR-7
+## [0.6.1] - 2026-JUN-02
 
+### Added
+
+#### New API Endpoints
+
+**Financing Service**
+- **`GetCrossMarginRiskParameters()`**: Cross-margin risk parameters for an entity (`GET /v1/entities/{entity_id}/cross_margin/risk_parameters`)
+- **`GetMarketData()`**: Entity market data (`GET /v1/entities/{entity_id}/market_data`)
+- **`GetCrossMarginPrimeOverview()`**: Prime cross-margin overview (`GET /v2/entities/{entity_id}/cross_margin/prime`)
+- **`UpdateFundingSettings()`**: Update FCM funding settings (`POST /v1/entities/{entity_id}/funding_settings`)
+
+**Advanced Transfer Service**
+- **`GetPortfolioCounterpartyId()`**: Portfolio counterparty ID (`GET /v1/portfolios/{portfolio_id}/counterparty`)
+
+#### New & Updated Models
+- **`CrossMarginRiskParameters`**, **`TierPairRateEntry`**, **`CrossMarginPrimeMarginSummary`**, **`MarketData`**, and related cross-margin types
+- **`WalletStakingMetadata`**, **`ValidatorProvider`**: Staking metadata and ETH validator provider support
+- **`CreatePortfolioUnstakeRequest`**: Added `validator_provider`; `amount` is optional
+- **`CreateStakeRequest`**, **`CreateUnstakeRequest`**: Added optional `metadata`
+- **`Order`**, **`CreateQuoteRequest`**: `quote_duration_ms`
+
+#### New Examples
+- `financing/GetCrossMarginRiskParameters.cs`, `GetMarketData.cs`, `GetCrossMarginPrimeOverview.cs`, `UpdateFundingSettings.cs`
+- `advancedtransfer/GetPortfolioCounterpartyId.cs`
+
+### Changed
+
+- **`GetCrossMarginOverview()`**: Response summary fields aligned with the Prime API cross-margin overview shape
+- **`GetPortfolioCounterpartyId()`**: Moved from **`PortfoliosService.GetPortfolioCounterparty`** to **`AdvancedTransferService`** (same HTTP route; update service accessor, method name, and namespaces)
+
+## [0.5.0] - 2026-APR-7
 ### Added
 
 - **New API Endpoints**
