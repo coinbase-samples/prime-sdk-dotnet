@@ -74,6 +74,14 @@ var request = new ListActivitiesRequest.ListActivitiesRequestBuilder()
 var response = activitiesService.ListActivities(request);
 ```
 
+## OpenAPI spec
+
+The Prime public OpenAPI specification is vendored at `apiSpec/prime-public-api-spec.yaml`. To refresh it:
+
+```bash
+make fetch-spec
+```
+
 ## Build
 
 To build the sample library, ensure that [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) or later is installed and then run:

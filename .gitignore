@@ -1,4 +1,4 @@
-# generator temp + cached OpenAPI spec
+# local OpenAPI download cache (prefer committed apiSpec/)
 generated/
 
 # build
