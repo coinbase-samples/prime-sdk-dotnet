@@ -126,7 +126,7 @@ paths:
           type: string
       - name: activity_level
         in: query
-        description: "Activity level to retrieve activities for\n\n - ACTIVITY_LEVEL_ALL: "
+        description: Activity level to retrieve activities for
         schema:
           type: string
           default: ACTIVITY_LEVEL_ALL
@@ -146,7 +146,7 @@ paths:
       - name: categories
         in: query
         description: "Filter by list of activity categories [order, transaction, account,\
-          \ allocation, lending]\n\n - OTHER_ACTIVITY_CATEGORY: "
+          \ allocation, lending]"
         style: form
         explode: true
         schema:
@@ -162,7 +162,7 @@ paths:
             - ACTIVITY_CATEGORY_LENDING
       - name: statuses
         in: query
-        description: "Filter by list of statuses\n\n - OTHER_ACTIVITY_STATUS: "
+        description: Filter by list of statuses
         style: form
         explode: true
         schema:
@@ -200,7 +200,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -309,7 +309,6 @@ paths:
           A type by which to filter aggregated balances, defaults to "TOTAL"
 
            - UNKNOWN_BALANCE_TYPE: nil
-
            - TRADING_BALANCES: Trading balances
            - VAULT_BALANCES: Vault balances
            - TOTAL_BALANCES: Total balances (The sum of vault and trading + prime custody)
@@ -334,7 +333,7 @@ paths:
     get:
       tags:
       - Financing
-      summary: Get Cross Margin Overview
+      summary: Get Exchange Cross Margin Overview
       description: Gets live data for Cross Margin (XM) for a specific XM customer
       operationId: PrimeRESTAPI_GetCrossMarginOverview
       parameters:
@@ -351,71 +350,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/coinbase.public_rest_api.GetCrossMarginOverviewResponse'
-  /v1/entities/{entity_id}/funding-settings:
-    post:
+  /v1/entities/{entity_id}/cross_margin/risk_parameters:
+    get:
       tags:
       - Financing
-      summary: Update Funding Settings (Beta)
-      description: Create a proposal to update Derivatives entity configuration for a specified entity. Any changes submitted will require consensus approval per entity policy. 
-      operationId: PrimeRESTAPI_UpdateFundingSettings
+      summary: Get Cross Margin Risk Parameters
+      description: Gets the current Cross Margin (XM) risk parameters for an entity.
+      operationId: PrimeRESTAPI_GetCrossMarginRiskParameters
       parameters:
       - name: entity_id
         in: path
-        description: Prime Entity ID
+        description: XM customer Prime Entity ID.
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              required:
-              - automatic_conversion_enabled
-              - automatic_excess_return_enabled
-              - automatic_loan_enabled
-              - designated_funding_portfolio_id
-              - excess_funds_target_amount
-              type: object
-              properties:
-                designated_funding_portfolio_id:
-                  type: string
-                  description: Set the Derivatives Funding Portfolio that will be
-                    used to fund FCM margin calls and receive excess margin sweeps.
-                    Only one portfolio per entity.
-                  example: a0724c0c-0f9e-4525-baf4-1aa8fce77eb2
-                automatic_conversion_enabled:
-                  type: boolean
-                  description: "When true, USDC in your Derivatives Funding Portfolio\
-                    \ will be converted to USD to meet FCM margin calls (Auto-Convert\
-                    \ USDC)."
-                automatic_loan_enabled:
-                  type: boolean
-                  description: "When true, Coinbase affiliates may initiate loans\
-                    \ on your behalf to meet FCM margin calls, per your Lending agreement.\
-                    \ Available to Portfolio Margin or Cross Margin clients only.\
-                    \ (Auto-Initiate Loans)"
-                automatic_excess_return_enabled:
-                  type: boolean
-                  description: "When true, any FCM account balance above your margin\
-                    \ requirements will be automatically swept back to your Derivatives\
-                    \ funding portfolio. (Auto-Return Excess Margin)"
-                excess_funds_target_amount:
-                  type: string
-                  description: "Weekend Buying Power: Setting a target amount to\
-                    \ maintain in your Futures account above margin requirements.\
-                    \ You can only withdraw funds in excess of this amount."
-                  example: "1000.00"
-              description: UpdateFundingSettingsRequest updates FCM funding configuration
-                for an entity (creates a PCS proposal).
-        required: true
       responses:
         "200":
           description: A successful response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/coinbase.public_rest_api.UpdateFundingSettingsResponse'
-      x-codegen-request-body-name: body
+                $ref: '#/components/schemas/coinbase.public_rest_api.GetCrossMarginRiskParametersResponse'
   /v1/entities/{entity_id}/futures/auto_sweep:
     post:
       tags:
@@ -845,6 +800,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/coinbase.public_rest_api.GetMarginSummariesResponse'
+  /v1/entities/{entity_id}/market_data:
+    get:
+      tags:
+      - Financing
+      summary: Get Market Data
+      description: Retrieves market data including volatility and average daily volume
+        for an entity.
+      operationId: PrimeRESTAPI_GetMarketData
+      parameters:
+      - name: entity_id
+        in: path
+        description: Prime Entity ID
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        description: Cursor for pagination
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Number of results to return per page
+        schema:
+          type: integer
+          format: int32
+      - name: sort_direction
+        in: query
+        description: Sort direction for results
+        schema:
+          type: string
+          default: DESC
+          enum:
+          - DESC
+          - ASC
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coinbase.public_rest_api.GetMarketDataResponse'
   /v1/entities/{entity_id}/payment-methods:
     get:
       tags:
@@ -997,7 +994,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -1174,7 +1171,7 @@ paths:
       - name: categories
         in: query
         description: "Filter by list of activity categories [order, transaction, account,\
-          \ allocation, lending]\n\n - OTHER_ACTIVITY_CATEGORY: "
+          \ allocation, lending]"
         style: form
         explode: true
         schema:
@@ -1190,7 +1187,7 @@ paths:
             - ACTIVITY_CATEGORY_LENDING
       - name: statuses
         in: query
-        description: "Filter by list of statuses\n\n - OTHER_ACTIVITY_STATUS: "
+        description: Filter by list of statuses
         style: form
         explode: true
         schema:
@@ -1228,7 +1225,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -1314,7 +1311,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -1361,7 +1358,6 @@ paths:
                   type: string
                   description: Name of address book entry
                 account_identifier:
-                  title: ""
                   type: string
                   description: Account Identifier (memo/destination tag)
                 chain_ids:
@@ -1397,7 +1393,7 @@ paths:
           type: string
       - name: state
         in: query
-        description: "The state of the Advanced Transfer to filter by\n\n - ADVANCED_TRANSFER_STATE_UNKNOWN: "
+        description: The state of the Advanced Transfer to filter by
         schema:
           type: string
           enum:
@@ -1409,7 +1405,7 @@ paths:
           - ADVANCED_TRANSFER_STATE_EXPIRED
       - name: type
         in: query
-        description: "The type of the Advanced Transfer to filter by\n\n - ADVANCED_TRANSFER_TYPE_UNKNOWN: "
+        description: The type of the Advanced Transfer to filter by
         schema:
           type: string
           enum:
@@ -1427,7 +1423,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Page sorting direction\n\n - DESC: "
+        description: Page sorting direction
         schema:
           type: string
           default: DESC
@@ -1592,7 +1588,6 @@ paths:
           An order side to filter allocations on.
 
            - UNKNOWN_ORDER_SIDE: nil value
-
            - BUY: Buy order
            - SELL: Sell order
         schema:
@@ -1626,7 +1621,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order: DESC or ASC\n\n - DESC: "
+        description: "Sorting order: DESC or ASC"
         schema:
           type: string
           default: DESC
@@ -1719,7 +1714,6 @@ paths:
           A type by which to filter balances
 
            - UNKNOWN_BALANCE_TYPE: nil
-
            - TRADING_BALANCES: Trading balances
            - VAULT_BALANCES: Vault balances
            - TOTAL_BALANCES: Total balances (The sum of vault and trading + prime custody)
@@ -1945,7 +1939,7 @@ paths:
           format: date-time
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -2224,7 +2218,6 @@ paths:
           An order type by which to filter the response
 
            - UNKNOWN_ORDER_TYPE: nil value
-
            - MARKET: A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order)
            - LIMIT: A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order)
            - TWAP: A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price)
@@ -2260,7 +2253,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -2279,7 +2272,6 @@ paths:
           An order side to filter on.
 
            - UNKNOWN_ORDER_SIDE: nil value
-
            - BUY: Buy order
            - SELL: Sell order
         schema:
@@ -2545,7 +2537,6 @@ paths:
           List of statuses by which to filter the response
 
            - UNKNOWN_ORDER_STATUS: nil value
-
            - OPEN: The order is open but unfilled
            - FILLED: The order was filled
            - CANCELLED: The order was cancelled
@@ -2580,7 +2571,6 @@ paths:
           Order type by which to filter the response
 
            - UNKNOWN_ORDER_TYPE: nil value
-
            - MARKET: A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order)
            - LIMIT: A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order)
            - TWAP: A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price)
@@ -2613,7 +2603,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -2626,7 +2616,6 @@ paths:
           An order side to filter on.
 
            - UNKNOWN_ORDER_SIDE: nil value
-
            - BUY: Buy order
            - SELL: Sell order
         schema:
@@ -2852,7 +2841,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -2893,7 +2882,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -3008,6 +2997,14 @@ paths:
                 settl_currency:
                   title: The currency in which the settlement will be made
                   type: string
+                quote_duration_ms:
+                  type: string
+                  description: Optional quote timeout in milliseconds. Defaults to
+                    3000 ms (3 seconds) if not specified. Maximum allowed value is
+                    30000 ms (30 seconds); requests with a larger value are rejected.
+                    Mirrors FIX tag 8090 (QuoteRequestGoodForMs).
+                  format: int64
+                  example: "5000"
               description: based off PostOrderPreviewRequest
         required: true
       responses:
@@ -3189,7 +3186,6 @@ paths:
           The transaction types by which to filter the response
 
            - TRANSACTION_TYPE_UNKNOWN: An unknown transaction type
-
            - DEPOSIT: A fiat or crypto deposit
            - WITHDRAWAL: A fiat or crypto withdrawal
            - INTERNAL_DEPOSIT: An internal fiat or crypto deposit
@@ -3295,7 +3291,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Page sorting direction\n\n - DESC: "
+        description: Page sorting direction
         schema:
           type: string
           default: DESC
@@ -3458,7 +3454,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -3488,10 +3484,14 @@ paths:
           type: string
       - name: type
         in: query
-        description: "The wallet type\n\n - UNKNOWN_WALLET_TYPE: \n - VAULT: A crypto\
-          \ vault\n - TRADING: A trading wallet\n - WALLET_TYPE_OTHER: Other wallet\
-          \ types (like consumer, etc)\n - QC: A QC Wallet\n - ONCHAIN: An Onchain\
-          \ wallet"
+        description: |-
+          The wallet type
+
+           - VAULT: A crypto vault
+           - TRADING: A trading wallet
+           - WALLET_TYPE_OTHER: Other wallet types (like consumer, etc)
+           - QC: A QC Wallet
+           - ONCHAIN: An Onchain wallet
         required: true
         schema:
           type: string
@@ -3514,7 +3514,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Sorting order\n\n - DESC: "
+        description: Sorting order
         schema:
           type: string
           default: DESC
@@ -3819,7 +3819,6 @@ paths:
           The deposit type
 
            - UNKNOWN_WALLET_DEPOSIT_TYPE: nil value
-
            - CRYPTO: A cryptocurrency deposit
            - WIRE: A wire deposit
            - SEN: DEPRECATED. A Silvergate Exchange Network deposit
@@ -4167,7 +4166,6 @@ paths:
           The transaction types by which to filter the response
 
            - TRANSACTION_TYPE_UNKNOWN: An unknown transaction type
-
            - DEPOSIT: A fiat or crypto deposit
            - WITHDRAWAL: A fiat or crypto withdrawal
            - INTERNAL_DEPOSIT: An internal fiat or crypto deposit
@@ -4273,7 +4271,7 @@ paths:
           format: int32
       - name: sort_direction
         in: query
-        description: "Page sorting direction\n\n - DESC: "
+        description: Page sorting direction
         schema:
           type: string
           default: DESC
@@ -4366,7 +4364,6 @@ paths:
           Visibility statuses to filter balances on. Leaving this field empty will return only VISIBLE balances.
 
            - UNKNOWN_VISIBILITY_STATUS: nil
-
            - VISIBLE: Visible
            - HIDDEN: Hidden
            - SPAM: Spam
@@ -4486,6 +4483,94 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/coinbase.public_rest_api.GetWithdrawalPowerResponse'
+  /v2/entities/{entity_id}/cross_margin/prime:
+    get:
+      tags:
+      - Financing
+      summary: Get Prime Cross Margin Overview
+      description: Returns real time risk data from the cross margin model.
+      operationId: PrimeRESTAPI_GetCrossMarginPrimeOverview
+      parameters:
+      - name: entity_id
+        in: path
+        description: Prime entity ID for the XM (cross-margin) customer.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coinbase.public_rest_api.GetCrossMarginPrimeOverviewResponse'
+  /v1/entities/{entity_id}/funding_settings:
+    post:
+      tags:
+      - Financing
+      summary: Update Funding Settings (Beta)
+      description: Sets FCM funding configuration for the entity and submits the desired
+        configuration to Prime API for approval.
+      operationId: PrimeBeta_SetFundingSettings
+      parameters:
+      - name: entity_id
+        in: path
+        description: Prime Entity ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - automatic_conversion_enabled
+              - automatic_excess_return_enabled
+              - automatic_loan_enabled
+              - designated_funding_portfolio_id
+              - excess_funds_target_amount
+              type: object
+              properties:
+                designated_funding_portfolio_id:
+                  type: string
+                  description: Set the Derivatives Funding Portfolio that will be
+                    used to fund FCM margin calls and receive excess margin sweeps.
+                    Only one portfolio per entity.
+                  example: a0724c0c-0f9e-4525-baf4-1aa8fce77eb2
+                automatic_conversion_enabled:
+                  type: boolean
+                  description: "When true, USDC in your Derivatives Funding Portfolio\
+                    \ will be converted to USD to meet FCM margin calls (Auto-Convert\
+                    \ USDC)."
+                automatic_loan_enabled:
+                  type: boolean
+                  description: "When true, Coinbase affiliates may initiate loans\
+                    \ on your behalf to meet FCM margin calls, per your Lending agreement.\
+                    \ Available to Portfolio Margin or Cross Margin clients only.\
+                    \ (Auto-Initiate Loans)"
+                automatic_excess_return_enabled:
+                  type: boolean
+                  description: "When true, any FCM account balance above your margin\
+                    \ requirements will be automatically swept back to your Derivatives\
+                    \ funding portfolio. (Auto-Return Excess Margin)"
+                excess_funds_target_amount:
+                  type: string
+                  description: "Weekend Buying Power: Setting a target amount to maintain\
+                    \ in your Futures account above margin requirements. You can only\
+                    \ withdraw funds in excess of this amount."
+                  example: "1000.00"
+              description: |-
+                SetFundingSettingsRequest sets FCM funding configuration for an entity (creates a PCS proposal).
+                entity_id is also bound from the URL path.
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coinbase.public_rest_api.beta.SetFundingSettingsResponse'
+      x-codegen-request-body-name: body
 components:
   schemas:
     coinbase.brokerage.proxy.events.materialized.api.LimitOrderEdit:
@@ -4695,7 +4780,6 @@ components:
     coinbase.public_rest_api.Action:
       title: Action is the available user action types
       type: string
-      description: "- OTHER_ACTION: "
       default: OTHER_ACTION
       enum:
       - OTHER_ACTION
@@ -4770,7 +4854,6 @@ components:
         hierarchy_type:
           $ref: '#/components/schemas/coinbase.public_rest_api.HierarchyType'
     coinbase.public_rest_api.ActivityCategory:
-      title: "- OTHER_ACTIVITY_CATEGORY: "
       type: string
       default: OTHER_ACTIVITY_CATEGORY
       enum:
@@ -4795,7 +4878,6 @@ components:
         activity_id:
           type: string
     coinbase.public_rest_api.ActivityLevel:
-      title: "- ACTIVITY_LEVEL_ALL: "
       type: string
       default: ACTIVITY_LEVEL_ALL
       enum:
@@ -4824,9 +4906,10 @@ components:
         consensus:
           $ref: '#/components/schemas/coinbase.public_rest_api.ActivityMetadataConsensus'
     coinbase.public_rest_api.ActivitySecondaryType:
-      title: "- NO_SECONDARY_TYPE: \n - ACTIVITY_SECONDARY_TYPE_BUY: Order secondary\
-        \ types\n - ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER: Transaction secondary\
-        \ types\n - ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER: Onchain secondary types"
+      title: |-
+        - ACTIVITY_SECONDARY_TYPE_BUY: Order secondary types
+         - ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER: Transaction secondary types
+         - ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER: Onchain secondary types
       type: string
       default: NO_SECONDARY_TYPE
       enum:
@@ -4838,9 +4921,7 @@ components:
       - ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER
       - ACTIVITY_SECONDARY_TYPE_WEB3_WALLET
     coinbase.public_rest_api.ActivityStatus:
-      title: ""
       type: string
-      description: "- OTHER_ACTIVITY_STATUS: "
       default: OTHER_ACTIVITY_STATUS
       enum:
       - OTHER_ACTIVITY_STATUS
@@ -4851,7 +4932,6 @@ components:
       - ACTIVITY_STATUS_REJECTED
       - ACTIVITY_STATUS_FAILED
     coinbase.public_rest_api.ActivityType:
-      title: "- OTHER_ACTIVITY_TYPE: "
       type: string
       default: OTHER_ACTIVITY_TYPE
       enum:
@@ -4944,10 +5024,9 @@ components:
       description: AdvancedTransfer represents a complex transfer operation such as
         a blind match settlement.
     coinbase.public_rest_api.AdvancedTransferState:
-      title: |
-        AdvancedTransferState represents the lifecycle state of an advanced transfer.
       type: string
-      description: "- ADVANCED_TRANSFER_STATE_UNKNOWN: "
+      description: AdvancedTransferState represents the lifecycle state of an advanced
+        transfer.
       enum:
       - ADVANCED_TRANSFER_STATE_CREATED
       - ADVANCED_TRANSFER_STATE_PROCESSING
@@ -4957,8 +5036,7 @@ components:
       - ADVANCED_TRANSFER_STATE_EXPIRED
     coinbase.public_rest_api.AdvancedTransferType:
       type: string
-      description: "AdvancedTransferType specifies the type of advanced transfer.\n\
-        \n - ADVANCED_TRANSFER_TYPE_UNKNOWN: "
+      description: AdvancedTransferType specifies the type of advanced transfer.
       enum:
       - ADVANCED_TRANSFER_TYPE_BLIND_MATCH
     coinbase.public_rest_api.AggregatedFiatBalance:
@@ -5045,14 +5123,12 @@ components:
           type: string
           description: The amount size for the allocation leg
     coinbase.public_rest_api.AllocationSizeType:
-      title: "- ALLOCATION_SIZE_TYPE_UNKNOWN: "
       type: string
       enum:
       - BASE
       - QUOTE
       - PERCENT
     coinbase.public_rest_api.AllocationStatus:
-      title: ""
       type: string
       default: ALLOCATION_STATUS_UNSPECIFIED
       enum:
@@ -5097,7 +5173,6 @@ components:
           description: Indicates whether this asset can be traded
           example: true
         explorer_url:
-          title: ""
           type: string
           description: Base URL to our recommended block explorer (crypto only)
           example: https://live.blockcypher.com/btc/
@@ -5149,7 +5224,6 @@ components:
     coinbase.public_rest_api.AssetChangeType:
       title: AssetChangeType identifies the type of asset change
       type: string
-      description: "- ASSET_CHANGE_TYPE_UNKNOWN: "
       enum:
       - BALANCE_TRANSFER
       - BALANCE_APPROVAL
@@ -5225,7 +5299,6 @@ components:
             \ for non-ETH assets; use pending_rewards_amount where applicable."
           example: "0.241437903"
     coinbase.public_rest_api.Benchmark:
-      title: "- BENCHMARK_UNSET: "
       type: string
       default: BENCHMARK_UNSET
       enum:
@@ -5259,7 +5332,7 @@ components:
           type: string
           description: The address on the network
         account_identifier:
-          title: |
+          title: |-
             The destination value’s account_identifier (MEMO/DESTINATION TAG) value
              for the withdrawal
           type: string
@@ -5662,7 +5735,6 @@ components:
         activity_type:
           $ref: '#/components/schemas/coinbase.custody.api.ActivityType'
         num_approvals_remaining:
-          title: ""
           type: integer
           format: int32
         activity_id:
@@ -5690,7 +5762,6 @@ components:
           type: string
           description: The activity ID for the transfer
         approval_url:
-          title: ""
           type: string
           description: A URL to the activity associated with this transfer for approval
         symbol:
@@ -5728,7 +5799,6 @@ components:
           type: string
           description: The activity ID associated with the withdrawal
         approval_url:
-          title: ""
           type: string
           description: A URL to the activity in the Prime application
         symbol:
@@ -5779,6 +5849,288 @@ components:
             $ref: '#/components/schemas/coinbase.public_rest_api.XMLoan'
         active_liquidation:
           $ref: '#/components/schemas/coinbase.public_rest_api.ActiveLiquidationSummary'
+    coinbase.public_rest_api.CrossMarginPrimeDerivativesEquityBreakdown:
+      type: object
+      properties:
+        cash_balance:
+          type: string
+          description: Derivatives cash balance component.
+          example: "1000.00"
+        unrealized_pnl:
+          type: string
+          description: Unrealized PnL component of derivatives equity.
+          example: "-252.40"
+        realized_pnl:
+          type: string
+          description: Realized PnL component of derivatives equity.
+          example: "123.65"
+        accrued_funding_pnl:
+          type: string
+          description: Accrued funding PnL component of derivatives equity.
+          example: "-1.08"
+      description: Breakdown of the components of derivatives equity.
+    coinbase.public_rest_api.CrossMarginPrimeMarginSummary:
+      type: object
+      properties:
+        margin_requirement:
+          type: string
+          description: Cross Margin Margin Requirement (XMMR) notional.
+          example: "10362.72"
+        margin_requirement_type:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginRequirementType'
+        account_equity:
+          type: string
+          description: Equity notional.
+          example: "-21542.63"
+        margin_excess_shortfall:
+          type: string
+          description: Equity - XMMR (margin excess is > 0).
+          example: "-31891.67"
+        consumed_credit:
+          type: string
+          description: Credit consumed from Cross Margin Credit Limit (XMCL).
+          example: "22906.34"
+        xm_credit_limit:
+          type: string
+          description: XM Credit Limit (XMCL) is the maximum notional USD of total
+            fiat and digital asset loans.
+          example: "1222322.00"
+        xm_margin_limit:
+          type: string
+          description: XM Margin Limit (XMML) is the maximum notional USD deficit.
+          example: "22123.00"
+        consumed_margin_limit:
+          type: string
+          description: Amount of the XM margin limit consumed by excess deficit.
+          example: "15000.00"
+        spot_equity:
+          type: string
+          description: Equity attributed by spot.
+          example: "-21505.91"
+        futures_equity:
+          type: string
+          description: Equity attributed by futures.
+          example: "-36.71"
+        gross_market_value:
+          type: string
+          description: Gross market value.
+          example: "160000.00"
+        net_market_value:
+          type: string
+          description: Net market value.
+          example: "45000.00"
+        net_exposure:
+          type: string
+          description: Net exposure.
+          example: "12000.00"
+        gross_leverage:
+          type: string
+          description: Gross leverage.
+          example: "2.35"
+        spot_equity_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginPrimeSpotEquityBreakdown'
+        derivatives_equity_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginPrimeDerivativesEquityBreakdown'
+        risk_netting_info:
+          $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginPrimeRiskNettingInfo'
+        health_status:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMHealthStatus'
+        equity_ratio:
+          type: string
+          description: Equity ratio.
+          example: "1.02"
+        deficit_ratio:
+          type: string
+          description: Deficit ratio.
+          example: "0.15"
+        margin_thresholds:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginCallThresholds'
+        fcm_excess_available_to_return:
+          type: string
+          description: FCM excess available to return.
+          example: "5000.00"
+      description: Cross-margin account summary and nested breakdowns.
+    coinbase.public_rest_api.CrossMarginPrimeRiskNettingInfo:
+      type: object
+      properties:
+        dco_margin_requirement:
+          type: string
+          description: "Derivatives Clearing Organization Margin Requirement (DMR)\
+            \ is the margin requirement for all futures positions, derived from the\
+            \ Derivatives Clearing Organization model"
+          example: "9243.25"
+        portfolio_margin_requirement:
+          type: string
+          description: "Portfolio Margin Requirement (PMR) is the margin requirement\
+            \ for all spot positions, derived from the XM model"
+          example: "9003.67"
+        integrated_portfolio_margin_requirement:
+          type: string
+          description: Integrated Portfolio Margin Requirement (IPMR) is the margin
+            requirement for all spot positions + futures positions with underlying
+            assets eligible in Portfolio Margin.
+          example: "10154.67"
+        ineligible_futures_margin_requirement:
+          type: string
+          description: Ineligible Futures Margin Requirement (IFMR) is the margin
+            requirement for IPMR-ineligible futures contracts
+          example: "194.36"
+        pmr_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginRequirementBreakdown'
+        ipmr_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginRequirementBreakdown'
+        portfolio_margin_offset_credit_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMOffsetCreditBreakdown'
+        integrated_portfolio_margin_offset_credit_breakdown:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMOffsetCreditBreakdown'
+        xm_positions:
+          type: array
+          description: Netted positions used in the model calculation.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginPrimeXMPosition'
+      description: "Groups XM margin requirement components, offset credits, and per-asset\
+        \ rows."
+    coinbase.public_rest_api.CrossMarginPrimeSpotEquityBreakdown:
+      type: object
+      properties:
+        cash_balance:
+          type: string
+          description: PM cash balance component of spot equity.
+          example: "56166.60"
+        long_market_value:
+          type: string
+          description: Long market value component of spot equity.
+          example: "85268.31"
+        short_market_value:
+          type: string
+          description: Short market value component of spot equity.
+          example: "0.00"
+        short_collateral:
+          type: string
+          description: Short collateral component of spot equity.
+          example: "0.00"
+        pending_transfers:
+          type: string
+          description: Pending transfers affecting spot equity.
+          example: "15303.77"
+      description: Breakdown of the components of spot equity.
+    coinbase.public_rest_api.CrossMarginPrimeXMPosition:
+      type: object
+      properties:
+        currency:
+          type: string
+          description: Position currency
+          example: BTC
+        market_price:
+          type: string
+          description: Current market price
+          example: "114531.73"
+        spot_balance:
+          type: string
+          description: XM spot balance nominal
+          example: "-0.19652944"
+        spot_balance_notional:
+          type: string
+          description: XM spot balance notional
+          example: "-22508.85"
+        futures_balance:
+          type: string
+          description: XM futures balance nominal
+          example: "-0.19652944"
+        futures_balance_notional:
+          type: string
+          description: XM futures balance notional
+          example: "-22508.85"
+        base_requirement:
+          type: string
+          description: Base margin requirement notional
+          example: "8925.50"
+        total_position_margin:
+          type: string
+          description: Total margin required
+          example: "9100.00"
+        basis_credit:
+          type: string
+          description: Basis offset credit applied to this asset row.
+          example: "-5.25"
+        futures_netted_notional:
+          type: string
+          description: Post-netting USD notional for futures on this asset
+          example: "11510.00"
+        futures_netting_margin:
+          type: string
+          description: Margin attributed to futures netting for this asset row.
+          example: "120.00"
+        long_amount:
+          type: string
+          description: Per-asset long amount from position_summary.
+          example: "0.75539174"
+        short_amount:
+          type: string
+          description: Per-asset short amount from position_summary.
+          example: "0.95292118"
+        volatility_addon:
+          type: string
+          description: Volatility margin add-on for this asset.
+          example: "0.00"
+        liquidity_addon:
+          type: string
+          description: Liquidity margin add-on for this asset.
+          example: "0.49"
+      description: CrossMarginPrimeXMPosition is a single per-asset XM row (proto-backed
+        fields from XMPositionDetails).
+    coinbase.public_rest_api.CrossMarginRiskParameters:
+      type: object
+      properties:
+        asset_tier:
+          type: string
+          description: Asset tier identifier.
+          example: "0"
+        base_ratio_long:
+          type: string
+          description: Base ratio for long positions.
+          example: "0.3540"
+        base_ratio_short:
+          type: string
+          description: Base ratio for short positions.
+          example: "0.4051"
+        volatility_rate_long:
+          type: string
+          description: Volatility rate for long positions.
+          example: "0.0365"
+        volatility_rate_short:
+          type: string
+          description: Volatility rate for short positions.
+          example: "0.0484"
+        volatility_low_threshold:
+          type: string
+          description: Volatility low threshold.
+          example: "0.0385"
+        volatility_high_threshold:
+          type: string
+          description: Volatility high threshold.
+          example: "0.0777"
+        liquidity_a_long:
+          type: string
+          description: Liquidity A for long positions.
+          example: "0.132227"
+        liquidity_a_short:
+          type: string
+          description: Liquidity A for short positions.
+          example: "0.153226"
+        liquidity_b_short:
+          type: string
+          description: Liquidity B for short positions.
+          example: "0.634878"
+        liquidity_threshold:
+          type: string
+          description: Liquidity threshold.
+          example: "0.2395"
+        basis_offset_credit_rate:
+          type: string
+          description: Basis offset credit rate.
+          example: "0.92"
+      description: XM 2.0 risk parameters for an asset tier.
     coinbase.public_rest_api.DefiBalance:
       type: object
       properties:
@@ -5814,7 +6166,6 @@ components:
     coinbase.public_rest_api.DestinationType:
       title: |-
         - UNKNOWN_DESTINATION: nil value
-
          - DESTINATION_PAYMENT_METHOD: A fiat bank account linked to a payment method id via Payment Method Service
          - DESTINATION_BLOCKCHAIN: A blockchain network address
          - DESTINATION_WALLET: An on platform wallet UUID
@@ -6372,11 +6723,52 @@ components:
           items:
             $ref: '#/components/schemas/coinbase.public_rest_api.Candle'
     coinbase.public_rest_api.GetCrossMarginOverviewResponse:
-      title: ""
       type: object
       properties:
         overview:
           $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginOverview'
+    coinbase.public_rest_api.GetCrossMarginPrimeOverviewResponse:
+      type: object
+      properties:
+        control_status:
+          $ref: '#/components/schemas/coinbase.public_rest_api.XMControlStatus'
+        margin_level:
+          $ref: '#/components/schemas/coinbase.public_rest_api.XMMarginLevel'
+        evaluated_at:
+          type: string
+          description: When margin metrics were evaluated.
+          format: date-time
+          example: 2023-11-07T05:31:56Z
+        margin_summary:
+          $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginPrimeMarginSummary'
+    coinbase.public_rest_api.GetCrossMarginRiskParametersResponse:
+      type: object
+      properties:
+        risk_parameters:
+          type: array
+          description: Current XM tier risk parameters for the entity's client tier.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.CrossMarginRiskParameters'
+        offset_credit_matrix_long_short:
+          type: array
+          description: Offset credit rate matrix for long/short tier pairs.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.TierPairRateEntry'
+        offset_credit_matrix_long_long:
+          type: array
+          description: Offset credit rate matrix for long/long tier pairs.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.TierPairRateEntry'
+        offset_credit_matrix_short_short:
+          type: array
+          description: Offset credit rate matrix for short/short tier pairs.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.TierPairRateEntry'
+        margin_period_of_risk:
+          type: number
+          description: Margin period of risk (number of days).
+          format: double
+          example: 5.0
     coinbase.public_rest_api.GetEntityActivitiesResponse:
       required:
       - activities
@@ -6579,7 +6971,6 @@ components:
           items:
             $ref: '#/components/schemas/coinbase.public_rest_api.Conversion'
     coinbase.public_rest_api.GetMarginInformationResponse:
-      title: ""
       type: object
       properties:
         margin_information:
@@ -6591,6 +6982,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/coinbase.public_rest_api.MarginSummaryHistorical'
+    coinbase.public_rest_api.GetMarketDataResponse:
+      type: object
+      properties:
+        market_data:
+          type: array
+          description: List of market data entries
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.MarketData'
+        pagination:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PaginatedResponse'
     coinbase.public_rest_api.GetOpenOrdersResponse:
       type: object
       properties:
@@ -7005,8 +7406,7 @@ components:
           type: number
           format: double
     coinbase.public_rest_api.InvoiceState:
-      title: |
-        States
+      title: States
       type: string
       default: INVOICE_STATE_UNSPECIFIED
       enum:
@@ -7182,7 +7582,6 @@ components:
           description: Settlement due date
           example: "1000"
     coinbase.public_rest_api.LoanType:
-      title: "- LOAN_TYPE_UNSET: "
       type: string
       default: LOAN_TYPE_UNSET
       enum:
@@ -7249,7 +7648,6 @@ components:
           description: The time the margin call is due in RFC3339 format
           example: 2023-01-01T00:00:00Z
     coinbase.public_rest_api.MarginInformation:
-      title: ""
       type: object
       properties:
         margin_call_records:
@@ -7414,6 +7812,37 @@ components:
           example: 2023-05-01
         margin_summary:
           $ref: '#/components/schemas/coinbase.public_rest_api.MarginSummary'
+    coinbase.public_rest_api.MarketData:
+      type: object
+      properties:
+        symbol:
+          type: string
+          description: "Base asset symbol (e.g., BTC, ETH, SOL)"
+          example: BTC
+        vol_5d:
+          type: string
+          description: "Daily historical volatility over trailing 5 days (decimal,\
+            \ e.g., 0.65 = 65%)"
+          example: "0.65"
+        vol_30d:
+          type: string
+          description: "Daily historical volatility over trailing 30 days (decimal,\
+            \ e.g., 0.65 = 65%)"
+          example: "0.65"
+        vol_90d:
+          type: string
+          description: "Daily historical volatility over trailing 90 days (decimal,\
+            \ e.g., 0.65 = 65%)"
+          example: "0.65"
+        adv_30d:
+          type: string
+          description: Average daily trading volume over trailing 30 days (USD)
+          example: "1234567.89"
+        weighted_vol:
+          type: string
+          description: Weighted blend of the most recent vol_5d and the max vol_5d
+            over last 30 days into a single volatility measure (decimal).
+          example: "0.0345"
     coinbase.public_rest_api.MarketRate:
       type: object
       properties:
@@ -7804,19 +8233,16 @@ components:
       type: string
       description: |-
         - UNKNOWN_ORDER_SIDE: nil value
-
          - BUY: Buy order
          - SELL: Sell order
       enum:
       - BUY
       - SELL
     coinbase.public_rest_api.OrderStatus:
-      title: |
-        Indicates the order status
+      title: Indicates the order status
       type: string
       description: |-
         - UNKNOWN_ORDER_STATUS: nil value
-
          - OPEN: The order is open but unfilled
          - FILLED: The order was filled
          - CANCELLED: The order was cancelled
@@ -7835,7 +8261,6 @@ components:
       type: string
       description: |-
         - UNKNOWN_ORDER_TYPE: nil value
-
          - MARKET: A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order)
          - LIMIT: A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order)
          - TWAP: A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price)
@@ -7964,7 +8389,6 @@ components:
       type: string
       description: |-
         - UNKNOWN_PAYMENT_METHOD_TYPE: nil value
-
          - METHOD_WIRE: Wire transfer
          - METHOD_SEN: Silvergate exchange network
          - METHOD_SWIFT: Swift
@@ -7977,7 +8401,6 @@ components:
       type: string
       description: |-
         - UNKNOWN_PEG_OFFSET_TYPE: nil value
-
          - PEG_OFFSET_TYPE_PRICE: Offset specified in price units
          - PEG_OFFSET_TYPE_BPS: Offset specified in basis points (BPS)
          - PEG_OFFSET_TYPE_DEPTH: Offset specified in depth
@@ -8041,7 +8464,6 @@ components:
     coinbase.public_rest_api.PortfolioBalanceType:
       title: |-
         - UNKNOWN_BALANCE_TYPE: nil
-
          - TRADING_BALANCES: Trading balances
          - VAULT_BALANCES: Vault balances
          - TOTAL_BALANCES: Total balances (The sum of vault and trading + prime custody)
@@ -8119,12 +8541,10 @@ components:
           description: Asset symbol
           example: BTC
         long:
-          title: ""
           type: string
           description: The long position based on 'reference' value
           example: "10"
         short:
-          title: ""
           type: string
           description: The short position based on 'reference' value
           example: "10"
@@ -8247,7 +8667,6 @@ components:
             (in base currency).
           example: "10.5"
     coinbase.public_rest_api.PostTradeCreditInformation:
-      title: ""
       type: object
       properties:
         portfolio_id:
@@ -8319,6 +8738,132 @@ components:
             $ref: '#/components/schemas/coinbase.public_rest_api.ValidatorUnstakePreview'
       description: PreviewUnstakeResponse contains the response data from previewing
         an unstaking operation.
+    coinbase.public_rest_api.PrimeXMHealthStatus:
+      type: string
+      description: |2-
+         - HEALTH_STATUS_HEALTHY: Margin level is healthy.
+         - HEALTH_STATUS_WARNING: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+         - HEALTH_STATUS_CRITICAL: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+         - HEALTH_STATUS_SUSPENDED: Trading and withdrawals are suspended per XM margin methodology.
+         - HEALTH_STATUS_RESTRICTED: Account is in a restricted state per XM margin methodology.
+         - HEALTH_STATUS_PRE_LIQUIDATION: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+         - HEALTH_STATUS_LIQUIDATING: Liquidation has commenced.
+         - HEALTH_STATUS_IN_DEFICIT: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+      enum:
+      - HEALTH_STATUS_HEALTHY
+      - HEALTH_STATUS_WARNING
+      - HEALTH_STATUS_CRITICAL
+      - HEALTH_STATUS_SUSPENDED
+      - HEALTH_STATUS_RESTRICTED
+      - HEALTH_STATUS_PRE_LIQUIDATION
+      - HEALTH_STATUS_LIQUIDATING
+      - HEALTH_STATUS_IN_DEFICIT
+    coinbase.public_rest_api.PrimeXMMarginCallThresholds:
+      type: object
+      properties:
+        deficit_threshold:
+          type: string
+          description: Deficit threshold (DT).
+          example: "0.8"
+        warning_threshold:
+          type: string
+          description: Warning threshold (WT).
+          example: "0.8"
+        critical_threshold:
+          type: string
+          description: Urgent margin call threshold (UMCT).
+          example: "1.0"
+        liquidation_threshold:
+          type: string
+          description: Liquidation threshold (LT).
+          example: "1.5"
+        margin_thresholds:
+          type: array
+          description: Structured margin thresholds by margin level.
+          items:
+            $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginThreshold'
+    coinbase.public_rest_api.PrimeXMMarginRequirementBreakdown:
+      type: object
+      properties:
+        base_margin:
+          type: string
+          description: Base margin requirement component.
+          example: "30188.41"
+        volatility_addon:
+          type: string
+          description: Volatility add-on component.
+          example: "0.00"
+        liquidity_addon:
+          type: string
+          description: Liquidity add-on component.
+          example: "0.49"
+        offset_credit:
+          type: string
+          description: Credits that offset margin charges due to portfolio composition.
+          example: "-20.29"
+        futures_margin:
+          type: string
+          description: Futures margin charge applied for any futures trades of the
+            opposing direction but of the same underlying.
+          example: "0.00"
+    coinbase.public_rest_api.PrimeXMMarginRequirementType:
+      type: string
+      description: |2-
+         - MARGIN_REQUIREMENT_TYPE_DMR_PLUS_PMR: Integrated (netted) cross-margin requirement for spot assets and all derivatives contracts.
+         - MARGIN_REQUIREMENT_TYPE_IPMR_PLUS_IFMR: Combined cross-margin requirement: Integrated Portfolio Margin (IPMR) plus Ineligible Futures Margin (IFMR).
+      default: MARGIN_REQUIREMENT_TYPE_UNSPECIFIED
+      enum:
+      - MARGIN_REQUIREMENT_TYPE_UNSPECIFIED
+      - MARGIN_REQUIREMENT_TYPE_DMR_PLUS_PMR
+      - MARGIN_REQUIREMENT_TYPE_IPMR_PLUS_IFMR
+    coinbase.public_rest_api.PrimeXMMarginThreshold:
+      type: object
+      properties:
+        margin_level:
+          $ref: '#/components/schemas/coinbase.public_rest_api.XMMarginLevel'
+        threshold_type:
+          $ref: '#/components/schemas/coinbase.public_rest_api.PrimeXMMarginThresholdType'
+        threshold_value:
+          type: string
+          example: "0.8"
+    coinbase.public_rest_api.PrimeXMMarginThresholdType:
+      type: string
+      description: |2-
+         - MARGIN_THRESHOLD_EQUITY_RATIO: Threshold based on equity ratio EQ / MR; triggers when EQ / MR >= threshold_value.
+         - MARGIN_THRESHOLD_DEFICIT_RATIO: Threshold based on deficit ratio (MR - EQ) / XMML; triggers when (MR - EQ) / XMML > threshold_value.
+      default: MARGIN_THRESHOLD_TYPE_UNSPECIFIED
+      enum:
+      - MARGIN_THRESHOLD_TYPE_UNSPECIFIED
+      - MARGIN_THRESHOLD_EQUITY_RATIO
+      - MARGIN_THRESHOLD_DEFICIT_RATIO
+      - MARGIN_THRESHOLD_NONE
+    coinbase.public_rest_api.PrimeXMOffsetCreditBreakdown:
+      type: object
+      properties:
+        basis_credit:
+          type: string
+          description: Basis offset credit component.
+          example: "0"
+        long_short_credit:
+          type: string
+          description: Long/short tier-pair offset credit.
+          example: "0"
+        long_long_credit:
+          type: string
+          description: Long/long tier-pair offset credit.
+          example: "-1.15"
+        short_short_credit:
+          type: string
+          description: Short/short tier-pair offset credit.
+          example: "0"
+        same_tier_credit:
+          type: string
+          description: Same-tier offset credit.
+          example: "-19.13"
+        total_credit:
+          type: string
+          description: Total offset credit.
+          example: "-20.29"
     coinbase.public_rest_api.ProcessRequirements:
       title: Represents the status of various process requirements for a transaction
       type: object
@@ -8382,7 +8927,6 @@ components:
         future_product_details:
           $ref: '#/components/schemas/coinbase.public_rest_api.FutureProductDetails'
     coinbase.public_rest_api.ProductPermissions:
-      title: "- PRODUCT_PERMISSION_UNKNOWN: "
       type: string
       enum:
       - PRODUCT_PERMISSION_READ
@@ -8414,6 +8958,13 @@ components:
           type: string
         price_inclusive_of_fees:
           type: string
+        quote_duration_ms:
+          type: string
+          description: "Echo of the quote_duration_ms supplied in the request. 0 if\
+            \ the client did not supply a value, in which case the server applies\
+            \ the default of 3000 ms (3 seconds)."
+          format: int64
+          example: "5000"
     coinbase.public_rest_api.RFQProductDetails:
       type: object
       properties:
@@ -8439,7 +8990,6 @@ components:
           type: string
           description: Maximum quote size for RFQ
     coinbase.public_rest_api.RateType:
-      title: "- RATE_TYPE_UNSET: "
       type: string
       default: RATE_TYPE_UNSET
       enum:
@@ -8533,7 +9083,6 @@ components:
       type: string
       description: |-
         - SECONDARY_PERMISSION_UNKNOWN: nil value
-
          - VIDEO_APPROVER: A video approver
          - TEAM_APPROVER: A team approver
          - WEB3_SIGNER: A web3 signer
@@ -8584,7 +9133,6 @@ components:
       - SIGNED
       - UNSIGNED
     coinbase.public_rest_api.SortDirection:
-      title: "- DESC: "
       type: string
       default: DESC
       enum:
@@ -8731,6 +9279,23 @@ components:
           type: string
           description: Settlement due date
           example: "1000"
+    coinbase.public_rest_api.TierPairRateEntry:
+      type: object
+      properties:
+        tier_a:
+          type: string
+          description: First tier in the pair.
+          example: "0"
+        tier_b:
+          type: string
+          description: Second tier in the pair.
+          example: "0"
+        rate:
+          type: string
+          description: Credit rate for this tier pair.
+          example: "0.4579"
+      description: "TierPairRateEntry represents a single (tier_a, tier_b) -> rate\
+        \ entry in an offset credit matrix."
     coinbase.public_rest_api.TieredPricingFee:
       type: object
       properties:
@@ -8747,7 +9312,6 @@ components:
       type: string
       description: |-
         - UNKNOWN_TIME_IN_FORCE: nil value
-
          - GOOD_UNTIL_DATE_TIME: Expires at a certain date/time
          - GOOD_UNTIL_CANCELLED: Order stays on the books until cancelled
          - IMMEDIATE_OR_CANCEL: Order is executed immediately at submission or is cancelled
@@ -8861,12 +9425,10 @@ components:
         reward_metadata:
           $ref: '#/components/schemas/coinbase.public_rest_api.RewardMetadata'
     coinbase.public_rest_api.TransactionStatus:
-      title: |
-        Indicates the transaction status
+      title: Indicates the transaction status
       type: string
       description: |-
         - UNKNOWN_TRANSACTION_STATUS: An Unknown Transaction status
-
          - TRANSACTION_CREATED: The Transaction has been created and is awaiting Consensus approval
         This is a non-terminal status
          - TRANSACTION_REQUESTED: The Transaction has reached User Consensus and is awaiting Coinbase Prime approval
@@ -8936,7 +9498,6 @@ components:
       type: string
       description: |-
         - TRANSACTION_TYPE_UNKNOWN: An unknown transaction type
-
          - DEPOSIT: A fiat or crypto deposit
          - WITHDRAWAL: A fiat or crypto withdrawal
          - INTERNAL_DEPOSIT: An internal fiat or crypto deposit
@@ -9046,7 +9607,6 @@ components:
     coinbase.public_rest_api.TransferLocationType:
       title: |-
         - TRANSFER_LOCATION_TYPE_UNKNOWN: The nil value
-
          - PAYMENT_METHOD: The ID of a fiat payment method
          - WALLET: The ID of a wallet
          - ADDRESS: A cryptocurrency address
@@ -9181,21 +9741,6 @@ components:
           description: Detailed explanation of the estimate status for display to
             users.
           example: Live estimate based on current network conditions
-    coinbase.public_rest_api.UpdateFundingSettingsResponse:
-      type: object
-      properties:
-        activity_id:
-          type: string
-          description: Identifier for the created activity / proposal
-        activity_type:
-          type: string
-          description: Type of the activity (e.g. PCS proposal type)
-        num_approvals_remaining:
-          type: integer
-          description: Number of approvals still required before the change applies
-          format: int32
-      description: UpdateFundingSettingsResponse returns PCS activity metadata after
-        the proposal is created.
     coinbase.public_rest_api.UserAction:
       type: object
       properties:
@@ -9212,7 +9757,6 @@ components:
       type: string
       description: |-
         - USER_ROLE_UNKNOWN: nil value
-
          - AUDITOR: An auditor
          - SIGNATORY: A signatory
          - ADMIN: An admin
@@ -9311,14 +9855,12 @@ components:
           items:
             $ref: '#/components/schemas/coinbase.public_rest_api.UnstakingStatus'
     coinbase.public_rest_api.VisibilityStatus:
-      title: ""
-      type: string
-      description: |-
+      title: |-
         - UNKNOWN_VISIBILITY_STATUS: nil
-
          - VISIBLE: Visible
          - HIDDEN: Hidden
          - SPAM: Spam
+      type: string
       enum:
       - VISIBLE
       - HIDDEN
@@ -9376,13 +9918,11 @@ components:
           description: The address of the wallet
           example: ca13fdc4-e459-4fd9-868e-82291343b213
         account_identifier:
-          title: ""
           type: string
           description: "The tag/memo of the address, if applicable -- required for\
             \ certain assets (e.g. XRP, XLM, etc.)"
           example: "387879289"
         account_identifier_name:
-          title: ""
           type: string
           description: "The blockchain network's terminology for the unique identifier\
             \ used to identify the receiver of the transaction (different blockchain\
@@ -9395,7 +9935,6 @@ components:
       type: string
       description: |-
         - UNKNOWN_WALLET_DEPOSIT_TYPE: nil value
-
          - CRYPTO: A cryptocurrency deposit
          - WIRE: A wire deposit
          - SEN: DEPRECATED. A Silvergate Exchange Network deposit
@@ -9444,9 +9983,12 @@ components:
     coinbase.public_rest_api.WalletType:
       title: Indicates the wallet type
       type: string
-      description: "- UNKNOWN_WALLET_TYPE: \n - VAULT: A crypto vault\n - TRADING:\
-        \ A trading wallet\n - WALLET_TYPE_OTHER: Other wallet types (like consumer,\
-        \ etc)\n - QC: A QC Wallet\n - ONCHAIN: An Onchain wallet"
+      description: |-
+        - VAULT: A crypto vault
+         - TRADING: A trading wallet
+         - WALLET_TYPE_OTHER: Other wallet types (like consumer, etc)
+         - QC: A QC Wallet
+         - ONCHAIN: An Onchain wallet
       enum:
       - VAULT
       - TRADING
@@ -9807,7 +10349,7 @@ components:
     coinbase.public_rest_api.XMRiskNettingInfo:
       type: object
       properties:
-        nodal_margin_requirement:
+        dco_margin_requirement:
           type: string
           description: "Derivatives Clearing Organization Margin Requirement (DMR)\
             \ is the margin requirement for all futures positions, derived from the\
@@ -10082,6 +10624,21 @@ components:
         * [google.type.TimeOfDay][google.type.TimeOfDay]
         * [google.type.DateTime][google.type.DateTime]
         * [google.protobuf.Timestamp][google.protobuf.Timestamp]
+    coinbase.public_rest_api.beta.SetFundingSettingsResponse:
+      type: object
+      properties:
+        activity_id:
+          type: string
+          description: Identifier for the created activity / proposal
+        activity_type:
+          type: string
+          description: Type of the activity (e.g. PCS proposal type)
+        num_approvals_remaining:
+          type: integer
+          description: Number of approvals still required before the change applies
+          format: int32
+      description: SetFundingSettingsResponse returns PCS activity metadata after
+        the proposal is created.
     public_rest_apiCreateAllocationRequest:
       type: object
       properties:
