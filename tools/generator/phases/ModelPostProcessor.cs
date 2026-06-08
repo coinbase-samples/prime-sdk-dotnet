@@ -29,6 +29,8 @@ public class ModelPostProcessor
   private readonly string _commonDir;
   private readonly string _enumsDir;
   private readonly IReadOnlyDictionary<string, string> _commonModels;
+  private readonly string _specPath;
+  private readonly GeneratorConfiguration _configuration;
   private int _newModelsCount;
   private int _updatedModelsCount;
 
@@ -39,7 +41,9 @@ public class ModelPostProcessor
     string outputDir,
     string commonDir,
     string enumsDir,
-    IReadOnlyDictionary<string, string> commonModels)
+    IReadOnlyDictionary<string, string> commonModels,
+    string specPath,
+    GeneratorConfiguration configuration)
   {
     _logger = logger;
     _transforms = transforms;
@@ -48,10 +52,19 @@ public class ModelPostProcessor
     _commonDir = commonDir;
     _enumsDir = enumsDir;
     _commonModels = commonModels;
+    _specPath = specPath;
+    _configuration = configuration;
   }
 
   public async Task ProcessModelsAsync()
   {
+    _logger.LogInformation("Loading schema documentation index from {Path}...", _specPath);
+    var docIndex = await SchemaDocumentationIndex.LoadAsync(
+      _specPath,
+      _transforms,
+      _commonModels,
+      _configuration.EnumNameMappings);
+
     _logger.LogInformation("Finding generated model files...");
     var modelFiles = FindGeneratedModelFiles();
     _logger.LogInformation("Found {Count} model files to process", modelFiles.Count);
@@ -83,7 +96,7 @@ public class ModelPostProcessor
       _logger.LogInformation("Processing enum: {Name}", fileName);
       try
       {
-        await ProcessEnumFileAsync(file);
+        await ProcessEnumFileAsync(file, docIndex);
       }
       catch (Exception ex)
       {
@@ -98,7 +111,7 @@ public class ModelPostProcessor
       _logger.LogInformation("Processing model: {Name}", fileName);
       try
       {
-        await ProcessModelFileAsync(file);
+        await ProcessModelFileAsync(file, docIndex);
       }
       catch (Exception ex)
       {
@@ -208,7 +221,7 @@ public class ModelPostProcessor
     return false;
   }
 
-  private async Task ProcessEnumFileAsync(string filePath)
+  private async Task ProcessEnumFileAsync(string filePath, SchemaDocumentationIndex docIndex)
   {
     var content = await File.ReadAllTextAsync(filePath);
     var className = ExtractClassName(content);
@@ -232,6 +245,7 @@ public class ModelPostProcessor
     RemoveStaleFile(_enumsDir, originalFileName, fileName, className, isEnum: true);
 
     content = JsonNameCodegen.PostProcessEmittedSource(content);
+    content = EnumXmlDocEnhancer.Apply(content, className, docIndex);
     content = CopyrightHelper.ApplyCopyrightYear(outputPath, content);
     await File.WriteAllTextAsync(outputPath, content);
 
@@ -245,7 +259,7 @@ public class ModelPostProcessor
     }
   }
 
-  private async Task ProcessModelFileAsync(string filePath)
+  private async Task ProcessModelFileAsync(string filePath, SchemaDocumentationIndex docIndex)
   {
     var content = await File.ReadAllTextAsync(filePath);
     var className = ExtractClassName(content);
@@ -303,6 +317,7 @@ public class ModelPostProcessor
 
     content = _transforms.ApplyEnumMappings(content, actualEnumNames);
     content = JsonNameCodegen.PostProcessEmittedSource(content);
+    content = ModelXmlDocEnhancer.Apply(content, className, docIndex);
     content = CopyrightHelper.ApplyCopyrightYear(outputPath, content);
 
     await File.WriteAllTextAsync(outputPath, content);

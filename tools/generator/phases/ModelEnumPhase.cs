@@ -30,7 +30,8 @@ public class ModelEnumPhase
     string modelOutputDir,
     string commonOutputDir,
     string enumsDir,
-    IReadOnlyDictionary<string, string> commonModels)
+    IReadOnlyDictionary<string, string> commonModels,
+    GeneratorConfiguration configuration)
   {
     var genLogger = loggerFactory.CreateLogger<OpenApiGenerator>();
     var openapi = new OpenApiGenerator(genLogger, projectRoot, specInputPath, tempDir);
@@ -44,7 +45,9 @@ public class ModelEnumPhase
       modelOutputDir,
       commonOutputDir,
       enumsDir,
-      commonModels);
+      commonModels,
+      specInputPath,
+      configuration);
     await post.ProcessModelsAsync();
   }
 }

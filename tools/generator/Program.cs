@@ -111,7 +111,8 @@ try
       modelDir,
       commonDir,
       enumsDir,
-      cfg.CommonModels);
+      cfg.CommonModels,
+      cfg);
   }
   else
   {
