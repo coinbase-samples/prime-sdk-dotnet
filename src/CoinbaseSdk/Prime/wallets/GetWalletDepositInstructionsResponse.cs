@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Wallets
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,10 +23,8 @@ namespace CoinbaseSdk.Prime.Wallets
   /// </summary>
   public class GetWalletDepositInstructionsResponse
   {
-    [JsonPropertyName("crypto_instructions")]
     public WalletCryptoDepositInstructions CryptoInstructions { get; set; }
 
-    [JsonPropertyName("fiat_instructions")]
     public WalletFiatDepositInstructions FiatInstructions { get; set; }
 
     public GetWalletDepositInstructionsResponse() { }

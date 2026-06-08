@@ -24,26 +24,21 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Conversion
   {
     /// <summary>
     /// Conversion details
     /// </summary>
-    [JsonPropertyName("conversion_details")]
     public List<ConversionDetail>? ConversionDetails { get; set; }
-    [JsonPropertyName("short_collateral")]
     public ShortCollateral? ShortCollateral { get; set; }
     /// <summary>
     /// The UTC date time used for conversion
     /// </summary>
-    [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
     /// <summary>
     /// Portfolio Id
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     public Conversion() { }
 

@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.PaymentMethods
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.PaymentMethods
   /// </summary>
   public class GetEntityPaymentMethodResponse
   {
-    [JsonPropertyName("details")]
     public PaymentMethodDetails Details { get; set; }
 
     public GetEntityPaymentMethodResponse() { }

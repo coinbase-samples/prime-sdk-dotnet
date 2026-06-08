@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Balances
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,13 +24,10 @@ namespace CoinbaseSdk.Prime.Balances
   /// </summary>
   public class ListOnchainWalletBalancesResponse
   {
-    [JsonPropertyName("balances")]
     public OnchainBalance[] Balances { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
-    [JsonPropertyName("defi_balances")]
     public DefiBalance[] DefiBalances { get; set; } = [];
 
     public ListOnchainWalletBalancesResponse() { }

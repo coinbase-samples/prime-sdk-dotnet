@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class SweepAmount
   {
     /// <summary>
     /// Currency
     /// </summary>
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
     /// <summary>
     /// Amount
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     public SweepAmount() { }
 

@@ -29,22 +29,16 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonPropertyName("types")]
     public TransactionType[] Types { get; set; } = [];
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
-    [JsonPropertyName("get_network_unified_transactions")]
     public bool? GetNetworkUnifiedTransactions { get; set; }
 
-    [JsonPropertyName("travel_rule_status")]
     public TravelRuleStatus[] TravelRuleStatus { get; set; } = [];
 
     public class ListPortfolioTransactionsRequestBuilder

@@ -22,16 +22,16 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
   /// <summary>
   /// Get Portfolio Counterparty ID.
   /// </summary>
-  public class GetPortfolioCounterpartyIdRequest(string portfolioId)
+  public class GetPortfolioCounterpartyRequest(string portfolioId)
   {
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    public class GetPortfolioCounterpartyIdRequestBuilder
+    public class GetPortfolioCounterpartyRequestBuilder
     {
       private string? _portfolioId;
 
-      public GetPortfolioCounterpartyIdRequestBuilder WithPortfolioId(string portfolioId)
+      public GetPortfolioCounterpartyRequestBuilder WithPortfolioId(string portfolioId)
       {
         _portfolioId = portfolioId;
         return this;
@@ -45,10 +45,10 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
         }
       }
 
-      public GetPortfolioCounterpartyIdRequest Build()
+      public GetPortfolioCounterpartyRequest Build()
       {
         Validate();
-        return new GetPortfolioCounterpartyIdRequest(_portfolioId!)
+        return new GetPortfolioCounterpartyRequest(_portfolioId!)
         {
         };
       }

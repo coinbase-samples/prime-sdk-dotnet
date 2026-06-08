@@ -24,76 +24,61 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class XmRiskNettingInfo
   {
     /// <summary>
     /// Derivatives Clearing Organization Margin Requirement (DMR) is the margin requirement for all futures positions, derived from the Derivatives Clearing Organization model
     /// </summary>
-    [JsonPropertyName("dco_margin_requirement")]
     public string? DcoMarginRequirement { get; set; }
     /// <summary>
     /// Portfolio Margin Requirement (PmR) is the margin requirement for all spot positions, derived from the Xm model
     /// </summary>
-    [JsonPropertyName("portfolio_margin_requirement")]
     public string? PortfolioMarginRequirement { get; set; }
     /// <summary>
     /// Integrated Portfolio Margin Requirement (IPMR) is the margin requirement for all spot positions + futures positions with underlying assets eligible in Portfolio Margin, via the Xm model with one-leg netting
     /// </summary>
-    [JsonPropertyName("integrated_portfolio_margin_requirement")]
     public string? IntegratedPortfolioMarginRequirement { get; set; }
     /// <summary>
     /// Ineligible Futures Margin Requirement (IFMR) is the margin requirement for IPMR-ineligible futures contracts
     /// </summary>
-    [JsonPropertyName("ineligible_futures_margin_requirement")]
     public string? IneligibleFuturesMarginRequirement { get; set; }
     /// <summary>
     /// Position margin requirement for all spot positions
     /// </summary>
-    [JsonPropertyName("position_margin_requirement")]
     public string? PositionMarginRequirement { get; set; }
     /// <summary>
     /// Portfolio margin addon for all spot positions
     /// </summary>
-    [JsonPropertyName("portfolio_margin_addon")]
     public string? PortfolioMarginAddon { get; set; }
     /// <summary>
     /// Position margin requirement for spot + futures positions
     /// </summary>
-    [JsonPropertyName("integrated_position_margin_requirement")]
     public string? IntegratedPositionMarginRequirement { get; set; }
     /// <summary>
     /// Portfolio margin addon for spot + futures positions
     /// </summary>
-    [JsonPropertyName("integrated_portfolio_margin_addon")]
     public string? IntegratedPortfolioMarginAddon { get; set; }
     /// <summary>
     /// Post-netting USD notional for all futures positions
     /// </summary>
-    [JsonPropertyName("netted_futures_notional")]
     public string? NettedFuturesNotional { get; set; }
     /// <summary>
     /// Total basis gross market value of all XM-eligible positions (i.e. crypto underliers)
     /// </summary>
-    [JsonPropertyName("total_gmv_basis")]
     public string? TotalGmvBasis { get; set; }
     /// <summary>
     /// Integrated Portfolio Margin cash balance
     /// </summary>
-    [JsonPropertyName("ipm_cash_balance")]
     public string? IpmCashBalance { get; set; }
-    [JsonPropertyName("integrated_scenario_addon")]
     public MarginAddOn? IntegratedScenarioAddon { get; set; }
     /// <summary>
     /// All integrated scenario add-ons
     /// </summary>
-    [JsonPropertyName("all_integrated_scenario_addons")]
     public List<MarginAddOn>? AllIntegratedScenarioAddons { get; set; }
     /// <summary>
     /// Netted positions used in the model calculation
     /// </summary>
-    [JsonPropertyName("xm_positions")]
     public List<XmPosition>? XmPositions { get; set; }
     public XmRiskNettingInfo() { }
 

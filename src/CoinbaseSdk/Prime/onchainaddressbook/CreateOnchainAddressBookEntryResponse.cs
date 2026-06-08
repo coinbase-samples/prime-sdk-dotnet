@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.OnchainAddressBook
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
@@ -24,13 +23,10 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
   /// </summary>
   public class CreateOnchainAddressBookEntryResponse
   {
-    [JsonPropertyName("activity_type")]
     public CustodyActivityType ActivityType { get; set; }
 
-    [JsonPropertyName("num_approvals_remaining")]
     public int? NumApprovalsRemaining { get; set; }
 
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
     public CreateOnchainAddressBookEntryResponse() { }

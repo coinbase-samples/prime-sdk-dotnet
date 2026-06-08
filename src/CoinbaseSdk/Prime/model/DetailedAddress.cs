@@ -34,13 +34,9 @@ namespace CoinbaseSdk.Prime.Model
     public string? Address2 { get; set; }
     [JsonPropertyName("address_3")]
     public string? Address3 { get; set; }
-    [JsonPropertyName("city")]
     public string? City { get; set; }
-    [JsonPropertyName("state")]
     public string? State { get; set; }
-    [JsonPropertyName("country_code")]
     public string? CountryCode { get; set; }
-    [JsonPropertyName("postal_code")]
     public string? PostalCode { get; set; }
     public DetailedAddress() { }
 

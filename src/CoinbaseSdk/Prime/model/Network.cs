@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Network
   {
     /// <summary>
     /// The network id: base, bitcoin, ethereum, solana etc
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The network type: mainnet, testnet, etc
     /// </summary>
-    [JsonPropertyName("type")]
     public string? Type { get; set; }
     public Network() { }
 

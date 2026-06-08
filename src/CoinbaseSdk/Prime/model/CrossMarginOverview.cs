@@ -24,30 +24,22 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class CrossMarginOverview
   {
-    [JsonPropertyName("control_status")]
     public XmControlStatus? ControlStatus { get; set; }
-    [JsonPropertyName("call_status")]
     public XmEntityCallStatus? CallStatus { get; set; }
-    [JsonPropertyName("margin_level")]
     public XmMarginLevel? MarginLevel { get; set; }
-    [JsonPropertyName("margin_summary")]
     public XmSummary? MarginSummary { get; set; }
     /// <summary>
     /// List of active Xm margin calls
     /// </summary>
-    [JsonPropertyName("active_margin_calls")]
     public List<XmMarginCall>? ActiveMarginCalls { get; set; }
     /// <summary>
     /// List of active Xm loans
     /// </summary>
-    [JsonPropertyName("active_loans")]
     public List<XmLoan>? ActiveLoans { get; set; }
-    [JsonPropertyName("active_liquidation")]
     public ActiveLiquidationSummary? ActiveLiquidation { get; set; }
     public CrossMarginOverview() { }
 

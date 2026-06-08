@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
   using CoinbaseSdk.Prime.Model.Enums;
 
@@ -25,16 +24,12 @@ namespace CoinbaseSdk.Prime.Financing
   /// </summary>
   public class GetCrossMarginPrimeOverviewResponse
   {
-    [JsonPropertyName("control_status")]
     public XmControlStatus? ControlStatus { get; set; }
 
-    [JsonPropertyName("margin_level")]
     public XmMarginLevel? MarginLevel { get; set; }
 
-    [JsonPropertyName("evaluated_at")]
     public string? EvaluatedAt { get; set; }
 
-    [JsonPropertyName("margin_summary")]
     public CrossMarginPrimeMarginSummary MarginSummary { get; set; }
 
     public GetCrossMarginPrimeOverviewResponse() { }

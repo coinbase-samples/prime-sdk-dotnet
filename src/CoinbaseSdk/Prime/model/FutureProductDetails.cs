@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class FutureProductDetails
@@ -32,48 +31,37 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Contract code identifier
     /// </summary>
-    [JsonPropertyName("contract_code")]
     public string? ContractCode { get; set; }
     /// <summary>
     /// Contract size
     /// </summary>
-    [JsonPropertyName("contract_size")]
     public string? ContractSize { get; set; }
     /// <summary>
     /// Contract expiry timestamp
     /// </summary>
-    [JsonPropertyName("contract_expiry")]
     public DateTime? ContractExpiry { get; set; }
     /// <summary>
     /// Contract root unit (underlying asset)
     /// </summary>
-    [JsonPropertyName("contract_root_unit")]
     public string? ContractRootUnit { get; set; }
-    [JsonPropertyName("contract_expiry_type")]
     public ContractExpiryType? ContractExpiryType { get; set; }
-    [JsonPropertyName("risk_managed_by")]
     public RiskManagementType? RiskManagedBy { get; set; }
     /// <summary>
     /// The venue this product trades on
     /// </summary>
-    [JsonPropertyName("venue")]
     public string? Venue { get; set; }
     /// <summary>
     /// Descriptive name for the product group
     /// </summary>
-    [JsonPropertyName("group_description")]
     public string? GroupDescription { get; set; }
     /// <summary>
     /// IANA time zone for contract expiration
     /// </summary>
-    [JsonPropertyName("contract_expiry_timezone")]
     public string? ContractExpiryTimezone { get; set; }
     /// <summary>
     /// Short version of the group description
     /// </summary>
-    [JsonPropertyName("group_short_description")]
     public string? GroupShortDescription { get; set; }
-    [JsonPropertyName("perpetual_details")]
     public PerpetualProductDetails? PerpetualDetails { get; set; }
     public FutureProductDetails() { }
 

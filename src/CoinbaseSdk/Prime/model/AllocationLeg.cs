@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class AllocationLeg
   {
     /// <summary>
     /// The ID of the portfolio of the allocation leg
     /// </summary>
-    [JsonPropertyName("allocation_leg_id")]
     public string AllocationLegId { get; set; } = default!;
     /// <summary>
     /// The ID of the destination portfolio of the allocation leg
     /// </summary>
-    [JsonPropertyName("destination_portfolio_id")]
     public string DestinationPortfolioId { get; set; } = default!;
     /// <summary>
     /// The amount size for the allocation leg
     /// </summary>
-    [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
     public AllocationLeg() { }
 

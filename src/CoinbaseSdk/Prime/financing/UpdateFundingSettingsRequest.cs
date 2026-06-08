@@ -27,19 +27,14 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("designated_funding_portfolio_id")]
     public string? DesignatedFundingPortfolioId { get; set; }
 
-    [JsonPropertyName("automatic_conversion_enabled")]
     public bool? AutomaticConversionEnabled { get; set; }
 
-    [JsonPropertyName("automatic_loan_enabled")]
     public bool? AutomaticLoanEnabled { get; set; }
 
-    [JsonPropertyName("automatic_excess_return_enabled")]
     public bool? AutomaticExcessReturnEnabled { get; set; }
 
-    [JsonPropertyName("excess_funds_target_amount")]
     public string? ExcessFundsTargetAmount { get; set; }
 
     public class UpdateFundingSettingsRequestBuilder

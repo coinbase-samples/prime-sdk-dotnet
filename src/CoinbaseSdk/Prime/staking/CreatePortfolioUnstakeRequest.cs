@@ -29,19 +29,14 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("metadata")]
-    public PortfolioStakingMetadata? Metadata { get; set; }
+    public PortfolioStakingMetadata Metadata { get; set; }
 
-    [JsonPropertyName("validator_provider")]
     public ValidatorProvider? ValidatorProvider { get; set; }
 
     public class CreatePortfolioUnstakeRequestBuilder
@@ -50,7 +45,7 @@ namespace CoinbaseSdk.Prime.Staking
       private string? _idempotencyKey;
       private string? _currencySymbol;
       private string? _amount;
-      private PortfolioStakingMetadata? _metadata;
+      private PortfolioStakingMetadata _metadata;
       private ValidatorProvider? _validatorProvider;
 
       public CreatePortfolioUnstakeRequestBuilder WithPortfolioId(string portfolioId)
@@ -77,7 +72,7 @@ namespace CoinbaseSdk.Prime.Staking
         return this;
       }
 
-      public CreatePortfolioUnstakeRequestBuilder WithMetadata(PortfolioStakingMetadata? metadata)
+      public CreatePortfolioUnstakeRequestBuilder WithMetadata(PortfolioStakingMetadata metadata)
       {
         _metadata = metadata;
         return this;

@@ -24,20 +24,14 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class AdvancedTransfer
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("type")]
     public AdvancedTransferType? Type { get; set; }
-    [JsonPropertyName("state")]
     public AdvancedTransferState? State { get; set; }
-    [JsonPropertyName("fund_movements")]
     public List<FundMovement>? FundMovements { get; set; }
-    [JsonPropertyName("blind_match_metadata")]
     public BlindMatchMetadata? BlindMatchMetadata { get; set; }
     public AdvancedTransfer() { }
 

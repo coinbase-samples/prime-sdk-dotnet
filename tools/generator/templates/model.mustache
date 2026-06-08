@@ -1,0 +1,9 @@
+{{>licenseInfo}}
+{{#models}}{{#model}}
+namespace CoinbaseSdk.Prime.Model{{#isEnum}}.Enums{{/isEnum}}
+{
+  using System.Text.Json.Serialization;
+
+{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>modelGeneric}}{{/isEnum}}
+}
+{{/model}}{{/models}}

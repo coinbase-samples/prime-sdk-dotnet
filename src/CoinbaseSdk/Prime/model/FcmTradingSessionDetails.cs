@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class FcmTradingSessionDetails
@@ -32,38 +31,29 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Whether the trading session is currently open
     /// </summary>
-    [JsonPropertyName("session_open")]
     public bool? SessionOpen { get; set; }
     /// <summary>
     /// Trading session open time
     /// </summary>
-    [JsonPropertyName("open_time")]
     public DateTime? OpenTime { get; set; }
     /// <summary>
     /// Trading session close time
     /// </summary>
-    [JsonPropertyName("close_time")]
     public DateTime? CloseTime { get; set; }
-    [JsonPropertyName("session_state")]
     public FcmTradingSessionState? SessionState { get; set; }
     /// <summary>
     /// Whether after-hours order entry is disabled
     /// </summary>
-    [JsonPropertyName("after_hours_order_entry_disabled")]
     public bool? AfterHoursOrderEntryDisabled { get; set; }
-    [JsonPropertyName("closed_reason")]
     public FcmTradingSessionClosedReason? ClosedReason { get; set; }
-    [JsonPropertyName("maintenance")]
     public FcmScheduledMaintenance? Maintenance { get; set; }
     /// <summary>
     /// Settlement timestamp from previous trading day
     /// </summary>
-    [JsonPropertyName("settlement_timestamp")]
     public DateTime? SettlementTimestamp { get; set; }
     /// <summary>
     /// Settlement price from previous trading day
     /// </summary>
-    [JsonPropertyName("settlement_price")]
     public string? SettlementPrice { get; set; }
     public FcmTradingSessionDetails() { }
 

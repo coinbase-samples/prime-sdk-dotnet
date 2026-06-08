@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class XmMarginCall
@@ -32,45 +31,34 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Financing margin call UUID
     /// </summary>
-    [JsonPropertyName("margin_call_id")]
     public string? MarginCallId { get; set; }
     /// <summary>
     /// Margin call currency
     /// </summary>
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
     /// <summary>
     /// Call amount (notional) as of the margin call creation
     /// </summary>
-    [JsonPropertyName("initial_notional_amount")]
     public string? InitialNotionalAmount { get; set; }
     /// <summary>
     /// Current outstanding call amount (notional)
     /// </summary>
-    [JsonPropertyName("outstanding_notional_amount")]
     public string? OutstandingNotionalAmount { get; set; }
-    [JsonPropertyName("margin_call_type")]
     public XmCallType? MarginCallType { get; set; }
-    [JsonPropertyName("margin_call_status")]
     public XmCallStatus? MarginCallStatus { get; set; }
-    [JsonPropertyName("called_with_margin_level")]
     public XmMarginLevel? CalledWithMarginLevel { get; set; }
-    [JsonPropertyName("called_with_margin_summary")]
     public XmSummary? CalledWithMarginSummary { get; set; }
     /// <summary>
     /// Timestamp when the margin call settlement is due
     /// </summary>
-    [JsonPropertyName("due_at")]
     public DateTime? DueAt { get; set; }
     /// <summary>
     /// Timestamp when the margin call was created
     /// </summary>
-    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
     /// <summary>
     /// Timestamp when the margin call was last updated
     /// </summary>
-    [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
     public XmMarginCall() { }
 

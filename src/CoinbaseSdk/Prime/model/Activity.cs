@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Activity
@@ -32,63 +31,46 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// A unique id for the account activity
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// A reference for orders and transactions, n/a for other category types
     /// </summary>
-    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
-    [JsonPropertyName("category")]
     public ActivityCategory? Category { get; set; }
-    [JsonPropertyName("type")]
     public PrimeActivityType? Type { get; set; }
-    [JsonPropertyName("secondary_type")]
     public ActivitySecondaryType? SecondaryType { get; set; }
-    [JsonPropertyName("status")]
     public ActivityStatus? Status { get; set; }
     /// <summary>
     /// Id of user who created the activity
     /// </summary>
-    [JsonPropertyName("created_by")]
     public string? CreatedBy { get; set; }
     /// <summary>
     /// Title of the activity
     /// </summary>
-    [JsonPropertyName("title")]
     public string? Title { get; set; }
     /// <summary>
     /// Description detail of the activity
     /// </summary>
-    [JsonPropertyName("description")]
     public string? Description { get; set; }
     /// <summary>
     /// Actions related to the Activity
     /// </summary>
-    [JsonPropertyName("user_actions")]
     public List<UserAction>? UserActions { get; set; }
-    [JsonPropertyName("transactions_metadata")]
     public ActivityMetadataTransactions? TransactionsMetadata { get; set; }
-    [JsonPropertyName("account_metadata")]
     public ActivityMetadataAccount? AccountMetadata { get; set; }
-    [JsonPropertyName("orders_metadata")]
     public Object? OrdersMetadata { get; set; }
     /// <summary>
     /// List of currencies included in an activity
     /// </summary>
-    [JsonPropertyName("symbols")]
     public List<string>? Symbols { get; set; }
     /// <summary>
     /// Time activity was created at
     /// </summary>
-    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
     /// <summary>
     /// Time for latest status update of account activity
     /// </summary>
-    [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
-    [JsonPropertyName("hierarchy_type")]
     public HierarchyType? HierarchyType { get; set; }
     public Activity() { }
 

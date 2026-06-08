@@ -24,11 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class ActivityMetadataAccount
   {
-    [JsonPropertyName("consensus")]
     public ActivityMetadataConsensus? Consensus { get; set; }
     public ActivityMetadataAccount() { }
 

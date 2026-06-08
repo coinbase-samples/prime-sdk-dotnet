@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PrimeXMMarginRequirementBreakdown
   {
     /// <summary>
     /// Base margin requirement component.
     /// </summary>
-    [JsonPropertyName("base_margin")]
     public string? BaseMargin { get; set; }
     /// <summary>
     /// Volatility add-on component.
     /// </summary>
-    [JsonPropertyName("volatility_addon")]
     public string? VolatilityAddon { get; set; }
     /// <summary>
     /// Liquidity add-on component.
     /// </summary>
-    [JsonPropertyName("liquidity_addon")]
     public string? LiquidityAddon { get; set; }
     /// <summary>
     /// Credits that offset margin charges due to portfolio composition.
     /// </summary>
-    [JsonPropertyName("offset_credit")]
     public string? OffsetCredit { get; set; }
     /// <summary>
     /// Futures margin charge applied for any futures trades of the opposing direction but of the same underlying.
     /// </summary>
-    [JsonPropertyName("futures_margin")]
     public string? FuturesMargin { get; set; }
     public PrimeXMMarginRequirementBreakdown() { }
 

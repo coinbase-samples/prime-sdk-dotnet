@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Locate
   {
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The available quantity located
     /// </summary>
-    [JsonPropertyName("quantity")]
     public string? Quantity { get; set; }
     /// <summary>
     /// The interest rate for located symbol
     /// </summary>
-    [JsonPropertyName("rate")]
     public string? Rate { get; set; }
     public Locate() { }
 

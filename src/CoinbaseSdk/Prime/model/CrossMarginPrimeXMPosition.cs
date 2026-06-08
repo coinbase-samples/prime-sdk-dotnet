@@ -24,84 +24,68 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CrossMarginPrimeXMPosition
   {
     /// <summary>
     /// Position currency
     /// </summary>
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
     /// <summary>
     /// Current market price
     /// </summary>
-    [JsonPropertyName("market_price")]
     public string? MarketPrice { get; set; }
     /// <summary>
     /// Xm spot balance nominal
     /// </summary>
-    [JsonPropertyName("spot_balance")]
     public string? SpotBalance { get; set; }
     /// <summary>
     /// Xm spot balance notional
     /// </summary>
-    [JsonPropertyName("spot_balance_notional")]
     public string? SpotBalanceNotional { get; set; }
     /// <summary>
     /// Xm futures balance nominal
     /// </summary>
-    [JsonPropertyName("futures_balance")]
     public string? FuturesBalance { get; set; }
     /// <summary>
     /// Xm futures balance notional
     /// </summary>
-    [JsonPropertyName("futures_balance_notional")]
     public string? FuturesBalanceNotional { get; set; }
     /// <summary>
     /// Base margin requirement notional
     /// </summary>
-    [JsonPropertyName("base_requirement")]
     public string? BaseRequirement { get; set; }
     /// <summary>
     /// Total margin required
     /// </summary>
-    [JsonPropertyName("total_position_margin")]
     public string? TotalPositionMargin { get; set; }
     /// <summary>
     /// Basis offset credit applied to this asset row.
     /// </summary>
-    [JsonPropertyName("basis_credit")]
     public string? BasisCredit { get; set; }
     /// <summary>
     /// Post-netting USD notional for futures on this asset
     /// </summary>
-    [JsonPropertyName("futures_netted_notional")]
     public string? FuturesNettedNotional { get; set; }
     /// <summary>
     /// Margin attributed to futures netting for this asset row.
     /// </summary>
-    [JsonPropertyName("futures_netting_margin")]
     public string? FuturesNettingMargin { get; set; }
     /// <summary>
     /// Per-asset long amount from position_summary.
     /// </summary>
-    [JsonPropertyName("long_amount")]
     public string? LongAmount { get; set; }
     /// <summary>
     /// Per-asset short amount from position_summary.
     /// </summary>
-    [JsonPropertyName("short_amount")]
     public string? ShortAmount { get; set; }
     /// <summary>
     /// Volatility margin add-on for this asset.
     /// </summary>
-    [JsonPropertyName("volatility_addon")]
     public string? VolatilityAddon { get; set; }
     /// <summary>
     /// Liquidity margin add-on for this asset.
     /// </summary>
-    [JsonPropertyName("liquidity_addon")]
     public string? LiquidityAddon { get; set; }
     public CrossMarginPrimeXMPosition() { }
 

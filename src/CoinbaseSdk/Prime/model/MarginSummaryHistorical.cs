@@ -24,21 +24,17 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class MarginSummaryHistorical
   {
     /// <summary>
     /// The UTC date time used for conversion
     /// </summary>
-    [JsonPropertyName("conversion_datetime")]
     public string? ConversionDatetime { get; set; }
     /// <summary>
     /// The date used for conversion
     /// </summary>
-    [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
-    [JsonPropertyName("margin_summary")]
     public MarginSummary? MarginSummary { get; set; }
     public MarginSummaryHistorical() { }
 

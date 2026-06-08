@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CrossMarginPrimeSpotEquityBreakdown
   {
     /// <summary>
     /// Pm cash balance component of spot equity.
     /// </summary>
-    [JsonPropertyName("cash_balance")]
     public string? CashBalance { get; set; }
     /// <summary>
     /// Long market value component of spot equity.
     /// </summary>
-    [JsonPropertyName("long_market_value")]
     public string? LongMarketValue { get; set; }
     /// <summary>
     /// Short market value component of spot equity.
     /// </summary>
-    [JsonPropertyName("short_market_value")]
     public string? ShortMarketValue { get; set; }
     /// <summary>
     /// Short collateral component of spot equity.
     /// </summary>
-    [JsonPropertyName("short_collateral")]
     public string? ShortCollateral { get; set; }
     /// <summary>
     /// Pending transfers affecting spot equity.
     /// </summary>
-    [JsonPropertyName("pending_transfers")]
     public string? PendingTransfers { get; set; }
     public CrossMarginPrimeSpotEquityBreakdown() { }
 

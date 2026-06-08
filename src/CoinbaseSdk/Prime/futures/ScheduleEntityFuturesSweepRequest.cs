@@ -27,10 +27,8 @@ namespace CoinbaseSdk.Prime.Futures
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 
     public class ScheduleEntityFuturesSweepRequestBuilder

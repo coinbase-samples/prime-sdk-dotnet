@@ -27,13 +27,10 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
-    [JsonPropertyName("start_date")]
     public string? StartDate { get; set; }
 
-    [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
     public class ListInterestAccrualsRequestBuilder

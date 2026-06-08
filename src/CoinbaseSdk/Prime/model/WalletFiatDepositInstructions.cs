@@ -24,22 +24,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class WalletFiatDepositInstructions
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("type")]
     public WalletDepositInstructionType? Type { get; set; }
-    [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
-    [JsonPropertyName("routing_number")]
     public string? RoutingNumber { get; set; }
-    [JsonPropertyName("reference_code")]
     public string? ReferenceCode { get; set; }
     public WalletFiatDepositInstructions() { }
 

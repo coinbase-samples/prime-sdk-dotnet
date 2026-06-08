@@ -28,7 +28,6 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("advanced_transfer")]
     public AdvancedTransfer AdvancedTransfer { get; set; }
 
     public class CreateAdvancedTransferRequestBuilder

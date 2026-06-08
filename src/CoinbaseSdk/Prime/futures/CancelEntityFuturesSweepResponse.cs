@@ -16,17 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Cancel Entity Futures Sweep.
   /// </summary>
   public class CancelEntityFuturesSweepResponse
   {
-    [JsonPropertyName("success")]
     public bool? Success { get; set; }
 
-    [JsonPropertyName("request_id")]
     public string? RequestId { get; set; }
 
     public CancelEntityFuturesSweepResponse() { }

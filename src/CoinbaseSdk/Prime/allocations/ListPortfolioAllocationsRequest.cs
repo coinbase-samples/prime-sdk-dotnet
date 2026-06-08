@@ -29,16 +29,12 @@ namespace CoinbaseSdk.Prime.Allocations
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("product_ids")]
     public string[] ProductIds { get; set; } = [];
 
-    [JsonPropertyName("order_side")]
     public OrderSide? OrderSide { get; set; }
 
-    [JsonPropertyName("start_date")]
     public string? StartDate { get; set; }
 
-    [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
     public class ListPortfolioAllocationsRequestBuilder

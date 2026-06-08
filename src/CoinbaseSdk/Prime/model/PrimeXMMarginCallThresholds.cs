@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PrimeXMMarginCallThresholds
   {
     /// <summary>
     /// Deficit threshold (DT).
     /// </summary>
-    [JsonPropertyName("deficit_threshold")]
     public string? DeficitThreshold { get; set; }
     /// <summary>
     /// Warning threshold (WT).
     /// </summary>
-    [JsonPropertyName("warning_threshold")]
     public string? WarningThreshold { get; set; }
     /// <summary>
     /// Urgent margin call threshold (UMCT).
     /// </summary>
-    [JsonPropertyName("critical_threshold")]
     public string? CriticalThreshold { get; set; }
     /// <summary>
     /// Liquidation threshold (LT).
     /// </summary>
-    [JsonPropertyName("liquidation_threshold")]
     public string? LiquidationThreshold { get; set; }
     /// <summary>
     /// Structured margin thresholds by margin level.
     /// </summary>
-    [JsonPropertyName("margin_thresholds")]
     public List<PrimeXMMarginThreshold>? MarginThresholds { get; set; }
     public PrimeXMMarginCallThresholds() { }
 

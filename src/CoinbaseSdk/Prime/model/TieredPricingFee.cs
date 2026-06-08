@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class TieredPricingFee
   {
     /// <summary>
     /// Asset symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The fee in bps
     /// </summary>
-    [JsonPropertyName("fee")]
     public string? Fee { get; set; }
     public TieredPricingFee() { }
 

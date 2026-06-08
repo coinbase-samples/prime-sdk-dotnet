@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class MarketRate
   {
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The current market rate of currency
     /// </summary>
-    [JsonPropertyName("rate")]
     public string? Rate { get; set; }
     public MarketRate() { }
 

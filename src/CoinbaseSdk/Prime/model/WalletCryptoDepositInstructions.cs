@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class WalletCryptoDepositInstructions
@@ -32,31 +31,24 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The ID of the wallet
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The name of the wallet
     /// </summary>
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("type")]
     public WalletDepositInstructionType? Type { get; set; }
     /// <summary>
     /// The address of the wallet
     /// </summary>
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
     /// <summary>
     /// The tag/memo of the address, if applicable - - required for certain assets (e.g. XRP, XLM, etc.)
     /// </summary>
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
     /// <summary>
     /// The blockchain network&#39;s terminology for the unique identifier used to identify the receiver of the transaction (different blockchain networks use different names, such as &#x60;destination_tag&#x60; or &#x60;memo&#x60;)
     /// </summary>
-    [JsonPropertyName("account_identifier_name")]
     public string? AccountIdentifierName { get; set; }
-    [JsonPropertyName("network")]
     public Network? Network { get; set; }
     public WalletCryptoDepositInstructions() { }
 

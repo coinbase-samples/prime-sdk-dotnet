@@ -24,39 +24,32 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PrimeXMOffsetCreditBreakdown
   {
     /// <summary>
     /// Basis offset credit component.
     /// </summary>
-    [JsonPropertyName("basis_credit")]
     public string? BasisCredit { get; set; }
     /// <summary>
     /// Long/short tier-pair offset credit.
     /// </summary>
-    [JsonPropertyName("long_short_credit")]
     public string? LongShortCredit { get; set; }
     /// <summary>
     /// Long/long tier-pair offset credit.
     /// </summary>
-    [JsonPropertyName("long_long_credit")]
     public string? LongLongCredit { get; set; }
     /// <summary>
     /// Short/short tier-pair offset credit.
     /// </summary>
-    [JsonPropertyName("short_short_credit")]
     public string? ShortShortCredit { get; set; }
     /// <summary>
     /// Same-tier offset credit.
     /// </summary>
-    [JsonPropertyName("same_tier_credit")]
     public string? SameTierCredit { get; set; }
     /// <summary>
     /// Total offset credit.
     /// </summary>
-    [JsonPropertyName("total_credit")]
     public string? TotalCredit { get; set; }
     public PrimeXMOffsetCreditBreakdown() { }
 

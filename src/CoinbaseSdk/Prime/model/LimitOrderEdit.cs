@@ -24,25 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class LimitOrderEdit
   {
-    [JsonPropertyName("price")]
     public string? Price { get; set; }
-    [JsonPropertyName("size")]
     public string? Size { get; set; }
-    [JsonPropertyName("display_size")]
     public string? DisplaySize { get; set; }
-    [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
-    [JsonPropertyName("stop_limit_price")]
     public string? StopLimitPrice { get; set; }
-    [JsonPropertyName("end_time")]
     public DateTime? EndTime { get; set; }
-    [JsonPropertyName("accept_time")]
     public DateTime? AcceptTime { get; set; }
-    [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
     public LimitOrderEdit() { }
 

@@ -24,42 +24,32 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CrossMarginPrimeRiskNettingInfo
   {
     /// <summary>
     /// Derivatives Clearing Organization Margin Requirement (DMR) is the margin requirement for all futures positions, derived from the Derivatives Clearing Organization model
     /// </summary>
-    [JsonPropertyName("dco_margin_requirement")]
     public string? DcoMarginRequirement { get; set; }
     /// <summary>
     /// Portfolio Margin Requirement (PmR) is the margin requirement for all spot positions, derived from the Xm model
     /// </summary>
-    [JsonPropertyName("portfolio_margin_requirement")]
     public string? PortfolioMarginRequirement { get; set; }
     /// <summary>
     /// Integrated Portfolio Margin Requirement (IPMR) is the margin requirement for all spot positions + futures positions with underlying assets eligible in Portfolio Margin.
     /// </summary>
-    [JsonPropertyName("integrated_portfolio_margin_requirement")]
     public string? IntegratedPortfolioMarginRequirement { get; set; }
     /// <summary>
     /// Ineligible Futures Margin Requirement (IFMR) is the margin requirement for IPMR-ineligible futures contracts
     /// </summary>
-    [JsonPropertyName("ineligible_futures_margin_requirement")]
     public string? IneligibleFuturesMarginRequirement { get; set; }
-    [JsonPropertyName("pmr_breakdown")]
     public PrimeXMMarginRequirementBreakdown? PmrBreakdown { get; set; }
-    [JsonPropertyName("ipmr_breakdown")]
     public PrimeXMMarginRequirementBreakdown? IpmrBreakdown { get; set; }
-    [JsonPropertyName("portfolio_margin_offset_credit_breakdown")]
     public PrimeXMOffsetCreditBreakdown? PortfolioMarginOffsetCreditBreakdown { get; set; }
-    [JsonPropertyName("integrated_portfolio_margin_offset_credit_breakdown")]
     public PrimeXMOffsetCreditBreakdown? IntegratedPortfolioMarginOffsetCreditBreakdown { get; set; }
     /// <summary>
     /// Netted positions used in the model calculation.
     /// </summary>
-    [JsonPropertyName("xm_positions")]
     public List<CrossMarginPrimeXMPosition>? XmPositions { get; set; }
     public CrossMarginPrimeRiskNettingInfo() { }
 

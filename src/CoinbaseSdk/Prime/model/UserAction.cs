@@ -24,22 +24,18 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class UserAction
   {
-    [JsonPropertyName("action")]
     public Action? Action { get; set; }
     /// <summary>
     /// Id of the user who executed the action
     /// </summary>
-    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
     /// <summary>
     /// Time the action was taken
     /// </summary>
-    [JsonPropertyName("timestamp")]
     public string? Timestamp { get; set; }
     public UserAction() { }
 

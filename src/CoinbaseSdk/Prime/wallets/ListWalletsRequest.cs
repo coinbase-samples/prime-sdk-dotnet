@@ -29,13 +29,10 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
-    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonPropertyName("get_network_unified_wallets")]
     public bool? GetNetworkUnifiedWallets { get; set; }
 
     public class ListWalletsRequestBuilder

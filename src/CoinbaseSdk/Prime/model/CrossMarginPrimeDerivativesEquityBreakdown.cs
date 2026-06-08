@@ -24,29 +24,24 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CrossMarginPrimeDerivativesEquityBreakdown
   {
     /// <summary>
     /// Derivatives cash balance component.
     /// </summary>
-    [JsonPropertyName("cash_balance")]
     public string? CashBalance { get; set; }
     /// <summary>
     /// Unrealized PnL component of derivatives equity.
     /// </summary>
-    [JsonPropertyName("unrealized_pnl")]
     public string? UnrealizedPnl { get; set; }
     /// <summary>
     /// Realized PnL component of derivatives equity.
     /// </summary>
-    [JsonPropertyName("realized_pnl")]
     public string? RealizedPnl { get; set; }
     /// <summary>
     /// Accrued funding PnL component of derivatives equity.
     /// </summary>
-    [JsonPropertyName("accrued_funding_pnl")]
     public string? AccruedFundingPnl { get; set; }
     public CrossMarginPrimeDerivativesEquityBreakdown() { }
 

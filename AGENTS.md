@@ -1,12 +1,13 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Keep the solution rooted at `prime-sdk-dotnet.sln`. Library code lives in `src/CoinbaseSdk/Prime` and runnable samples in `src/CoinbaseSdk/PrimeExample`. Shared analyzers are configured through `src/StyleCopRules.ruleset`. The OpenAPI spec is tracked at `apiSpec/prime-public-api-spec.yaml`; refresh it with `make fetch-spec`. SDK types and services are maintained in sync with that spec.
+Keep the solution rooted at `prime-sdk-dotnet.sln`. Library code lives in `src/CoinbaseSdk/Prime` and runnable samples in `src/CoinbaseSdk/PrimeExample`. Shared analyzers are configured through `src/StyleCopRules.ruleset`. The OpenAPI spec is tracked at `apiSpec/prime-public-api-spec.yaml`; refresh it with `make fetch-spec`. Regenerate models, enums, requests, responses, services, and examples with `make generate` (`tools/generator`).
 
 ## Build, Test, and Development Commands
 - `dotnet restore prime-sdk-dotnet.sln` installs all NuGet dependencies.
 - `dotnet build prime-sdk-dotnet.sln` compiles the library and samples.
 - `make fetch-spec` downloads the latest public OpenAPI spec into `apiSpec/prime-public-api-spec.yaml`.
+- `make generate` runs the holistic OpenAPI generator (`tools/generator`) against the committed spec, then `dotnet format`.
 - `dotnet run --project src/CoinbaseSdk/PrimeExample list` enumerates sample scenarios; swap `list` for any example command to execute it.
 
 ## Coding Style & Naming Conventions

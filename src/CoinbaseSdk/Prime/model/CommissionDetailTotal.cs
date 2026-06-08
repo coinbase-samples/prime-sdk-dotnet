@@ -24,35 +24,27 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CommissionDetailTotal
   {
-    [JsonPropertyName("total_commission")]
     public string? TotalCommission { get; set; }
     /// <summary>
     /// CB fee
     /// </summary>
-    [JsonPropertyName("client_commission")]
     public string? ClientCommission { get; set; }
     /// <summary>
     /// Exchange fees
     /// </summary>
-    [JsonPropertyName("venue_commission")]
     public string? VenueCommission { get; set; }
-    [JsonPropertyName("ces_commission")]
     public string? CesCommission { get; set; }
-    [JsonPropertyName("financing_commission")]
     public string? FinancingCommission { get; set; }
     /// <summary>
     /// NFA fees
     /// </summary>
-    [JsonPropertyName("regulatory_commission")]
     public string? RegulatoryCommission { get; set; }
     /// <summary>
     /// Clearing fees
     /// </summary>
-    [JsonPropertyName("clearing_commission")]
     public string? ClearingCommission { get; set; }
     public CommissionDetailTotal() { }
 

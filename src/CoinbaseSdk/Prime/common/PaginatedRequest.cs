@@ -16,18 +16,14 @@
 
 namespace CoinbaseSdk.Prime.Common
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public abstract class PaginatedRequest
   {
-    [JsonPropertyName("cursor")]
     public string? Cursor { get; set; }
 
-    [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
 
-    [JsonPropertyName("limit")]
     public int? Limit { get; set; }
 
     protected PaginatedRequest() { }

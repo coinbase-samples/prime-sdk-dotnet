@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Financing
   /// </summary>
   public class GetMarketDataResponse
   {
-    [JsonPropertyName("market_data")]
     public MarketData[] MarketData { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public GetMarketDataResponse() { }

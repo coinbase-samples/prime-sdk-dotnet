@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class CrossMarginPrimeMarginSummary
@@ -32,94 +31,72 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Cross Margin Margin Requirement (XmMR) notional.
     /// </summary>
-    [JsonPropertyName("margin_requirement")]
     public string? MarginRequirement { get; set; }
-    [JsonPropertyName("margin_requirement_type")]
     public PrimeXMMarginRequirementType? MarginRequirementType { get; set; }
     /// <summary>
     /// Equity notional.
     /// </summary>
-    [JsonPropertyName("account_equity")]
     public string? AccountEquity { get; set; }
     /// <summary>
     /// Equity - XmMR (margin excess is &gt; 0).
     /// </summary>
-    [JsonPropertyName("margin_excess_shortfall")]
     public string? MarginExcessShortfall { get; set; }
     /// <summary>
     /// Credit consumed from Cross Margin Credit Limit (XmCL).
     /// </summary>
-    [JsonPropertyName("consumed_credit")]
     public string? ConsumedCredit { get; set; }
     /// <summary>
     /// XM Credit Limit (XmCL) is the maximum notional USD of total fiat and digital asset loans.
     /// </summary>
-    [JsonPropertyName("xm_credit_limit")]
     public string? XmCreditLimit { get; set; }
     /// <summary>
     /// XM Margin Limit (XmML) is the maximum notional USD deficit.
     /// </summary>
-    [JsonPropertyName("xm_margin_limit")]
     public string? XmMarginLimit { get; set; }
     /// <summary>
     /// Amount of the Xm margin limit consumed by excess deficit.
     /// </summary>
-    [JsonPropertyName("consumed_margin_limit")]
     public string? ConsumedMarginLimit { get; set; }
     /// <summary>
     /// Equity attributed by spot.
     /// </summary>
-    [JsonPropertyName("spot_equity")]
     public string? SpotEquity { get; set; }
     /// <summary>
     /// Equity attributed by futures.
     /// </summary>
-    [JsonPropertyName("futures_equity")]
     public string? FuturesEquity { get; set; }
     /// <summary>
     /// Gross market value.
     /// </summary>
-    [JsonPropertyName("gross_market_value")]
     public string? GrossMarketValue { get; set; }
     /// <summary>
     /// Net market value.
     /// </summary>
-    [JsonPropertyName("net_market_value")]
     public string? NetMarketValue { get; set; }
     /// <summary>
     /// Net exposure.
     /// </summary>
-    [JsonPropertyName("net_exposure")]
     public string? NetExposure { get; set; }
     /// <summary>
     /// Gross leverage.
     /// </summary>
-    [JsonPropertyName("gross_leverage")]
     public string? GrossLeverage { get; set; }
-    [JsonPropertyName("spot_equity_breakdown")]
     public CrossMarginPrimeSpotEquityBreakdown? SpotEquityBreakdown { get; set; }
-    [JsonPropertyName("derivatives_equity_breakdown")]
     public CrossMarginPrimeDerivativesEquityBreakdown? DerivativesEquityBreakdown { get; set; }
-    [JsonPropertyName("risk_netting_info")]
     public CrossMarginPrimeRiskNettingInfo? RiskNettingInfo { get; set; }
-    [JsonPropertyName("health_status")]
     public PrimeXMHealthStatus? HealthStatus { get; set; }
     /// <summary>
     /// Equity ratio.
     /// </summary>
-    [JsonPropertyName("equity_ratio")]
     public string? EquityRatio { get; set; }
     /// <summary>
     /// Deficit ratio.
     /// </summary>
-    [JsonPropertyName("deficit_ratio")]
     public string? DeficitRatio { get; set; }
-    [JsonPropertyName("margin_thresholds")]
     public PrimeXMMarginCallThresholds? MarginThresholds { get; set; }
     /// <summary>
     /// Fcm excess available to return.
     /// </summary>
-    [JsonPropertyName("fcm_excess_available_to_return")]
     public string? FcmExcessAvailableToReturn { get; set; }
     public CrossMarginPrimeMarginSummary() { }
 

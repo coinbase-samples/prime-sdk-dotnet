@@ -14,19 +14,20 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.AdvancedTransfer
+using CoinbaseSdk.Tools.Generator.Processing;
+using Xunit;
+
+namespace CoinbaseSdk.Tools.Generator.Tests;
+
+public class SpecAnalyzerTests
 {
-  using System.Text.Json.Serialization;
-  using CoinbaseSdk.Prime.Model;
-
-  /// <summary>
-  /// Get Portfolio Counterparty ID.
-  /// </summary>
-  public class GetPortfolioCounterpartyIdResponse
+  [Theory]
+  [InlineData("Payment Methods", "paymentmethods")]
+  [InlineData("Onchain Address Book", "onchainaddressbook")]
+  [InlineData("Travel Rule", "travelrule")]
+  [InlineData("Orders", "orders")]
+  public void DefaultFolderFromTag_NormalizesToServiceKey(string tag, string expectedFolder)
   {
-    [JsonPropertyName("counterparty")]
-    public Counterparty Counterparty { get; set; }
-
-    public GetPortfolioCounterpartyIdResponse() { }
+    Assert.Equal(expectedFolder, SpecAnalyzer.DefaultFolderFromTag(tag));
   }
 }

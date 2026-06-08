@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,37 +23,26 @@ namespace CoinbaseSdk.Prime.Transactions
   /// </summary>
   public class CreateWithdrawalResponse
   {
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonPropertyName("approval_url")]
     public string? ApprovalUrl { get; set; }
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("fee")]
     public string? Fee { get; set; }
 
-    [JsonPropertyName("destination_type")]
     public string? DestinationType { get; set; }
 
-    [JsonPropertyName("source_type")]
     public string? SourceType { get; set; }
 
-    [JsonPropertyName("blockchain_destination")]
     public BlockchainAddress BlockchainDestination { get; set; }
 
-    [JsonPropertyName("counterparty_destination")]
     public CounterpartyDestination CounterpartyDestination { get; set; }
 
-    [JsonPropertyName("blockchain_source")]
     public BlockchainAddress BlockchainSource { get; set; }
 
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
     public CreateWithdrawalResponse() { }

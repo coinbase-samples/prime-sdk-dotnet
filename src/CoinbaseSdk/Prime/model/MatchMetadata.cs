@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class MatchMetadata
   {
     /// <summary>
     /// The reference id of the match
     /// </summary>
-    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
     /// <summary>
     /// The settlement date of the match
     /// </summary>
-    [JsonPropertyName("settlement_date")]
     public string? SettlementDate { get; set; }
     public MatchMetadata() { }
 

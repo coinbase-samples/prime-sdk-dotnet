@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Balances
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Balances
   /// </summary>
   public class GetWalletBalanceResponse
   {
-    [JsonPropertyName("balance")]
     public Balance Balance { get; set; }
 
     public GetWalletBalanceResponse() { }

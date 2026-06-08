@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class TierPairRateEntry
   {
     /// <summary>
     /// First tier in the pair.
     /// </summary>
-    [JsonPropertyName("tier_a")]
     public string? TierA { get; set; }
     /// <summary>
     /// Second tier in the pair.
     /// </summary>
-    [JsonPropertyName("tier_b")]
     public string? TierB { get; set; }
     /// <summary>
     /// Credit rate for this tier pair.
     /// </summary>
-    [JsonPropertyName("rate")]
     public string? Rate { get; set; }
     public TierPairRateEntry() { }
 

@@ -16,20 +16,15 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Update Funding Settings.
   /// </summary>
   public class UpdateFundingSettingsResponse
   {
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonPropertyName("activity_type")]
     public string? ActivityType { get; set; }
 
-    [JsonPropertyName("num_approvals_remaining")]
     public int? NumApprovalsRemaining { get; set; }
 
     public UpdateFundingSettingsResponse() { }

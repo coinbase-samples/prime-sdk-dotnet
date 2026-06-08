@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Users
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Users
   /// </summary>
   public class ListUsersResponse
   {
-    [JsonPropertyName("users")]
     public EntityUser[] Users { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListUsersResponse() { }

@@ -27,10 +27,8 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("start_date")]
     public string? StartDate { get; set; }
 
-    [JsonPropertyName("end_date")]
     public string? EndDate { get; set; }
 
     public class ListMarginConversionsRequestBuilder

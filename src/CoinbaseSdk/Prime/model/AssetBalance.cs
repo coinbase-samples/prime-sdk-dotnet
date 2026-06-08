@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class AssetBalance
   {
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Balance amount
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     /// <summary>
     /// Notional balance amount
     /// </summary>
-    [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
     /// <summary>
     /// Conversion rate
     /// </summary>
-    [JsonPropertyName("conversion_rate")]
     public string? ConversionRate { get; set; }
     public AssetBalance() { }
 

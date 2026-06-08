@@ -22,6 +22,8 @@ namespace CoinbaseSdk.Prime.Client
   using CoinbaseSdk.Core.Credentials;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Core.Http;
+  using CoinbaseSdk.Core.Serialization;
+  using CoinbaseSdk.Prime.Serialization;
 
   public class CoinbasePrimeClient : CoinbaseClient
   {
@@ -30,30 +32,40 @@ namespace CoinbaseSdk.Prime.Client
       Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "0.0.0";
 
     public CoinbasePrimeClient(CoinbaseCredentials credentials)
-      : base(credentials, DefaultApiBasePath) { }
+      : this(credentials, DefaultApiBasePath, null, null)
+    {
+    }
 
     public CoinbasePrimeClient(CoinbaseCredentials credentials, string apiBasePath)
-      : base(credentials, apiBasePath) { }
-
-    /// <summary>
-    /// Returns a new client with the given base path; credentials and behavior are otherwise unchanged.
-    /// Prefer this for single-call version overrides (e.g. v2) without mutating the shared client.
-    /// </summary>
-    /// <param name="apiBasePath">API base path (e.g. <c>api.prime.coinbase.com/v2</c>).</param>
-    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
-    public CoinbasePrimeClient WithApiBasePath(string apiBasePath)
+      : this(credentials, apiBasePath, null, null)
     {
-      return new CoinbasePrimeClient(this.Credentials, apiBasePath);
     }
 
     /// <summary>
-    /// Returns a new client whose base path uses <paramref name="version"/> instead of a trailing <c>/vN</c> segment.
+    /// Initializes a new instance of the <see cref="CoinbasePrimeClient"/> class.
+    /// Initializes a client with custom JSON serialization (advanced scenarios).
+    /// When <paramref name="jsonUtility"/> is null, uses <see cref="PrimeJsonDefaults.JsonUtility"/>.
     /// </summary>
-    /// <param name="version">Target API version (e.g. <c>v2</c>).</param>
-    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
-    public CoinbasePrimeClient WithApiVersion(string version)
+    public CoinbasePrimeClient(CoinbaseCredentials credentials, IJsonUtility? jsonUtility)
+      : this(credentials, DefaultApiBasePath, jsonUtility, null)
     {
-      return this.WithApiBasePath(PrimeApiPaths.VersionedApiBasePath(this.ApiBasePath, version));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CoinbasePrimeClient"/> class.
+    /// Initializes a client with a custom API base path and optional JSON / HTTP overrides.
+    /// </summary>
+    public CoinbasePrimeClient(
+      CoinbaseCredentials credentials,
+      string apiBasePath,
+      IJsonUtility? jsonUtility = null,
+      IHttpClient? httpClient = null)
+      : base(
+        credentials,
+        apiBasePath,
+        jsonUtility ?? PrimeJsonDefaults.JsonUtility,
+        httpClient)
+    {
     }
 
     public static CoinbasePrimeClient FromEnv(bool loadEnvFile = true)
@@ -87,6 +99,27 @@ namespace CoinbaseSdk.Prime.Client
     }
 
     /// <summary>
+    /// Returns a new client with the given base path; credentials and JSON behavior are otherwise unchanged.
+    /// Prefer this for single-call version overrides (e.g. v2) without mutating the shared client.
+    /// </summary>
+    /// <param name="apiBasePath">API base path (e.g. <c>api.prime.coinbase.com/v2</c>).</param>
+    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
+    public CoinbasePrimeClient WithApiBasePath(string apiBasePath)
+    {
+      return new CoinbasePrimeClient(this.Credentials, apiBasePath, this.JsonUtility, null);
+    }
+
+    /// <summary>
+    /// Returns a new client whose base path uses <paramref name="version"/> instead of a trailing <c>/vN</c> segment.
+    /// </summary>
+    /// <param name="version">Target API version (e.g. <c>v2</c>).</param>
+    /// <returns>A new <see cref="CoinbasePrimeClient"/> instance.</returns>
+    public CoinbasePrimeClient WithApiVersion(string version)
+    {
+      return this.WithApiBasePath(PrimeApiPaths.VersionedApiBasePath(this.ApiBasePath, version));
+    }
+
+    /// <summary>
     /// Configures the request by adding Prime SDK-specific headers.
     /// </summary>
     protected override void ConfigureRequest(CoinbaseHttpRequest request)
@@ -105,12 +138,13 @@ namespace CoinbaseSdk.Prime.Client
         CoinbasePrimeErrorMessage errorMessage;
         try
         {
-          errorMessage = JsonUtility.Deserialize<CoinbasePrimeErrorMessage>(response.Content);
+          errorMessage = this.JsonUtility.Deserialize<CoinbasePrimeErrorMessage>(response.Content);
         }
         catch (Exception)
         {
           throw new CoinbaseException(response.StatusCode, response.Content);
         }
+
         throw errorMessage.CreateCoinbaseException();
       }
     }

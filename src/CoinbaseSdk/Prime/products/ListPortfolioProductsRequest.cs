@@ -29,13 +29,10 @@ namespace CoinbaseSdk.Prime.Products
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("product_type")]
     public string? ProductType { get; set; }
 
-    [JsonPropertyName("contract_expiry_type")]
     public string? ContractExpiryType { get; set; }
 
-    [JsonPropertyName("expiring_contract_status")]
     public string? ExpiringContractStatus { get; set; }
 
     public class ListPortfolioProductsRequestBuilder

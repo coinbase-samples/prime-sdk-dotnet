@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Products
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Products
   /// </summary>
   public class GetCandlesResponse
   {
-    [JsonPropertyName("candles")]
     public Candle[] Candles { get; set; } = [];
 
     public GetCandlesResponse() { }

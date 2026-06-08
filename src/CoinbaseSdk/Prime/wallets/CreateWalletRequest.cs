@@ -29,22 +29,16 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
-    [JsonPropertyName("wallet_type")]
     public WalletType? WalletType { get; set; }
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("network_family")]
     public NetworkFamily? NetworkFamily { get; set; }
 
-    [JsonPropertyName("network")]
     public Network Network { get; set; }
 
     public class CreateWalletRequestBuilder

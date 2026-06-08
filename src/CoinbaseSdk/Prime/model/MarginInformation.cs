@@ -24,16 +24,13 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class MarginInformation
   {
     /// <summary>
     /// The current margin call records
     /// </summary>
-    [JsonPropertyName("margin_call_records")]
     public List<MarginCallRecord>? MarginCallRecords { get; set; }
-    [JsonPropertyName("margin_summary")]
     public MarginSummary? MarginSummary { get; set; }
     public MarginInformation() { }
 

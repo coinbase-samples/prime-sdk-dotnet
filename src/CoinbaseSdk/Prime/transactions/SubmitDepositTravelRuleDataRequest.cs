@@ -31,16 +31,12 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string TransactionId { get; set; } = transactionId;
 
-    [JsonPropertyName("originator")]
     public TravelRuleParty Originator { get; set; }
 
-    [JsonPropertyName("beneficiary")]
     public TravelRuleParty Beneficiary { get; set; }
 
-    [JsonPropertyName("is_self")]
     public bool? IsSelf { get; set; }
 
-    [JsonPropertyName("opt_out_of_ownership_verification")]
     public bool? OptOutOfOwnershipVerification { get; set; }
 
     public class SubmitDepositTravelRuleDataRequestBuilder

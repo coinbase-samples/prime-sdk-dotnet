@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Invoice
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Invoice
   /// </summary>
   public class ListInvoicesResponse
   {
-    [JsonPropertyName("invoices")]
     public Invoice[] Invoices { get; set; } = [];
 
     public ListInvoicesResponse() { }

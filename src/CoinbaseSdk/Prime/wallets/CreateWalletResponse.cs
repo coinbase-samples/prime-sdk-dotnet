@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Wallets
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
@@ -24,19 +23,14 @@ namespace CoinbaseSdk.Prime.Wallets
   /// </summary>
   public class CreateWalletResponse
   {
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
-    [JsonPropertyName("wallet_type")]
     public WalletType? WalletType { get; set; }
 
-    [JsonPropertyName("network_family")]
     public NetworkFamily? NetworkFamily { get; set; }
 
     public CreateWalletResponse() { }

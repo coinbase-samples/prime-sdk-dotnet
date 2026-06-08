@@ -31,7 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoinbaseSdk.Core" Version="0.1.0" />
+    <!-- Prefer local core-dotnet during development; release uses NuGet >= 0.2.1 (CloneDefaultOptions). -->
+    <ProjectReference Condition="Exists('../../../../core-dotnet/src/CoinbaseSdk/Core/CoinbaseSdk.Core.csproj')"
+                      Include="../../../../core-dotnet/src/CoinbaseSdk/Core/CoinbaseSdk.Core.csproj" />
+    <PackageReference Condition="!Exists('../../../../core-dotnet/src/CoinbaseSdk/Core/CoinbaseSdk.Core.csproj')"
+                      Include="CoinbaseSdk.Core" Version="0.2.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Stylecop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Orders
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
@@ -24,70 +23,48 @@ namespace CoinbaseSdk.Prime.Orders
   /// </summary>
   public class GetOrderPreviewResponse
   {
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonPropertyName("side")]
     public OrderSide? Side { get; set; }
 
-    [JsonPropertyName("type")]
     public OrderType? Type { get; set; }
 
-    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
 
-    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
 
-    [JsonPropertyName("limit_price")]
     public string? LimitPrice { get; set; }
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("expiry_time")]
     public string? ExpiryTime { get; set; }
 
-    [JsonPropertyName("time_in_force")]
     public TimeInForceType? TimeInForce { get; set; }
 
-    [JsonPropertyName("commission")]
     public string? Commission { get; set; }
 
-    [JsonPropertyName("slippage")]
     public string? Slippage { get; set; }
 
-    [JsonPropertyName("best_bid")]
     public string? BestBid { get; set; }
 
-    [JsonPropertyName("best_ask")]
     public string? BestAsk { get; set; }
 
-    [JsonPropertyName("average_filled_price")]
     public string? AverageFilledPrice { get; set; }
 
-    [JsonPropertyName("order_total")]
     public string? OrderTotal { get; set; }
 
-    [JsonPropertyName("historical_pov")]
     public string? HistoricalPov { get; set; }
 
-    [JsonPropertyName("is_raise_exact")]
     public bool? IsRaiseExact { get; set; }
 
-    [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
 
-    [JsonPropertyName("display_size")]
     public string? DisplaySize { get; set; }
 
-    [JsonPropertyName("display_quote_size")]
     public string? DisplayQuoteSize { get; set; }
 
-    [JsonPropertyName("display_base_size")]
     public string? DisplayBaseSize { get; set; }
 
     public GetOrderPreviewResponse() { }

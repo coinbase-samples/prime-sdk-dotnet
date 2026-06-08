@@ -24,12 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class ProcessRequirements
   {
-    [JsonPropertyName("travel_rule_status")]
     public TravelRuleStatus? TravelRuleStatus { get; set; }
     public ProcessRequirements() { }
 

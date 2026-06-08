@@ -24,16 +24,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class PrimeXMMarginThreshold
   {
-    [JsonPropertyName("margin_level")]
     public XmMarginLevel? MarginLevel { get; set; }
-    [JsonPropertyName("threshold_type")]
     public PrimeXMMarginThresholdType? ThresholdType { get; set; }
-    [JsonPropertyName("threshold_value")]
     public string? ThresholdValue { get; set; }
     public PrimeXMMarginThreshold() { }
 

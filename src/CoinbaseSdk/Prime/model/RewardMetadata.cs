@@ -24,12 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class RewardMetadata
   {
-    [JsonPropertyName("subtype")]
     public RewardSubtype? Subtype { get; set; }
     public RewardMetadata() { }
 

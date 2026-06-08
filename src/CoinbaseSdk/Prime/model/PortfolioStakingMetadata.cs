@@ -24,14 +24,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PortfolioStakingMetadata
   {
     /// <summary>
     /// An optional custom identifier (up to 255 characters) to attach to the transaction.  This is not a searchable transaction field.
     /// </summary>
-    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
     public PortfolioStakingMetadata() { }
 

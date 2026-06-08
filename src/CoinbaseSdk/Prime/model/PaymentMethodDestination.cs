@@ -24,11 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PaymentMethodDestination
   {
-    [JsonPropertyName("payment_method_id")]
     public string? PaymentMethodId { get; set; }
     public PaymentMethodDestination() { }
 

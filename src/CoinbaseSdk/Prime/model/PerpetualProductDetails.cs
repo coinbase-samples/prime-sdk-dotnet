@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PerpetualProductDetails
   {
     /// <summary>
     /// Open interest
     /// </summary>
-    [JsonPropertyName("open_interest")]
     public string? OpenInterest { get; set; }
     /// <summary>
     /// Current funding rate
     /// </summary>
-    [JsonPropertyName("funding_rate")]
     public string? FundingRate { get; set; }
     /// <summary>
     /// Next funding time
     /// </summary>
-    [JsonPropertyName("funding_time")]
     public DateTime? FundingTime { get; set; }
     /// <summary>
     /// Maximum leverage allowed
     /// </summary>
-    [JsonPropertyName("max_leverage")]
     public string? MaxLeverage { get; set; }
     /// <summary>
     /// The type of underlying for the perpetual product
     /// </summary>
-    [JsonPropertyName("underlying_type")]
     public string? UnderlyingType { get; set; }
     public PerpetualProductDetails() { }
 

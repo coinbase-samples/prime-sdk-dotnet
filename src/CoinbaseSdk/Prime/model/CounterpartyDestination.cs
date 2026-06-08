@@ -24,11 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CounterpartyDestination
   {
-    [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
     public CounterpartyDestination() { }
 

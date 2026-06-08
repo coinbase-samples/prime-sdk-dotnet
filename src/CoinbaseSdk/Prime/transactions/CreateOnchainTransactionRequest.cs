@@ -31,13 +31,10 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("raw_unsigned_txn")]
     public string? RawUnsignedTxn { get; set; }
 
-    [JsonPropertyName("rpc")]
     public RpcConfig Rpc { get; set; }
 
-    [JsonPropertyName("evm_params")]
     public EvmParams EvmParams { get; set; }
 
     public class CreateOnchainTransactionRequestBuilder

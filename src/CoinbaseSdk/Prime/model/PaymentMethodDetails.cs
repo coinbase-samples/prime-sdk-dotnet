@@ -24,22 +24,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class PaymentMethodDetails
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-    [JsonPropertyName("payment_method_type")]
     public PaymentMethodType? PaymentMethodType { get; set; }
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
-    [JsonPropertyName("bank_code")]
     public string? BankCode { get; set; }
     public PaymentMethodDetails() { }
 

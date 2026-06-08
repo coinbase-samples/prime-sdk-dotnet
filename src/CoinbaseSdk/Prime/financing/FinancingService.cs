@@ -17,27 +17,12 @@
 namespace CoinbaseSdk.Prime.Financing
 {
   using System.Net;
-  using System.Threading;
-  using System.Threading.Tasks;
   using CoinbaseSdk.Core.Client;
   using CoinbaseSdk.Core.Http;
   using CoinbaseSdk.Core.Service;
-  using CoinbaseSdk.Prime.Client;
 
   public class FinancingService(ICoinbaseClient client) : CoinbaseService(client), IFinancingService
   {
-    private ICoinbaseClient CreateV2Client()
-    {
-      if (this.Client is CoinbasePrimeClient primeClient)
-      {
-        return primeClient.WithApiVersion("v2");
-      }
-
-      return new CoinbasePrimeClient(
-        this.Client.Credentials,
-        PrimeApiPaths.VersionedApiBasePath(this.Client.ApiBasePath, "v2"));
-    }
-
     /// <summary>
     /// List Interest Accruals.
     /// </summary>
@@ -478,10 +463,12 @@ namespace CoinbaseSdk.Prime.Financing
       GetCrossMarginPrimeOverviewRequest request,
       CallOptions? options = null)
     {
-      return this.GetCrossMarginPrimeOverviewAsync(request, options, default)
-        .ConfigureAwait(false)
-        .GetAwaiter()
-        .GetResult();
+      return Request<GetCrossMarginPrimeOverviewResponse>(
+        HttpMethod.Get,
+        $"/v2/entities/{request.EntityId}/cross_margin/prime",
+        [HttpStatusCode.OK],
+        null,
+        options);
     }
 
     public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
@@ -489,14 +476,13 @@ namespace CoinbaseSdk.Prime.Financing
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      var v2Client = this.CreateV2Client();
-      return v2Client.SendRequestAsync<GetCrossMarginPrimeOverviewResponse>(
+      return RequestAsync<GetCrossMarginPrimeOverviewResponse>(
         HttpMethod.Get,
-        $"/entities/{request.EntityId}/cross_margin/prime",
-        null,
+        $"/v2/entities/{request.EntityId}/cross_margin/prime",
         [HttpStatusCode.OK],
-        cancellationToken,
-        options);
+        null,
+        options,
+        cancellationToken);
     }
 
     /// <summary>

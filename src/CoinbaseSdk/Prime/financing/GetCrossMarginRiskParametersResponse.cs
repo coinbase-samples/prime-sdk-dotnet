@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,20 +23,15 @@ namespace CoinbaseSdk.Prime.Financing
   /// </summary>
   public class GetCrossMarginRiskParametersResponse
   {
-    [JsonPropertyName("risk_parameters")]
     public CrossMarginRiskParameters[] RiskParameters { get; set; } = [];
 
-    [JsonPropertyName("offset_credit_matrix_long_short")]
     public TierPairRateEntry[] OffsetCreditMatrixLongShort { get; set; } = [];
 
-    [JsonPropertyName("offset_credit_matrix_long_long")]
     public TierPairRateEntry[] OffsetCreditMatrixLongLong { get; set; } = [];
 
-    [JsonPropertyName("offset_credit_matrix_short_short")]
     public TierPairRateEntry[] OffsetCreditMatrixShortShort { get; set; } = [];
 
-    [JsonPropertyName("margin_period_of_risk")]
-    public double? MarginPeriodOfRisk { get; set; }
+    public string? MarginPeriodOfRisk { get; set; }
 
     public GetCrossMarginRiskParametersResponse() { }
   }

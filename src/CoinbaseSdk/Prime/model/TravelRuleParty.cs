@@ -24,39 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class TravelRuleParty
   {
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("natural_person_name")]
     public NaturalPersonName? NaturalPersonName { get; set; }
-    [JsonPropertyName("address")]
     public DetailedAddress? Address { get; set; }
-    [JsonPropertyName("wallet_type")]
     public TravelRuleWalletType? WalletType { get; set; }
-    [JsonPropertyName("vasp_id")]
     public string? VaspId { get; set; }
-    [JsonPropertyName("vasp_name")]
     public string? VaspName { get; set; }
     /// <summary>
     /// Personal identifier for travel rule compliance. For individuals: passport number, national ID, driver&#39;s license. For institutions: LEI (Legal Entity Identifier).
     /// </summary>
-    [JsonPropertyName("personal_id")]
     public string? PersonalId { get; set; }
-    [JsonPropertyName("date_of_birth")]
     public DateOfBirth? DateOfBirth { get; set; }
     /// <summary>
     /// Telephone number for contact purposes.
     /// </summary>
-    [JsonPropertyName("telephone_number")]
     public string? TelephoneNumber { get; set; }
     /// <summary>
     /// Account identifier for travel rule compliance. If not provided, defaults to portfolio ID.
     /// </summary>
-    [JsonPropertyName("account_id")]
     public string? AccountId { get; set; }
     public TravelRuleParty() { }
 

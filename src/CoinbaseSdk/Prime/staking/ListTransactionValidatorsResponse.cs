@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Staking
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Staking
   /// </summary>
   public class ListTransactionValidatorsResponse
   {
-    [JsonPropertyName("transaction_validators")]
     public TransactionValidator[] TransactionValidators { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListTransactionValidatorsResponse() { }

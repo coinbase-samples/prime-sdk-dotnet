@@ -24,61 +24,49 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class PostTradeCreditInformation
   {
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     /// <summary>
     /// The currency symbol credit is denoted in
     /// </summary>
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
     /// <summary>
     /// The maximum credit limit
     /// </summary>
-    [JsonPropertyName("limit")]
     public string? Limit { get; set; }
     /// <summary>
     /// The amount of credit used
     /// </summary>
-    [JsonPropertyName("utilized")]
     public string? Utilized { get; set; }
     /// <summary>
     /// The amount of credit available
     /// </summary>
-    [JsonPropertyName("available")]
     public string? Available { get; set; }
     /// <summary>
     /// Whether or not a portfolio is frozen due to balance outstanding or other reason
     /// </summary>
-    [JsonPropertyName("frozen")]
     public bool? Frozen { get; set; }
     /// <summary>
     /// The reason why the portfolio is frozen
     /// </summary>
-    [JsonPropertyName("frozen_reason")]
     public string? FrozenReason { get; set; }
-    [JsonPropertyName("amounts_due")]
     public List<AmountDue>? AmountsDue { get; set; }
     /// <summary>
     /// Whether the portfolio has credit enabled
     /// </summary>
-    [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
     /// <summary>
     /// The amount of adjusted credit used
     /// </summary>
-    [JsonPropertyName("adjusted_credit_utilized")]
     public string? AdjustedCreditUtilized { get; set; }
     /// <summary>
     /// The amount of adjusted portfolio equity
     /// </summary>
-    [JsonPropertyName("adjusted_portfolio_equity")]
     public string? AdjustedPortfolioEquity { get; set; }
     public PostTradeCreditInformation() { }
 

@@ -31,42 +31,34 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Nominal amount of the currency
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     /// <summary>
     /// Spot price for the currency
     /// </summary>
-    [JsonPropertyName("price")]
     public string? Price { get; set; }
     /// <summary>
     /// Notional amount of the currency
     /// </summary>
-    [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
     /// <summary>
     /// Asset tier of the currency
     /// </summary>
-    [JsonPropertyName("asset_tier")]
     public string? AssetTier { get; set; }
     /// <summary>
     /// Whether the currency is margin eligible
     /// </summary>
-    [JsonPropertyName("margin_eligible")]
     public bool? MarginEligible { get; set; }
     /// <summary>
     /// Base margin requirement of the currency
     /// </summary>
-    [JsonPropertyName("base_margin_requirement")]
     public string? BaseMarginRequirement { get; set; }
     /// <summary>
     /// Notional amount of the currency&#39;s base margin requirement
     /// </summary>
-    [JsonPropertyName("base_margin_requirement_notional")]
     public string? BaseMarginRequirementNotional { get; set; }
     /// <summary>
     /// The 30d adv of the currency
@@ -91,27 +83,22 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Volatility margin addon of the currency position
     /// </summary>
-    [JsonPropertyName("volatility_addon")]
     public string? VolatilityAddon { get; set; }
     /// <summary>
     /// Liquidity margin addon of the currency position
     /// </summary>
-    [JsonPropertyName("liquidity_addon")]
     public string? LiquidityAddon { get; set; }
     /// <summary>
     /// Total position margin of the currency
     /// </summary>
-    [JsonPropertyName("total_position_margin")]
     public string? TotalPositionMargin { get; set; }
     /// <summary>
     /// Nominal short position of the currency
     /// </summary>
-    [JsonPropertyName("short_nominal")]
     public string? ShortNominal { get; set; }
     /// <summary>
     /// Nominal long position of the currency
     /// </summary>
-    [JsonPropertyName("long_nominal")]
     public string? LongNominal { get; set; }
     public PmAssetInfo() { }
 

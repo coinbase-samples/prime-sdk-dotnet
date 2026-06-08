@@ -24,15 +24,11 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class AddressEntry
   {
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
-    [JsonPropertyName("chain_ids")]
     public List<string>? ChainIds { get; set; }
     public AddressEntry() { }
 

@@ -29,15 +29,10 @@ namespace CoinbaseSdk.Prime.Model
 
   public class PaymentMethodSummary
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-    [JsonPropertyName("payment_method_type")]
     public PaymentMethodType? PaymentMethodType { get; set; }
-    [JsonPropertyName("bank_name")]
     public string? BankName { get; set; }
-    [JsonPropertyName("account_number")]
     public string? AccountNumber { get; set; }
     [JsonPropertyName("bank_name_2")]
     public string? BankName2 { get; set; }

@@ -24,15 +24,11 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class DefiBalance
   {
-    [JsonPropertyName("network")]
     public string? Network { get; set; }
-    [JsonPropertyName("protocol")]
     public string? Protocol { get; set; }
-    [JsonPropertyName("net_usd_value")]
     public string? NetUsdValue { get; set; }
     public DefiBalance() { }
 

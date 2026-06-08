@@ -16,20 +16,15 @@
 
 namespace CoinbaseSdk.Prime.Staking
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Claim Wallet Staking Rewards (Alpha).
   /// </summary>
   public class ClaimStakingRewardsResponse
   {
-    [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
 
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
     public ClaimStakingRewardsResponse() { }

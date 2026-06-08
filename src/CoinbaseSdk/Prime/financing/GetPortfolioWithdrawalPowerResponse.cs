@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Financing
   /// </summary>
   public class GetPortfolioWithdrawalPowerResponse
   {
-    [JsonPropertyName("withdrawal_power")]
     public WithdrawalPower WithdrawalPower { get; set; }
 
     public GetPortfolioWithdrawalPowerResponse() { }

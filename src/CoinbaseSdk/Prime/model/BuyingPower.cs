@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class BuyingPower
   {
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     /// <summary>
     /// The symbol for the base currency
     /// </summary>
-    [JsonPropertyName("base_currency")]
     public string? BaseCurrency { get; set; }
     /// <summary>
     /// The symbol for the quote currency
     /// </summary>
-    [JsonPropertyName("quote_currency")]
     public string? QuoteCurrency { get; set; }
     /// <summary>
     /// The buying power for the base currency
     /// </summary>
-    [JsonPropertyName("base_buying_power")]
     public string? BaseBuyingPower { get; set; }
     /// <summary>
     /// The buying power for the quote currency
     /// </summary>
-    [JsonPropertyName("quote_buying_power")]
     public string? QuoteBuyingPower { get; set; }
     public BuyingPower() { }
 

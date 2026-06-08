@@ -24,27 +24,22 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class TransferLocation
   {
-    [JsonPropertyName("type")]
     public TransferLocationType? Type { get; set; }
     /// <summary>
     /// The value of the transfer location: payment method ID, wallet ID or crypto address
     /// </summary>
-    [JsonPropertyName("value")]
     public string? Value { get; set; }
     /// <summary>
     /// The crypto address of the transfer location
     /// </summary>
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
     /// <summary>
     /// The tag/memo of the address, if applicable - - required for certain assets (e.g. XRP, XLM, etc.)
     /// </summary>
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
     public TransferLocation() { }
 

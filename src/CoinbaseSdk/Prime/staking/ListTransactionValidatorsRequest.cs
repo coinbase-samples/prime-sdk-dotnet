@@ -28,16 +28,12 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("transaction_ids")]
     public string[] TransactionIds { get; set; } = [];
 
-    [JsonPropertyName("cursor")]
     public string? Cursor { get; set; }
 
-    [JsonPropertyName("limit")]
     public int? Limit { get; set; }
 
-    [JsonPropertyName("sort_direction")]
     public SortDirection? SortDirection { get; set; }
 
     public class ListTransactionValidatorsRequestBuilder

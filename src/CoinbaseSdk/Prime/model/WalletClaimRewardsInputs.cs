@@ -24,14 +24,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class WalletClaimRewardsInputs
   {
     /// <summary>
     /// Optional amount to claim rewards (ETH only). If omitted, the wallet will claim the maximum amount available
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     public WalletClaimRewardsInputs() { }
 

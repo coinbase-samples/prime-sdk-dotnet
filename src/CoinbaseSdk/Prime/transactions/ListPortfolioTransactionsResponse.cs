@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Transactions
   /// </summary>
   public class ListPortfolioTransactionsResponse
   {
-    [JsonPropertyName("transactions")]
     public Transaction[] Transactions { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListPortfolioTransactionsResponse() { }

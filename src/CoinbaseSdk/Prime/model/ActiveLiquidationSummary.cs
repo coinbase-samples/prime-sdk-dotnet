@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class ActiveLiquidationSummary
@@ -32,14 +31,11 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Financing liquidation UUID
     /// </summary>
-    [JsonPropertyName("liquidation_id")]
     public string? LiquidationId { get; set; }
-    [JsonPropertyName("status")]
     public XmLiquidationStatus? Status { get; set; }
     /// <summary>
     /// USD notional shortfall amount that triggered the liquidation
     /// </summary>
-    [JsonPropertyName("shortfall_amount")]
     public string? ShortfallAmount { get; set; }
     public ActiveLiquidationSummary() { }
 

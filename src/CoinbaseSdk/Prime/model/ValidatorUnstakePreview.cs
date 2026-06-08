@@ -24,29 +24,24 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class ValidatorUnstakePreview
   {
     /// <summary>
     /// Public address of the validator being unstaked from
     /// </summary>
-    [JsonPropertyName("validator_address")]
     public string? ValidatorAddress { get; set; }
     /// <summary>
     /// Estimated amount that would be unstaked from this validator (in ETH)
     /// </summary>
-    [JsonPropertyName("estimated_unstaking_amount")]
     public string? EstimatedUnstakingAmount { get; set; }
     /// <summary>
     /// Estimated time until this validator&#39;s unstake completes, in hours
     /// </summary>
-    [JsonPropertyName("unstake_time_estimate_in_hours")]
     public double? UnstakeTimeEstimateInHours { get; set; }
     /// <summary>
     /// Estimated date when this validator&#39;s unstake will complete (ISO 8601)
     /// </summary>
-    [JsonPropertyName("estimated_unstake_date")]
     public string? EstimatedUnstakeDate { get; set; }
     public ValidatorUnstakePreview() { }
 

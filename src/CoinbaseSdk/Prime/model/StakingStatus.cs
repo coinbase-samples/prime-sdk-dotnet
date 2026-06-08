@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class StakingStatus
@@ -32,24 +31,19 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Amount being staked (whole amount, e.g., 16 ETH)
     /// </summary>
-    [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
-    [JsonPropertyName("stake_type")]
     public StakeType StakeType { get; set; } = default!;
     /// <summary>
     /// Estimated date when staking will complete (ISO 8601 format)
     /// </summary>
-    [JsonPropertyName("estimated_stake_date")]
     public DateTime EstimatedStakeDate { get; set; } = default!;
     /// <summary>
     /// Estimated hours until this staking request completes
     /// </summary>
-    [JsonPropertyName("estimated_hours_to_stake")]
     public long EstimatedHoursToStake { get; set; } = default!;
     /// <summary>
     /// Timestamp when the stake request was originally created
     /// </summary>
-    [JsonPropertyName("requested_at")]
     public DateTime? RequestedAt { get; set; }
     public StakingStatus() { }
 

@@ -71,12 +71,12 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
     /// <summary>
     /// Get Portfolio Counterparty ID.
     /// </summary>
-    public GetPortfolioCounterpartyIdResponse GetPortfolioCounterpartyId(
-      GetPortfolioCounterpartyIdRequest request,
+    public GetPortfolioCounterpartyResponse GetPortfolioCounterparty(
+      GetPortfolioCounterpartyRequest request,
       CallOptions? options = null);
 
-    public Task<GetPortfolioCounterpartyIdResponse> GetPortfolioCounterpartyIdAsync(
-      GetPortfolioCounterpartyIdRequest request,
+    public Task<GetPortfolioCounterpartyResponse> GetPortfolioCounterpartyAsync(
+      GetPortfolioCounterpartyRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

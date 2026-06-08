@@ -27,16 +27,12 @@ namespace CoinbaseSdk.Prime.Products
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
-    [JsonPropertyName("granularity")]
     public string? Granularity { get; set; }
 
     public class GetCandlesRequestBuilder

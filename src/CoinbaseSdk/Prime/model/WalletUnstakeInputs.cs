@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class WalletUnstakeInputs
   {
     /// <summary>
     /// Optional amount to unstake (ETH only). If omitted, the wallet will unstake the maximum amount available
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     /// <summary>
     /// (Alpha) Optional validator-level allocations for ETH V2 unstaking. Allows specifying which validators to unstake from and how much. This feature is in alpha. Please reach out to your Coinbase Prime account manager for more information
     /// </summary>
-    [JsonPropertyName("validator_allocations")]
     public List<ValidatorAllocation>? ValidatorAllocations { get; set; }
     public WalletUnstakeInputs() { }
 

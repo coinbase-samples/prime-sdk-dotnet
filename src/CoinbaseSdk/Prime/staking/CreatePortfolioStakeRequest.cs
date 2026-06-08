@@ -28,16 +28,12 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("metadata")]
     public PortfolioStakingMetadata Metadata { get; set; }
 
     public class CreatePortfolioStakeRequestBuilder

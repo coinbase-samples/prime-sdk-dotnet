@@ -24,26 +24,17 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Wallet
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-    [JsonPropertyName("type")]
     public WalletType? Type { get; set; }
-    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
-    [JsonPropertyName("visibility")]
     public WalletVisibility? Visibility { get; set; }
-    [JsonPropertyName("network")]
     public Network? Network { get; set; }
     public Wallet() { }
 

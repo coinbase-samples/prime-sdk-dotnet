@@ -23,7 +23,7 @@ namespace CoinbaseSdk.Prime.Client
   /// </summary>
   public static class PrimeApiPaths
   {
-    private static readonly Regex VersionSuffix = new(@"/v\d+/?$", RegexOptions.Compiled);
+    private static readonly Regex VersionSuffix = new (@"/v\d+/?$", RegexOptions.Compiled);
 
     /// <summary>
     /// Replaces a trailing <c>/vN</c> segment with <c>/{version}</c>.

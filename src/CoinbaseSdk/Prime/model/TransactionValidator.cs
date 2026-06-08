@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class TransactionValidator
@@ -32,14 +31,11 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The ID of the transaction which staked to this validator
     /// </summary>
-    [JsonPropertyName("transaction_id")]
     public string TransactionId { get; set; } = default!;
     /// <summary>
     /// The address (public key) of the validator
     /// </summary>
-    [JsonPropertyName("validator_address")]
     public string ValidatorAddress { get; set; } = default!;
-    [JsonPropertyName("validator_status")]
     public ValidatorStatus ValidatorStatus { get; set; } = default!;
     public TransactionValidator() { }
 

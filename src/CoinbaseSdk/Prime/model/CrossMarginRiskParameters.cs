@@ -24,69 +24,56 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class CrossMarginRiskParameters
   {
     /// <summary>
     /// Asset tier identifier.
     /// </summary>
-    [JsonPropertyName("asset_tier")]
     public string? AssetTier { get; set; }
     /// <summary>
     /// Base ratio for long positions.
     /// </summary>
-    [JsonPropertyName("base_ratio_long")]
     public string? BaseRatioLong { get; set; }
     /// <summary>
     /// Base ratio for short positions.
     /// </summary>
-    [JsonPropertyName("base_ratio_short")]
     public string? BaseRatioShort { get; set; }
     /// <summary>
     /// Volatility rate for long positions.
     /// </summary>
-    [JsonPropertyName("volatility_rate_long")]
     public string? VolatilityRateLong { get; set; }
     /// <summary>
     /// Volatility rate for short positions.
     /// </summary>
-    [JsonPropertyName("volatility_rate_short")]
     public string? VolatilityRateShort { get; set; }
     /// <summary>
     /// Volatility low threshold.
     /// </summary>
-    [JsonPropertyName("volatility_low_threshold")]
     public string? VolatilityLowThreshold { get; set; }
     /// <summary>
     /// Volatility high threshold.
     /// </summary>
-    [JsonPropertyName("volatility_high_threshold")]
     public string? VolatilityHighThreshold { get; set; }
     /// <summary>
     /// Liquidity A for long positions.
     /// </summary>
-    [JsonPropertyName("liquidity_a_long")]
     public string? LiquidityALong { get; set; }
     /// <summary>
     /// Liquidity A for short positions.
     /// </summary>
-    [JsonPropertyName("liquidity_a_short")]
     public string? LiquidityAShort { get; set; }
     /// <summary>
     /// Liquidity B for short positions.
     /// </summary>
-    [JsonPropertyName("liquidity_b_short")]
     public string? LiquidityBShort { get; set; }
     /// <summary>
     /// Liquidity threshold.
     /// </summary>
-    [JsonPropertyName("liquidity_threshold")]
     public string? LiquidityThreshold { get; set; }
     /// <summary>
     /// Basis offset credit rate.
     /// </summary>
-    [JsonPropertyName("basis_offset_credit_rate")]
     public string? BasisOffsetCreditRate { get; set; }
     public CrossMarginRiskParameters() { }
 

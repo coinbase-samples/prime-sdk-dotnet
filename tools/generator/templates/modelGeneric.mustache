@@ -1,0 +1,34 @@
+  public class {{classname}}
+  {
+{{#vars}}
+{{#description}}    /// <summary>
+    /// {{.}}
+    /// </summary>
+{{/description}}    [JsonPropertyName("{{baseName}}")]
+    public {{{datatype}}}{{^required}}?{{/required}} {{name}} { get; set; }{{#defaultValue}} = {{{.}}};{{/defaultValue}}{{^defaultValue}}{{#required}} = default!;{{/required}}{{/defaultValue}}
+{{/vars}}
+    public {{classname}}() { }
+
+    public {{classname}}(Builder builder)
+    {
+{{#vars}}      this.{{name}} = builder.{{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}};
+{{/vars}}    }
+
+    public class Builder
+    {
+#pragma warning disable SA1307, SA1401
+{{#vars}}      internal {{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}{{#required}} = default!{{/required}};
+{{/vars}}#pragma warning restore SA1307, SA1401
+{{#vars}}
+      public Builder With{{name}}({{{datatype}}}{{^required}}?{{/required}} {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}})
+      {
+        this.{{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}} = {{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}};
+        return this;
+      }
+{{/vars}}
+      public {{classname}} Build()
+      {
+        return new {{classname}}(this);
+      }
+    }
+  }

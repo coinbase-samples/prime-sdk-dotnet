@@ -24,32 +24,23 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Rfq
   {
-    [JsonPropertyName("product_id")]
     public string ProductId { get; set; } = default!;
-    [JsonPropertyName("side")]
     public OrderSide Side { get; set; } = default!;
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
-    [JsonPropertyName("client_quote_id")]
     public string ClientQuoteId { get; set; } = default!;
-    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-    [JsonPropertyName("limit_price")]
     public string LimitPrice { get; set; } = default!;
-    [JsonPropertyName("settl_currency")]
     public string? SettlCurrency { get; set; }
     /// <summary>
     /// Optional quote timeout in milliseconds. Defaults to 3000 ms (3 seconds) if not specified. Maximum allowed value is 30000 ms (30 seconds); requests with a larger value are rejected. Mirrors FIX tag 8090 (QuoteRequestGoodForMs).
     /// </summary>
-    [JsonPropertyName("quote_duration_ms")]
     public string? QuoteDurationMs { get; set; }
     public Rfq() { }
 

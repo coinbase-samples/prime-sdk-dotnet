@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class TFAsset
   {
     /// <summary>
     /// The asset symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The asset adjustment factor for Trade Finance
     /// </summary>
-    [JsonPropertyName("asset_adjustment")]
     public string? AssetAdjustment { get; set; }
     /// <summary>
     /// The liability adjustment factor for Trade Finance
     /// </summary>
-    [JsonPropertyName("liability_adjustment")]
     public string? LiabilityAdjustment { get; set; }
     public TFAsset() { }
 

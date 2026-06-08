@@ -31,7 +31,6 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Base asset symbol (e.g., BTC, ETH, SOL)
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Daily historical volatility over trailing 5 days (decimal, e.g., 0.65 &#x3D; 65%)
@@ -56,7 +55,6 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Weighted blend of the most recent vol_5d and the max vol_5d over last 30 days into a single volatility measure (decimal).
     /// </summary>
-    [JsonPropertyName("weighted_vol")]
     public string? WeightedVol { get; set; }
     public MarketData() { }
 

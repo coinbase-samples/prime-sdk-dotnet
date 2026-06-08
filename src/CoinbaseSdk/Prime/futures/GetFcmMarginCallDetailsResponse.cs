@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Futures
   /// </summary>
   public class GetFcmMarginCallDetailsResponse
   {
-    [JsonPropertyName("margin_calls")]
     public FcmMarginCall[] MarginCalls { get; set; } = [];
 
     public GetFcmMarginCallDetailsResponse() { }

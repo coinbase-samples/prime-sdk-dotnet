@@ -27,10 +27,8 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
 
-    [JsonPropertyName("locate_date")]
     public string? LocateDate { get; set; }
 
     public class GetEntityLocateAvailabilitiesRequestBuilder
