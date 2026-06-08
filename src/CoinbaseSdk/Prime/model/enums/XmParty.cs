@@ -26,11 +26,21 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - CBE: Coinbase Exchange, trading venue that can receive the XM loan.
+  /// - FCM: Coinbase’s Futures Commission Merchant, trading venue that can receive the XM loan.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmParty>))]
   public enum XmParty
   {
     XM_PARTY_UNSPECIFIED,
+    /// <summary>
+    /// Coinbase Exchange, trading venue that can receive the XM loan.
+    /// </summary>
     CBE,
+    /// <summary>
+    /// Coinbase’s Futures Commission Merchant, trading venue that can receive the XM loan.
+    /// </summary>
     FCM
   }
 }

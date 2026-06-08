@@ -33,6 +33,12 @@ namespace CoinbaseSdk.Prime.Model
     /// The total amount in whole units with full precision.
     /// </summary>
     public string? Amount { get; set; }
+    /// <summary>
+    /// - UNKNOWN_VISIBILITY_STATUS: nil.
+    /// - VISIBLE: Visible.
+    /// - HIDDEN: Hidden.
+    /// - SPAM: Spam.
+    /// </summary>
     public VisibilityStatus? VisibilityStatus { get; set; }
     public OnchainBalance() { }
 

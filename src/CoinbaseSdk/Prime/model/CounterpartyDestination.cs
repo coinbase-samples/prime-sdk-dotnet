@@ -24,9 +24,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Represents a destination for a counterparty payment.
+  /// </summary>
 
   public class CounterpartyDestination
   {
+    /// <summary>
+    /// The counterparty ID to pay out.
+    /// </summary>
     public string? CounterpartyId { get; set; }
     public CounterpartyDestination() { }
 

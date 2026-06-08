@@ -28,9 +28,33 @@ namespace CoinbaseSdk.Prime.Model
 
   public class CrossMarginOverview
   {
+    /// <summary>
+    /// - TRADES_AND_WITHDRAWALS: Allowed to trade and withdraw. See XM Margin Methodology for full description of when trading and withdrawals are enabled or disabled.
+    /// - TRADES_ONLY: Allowed to trade but not withdraw. See XM Margin Methodology for full description of when trading and withdrawals are enabled or disabled.
+    /// - SESSION_LOCKED: Not allowed to trade or withdraw. See XM Margin Methodology for full description of when trading and withdrawals are enabled or disabled.
+    /// </summary>
     public XmControlStatus? ControlStatus { get; set; }
+    /// <summary>
+    /// XMEntityCallStatus summarizes the state of open margin calls or debit calls. When multiple calls exist, the status reflects the highest priority call type.
+    /// Priority order (highest to lowest): aged &gt; urgent &gt; standard &gt; debit.
+    /// - ENTITY_NO_CALL: There are no margin calls or debit calls.
+    /// - ENTITY_OPEN_STANDARD_CALL: There is a standard margin call. There may also be debit calls, but there are no urgent margin calls or expired calls..
+    /// - ENTITY_OPEN_URGENT_CALL: There is an urgent margin call. There may also be standard margin calls or debit calls, but there are no expired calls.
+    /// - ENTITY_AGED_CALL: At least one open margin call (standard or urgent) or debit call is aged. This will trigger the SESSION_LOCKED control status.
+    /// - ENTITY_OPEN_DEBIT_CALL: There is a debit call. There are no standard margin calls, urgent margin calls, or expired calls.
+    /// </summary>
     public XmEntityCallStatus? CallStatus { get; set; }
+    /// <summary>
+    /// - HEALTHY_THRESHOLD: Margin level is healthy.
+    /// - DEFICIT_THRESHOLD: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+    /// - WARNING_THRESHOLD: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+    /// - URGENT_MARGIN_CALL_THRESHOLD: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+    /// - LIQUIDATION_THRESHOLD: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+    /// </summary>
     public XmMarginLevel? MarginLevel { get; set; }
+    /// <summary>
+    /// XMSummary is the realtime evaluated XM margin model, containing positions and netting info.
+    /// </summary>
     public XmSummary? MarginSummary { get; set; }
     /// <summary>
     /// List of active Xm margin calls
@@ -40,6 +64,9 @@ namespace CoinbaseSdk.Prime.Model
     /// List of active Xm loans
     /// </summary>
     public List<XmLoan>? ActiveLoans { get; set; }
+    /// <summary>
+    /// ActiveLiquidationSummary provides a summary of the active or most recent XM liquidation.
+    /// </summary>
     public ActiveLiquidationSummary? ActiveLiquidation { get; set; }
     public CrossMarginOverview() { }
 

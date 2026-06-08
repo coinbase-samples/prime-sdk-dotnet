@@ -36,21 +36,33 @@ namespace CoinbaseSdk.Prime.Model
     /// Daily historical volatility over trailing 5 days (decimal, e.g., 0.65 &#x3D; 65%)
     /// </summary>
     [JsonPropertyName("vol_5d")]
+    /// <summary>
+    /// Daily historical volatility over trailing 5 days (decimal, e.g., 0.65 = 65%).
+    /// </summary>
     public string? Vol5d { get; set; }
     /// <summary>
     /// Daily historical volatility over trailing 30 days (decimal, e.g., 0.65 &#x3D; 65%)
     /// </summary>
     [JsonPropertyName("vol_30d")]
+    /// <summary>
+    /// Daily historical volatility over trailing 30 days (decimal, e.g., 0.65 = 65%).
+    /// </summary>
     public string? Vol30d { get; set; }
     /// <summary>
     /// Daily historical volatility over trailing 90 days (decimal, e.g., 0.65 &#x3D; 65%)
     /// </summary>
     [JsonPropertyName("vol_90d")]
+    /// <summary>
+    /// Daily historical volatility over trailing 90 days (decimal, e.g., 0.65 = 65%).
+    /// </summary>
     public string? Vol90d { get; set; }
     /// <summary>
     /// Average daily trading volume over trailing 30 days (USD)
     /// </summary>
     [JsonPropertyName("adv_30d")]
+    /// <summary>
+    /// Average daily trading volume over trailing 30 days (USD).
+    /// </summary>
     public string? Adv30d { get; set; }
     /// <summary>
     /// Weighted blend of the most recent vol_5d and the max vol_5d over last 30 days into a single volatility measure (decimal).

@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// AdvancedTransferState represents the lifecycle state of an advanced transfer.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<AdvancedTransferState>))]
   public enum AdvancedTransferState
   {

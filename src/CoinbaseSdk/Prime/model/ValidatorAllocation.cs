@@ -24,6 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// ValidatorAllocation specifies the validator and amount for staking or unstaking.
+  /// Used for granular ETH V2 validator-level staking or unstaking operations.
+  /// </summary>
 
   public class ValidatorAllocation
   {

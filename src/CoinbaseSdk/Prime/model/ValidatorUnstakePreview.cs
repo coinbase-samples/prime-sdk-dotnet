@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// ValidatorUnstakePreview contains the per-validator breakdown for an unstake preview.
+  /// </summary>
 
   public class ValidatorUnstakePreview
   {

@@ -26,11 +26,21 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - MARGIN_REQUIREMENT_TYPE_DMR_PLUS_PMR: Integrated (netted) cross-margin requirement for spot assets and all derivatives contracts.
+  /// - MARGIN_REQUIREMENT_TYPE_IPMR_PLUS_IFMR: Combined cross-margin requirement: Integrated Portfolio Margin (IPMR) plus Ineligible Futures Margin (IFMR).
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<PrimeXMMarginRequirementType>))]
   public enum PrimeXMMarginRequirementType
   {
     MARGIN_REQUIREMENT_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Integrated (netted) cross-margin requirement for spot assets and all derivatives contracts.
+    /// </summary>
     MARGIN_REQUIREMENT_TYPE_DMR_PLUS_PMR,
+    /// <summary>
+    /// Combined cross-margin requirement: Integrated Portfolio Margin (IPMR) plus Ineligible Futures Margin (IFMR).
+    /// </summary>
     MARGIN_REQUIREMENT_TYPE_IPMR_PLUS_IFMR
   }
 }

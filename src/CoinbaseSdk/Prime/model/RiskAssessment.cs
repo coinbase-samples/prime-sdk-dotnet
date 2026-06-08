@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// New message for risk assessment details.
+  /// </summary>
 
   public class RiskAssessment
   {

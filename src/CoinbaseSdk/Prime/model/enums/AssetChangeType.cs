@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// AssetChangeType identifies the type of asset change.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<AssetChangeType>))]
   public enum AssetChangeType
   {

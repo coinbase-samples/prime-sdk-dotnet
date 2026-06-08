@@ -44,6 +44,20 @@ namespace CoinbaseSdk.Prime.Model
     /// The entity to which this user and associated permissions are identified
     /// </summary>
     public string? EntityId { get; set; }
+    /// <summary>
+    /// - USER_ROLE_UNKNOWN: nil value.
+    /// - AUDITOR: An auditor.
+    /// - SIGNATORY: A signatory.
+    /// - ADMIN: An admin.
+    /// - INITIATOR: An initiator.
+    /// - REVIEWER: A reviewer.
+    /// - TRADER: A trader.
+    /// - FULL_TRADER: A trader with full permissions.
+    /// - TEAM_MANAGER: A team manager.
+    /// - APPROVER: An approver.
+    /// - TAX_MANAGER: A tax manager.
+    /// - BUSINESS_MANAGER: A business manager.
+    /// </summary>
     public UserRole? Role { get; set; }
     /// <summary>
     /// All primary roles assigned to the user.

@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Groups XM margin requirement components, offset credits, and per-asset rows.
+  /// </summary>
 
   public class CrossMarginPrimeRiskNettingInfo
   {

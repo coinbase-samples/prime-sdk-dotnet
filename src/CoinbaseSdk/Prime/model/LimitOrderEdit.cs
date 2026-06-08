@@ -24,16 +24,43 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// LimitOrderEdit represents an order edit that is accepted.
+  /// </summary>
 
   public class LimitOrderEdit
   {
+    /// <summary>
+    /// New price for the edited order.
+    /// </summary>
     public string? Price { get; set; }
+    /// <summary>
+    /// New size for the edited order.
+    /// </summary>
     public string? Size { get; set; }
+    /// <summary>
+    /// New display size for the edited order.
+    /// </summary>
     public string? DisplaySize { get; set; }
+    /// <summary>
+    /// New stop price for the edited order.
+    /// </summary>
     public string? StopPrice { get; set; }
+    /// <summary>
+    /// New stop limit price for the edited order.
+    /// </summary>
     public string? StopLimitPrice { get; set; }
+    /// <summary>
+    /// New end time for the edited order.
+    /// </summary>
     public DateTime? EndTime { get; set; }
+    /// <summary>
+    /// Time when the edit was accepted.
+    /// </summary>
     public DateTime? AcceptTime { get; set; }
+    /// <summary>
+    /// Client order id of the order being replaced.
+    /// </summary>
     public string? ClientOrderId { get; set; }
     public LimitOrderEdit() { }
 

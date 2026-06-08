@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Trade finance obligation information.
+  /// </summary>
 
   public class TFObligation
   {

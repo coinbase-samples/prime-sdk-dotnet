@@ -25,6 +25,9 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Cross-margin account summary and nested breakdowns.
+  /// </summary>
 
   public class CrossMarginPrimeMarginSummary
   {
@@ -32,6 +35,10 @@ namespace CoinbaseSdk.Prime.Model
     /// Cross Margin Margin Requirement (XmMR) notional.
     /// </summary>
     public string? MarginRequirement { get; set; }
+    /// <summary>
+    /// - MARGIN_REQUIREMENT_TYPE_DMR_PLUS_PMR: Integrated (netted) cross-margin requirement for spot assets and all derivatives contracts.
+    /// - MARGIN_REQUIREMENT_TYPE_IPMR_PLUS_IFMR: Combined cross-margin requirement: Integrated Portfolio Margin (IPMR) plus Ineligible Futures Margin (IFMR).
+    /// </summary>
     public PrimeXMMarginRequirementType? MarginRequirementType { get; set; }
     /// <summary>
     /// Equity notional.
@@ -81,9 +88,28 @@ namespace CoinbaseSdk.Prime.Model
     /// Gross leverage.
     /// </summary>
     public string? GrossLeverage { get; set; }
+    /// <summary>
+    /// Breakdown of the components of spot equity.
+    /// </summary>
     public CrossMarginPrimeSpotEquityBreakdown? SpotEquityBreakdown { get; set; }
+    /// <summary>
+    /// Breakdown of the components of derivatives equity.
+    /// </summary>
     public CrossMarginPrimeDerivativesEquityBreakdown? DerivativesEquityBreakdown { get; set; }
+    /// <summary>
+    /// Groups XM margin requirement components, offset credits, and per-asset rows.
+    /// </summary>
     public CrossMarginPrimeRiskNettingInfo? RiskNettingInfo { get; set; }
+    /// <summary>
+    /// - HEALTH_STATUS_HEALTHY: Margin level is healthy.
+    /// - HEALTH_STATUS_WARNING: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+    /// - HEALTH_STATUS_CRITICAL: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+    /// - HEALTH_STATUS_SUSPENDED: Trading and withdrawals are suspended per XM margin methodology.
+    /// - HEALTH_STATUS_RESTRICTED: Account is in a restricted state per XM margin methodology.
+    /// - HEALTH_STATUS_PRE_LIQUIDATION: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+    /// - HEALTH_STATUS_LIQUIDATING: Liquidation has commenced.
+    /// - HEALTH_STATUS_IN_DEFICIT: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+    /// </summary>
     public PrimeXMHealthStatus? HealthStatus { get; set; }
     /// <summary>
     /// Equity ratio.

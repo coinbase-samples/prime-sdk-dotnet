@@ -27,6 +27,9 @@ namespace CoinbaseSdk.Prime.Model
 
   public class OnchainAsset
   {
+    /// <summary>
+    /// Network this asset is on (ie "ethereum-mainnet").
+    /// </summary>
     public string? Network { get; set; }
     /// <summary>
     /// Contract Address of this asset (empty for native assets).

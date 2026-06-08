@@ -26,11 +26,21 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - MARGIN_THRESHOLD_EQUITY_RATIO: Threshold based on equity ratio EQ / MR; triggers when EQ / MR &gt;= threshold_value.
+  /// - MARGIN_THRESHOLD_DEFICIT_RATIO: Threshold based on deficit ratio (MR - EQ) / XMML; triggers when (MR - EQ) / XMML &gt; threshold_value.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<PrimeXMMarginThresholdType>))]
   public enum PrimeXMMarginThresholdType
   {
     MARGIN_THRESHOLD_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Threshold based on equity ratio EQ / MR; triggers when EQ / MR &gt;= threshold_value.
+    /// </summary>
     MARGIN_THRESHOLD_EQUITY_RATIO,
+    /// <summary>
+    /// Threshold based on deficit ratio (MR - EQ) / XMML; triggers when (MR - EQ) / XMML &gt; threshold_value.
+    /// </summary>
     MARGIN_THRESHOLD_DEFICIT_RATIO,
     MARGIN_THRESHOLD_NONE
   }

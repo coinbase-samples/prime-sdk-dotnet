@@ -25,6 +25,9 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// XMMarginCall contains details about a margin call in Cross Margin.
+  /// </summary>
 
   public class XmMarginCall
   {
@@ -44,9 +47,30 @@ namespace CoinbaseSdk.Prime.Model
     /// Current outstanding call amount (notional)
     /// </summary>
     public string? OutstandingNotionalAmount { get; set; }
+    /// <summary>
+    /// - CALL_TYPE_STANDARD: Evaluated at standard margin call evaluation time.
+    /// - CALL_TYPE_URGENT: Evaluated in realtime.
+    /// - CALL_TYPE_DEBIT: Evaluated at debit call evaluation time.
+    /// </summary>
     public XmCallType? MarginCallType { get; set; }
+    /// <summary>
+    /// - CALL_STATUS_OPEN: Margin call is open and not expired.
+    /// - CALL_STATUS_AGED: Margin call is open and it is expired.
+    /// - CALL_STATUS_SETTLED: Margin call is fully settled.
+    /// - CALL_STATUS_CANCELED: Margin call was canceled by Credit Risk.
+    /// </summary>
     public XmCallStatus? MarginCallStatus { get; set; }
+    /// <summary>
+    /// - HEALTHY_THRESHOLD: Margin level is healthy.
+    /// - DEFICIT_THRESHOLD: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+    /// - WARNING_THRESHOLD: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+    /// - URGENT_MARGIN_CALL_THRESHOLD: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+    /// - LIQUIDATION_THRESHOLD: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+    /// </summary>
     public XmMarginLevel? CalledWithMarginLevel { get; set; }
+    /// <summary>
+    /// XMSummary is the realtime evaluated XM margin model, containing positions and netting info.
+    /// </summary>
     public XmSummary? CalledWithMarginSummary { get; set; }
     /// <summary>
     /// Timestamp when the margin call settlement is due

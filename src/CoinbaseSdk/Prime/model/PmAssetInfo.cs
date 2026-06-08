@@ -64,21 +64,33 @@ namespace CoinbaseSdk.Prime.Model
     /// The 30d adv of the currency
     /// </summary>
     [JsonPropertyName("adv_30d")]
+    /// <summary>
+    /// The 30d adv of the currency.
+    /// </summary>
     public string? Adv30d { get; set; }
     /// <summary>
     /// Historic 5d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_5d_vol")]
+    /// <summary>
+    /// Historic 5d volatility of the currency.
+    /// </summary>
     public string? Hist5dVol { get; set; }
     /// <summary>
     /// Historic 30d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_30d_vol")]
+    /// <summary>
+    /// Historic 30d volatility of the currency.
+    /// </summary>
     public string? Hist30dVol { get; set; }
     /// <summary>
     /// Historic 90d volatility of the currency
     /// </summary>
     [JsonPropertyName("hist_90d_vol")]
+    /// <summary>
+    /// Historic 90d volatility of the currency.
+    /// </summary>
     public string? Hist90dVol { get; set; }
     /// <summary>
     /// Volatility margin addon of the currency position

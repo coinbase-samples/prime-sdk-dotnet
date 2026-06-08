@@ -26,11 +26,25 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - RISK_MANAGEMENT_TYPE_UNSPECIFIED: Unspecified risk management type.
+  /// - RISK_MANAGEMENT_TYPE_MANAGED_BY_FCM: Risk is managed by FCM (Futures Commission Merchant).
+  /// - RISK_MANAGEMENT_TYPE_MANAGED_BY_VENUE: Risk is managed by the venue.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<RiskManagementType>))]
   public enum RiskManagementType
   {
+    /// <summary>
+    /// Unspecified risk management type.
+    /// </summary>
     RISK_MANAGEMENT_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Risk is managed by FCM (Futures Commission Merchant).
+    /// </summary>
     RISK_MANAGEMENT_TYPE_MANAGED_BY_FCM,
+    /// <summary>
+    /// Risk is managed by the venue.
+    /// </summary>
     RISK_MANAGEMENT_TYPE_MANAGED_BY_VENUE
   }
 }

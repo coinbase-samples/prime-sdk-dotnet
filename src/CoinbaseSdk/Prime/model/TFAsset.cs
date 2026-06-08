@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// TFAsset represents an asset eligible for Trade Finance with adjustment factors.
+  /// </summary>
 
   public class TFAsset
   {

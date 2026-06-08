@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// PerpetualProductDetails contains details specific to perpetual futures products.
+  /// </summary>
 
   public class PerpetualProductDetails
   {

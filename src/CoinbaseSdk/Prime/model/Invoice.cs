@@ -25,6 +25,9 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Invoice.
+  /// </summary>
 
   public class Invoice
   {
@@ -33,6 +36,9 @@ namespace CoinbaseSdk.Prime.Model
     public int? BillingYear { get; set; }
     public string? DueDate { get; set; }
     public string? InvoiceNumber { get; set; }
+    /// <summary>
+    /// States.
+    /// </summary>
     public InvoiceState? State { get; set; }
     public double? UsdAmountPaid { get; set; }
     public double? UsdAmountOwed { get; set; }

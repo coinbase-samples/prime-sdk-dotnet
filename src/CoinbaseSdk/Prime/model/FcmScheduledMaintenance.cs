@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// FcmScheduledMaintenance contains scheduled maintenance window information.
+  /// </summary>
 
   public class FcmScheduledMaintenance
   {

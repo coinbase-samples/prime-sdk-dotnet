@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Breakdown of the components of derivatives equity.
+  /// </summary>
 
   public class CrossMarginPrimeDerivativesEquityBreakdown
   {

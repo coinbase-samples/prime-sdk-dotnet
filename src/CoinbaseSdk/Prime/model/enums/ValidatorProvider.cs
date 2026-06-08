@@ -26,6 +26,12 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// ValidatorProvider enumerates the ETH validator service providers that PPA accepts on.
+  /// PortfolioStakingUnstakeRequest.validator_provider. The enum names map 1:1 to the display.
+  /// names returned by ISS GetUsedValidators (service_provider field) and shown in the Prime.
+  /// UI. Keep in sync with staking/internal/asset/ethereum.mapServiceProviderToDisplayName.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<ValidatorProvider>))]
   public enum ValidatorProvider
   {

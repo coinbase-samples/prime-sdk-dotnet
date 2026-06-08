@@ -24,6 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// WalletClaimRewardsInputs contains the custom inputs for claim rewards operations on a wallet.
+  /// Requirements and supported fields vary by asset type.
+  /// </summary>
 
   public class WalletClaimRewardsInputs
   {

@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// CrossMarginPrimeXMPosition is a single per-asset XM row (proto-backed fields from XMPositionDetails).
+  /// </summary>
 
   public class CrossMarginPrimeXMPosition
   {

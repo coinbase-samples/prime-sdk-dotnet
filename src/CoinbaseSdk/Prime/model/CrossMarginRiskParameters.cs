@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// XM 2.0 risk parameters for an asset tier.
+  /// </summary>
 
   public class CrossMarginRiskParameters
   {

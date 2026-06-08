@@ -27,6 +27,9 @@ namespace CoinbaseSdk.Prime.Model
 
   public class PaymentMethodDestination
   {
+    /// <summary>
+    /// The payment method id to pay out.
+    /// </summary>
     public string? PaymentMethodId { get; set; }
     public PaymentMethodDestination() { }
 

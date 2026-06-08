@@ -30,6 +30,12 @@ namespace CoinbaseSdk.Prime.Model
   {
     public string? Id { get; set; }
     public string? Symbol { get; set; }
+    /// <summary>
+    /// - UNKNOWN_PAYMENT_METHOD_TYPE: nil value.
+    /// - METHOD_WIRE: Wire transfer.
+    /// - METHOD_SEN: Silvergate exchange network.
+    /// - METHOD_SWIFT: Swift.
+    /// </summary>
     public PaymentMethodType? PaymentMethodType { get; set; }
     public string? Name { get; set; }
     public string? AccountNumber { get; set; }

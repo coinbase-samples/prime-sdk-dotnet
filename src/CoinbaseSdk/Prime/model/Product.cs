@@ -65,8 +65,19 @@ namespace CoinbaseSdk.Prime.Model
     /// </summary>
     public string? PriceIncrement { get; set; }
     public RfqProductDetails? RfqProductDetails { get; set; }
+    /// <summary>
+    /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+    /// - SPOT: Spot product.
+    /// - FUTURE: Future product.
+    /// </summary>
     public ProductType? ProductType { get; set; }
+    /// <summary>
+    /// FcmTradingSessionDetails contains trading session details for FCM products.
+    /// </summary>
     public FcmTradingSessionDetails? FcmTradingSessionDetails { get; set; }
+    /// <summary>
+    /// FutureProductDetails contains details specific to futures products.
+    /// </summary>
     public FutureProductDetails? FutureProductDetails { get; set; }
     public Product() { }
 

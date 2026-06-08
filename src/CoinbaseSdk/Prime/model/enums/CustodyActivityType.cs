@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - ACTIVITY_TYPE_WITHDRAWAL: PrimeActivityService Custody ActivityTypes that will replace the above.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<CustodyActivityType>))]
   public enum CustodyActivityType
   {

@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// BlindMatchMetadata contains metadata specific to blind match advanced transfers.
+  /// </summary>
 
   public class BlindMatchMetadata
   {

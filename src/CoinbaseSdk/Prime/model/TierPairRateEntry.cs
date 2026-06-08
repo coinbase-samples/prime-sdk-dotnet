@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// TierPairRateEntry represents a single (tier_a, tier_b) -&gt; rate entry in an offset credit matrix.
+  /// </summary>
 
   public class TierPairRateEntry
   {

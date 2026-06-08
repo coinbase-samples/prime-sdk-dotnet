@@ -36,6 +36,14 @@ namespace CoinbaseSdk.Prime.Model
     /// The name of the wallet
     /// </summary>
     public string? Name { get; set; }
+    /// <summary>
+    /// - UNKNOWN_WALLET_DEPOSIT_TYPE: nil value.
+    /// - CRYPTO: A cryptocurrency deposit.
+    /// - WIRE: A wire deposit.
+    /// - SEN: DEPRECATED. A Silvergate Exchange Network deposit.
+    /// - SWIFT: A SWIFT deposit.
+    /// - SEPA: A SEPA deposit (Single Euro Payments Area).
+    /// </summary>
     public WalletDepositInstructionType? Type { get; set; }
     /// <summary>
     /// The address of the wallet

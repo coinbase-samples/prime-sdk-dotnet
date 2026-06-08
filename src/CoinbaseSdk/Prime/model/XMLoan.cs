@@ -25,6 +25,9 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// XMLoan contains details about a Cross Margin loan.
+  /// </summary>
 
   public class XmLoan
   {
@@ -32,6 +35,10 @@ namespace CoinbaseSdk.Prime.Model
     /// Financing loan UUID
     /// </summary>
     public string? LoanId { get; set; }
+    /// <summary>
+    /// - CBE: Coinbase Exchange, trading venue that can receive the XM loan.
+    /// - FCM: Coinbase’s Futures Commission Merchant, trading venue that can receive the XM loan.
+    /// </summary>
     public XmParty? LoanParty { get; set; }
     /// <summary>
     /// Loan principal currency

@@ -28,7 +28,18 @@ namespace CoinbaseSdk.Prime.Model
 
   public class PrimeXMMarginThreshold
   {
+    /// <summary>
+    /// - HEALTHY_THRESHOLD: Margin level is healthy.
+    /// - DEFICIT_THRESHOLD: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+    /// - WARNING_THRESHOLD: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+    /// - URGENT_MARGIN_CALL_THRESHOLD: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+    /// - LIQUIDATION_THRESHOLD: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+    /// </summary>
     public XmMarginLevel? MarginLevel { get; set; }
+    /// <summary>
+    /// - MARGIN_THRESHOLD_EQUITY_RATIO: Threshold based on equity ratio EQ / MR; triggers when EQ / MR &gt;= threshold_value.
+    /// - MARGIN_THRESHOLD_DEFICIT_RATIO: Threshold based on deficit ratio (MR - EQ) / XMML; triggers when (MR - EQ) / XMML &gt; threshold_value.
+    /// </summary>
     public PrimeXMMarginThresholdType? ThresholdType { get; set; }
     public string? ThresholdValue { get; set; }
     public PrimeXMMarginThreshold() { }

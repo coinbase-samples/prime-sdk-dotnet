@@ -26,11 +26,25 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - TRAVEL_RULE_WALLET_TYPE_UNSPECIFIED: Default unspecified wallet type.
+  /// - TRAVEL_RULE_WALLET_TYPE_VASP: Centralized exchange wallet.
+  /// - TRAVEL_RULE_WALLET_TYPE_SELF_CUSTODIED: Self-hosted/custodial wallet.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<TravelRuleWalletType>))]
   public enum TravelRuleWalletType
   {
+    /// <summary>
+    /// Default unspecified wallet type.
+    /// </summary>
     TRAVEL_RULE_WALLET_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Centralized exchange wallet.
+    /// </summary>
     TRAVEL_RULE_WALLET_TYPE_VASP,
+    /// <summary>
+    /// Self-hosted/custodial wallet.
+    /// </summary>
     TRAVEL_RULE_WALLET_TYPE_SELF_CUSTODIED
   }
 }

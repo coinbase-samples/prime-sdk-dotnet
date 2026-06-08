@@ -26,14 +26,41 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_ORDER_STATUS: nil value.
+  /// - OPEN: The order is open but unfilled.
+  /// - FILLED: The order was filled.
+  /// - CANCELLED: The order was cancelled.
+  /// - EXPIRED: The order has expired.
+  /// - FAILED: Order submission failed.
+  /// - PENDING: The order has been sent but is not yet confirmed.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<OrderStatus>))]
   public enum OrderStatus
   {
+    /// <summary>
+    /// The order is open but unfilled.
+    /// </summary>
     OPEN,
+    /// <summary>
+    /// The order was filled.
+    /// </summary>
     FILLED,
+    /// <summary>
+    /// The order was cancelled.
+    /// </summary>
     CANCELLED,
+    /// <summary>
+    /// The order has expired.
+    /// </summary>
     EXPIRED,
+    /// <summary>
+    /// Order submission failed.
+    /// </summary>
     FAILED,
+    /// <summary>
+    /// The order has been sent but is not yet confirmed.
+    /// </summary>
     PENDING
   }
 }

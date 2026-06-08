@@ -24,16 +24,31 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Data object used for withdrawals.
+  /// </summary>
 
   public class TravelRuleData
   {
+    /// <summary>
+    /// Represents a party in a travel rule transfer (originator or beneficiary).
+    /// </summary>
     public TravelRuleParty? Beneficiary { get; set; }
+    /// <summary>
+    /// Represents a party in a travel rule transfer (originator or beneficiary).
+    /// </summary>
     public TravelRuleParty? Originator { get; set; }
+    /// <summary>
+    /// True if user owns the counterparty address (self-transfer).
+    /// </summary>
     public bool? IsSelf { get; set; }
     /// <summary>
     /// True if Coinbase is being used as an intermediary for a customer transfer.
     /// </summary>
     public bool? IsIntermediary { get; set; }
+    /// <summary>
+    /// True to skip wallet ownership verification.
+    /// </summary>
     public bool? OptOutOfOwnershipVerification { get; set; }
     /// <summary>
     /// Whether the originating Vasp attests to verified wallet ownership. When true with is_intermediary, enables automatic Vasp data enrichment from the legal entity.

@@ -38,6 +38,11 @@ namespace CoinbaseSdk.Prime.Model
     public string? ReferenceId { get; set; }
     public ActivityCategory? Category { get; set; }
     public PrimeActivityType? Type { get; set; }
+    /// <summary>
+    /// - ACTIVITY_SECONDARY_TYPE_BUY: Order secondary types.
+    /// - ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER: Transaction secondary types.
+    /// - ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER: Onchain secondary types.
+    /// </summary>
     public ActivitySecondaryType? SecondaryType { get; set; }
     public ActivityStatus? Status { get; set; }
     /// <summary>
@@ -71,6 +76,9 @@ namespace CoinbaseSdk.Prime.Model
     /// Time for latest status update of account activity
     /// </summary>
     public string? UpdatedAt { get; set; }
+    /// <summary>
+    /// HierarchyType are the enums for various hierarchies within Prime, ex Entity, Organization, Portfolio.
+    /// </summary>
     public HierarchyType? HierarchyType { get; set; }
     public Activity() { }
 

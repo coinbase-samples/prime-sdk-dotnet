@@ -44,6 +44,11 @@ namespace CoinbaseSdk.Prime.Model
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
     public string? ClientProductId { get; set; }
+    /// <summary>
+    /// - UNKNOWN_ORDER_SIDE: nil value.
+    /// - BUY: Buy order.
+    /// - SELL: Sell order.
+    /// </summary>
     public OrderSide? Side { get; set; }
     /// <summary>
     /// Filled size (in base asset units)
@@ -77,6 +82,11 @@ namespace CoinbaseSdk.Prime.Model
     /// The CES commission incurred for the fill
     /// </summary>
     public string? CesCommission { get; set; }
+    /// <summary>
+    /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+    /// - SPOT: Spot product.
+    /// - FUTURE: Future product.
+    /// </summary>
     public ProductType? ProductType { get; set; }
     public CommissionDetailTotal? CommissionDetailTotal { get; set; }
     public Fill() { }

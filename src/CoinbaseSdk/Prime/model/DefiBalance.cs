@@ -27,8 +27,17 @@ namespace CoinbaseSdk.Prime.Model
 
   public class DefiBalance
   {
+    /// <summary>
+    /// Network this asset is on (ie "ethereum-mainnet").
+    /// </summary>
     public string? Network { get; set; }
+    /// <summary>
+    /// a set of rules and standards that define how data is exchanged (ie "Aave V4 ").
+    /// </summary>
     public string? Protocol { get; set; }
+    /// <summary>
+    /// Total USD value.
+    /// </summary>
     public string? NetUsdValue { get; set; }
     public DefiBalance() { }
 

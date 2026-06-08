@@ -28,11 +28,33 @@ namespace CoinbaseSdk.Prime.Model
 
   public class Wallet
   {
+    /// <summary>
+    /// The unique UUID for the wallet.
+    /// </summary>
     public string? Id { get; set; }
+    /// <summary>
+    /// The name of the wallet.
+    /// </summary>
     public string? Name { get; set; }
+    /// <summary>
+    /// The asset stored in the wallet.
+    /// </summary>
     public string? Symbol { get; set; }
+    /// <summary>
+    /// - VAULT: A crypto vault.
+    /// - TRADING: A trading wallet.
+    /// - WALLET_TYPE_OTHER: Other wallet types (like consumer, etc).
+    /// - QC: A QC Wallet.
+    /// - ONCHAIN: An Onchain wallet.
+    /// </summary>
     public WalletType? Type { get; set; }
+    /// <summary>
+    /// The UTC timestamp when this wallet was created.
+    /// </summary>
     public DateTime? CreatedAt { get; set; }
+    /// <summary>
+    /// The active address of the wallet.
+    /// </summary>
     public string? Address { get; set; }
     public WalletVisibility? Visibility { get; set; }
     public Network? Network { get; set; }

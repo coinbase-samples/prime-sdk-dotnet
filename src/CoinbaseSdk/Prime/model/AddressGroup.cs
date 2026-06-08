@@ -31,6 +31,9 @@ namespace CoinbaseSdk.Prime.Model
     public string? Id { get; set; }
     public string? Name { get; set; }
     public NetworkType? NetworkType { get; set; }
+    /// <summary>
+    /// A list of addresses within the group.
+    /// </summary>
     public List<AddressEntry>? Addresses { get; set; }
     public DateTime? AddedAt { get; set; }
     public AddressGroup() { }

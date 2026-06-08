@@ -24,6 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// WalletUnstakeInputs contains the custom inputs for unstaking operations on a wallet.
+  /// Requirements and supported fields vary by asset type.
+  /// </summary>
 
   public class WalletUnstakeInputs
   {

@@ -24,11 +24,23 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Natural person name components.
+  /// </summary>
 
   public class NaturalPersonName
   {
+    /// <summary>
+    /// Given/first name.
+    /// </summary>
     public string? FirstName { get; set; }
+    /// <summary>
+    /// optional middle name (currently unused).
+    /// </summary>
     public string? MiddleName { get; set; }
+    /// <summary>
+    /// Family/last name.
+    /// </summary>
     public string? LastName { get; set; }
     public NaturalPersonName() { }
 

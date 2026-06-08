@@ -44,11 +44,27 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID of the product being traded by the order
     /// </summary>
     public string? ProductId { get; set; }
+    /// <summary>
+    /// - UNKNOWN_ORDER_SIDE: nil value.
+    /// - BUY: Buy order.
+    /// - SELL: Sell order.
+    /// </summary>
     public OrderSide? Side { get; set; }
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
     public string? ClientOrderId { get; set; }
+    /// <summary>
+    /// - UNKNOWN_ORDER_TYPE: nil value.
+    /// - MARKET: A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order).
+    /// - LIMIT: A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order).
+    /// - TWAP: A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price).
+    /// - BLOCK: A [block trade](https://en.wikipedia.org/wiki/Block_trade).
+    /// - VWAP: A [volume-weighted average price order](https://en.wikipedia.org/wiki/Volume-weighted_average_price).
+    /// - STOP_LIMIT: A [conditional order combined of stop order and limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Stop-limit_order).
+    /// - RFQ: A [request for quote](https://en.wikipedia.org/wiki/Request_for_quote).
+    /// - PEG: A pegged order that dynamically adjust based on market conditions while maintaining execution discretion and avoiding adverse selection.
+    /// </summary>
     public OrderType? Type { get; set; }
     /// <summary>
     /// Order size in base asset units (either &#x60;base_quantity&#x60; or &#x60;quote_value&#x60; is required)
@@ -70,7 +86,23 @@ namespace CoinbaseSdk.Prime.Model
     /// The expiry time of the order in UTC (applies to TWAP, VWAP, LIMIT, and STOP_LIMIT orders with &#x60;time_in_force&#x60; set to &#x60;GTD&#x60;)
     /// </summary>
     public DateTime? ExpiryTime { get; set; }
+    /// <summary>
+    /// - UNKNOWN_ORDER_STATUS: nil value.
+    /// - OPEN: The order is open but unfilled.
+    /// - FILLED: The order was filled.
+    /// - CANCELLED: The order was cancelled.
+    /// - EXPIRED: The order has expired.
+    /// - FAILED: Order submission failed.
+    /// - PENDING: The order has been sent but is not yet confirmed.
+    /// </summary>
     public OrderStatus? Status { get; set; }
+    /// <summary>
+    /// - UNKNOWN_TIME_IN_FORCE: nil value.
+    /// - GOOD_UNTIL_DATE_TIME: Expires at a certain date/time.
+    /// - GOOD_UNTIL_CANCELLED: Order stays on the books until cancelled.
+    /// - IMMEDIATE_OR_CANCEL: Order is executed immediately at submission or is cancelled.
+    /// - FILL_OR_KILL: Order is executed immediately and fully at submission or is cancelled.
+    /// </summary>
     public TimeInForceType? TimeInForce { get; set; }
     /// <summary>
     /// The order creation time as a UTC timestamp
@@ -156,6 +188,11 @@ namespace CoinbaseSdk.Prime.Model
     /// The wig (would if good) level for PEG orders - best price opposite to limit_price
     /// </summary>
     public string? WigLevel { get; set; }
+    /// <summary>
+    /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+    /// - SPOT: Spot product.
+    /// - FUTURE: Future product.
+    /// </summary>
     public ProductType? ProductType { get; set; }
     public CommissionDetailTotal? CommissionDetailTotal { get; set; }
     public Order() { }

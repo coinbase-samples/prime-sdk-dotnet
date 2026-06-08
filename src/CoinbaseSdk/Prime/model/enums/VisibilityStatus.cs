@@ -26,6 +26,12 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_VISIBILITY_STATUS: nil.
+  /// - VISIBLE: Visible.
+  /// - HIDDEN: Hidden.
+  /// - SPAM: Spam.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<VisibilityStatus>))]
   public enum VisibilityStatus
   {

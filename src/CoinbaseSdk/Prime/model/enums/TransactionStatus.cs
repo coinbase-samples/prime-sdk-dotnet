@@ -26,29 +26,137 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_TRANSACTION_STATUS: An Unknown Transaction status.
+  /// - TRANSACTION_CREATED: The Transaction has been created and is awaiting Consensus approval.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_REQUESTED: The Transaction has reached User Consensus and is awaiting Coinbase Prime approval.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_APPROVED: The Transaction has been authorized by Coinbase Prime.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_GASSING: The transaction is awaiting blockchain resources for broadcast.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_GASSED: The transaction has received blockchain resources for broadcasting.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_PROVISIONED: The transaction has been provisioned and is awaiting planning.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_PLANNED: The transaction has been constructed.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_PROCESSING: The transaction is currently processing and awaiting finalization.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_RESTORED: The transaction has been broadcasted to the network.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_DONE: The transaction has confirmed on-chain and finished.
+  /// This is a terminal status.
+  /// - TRANSACTION_IMPORT_PENDING: The transaction deposit has been detected and is awaiting finalization.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_IMPORTED: The transaction deposit and reward has been detected.
+  /// This is a terminal status.
+  /// - TRANSACTION_CANCELLED: The transaction has been cancelled.
+  /// This is a terminal status.
+  /// - TRANSACTION_REJECTED: The transaction was rejected before construction and broadcasting.
+  /// This is a terminal status.
+  /// - TRANSACTION_DELAYED: The transaction s taking longer than expected to confirm on-chain.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_RETRIED: The transaction has been recreated and retried, this occurs when network congestion results in transfers becoming extremely delayed due to insufficient fees or network resources such as CPU, RAM, or NET.
+  /// This is a terminal status.
+  /// - TRANSACTION_FAILED: The transaction failed on-chain (the fee was spent but the operation failed).
+  /// This is a terminal status.
+  /// - TRANSACTION_EXPIRED: The transaction has expired.
+  /// This is a terminal status.
+  /// - TRANSACTION_BROADCASTING: The transaction is currently broadcasting to the cryptocurrency network.
+  /// This is a non-terminal status.
+  /// - OTHER_TRANSACTION_STATUS: The transaction has reached an OTHER status.
+  /// This is a non-terminal status.
+  /// - TRANSACTION_CONSTRUCTED: The transaction  bctx is constructed but not yet broadcasting on chain.
+  /// This is a non-terminal status.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<TransactionStatus>))]
   public enum TransactionStatus
   {
+    /// <summary>
+    /// The Transaction has been created and is awaiting Consensus approval.
+    /// </summary>
     TRANSACTION_CREATED,
+    /// <summary>
+    /// The Transaction has reached User Consensus and is awaiting Coinbase Prime approval.
+    /// </summary>
     TRANSACTION_REQUESTED,
+    /// <summary>
+    /// The Transaction has been authorized by Coinbase Prime.
+    /// </summary>
     TRANSACTION_APPROVED,
+    /// <summary>
+    /// The transaction is awaiting blockchain resources for broadcast.
+    /// </summary>
     TRANSACTION_GASSING,
+    /// <summary>
+    /// The transaction has received blockchain resources for broadcasting.
+    /// </summary>
     TRANSACTION_GASSED,
+    /// <summary>
+    /// The transaction has been provisioned and is awaiting planning.
+    /// </summary>
     TRANSACTION_PROVISIONED,
+    /// <summary>
+    /// The transaction has been constructed.
+    /// </summary>
     TRANSACTION_PLANNED,
+    /// <summary>
+    /// The transaction is currently processing and awaiting finalization.
+    /// </summary>
     TRANSACTION_PROCESSING,
+    /// <summary>
+    /// The transaction has been broadcasted to the network.
+    /// </summary>
     TRANSACTION_RESTORED,
+    /// <summary>
+    /// The transaction has confirmed on-chain and finished.
+    /// </summary>
     TRANSACTION_DONE,
+    /// <summary>
+    /// The transaction deposit has been detected and is awaiting finalization.
+    /// </summary>
     TRANSACTION_IMPORT_PENDING,
+    /// <summary>
+    /// The transaction deposit and reward has been detected.
+    /// </summary>
     TRANSACTION_IMPORTED,
+    /// <summary>
+    /// The transaction has been cancelled.
+    /// </summary>
     TRANSACTION_CANCELLED,
+    /// <summary>
+    /// The transaction was rejected before construction and broadcasting.
+    /// </summary>
     TRANSACTION_REJECTED,
+    /// <summary>
+    /// The transaction s taking longer than expected to confirm on-chain.
+    /// </summary>
     TRANSACTION_DELAYED,
+    /// <summary>
+    /// The transaction has been recreated and retried, this occurs when network congestion results in transfers becoming extremely delayed due to insufficient fees or network resources such as CPU, RAM, or NET.
+    /// </summary>
     TRANSACTION_RETRIED,
+    /// <summary>
+    /// The transaction failed on-chain (the fee was spent but the operation failed).
+    /// </summary>
     TRANSACTION_FAILED,
+    /// <summary>
+    /// The transaction has expired.
+    /// </summary>
     TRANSACTION_EXPIRED,
+    /// <summary>
+    /// The transaction is currently broadcasting to the cryptocurrency network.
+    /// </summary>
     TRANSACTION_BROADCASTING,
+    /// <summary>
+    /// The transaction has reached an OTHER status.
+    /// </summary>
     OTHER_TRANSACTION_STATUS,
+    /// <summary>
+    /// The transaction  bctx is constructed but not yet broadcasting on chain.
+    /// </summary>
     TRANSACTION_CONSTRUCTED
   }
 }

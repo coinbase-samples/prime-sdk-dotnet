@@ -25,13 +25,25 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// AdvancedTransfer represents a complex transfer operation such as a blind match settlement.
+  /// </summary>
 
   public class AdvancedTransfer
   {
     public string? Id { get; set; }
+    /// <summary>
+    /// AdvancedTransferType specifies the type of advanced transfer.
+    /// </summary>
     public AdvancedTransferType? Type { get; set; }
+    /// <summary>
+    /// AdvancedTransferState represents the lifecycle state of an advanced transfer.
+    /// </summary>
     public AdvancedTransferState? State { get; set; }
     public List<FundMovement>? FundMovements { get; set; }
+    /// <summary>
+    /// BlindMatchMetadata contains metadata specific to blind match advanced transfers.
+    /// </summary>
     public BlindMatchMetadata? BlindMatchMetadata { get; set; }
     public AdvancedTransfer() { }
 

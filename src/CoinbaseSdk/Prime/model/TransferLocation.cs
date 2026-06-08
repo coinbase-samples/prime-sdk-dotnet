@@ -28,6 +28,15 @@ namespace CoinbaseSdk.Prime.Model
 
   public class TransferLocation
   {
+    /// <summary>
+    /// - TRANSFER_LOCATION_TYPE_UNKNOWN: The nil value.
+    /// - PAYMENT_METHOD: The ID of a fiat payment method.
+    /// - WALLET: The ID of a wallet.
+    /// - ADDRESS: A cryptocurrency address.
+    /// - OTHER: Another type of transfer location: Blockchain Network, Coinbase.
+    /// - MULTIPLE_ADDRESSES: Multiple cryptocurrency addresses.
+    /// - COUNTERPARTY_ID: Counterparty ID.
+    /// </summary>
     public TransferLocationType? Type { get; set; }
     /// <summary>
     /// The value of the transfer location: payment method ID, wallet ID or crypto address

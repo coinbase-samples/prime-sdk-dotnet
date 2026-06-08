@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// XMSummary is the realtime evaluated XM margin model, containing positions and netting info.
+  /// </summary>
 
   public class XmSummary
   {

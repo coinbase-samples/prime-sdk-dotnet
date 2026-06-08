@@ -25,19 +25,53 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Represents a party in a travel rule transfer (originator or beneficiary).
+  /// </summary>
 
   public class TravelRuleParty
   {
+    /// <summary>
+    /// Legal name (for entities or simple name format).
+    /// </summary>
     public string? Name { get; set; }
+    /// <summary>
+    /// Natural person name components.
+    /// </summary>
     public NaturalPersonName? NaturalPersonName { get; set; }
+    /// <summary>
+    /// Detailed address information.
+    /// </summary>
     public DetailedAddress? Address { get; set; }
+    /// <summary>
+    /// - TRAVEL_RULE_WALLET_TYPE_UNSPECIFIED: Default unspecified wallet type.
+    /// - TRAVEL_RULE_WALLET_TYPE_VASP: Centralized exchange wallet.
+    /// - TRAVEL_RULE_WALLET_TYPE_SELF_CUSTODIED: Self-hosted/custodial wallet.
+    /// </summary>
     public TravelRuleWalletType? WalletType { get; set; }
+    /// <summary>
+    /// VASP identifier when wallet_type is VASP.
+    /// </summary>
     public string? VaspId { get; set; }
+    /// <summary>
+    /// VASP name fallback when vasp_id is unknown.
+    /// </summary>
     public string? VaspName { get; set; }
     /// <summary>
     /// Personal identifier for travel rule compliance. For individuals: passport number, national ID, driver&#39;s license. For institutions: LEI (Legal Entity Identifier).
     /// </summary>
     public string? PersonalId { get; set; }
+    /// <summary>
+    /// * A full date, with non-zero year, month, and day values.
+    /// * A month and day, with a zero year (for example, an anniversary).
+    /// * A year on its own, with a zero month and a zero day.
+    /// * A year and month, with a zero day (for example, a credit card expiration.
+    /// date).
+    /// Related types:
+    /// * [google.type.TimeOfDay][google.type.TimeOfDay].
+    /// * [google.type.DateTime][google.type.DateTime].
+    /// * [google.protobuf.Timestamp][google.protobuf.Timestamp].
+    /// </summary>
     public DateOfBirth? DateOfBirth { get; set; }
     /// <summary>
     /// Telephone number for contact purposes.

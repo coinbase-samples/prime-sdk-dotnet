@@ -28,6 +28,9 @@ namespace CoinbaseSdk.Prime.Model
 
   public class AssetChange
   {
+    /// <summary>
+    /// AssetChangeType identifies the type of asset change.
+    /// </summary>
     public AssetChangeType? Type { get; set; }
     /// <summary>
     /// The currency symbol associated with the balance operation

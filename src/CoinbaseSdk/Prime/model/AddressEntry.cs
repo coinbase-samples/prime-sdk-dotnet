@@ -29,6 +29,9 @@ namespace CoinbaseSdk.Prime.Model
   {
     public string? Name { get; set; }
     public string? Address { get; set; }
+    /// <summary>
+    /// List of compatible chain IDs for a given address, empty for Solana.
+    /// </summary>
     public List<string>? ChainIds { get; set; }
     public AddressEntry() { }
 

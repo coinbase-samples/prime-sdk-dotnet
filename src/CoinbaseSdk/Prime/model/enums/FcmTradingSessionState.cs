@@ -26,14 +26,40 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - FCM_TRADING_SESSION_STATE_UNDEFINED: Undefined session state.
+  /// - FCM_TRADING_SESSION_STATE_PRE_OPEN: Pre-open state, orders can be placed and cancelled.
+  /// - FCM_TRADING_SESSION_STATE_PRE_OPEN_NO_CANCEL: Pre-open state, orders cannot be cancelled.
+  /// - FCM_TRADING_SESSION_STATE_OPEN: Trading session is open.
+  /// - FCM_TRADING_SESSION_STATE_CLOSE: Trading session is closed.
+  /// - FCM_TRADING_SESSION_STATE_HALTED: Trading session is halted.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<FcmTradingSessionState>))]
   public enum FcmTradingSessionState
   {
+    /// <summary>
+    /// Undefined session state.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_UNDEFINED,
+    /// <summary>
+    /// Pre-open state, orders can be placed and cancelled.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_PRE_OPEN,
+    /// <summary>
+    /// Pre-open state, orders cannot be cancelled.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_PRE_OPEN_NO_CANCEL,
+    /// <summary>
+    /// Trading session is open.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_OPEN,
+    /// <summary>
+    /// Trading session is closed.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_CLOSE,
+    /// <summary>
+    /// Trading session is halted.
+    /// </summary>
     FCM_TRADING_SESSION_STATE_HALTED
   }
 }

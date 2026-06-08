@@ -24,6 +24,11 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// WalletStakingMetadata contains optional metadata for wallet staking requests.
+  /// external_id tags the discrete TWS transaction stake/unstake create; automatic reward crediting (e.g. SOL inflation) does not produce one.
+  /// StakingClaimRewardsRequest intentionally omits this field; add metadata to claim rewards only if a supported network's claim flow creates a discrete TWS transaction clients need to tag.
+  /// </summary>
 
   public class WalletStakingMetadata
   {

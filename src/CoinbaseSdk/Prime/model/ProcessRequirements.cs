@@ -25,9 +25,15 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Represents the status of various process requirements for a transaction.
+  /// </summary>
 
   public class ProcessRequirements
   {
+    /// <summary>
+    /// Travel rule compliance status for a transaction.
+    /// </summary>
     public TravelRuleStatus? TravelRuleStatus { get; set; }
     public ProcessRequirements() { }
 

@@ -28,6 +28,9 @@ namespace CoinbaseSdk.Prime.Model
 
   public class UserAction
   {
+    /// <summary>
+    /// Action is the available user action types.
+    /// </summary>
     public Action? Action { get; set; }
     /// <summary>
     /// Id of the user who executed the action

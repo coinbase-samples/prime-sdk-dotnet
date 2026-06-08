@@ -26,14 +26,36 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - XM_LIQUIDATION_STATUS_PRE_LIQUIDATION: Liquidation is in the pre-liquidation phase.
+  /// - XM_LIQUIDATION_STATUS_LIQUIDATING: Liquidation is actively in progress.
+  /// - XM_LIQUIDATION_STATUS_LIQUIDATED: Liquidation has completed successfully.
+  /// - XM_LIQUIDATION_STATUS_CANCELED: Liquidation was canceled.
+  /// - XM_LIQUIDATION_STATUS_FAILED: Liquidation failed.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmLiquidationStatus>))]
   public enum XmLiquidationStatus
   {
     XM_LIQUIDATION_STATUS_UNSET,
+    /// <summary>
+    /// Liquidation is in the pre-liquidation phase.
+    /// </summary>
     XM_LIQUIDATION_STATUS_PRE_LIQUIDATION,
+    /// <summary>
+    /// Liquidation is actively in progress.
+    /// </summary>
     XM_LIQUIDATION_STATUS_LIQUIDATING,
+    /// <summary>
+    /// Liquidation has completed successfully.
+    /// </summary>
     XM_LIQUIDATION_STATUS_LIQUIDATED,
+    /// <summary>
+    /// Liquidation was canceled.
+    /// </summary>
     XM_LIQUIDATION_STATUS_CANCELED,
+    /// <summary>
+    /// Liquidation failed.
+    /// </summary>
     XM_LIQUIDATION_STATUS_FAILED
   }
 }

@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// XMPosition.
+  /// </summary>
 
   public class XmPosition
   {

@@ -25,18 +25,42 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using System.Text.Json.Serialization;
+  /// <summary>
+  /// Detailed address information.
+  /// </summary>
 
   public class DetailedAddress
   {
     [JsonPropertyName("address_1")]
+    /// <summary>
+    /// Primary address line.
+    /// </summary>
     public string? Address1 { get; set; }
     [JsonPropertyName("address_2")]
+    /// <summary>
+    /// Secondary address line (optional).
+    /// </summary>
     public string? Address2 { get; set; }
     [JsonPropertyName("address_3")]
+    /// <summary>
+    /// Tertiary address line (optional).
+    /// </summary>
     public string? Address3 { get; set; }
+    /// <summary>
+    /// City name.
+    /// </summary>
     public string? City { get; set; }
+    /// <summary>
+    /// State or province.
+    /// </summary>
     public string? State { get; set; }
+    /// <summary>
+    /// ISO 3166-1 alpha-2 country code.
+    /// </summary>
     public string? CountryCode { get; set; }
+    /// <summary>
+    /// Postal/ZIP code.
+    /// </summary>
     public string? PostalCode { get; set; }
     public DetailedAddress() { }
 

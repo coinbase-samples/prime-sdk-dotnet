@@ -24,9 +24,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// Represents a single candle data point.
+  /// </summary>
 
   public class Candle
   {
+    /// <summary>
+    /// Timestamp for the start of the candle period.
+    /// </summary>
     public DateTime? Timestamp { get; set; }
     /// <summary>
     /// Opening price for the period

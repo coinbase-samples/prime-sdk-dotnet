@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// Travel rule compliance status for a transaction.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<TravelRuleStatus>))]
   public enum TravelRuleStatus
   {

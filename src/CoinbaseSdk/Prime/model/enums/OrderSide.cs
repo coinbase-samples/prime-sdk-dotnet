@@ -26,10 +26,21 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_ORDER_SIDE: nil value.
+  /// - BUY: Buy order.
+  /// - SELL: Sell order.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<OrderSide>))]
   public enum OrderSide
   {
+    /// <summary>
+    /// Buy order.
+    /// </summary>
     BUY,
+    /// <summary>
+    /// Sell order.
+    /// </summary>
     SELL
   }
 }

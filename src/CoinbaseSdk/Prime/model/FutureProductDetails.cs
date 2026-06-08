@@ -25,6 +25,9 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// FutureProductDetails contains details specific to futures products.
+  /// </summary>
 
   public class FutureProductDetails
   {
@@ -44,7 +47,17 @@ namespace CoinbaseSdk.Prime.Model
     /// Contract root unit (underlying asset)
     /// </summary>
     public string? ContractRootUnit { get; set; }
+    /// <summary>
+    /// - CONTRACT_EXPIRY_TYPE_UNSPECIFIED: Unspecified contract expiry type.
+    /// - CONTRACT_EXPIRY_TYPE_EXPIRING: Expiring futures contract.
+    /// - CONTRACT_EXPIRY_TYPE_PERPETUAL: Perpetual futures contract (no expiry).
+    /// </summary>
     public ContractExpiryType? ContractExpiryType { get; set; }
+    /// <summary>
+    /// - RISK_MANAGEMENT_TYPE_UNSPECIFIED: Unspecified risk management type.
+    /// - RISK_MANAGEMENT_TYPE_MANAGED_BY_FCM: Risk is managed by FCM (Futures Commission Merchant).
+    /// - RISK_MANAGEMENT_TYPE_MANAGED_BY_VENUE: Risk is managed by the venue.
+    /// </summary>
     public RiskManagementType? RiskManagedBy { get; set; }
     /// <summary>
     /// The venue this product trades on
@@ -62,6 +75,9 @@ namespace CoinbaseSdk.Prime.Model
     /// Short version of the group description
     /// </summary>
     public string? GroupShortDescription { get; set; }
+    /// <summary>
+    /// PerpetualProductDetails contains details specific to perpetual futures products.
+    /// </summary>
     public PerpetualProductDetails? PerpetualDetails { get; set; }
     public FutureProductDetails() { }
 

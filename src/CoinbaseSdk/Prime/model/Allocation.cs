@@ -48,6 +48,11 @@ namespace CoinbaseSdk.Prime.Model
     /// The ID of the product of the orders allocated.
     /// </summary>
     public string? ProductId { get; set; }
+    /// <summary>
+    /// - UNKNOWN_ORDER_SIDE: nil value.
+    /// - BUY: Buy order.
+    /// - SELL: Sell order.
+    /// </summary>
     public OrderSide? Side { get; set; }
     /// <summary>
     /// Price the allocation was done at.

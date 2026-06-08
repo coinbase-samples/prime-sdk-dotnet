@@ -24,6 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// WalletStakeInputs contains the custom inputs for staking operations on a wallet.
+  /// Requirements and supported fields vary by asset type.
+  /// </summary>
 
   public class WalletStakeInputs
   {

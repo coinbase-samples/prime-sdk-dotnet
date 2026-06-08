@@ -25,11 +25,17 @@
 namespace CoinbaseSdk.Prime.Model
 {
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Invoice item.
+  /// </summary>
 
   public class InvoiceItem
   {
     public string? Description { get; set; }
     public string? CurrencySymbol { get; set; }
+    /// <summary>
+    /// Types.
+    /// </summary>
     public InvoiceType? InvoiceType { get; set; }
     public double? Rate { get; set; }
     public double? Quantity { get; set; }

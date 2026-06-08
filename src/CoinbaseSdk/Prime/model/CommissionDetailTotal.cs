@@ -27,6 +27,10 @@ namespace CoinbaseSdk.Prime.Model
 
   public class CommissionDetailTotal
   {
+    /// <summary>
+    /// Total commission amount charged for the order.
+    /// This is the sum of all commission charged on the order.
+    /// </summary>
     public string? TotalCommission { get; set; }
     /// <summary>
     /// CB fee
@@ -36,7 +40,13 @@ namespace CoinbaseSdk.Prime.Model
     /// Exchange fees
     /// </summary>
     public string? VenueCommission { get; set; }
+    /// <summary>
+    /// CES Commission.
+    /// </summary>
     public string? CesCommission { get; set; }
+    /// <summary>
+    /// Financing Commission.
+    /// </summary>
     public string? FinancingCommission { get; set; }
     /// <summary>
     /// NFA fees

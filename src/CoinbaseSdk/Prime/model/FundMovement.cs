@@ -24,6 +24,9 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
+  /// <summary>
+  /// FundMovement represents a single movement of funds between two counterparties.
+  /// </summary>
 
   public class FundMovement
   {

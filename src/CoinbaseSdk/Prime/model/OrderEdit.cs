@@ -27,14 +27,41 @@ namespace CoinbaseSdk.Prime.Model
 
   public class OrderEdit
   {
+    /// <summary>
+    /// New price for the edited order.
+    /// </summary>
     public string? Price { get; set; }
+    /// <summary>
+    /// New base quantity for the edited order, populated if order is in base size.
+    /// </summary>
     public string? BaseQuantity { get; set; }
+    /// <summary>
+    /// New quote value for the edited order, populated if order is in quote size.
+    /// </summary>
     public string? QuoteValue { get; set; }
+    /// <summary>
+    /// Display base size for the edited order, populated if order is in base size.
+    /// </summary>
     public string? DisplayBaseSize { get; set; }
+    /// <summary>
+    /// Display quote size for the edited order, populated if order is in quote size.
+    /// </summary>
     public string? DisplayQuoteSize { get; set; }
+    /// <summary>
+    /// New stop price for the edited order.
+    /// </summary>
     public string? StopPrice { get; set; }
+    /// <summary>
+    /// New expiry/end time for the edited order.
+    /// </summary>
     public DateTime? ExpiryTime { get; set; }
+    /// <summary>
+    /// Time when the edit was accepted.
+    /// </summary>
     public DateTime? AcceptTime { get; set; }
+    /// <summary>
+    /// The new client order identifier that the order adopted after the replacement was successfully accepted.
+    /// </summary>
     public string? ClientOrderId { get; set; }
     public OrderEdit() { }
 

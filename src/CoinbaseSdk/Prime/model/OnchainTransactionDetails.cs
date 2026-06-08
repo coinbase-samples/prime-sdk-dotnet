@@ -32,6 +32,9 @@ namespace CoinbaseSdk.Prime.Model
     /// The signed transaction data
     /// </summary>
     public string? SignedTransaction { get; set; }
+    /// <summary>
+    /// New message for risk assessment details.
+    /// </summary>
     public RiskAssessment? RiskAssessment { get; set; }
     /// <summary>
     /// The blockchain network chain ID. Will be empty for Solana transactions.
@@ -57,6 +60,11 @@ namespace CoinbaseSdk.Prime.Model
     /// Reason for transaction failure if applicable
     /// </summary>
     public string? FailureReason { get; set; }
+    /// <summary>
+    /// - SIGNING_STATUS_UNKNOWN: Unknown signing status.
+    /// - SIGNED: Transaction has been signed.
+    /// - UNSIGNED: Transaction is unsigned.
+    /// </summary>
     public SigningStatus? SigningStatus { get; set; }
     public OnchainTransactionDetails() { }
 

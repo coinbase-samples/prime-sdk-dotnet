@@ -26,11 +26,26 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_PAYMENT_METHOD_TYPE: nil value.
+  /// - METHOD_WIRE: Wire transfer.
+  /// - METHOD_SEN: Silvergate exchange network.
+  /// - METHOD_SWIFT: Swift.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<PaymentMethodType>))]
   public enum PaymentMethodType
   {
+    /// <summary>
+    /// Wire transfer.
+    /// </summary>
     METHOD_WIRE,
+    /// <summary>
+    /// Silvergate exchange network.
+    /// </summary>
     METHOD_SEN,
+    /// <summary>
+    /// Swift.
+    /// </summary>
     METHOD_SWIFT
   }
 }
