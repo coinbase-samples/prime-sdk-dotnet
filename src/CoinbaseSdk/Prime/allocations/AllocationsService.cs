@@ -24,6 +24,93 @@ namespace CoinbaseSdk.Prime.Allocations
   public class AllocationsService(ICoinbaseClient client) : CoinbaseService(client), IAllocationsService
   {
     /// <summary>
+    /// List Portfolio Allocations.
+    /// </summary>
+    public ListPortfolioAllocationsResponse ListPortfolioAllocations(
+      ListPortfolioAllocationsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<ListPortfolioAllocationsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<ListPortfolioAllocationsResponse> ListPortfolioAllocationsAsync(
+      ListPortfolioAllocationsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<ListPortfolioAllocationsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Allocation by ID.
+    /// </summary>
+    public GetAllocationResponse GetAllocation(
+      GetAllocationRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetAllocationResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetAllocationResponse> GetAllocationAsync(
+      GetAllocationRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetAllocationResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Net Allocations by Netting ID.
+    /// </summary>
+    public ListAllocationsByClientNettingIdResponse ListAllocationsByClientNettingId(
+      ListAllocationsByClientNettingIdRequest request,
+      CallOptions? options = null)
+    {
+      return Request<ListAllocationsByClientNettingIdResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations/net/{request.NettingId}",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<ListAllocationsByClientNettingIdResponse> ListAllocationsByClientNettingIdAsync(
+      ListAllocationsByClientNettingIdRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<ListAllocationsByClientNettingIdResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/allocations/net/{request.NettingId}",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
     /// Create Portfolio Allocations.
     /// </summary>
     public CreateAllocationResponse CreateAllocation(
@@ -77,93 +164,6 @@ namespace CoinbaseSdk.Prime.Allocations
         $"/allocations/net",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// List Portfolio Allocations.
-    /// </summary>
-    public ListPortfolioAllocationsResponse ListPortfolioAllocations(
-      ListPortfolioAllocationsRequest request,
-      CallOptions? options = null)
-    {
-      return Request<ListPortfolioAllocationsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<ListPortfolioAllocationsResponse> ListPortfolioAllocationsAsync(
-      ListPortfolioAllocationsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<ListPortfolioAllocationsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Net Allocations by Netting ID.
-    /// </summary>
-    public ListAllocationsByClientNettingIdResponse ListAllocationsByClientNettingId(
-      ListAllocationsByClientNettingIdRequest request,
-      CallOptions? options = null)
-    {
-      return Request<ListAllocationsByClientNettingIdResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations/net/{request.NettingId}",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<ListAllocationsByClientNettingIdResponse> ListAllocationsByClientNettingIdAsync(
-      ListAllocationsByClientNettingIdRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<ListAllocationsByClientNettingIdResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations/net/{request.NettingId}",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Allocation by ID.
-    /// </summary>
-    public GetAllocationResponse GetAllocation(
-      GetAllocationRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetAllocationResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetAllocationResponse> GetAllocationAsync(
-      GetAllocationRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetAllocationResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/allocations/{request.AllocationId}",
-        [HttpStatusCode.OK],
-        null,
         options,
         cancellationToken);
     }

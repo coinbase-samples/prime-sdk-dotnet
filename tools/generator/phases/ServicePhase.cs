@@ -52,7 +52,6 @@ public static class ServicePhase
   }
 
   public static string EmitService(
-    GeneratorConfiguration cfg,
     ServiceDefinition svc,
     List<(SdkOperationBinding B, ParsedOperation Op)> ops)
   {
@@ -75,7 +74,7 @@ public static class ServicePhase
     {
       var pathExpr = ToCSharpPathExpression(op.Path, b.OmitRequest);
       var method = ToHttpMethodExpression(op.HttpMethod);
-      var status = StatusArray(cfg, b.SdkMethod, op);
+      var status = StatusArray(b.SdkMethod, op);
       var bodyArg = RequestBodyArgument(b, op);
       sb.Append(ServiceMethodBlock(b, op, pathExpr, method, status, bodyArg));
     }
@@ -218,21 +217,37 @@ public static class ServicePhase
     return "null";
   }
 
-  private static string StatusArray(GeneratorConfiguration cfg, string sdkMethod, ParsedOperation op)
+  /// <summary>
+  /// Resolves the success status codes emitted on service methods.
+  /// When the spec documents only 200 but the API may return 201 for create-style endpoints, both are accepted.
+  /// </summary>
+  public static string StatusArray(string sdkMethod, ParsedOperation op)
   {
-    if (cfg.StatusCodeOverrides.TryGetValue(sdkMethod, out var configured))
-    {
-      return "[" + string.Join(", ", configured.Select(s => $"HttpStatusCode.{s}")) + "]";
-    }
-
     if (op.SuccessStatusCodes.Count == 0)
     {
       return "[HttpStatusCode.OK]";
     }
 
     var codes = op.SuccessStatusCodes.Distinct().ToList();
+    if (codes.Count == 1 && codes[0] == 200 && LooksLikeCreateStyleEndpoint(sdkMethod))
+    {
+      return "[HttpStatusCode.Created, HttpStatusCode.OK]";
+    }
+
     codes.Sort(CompareSuccessStatusCodes);
     return "[" + string.Join(", ", codes.Select(ToHttpStatusCode)) + "]";
+  }
+
+  private static bool LooksLikeCreateStyleEndpoint(string sdkMethod)
+  {
+    if (string.Equals(sdkMethod, "PreviewUnstake", StringComparison.Ordinal))
+    {
+      return true;
+    }
+
+    return sdkMethod.StartsWith("Create", StringComparison.Ordinal) ||
+           sdkMethod.StartsWith("Claim", StringComparison.Ordinal) ||
+           sdkMethod.StartsWith("Submit", StringComparison.Ordinal);
   }
 
   private static int CompareSuccessStatusCodes(int a, int b)

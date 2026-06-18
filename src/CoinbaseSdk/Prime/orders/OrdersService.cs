@@ -24,35 +24,6 @@ namespace CoinbaseSdk.Prime.Orders
   public class OrdersService(ICoinbaseClient client) : CoinbaseService(client), IOrdersService
   {
     /// <summary>
-    /// Accept Quote.
-    /// </summary>
-    public AcceptQuoteResponse AcceptQuote(
-      AcceptQuoteRequest request,
-      CallOptions? options = null)
-    {
-      return Request<AcceptQuoteResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/accept_quote",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<AcceptQuoteResponse> AcceptQuoteAsync(
-      AcceptQuoteRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<AcceptQuoteResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/accept_quote",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// List Portfolio Fills.
     /// </summary>
     public ListPortfolioFillsResponse ListPortfolioFills(
@@ -104,64 +75,6 @@ namespace CoinbaseSdk.Prime.Orders
       return RequestAsync<ListOpenOrdersResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/open_orders",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Create Order.
-    /// </summary>
-    public CreateOrderResponse CreateOrder(
-      CreateOrderRequest request,
-      CallOptions? options = null)
-    {
-      return Request<CreateOrderResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/order",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<CreateOrderResponse> CreateOrderAsync(
-      CreateOrderRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<CreateOrderResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/order",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Order Preview.
-    /// </summary>
-    public GetOrderPreviewResponse GetOrderPreview(
-      GetOrderPreviewRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetOrderPreviewResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/order_preview",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<GetOrderPreviewResponse> GetOrderPreviewAsync(
-      GetOrderPreviewRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetOrderPreviewResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/order_preview",
         [HttpStatusCode.OK],
         request,
         options,
@@ -227,64 +140,6 @@ namespace CoinbaseSdk.Prime.Orders
     }
 
     /// <summary>
-    /// Cancel Order.
-    /// </summary>
-    public CancelOrderResponse CancelOrder(
-      CancelOrderRequest request,
-      CallOptions? options = null)
-    {
-      return Request<CancelOrderResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<CancelOrderResponse> CancelOrderAsync(
-      CancelOrderRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<CancelOrderResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Edit Order (Beta).
-    /// </summary>
-    public EditOrderResponse EditOrder(
-      EditOrderRequest request,
-      CallOptions? options = null)
-    {
-      return Request<EditOrderResponse>(
-        HttpMethod.Put,
-        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<EditOrderResponse> EditOrderAsync(
-      EditOrderRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<EditOrderResponse>(
-        HttpMethod.Put,
-        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// List Order Edit History.
     /// </summary>
     public ListOrderEditHistoryResponse ListOrderEditHistory(
@@ -343,6 +198,93 @@ namespace CoinbaseSdk.Prime.Orders
     }
 
     /// <summary>
+    /// Accept Quote.
+    /// </summary>
+    public AcceptQuoteResponse AcceptQuote(
+      AcceptQuoteRequest request,
+      CallOptions? options = null)
+    {
+      return Request<AcceptQuoteResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/accept_quote",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<AcceptQuoteResponse> AcceptQuoteAsync(
+      AcceptQuoteRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<AcceptQuoteResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/accept_quote",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Create Order.
+    /// </summary>
+    public CreateOrderResponse CreateOrder(
+      CreateOrderRequest request,
+      CallOptions? options = null)
+    {
+      return Request<CreateOrderResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/order",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreateOrderResponse> CreateOrderAsync(
+      CreateOrderRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<CreateOrderResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/order",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Order Preview.
+    /// </summary>
+    public GetOrderPreviewResponse GetOrderPreview(
+      GetOrderPreviewRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetOrderPreviewResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/order_preview",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetOrderPreviewResponse> GetOrderPreviewAsync(
+      GetOrderPreviewRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetOrderPreviewResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/order_preview",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
     /// Create Quote Request.
     /// </summary>
     public CreateQuoteResponse CreateQuote(
@@ -366,6 +308,64 @@ namespace CoinbaseSdk.Prime.Orders
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/rfq",
         [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Cancel Order.
+    /// </summary>
+    public CancelOrderResponse CancelOrder(
+      CancelOrderRequest request,
+      CallOptions? options = null)
+    {
+      return Request<CancelOrderResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<CancelOrderResponse> CancelOrderAsync(
+      CancelOrderRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<CancelOrderResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/cancel",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Edit Order (Beta).
+    /// </summary>
+    public EditOrderResponse EditOrder(
+      EditOrderRequest request,
+      CallOptions? options = null)
+    {
+      return Request<EditOrderResponse>(
+        HttpMethod.Put,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<EditOrderResponse> EditOrderAsync(
+      EditOrderRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<EditOrderResponse>(
+        HttpMethod.Put,
+        $"/portfolios/{request.PortfolioId}/orders/{request.OrderId}/edit",
+        [HttpStatusCode.OK],
         request,
         options,
         cancellationToken);

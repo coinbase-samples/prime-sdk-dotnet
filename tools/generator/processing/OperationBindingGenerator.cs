@@ -25,6 +25,18 @@ public static class OperationBindingGenerator
 {
   private const string OperationIdPrefix = "PrimeRESTAPI_";
 
+  private static readonly Dictionary<string, string> KnownSdkMethodRenames = new(StringComparer.Ordinal)
+  {
+    ["StakingInitiate"] = "CreateStake",
+    ["StakingUnstake"] = "CreateUnstake",
+    ["PortfolioStakingInitiate"] = "CreatePortfolioStake",
+    ["PortfolioStakingUnstake"] = "CreatePortfolioUnstake",
+    ["StakingClaimRewards"] = "ClaimStakingRewards",
+    ["CreateWalletTransfer"] = "CreateTransfer",
+    ["CreateWalletWithdrawal"] = "CreateWithdrawal",
+    ["CreateQuoteRequest"] = "CreateQuote",
+  };
+
   public static List<SdkOperationBinding> DeriveAll(
     ParsedOpenApiDocument doc,
     GeneratorConfiguration cfg,
@@ -80,10 +92,14 @@ public static class OperationBindingGenerator
     name = transforms.NormalizeAcronyms(name);
     name = transforms.ApplyWeb3ToOnchainName(name);
 
+    if (KnownSdkMethodRenames.TryGetValue(name, out var renamed))
+    {
+      return renamed;
+    }
+
     if (op.HttpMethod == "GET" &&
-        !string.IsNullOrEmpty(op.Summary) &&
-        op.Summary.StartsWith("List ", StringComparison.Ordinal) &&
-        name.StartsWith("Get", StringComparison.Ordinal))
+        name.StartsWith("Get", StringComparison.Ordinal) &&
+        SummaryOrDescriptionIndicatesList(op))
     {
       name = string.Concat("List", name.AsSpan(3));
     }
@@ -125,6 +141,23 @@ public static class OperationBindingGenerator
     }
 
     return "GetPortfolio" + rest;
+  }
+
+  private static bool SummaryOrDescriptionIndicatesList(ParsedOperation op)
+  {
+    if (!string.IsNullOrEmpty(op.Summary) &&
+        op.Summary.StartsWith("List ", StringComparison.Ordinal))
+    {
+      return true;
+    }
+
+    if (!string.IsNullOrEmpty(op.Summary) &&
+        op.Summary.Contains(" list ", StringComparison.OrdinalIgnoreCase))
+    {
+      return true;
+    }
+
+    return false;
   }
 
   private static string ResolveServiceKey(GeneratorConfiguration cfg, ParsedOperation op)

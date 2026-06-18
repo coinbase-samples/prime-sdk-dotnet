@@ -33,6 +33,30 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
       CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Get Portfolio Counterparty ID.
+    /// </summary>
+    public GetPortfolioCounterpartyIDResponse GetPortfolioCounterpartyID(
+      GetPortfolioCounterpartyIDRequest request,
+      CallOptions? options = null);
+
+    public Task<GetPortfolioCounterpartyIDResponse> GetPortfolioCounterpartyIDAsync(
+      GetPortfolioCounterpartyIDRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// List transactions associated with an Advanced Transfer.
+    /// </summary>
+    public ListAdvancedTransferTransactionsResponse ListAdvancedTransferTransactions(
+      ListAdvancedTransferTransactionsRequest request,
+      CallOptions? options = null);
+
+    public Task<ListAdvancedTransferTransactionsResponse> ListAdvancedTransferTransactionsAsync(
+      ListAdvancedTransferTransactionsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Create Advanced Transfer.
     /// </summary>
     public CreateAdvancedTransferResponse CreateAdvancedTransfer(
@@ -53,30 +77,6 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
 
     public Task<CancelAdvancedTransferResponse> CancelAdvancedTransferAsync(
       CancelAdvancedTransferRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// List transactions associated with an Advanced Transfer.
-    /// </summary>
-    public ListAdvancedTransferTransactionsResponse ListAdvancedTransferTransactions(
-      ListAdvancedTransferTransactionsRequest request,
-      CallOptions? options = null);
-
-    public Task<ListAdvancedTransferTransactionsResponse> ListAdvancedTransferTransactionsAsync(
-      ListAdvancedTransferTransactionsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get Portfolio Counterparty ID.
-    /// </summary>
-    public GetPortfolioCounterpartyIDResponse GetPortfolioCounterpartyID(
-      GetPortfolioCounterpartyIDRequest request,
-      CallOptions? options = null);
-
-    public Task<GetPortfolioCounterpartyIDResponse> GetPortfolioCounterpartyIDAsync(
-      GetPortfolioCounterpartyIDRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

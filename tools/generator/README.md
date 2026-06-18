@@ -17,7 +17,7 @@ There is no mode to generate only one category; output is always kept in sync.
 tools/generator/
   Program.cs                 # Entry: download spec, run all phases
   config/
-    generator-config.json    # Transforms, tag overrides, method-order overrides, specUrl
+    generator-config.json    # Transforms, tag overrides, specUrl
     operations-overrides.json # Sparse patches per operationId (overrides win)
     .openapi-generator-ignore
     openapitools.json
@@ -101,18 +101,16 @@ cd tools/generator
 
 ## Configuration
 
-- **`config/generator-config.json`** — `specUrl`, `committedSpecPath`, `emitRequestBuilders` (default `true`; set `false` to omit nested request builders — breaking for callers), `filePathReplacements` (semantic renames; common schema prefixes are also merged from the spec), `contentReplacements`, `acronymMappings`, `enumNameMappings`, `tagToFolderOverrides` (only when the default tag→folder rule is wrong, e.g. routing a tag to an existing folder), `serviceMethodOrderOverrides` (optional per-service method order), `statusCodeOverrides` (optional permissive create-status lists).
+- **`config/generator-config.json`** — `specUrl`, `committedSpecPath`, `emitRequestBuilders` (default `true`; set `false` to omit nested request builders — breaking for callers), `filePathReplacements` (semantic renames; common schema prefixes are also merged from the spec), `contentReplacements`, `acronymMappings`, `enumNameMappings`, `tagToFolderOverrides` (only when the default tag→folder rule is wrong, e.g. routing a tag to an existing folder).
 - **`config/operations-overrides.json`** — Optional array of sparse patches: `operationId` plus any of `sdkMethod`, `service`, `omitRequest`, `forcePaginated`, `paramTypeOverrides` (merged onto derived values).
 
 Default **tag → folder** is lowercase with spaces removed (`Payment Methods` → `paymentmethods`). **Services** (`folder`, `namespace`, `I*Service` / `*Service` names) are derived from the canonical OpenAPI tag for that folder.
 
-### `serviceMethodOrderOverrides`
-
-When present for a service key, fixes `I*Service` / `*Service` method order. When omitted, methods sort by HTTP verb (GET, POST, PUT, PATCH, DELETE), path depth, path, then `sdkMethod`.
+Service methods sort by HTTP verb (GET, POST, PUT, PATCH, DELETE), path depth, path, then `sdkMethod`.
 
 ### Success HTTP status codes
 
-By default, success codes come from the OpenAPI `responses` map (200, 201, 202 with JSON body, 204). When both **200** and **201** are documented, **Created** is emitted before **OK**. Optional `statusCodeOverrides` maps `sdkMethod` to status names (e.g. `Created`, `OK`) when the spec omits **201** but the API may return it.
+By default, success codes come from the OpenAPI `responses` map (200, 201, 202 with JSON body, 204). When both **200** and **201** are documented, **Created** is emitted before **OK**. When the spec documents only **200** for create-style methods (`Create*`, `Claim*`, `Submit*`, and `PreviewUnstake`), the generator accepts both **Created** and **OK** because the live API may return 201.
 
 Optional `x-sdk-method-name` on an operation overrides the derived `SdkMethod` name before `operations-overrides.json` is applied.
 

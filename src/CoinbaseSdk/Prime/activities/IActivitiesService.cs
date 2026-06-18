@@ -21,14 +21,14 @@ namespace CoinbaseSdk.Prime.Activities
   public interface IActivitiesService
   {
     /// <summary>
-    /// List Activities.
+    /// Get Activity by Activity ID.
     /// </summary>
-    public ListActivitiesResponse ListActivities(
-      ListActivitiesRequest request,
+    public GetActivityResponse GetActivity(
+      GetActivityRequest request,
       CallOptions? options = null);
 
-    public Task<ListActivitiesResponse> ListActivitiesAsync(
-      ListActivitiesRequest request,
+    public Task<GetActivityResponse> GetActivityAsync(
+      GetActivityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -45,14 +45,14 @@ namespace CoinbaseSdk.Prime.Activities
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get Activity by Activity ID.
+    /// List Activities.
     /// </summary>
-    public GetActivityResponse GetActivity(
-      GetActivityRequest request,
+    public ListActivitiesResponse ListActivities(
+      ListActivitiesRequest request,
       CallOptions? options = null);
 
-    public Task<GetActivityResponse> GetActivityAsync(
-      GetActivityRequest request,
+    public Task<ListActivitiesResponse> ListActivitiesAsync(
+      ListActivitiesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 

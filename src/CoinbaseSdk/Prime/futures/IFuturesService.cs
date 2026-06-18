@@ -21,18 +21,6 @@ namespace CoinbaseSdk.Prime.Futures
   public interface IFuturesService
   {
     /// <summary>
-    /// Set Auto Sweep.
-    /// </summary>
-    public SetAutoSweepResponse SetAutoSweep(
-      SetAutoSweepRequest request,
-      CallOptions? options = null);
-
-    public Task<SetAutoSweepResponse> SetAutoSweepAsync(
-      SetAutoSweepRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get Entity FCM Balance.
     /// </summary>
     public GetFcmBalanceResponse GetFcmBalance(
@@ -41,6 +29,18 @@ namespace CoinbaseSdk.Prime.Futures
 
     public Task<GetFcmBalanceResponse> GetFcmBalanceAsync(
       GetFcmBalanceRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get FCM Equity.
+    /// </summary>
+    public GetFcmEquityResponse GetFcmEquity(
+      GetFcmEquityRequest request,
+      CallOptions? options = null);
+
+    public Task<GetFcmEquityResponse> GetFcmEquityAsync(
+      GetFcmEquityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -93,18 +93,6 @@ namespace CoinbaseSdk.Prime.Futures
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Set FCM Settings.
-    /// </summary>
-    public SetFcmSettingsResponse SetFcmSettings(
-      SetFcmSettingsRequest request,
-      CallOptions? options = null);
-
-    public Task<SetFcmSettingsResponse> SetFcmSettingsAsync(
-      SetFcmSettingsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// List Entity Futures Sweeps.
     /// </summary>
     public ListEntityFuturesSweepsResponse ListEntityFuturesSweeps(
@@ -113,6 +101,30 @@ namespace CoinbaseSdk.Prime.Futures
 
     public Task<ListEntityFuturesSweepsResponse> ListEntityFuturesSweepsAsync(
       ListEntityFuturesSweepsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Set Auto Sweep.
+    /// </summary>
+    public SetAutoSweepResponse SetAutoSweep(
+      SetAutoSweepRequest request,
+      CallOptions? options = null);
+
+    public Task<SetAutoSweepResponse> SetAutoSweepAsync(
+      SetAutoSweepRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Set FCM Settings.
+    /// </summary>
+    public SetFcmSettingsResponse SetFcmSettings(
+      SetFcmSettingsRequest request,
+      CallOptions? options = null);
+
+    public Task<SetFcmSettingsResponse> SetFcmSettingsAsync(
+      SetFcmSettingsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -137,18 +149,6 @@ namespace CoinbaseSdk.Prime.Futures
 
     public Task<CancelEntityFuturesSweepResponse> CancelEntityFuturesSweepAsync(
       CancelEntityFuturesSweepRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get FCM Equity.
-    /// </summary>
-    public GetFcmEquityResponse GetFcmEquity(
-      GetFcmEquityRequest request,
-      CallOptions? options = null);
-
-    public Task<GetFcmEquityResponse> GetFcmEquityAsync(
-      GetFcmEquityRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

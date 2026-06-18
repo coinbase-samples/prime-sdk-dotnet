@@ -24,35 +24,6 @@ namespace CoinbaseSdk.Prime.Futures
   public class FuturesService(ICoinbaseClient client) : CoinbaseService(client), IFuturesService
   {
     /// <summary>
-    /// Set Auto Sweep.
-    /// </summary>
-    public SetAutoSweepResponse SetAutoSweep(
-      SetAutoSweepRequest request,
-      CallOptions? options = null)
-    {
-      return Request<SetAutoSweepResponse>(
-        HttpMethod.Post,
-        $"/entities/{request.EntityId}/futures/auto_sweep",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<SetAutoSweepResponse> SetAutoSweepAsync(
-      SetAutoSweepRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<SetAutoSweepResponse>(
-        HttpMethod.Post,
-        $"/entities/{request.EntityId}/futures/auto_sweep",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// Get Entity FCM Balance.
     /// </summary>
     public GetFcmBalanceResponse GetFcmBalance(
@@ -75,6 +46,35 @@ namespace CoinbaseSdk.Prime.Futures
       return RequestAsync<GetFcmBalanceResponse>(
         HttpMethod.Get,
         $"/entities/{request.EntityId}/futures/balance_summary",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get FCM Equity.
+    /// </summary>
+    public GetFcmEquityResponse GetFcmEquity(
+      GetFcmEquityRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetFcmEquityResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/equity",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetFcmEquityResponse> GetFcmEquityAsync(
+      GetFcmEquityRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetFcmEquityResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/futures/equity",
         [HttpStatusCode.OK],
         null,
         options,
@@ -198,35 +198,6 @@ namespace CoinbaseSdk.Prime.Futures
     }
 
     /// <summary>
-    /// Set FCM Settings.
-    /// </summary>
-    public SetFcmSettingsResponse SetFcmSettings(
-      SetFcmSettingsRequest request,
-      CallOptions? options = null)
-    {
-      return Request<SetFcmSettingsResponse>(
-        HttpMethod.Post,
-        $"/entities/{request.EntityId}/futures/settings",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<SetFcmSettingsResponse> SetFcmSettingsAsync(
-      SetFcmSettingsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<SetFcmSettingsResponse>(
-        HttpMethod.Post,
-        $"/entities/{request.EntityId}/futures/settings",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// List Entity Futures Sweeps.
     /// </summary>
     public ListEntityFuturesSweepsResponse ListEntityFuturesSweeps(
@@ -251,6 +222,64 @@ namespace CoinbaseSdk.Prime.Futures
         $"/entities/{request.EntityId}/futures/sweeps",
         [HttpStatusCode.OK],
         null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Set Auto Sweep.
+    /// </summary>
+    public SetAutoSweepResponse SetAutoSweep(
+      SetAutoSweepRequest request,
+      CallOptions? options = null)
+    {
+      return Request<SetAutoSweepResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/futures/auto_sweep",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<SetAutoSweepResponse> SetAutoSweepAsync(
+      SetAutoSweepRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<SetAutoSweepResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/futures/auto_sweep",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Set FCM Settings.
+    /// </summary>
+    public SetFcmSettingsResponse SetFcmSettings(
+      SetFcmSettingsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<SetFcmSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/futures/settings",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<SetFcmSettingsResponse> SetFcmSettingsAsync(
+      SetFcmSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<SetFcmSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/futures/settings",
+        [HttpStatusCode.OK],
+        request,
         options,
         cancellationToken);
     }
@@ -307,35 +336,6 @@ namespace CoinbaseSdk.Prime.Futures
       return RequestAsync<CancelEntityFuturesSweepResponse>(
         HttpMethod.Delete,
         $"/entities/{request.EntityId}/futures/sweeps",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get FCM Equity.
-    /// </summary>
-    public GetFcmEquityResponse GetFcmEquity(
-      GetFcmEquityRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetFcmEquityResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/futures/equity",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetFcmEquityResponse> GetFcmEquityAsync(
-      GetFcmEquityRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetFcmEquityResponse>(
-        HttpMethod.Get,
-        $"/entities/{request.EntityId}/futures/equity",
         [HttpStatusCode.OK],
         null,
         options,
