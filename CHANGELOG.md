@@ -13,7 +13,7 @@
 - **`UpdateFundingSettings()`**: Update FCM funding settings (`POST /v1/entities/{entity_id}/funding_settings`)
 
 **Advanced Transfer Service**
-- **`GetPortfolioCounterparty()`**: Portfolio counterparty ID (`GET /v1/portfolios/{portfolio_id}/counterparty`)
+- **`GetPortfolioCounterpartyID()`**: Portfolio counterparty ID (`GET /v1/portfolios/{portfolio_id}/counterparty`)
 
 #### New & Updated Models
 - **`CrossMarginRiskParameters`**, **`TierPairRateEntry`**, **`CrossMarginPrimeMarginSummary`**, **`MarketData`**, **`CrossMarginPrimeDerivativesEquityBreakdown`**, **`CrossMarginPrimeRiskNettingInfo`**, **`CrossMarginPrimeSpotEquityBreakdown`**, **`CrossMarginPrimeXMPosition`**, **`PrimeXMMarginCallThresholds`**, **`PrimeXMMarginRequirementBreakdown`**, **`PrimeXMMarginThreshold`**, **`PrimeXMOffsetCreditBreakdown`**
@@ -28,19 +28,19 @@
 
 #### New Examples
 - `financing/GetCrossMarginRiskParameters.cs`, `GetMarketData.cs`, `GetCrossMarginPrimeOverview.cs`, `UpdateFundingSettings.cs`
-- `advancedtransfer/GetPortfolioCounterparty.cs`
+- `advancedtransfer/GetPortfolioCounterpartyID.cs`
 
 ### Changed
 
 - **`GetCrossMarginOverview()`**: Response summary fields aligned with the Prime API cross-margin overview shape
-- **`GetPortfolioCounterparty()`**: Moved from **`PortfoliosService`** to **`AdvancedTransferService`** (same HTTP route; update service accessor and namespaces)
+- **`GetPortfolioCounterpartyID()`**: Moved from **`PortfoliosService.GetPortfolioCounterparty`** to **`AdvancedTransferService`** (same HTTP route; update service accessor, method name, and namespaces)
 - **`CoinbaseSdk.Core`**: Minimum version `0.2.1`
 - **`CoinbasePrimeClient`**: Optional `IJsonUtility` injection; `WithApiBasePath()` and `WithApiVersion()` for versioned base paths
 - **`Pagination.Builder`**: Builder methods renamed to `WithNextCursor`, `WithSortDirection`, `WithHasNext`
 
 ### Removed
 
-- **`PortfoliosService.GetPortfolioCounterparty`**: Use **`AdvancedTransferService.GetPortfolioCounterparty`** instead
+- **`PortfoliosService.GetPortfolioCounterparty`**: Use **`AdvancedTransferService.GetPortfolioCounterpartyID`** instead
 - **`ActivityCreationResponse`**: Activity fields are on concrete onchain address-book response types (`CreateOnchainAddressBookEntryResponse`, etc.)
 
 ## [0.5.0] - 2026-APR-7

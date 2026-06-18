@@ -142,11 +142,11 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
     /// <summary>
     /// Get Portfolio Counterparty ID.
     /// </summary>
-    public GetPortfolioCounterpartyResponse GetPortfolioCounterparty(
-      GetPortfolioCounterpartyRequest request,
+    public GetPortfolioCounterpartyIDResponse GetPortfolioCounterpartyID(
+      GetPortfolioCounterpartyIDRequest request,
       CallOptions? options = null)
     {
-      return Request<GetPortfolioCounterpartyResponse>(
+      return Request<GetPortfolioCounterpartyIDResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/counterparty",
         [HttpStatusCode.OK],
@@ -154,12 +154,12 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
         options);
     }
 
-    public Task<GetPortfolioCounterpartyResponse> GetPortfolioCounterpartyAsync(
-      GetPortfolioCounterpartyRequest request,
+    public Task<GetPortfolioCounterpartyIDResponse> GetPortfolioCounterpartyIDAsync(
+      GetPortfolioCounterpartyIDRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default)
     {
-      return RequestAsync<GetPortfolioCounterpartyResponse>(
+      return RequestAsync<GetPortfolioCounterpartyIDResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/counterparty",
         [HttpStatusCode.OK],
