@@ -1,5 +1,7 @@
 # Coinbase Prime .NET SDK
 
+The canonical source repository is **[coinbase/prime-sdk-dotnet](https://github.com/coinbase/prime-sdk-dotnet)**. The former [coinbase-samples/prime-sdk-dotnet](https://github.com/coinbase-samples/prime-sdk-dotnet) repository is deprecated. NuGet releases **0.7.0+** are published from the canonical repository. The package ID is unchanged (`CoinbaseSdk.Prime`).
+
 ## Overview
 
 The _Coinbase Prime .NET SDK_ is a sample library that demonstrates the structure of a [Coinbase Prime](https://prime.coinbase.com/) driver for the [REST APIs](https://docs.cdp.coinbase.com/prime/reference).
@@ -115,7 +117,7 @@ If you discover a security vulnerability within this SDK, please see our [Securi
 
 ## 📧 Contact
 
-- [GitHub Issues](https://github.com/coinbase-samples/prime-sdk-dotnet/issues)
+- [GitHub Issues](https://github.com/coinbase/prime-sdk-dotnet/issues)
 
 ## License
 

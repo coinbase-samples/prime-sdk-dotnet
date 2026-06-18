@@ -38,6 +38,10 @@
 - **`CoinbasePrimeClient`**: Optional `IJsonUtility` injection; `WithApiBasePath()` and `WithApiVersion()` for versioned base paths
 - **`Pagination.Builder`**: Builder methods renamed to `WithNextCursor`, `WithSortDirection`, `WithHasNext`
 
+### Notes
+
+- This repository is deprecated; development continues at [coinbase/prime-sdk-dotnet](https://github.com/coinbase/prime-sdk-dotnet). NuGet releases **0.7.0+** are published from the canonical repository.
+
 ### Removed
 
 - **`PortfoliosService.GetPortfolioCounterparty`**: Use **`AdvancedTransferService.GetPortfolioCounterparty`** instead
