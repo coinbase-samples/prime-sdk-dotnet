@@ -53,7 +53,7 @@ namespace CoinbaseSdk.Prime.Financing
     }
 
     /// <summary>
-    /// Get Cross Margin Overview.
+    /// Get Exchange Cross Margin Overview.
     /// </summary>
     public GetCrossMarginOverviewResponse GetCrossMarginOverview(
       GetCrossMarginOverviewRequest request,
@@ -450,6 +450,122 @@ namespace CoinbaseSdk.Prime.Financing
       return RequestAsync<GetPortfolioWithdrawalPowerResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/withdrawal_power",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Prime Cross Margin Overview.
+    /// </summary>
+    public GetCrossMarginPrimeOverviewResponse GetCrossMarginPrimeOverview(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetCrossMarginPrimeOverviewResponse>(
+        HttpMethod.Get,
+        $"/v2/entities/{request.EntityId}/cross_margin/prime",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetCrossMarginPrimeOverviewResponse>(
+        HttpMethod.Get,
+        $"/v2/entities/{request.EntityId}/cross_margin/prime",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Cross Margin Risk Parameters.
+    /// </summary>
+    public GetCrossMarginRiskParametersResponse GetCrossMarginRiskParameters(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetCrossMarginRiskParametersResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/cross_margin/risk_parameters",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetCrossMarginRiskParametersResponse> GetCrossMarginRiskParametersAsync(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetCrossMarginRiskParametersResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/cross_margin/risk_parameters",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Market Data.
+    /// </summary>
+    public GetMarketDataResponse GetMarketData(
+      GetMarketDataRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetMarketDataResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/market_data",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<GetMarketDataResponse> GetMarketDataAsync(
+      GetMarketDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetMarketDataResponse>(
+        HttpMethod.Get,
+        $"/entities/{request.EntityId}/market_data",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Update Funding Settings.
+    /// </summary>
+    public UpdateFundingSettingsResponse UpdateFundingSettings(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding_settings",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<UpdateFundingSettingsResponse>(
+        HttpMethod.Post,
+        $"/entities/{request.EntityId}/funding_settings",
         [HttpStatusCode.OK],
         request,
         options,

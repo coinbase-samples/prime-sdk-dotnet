@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Allocations
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
   using CoinbaseSdk.Prime.Model;
   using CoinbaseSdk.Prime.Model.Enums;
@@ -26,25 +25,18 @@ namespace CoinbaseSdk.Prime.Allocations
   /// </summary>
   public class CreateAllocationRequest()
   {
-    [JsonPropertyName("allocation_id")]
     public string? AllocationId { get; set; }
 
-    [JsonPropertyName("source_portfolio_id")]
     public string? SourcePortfolioId { get; set; }
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonPropertyName("order_ids")]
     public string[] OrderIds { get; set; } = [];
 
-    [JsonPropertyName("allocation_legs")]
     public AllocationLeg[] AllocationLegs { get; set; } = [];
 
-    [JsonPropertyName("size_type")]
     public AllocationSizeType? SizeType { get; set; }
 
-    [JsonPropertyName("remainder_destination_portfolio")]
     public string? RemainderDestinationPortfolio { get; set; }
 
     public class CreateAllocationRequestBuilder

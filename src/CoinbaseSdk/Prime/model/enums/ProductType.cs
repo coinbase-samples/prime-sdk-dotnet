@@ -26,10 +26,21 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+  /// - SPOT: Spot product.
+  /// - FUTURE: Future product.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<ProductType>))]
   public enum ProductType
   {
+    /// <summary>
+    /// Spot product.
+    /// </summary>
     SPOT,
+    /// <summary>
+    /// Future product.
+    /// </summary>
     FUTURE
   }
 }

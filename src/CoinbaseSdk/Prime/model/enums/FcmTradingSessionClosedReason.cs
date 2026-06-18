@@ -26,12 +26,30 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - FCM_TRADING_SESSION_CLOSED_REASON_UNDEFINED: Undefined closed reason.
+  /// - FCM_TRADING_SESSION_CLOSED_REASON_REGULAR_MARKET_CLOSE: Regular market close.
+  /// - FCM_TRADING_SESSION_CLOSED_REASON_EXCHANGE_MAINTENANCE: Exchange maintenance.
+  /// - FCM_TRADING_SESSION_CLOSED_REASON_VENDOR_MAINTENANCE: Vendor maintenance.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<FcmTradingSessionClosedReason>))]
   public enum FcmTradingSessionClosedReason
   {
+    /// <summary>
+    /// Undefined closed reason.
+    /// </summary>
     FCM_TRADING_SESSION_CLOSED_REASON_UNDEFINED,
+    /// <summary>
+    /// Regular market close.
+    /// </summary>
     FCM_TRADING_SESSION_CLOSED_REASON_REGULAR_MARKET_CLOSE,
+    /// <summary>
+    /// Exchange maintenance.
+    /// </summary>
     FCM_TRADING_SESSION_CLOSED_REASON_EXCHANGE_MAINTENANCE,
+    /// <summary>
+    /// Vendor maintenance.
+    /// </summary>
     FCM_TRADING_SESSION_CLOSED_REASON_VENDOR_MAINTENANCE
   }
 }

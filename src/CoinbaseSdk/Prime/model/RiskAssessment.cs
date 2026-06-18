@@ -24,19 +24,19 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// New message for risk assessment details.
+  /// </summary>
 
   public class RiskAssessment
   {
     /// <summary>
     /// Indicates if the transaction has been flagged for compliance concerns
     /// </summary>
-    [JsonPropertyName("compliance_risk_detected")]
     public bool? ComplianceRiskDetected { get; set; }
     /// <summary>
     /// Indicates if the transaction has been flagged for security concerns
     /// </summary>
-    [JsonPropertyName("security_risk_detected")]
     public bool? SecurityRiskDetected { get; set; }
     public RiskAssessment() { }
 

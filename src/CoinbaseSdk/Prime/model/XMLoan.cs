@@ -24,47 +24,45 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// XMLoan contains details about a Cross Margin loan.
+  /// </summary>
 
   public class XmLoan
   {
     /// <summary>
     /// Financing loan UUID
     /// </summary>
-    [JsonPropertyName("loan_id")]
     public string? LoanId { get; set; }
-    [JsonPropertyName("loan_party")]
+    /// <summary>
+    /// - CBE: Coinbase Exchange, trading venue that can receive the XM loan.
+    /// - FCM: Coinbase’s Futures Commission Merchant, trading venue that can receive the XM loan.
+    /// </summary>
     public XmParty? LoanParty { get; set; }
     /// <summary>
     /// Loan principal currency
     /// </summary>
-    [JsonPropertyName("principal_currency")]
     public string? PrincipalCurrency { get; set; }
     /// <summary>
     /// Loan principal currency market price
     /// </summary>
-    [JsonPropertyName("principal_currency_market_price")]
     public string? PrincipalCurrencyMarketPrice { get; set; }
     /// <summary>
     /// Principal amount (nominal) as of loan initiation
     /// </summary>
-    [JsonPropertyName("initial_principal_amount")]
     public string? InitialPrincipalAmount { get; set; }
     /// <summary>
     /// Current outstanding amount (nominal)
     /// </summary>
-    [JsonPropertyName("outstanding_principal_amount")]
     public string? OutstandingPrincipalAmount { get; set; }
     /// <summary>
     /// Timestamp when the loan was created / initiated
     /// </summary>
-    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
     /// <summary>
     /// Timestamp when the loan was last updated
     /// </summary>
-    [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
     public XmLoan() { }
 

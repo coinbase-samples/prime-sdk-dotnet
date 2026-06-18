@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Balances
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Balances
   /// </summary>
   public class ListEntityBalancesResponse
   {
-    [JsonPropertyName("balances")]
     public EntityBalance[] Balances { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListEntityBalancesResponse() { }

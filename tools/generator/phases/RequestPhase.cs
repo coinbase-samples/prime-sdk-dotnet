@@ -94,11 +94,20 @@ public static class RequestPhase
     var ctorArgs = string.Join(", ", pathParams.Select(p =>
       $"{MapPathParamToClr(p)} {CamelParam(p.Name)}"));
 
+    var usesJsonPropertyName = queryParamsForMembers.Any(p =>
+                              JsonNameCodegen.NeedsJsonPropertyName(p.Name, OpenApiSchemaCodegen.ToPascalCase(p.Name))) ||
+                            bodyProps.Any(p => JsonNameCodegen.NeedsJsonPropertyName(p.JsonName, p.ClrName));
+    var usesJsonSerialization = pathParams.Count > 0 || usesJsonPropertyName;
+
     var sb = new StringBuilder();
     CopyrightHelper.AppendEmittedCsFileLicense(sb, CopyrightHelper.SdkEmittedCopyrightYear);
     sb.AppendLine($"namespace {ns}");
     sb.AppendLine("{");
-    sb.AppendLine("  using System.Text.Json.Serialization;");
+    if (usesJsonSerialization)
+    {
+      sb.AppendLine("  using System.Text.Json.Serialization;");
+    }
+
     sb.AppendLine("  using CoinbaseSdk.Core.Error;");
     if (paginated)
     {
@@ -161,7 +170,7 @@ public static class RequestPhase
       needPropSep = true;
       var pn = OpenApiSchemaCodegen.ToPascalCase(p.Name);
       var clr = MapQueryParamClr(p);
-      sb.AppendLine($"    [JsonPropertyName(\"{p.Name}\")]");
+      JsonNameCodegen.AppendJsonPropertyNameIfNeeded(sb, p.Name, pn, "    ");
       sb.AppendLine($"    public {clr} {pn} {{ get; set; }}{DefaultForQuery(clr)}");
     }
 
@@ -173,15 +182,19 @@ public static class RequestPhase
       }
 
       needPropSep = true;
-      sb.AppendLine($"    [JsonPropertyName(\"{p.JsonName}\")]");
+      JsonNameCodegen.AppendJsonPropertyNameIfNeeded(sb, p.JsonName, p.ClrName, "    ");
       sb.AppendLine($"    public {p.ClrType} {p.ClrName} {{ get; set; }}{DefaultForBody(p)}");
     }
 
-    sb.AppendLine();
-    EmitBuilder(sb, b.SdkMethod, pathParams, queryParamsForMembers, bodyProps, paginated, MapQueryParamClr);
+    if (cfg.EmitRequestBuilders)
+    {
+      sb.AppendLine();
+      EmitBuilder(sb, b.SdkMethod, pathParams, queryParamsForMembers, bodyProps, paginated, MapQueryParamClr);
+    }
+
     sb.AppendLine("  }");
     sb.AppendLine("}");
-    return sb.ToString();
+    return JsonNameCodegen.PostProcessEmittedSource(sb.ToString());
   }
 
   private static string CamelParam(string openapiName)

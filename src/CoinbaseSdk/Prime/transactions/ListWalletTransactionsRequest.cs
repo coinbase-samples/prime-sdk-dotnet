@@ -32,13 +32,10 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("types")]
     public TransactionType[] Types { get; set; } = [];
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     public class ListWalletTransactionsRequestBuilder

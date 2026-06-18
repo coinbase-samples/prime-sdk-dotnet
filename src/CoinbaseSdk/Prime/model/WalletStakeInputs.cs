@@ -24,19 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// WalletStakeInputs contains the custom inputs for staking operations on a wallet.
+  /// Requirements and supported fields vary by asset type.
+  /// </summary>
 
   public class WalletStakeInputs
   {
     /// <summary>
     /// Optional amount to stake (ETH only). If omitted, the wallet will stake the maximum amount available
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     /// <summary>
     /// Optional validator address, defaults to Coinbase validator. For SOL, must be the vote account address. Ignored for ETH.
     /// </summary>
-    [JsonPropertyName("validator_address")]
     public string? ValidatorAddress { get; set; }
     public WalletStakeInputs() { }
 

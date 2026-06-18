@@ -24,19 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// ValidatorAllocation specifies the validator and amount for staking or unstaking.
+  /// Used for granular ETH V2 validator-level staking or unstaking operations.
+  /// </summary>
 
   public class ValidatorAllocation
   {
     /// <summary>
     /// The validator address for performing staking operations
     /// </summary>
-    [JsonPropertyName("validator_address")]
     public string ValidatorAddress { get; set; } = default!;
     /// <summary>
     /// Amount for performing staking operations with this validator
     /// </summary>
-    [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
     public ValidatorAllocation() { }
 

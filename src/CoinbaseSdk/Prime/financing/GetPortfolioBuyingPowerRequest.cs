@@ -27,10 +27,8 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("base_currency")]
     public string? BaseCurrency { get; set; }
 
-    [JsonPropertyName("quote_currency")]
     public string? QuoteCurrency { get; set; }
 
     public class GetPortfolioBuyingPowerRequestBuilder

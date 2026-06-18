@@ -16,23 +16,17 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Get FCM Equity.
   /// </summary>
   public class GetFcmEquityResponse
   {
-    [JsonPropertyName("eod_account_equity")]
     public string? EodAccountEquity { get; set; }
 
-    [JsonPropertyName("eod_unrealized_pnl")]
     public string? EodUnrealizedPnl { get; set; }
 
-    [JsonPropertyName("current_excess_deficit")]
     public string? CurrentExcessDeficit { get; set; }
 
-    [JsonPropertyName("available_to_sweep")]
     public string? AvailableToSweep { get; set; }
 
     public GetFcmEquityResponse() { }

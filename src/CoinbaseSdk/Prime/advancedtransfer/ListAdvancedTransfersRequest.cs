@@ -29,19 +29,14 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("state")]
     public string? State { get; set; }
 
-    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
-    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
 
     public class ListAdvancedTransfersRequestBuilder

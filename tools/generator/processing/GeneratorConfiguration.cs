@@ -26,6 +26,24 @@ public class GeneratorConfiguration
   [JsonPropertyName("specUrl")]
   public string SpecUrl { get; set; } = "https://api.prime.coinbase.com/v1/openapi.yaml";
 
+  [JsonPropertyName("committedSpecPath")]
+  public string CommittedSpecPath { get; set; } = "apiSpec/prime-public-api-spec.yaml";
+
+  /// <summary>
+  /// When true (default), request DTOs include nested fluent <c>*RequestBuilder</c> classes.
+  /// Set false to emit property-only requests (breaking change for callers using builders).
+  /// </summary>
+  [JsonPropertyName("emitRequestBuilders")]
+  public bool EmitRequestBuilders { get; set; } = true;
+
+  /// <summary>
+  /// OpenAPI component schemas (matched by filename substring) emitted under
+  /// <c>src/CoinbaseSdk/Prime/common/</c> instead of <c>model/</c>.
+  /// Values are CLR type names (e.g. PaginatedResponse → Pagination).
+  /// </summary>
+  [JsonPropertyName("commonModels")]
+  public Dictionary<string, string> CommonModels { get; set; } = new();
+
   [JsonPropertyName("filePathReplacements")]
   public Dictionary<string, string> FilePathReplacements { get; set; } = new();
 

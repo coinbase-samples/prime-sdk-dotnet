@@ -1,7 +1,49 @@
 # Changelog
 
-## [0.5.0] - 2026-APR-7
+## [0.6.0] - 2026-JUN-17
 
+### Added
+
+#### New API Endpoints
+
+**Financing Service**
+- **`GetCrossMarginRiskParameters()`**: Cross-margin risk parameters for an entity (`GET /v1/entities/{entity_id}/cross_margin/risk_parameters`)
+- **`GetMarketData()`**: Entity market data (`GET /v1/entities/{entity_id}/market_data`)
+- **`GetCrossMarginPrimeOverview()`**: Prime cross-margin overview (`GET /v2/entities/{entity_id}/cross_margin/prime`)
+- **`UpdateFundingSettings()`**: Update FCM funding settings (`POST /v1/entities/{entity_id}/funding_settings`)
+
+**Advanced Transfer Service**
+- **`GetPortfolioCounterparty()`**: Portfolio counterparty ID (`GET /v1/portfolios/{portfolio_id}/counterparty`)
+
+#### New & Updated Models
+- **`CrossMarginRiskParameters`**, **`TierPairRateEntry`**, **`CrossMarginPrimeMarginSummary`**, **`MarketData`**, **`CrossMarginPrimeDerivativesEquityBreakdown`**, **`CrossMarginPrimeRiskNettingInfo`**, **`CrossMarginPrimeSpotEquityBreakdown`**, **`CrossMarginPrimeXMPosition`**, **`PrimeXMMarginCallThresholds`**, **`PrimeXMMarginRequirementBreakdown`**, **`PrimeXMMarginThreshold`**, **`PrimeXMOffsetCreditBreakdown`**
+- **`WalletStakingMetadata`**, **`ValidatorProvider`**, **`ValidatorUnstakePreview`**: Staking metadata, ETH validator provider, and per-validator unstake preview
+- **`CreatePortfolioUnstakeRequest`**: Added `validator_provider`; `amount` is optional
+- **`CreateStakeRequest`**, **`CreateUnstakeRequest`**: Added optional `metadata`
+- **`Order`**, **`CreateQuoteRequest`**: `quote_duration_ms`
+- **`PreviewUnstakeResponse`**: Added `wallet_id`, `wallet_address`, and `validators`
+
+#### New Enums
+- **`PrimeXMHealthStatus`**, **`PrimeXMMarginRequirementType`**, **`PrimeXMMarginThresholdType`**
+
+#### New Examples
+- `financing/GetCrossMarginRiskParameters.cs`, `GetMarketData.cs`, `GetCrossMarginPrimeOverview.cs`, `UpdateFundingSettings.cs`
+- `advancedtransfer/GetPortfolioCounterparty.cs`
+
+### Changed
+
+- **`GetCrossMarginOverview()`**: Response summary fields aligned with the Prime API cross-margin overview shape
+- **`GetPortfolioCounterparty()`**: Moved from **`PortfoliosService`** to **`AdvancedTransferService`** (same HTTP route; update service accessor and namespaces)
+- **`CoinbaseSdk.Core`**: Minimum version `0.2.1`
+- **`CoinbasePrimeClient`**: Optional `IJsonUtility` injection; `WithApiBasePath()` and `WithApiVersion()` for versioned base paths
+- **`Pagination.Builder`**: Builder methods renamed to `WithNextCursor`, `WithSortDirection`, `WithHasNext`
+
+### Removed
+
+- **`PortfoliosService.GetPortfolioCounterparty`**: Use **`AdvancedTransferService.GetPortfolioCounterparty`** instead
+- **`ActivityCreationResponse`**: Activity fields are on concrete onchain address-book response types (`CreateOnchainAddressBookEntryResponse`, etc.)
+
+## [0.5.0] - 2026-APR-7
 ### Added
 
 - **New API Endpoints**

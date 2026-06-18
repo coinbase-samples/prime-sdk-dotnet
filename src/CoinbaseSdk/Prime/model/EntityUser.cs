@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class EntityUser
@@ -32,34 +31,41 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The unique ID of the user
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The name of the user
     /// </summary>
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
     /// <summary>
     /// The email of the user
     /// </summary>
-    [JsonPropertyName("email")]
     public string? Email { get; set; }
     /// <summary>
     /// The entity to which this user and associated permissions are identified
     /// </summary>
-    [JsonPropertyName("entity_id")]
     public string? EntityId { get; set; }
-    [JsonPropertyName("role")]
+    /// <summary>
+    /// - USER_ROLE_UNKNOWN: nil value.
+    /// - AUDITOR: An auditor.
+    /// - SIGNATORY: A signatory.
+    /// - ADMIN: An admin.
+    /// - INITIATOR: An initiator.
+    /// - REVIEWER: A reviewer.
+    /// - TRADER: A trader.
+    /// - FULL_TRADER: A trader with full permissions.
+    /// - TEAM_MANAGER: A team manager.
+    /// - APPROVER: An approver.
+    /// - TAX_MANAGER: A tax manager.
+    /// - BUSINESS_MANAGER: A business manager.
+    /// </summary>
     public UserRole? Role { get; set; }
     /// <summary>
     /// All primary roles assigned to the user.
     /// </summary>
-    [JsonPropertyName("roles")]
     public List<UserRole>? Roles { get; set; }
     /// <summary>
     /// All secondary permissions assigned to the user.
     /// </summary>
-    [JsonPropertyName("secondary_permissions")]
     public List<SecondaryPermission>? SecondaryPermissions { get; set; }
     public EntityUser() { }
 

@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class PositionReference
@@ -32,9 +31,7 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Reference ID
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("type")]
     public PositionReferenceType? Type { get; set; }
     public PositionReference() { }
 

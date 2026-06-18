@@ -27,16 +27,12 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("conversion_date")]
     public string? ConversionDate { get; set; }
 
-    [JsonPropertyName("locate_date")]
     public string? LocateDate { get; set; }
 
     public class CreateNewLocatesRequestBuilder

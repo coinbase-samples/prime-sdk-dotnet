@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Fill
@@ -32,68 +31,63 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The unique ID of the fill
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The order ID of the fill
     /// </summary>
-    [JsonPropertyName("order_id")]
     public string? OrderId { get; set; }
     /// <summary>
     /// The product ID of the fill
     /// </summary>
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
     /// <summary>
     /// The client product ID of the fill indictating the settlment currency
     /// </summary>
-    [JsonPropertyName("client_product_id")]
     public string? ClientProductId { get; set; }
-    [JsonPropertyName("side")]
+    /// <summary>
+    /// - UNKNOWN_ORDER_SIDE: nil value.
+    /// - BUY: Buy order.
+    /// - SELL: Sell order.
+    /// </summary>
     public OrderSide? Side { get; set; }
     /// <summary>
     /// Filled size (in base asset units)
     /// </summary>
-    [JsonPropertyName("filled_quantity")]
     public string? FilledQuantity { get; set; }
     /// <summary>
     /// Filled value (in quote asset units)
     /// </summary>
-    [JsonPropertyName("filled_value")]
     public string? FilledValue { get; set; }
     /// <summary>
     /// The price of the fill
     /// </summary>
-    [JsonPropertyName("price")]
     public string? Price { get; set; }
     /// <summary>
     /// The date and time of the fill
     /// </summary>
-    [JsonPropertyName("time")]
     public DateTime? Time { get; set; }
     /// <summary>
     /// The commission incurred for the fill
     /// </summary>
-    [JsonPropertyName("commission")]
     public string? Commission { get; set; }
     /// <summary>
     /// The name of the venue
     /// </summary>
-    [JsonPropertyName("venue")]
     public string? Venue { get; set; }
     /// <summary>
     /// The venue fees incurred for the fill
     /// </summary>
-    [JsonPropertyName("venue_fees")]
     public string? VenueFees { get; set; }
     /// <summary>
     /// The CES commission incurred for the fill
     /// </summary>
-    [JsonPropertyName("ces_commission")]
     public string? CesCommission { get; set; }
-    [JsonPropertyName("product_type")]
+    /// <summary>
+    /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+    /// - SPOT: Spot product.
+    /// - FUTURE: Future product.
+    /// </summary>
     public ProductType? ProductType { get; set; }
-    [JsonPropertyName("commission_detail_total")]
     public CommissionDetailTotal? CommissionDetailTotal { get; set; }
     public Fill() { }
 

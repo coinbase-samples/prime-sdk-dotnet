@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class AddressBookEntry
@@ -32,61 +31,48 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// UUID identifying this address book entry
     /// </summary>
-    [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
     /// <summary>
     /// Currency symbol
     /// </summary>
-    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
     /// <summary>
     /// Name for this address book entry
     /// </summary>
-    [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
     /// <summary>
     /// Cryptocurrency address
     /// </summary>
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
     /// <summary>
     /// Memo or destination tag for currencies which support them
     /// </summary>
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
     /// <summary>
     /// Name of the account identifier. For instance Destination Tag
     /// </summary>
-    [JsonPropertyName("account_identifier_name")]
     public string? AccountIdentifierName { get; set; }
     /// <summary>
     /// State of this address book entry
     /// </summary>
-    [JsonPropertyName("state")]
     public string State { get; set; } = default!;
     /// <summary>
     /// Link to a blockchain explorer
     /// </summary>
-    [JsonPropertyName("explorer_link")]
     public string? ExplorerLink { get; set; }
     /// <summary>
     /// When this entry was last used for a transaction
     /// </summary>
-    [JsonPropertyName("last_used_at")]
     public DateTime? LastUsedAt { get; set; }
     /// <summary>
     /// When this entry was added to the address book
     /// </summary>
-    [JsonPropertyName("added_at")]
     public DateTime? AddedAt { get; set; }
-    [JsonPropertyName("added_by")]
     public DisplayUser AddedBy { get; set; } = default!;
-    [JsonPropertyName("type")]
     public AddressBookType? Type { get; set; }
     /// <summary>
     /// counterparty id
     /// </summary>
-    [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
     public AddressBookEntry() { }
 

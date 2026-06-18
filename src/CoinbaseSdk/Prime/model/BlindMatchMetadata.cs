@@ -24,26 +24,24 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// BlindMatchMetadata contains metadata specific to blind match advanced transfers.
+  /// </summary>
 
   public class BlindMatchMetadata
   {
-    [JsonPropertyName("reference_id")]
     public string? ReferenceId { get; set; }
     /// <summary>
     /// The intended time of Transfer settlement in YYYYMMDD format
     /// </summary>
-    [JsonPropertyName("settlement_date")]
     public string? SettlementDate { get; set; }
     /// <summary>
     /// Optional date of the original Trade in YYYYMMMDD format
     /// </summary>
-    [JsonPropertyName("trade_date")]
     public string? TradeDate { get; set; }
     /// <summary>
     /// Optional time of transfer settlement in HHMM format in UTC. If not provided, it defaults to 09:30 Eastern Time.
     /// </summary>
-    [JsonPropertyName("settlement_time")]
     public string? SettlementTime { get; set; }
     public BlindMatchMetadata() { }
 

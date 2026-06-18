@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
     public class GetPortfolioWithdrawalPowerRequestBuilder

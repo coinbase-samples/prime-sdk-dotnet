@@ -26,13 +26,35 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - VAULT: A crypto vault.
+  /// - TRADING: A trading wallet.
+  /// - WALLET_TYPE_OTHER: Other wallet types (like consumer, etc).
+  /// - QC: A QC Wallet.
+  /// - ONCHAIN: An Onchain wallet.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<WalletType>))]
   public enum WalletType
   {
+    /// <summary>
+    /// A crypto vault.
+    /// </summary>
     VAULT,
+    /// <summary>
+    /// A trading wallet.
+    /// </summary>
     TRADING,
+    /// <summary>
+    /// Other wallet types (like consumer, etc).
+    /// </summary>
     WALLET_TYPE_OTHER,
+    /// <summary>
+    /// A QC Wallet.
+    /// </summary>
     QC,
+    /// <summary>
+    /// An Onchain wallet.
+    /// </summary>
     ONCHAIN
   }
 }

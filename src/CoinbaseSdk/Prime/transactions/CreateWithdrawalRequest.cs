@@ -32,28 +32,20 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("destination_type")]
     public DestinationType DestinationType { get; set; }
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonPropertyName("payment_method")]
     public PaymentMethodDestination PaymentMethod { get; set; }
 
-    [JsonPropertyName("blockchain_address")]
     public BlockchainAddress BlockchainAddress { get; set; }
 
-    [JsonPropertyName("counterparty")]
     public CounterpartyDestination Counterparty { get; set; }
 
-    [JsonPropertyName("travel_rule_data")]
     public TravelRuleData TravelRuleData { get; set; }
 
     public class CreateWithdrawalRequestBuilder

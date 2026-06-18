@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// FundMovement represents a single movement of funds between two counterparties.
+  /// </summary>
 
   public class FundMovement
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("source")]
     public TransferLocation? Source { get; set; }
-    [JsonPropertyName("target")]
     public TransferLocation? Target { get; set; }
-    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     public FundMovement() { }
 

@@ -24,14 +24,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class NftCollection
   {
     /// <summary>
     /// Nft collection name
     /// </summary>
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
     public NftCollection() { }
 

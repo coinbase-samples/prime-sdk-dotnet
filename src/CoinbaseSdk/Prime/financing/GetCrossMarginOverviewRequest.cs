@@ -20,7 +20,7 @@ namespace CoinbaseSdk.Prime.Financing
   using CoinbaseSdk.Core.Error;
 
   /// <summary>
-  /// Get Cross Margin Overview.
+  /// Get Exchange Cross Margin Overview.
   /// </summary>
   public class GetCrossMarginOverviewRequest(string entityId)
   {

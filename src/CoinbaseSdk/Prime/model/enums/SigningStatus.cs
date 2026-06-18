@@ -26,6 +26,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - SIGNING_STATUS_UNKNOWN: Unknown signing status.
+  /// - SIGNED: Transaction has been signed.
+  /// - UNSIGNED: Transaction is unsigned.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<SigningStatus>))]
   public enum SigningStatus
   {

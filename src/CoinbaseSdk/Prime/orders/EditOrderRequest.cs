@@ -30,34 +30,24 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonIgnore]
     public string OrderId { get; set; } = orderId;
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonPropertyName("orig_client_order_id")]
     public string? OrigClientOrderId { get; set; }
 
-    [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
 
-    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
 
-    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
 
-    [JsonPropertyName("limit_price")]
     public string? LimitPrice { get; set; }
 
-    [JsonPropertyName("expiry_time")]
     public string? ExpiryTime { get; set; }
 
-    [JsonPropertyName("display_quote_size")]
     public string? DisplayQuoteSize { get; set; }
 
-    [JsonPropertyName("display_base_size")]
     public string? DisplayBaseSize { get; set; }
 
-    [JsonPropertyName("stop_price")]
     public string? StopPrice { get; set; }
 
     public class EditOrderRequestBuilder

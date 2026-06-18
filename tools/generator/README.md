@@ -62,14 +62,23 @@ bash tools/generator/sync-copyright-years-from-git.sh
 - OpenAPI Generator CLI:
   - `npm install -g @openapitools/openapi-generator-cli`
   - or `brew install openapi-generator`
-- Network access to fetch the OpenAPI spec (or override `specUrl` in `generator-config.json`).
+- Committed OpenAPI spec at `apiSpec/prime-public-api-spec.yaml` (refresh with `make fetch-spec` from the repo root).
+- Optional network access when using `--live` / `--fetch-spec` to download from `specUrl`.
 
 ## Usage
 
 From the repository root:
 
 ```bash
+make generate
+# or:
 dotnet run --project tools/generator
+```
+
+By default the generator reads the **committed** spec at `committedSpecPath` in `generator-config.json` (`apiSpec/prime-public-api-spec.yaml`). To download the live spec instead:
+
+```bash
+dotnet run --project tools/generator -- --live
 ```
 
 Diagnostic flags (still runs all phases; only affects whether files are written):
@@ -79,7 +88,7 @@ dotnet run --project tools/generator -- --dry-run   # Log paths; do not write
 dotnet run --project tools/generator -- --diff      # Compare generated text to files on disk
 ```
 
-The generator always downloads the current YAML from `specUrl` in `generator-config.json` (cached under `generated/openapi.yaml`, gitignored).
+Live downloads are cached under `generated/openapi.yaml` (gitignored).
 
 Bindings are derived for every spec operation (see `OperationBindingGenerator`). `operations-overrides.json` may patch any field; stale `operationId` rows fail the run. Overrides that exactly match derived defaults log a warning and can be removed.
 
@@ -92,7 +101,7 @@ cd tools/generator
 
 ## Configuration
 
-- **`config/generator-config.json`** — `specUrl`, `filePathReplacements` (semantic renames; common schema prefixes are also merged from the spec), `contentReplacements`, `acronymMappings`, `enumNameMappings`, `tagToFolderOverrides` (only when the default tag→folder rule is wrong, e.g. routing a tag to an existing folder), `serviceMethodOrderOverrides` (optional per-service method order), `statusCodeOverrides` (optional permissive create-status lists).
+- **`config/generator-config.json`** — `specUrl`, `committedSpecPath`, `emitRequestBuilders` (default `true`; set `false` to omit nested request builders — breaking for callers), `filePathReplacements` (semantic renames; common schema prefixes are also merged from the spec), `contentReplacements`, `acronymMappings`, `enumNameMappings`, `tagToFolderOverrides` (only when the default tag→folder rule is wrong, e.g. routing a tag to an existing folder), `serviceMethodOrderOverrides` (optional per-service method order), `statusCodeOverrides` (optional permissive create-status lists).
 - **`config/operations-overrides.json`** — Optional array of sparse patches: `operationId` plus any of `sdkMethod`, `service`, `omitRequest`, `forcePaginated`, `paramTypeOverrides` (merged onto derived values).
 
 Default **tag → folder** is lowercase with spaces removed (`Payment Methods` → `paymentmethods`). **Services** (`folder`, `namespace`, `I*Service` / `*Service` names) are derived from the canonical OpenAPI tag for that folder.
@@ -118,5 +127,14 @@ Optional `x-sdk-method-name` on an operation overrides the derived `SdkMethod` n
 
 ## Technical notes
 
-- Raw OpenAPI YAML is cached under `generated/openapi.yaml` (gitignored). CLI output uses `generated/model-cli/` and is removed after model post-processing.
+- Raw OpenAPI YAML from `--live` is cached under `generated/openapi.yaml` (gitignored). CLI output uses `generated/model-cli/` and is removed after model post-processing.
 - Client DTOs and services are emitted as C# strings (see phase classes); additional `.mustache` files under `templates/` are placeholders for future template-driven tweaks.
+- **JSON naming:** Prime HTTP uses `PrimeJsonDefaults` (snake_case policy). Emit `[JsonPropertyName]` for wire names the policy cannot infer. **Web3 → Onchain** renames apply to CLR identifiers only (hand-maintained since Jul 2025); wire names like `web3_transaction_metadata` are preserved via `[JsonPropertyName]` when needed.
+- **Boilerplate toggles:** `emitRequestBuilders` controls nested fluent builders on request DTOs. Further reductions (records, primary constructors only) are intentionally not enabled by default — they change the public API.
+
+### Hand-maintained exceptions
+
+- `src/CoinbaseSdk/Prime/common/PaginatedRequest.cs` — abstract base for paginated list requests (not an OpenAPI schema).
+- `client/`, `configuration/`, `serialization/` — SDK wiring, not OpenAPI models.
+
+All `model/` types and `common/Pagination.cs` are generated from the spec (`commonModels` in `generator-config.json` routes `PaginatedResponse` → `Pagination`).

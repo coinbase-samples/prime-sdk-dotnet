@@ -24,34 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class EntityBalance
   {
     /// <summary>
     /// The display symbol for the asset
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The long balance
     /// </summary>
-    [JsonPropertyName("long_amount")]
     public string? LongAmount { get; set; }
     /// <summary>
     /// The long balance in notional value
     /// </summary>
-    [JsonPropertyName("long_notional")]
     public string? LongNotional { get; set; }
     /// <summary>
     /// The short balance
     /// </summary>
-    [JsonPropertyName("short_amount")]
     public string? ShortAmount { get; set; }
     /// <summary>
     /// The short balance in notional value
     /// </summary>
-    [JsonPropertyName("short_notional")]
     public string? ShortNotional { get; set; }
     public EntityBalance() { }
 

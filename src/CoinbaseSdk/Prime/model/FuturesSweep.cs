@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class FuturesSweep
@@ -32,21 +31,16 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Sweep ID
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("requested_amount")]
     public SweepAmount? RequestedAmount { get; set; }
     /// <summary>
     /// Should sweep all
     /// </summary>
-    [JsonPropertyName("should_sweep_all")]
     public bool? ShouldSweepAll { get; set; }
-    [JsonPropertyName("status")]
     public FuturesSweepStatus? Status { get; set; }
     /// <summary>
     /// Scheduled time
     /// </summary>
-    [JsonPropertyName("scheduled_time")]
     public DateTime? ScheduledTime { get; set; }
     public FuturesSweep() { }
 

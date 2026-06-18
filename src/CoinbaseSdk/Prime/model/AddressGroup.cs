@@ -24,20 +24,17 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class AddressGroup
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
-    [JsonPropertyName("network_type")]
     public NetworkType? NetworkType { get; set; }
-    [JsonPropertyName("addresses")]
+    /// <summary>
+    /// A list of addresses within the group.
+    /// </summary>
     public List<AddressEntry>? Addresses { get; set; }
-    [JsonPropertyName("added_at")]
     public DateTime? AddedAt { get; set; }
     public AddressGroup() { }
 

@@ -215,7 +215,7 @@ public sealed class ExamplePhase
       var local = varName.Replace("Option", string.Empty);
       var opt = "--" + local;
       string envHint = local == "portfolioId" ? " (or set PRIME_PORTFOLIO_ID env var)" :
-                       local == "entityId"    ? " (or set PRIME_ENTITY_ID env var)" : string.Empty;
+                       local == "entityId" ? " (or set PRIME_ENTITY_ID env var)" : string.Empty;
       sb.AppendLine($"    if (string.IsNullOrEmpty({local}))");
       sb.AppendLine("    {");
       sb.AppendLine($"        Console.Error.WriteLine(\"Error: {opt} is required{envHint}.\");");

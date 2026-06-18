@@ -16,41 +16,29 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Get Entity FCM Balance.
   /// </summary>
   public class GetFcmBalanceResponse
   {
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
 
-    [JsonPropertyName("cfm_usd_balance")]
     public string? CfmUsdBalance { get; set; }
 
-    [JsonPropertyName("unrealized_pnl")]
     public string? UnrealizedPnl { get; set; }
 
-    [JsonPropertyName("daily_realized_pnl")]
     public string? DailyRealizedPnl { get; set; }
 
-    [JsonPropertyName("excess_liquidity")]
     public string? ExcessLiquidity { get; set; }
 
-    [JsonPropertyName("futures_buying_power")]
     public string? FuturesBuyingPower { get; set; }
 
-    [JsonPropertyName("initial_margin")]
     public string? InitialMargin { get; set; }
 
-    [JsonPropertyName("maintenance_margin")]
     public string? MaintenanceMargin { get; set; }
 
-    [JsonPropertyName("clearing_account_id")]
     public string? ClearingAccountId { get; set; }
 
-    [JsonPropertyName("cfm_unsettled_accrued_funding_pnl")]
     public string? CfmUnsettledAccruedFundingPnl { get; set; }
 
     public GetFcmBalanceResponse() { }

@@ -33,7 +33,7 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get Cross Margin Overview.
+    /// Get Exchange Cross Margin Overview.
     /// </summary>
     public GetCrossMarginOverviewResponse GetCrossMarginOverview(
       GetCrossMarginOverviewRequest request,
@@ -195,6 +195,54 @@ namespace CoinbaseSdk.Prime.Financing
 
     public Task<GetPortfolioWithdrawalPowerResponse> GetPortfolioWithdrawalPowerAsync(
       GetPortfolioWithdrawalPowerRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get Prime Cross Margin Overview.
+    /// </summary>
+    public GetCrossMarginPrimeOverviewResponse GetCrossMarginPrimeOverview(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null);
+
+    public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
+      GetCrossMarginPrimeOverviewRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get Cross Margin Risk Parameters.
+    /// </summary>
+    public GetCrossMarginRiskParametersResponse GetCrossMarginRiskParameters(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null);
+
+    public Task<GetCrossMarginRiskParametersResponse> GetCrossMarginRiskParametersAsync(
+      GetCrossMarginRiskParametersRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get Market Data.
+    /// </summary>
+    public GetMarketDataResponse GetMarketData(
+      GetMarketDataRequest request,
+      CallOptions? options = null);
+
+    public Task<GetMarketDataResponse> GetMarketDataAsync(
+      GetMarketDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Update Funding Settings.
+    /// </summary>
+    public UpdateFundingSettingsResponse UpdateFundingSettings(
+      UpdateFundingSettingsRequest request,
+      CallOptions? options = null);
+
+    public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
+      UpdateFundingSettingsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

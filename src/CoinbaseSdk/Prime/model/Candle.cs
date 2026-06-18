@@ -24,36 +24,35 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Represents a single candle data point.
+  /// </summary>
 
   public class Candle
   {
-    [JsonPropertyName("timestamp")]
+    /// <summary>
+    /// Timestamp for the start of the candle period.
+    /// </summary>
     public DateTime? Timestamp { get; set; }
     /// <summary>
     /// Opening price for the period
     /// </summary>
-    [JsonPropertyName("open")]
     public string? Open { get; set; }
     /// <summary>
     /// Highest price during the period
     /// </summary>
-    [JsonPropertyName("high")]
     public string? High { get; set; }
     /// <summary>
     /// Lowest price during the period
     /// </summary>
-    [JsonPropertyName("low")]
     public string? Low { get; set; }
     /// <summary>
     /// Closing price for the period
     /// </summary>
-    [JsonPropertyName("close")]
     public string? Close { get; set; }
     /// <summary>
     /// Volume traded during the period
     /// </summary>
-    [JsonPropertyName("volume")]
     public string? Volume { get; set; }
     public Candle() { }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -14,41 +14,41 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Portfolios
+namespace CoinbaseSdk.Prime.Financing
 {
   using System.Text.Json.Serialization;
   using CoinbaseSdk.Core.Error;
 
   /// <summary>
-  /// Get Portfolio Counterparty ID.
+  /// Get Prime Cross Margin Overview.
   /// </summary>
-  public class GetPortfolioCounterpartyRequest(string portfolioId)
+  public class GetCrossMarginPrimeOverviewRequest(string entityId)
   {
     [JsonIgnore]
-    public string PortfolioId { get; set; } = portfolioId;
+    public string EntityId { get; set; } = entityId;
 
-    public class GetPortfolioCounterpartyRequestBuilder
+    public class GetCrossMarginPrimeOverviewRequestBuilder
     {
-      private string? _portfolioId;
+      private string? _entityId;
 
-      public GetPortfolioCounterpartyRequestBuilder WithPortfolioId(string portfolioId)
+      public GetCrossMarginPrimeOverviewRequestBuilder WithEntityId(string entityId)
       {
-        _portfolioId = portfolioId;
+        _entityId = entityId;
         return this;
       }
 
       private void Validate()
       {
-        if (string.IsNullOrWhiteSpace(_portfolioId))
+        if (string.IsNullOrWhiteSpace(_entityId))
         {
-          throw new CoinbaseClientException("PortfolioId is required");
+          throw new CoinbaseClientException("EntityId is required");
         }
       }
 
-      public GetPortfolioCounterpartyRequest Build()
+      public GetCrossMarginPrimeOverviewRequest Build()
       {
         Validate();
-        return new GetPortfolioCounterpartyRequest(_portfolioId!)
+        return new GetCrossMarginPrimeOverviewRequest(_entityId!)
         {
         };
       }

@@ -26,14 +26,38 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// XMEntityCallStatus summarizes the state of open margin calls or debit calls. When multiple calls exist, the status reflects the highest priority call type.
+  /// Priority order (highest to lowest): aged &gt; urgent &gt; standard &gt; debit.
+  /// - ENTITY_NO_CALL: There are no margin calls or debit calls.
+  /// - ENTITY_OPEN_STANDARD_CALL: There is a standard margin call. There may also be debit calls, but there are no urgent margin calls or expired calls..
+  /// - ENTITY_OPEN_URGENT_CALL: There is an urgent margin call. There may also be standard margin calls or debit calls, but there are no expired calls.
+  /// - ENTITY_AGED_CALL: At least one open margin call (standard or urgent) or debit call is aged. This will trigger the SESSION_LOCKED control status.
+  /// - ENTITY_OPEN_DEBIT_CALL: There is a debit call. There are no standard margin calls, urgent margin calls, or expired calls.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmEntityCallStatus>))]
   public enum XmEntityCallStatus
   {
     XM_ENTITY_CALL_STATUS_UNSPECIFIED,
+    /// <summary>
+    /// There are no margin calls or debit calls.
+    /// </summary>
     ENTITY_NO_CALL,
+    /// <summary>
+    /// There is a standard margin call. There may also be debit calls, but there are no urgent margin calls or expired calls..
+    /// </summary>
     ENTITY_OPEN_STANDARD_CALL,
+    /// <summary>
+    /// There is an urgent margin call. There may also be standard margin calls or debit calls, but there are no expired calls.
+    /// </summary>
     ENTITY_OPEN_URGENT_CALL,
+    /// <summary>
+    /// At least one open margin call (standard or urgent) or debit call is aged. This will trigger the SESSION_LOCKED control status.
+    /// </summary>
     ENTITY_AGED_CALL,
+    /// <summary>
+    /// There is a debit call. There are no standard margin calls, urgent margin calls, or expired calls.
+    /// </summary>
     ENTITY_OPEN_DEBIT_CALL
   }
 }

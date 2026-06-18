@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class RpcConfig
   {
     /// <summary>
     /// If true, transaction will not be broadcast to the network
     /// </summary>
-    [JsonPropertyName("skip_broadcast")]
     public bool? SkipBroadcast { get; set; }
     /// <summary>
     /// Custom blockchain node RpcConfig URL. (EVM-only)
     /// </summary>
-    [JsonPropertyName("url")]
     public string? Url { get; set; }
     public RpcConfig() { }
 

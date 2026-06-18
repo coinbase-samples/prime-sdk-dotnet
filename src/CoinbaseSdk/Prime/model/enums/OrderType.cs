@@ -26,16 +26,51 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_ORDER_TYPE: nil value.
+  /// - MARKET: A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order).
+  /// - LIMIT: A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order).
+  /// - TWAP: A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price).
+  /// - BLOCK: A [block trade](https://en.wikipedia.org/wiki/Block_trade).
+  /// - VWAP: A [volume-weighted average price order](https://en.wikipedia.org/wiki/Volume-weighted_average_price).
+  /// - STOP_LIMIT: A [conditional order combined of stop order and limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Stop-limit_order).
+  /// - RFQ: A [request for quote](https://en.wikipedia.org/wiki/Request_for_quote).
+  /// - PEG: A pegged order that dynamically adjust based on market conditions while maintaining execution discretion and avoiding adverse selection.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<OrderType>))]
   public enum OrderType
   {
+    /// <summary>
+    /// A [market order](https://en.wikipedia.org/wiki/Order_(exchange)#Market_order).
+    /// </summary>
     MARKET,
+    /// <summary>
+    /// A [limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Limit_order).
+    /// </summary>
     LIMIT,
+    /// <summary>
+    /// A [time-weighted average price order](https://en.wikipedia.org/wiki/Time-weighted_average_price).
+    /// </summary>
     TWAP,
+    /// <summary>
+    /// A [block trade](https://en.wikipedia.org/wiki/Block_trade).
+    /// </summary>
     BLOCK,
+    /// <summary>
+    /// A [volume-weighted average price order](https://en.wikipedia.org/wiki/Volume-weighted_average_price).
+    /// </summary>
     VWAP,
+    /// <summary>
+    /// A [conditional order combined of stop order and limit order](https://en.wikipedia.org/wiki/Order_(exchange)#Stop-limit_order).
+    /// </summary>
     STOP_LIMIT,
+    /// <summary>
+    /// A [request for quote](https://en.wikipedia.org/wiki/Request_for_quote).
+    /// </summary>
     RFQ,
+    /// <summary>
+    /// A pegged order that dynamically adjust based on market conditions while maintaining execution discretion and avoiding adverse selection.
+    /// </summary>
     PEG
   }
 }

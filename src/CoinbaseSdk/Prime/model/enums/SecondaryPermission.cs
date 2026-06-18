@@ -26,11 +26,26 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - SECONDARY_PERMISSION_UNKNOWN: nil value.
+  /// - VIDEO_APPROVER: A video approver.
+  /// - TEAM_APPROVER: A team approver.
+  /// - WEB3_SIGNER: A web3 signer.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<SecondaryPermission>))]
   public enum SecondaryPermission
   {
+    /// <summary>
+    /// A video approver.
+    /// </summary>
     VIDEO_APPROVER,
+    /// <summary>
+    /// A team approver.
+    /// </summary>
     TEAM_APPROVER,
+    /// <summary>
+    /// A web3 signer.
+    /// </summary>
     WEB3_SIGNER
   }
 }

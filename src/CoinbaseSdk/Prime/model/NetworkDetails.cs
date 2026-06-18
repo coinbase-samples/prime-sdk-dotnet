@@ -24,57 +24,58 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class NetworkDetails
   {
-    [JsonPropertyName("network")]
     public Network? Network { get; set; }
     /// <summary>
     /// The name of the network
     /// </summary>
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
     /// <summary>
     /// The maximum number of decimals supported for this network
     /// </summary>
-    [JsonPropertyName("max_decimals")]
     public string? MaxDecimals { get; set; }
     /// <summary>
     /// Indicates whether this network is the default network for the asset
     /// </summary>
-    [JsonPropertyName("default")]
     public bool? Default { get; set; }
     /// <summary>
     /// Indicates whether this network supports trading
     /// </summary>
-    [JsonPropertyName("trading_supported")]
     public bool? TradingSupported { get; set; }
     /// <summary>
     /// Indicates whether this network supports vault
     /// </summary>
-    [JsonPropertyName("vault_supported")]
     public bool? VaultSupported { get; set; }
     /// <summary>
     /// Indicates whether this network supports prime custody
     /// </summary>
-    [JsonPropertyName("prime_custody_supported")]
     public bool? PrimeCustodySupported { get; set; }
     /// <summary>
     /// Indicates whether this network requires a destination tag
     /// </summary>
-    [JsonPropertyName("destination_tag_required")]
     public bool? DestinationTagRequired { get; set; }
     /// <summary>
     /// Base URL to our recommended block explorer (crypto only)
     /// </summary>
-    [JsonPropertyName("network_link")]
     public string? NetworkLink { get; set; }
     /// <summary>
     /// Indicates the symbol that can be used to query other endpoints, related to transactions, wallets, and activities, to get information particularly for this asset on the network
     /// </summary>
-    [JsonPropertyName("network_scoped_symbol")]
     public string? NetworkScopedSymbol { get; set; }
+    /// <summary>
+    /// The minimum withdrawal amount for this network. Applies to trading, prime custody, and vault wallets.
+    /// </summary>
+    public string? MinWithdrawalAmount { get; set; }
+    /// <summary>
+    /// The platform maximum withdrawal amount for this network. Applies to trading, prime custody, and vault wallets. Note that Prime Transfer policies may override this value.
+    /// </summary>
+    public string? MaxWithdrawalAmount { get; set; }
+    /// <summary>
+    /// The minimum deposit amount for this network. Applies to trading, prime custody, and vault wallets.
+    /// </summary>
+    public string? MinDepositAmount { get; set; }
     public NetworkDetails() { }
 
     public NetworkDetails(Builder builder)
@@ -89,6 +90,9 @@ namespace CoinbaseSdk.Prime.Model
       this.DestinationTagRequired = builder.destinationTagRequired;
       this.NetworkLink = builder.networkLink;
       this.NetworkScopedSymbol = builder.networkScopedSymbol;
+      this.MinWithdrawalAmount = builder.minWithdrawalAmount;
+      this.MaxWithdrawalAmount = builder.maxWithdrawalAmount;
+      this.MinDepositAmount = builder.minDepositAmount;
     }
 
     public class Builder
@@ -104,6 +108,9 @@ namespace CoinbaseSdk.Prime.Model
       internal bool? destinationTagRequired;
       internal string? networkLink;
       internal string? networkScopedSymbol;
+      internal string? minWithdrawalAmount;
+      internal string? maxWithdrawalAmount;
+      internal string? minDepositAmount;
 #pragma warning restore SA1307, SA1401
       public Builder WithNetwork(Network? network)
       {
@@ -153,6 +160,21 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithNetworkScopedSymbol(string? networkScopedSymbol)
       {
         this.networkScopedSymbol = networkScopedSymbol;
+        return this;
+      }
+      public Builder WithMinWithdrawalAmount(string? minWithdrawalAmount)
+      {
+        this.minWithdrawalAmount = minWithdrawalAmount;
+        return this;
+      }
+      public Builder WithMaxWithdrawalAmount(string? maxWithdrawalAmount)
+      {
+        this.maxWithdrawalAmount = maxWithdrawalAmount;
+        return this;
+      }
+      public Builder WithMinDepositAmount(string? minDepositAmount)
+      {
+        this.minDepositAmount = minDepositAmount;
         return this;
       }
       public NetworkDetails Build()

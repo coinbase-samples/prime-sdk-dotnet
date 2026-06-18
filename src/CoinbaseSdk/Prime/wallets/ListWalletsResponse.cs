@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Wallets
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Wallets
   /// </summary>
   public class ListWalletsResponse
   {
-    [JsonPropertyName("wallets")]
     public Wallet[] Wallets { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListWalletsResponse() { }

@@ -26,15 +26,53 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - REWARD_SUBTYPE_UNKNOWN: An unknown reward subtype, reward subtype may not be supported in the API response yet.
+  /// - MEV_REWARD: A maximal extractable value reward.
+  /// i.e. sol mev rewards.
+  /// - INFLATION_REWARD: An inflationary reward.
+  /// i.e. solana inflationary rewards.
+  /// - BLOCK_REWARD: A block reward.
+  /// i.e. solana block rewards.
+  /// - VALIDATOR_REWARD: A validator reward.
+  /// i.e. ethereum validator (consensus layer) rewards.
+  /// - TRANSACTION_REWARD: A transaction reward.
+  /// i.e. ethereum transaction (execution layer) rewards.
+  /// - STAKING_FEE_REBATE_REWARD: A staking fee rebate reward.
+  /// i.e. coinbase pays rebates for staking fees to eligible delegators.
+  /// - BUIDL_DIVIDEND: A BUIDL dividend reward.
+  /// i.e. dividends from BUIDL fund holdings.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<RewardSubtype>))]
   public enum RewardSubtype
   {
+    /// <summary>
+    /// A maximal extractable value reward.
+    /// </summary>
     MEV_REWARD,
+    /// <summary>
+    /// An inflationary reward.
+    /// </summary>
     INFLATION_REWARD,
+    /// <summary>
+    /// A block reward.
+    /// </summary>
     BLOCK_REWARD,
+    /// <summary>
+    /// A validator reward.
+    /// </summary>
     VALIDATOR_REWARD,
+    /// <summary>
+    /// A transaction reward.
+    /// </summary>
     TRANSACTION_REWARD,
+    /// <summary>
+    /// A staking fee rebate reward.
+    /// </summary>
     STAKING_FEE_REBATE_REWARD,
+    /// <summary>
+    /// A BUIDL dividend reward.
+    /// </summary>
     BUIDL_DIVIDEND
   }
 }

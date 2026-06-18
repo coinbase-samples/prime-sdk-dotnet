@@ -24,11 +24,15 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Represents a destination for a counterparty payment.
+  /// </summary>
 
   public class CounterpartyDestination
   {
-    [JsonPropertyName("counterparty_id")]
+    /// <summary>
+    /// The counterparty ID to pay out.
+    /// </summary>
     public string? CounterpartyId { get; set; }
     public CounterpartyDestination() { }
 

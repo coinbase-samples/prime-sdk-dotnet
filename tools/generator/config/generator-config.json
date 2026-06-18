@@ -1,5 +1,10 @@
 {
   "specUrl": "https://api.prime.coinbase.com/v1/openapi.yaml",
+  "committedSpecPath": "apiSpec/prime-public-api-spec.yaml",
+  "emitRequestBuilders": true,
+  "commonModels": {
+    "PaginatedResponse": "Pagination"
+  },
   "filePathReplacements": {
     "CoinbaseCustodyApiActivityType": "CustodyActivityType",
     "CoinbasePublicRestApiActivityType": "PrimeActivityType",
@@ -31,6 +36,7 @@
     "RPC?": "RpcConfig?",
     "RPC>": "RpcConfig>",
     "PaginatedResponse": "Pagination",
+    "CoinbasePublicRestApiPaginatedResponse": "Pagination",
     "GoogleTypeDate": "DateOfBirth"
   },
   "acronymMappings": [

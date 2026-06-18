@@ -24,15 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class DefiBalance
   {
-    [JsonPropertyName("network")]
+    /// <summary>
+    /// Network this asset is on (ie "ethereum-mainnet").
+    /// </summary>
     public string? Network { get; set; }
-    [JsonPropertyName("protocol")]
+    /// <summary>
+    /// a set of rules and standards that define how data is exchanged (ie "Aave V4 ").
+    /// </summary>
     public string? Protocol { get; set; }
-    [JsonPropertyName("net_usd_value")]
+    /// <summary>
+    /// Total USD value.
+    /// </summary>
     public string? NetUsdValue { get; set; }
     public DefiBalance() { }
 

@@ -1,28 +1,28 @@
 #!/usr/bin/env -S dotnet run --file
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *  http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 
 #:project ../../../Prime
 #:project ../../
 #:package Newtonsoft.Json@13.0.3
 
+using System.CommandLine;
 using CoinbaseSdk.Prime.Balances;
 using CoinbaseSdk.Prime.Client;
 using CoinbaseSdk.Prime.Common;
-using System.CommandLine;
 
 // Load environment variables
 DotNetEnv.Env.TraversePath().Load();
@@ -35,14 +35,17 @@ var walletIdOption = new Option<string?>(
     name: "--walletId",
     description: "The Wallet ID");
 
-var rootCommand = new RootCommand("List onchain (web3) balances for a wallet")
+var rootCommand = new RootCommand("List Onchain Wallet Balances")
 {
     portfolioIdOption,
-    walletIdOption
+    walletIdOption,
 };
 
-rootCommand.SetHandler((portfolioId, walletId) =>
+rootCommand.SetHandler((context) =>
 {
+    var portfolioId = context.ParseResult.GetValueForOption(portfolioIdOption);
+    var walletId = context.ParseResult.GetValueForOption(walletIdOption);
+
     portfolioId ??= Environment.GetEnvironmentVariable("PRIME_PORTFOLIO_ID");
 
     if (string.IsNullOrEmpty(portfolioId))
@@ -61,7 +64,8 @@ rootCommand.SetHandler((portfolioId, walletId) =>
 
     try
     {
-        Console.WriteLine($"Using Portfolio ID: {portfolioId}");
+        Console.WriteLine($"Using PortfolioId: {portfolioId}");
+        Console.WriteLine($"Using WalletId: {walletId}");
 
         var client = CoinbasePrimeClient.FromEnv();
         var balancesService = new BalancesService(client);
@@ -78,9 +82,9 @@ rootCommand.SetHandler((portfolioId, walletId) =>
     }
     catch (Exception ex)
     {
-        PrettyPrinter.PrintError("Error listing onchain wallet balances", ex);
+        PrettyPrinter.PrintError("Error calling ListOnchainWalletBalances", ex);
         Environment.ExitCode = 1;
     }
-}, portfolioIdOption, walletIdOption);
+});
 
 return rootCommand.Invoke(args);

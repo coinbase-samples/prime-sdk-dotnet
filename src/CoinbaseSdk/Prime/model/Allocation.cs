@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Allocation
@@ -32,71 +31,61 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The ID that ties together an allocation and all of its legs.
     /// </summary>
-    [JsonPropertyName("root_id")]
     public string? RootId { get; set; }
     /// <summary>
     /// The ID of the allocation if this allocation is a reversal. In this case, the root_id would be the original allocation ID.
     /// </summary>
-    [JsonPropertyName("reversal_id")]
     public string? ReversalId { get; set; }
     /// <summary>
     /// Time the final leg of the root allocation was completed.
     /// </summary>
-    [JsonPropertyName("allocation_completed_at")]
     public DateTime? AllocationCompletedAt { get; set; }
     /// <summary>
     /// The ID of the user that created the allocation.
     /// </summary>
-    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
     /// <summary>
     /// The ID of the product of the orders allocated.
     /// </summary>
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
-    [JsonPropertyName("side")]
+    /// <summary>
+    /// - UNKNOWN_ORDER_SIDE: nil value.
+    /// - BUY: Buy order.
+    /// - SELL: Sell order.
+    /// </summary>
     public OrderSide? Side { get; set; }
     /// <summary>
     /// Price the allocation was done at.
     /// </summary>
-    [JsonPropertyName("avg_price")]
     public string? AvgPrice { get; set; }
     /// <summary>
     /// Amount allocated in base asset units.
     /// </summary>
-    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
     /// <summary>
     /// Amount allocated in quote asset units.
     /// </summary>
-    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
     /// <summary>
     /// Fees from original trade execution allocated in quote asset units.
     /// </summary>
-    [JsonPropertyName("fees_allocated")]
     public string? FeesAllocated { get; set; }
-    [JsonPropertyName("status")]
     public AllocationStatus? Status { get; set; }
     /// <summary>
     /// Portfolio ID of the source portfolio.
     /// </summary>
-    [JsonPropertyName("source")]
     public string? Source { get; set; }
     /// <summary>
     /// All order IDs that were aggregated to calculate the avg_price, quantity to allocate in each leg. Each order_id should tie back to the single allocation root_id.
     /// </summary>
-    [JsonPropertyName("order_ids")]
     public List<string>? OrderIds { get; set; }
     /// <summary>
     /// Array of objects, each containing the leg ID, destination portfolio ID and amount in chosen units allocated to each portfolio: [{leg_id, portfolio_id, allocation_base, allocation_quote}, {leg_id, portfolio_id, allocation_base, allocation_quote}...]
     /// </summary>
-    [JsonPropertyName("destinations")]
     public List<DestinationAlloc>? Destinations { get; set; }
     /// <summary>
     /// The netting ID of the allocation, not empty if the allocation was submitted as part of a net allocation
     /// </summary>
-    [JsonPropertyName("netting_id")]
     public string? NettingId { get; set; }
     public Allocation() { }
 

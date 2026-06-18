@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Balances
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
   using CoinbaseSdk.Prime.Model.Enums;
 
@@ -25,19 +24,14 @@ namespace CoinbaseSdk.Prime.Balances
   /// </summary>
   public class ListPortfolioBalancesResponse
   {
-    [JsonPropertyName("balances")]
     public Balance[] Balances { get; set; } = [];
 
-    [JsonPropertyName("type")]
     public PortfolioBalanceType? Type { get; set; }
 
-    [JsonPropertyName("trading_balances")]
     public AggregatedFiatBalance TradingBalances { get; set; }
 
-    [JsonPropertyName("vault_balances")]
     public AggregatedFiatBalance VaultBalances { get; set; }
 
-    [JsonPropertyName("prime_custody_balances")]
     public AggregatedFiatBalance PrimeCustodyBalances { get; set; }
 
     public ListPortfolioBalancesResponse() { }

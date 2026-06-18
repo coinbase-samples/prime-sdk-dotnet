@@ -26,6 +26,11 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - ACTIVITY_SECONDARY_TYPE_BUY: Order secondary types.
+  /// - ACTIVITY_SECONDARY_TYPE_INTERNAL_TRANSFER: Transaction secondary types.
+  /// - ACTIVITY_SECONDARY_TYPE_WEB3_SIGNER: Onchain secondary types.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<ActivitySecondaryType>))]
   public enum ActivitySecondaryType
   {

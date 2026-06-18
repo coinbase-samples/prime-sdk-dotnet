@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,10 +23,8 @@ namespace CoinbaseSdk.Prime.Futures
   /// </summary>
   public class ListEntityFuturesSweepsResponse
   {
-    [JsonPropertyName("sweeps")]
     public FuturesSweep[] Sweeps { get; set; } = [];
 
-    [JsonPropertyName("auto_sweep")]
     public bool? AutoSweep { get; set; }
 
     public ListEntityFuturesSweepsResponse() { }

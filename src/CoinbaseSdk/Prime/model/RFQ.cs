@@ -24,28 +24,24 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Rfq
   {
-    [JsonPropertyName("product_id")]
     public string ProductId { get; set; } = default!;
-    [JsonPropertyName("side")]
     public OrderSide Side { get; set; } = default!;
     /// <summary>
     /// A client-generated order ID used for reference purposes (note: order will be rejected if this ID is not unique among all currently active orders)
     /// </summary>
-    [JsonPropertyName("client_quote_id")]
     public string ClientQuoteId { get; set; } = default!;
-    [JsonPropertyName("base_quantity")]
     public string? BaseQuantity { get; set; }
-    [JsonPropertyName("quote_value")]
     public string? QuoteValue { get; set; }
-    [JsonPropertyName("limit_price")]
     public string LimitPrice { get; set; } = default!;
-    [JsonPropertyName("settl_currency")]
     public string? SettlCurrency { get; set; }
+    /// <summary>
+    /// Optional quote timeout in milliseconds. Defaults to 3000 ms (3 seconds) if not specified. Maximum allowed value is 30000 ms (30 seconds); requests with a larger value are rejected. Mirrors FIX tag 8090 (QuoteRequestGoodForMs).
+    /// </summary>
+    public string? QuoteDurationMs { get; set; }
     public Rfq() { }
 
     public Rfq(Builder builder)
@@ -57,6 +53,7 @@ namespace CoinbaseSdk.Prime.Model
       this.QuoteValue = builder.quoteValue;
       this.LimitPrice = builder.limitPrice;
       this.SettlCurrency = builder.settlCurrency;
+      this.QuoteDurationMs = builder.quoteDurationMs;
     }
 
     public class Builder
@@ -69,6 +66,7 @@ namespace CoinbaseSdk.Prime.Model
       internal string? quoteValue;
       internal string limitPrice = default!;
       internal string? settlCurrency;
+      internal string? quoteDurationMs;
 #pragma warning restore SA1307, SA1401
       public Builder WithProductId(string productId)
       {
@@ -103,6 +101,11 @@ namespace CoinbaseSdk.Prime.Model
       public Builder WithSettlCurrency(string? settlCurrency)
       {
         this.settlCurrency = settlCurrency;
+        return this;
+      }
+      public Builder WithQuoteDurationMs(string? quoteDurationMs)
+      {
+        this.quoteDurationMs = quoteDurationMs;
         return this;
       }
       public Rfq Build()

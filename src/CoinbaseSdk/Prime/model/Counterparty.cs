@@ -24,14 +24,12 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Counterparty
   {
     /// <summary>
     /// The unique counterparty ID for the portfolio
     /// </summary>
-    [JsonPropertyName("counterparty_id")]
     public string? CounterpartyId { get; set; }
     public Counterparty() { }
 

@@ -26,13 +26,36 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_WALLET_DEPOSIT_TYPE: nil value.
+  /// - CRYPTO: A cryptocurrency deposit.
+  /// - WIRE: A wire deposit.
+  /// - SEN: DEPRECATED. A Silvergate Exchange Network deposit.
+  /// - SWIFT: A SWIFT deposit.
+  /// - SEPA: A SEPA deposit (Single Euro Payments Area).
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<WalletDepositInstructionType>))]
   public enum WalletDepositInstructionType
   {
+    /// <summary>
+    /// A cryptocurrency deposit.
+    /// </summary>
     CRYPTO,
+    /// <summary>
+    /// A wire deposit.
+    /// </summary>
     WIRE,
+    /// <summary>
+    /// DEPRECATED. A Silvergate Exchange Network deposit.
+    /// </summary>
     SEN,
+    /// <summary>
+    /// A SWIFT deposit.
+    /// </summary>
     SWIFT,
+    /// <summary>
+    /// A SEPA deposit (Single Euro Payments Area).
+    /// </summary>
     SEPA
   }
 }

@@ -26,14 +26,36 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - HEALTHY_THRESHOLD: Margin level is healthy.
+  /// - DEFICIT_THRESHOLD: Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+  /// - WARNING_THRESHOLD: Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+  /// - URGENT_MARGIN_CALL_THRESHOLD: Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+  /// - LIQUIDATION_THRESHOLD: Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmMarginLevel>))]
   public enum XmMarginLevel
   {
     XM_MARGIN_LEVEL_UNSPECIFIED,
+    /// <summary>
+    /// Margin level is healthy.
+    /// </summary>
     HEALTHY_THRESHOLD,
+    /// <summary>
+    /// Margin level is breaching the deficit threshold (DT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call time (as defined in the margin methodology).
+    /// </summary>
     DEFICIT_THRESHOLD,
+    /// <summary>
+    /// Margin level is breaching the warning threshold (WT) which will result in the issuance of a Margin Call if this is still the case by the scheduled next Margin Call (as defined in the margin methodology). WT is differentiated from DT in that it means margin health is approaching the UMCT.
+    /// </summary>
     WARNING_THRESHOLD,
+    /// <summary>
+    /// Margin level is breaching the UMCT and, as defined in the margin methodology, this will trigger an urgent margin call.
+    /// </summary>
     URGENT_MARGIN_CALL_THRESHOLD,
+    /// <summary>
+    /// Margin level is breaching the liquidation threshold (LT) and, as defined in the margin methodology, this will trigger the SESSION_LOCKED control status and liquidation may commence.
+    /// </summary>
     LIQUIDATION_THRESHOLD
   }
 }

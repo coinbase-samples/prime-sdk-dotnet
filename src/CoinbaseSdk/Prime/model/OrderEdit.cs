@@ -24,27 +24,44 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class OrderEdit
   {
-    [JsonPropertyName("price")]
+    /// <summary>
+    /// New price for the edited order.
+    /// </summary>
     public string? Price { get; set; }
-    [JsonPropertyName("base_quantity")]
+    /// <summary>
+    /// New base quantity for the edited order, populated if order is in base size.
+    /// </summary>
     public string? BaseQuantity { get; set; }
-    [JsonPropertyName("quote_value")]
+    /// <summary>
+    /// New quote value for the edited order, populated if order is in quote size.
+    /// </summary>
     public string? QuoteValue { get; set; }
-    [JsonPropertyName("display_base_size")]
+    /// <summary>
+    /// Display base size for the edited order, populated if order is in base size.
+    /// </summary>
     public string? DisplayBaseSize { get; set; }
-    [JsonPropertyName("display_quote_size")]
+    /// <summary>
+    /// Display quote size for the edited order, populated if order is in quote size.
+    /// </summary>
     public string? DisplayQuoteSize { get; set; }
-    [JsonPropertyName("stop_price")]
+    /// <summary>
+    /// New stop price for the edited order.
+    /// </summary>
     public string? StopPrice { get; set; }
-    [JsonPropertyName("expiry_time")]
+    /// <summary>
+    /// New expiry/end time for the edited order.
+    /// </summary>
     public DateTime? ExpiryTime { get; set; }
-    [JsonPropertyName("accept_time")]
+    /// <summary>
+    /// Time when the edit was accepted.
+    /// </summary>
     public DateTime? AcceptTime { get; set; }
-    [JsonPropertyName("client_order_id")]
+    /// <summary>
+    /// The new client order identifier that the order adopted after the replacement was successfully accepted.
+    /// </summary>
     public string? ClientOrderId { get; set; }
     public OrderEdit() { }
 

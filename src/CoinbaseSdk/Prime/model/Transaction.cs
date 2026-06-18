@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Transaction
@@ -32,100 +31,162 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The ID of the transaction
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The wallet ID of the transaction
     /// </summary>
-    [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
     /// <summary>
     /// The portfolio ID of the transaction
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
-    [JsonPropertyName("type")]
+    /// <summary>
+    /// - TRANSACTION_TYPE_UNKNOWN: An unknown transaction type.
+    /// - DEPOSIT: A fiat or crypto deposit.
+    /// - WITHDRAWAL: A fiat or crypto withdrawal.
+    /// - INTERNAL_DEPOSIT: An internal fiat or crypto deposit.
+    /// - INTERNAL_WITHDRAWAL: An internal fiat or crypto withdrawal.
+    /// - SWEEP_DEPOSIT: Internal automated deposit to a cold address from a restored address.
+    /// - SWEEP_WITHDRAWAL: Internal automated withdrawal from a restored address to a cold address.
+    /// - PROXY_DEPOSIT: On-chain deposit of funds into proxy contract from cold address.
+    /// - PROXY_WITHDRAWAL: On-chain withdrawal of funds from proxy contract to cold address.
+    /// - BILLING_WITHDRAWAL: Coinbase Prime automated invoice settlement payment.
+    /// - REWARD: Reward payment to an associated address for a staked asset.
+    /// - COINBASE_REFUND: Coinbase Prime refund for the leftover amount for a CPFP (child pays for parent) transaction.
+    /// - TRANSACTION_TYPE_OTHER: An OTHER type of transaction.
+    /// - WITHDRAWAL_ADJUSTMENT: A manual adjustment withdrawal transaction.
+    /// - DEPOSIT_ADJUSTMENT: A manual adjustment deposit transaction.
+    /// - KEY_REGISTRATION: An on-chain registration for an address.
+    /// - DELEGATION: An on-chain delegation transaction.
+    /// - UNDELEGATION: An on-chain undelegation transaction.
+    /// - RESTAKE: On-chain restaking transaction.
+    /// - COMPLETE_UNBONDING: On-chain unbonding event transaction.
+    /// - WITHDRAW_UNBONDED: On-chain event indicating unbonding period is over.
+    /// - STAKE_ACCOUNT_CREATE: On-chain transaction to begin staking from an address.
+    /// - CHANGE_VALIDATOR: On-chain transaction alter validator.
+    /// - STAKE: On-chain transaction to begin staking in Cryptocurrency network.
+    /// - UNSTAKE: On-chain transaction to stop staking in Cryptocurrency network.
+    /// - REMOVE_AUTHORIZED_PARTY: On-chain transaction to remove a party from a multi-signature wallet.
+    /// - STAKE_AUTHORIZE_WITH_SEED: On-chain transaction to begin staking from a seed account.
+    /// - SLASH: On-chain transaction indicating a slash event has occurred.
+    /// - COINBASE_DEPOSIT: On-chain transaction deposit for the purpose of transaction operations.
+    /// - CONVERSION: Internal conversion between two assets.
+    /// - CLAIM_REWARDS: On-chain transaction to claim rewards from Vote Account.
+    /// - VOTE_AUTHORIZE: On-chain transaction to transfer the reward claiming permission to other pubkey.
+    /// - WEB3_TRANSACTION: On-chain transaction initiated with Prime Onchain Wallet.
+    /// Deprecated: Use ONCHAIN_TRANSACTION instead.
+    /// - ONCHAIN_TRANSACTION: On-chain transaction initiated with Prime Onchain Wallet.
+    /// - PORTFOLIO_STAKE: Portfolio-level staking operation.
+    /// - PORTFOLIO_UNSTAKE: Portfolio-level unstaking operation.
+    /// </summary>
     public TransactionType? Type { get; set; }
-    [JsonPropertyName("status")]
+    /// <summary>
+    /// - UNKNOWN_TRANSACTION_STATUS: An Unknown Transaction status.
+    /// - TRANSACTION_CREATED: The Transaction has been created and is awaiting Consensus approval.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_REQUESTED: The Transaction has reached User Consensus and is awaiting Coinbase Prime approval.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_APPROVED: The Transaction has been authorized by Coinbase Prime.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_GASSING: The transaction is awaiting blockchain resources for broadcast.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_GASSED: The transaction has received blockchain resources for broadcasting.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_PROVISIONED: The transaction has been provisioned and is awaiting planning.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_PLANNED: The transaction has been constructed.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_PROCESSING: The transaction is currently processing and awaiting finalization.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_RESTORED: The transaction has been broadcasted to the network.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_DONE: The transaction has confirmed on-chain and finished.
+    /// This is a terminal status.
+    /// - TRANSACTION_IMPORT_PENDING: The transaction deposit has been detected and is awaiting finalization.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_IMPORTED: The transaction deposit and reward has been detected.
+    /// This is a terminal status.
+    /// - TRANSACTION_CANCELLED: The transaction has been cancelled.
+    /// This is a terminal status.
+    /// - TRANSACTION_REJECTED: The transaction was rejected before construction and broadcasting.
+    /// This is a terminal status.
+    /// - TRANSACTION_DELAYED: The transaction s taking longer than expected to confirm on-chain.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_RETRIED: The transaction has been recreated and retried, this occurs when network congestion results in transfers becoming extremely delayed due to insufficient fees or network resources such as CPU, RAM, or NET.
+    /// This is a terminal status.
+    /// - TRANSACTION_FAILED: The transaction failed on-chain (the fee was spent but the operation failed).
+    /// This is a terminal status.
+    /// - TRANSACTION_EXPIRED: The transaction has expired.
+    /// This is a terminal status.
+    /// - TRANSACTION_BROADCASTING: The transaction is currently broadcasting to the cryptocurrency network.
+    /// This is a non-terminal status.
+    /// - OTHER_TRANSACTION_STATUS: The transaction has reached an OTHER status.
+    /// This is a non-terminal status.
+    /// - TRANSACTION_CONSTRUCTED: The transaction  bctx is constructed but not yet broadcasting on chain.
+    /// This is a non-terminal status.
+    /// </summary>
     public TransactionStatus? Status { get; set; }
     /// <summary>
     /// The asset symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The transaction creation time (as a UTC timestamp)
     /// </summary>
-    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
     /// <summary>
     /// The transaction completion time (as a UTC timestamp)
     /// </summary>
-    [JsonPropertyName("completed_at")]
     public DateTime? CompletedAt { get; set; }
     /// <summary>
     /// The transaction amount in whole units
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-    [JsonPropertyName("transfer_from")]
     public TransferLocation? TransferFrom { get; set; }
-    [JsonPropertyName("transfer_to")]
     public TransferLocation? TransferTo { get; set; }
     /// <summary>
     /// The blockchain network fees (in whole units) required in order to broadcast the transaction
     /// </summary>
-    [JsonPropertyName("network_fees")]
     public string? NetworkFees { get; set; }
     /// <summary>
     /// The fees that the customer paid for the transaction (in whole units)
     /// </summary>
-    [JsonPropertyName("fees")]
     public string? Fees { get; set; }
     /// <summary>
     /// The asset in which fees will be paid
     /// </summary>
-    [JsonPropertyName("fee_symbol")]
     public string? FeeSymbol { get; set; }
     /// <summary>
     /// The cryptocurrency network transaction hashes/IDs generated upon broadcast
     /// </summary>
-    [JsonPropertyName("blockchain_ids")]
     public List<string>? BlockchainIds { get; set; }
     /// <summary>
     /// The 8 character alphanumeric short form id for the transaction
     /// </summary>
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
     /// <summary>
     /// The destination asset symbol
     /// </summary>
-    [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
-    [JsonPropertyName("estimated_network_fees")]
     public EstimatedNetworkFees? EstimatedNetworkFees { get; set; }
     /// <summary>
     /// The network name specific to onchain/onchain wallet transactions
     /// </summary>
-    [JsonPropertyName("network")]
     public string? Network { get; set; }
     /// <summary>
     /// The estimated asset changes (onchain)
     /// </summary>
-    [JsonPropertyName("estimated_asset_changes")]
     public List<AssetChange>? EstimatedAssetChanges { get; set; }
-    [JsonPropertyName("metadata")]
     public TransactionMetadata? Metadata { get; set; }
     /// <summary>
     /// The idempotency key associated with the transaction creation request
     /// </summary>
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
-    [JsonPropertyName("onchain_details")]
     public OnchainTransactionDetails? OnchainDetails { get; set; }
-    [JsonPropertyName("network_info")]
     public Network? NetworkInfo { get; set; }
-    [JsonPropertyName("process_requirements")]
+    /// <summary>
+    /// Represents the status of various process requirements for a transaction.
+    /// </summary>
     public ProcessRequirements? ProcessRequirements { get; set; }
     public Transaction() { }
 

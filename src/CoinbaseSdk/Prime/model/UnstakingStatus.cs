@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class UnstakingStatus
@@ -32,31 +31,24 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// Amount being unstaked (whole amount, e.g., 16 ETH)
     /// </summary>
-    [JsonPropertyName("amount")]
     public string Amount { get; set; } = default!;
-    [JsonPropertyName("unstake_type")]
     public UnstakeType? UnstakeType { get; set; }
     /// <summary>
     /// Estimated date when unstaking will complete (ISO 8601 format)
     /// </summary>
-    [JsonPropertyName("finishing_at")]
     public DateTime? FinishingAt { get; set; }
     /// <summary>
     /// Estimated hours until this unstaking request completes
     /// </summary>
-    [JsonPropertyName("remaining_hours")]
     public long? RemainingHours { get; set; }
     /// <summary>
     /// Timestamp when the unstake request was originally created
     /// </summary>
-    [JsonPropertyName("requested_at")]
     public DateTime? RequestedAt { get; set; }
-    [JsonPropertyName("estimate_type")]
     public EstimateType EstimateType { get; set; } = default!;
     /// <summary>
     /// Detailed explanation of the estimate status for display to users.
     /// </summary>
-    [JsonPropertyName("estimate_description")]
     public string EstimateDescription { get; set; } = default!;
     public UnstakingStatus() { }
 

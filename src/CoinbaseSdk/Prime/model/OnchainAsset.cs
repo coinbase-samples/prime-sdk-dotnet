@@ -24,31 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class OnchainAsset
   {
-    [JsonPropertyName("network")]
+    /// <summary>
+    /// Network this asset is on (ie "ethereum-mainnet").
+    /// </summary>
     public string? Network { get; set; }
     /// <summary>
     /// Contract Address of this asset (empty for native assets).
     /// </summary>
-    [JsonPropertyName("contract_address")]
     public string? ContractAddress { get; set; }
     /// <summary>
     /// Symbol of this asset.
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Token ID of this asset (empty for non  Nft assets).
     /// </summary>
-    [JsonPropertyName("token_id")]
     public string? TokenId { get; set; }
     /// <summary>
     /// Name of this asset, either the name of the crypto token or the Nft collection name.
     /// </summary>
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
     public OnchainAsset() { }
 

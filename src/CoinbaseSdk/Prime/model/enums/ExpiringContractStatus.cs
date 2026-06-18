@@ -26,11 +26,26 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - EXPIRING_CONTRACT_STATUS_UNKNOWN: Unknown/unset — returns all expiring contracts (backward compatible default).
+  /// - EXPIRING_CONTRACT_STATUS_UNEXPIRED: Only unexpired contracts (contract_expiry is in the future).
+  /// - EXPIRING_CONTRACT_STATUS_EXPIRED: Only expired contracts (contract_expiry is in the past).
+  /// - EXPIRING_CONTRACT_STATUS_ALL: All contracts regardless of expiry status.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<ExpiringContractStatus>))]
   public enum ExpiringContractStatus
   {
+    /// <summary>
+    /// Only unexpired contracts (contract_expiry is in the future).
+    /// </summary>
     EXPIRING_CONTRACT_STATUS_UNEXPIRED,
+    /// <summary>
+    /// Only expired contracts (contract_expiry is in the past).
+    /// </summary>
     EXPIRING_CONTRACT_STATUS_EXPIRED,
+    /// <summary>
+    /// All contracts regardless of expiry status.
+    /// </summary>
     EXPIRING_CONTRACT_STATUS_ALL
   }
 }

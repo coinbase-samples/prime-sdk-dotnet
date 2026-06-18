@@ -24,19 +24,19 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// FcmScheduledMaintenance contains scheduled maintenance window information.
+  /// </summary>
 
   public class FcmScheduledMaintenance
   {
     /// <summary>
     /// Maintenance window start time
     /// </summary>
-    [JsonPropertyName("start_time")]
     public DateTime? StartTime { get; set; }
     /// <summary>
     /// Maintenance window end time
     /// </summary>
-    [JsonPropertyName("end_time")]
     public DateTime? EndTime { get; set; }
     public FcmScheduledMaintenance() { }
 

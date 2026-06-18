@@ -29,22 +29,16 @@ namespace CoinbaseSdk.Prime.Activities
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonPropertyName("categories")]
     public ActivityCategory?[] Categories { get; set; } = [];
 
-    [JsonPropertyName("statuses")]
     public ActivityStatus?[] Statuses { get; set; } = [];
 
-    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
-    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
-    [JsonPropertyName("get_network_unified_activities")]
     public bool? GetNetworkUnifiedActivities { get; set; }
 
     public class ListActivitiesRequestBuilder

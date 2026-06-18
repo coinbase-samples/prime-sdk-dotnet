@@ -24,25 +24,43 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// LimitOrderEdit represents an order edit that is accepted.
+  /// </summary>
 
   public class LimitOrderEdit
   {
-    [JsonPropertyName("price")]
+    /// <summary>
+    /// New price for the edited order.
+    /// </summary>
     public string? Price { get; set; }
-    [JsonPropertyName("size")]
+    /// <summary>
+    /// New size for the edited order.
+    /// </summary>
     public string? Size { get; set; }
-    [JsonPropertyName("display_size")]
+    /// <summary>
+    /// New display size for the edited order.
+    /// </summary>
     public string? DisplaySize { get; set; }
-    [JsonPropertyName("stop_price")]
+    /// <summary>
+    /// New stop price for the edited order.
+    /// </summary>
     public string? StopPrice { get; set; }
-    [JsonPropertyName("stop_limit_price")]
+    /// <summary>
+    /// New stop limit price for the edited order.
+    /// </summary>
     public string? StopLimitPrice { get; set; }
-    [JsonPropertyName("end_time")]
+    /// <summary>
+    /// New end time for the edited order.
+    /// </summary>
     public DateTime? EndTime { get; set; }
-    [JsonPropertyName("accept_time")]
+    /// <summary>
+    /// Time when the edit was accepted.
+    /// </summary>
     public DateTime? AcceptTime { get; set; }
-    [JsonPropertyName("client_order_id")]
+    /// <summary>
+    /// Client order id of the order being replaced.
+    /// </summary>
     public string? ClientOrderId { get; set; }
     public LimitOrderEdit() { }
 

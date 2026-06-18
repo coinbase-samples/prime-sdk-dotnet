@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class ValidatorStakingInfo
   {
     /// <summary>
     /// The validator address (public key)
     /// </summary>
-    [JsonPropertyName("validator_address")]
     public string ValidatorAddress { get; set; } = default!;
     /// <summary>
     /// List of active staking requests for this validator
     /// </summary>
-    [JsonPropertyName("statuses")]
     public List<StakingStatus> Statuses { get; set; } = default!;
     public ValidatorStakingInfo() { }
 

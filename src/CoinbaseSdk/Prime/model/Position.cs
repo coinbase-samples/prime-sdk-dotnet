@@ -24,26 +24,21 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Position
   {
     /// <summary>
     /// Asset symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The long position based on &#39;reference&#39; value
     /// </summary>
-    [JsonPropertyName("long")]
     public string? Long { get; set; }
     /// <summary>
     /// The short position based on &#39;reference&#39; value
     /// </summary>
-    [JsonPropertyName("short")]
     public string? Short { get; set; }
-    [JsonPropertyName("position_reference")]
     public PositionReference? PositionReference { get; set; }
     public Position() { }
 

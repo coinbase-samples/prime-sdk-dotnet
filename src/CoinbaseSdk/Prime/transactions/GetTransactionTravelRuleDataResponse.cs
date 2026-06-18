@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,31 +23,22 @@ namespace CoinbaseSdk.Prime.Transactions
   /// </summary>
   public class GetTransactionTravelRuleDataResponse
   {
-    [JsonPropertyName("fulfilled")]
     public bool? Fulfilled { get; set; }
 
-    [JsonPropertyName("is_self")]
     public bool? IsSelf { get; set; }
 
-    [JsonPropertyName("originator")]
     public TravelRuleParty Originator { get; set; }
 
-    [JsonPropertyName("beneficiary")]
     public TravelRuleParty Beneficiary { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("amount_currency")]
     public string? AmountCurrency { get; set; }
 
-    [JsonPropertyName("fiat_amount")]
     public string? FiatAmount { get; set; }
 
-    [JsonPropertyName("fiat_amount_currency")]
     public string? FiatAmountCurrency { get; set; }
 
-    [JsonPropertyName("blockchain_network")]
     public string? BlockchainNetwork { get; set; }
 
     public GetTransactionTravelRuleDataResponse() { }

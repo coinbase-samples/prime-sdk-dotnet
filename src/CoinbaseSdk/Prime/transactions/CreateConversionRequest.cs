@@ -30,19 +30,14 @@ namespace CoinbaseSdk.Prime.Transactions
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("destination")]
     public string? Destination { get; set; }
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("source_symbol")]
     public string? SourceSymbol { get; set; }
 
-    [JsonPropertyName("destination_symbol")]
     public string? DestinationSymbol { get; set; }
 
     public class CreateConversionRequestBuilder

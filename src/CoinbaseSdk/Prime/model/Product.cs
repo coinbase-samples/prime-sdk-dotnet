@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Product
@@ -32,55 +31,53 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The product ID, written as &#x60;BASE-QUOTE&#x60;
     /// </summary>
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
     /// <summary>
     /// The smallest permitted unit of denomination for the base asset (varies by product)
     /// </summary>
-    [JsonPropertyName("base_increment")]
     public string? BaseIncrement { get; set; }
     /// <summary>
     /// The smallest permitted unit of denomination for the quote asset (varies by product)
     /// </summary>
-    [JsonPropertyName("quote_increment")]
     public string? QuoteIncrement { get; set; }
     /// <summary>
     /// The minimum size (in base asset units) for which an order can be placed
     /// </summary>
-    [JsonPropertyName("base_min_size")]
     public string? BaseMinSize { get; set; }
     /// <summary>
     /// The minimum size (in quote asset units) for which an order can be placed
     /// </summary>
-    [JsonPropertyName("quote_min_size")]
     public string? QuoteMinSize { get; set; }
     /// <summary>
     /// The maximum size (in base asset units) for which an order can be placed
     /// </summary>
-    [JsonPropertyName("base_max_size")]
     public string? BaseMaxSize { get; set; }
     /// <summary>
     /// The maximum size (in quote asset units) for which an order can be placed
     /// </summary>
-    [JsonPropertyName("quote_max_size")]
     public string? QuoteMaxSize { get; set; }
     /// <summary>
     /// Permissions given to the user for a product
     /// </summary>
-    [JsonPropertyName("permissions")]
     public List<ProductPermissions>? Permissions { get; set; }
     /// <summary>
     /// The smallest permitted price increment for the product
     /// </summary>
-    [JsonPropertyName("price_increment")]
     public string? PriceIncrement { get; set; }
-    [JsonPropertyName("rfq_product_details")]
     public RfqProductDetails? RfqProductDetails { get; set; }
-    [JsonPropertyName("product_type")]
+    /// <summary>
+    /// - UNKNOWN_PRODUCT_TYPE: Unknown product type.
+    /// - SPOT: Spot product.
+    /// - FUTURE: Future product.
+    /// </summary>
     public ProductType? ProductType { get; set; }
-    [JsonPropertyName("fcm_trading_session_details")]
+    /// <summary>
+    /// FcmTradingSessionDetails contains trading session details for FCM products.
+    /// </summary>
     public FcmTradingSessionDetails? FcmTradingSessionDetails { get; set; }
-    [JsonPropertyName("future_product_details")]
+    /// <summary>
+    /// FutureProductDetails contains details specific to futures products.
+    /// </summary>
     public FutureProductDetails? FutureProductDetails { get; set; }
     public Product() { }
 

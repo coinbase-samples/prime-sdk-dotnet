@@ -22,6 +22,8 @@ using Microsoft.Extensions.Logging;
 
 var dryRun = args.Contains("--dry-run", StringComparer.Ordinal);
 var diffMode = args.Contains("--diff", StringComparer.Ordinal);
+var liveFetch = args.Contains("--live", StringComparer.Ordinal) ||
+                args.Contains("--fetch-spec", StringComparer.Ordinal);
 
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
@@ -53,13 +55,38 @@ try
   CopyrightHelper.InitializeSdkEmittedCopyrightYear(projectRoot);
   var cfg = GeneratorConfiguration.Load(projectRoot);
 
-  var specPath = Path.Combine(projectRoot, "generated", "openapi.yaml");
-  Directory.CreateDirectory(Path.GetDirectoryName(specPath)!);
-  logger.LogInformation("Downloading OpenAPI spec from {Url} to {Path}...", cfg.SpecUrl, specPath);
-  using (var http = new HttpClient())
+  var committedSpecPath = string.IsNullOrWhiteSpace(cfg.CommittedSpecPath)
+    ? GeneratorPaths.DefaultCommittedSpecPath(projectRoot)
+    : Path.Combine(projectRoot, cfg.CommittedSpecPath);
+  var cachedSpecPath = GeneratorPaths.CachedSpecPath(projectRoot);
+  string specPath;
+  if (liveFetch)
   {
-    var yaml = await http.GetStringAsync(cfg.SpecUrl);
-    await File.WriteAllTextAsync(specPath, yaml);
+    Directory.CreateDirectory(Path.GetDirectoryName(cachedSpecPath)!);
+    logger.LogInformation("Downloading OpenAPI spec from {Url} to {Path}...", cfg.SpecUrl, cachedSpecPath);
+    using (var http = new HttpClient())
+    {
+      var yaml = await http.GetStringAsync(cfg.SpecUrl);
+      await File.WriteAllTextAsync(cachedSpecPath, yaml);
+    }
+
+    specPath = cachedSpecPath;
+  }
+  else if (File.Exists(committedSpecPath))
+  {
+    specPath = committedSpecPath;
+    logger.LogInformation("Using committed OpenAPI spec at {Path}", specPath);
+  }
+  else if (File.Exists(cachedSpecPath))
+  {
+    specPath = cachedSpecPath;
+    logger.LogWarning("Committed spec missing; falling back to cached spec at {Path}", specPath);
+  }
+  else
+  {
+    throw new FileNotFoundException(
+      $"OpenAPI spec not found. Run `make fetch-spec` or pass --live to download from {cfg.SpecUrl}.",
+      committedSpecPath);
   }
 
   logger.LogInformation("Parsing OpenAPI YAML for client surface...");
@@ -69,6 +96,7 @@ try
 
   var primeRoot = Path.Combine(projectRoot, "src", "CoinbaseSdk", "Prime");
   var modelDir = Path.Combine(primeRoot, "model");
+  var commonDir = Path.Combine(primeRoot, "common");
   var enumsDir = Path.Combine(modelDir, "enums");
   var tempDir = Path.Combine(projectRoot, "generated", "model-cli");
 
@@ -77,11 +105,14 @@ try
     await ModelEnumPhase.RunAsync(
       loggerFactory,
       projectRoot,
-      cfg,
+      specPath,
       transforms,
       tempDir,
       modelDir,
-      enumsDir);
+      commonDir,
+      enumsDir,
+      cfg.CommonModels,
+      cfg);
   }
   else
   {

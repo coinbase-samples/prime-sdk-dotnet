@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Wallets
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("deposit_type")]
     public string? DepositType { get; set; }
 
     [JsonPropertyName("network.id")]

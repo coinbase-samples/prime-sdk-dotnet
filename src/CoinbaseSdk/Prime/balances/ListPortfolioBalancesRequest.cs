@@ -29,10 +29,8 @@ namespace CoinbaseSdk.Prime.Balances
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonPropertyName("balance_type")]
     public PortfolioBalanceType? BalanceType { get; set; }
 
     public class ListPortfolioBalancesRequestBuilder

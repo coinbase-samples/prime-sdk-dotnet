@@ -24,18 +24,30 @@ public class ModelEnumPhase
   public static async Task RunAsync(
     ILoggerFactory loggerFactory,
     string projectRoot,
-    GeneratorConfiguration config,
+    string specInputPath,
     SharedTransforms transforms,
     string tempDir,
     string modelOutputDir,
-    string enumsDir)
+    string commonOutputDir,
+    string enumsDir,
+    IReadOnlyDictionary<string, string> commonModels,
+    GeneratorConfiguration configuration)
   {
     var genLogger = loggerFactory.CreateLogger<OpenApiGenerator>();
-    var openapi = new OpenApiGenerator(genLogger, projectRoot, config.SpecUrl, tempDir);
+    var openapi = new OpenApiGenerator(genLogger, projectRoot, specInputPath, tempDir);
     await openapi.GenerateModelsAsync();
 
     var postLogger = loggerFactory.CreateLogger<ModelPostProcessor>();
-    var post = new ModelPostProcessor(postLogger, transforms, tempDir, modelOutputDir, enumsDir);
+    var post = new ModelPostProcessor(
+      postLogger,
+      transforms,
+      tempDir,
+      modelOutputDir,
+      commonOutputDir,
+      enumsDir,
+      commonModels,
+      specInputPath,
+      configuration);
     await post.ProcessModelsAsync();
   }
 }

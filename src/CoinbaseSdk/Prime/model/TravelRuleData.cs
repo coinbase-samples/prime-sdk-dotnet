@@ -24,27 +24,35 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Data object used for withdrawals.
+  /// </summary>
 
   public class TravelRuleData
   {
-    [JsonPropertyName("beneficiary")]
+    /// <summary>
+    /// Represents a party in a travel rule transfer (originator or beneficiary).
+    /// </summary>
     public TravelRuleParty? Beneficiary { get; set; }
-    [JsonPropertyName("originator")]
+    /// <summary>
+    /// Represents a party in a travel rule transfer (originator or beneficiary).
+    /// </summary>
     public TravelRuleParty? Originator { get; set; }
-    [JsonPropertyName("is_self")]
+    /// <summary>
+    /// True if user owns the counterparty address (self-transfer).
+    /// </summary>
     public bool? IsSelf { get; set; }
     /// <summary>
     /// True if Coinbase is being used as an intermediary for a customer transfer.
     /// </summary>
-    [JsonPropertyName("is_intermediary")]
     public bool? IsIntermediary { get; set; }
-    [JsonPropertyName("opt_out_of_ownership_verification")]
+    /// <summary>
+    /// True to skip wallet ownership verification.
+    /// </summary>
     public bool? OptOutOfOwnershipVerification { get; set; }
     /// <summary>
     /// Whether the originating Vasp attests to verified wallet ownership. When true with is_intermediary, enables automatic Vasp data enrichment from the legal entity.
     /// </summary>
-    [JsonPropertyName("attest_verified_wallet_ownership")]
     public bool? AttestVerifiedWalletOwnership { get; set; }
     public TravelRuleData() { }
 

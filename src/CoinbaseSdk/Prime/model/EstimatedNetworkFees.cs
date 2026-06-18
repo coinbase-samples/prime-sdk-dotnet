@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class EstimatedNetworkFees
   {
     /// <summary>
     /// Estimated lower bound for networks fees (in whole units)
     /// </summary>
-    [JsonPropertyName("lower_bound")]
     public string? LowerBound { get; set; }
     /// <summary>
     /// Estimated upper bound for network fees (in whole units)
     /// </summary>
-    [JsonPropertyName("upper_bound")]
     public string? UpperBound { get; set; }
     public EstimatedNetworkFees() { }
 

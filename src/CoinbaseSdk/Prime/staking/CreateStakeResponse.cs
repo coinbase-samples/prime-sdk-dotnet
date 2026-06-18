@@ -16,20 +16,15 @@
 
 namespace CoinbaseSdk.Prime.Staking
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Request to stake or delegate a wallet.
   /// </summary>
   public class CreateStakeResponse
   {
-    [JsonPropertyName("wallet_id")]
     public string? WalletId { get; set; }
 
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
     public CreateStakeResponse() { }

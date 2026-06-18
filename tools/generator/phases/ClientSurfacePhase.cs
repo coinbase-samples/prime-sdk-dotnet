@@ -52,6 +52,7 @@ public sealed class ClientSurfacePhase
     bool dryRun,
     bool diffMode)
   {
+    var expectedPaths = new HashSet<string>(StringComparer.Ordinal);
     var knownEnumTypeNames = LoadEnumTypeNames(_primeSrcRoot);
     var byService = new Dictionary<string, List<(SdkOperationBinding B, ParsedOperation Op)>>(StringComparer.Ordinal);
     foreach (var b in bindings)
@@ -80,41 +81,19 @@ public sealed class ClientSurfacePhase
     {
       foreach (var (b, op) in ops)
       {
+        var serviceFolder = NamingResolver.RequireService(_cfg, b.Service).Folder;
         if (!b.OmitRequest)
         {
           var req = RequestPhase.EmitRequest(_doc, _cfg, _transforms, b, op, knownEnumTypeNames);
-          await WriteOrDiffAsync(
-            Path.Combine(_primeSrcRoot, NamingResolver.RequireService(_cfg, b.Service).Folder, $"{b.SdkMethod}Request.cs"),
-            req,
-            dryRun,
-            diffMode);
-        }
-        else
-        {
-          var staleRequestPath = Path.Combine(
-            _primeSrcRoot,
-            NamingResolver.RequireService(_cfg, b.Service).Folder,
-            $"{b.SdkMethod}Request.cs");
-          if (File.Exists(staleRequestPath))
-          {
-            if (!dryRun && !diffMode)
-            {
-              File.Delete(staleRequestPath);
-              _logger.LogInformation("REQUEST deleted stale (OmitRequest): {Path}", staleRequestPath);
-            }
-            else
-            {
-              _logger.LogInformation("REQUEST stale (OmitRequest) would delete: {Path}", staleRequestPath);
-            }
-          }
+          var reqPath = Path.Combine(_primeSrcRoot, serviceFolder, $"{b.SdkMethod}Request.cs");
+          expectedPaths.Add(reqPath);
+          await WriteOrDiffAsync(reqPath, req, dryRun, diffMode);
         }
 
         var resp = ResponsePhase.EmitResponse(_doc, _cfg, _transforms, b, op);
-        await WriteOrDiffAsync(
-          Path.Combine(_primeSrcRoot, NamingResolver.RequireService(_cfg, b.Service).Folder, $"{b.SdkMethod}Response.cs"),
-          resp,
-          dryRun,
-          diffMode);
+        var respPath = Path.Combine(_primeSrcRoot, serviceFolder, $"{b.SdkMethod}Response.cs");
+        expectedPaths.Add(respPath);
+        await WriteOrDiffAsync(respPath, resp, dryRun, diffMode);
       }
     }
 
@@ -123,22 +102,60 @@ public sealed class ClientSurfacePhase
       var svcDef = NamingResolver.RequireService(_cfg, serviceKey);
       var iface = ServicePhase.EmitInterface(svcDef, ops);
       var impl = ServicePhase.EmitService(_cfg, svcDef, ops);
-      await WriteOrDiffAsync(
-        Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.InterfaceName + ".cs"),
-        iface,
-        dryRun,
-        diffMode);
-      await WriteOrDiffAsync(
-        Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.ClassName + ".cs"),
-        impl,
-        dryRun,
-        diffMode);
+      var ifacePath = Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.InterfaceName + ".cs");
+      var implPath = Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.ClassName + ".cs");
+      expectedPaths.Add(ifacePath);
+      expectedPaths.Add(implPath);
+      await WriteOrDiffAsync(ifacePath, iface, dryRun, diffMode);
+      await WriteOrDiffAsync(implPath, impl, dryRun, diffMode);
+    }
+
+    CleanupOrphanedClientFiles(expectedPaths, dryRun, diffMode);
+  }
+
+  private void CleanupOrphanedClientFiles(
+    HashSet<string> expectedPaths,
+    bool dryRun,
+    bool diffMode)
+  {
+    var serviceFolders = _cfg.Services.Values
+      .Select(s => Path.Combine(_primeSrcRoot, s.Folder))
+      .Distinct(StringComparer.Ordinal)
+      .ToList();
+
+    foreach (var folder in serviceFolders)
+    {
+      if (!Directory.Exists(folder))
+      {
+        continue;
+      }
+
+      foreach (var pattern in new[] { "*Request.cs", "*Response.cs", "I*Service.cs", "*Service.cs" })
+      {
+        foreach (var file in Directory.GetFiles(folder, pattern))
+        {
+          if (expectedPaths.Contains(file))
+          {
+            continue;
+          }
+
+          if (dryRun || diffMode)
+          {
+            _logger.LogInformation("CLIENT orphan would delete: {Path}", file);
+            continue;
+          }
+
+          File.Delete(file);
+          _logger.LogInformation("CLIENT deleted orphan: {Path}", file);
+        }
+      }
     }
   }
 
   private async Task WriteOrDiffAsync(string path, string content, bool dryRun, bool diffMode)
   {
-    content = CopyrightHelper.ApplyCopyrightYear(path, content);
+    content = EmittedSourceNormalizer.Normalize(
+      CopyrightHelper.ApplyCopyrightYear(path, content));
 
     if (diffMode)
     {
@@ -149,8 +166,8 @@ public sealed class ClientSurfacePhase
       }
 
       var existing = await File.ReadAllTextAsync(path);
-      var normExisting = NormalizeNl(existing);
-      var normContent = NormalizeNl(content);
+      var normExisting = EmittedSourceNormalizer.Normalize(NormalizeNl(existing));
+      var normContent = EmittedSourceNormalizer.Normalize(NormalizeNl(content));
       if (!string.Equals(normExisting, normContent, StringComparison.Ordinal))
       {
         _logger.LogWarning("DIFF differs: {Path}", path);

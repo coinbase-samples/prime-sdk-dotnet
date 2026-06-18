@@ -26,13 +26,31 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - CALL_STATUS_OPEN: Margin call is open and not expired.
+  /// - CALL_STATUS_AGED: Margin call is open and it is expired.
+  /// - CALL_STATUS_SETTLED: Margin call is fully settled.
+  /// - CALL_STATUS_CANCELED: Margin call was canceled by Credit Risk.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmCallStatus>))]
   public enum XmCallStatus
   {
     XM_CALL_STATUS_UNSPECIFIED,
+    /// <summary>
+    /// Margin call is open and not expired.
+    /// </summary>
     CALL_STATUS_OPEN,
+    /// <summary>
+    /// Margin call is open and it is expired.
+    /// </summary>
     CALL_STATUS_AGED,
+    /// <summary>
+    /// Margin call is fully settled.
+    /// </summary>
     CALL_STATUS_SETTLED,
+    /// <summary>
+    /// Margin call was canceled by Credit Risk.
+    /// </summary>
     CALL_STATUS_CANCELED
   }
 }

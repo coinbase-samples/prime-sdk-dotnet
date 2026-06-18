@@ -31,10 +31,8 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("idempotency_key")]
     public string? IdempotencyKey { get; set; }
 
-    [JsonPropertyName("inputs")]
     public WalletClaimRewardsInputs Inputs { get; set; }
 
     public class ClaimStakingRewardsRequestBuilder

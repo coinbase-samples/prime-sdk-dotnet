@@ -26,18 +26,66 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - USER_ROLE_UNKNOWN: nil value.
+  /// - AUDITOR: An auditor.
+  /// - SIGNATORY: A signatory.
+  /// - ADMIN: An admin.
+  /// - INITIATOR: An initiator.
+  /// - REVIEWER: A reviewer.
+  /// - TRADER: A trader.
+  /// - FULL_TRADER: A trader with full permissions.
+  /// - TEAM_MANAGER: A team manager.
+  /// - APPROVER: An approver.
+  /// - TAX_MANAGER: A tax manager.
+  /// - BUSINESS_MANAGER: A business manager.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<UserRole>))]
   public enum UserRole
   {
+    /// <summary>
+    /// An auditor.
+    /// </summary>
     AUDITOR,
+    /// <summary>
+    /// A signatory.
+    /// </summary>
     SIGNATORY,
+    /// <summary>
+    /// An admin.
+    /// </summary>
     ADMIN,
+    /// <summary>
+    /// An initiator.
+    /// </summary>
     INITIATOR,
+    /// <summary>
+    /// A reviewer.
+    /// </summary>
     REVIEWER,
+    /// <summary>
+    /// A trader.
+    /// </summary>
     TRADER,
+    /// <summary>
+    /// A trader with full permissions.
+    /// </summary>
     FULL_TRADER,
+    /// <summary>
+    /// A team manager.
+    /// </summary>
     TEAM_MANAGER,
+    /// <summary>
+    /// An approver.
+    /// </summary>
     APPROVER,
-    TAX_MANAGER
+    /// <summary>
+    /// A tax manager.
+    /// </summary>
+    TAX_MANAGER,
+    /// <summary>
+    /// A business manager.
+    /// </summary>
+    BUSINESS_MANAGER
   }
 }

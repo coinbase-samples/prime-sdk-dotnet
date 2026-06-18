@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Wallets
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,13 +23,10 @@ namespace CoinbaseSdk.Prime.Wallets
   /// </summary>
   public class CreateWalletDepositAddressResponse
   {
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
 
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
-    [JsonPropertyName("network")]
     public Network Network { get; set; }
 
     public CreateWalletDepositAddressResponse() { }

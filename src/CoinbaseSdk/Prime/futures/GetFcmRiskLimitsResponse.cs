@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Futures
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   /// <summary>
@@ -24,28 +23,20 @@ namespace CoinbaseSdk.Prime.Futures
   /// </summary>
   public class GetFcmRiskLimitsResponse
   {
-    [JsonPropertyName("cfm_risk_limit")]
     public string? CfmRiskLimit { get; set; }
 
-    [JsonPropertyName("cfm_risk_limit_utilization")]
     public string? CfmRiskLimitUtilization { get; set; }
 
-    [JsonPropertyName("cfm_total_margin")]
     public string? CfmTotalMargin { get; set; }
 
-    [JsonPropertyName("cfm_delta_ote")]
     public string? CfmDeltaOte { get; set; }
 
-    [JsonPropertyName("cfm_unsettled_realized_pnl")]
     public string? CfmUnsettledRealizedPnl { get; set; }
 
-    [JsonPropertyName("cfm_unsettled_accrued_funding_pnl")]
     public string? CfmUnsettledAccruedFundingPnl { get; set; }
 
-    [JsonPropertyName("margin_utilization_percent")]
     public string? MarginUtilizationPercent { get; set; }
 
-    [JsonPropertyName("margin_health_state")]
     public FcmMarginHealthState? MarginHealthState { get; set; }
 
     public GetFcmRiskLimitsResponse() { }

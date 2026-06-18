@@ -27,19 +27,14 @@ namespace CoinbaseSdk.Prime.AddressBook
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
 
-    [JsonPropertyName("currency_symbol")]
     public string? CurrencySymbol { get; set; }
 
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
 
-    [JsonPropertyName("chain_ids")]
     public string[] ChainIds { get; set; } = [];
 
     public class CreateAddressBookEntryRequestBuilder

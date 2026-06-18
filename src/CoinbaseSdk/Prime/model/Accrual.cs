@@ -24,7 +24,6 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class Accrual
@@ -32,78 +31,61 @@ namespace CoinbaseSdk.Prime.Model
     /// <summary>
     /// The accrual ID
     /// </summary>
-    [JsonPropertyName("accrual_id")]
     public string? AccrualId { get; set; }
     /// <summary>
     /// The date of accrual in UTC
     /// </summary>
-    [JsonPropertyName("date")]
     public string? Date { get; set; }
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
-    [JsonPropertyName("loan_type")]
     public LoanType? LoanType { get; set; }
     /// <summary>
     /// The daily or annualized interest rate for the loan, see rate_type
     /// </summary>
-    [JsonPropertyName("interest_rate")]
     public string? InterestRate { get; set; }
     /// <summary>
     /// Daily accrual amount in the principal currency
     /// </summary>
-    [JsonPropertyName("nominal_accrual")]
     public string? NominalAccrual { get; set; }
     /// <summary>
     /// Daily USD accrued interest
     /// </summary>
-    [JsonPropertyName("notional_accrual")]
     public string? NotionalAccrual { get; set; }
     /// <summary>
     /// Accrual rate used to convert from principal to USD accrual
     /// </summary>
-    [JsonPropertyName("conversion_rate")]
     public string? ConversionRate { get; set; }
     /// <summary>
     /// Outstanding principal of the loan
     /// </summary>
-    [JsonPropertyName("loan_amount")]
     public string? LoanAmount { get; set; }
-    [JsonPropertyName("benchmark")]
     public Benchmark? Benchmark { get; set; }
     /// <summary>
     /// Daily interest rate fetched from the benchmark source
     /// </summary>
-    [JsonPropertyName("benchmark_rate")]
     public string? BenchmarkRate { get; set; }
     /// <summary>
     /// Daily spread offset from the benchmark rate
     /// </summary>
-    [JsonPropertyName("spread")]
     public string? Spread { get; set; }
-    [JsonPropertyName("rate_type")]
     public RateType? RateType { get; set; }
     /// <summary>
     /// Outstanding principal of the loan in USD
     /// </summary>
-    [JsonPropertyName("loan_amount_notional")]
     public string? LoanAmountNotional { get; set; }
     /// <summary>
     /// Settled open borrow as of start-of-day in the principal currency
     /// </summary>
-    [JsonPropertyName("nominal_open_borrow_sod")]
     public string? NominalOpenBorrowSod { get; set; }
     /// <summary>
     /// Settled open borrow as of start-of-day in USD
     /// </summary>
-    [JsonPropertyName("notional_open_borrow_sod")]
     public string? NotionalOpenBorrowSod { get; set; }
     public Accrual() { }
 

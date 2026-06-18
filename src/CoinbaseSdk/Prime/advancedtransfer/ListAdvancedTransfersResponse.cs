@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.AdvancedTransfer
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
   /// </summary>
   public class ListAdvancedTransfersResponse
   {
-    [JsonPropertyName("advanced_transfers")]
     public AdvancedTransfer[] AdvancedTransfers { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListAdvancedTransfersResponse() { }

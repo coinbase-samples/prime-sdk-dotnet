@@ -24,22 +24,28 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// ActiveLiquidationSummary provides a summary of the active or most recent XM liquidation.
+  /// </summary>
 
   public class ActiveLiquidationSummary
   {
     /// <summary>
     /// Financing liquidation UUID
     /// </summary>
-    [JsonPropertyName("liquidation_id")]
     public string? LiquidationId { get; set; }
-    [JsonPropertyName("status")]
+    /// <summary>
+    /// - XM_LIQUIDATION_STATUS_PRE_LIQUIDATION: Liquidation is in the pre-liquidation phase.
+    /// - XM_LIQUIDATION_STATUS_LIQUIDATING: Liquidation is actively in progress.
+    /// - XM_LIQUIDATION_STATUS_LIQUIDATED: Liquidation has completed successfully.
+    /// - XM_LIQUIDATION_STATUS_CANCELED: Liquidation was canceled.
+    /// - XM_LIQUIDATION_STATUS_FAILED: Liquidation failed.
+    /// </summary>
     public XmLiquidationStatus? Status { get; set; }
     /// <summary>
     /// USD notional shortfall amount that triggered the liquidation
     /// </summary>
-    [JsonPropertyName("shortfall_amount")]
     public string? ShortfallAmount { get; set; }
     public ActiveLiquidationSummary() { }
 

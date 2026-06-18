@@ -16,17 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Staking
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Request to stake currency in a portfolio.
   /// </summary>
   public class CreatePortfolioStakeResponse
   {
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
     public CreatePortfolioStakeResponse() { }

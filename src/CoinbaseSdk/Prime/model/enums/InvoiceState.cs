@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// States.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<InvoiceState>))]
   public enum InvoiceState
   {

@@ -16,14 +16,11 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Submit Deposit Travel Rule Data.
   /// </summary>
   public class SubmitDepositTravelRuleDataResponse
   {
-    [JsonPropertyName("ownership_verification_required")]
     public bool? OwnershipVerificationRequired { get; set; }
 
     public SubmitDepositTravelRuleDataResponse() { }

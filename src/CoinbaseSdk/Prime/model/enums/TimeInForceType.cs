@@ -26,12 +26,31 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_TIME_IN_FORCE: nil value.
+  /// - GOOD_UNTIL_DATE_TIME: Expires at a certain date/time.
+  /// - GOOD_UNTIL_CANCELLED: Order stays on the books until cancelled.
+  /// - IMMEDIATE_OR_CANCEL: Order is executed immediately at submission or is cancelled.
+  /// - FILL_OR_KILL: Order is executed immediately and fully at submission or is cancelled.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<TimeInForceType>))]
   public enum TimeInForceType
   {
+    /// <summary>
+    /// Expires at a certain date/time.
+    /// </summary>
     GOOD_UNTIL_DATE_TIME,
+    /// <summary>
+    /// Order stays on the books until cancelled.
+    /// </summary>
     GOOD_UNTIL_CANCELLED,
+    /// <summary>
+    /// Order is executed immediately at submission or is cancelled.
+    /// </summary>
     IMMEDIATE_OR_CANCEL,
+    /// <summary>
+    /// Order is executed immediately and fully at submission or is cancelled.
+    /// </summary>
     FILL_OR_KILL
   }
 }

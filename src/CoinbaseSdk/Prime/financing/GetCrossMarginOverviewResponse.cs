@@ -16,15 +16,13 @@
 
 namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
-  /// Get Cross Margin Overview.
+  /// Get Exchange Cross Margin Overview.
   /// </summary>
   public class GetCrossMarginOverviewResponse
   {
-    [JsonPropertyName("overview")]
     public CrossMarginOverview Overview { get; set; }
 
     public GetCrossMarginOverviewResponse() { }

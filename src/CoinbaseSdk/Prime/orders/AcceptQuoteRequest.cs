@@ -28,19 +28,14 @@ namespace CoinbaseSdk.Prime.Orders
     [JsonIgnore]
     public string PortfolioId { get; set; } = portfolioId;
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
-    [JsonPropertyName("side")]
     public OrderSide Side { get; set; }
 
-    [JsonPropertyName("client_order_id")]
     public string? ClientOrderId { get; set; }
 
-    [JsonPropertyName("quote_id")]
     public string? QuoteId { get; set; }
 
-    [JsonPropertyName("settl_currency")]
     public string? SettlCurrency { get; set; }
 
     public class AcceptQuoteRequestBuilder

@@ -26,6 +26,9 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// AdvancedTransferType specifies the type of advanced transfer.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<AdvancedTransferType>))]
   public enum AdvancedTransferType
   {

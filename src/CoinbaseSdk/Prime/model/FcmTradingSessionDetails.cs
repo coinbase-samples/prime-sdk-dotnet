@@ -24,46 +24,56 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// FcmTradingSessionDetails contains trading session details for FCM products.
+  /// </summary>
 
   public class FcmTradingSessionDetails
   {
     /// <summary>
     /// Whether the trading session is currently open
     /// </summary>
-    [JsonPropertyName("session_open")]
     public bool? SessionOpen { get; set; }
     /// <summary>
     /// Trading session open time
     /// </summary>
-    [JsonPropertyName("open_time")]
     public DateTime? OpenTime { get; set; }
     /// <summary>
     /// Trading session close time
     /// </summary>
-    [JsonPropertyName("close_time")]
     public DateTime? CloseTime { get; set; }
-    [JsonPropertyName("session_state")]
+    /// <summary>
+    /// - FCM_TRADING_SESSION_STATE_UNDEFINED: Undefined session state.
+    /// - FCM_TRADING_SESSION_STATE_PRE_OPEN: Pre-open state, orders can be placed and cancelled.
+    /// - FCM_TRADING_SESSION_STATE_PRE_OPEN_NO_CANCEL: Pre-open state, orders cannot be cancelled.
+    /// - FCM_TRADING_SESSION_STATE_OPEN: Trading session is open.
+    /// - FCM_TRADING_SESSION_STATE_CLOSE: Trading session is closed.
+    /// - FCM_TRADING_SESSION_STATE_HALTED: Trading session is halted.
+    /// </summary>
     public FcmTradingSessionState? SessionState { get; set; }
     /// <summary>
     /// Whether after-hours order entry is disabled
     /// </summary>
-    [JsonPropertyName("after_hours_order_entry_disabled")]
     public bool? AfterHoursOrderEntryDisabled { get; set; }
-    [JsonPropertyName("closed_reason")]
+    /// <summary>
+    /// - FCM_TRADING_SESSION_CLOSED_REASON_UNDEFINED: Undefined closed reason.
+    /// - FCM_TRADING_SESSION_CLOSED_REASON_REGULAR_MARKET_CLOSE: Regular market close.
+    /// - FCM_TRADING_SESSION_CLOSED_REASON_EXCHANGE_MAINTENANCE: Exchange maintenance.
+    /// - FCM_TRADING_SESSION_CLOSED_REASON_VENDOR_MAINTENANCE: Vendor maintenance.
+    /// </summary>
     public FcmTradingSessionClosedReason? ClosedReason { get; set; }
-    [JsonPropertyName("maintenance")]
+    /// <summary>
+    /// FcmScheduledMaintenance contains scheduled maintenance window information.
+    /// </summary>
     public FcmScheduledMaintenance? Maintenance { get; set; }
     /// <summary>
     /// Settlement timestamp from previous trading day
     /// </summary>
-    [JsonPropertyName("settlement_timestamp")]
     public DateTime? SettlementTimestamp { get; set; }
     /// <summary>
     /// Settlement price from previous trading day
     /// </summary>
-    [JsonPropertyName("settlement_price")]
     public string? SettlementPrice { get; set; }
     public FcmTradingSessionDetails() { }
 

@@ -37,7 +37,6 @@ public static class ResponsePhase
 
     if (string.IsNullOrEmpty(op.SuccessResponseSchemaRef))
     {
-      sb.AppendLine();
       var emptyDoc = GeneratorXmlDoc.FormatTypeSummary(op.Summary);
       if (emptyDoc.Length > 0)
       {
@@ -49,7 +48,7 @@ public static class ResponsePhase
       sb.AppendLine($"    public {b.SdkMethod}Response() {{ }}");
       sb.AppendLine("  }");
       sb.AppendLine("}");
-      return sb.ToString();
+      return JsonNameCodegen.PostProcessEmittedSource(sb.ToString());
     }
 
     var schema = SpecParser.ResolveRef(doc.Root, op.SuccessResponseSchemaRef);
@@ -60,7 +59,7 @@ public static class ResponsePhase
     var useCommon = props.Any(p =>
       string.Equals(p.ClrType, "Pagination", StringComparison.Ordinal) ||
       string.Equals(p.ClrType, "Pagination?", StringComparison.Ordinal));
-    var useJson = props.Count > 0;
+    var useJson = props.Any(p => JsonNameCodegen.NeedsJsonPropertyName(p.JsonName, p.ClrName));
     if (useJson)
     {
       sb.AppendLine("  using System.Text.Json.Serialization;");
@@ -81,7 +80,11 @@ public static class ResponsePhase
       sb.AppendLine("  using CoinbaseSdk.Prime.Model.Enums;");
     }
 
-    sb.AppendLine();
+    if (useJson || useCommon || useModel || useEnums)
+    {
+      sb.AppendLine();
+    }
+
     var respDoc = GeneratorXmlDoc.FormatTypeSummary(op.Summary);
     if (respDoc.Length > 0)
     {
@@ -99,7 +102,7 @@ public static class ResponsePhase
       }
 
       needRespSep = true;
-      sb.AppendLine($"    [JsonPropertyName(\"{p.JsonName}\")]");
+      JsonNameCodegen.AppendJsonPropertyNameIfNeeded(sb, p.JsonName, p.ClrName, "    ");
       var def = DefaultForResponseProperty(p.ClrType);
       sb.AppendLine($"    public {p.ClrType} {p.ClrName} {{ get; set; }}{def}");
     }
@@ -108,7 +111,7 @@ public static class ResponsePhase
     sb.AppendLine($"    public {b.SdkMethod}Response() {{ }}");
     sb.AppendLine("  }");
     sb.AppendLine("}");
-    return sb.ToString();
+    return JsonNameCodegen.PostProcessEmittedSource(sb.ToString());
   }
 
   private static string DefaultForResponseProperty(string clrType)

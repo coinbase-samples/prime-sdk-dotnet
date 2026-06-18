@@ -15,11 +15,12 @@
  */
 
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CoinbaseSdk.Tools.Generator.Processing;
 
 /// <summary>
-/// XML documentation comments derived from OpenAPI operation summaries.
+/// XML documentation comments derived from OpenAPI summaries, descriptions, and titles.
 /// </summary>
 public static class GeneratorXmlDoc
 {
@@ -35,9 +36,68 @@ public static class GeneratorXmlDoc
     return FormatSummary(summary, baseIndentSpaces: 4);
   }
 
+  public static string FormatPropertySummary(string? summary, int baseIndentSpaces = 4)
+  {
+    return FormatSummary(summary, baseIndentSpaces);
+  }
+
+  public static string FormatEnumMemberSummary(string? summary)
+  {
+    return FormatSummary(summary, baseIndentSpaces: 4);
+  }
+
+  public static string NormalizeDocumentationText(string? text)
+  {
+    if (string.IsNullOrWhiteSpace(text))
+    {
+      return string.Empty;
+    }
+
+    return DecodeHtmlEntities(text.Trim());
+  }
+
+  public static string DecodeHtmlEntities(string s)
+  {
+    if (string.IsNullOrEmpty(s))
+    {
+      return s;
+    }
+
+    // Numeric entities first, then named; decode &amp; last.
+    s = Regex.Replace(s, @"&#(\d+);", match =>
+    {
+      if (int.TryParse(match.Groups[1].Value, out var code) && code >= 0 && code <= 0x10FFFF)
+      {
+        return char.ConvertFromUtf32(code);
+      }
+
+      return match.Value;
+    });
+
+    s = Regex.Replace(s, @"&#x([0-9A-Fa-f]+);", match =>
+    {
+      if (int.TryParse(match.Groups[1].Value, System.Globalization.NumberStyles.HexNumber, null, out var code) &&
+          code >= 0 && code <= 0x10FFFF)
+      {
+        return char.ConvertFromUtf32(code);
+      }
+
+      return match.Value;
+    });
+
+    return s
+      .Replace("&lt;", "<", StringComparison.Ordinal)
+      .Replace("&gt;", ">", StringComparison.Ordinal)
+      .Replace("&apos;", "'", StringComparison.Ordinal)
+      .Replace("&quot;", "\"", StringComparison.Ordinal)
+      .Replace("&#39;", "'", StringComparison.Ordinal)
+      .Replace("&amp;", "&", StringComparison.Ordinal);
+  }
+
   private static string FormatSummary(string? summary, int baseIndentSpaces)
   {
-    if (string.IsNullOrWhiteSpace(summary))
+    var normalized = NormalizeDocumentationText(summary);
+    if (string.IsNullOrWhiteSpace(normalized))
     {
       return string.Empty;
     }
@@ -45,7 +105,7 @@ public static class GeneratorXmlDoc
     var pad = new string(' ', baseIndentSpaces);
     var sb = new StringBuilder();
     sb.Append(pad).AppendLine("/// <summary>");
-    foreach (var line in summary.Trim().Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+    foreach (var line in normalized.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
     {
       sb.Append(pad).Append("/// ").AppendLine(XmlEscape(EnsureDocumentationEndsWithPeriod(line)));
     }

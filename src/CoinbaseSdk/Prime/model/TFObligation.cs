@@ -24,34 +24,31 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
+  /// <summary>
+  /// Trade finance obligation information.
+  /// </summary>
 
   public class TFObligation
   {
     /// <summary>
     /// The unique ID of the portfolio
     /// </summary>
-    [JsonPropertyName("portfolio_id")]
     public string? PortfolioId { get; set; }
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Current amount due
     /// </summary>
-    [JsonPropertyName("amount_due")]
     public string? AmountDue { get; set; }
     /// <summary>
     /// Loan notional amount
     /// </summary>
-    [JsonPropertyName("notional_amount")]
     public string? NotionalAmount { get; set; }
     /// <summary>
     /// Settlement due date
     /// </summary>
-    [JsonPropertyName("due_date")]
     public string? DueDate { get; set; }
     public TFObligation() { }
 

@@ -24,26 +24,23 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class AssetChange
   {
-    [JsonPropertyName("type")]
+    /// <summary>
+    /// AssetChangeType identifies the type of asset change.
+    /// </summary>
     public AssetChangeType? Type { get; set; }
     /// <summary>
     /// The currency symbol associated with the balance operation
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// The amount in whole units being transferred or approved
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-    [JsonPropertyName("collection")]
     public NftCollection? Collection { get; set; }
-    [JsonPropertyName("item")]
     public NftItem? Item { get; set; }
     public AssetChange() { }
 

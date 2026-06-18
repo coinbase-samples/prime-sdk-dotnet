@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class DisplayUser
   {
     /// <summary>
     /// User UUID
     /// </summary>
-    [JsonPropertyName("id")]
     public string Id { get; set; } = default!;
     /// <summary>
     /// User full name
     /// </summary>
-    [JsonPropertyName("name")]
     public string Name { get; set; } = default!;
     /// <summary>
     /// User avatar URL
     /// </summary>
-    [JsonPropertyName("avatar_url")]
     public string AvatarUrl { get; set; } = default!;
     public DisplayUser() { }
 

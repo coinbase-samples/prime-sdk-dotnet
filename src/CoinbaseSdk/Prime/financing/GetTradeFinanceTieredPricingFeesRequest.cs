@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Financing
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("effective_at")]
     public string? EffectiveAt { get; set; }
 
     public class GetTradeFinanceTieredPricingFeesRequestBuilder

@@ -24,22 +24,38 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class WalletFiatDepositInstructions
   {
-    [JsonPropertyName("id")]
+    /// <summary>
+    /// The id of the wallet.
+    /// </summary>
     public string? Id { get; set; }
-    [JsonPropertyName("name")]
+    /// <summary>
+    /// The name of the wallet.
+    /// </summary>
     public string? Name { get; set; }
-    [JsonPropertyName("type")]
+    /// <summary>
+    /// - UNKNOWN_WALLET_DEPOSIT_TYPE: nil value.
+    /// - CRYPTO: A cryptocurrency deposit.
+    /// - WIRE: A wire deposit.
+    /// - SEN: DEPRECATED. A Silvergate Exchange Network deposit.
+    /// - SWIFT: A SWIFT deposit.
+    /// - SEPA: A SEPA deposit (Single Euro Payments Area).
+    /// </summary>
     public WalletDepositInstructionType? Type { get; set; }
-    [JsonPropertyName("account_number")]
+    /// <summary>
+    /// The fiat account number.
+    /// </summary>
     public string? AccountNumber { get; set; }
-    [JsonPropertyName("routing_number")]
+    /// <summary>
+    /// The fiat routing number.
+    /// </summary>
     public string? RoutingNumber { get; set; }
-    [JsonPropertyName("reference_code")]
+    /// <summary>
+    /// Reference code to be used as a memo/description.
+    /// </summary>
     public string? ReferenceCode { get; set; }
     public WalletFiatDepositInstructions() { }
 

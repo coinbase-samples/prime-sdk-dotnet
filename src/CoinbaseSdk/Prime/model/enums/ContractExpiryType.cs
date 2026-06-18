@@ -26,11 +26,25 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - CONTRACT_EXPIRY_TYPE_UNSPECIFIED: Unspecified contract expiry type.
+  /// - CONTRACT_EXPIRY_TYPE_EXPIRING: Expiring futures contract.
+  /// - CONTRACT_EXPIRY_TYPE_PERPETUAL: Perpetual futures contract (no expiry).
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<ContractExpiryType>))]
   public enum ContractExpiryType
   {
+    /// <summary>
+    /// Unspecified contract expiry type.
+    /// </summary>
     CONTRACT_EXPIRY_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Expiring futures contract.
+    /// </summary>
     CONTRACT_EXPIRY_TYPE_EXPIRING,
+    /// <summary>
+    /// Perpetual futures contract (no expiry).
+    /// </summary>
     CONTRACT_EXPIRY_TYPE_PERPETUAL
   }
 }

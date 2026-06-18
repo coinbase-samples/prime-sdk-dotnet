@@ -1,0 +1,37 @@
+/*
+ * Copyright 2026-present Coinbase Global, Inc.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+namespace CoinbaseSdk.Prime.Financing
+{
+  using CoinbaseSdk.Prime.Model;
+  using CoinbaseSdk.Prime.Model.Enums;
+
+  /// <summary>
+  /// Get Prime Cross Margin Overview.
+  /// </summary>
+  public class GetCrossMarginPrimeOverviewResponse
+  {
+    public XmControlStatus? ControlStatus { get; set; }
+
+    public XmMarginLevel? MarginLevel { get; set; }
+
+    public string? EvaluatedAt { get; set; }
+
+    public CrossMarginPrimeMarginSummary MarginSummary { get; set; }
+
+    public GetCrossMarginPrimeOverviewResponse() { }
+  }
+}

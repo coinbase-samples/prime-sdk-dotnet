@@ -16,41 +16,29 @@
 
 namespace CoinbaseSdk.Prime.Transactions
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Create Transfer.
   /// </summary>
   public class CreateTransferResponse
   {
-    [JsonPropertyName("activity_id")]
     public string? ActivityId { get; set; }
 
-    [JsonPropertyName("approval_url")]
     public string? ApprovalUrl { get; set; }
 
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
-    [JsonPropertyName("fee")]
     public string? Fee { get; set; }
 
-    [JsonPropertyName("destination_address")]
     public string? DestinationAddress { get; set; }
 
-    [JsonPropertyName("destination_type")]
     public string? DestinationType { get; set; }
 
-    [JsonPropertyName("source_address")]
     public string? SourceAddress { get; set; }
 
-    [JsonPropertyName("source_type")]
     public string? SourceType { get; set; }
 
-    [JsonPropertyName("transaction_id")]
     public string? TransactionId { get; set; }
 
     public CreateTransferResponse() { }

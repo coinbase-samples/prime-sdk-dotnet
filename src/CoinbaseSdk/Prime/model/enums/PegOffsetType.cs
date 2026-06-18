@@ -26,11 +26,26 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_PEG_OFFSET_TYPE: nil value.
+  /// - PEG_OFFSET_TYPE_PRICE: Offset specified in price units.
+  /// - PEG_OFFSET_TYPE_BPS: Offset specified in basis points (BPS).
+  /// - PEG_OFFSET_TYPE_DEPTH: Offset specified in depth.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<PegOffsetType>))]
   public enum PegOffsetType
   {
+    /// <summary>
+    /// Offset specified in price units.
+    /// </summary>
     PEG_OFFSET_TYPE_PRICE,
+    /// <summary>
+    /// Offset specified in basis points (BPS).
+    /// </summary>
     PEG_OFFSET_TYPE_BPS,
+    /// <summary>
+    /// Offset specified in depth.
+    /// </summary>
     PEG_OFFSET_TYPE_DEPTH
   }
 }

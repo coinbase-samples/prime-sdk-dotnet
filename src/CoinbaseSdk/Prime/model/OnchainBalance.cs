@@ -24,19 +24,21 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
 
   public class OnchainBalance
   {
-    [JsonPropertyName("asset")]
     public OnchainAsset? Asset { get; set; }
     /// <summary>
     /// The total amount in whole units with full precision.
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
-    [JsonPropertyName("visibility_status")]
+    /// <summary>
+    /// - UNKNOWN_VISIBILITY_STATUS: nil.
+    /// - VISIBLE: Visible.
+    /// - HIDDEN: Hidden.
+    /// - SPAM: Spam.
+    /// </summary>
     public VisibilityStatus? VisibilityStatus { get; set; }
     public OnchainBalance() { }
 

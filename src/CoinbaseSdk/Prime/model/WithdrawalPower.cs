@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class WithdrawalPower
   {
     /// <summary>
     /// The currency symbol
     /// </summary>
-    [JsonPropertyName("symbol")]
     public string? Symbol { get; set; }
     /// <summary>
     /// Withdrawal power
     /// </summary>
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
     public WithdrawalPower() { }
 

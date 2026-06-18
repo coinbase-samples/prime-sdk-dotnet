@@ -24,13 +24,10 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class AggregatedFiatBalance
   {
-    [JsonPropertyName("total")]
     public string? Total { get; set; }
-    [JsonPropertyName("holds")]
     public string? Holds { get; set; }
     public AggregatedFiatBalance() { }
 

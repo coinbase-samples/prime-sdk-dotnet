@@ -1,5 +1,5 @@
 /*
- * Copyright 2025-present Coinbase Global, Inc.
+ * Copyright 2026-present Coinbase Global, Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -14,19 +14,25 @@
  *  limitations under the License.
  */
 
-namespace CoinbaseSdk.Prime.Portfolios
+namespace CoinbaseSdk.Prime.Financing
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
-  /// Get Portfolio Counterparty ID.
+  /// Get Cross Margin Risk Parameters.
   /// </summary>
-  public class GetPortfolioCounterpartyResponse
+  public class GetCrossMarginRiskParametersResponse
   {
-    [JsonPropertyName("counterparty")]
-    public Counterparty Counterparty { get; set; }
+    public CrossMarginRiskParameters[] RiskParameters { get; set; } = [];
 
-    public GetPortfolioCounterpartyResponse() { }
+    public TierPairRateEntry[] OffsetCreditMatrixLongShort { get; set; } = [];
+
+    public TierPairRateEntry[] OffsetCreditMatrixLongLong { get; set; } = [];
+
+    public TierPairRateEntry[] OffsetCreditMatrixShortShort { get; set; } = [];
+
+    public string? MarginPeriodOfRisk { get; set; }
+
+    public GetCrossMarginRiskParametersResponse() { }
   }
 }

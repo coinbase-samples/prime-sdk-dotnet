@@ -81,11 +81,29 @@ public class SharedTransforms
 
   public string ApplyWeb3ToOnchainContent(string content, string className)
   {
-    if (content.Contains("Web3", StringComparison.Ordinal) || content.Contains("web3", StringComparison.Ordinal))
+    if (!content.Contains("Web3", StringComparison.Ordinal) &&
+        !content.Contains("web3", StringComparison.Ordinal))
     {
-      content = Regex.Replace(content, @"\bWeb3", "Onchain");
-      content = Regex.Replace(content, @"\bweb3", "onchain");
-      content = content.Replace("[JsonPropertyName(\"onchain\")]", "[JsonPropertyName(\"web3\")]", StringComparison.Ordinal);
+      return content;
+    }
+
+    // Preserve OpenAPI wire names inside JsonPropertyName literals (e.g. web3_transaction_metadata).
+    var wireNames = new List<string>();
+    content = Regex.Replace(
+      content,
+      @"\[JsonPropertyName\(""([^""]*)""\)\]",
+      match =>
+      {
+        wireNames.Add(match.Groups[1].Value);
+        return $"[JsonPropertyName(\"__WIRE_{wireNames.Count - 1}__\")]";
+      });
+
+    content = Regex.Replace(content, @"\bWeb3", "Onchain");
+    content = Regex.Replace(content, @"\bweb3", "onchain");
+
+    for (var i = 0; i < wireNames.Count; i++)
+    {
+      content = content.Replace($"__WIRE_{i}__", wireNames[i], StringComparison.Ordinal);
     }
 
     return content;

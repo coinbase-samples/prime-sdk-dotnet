@@ -16,15 +16,22 @@
 
 namespace CoinbaseSdk.Prime.Staking
 {
-  using System.Text.Json.Serialization;
+  using CoinbaseSdk.Prime.Model;
 
   /// <summary>
   /// Preview Unstake.
   /// </summary>
   public class PreviewUnstakeResponse
   {
-    [JsonPropertyName("estimated_amount")]
     public string? EstimatedAmount { get; set; }
+
+    public string? WalletId { get; set; }
+
+    public string? WalletAddress { get; set; }
+
+    public string? CurrentTimestamp { get; set; }
+
+    public ValidatorUnstakePreview[] Validators { get; set; } = [];
 
     public PreviewUnstakeResponse() { }
   }

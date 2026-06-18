@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Allocations
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model;
 
   /// <summary>
@@ -24,7 +23,6 @@ namespace CoinbaseSdk.Prime.Allocations
   /// </summary>
   public class CreateAllocationResponse
   {
-    [JsonPropertyName("body")]
     public CreateAllocationResponseBody Body { get; set; }
 
     public CreateAllocationResponse() { }

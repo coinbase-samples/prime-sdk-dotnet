@@ -27,7 +27,6 @@ namespace CoinbaseSdk.Prime.Futures
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("product_id")]
     public string? ProductId { get; set; }
 
     public class GetPositionsRequestBuilder

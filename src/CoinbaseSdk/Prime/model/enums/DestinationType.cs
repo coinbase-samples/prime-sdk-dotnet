@@ -26,6 +26,15 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - UNKNOWN_DESTINATION: nil value.
+  /// - DESTINATION_PAYMENT_METHOD: A fiat bank account linked to a payment method id via Payment Method Service.
+  /// - DESTINATION_BLOCKCHAIN: A blockchain network address.
+  /// - DESTINATION_WALLET: An on platform wallet UUID.
+  /// NOTE: this is not usable in the withdrawals endpoint.
+  /// only transfers.
+  /// - DESTINATION_COUNTERPARTY: Counterparty ID.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<DestinationType>))]
   public enum DestinationType
   {

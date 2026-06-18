@@ -16,27 +16,22 @@
 
 namespace CoinbaseSdk.Prime.Orders
 {
-  using System.Text.Json.Serialization;
-
   /// <summary>
   /// Create Quote Request.
   /// </summary>
   public class CreateQuoteResponse
   {
-    [JsonPropertyName("quote_id")]
     public string? QuoteId { get; set; }
 
-    [JsonPropertyName("expiration_time")]
     public string? ExpirationTime { get; set; }
 
-    [JsonPropertyName("best_price")]
     public string? BestPrice { get; set; }
 
-    [JsonPropertyName("order_total")]
     public string? OrderTotal { get; set; }
 
-    [JsonPropertyName("price_inclusive_of_fees")]
     public string? PriceInclusiveOfFees { get; set; }
+
+    public string? QuoteDurationMs { get; set; }
 
     public CreateQuoteResponse() { }
   }

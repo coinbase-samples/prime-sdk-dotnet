@@ -24,19 +24,16 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class OnchainTransactionMetadata
   {
     /// <summary>
     /// The transaction type label of the confirmed transaction post settlement
     /// </summary>
-    [JsonPropertyName("label")]
     public string? Label { get; set; }
     /// <summary>
     /// The confirmed asset changes (onchain)
     /// </summary>
-    [JsonPropertyName("confirmed_asset_changes")]
     public List<AssetChange>? ConfirmedAssetChanges { get; set; }
     public OnchainTransactionMetadata() { }
 

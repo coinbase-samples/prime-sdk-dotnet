@@ -82,14 +82,16 @@ public class OpenApiGenerator
     _logger.LogInformation("Raw models generated in: {Path}", rawOutputDir);
   }
 
+  private static readonly string[] GeneratorCommands = ["openapi-generator-cli", "openapi-generator"];
+
   private async Task RunOpenApiGeneratorAsync(string outputDir, string templatesDir)
   {
     _logger.LogInformation("Running OpenAPI Generator CLI...");
-    var hasGenerator = await CheckOpenApiGeneratorInstalled();
-    if (!hasGenerator)
+    var generatorCommand = await ResolveOpenApiGeneratorCommandAsync();
+    if (generatorCommand == null)
     {
       throw new InvalidOperationException(
-        "openapi-generator-cli not found. Please install it:\n" +
+        "OpenAPI Generator CLI not found. Please install it:\n" +
         "  npm install -g @openapitools/openapi-generator-cli\n" +
         "  or\n" +
         "  brew install openapi-generator");
@@ -97,7 +99,7 @@ public class OpenApiGenerator
 
     var startInfo = new ProcessStartInfo
     {
-      FileName = "openapi-generator-cli",
+      FileName = generatorCommand,
       WorkingDirectory = outputDir,
       RedirectStandardOutput = true,
       RedirectStandardError = true,
@@ -173,32 +175,40 @@ public class OpenApiGenerator
     }
   }
 
-  private static async Task<bool> CheckOpenApiGeneratorInstalled()
+  private static async Task<string?> ResolveOpenApiGeneratorCommandAsync()
   {
-    try
+    foreach (var command in GeneratorCommands)
     {
-      var startInfo = new ProcessStartInfo
+      try
       {
-        FileName = "openapi-generator-cli",
-        Arguments = "version",
-        RedirectStandardOutput = true,
-        RedirectStandardError = true,
-        UseShellExecute = false,
-        CreateNoWindow = true
-      };
+        var startInfo = new ProcessStartInfo
+        {
+          FileName = command,
+          Arguments = "version",
+          RedirectStandardOutput = true,
+          RedirectStandardError = true,
+          UseShellExecute = false,
+          CreateNoWindow = true
+        };
 
-      using var process = Process.Start(startInfo);
-      if (process == null)
-      {
-        return false;
+        using var process = Process.Start(startInfo);
+        if (process == null)
+        {
+          continue;
+        }
+
+        await process.WaitForExitAsync();
+        if (process.ExitCode == 0)
+        {
+          return command;
+        }
       }
+      catch
+      {
+        // try next candidate
+      }
+    }
 
-      await process.WaitForExitAsync();
-      return process.ExitCode == 0;
-    }
-    catch
-    {
-      return false;
-    }
+    return null;
   }
 }

@@ -29,10 +29,8 @@ namespace CoinbaseSdk.Prime.Balances
     [JsonIgnore]
     public string EntityId { get; set; } = entityId;
 
-    [JsonPropertyName("symbols")]
     public string[] Symbols { get; set; } = [];
 
-    [JsonPropertyName("aggregation_type")]
     public string? AggregationType { get; set; }
 
     public class ListEntityBalancesRequestBuilder

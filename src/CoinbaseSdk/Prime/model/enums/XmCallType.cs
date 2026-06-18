@@ -26,12 +26,26 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// - CALL_TYPE_STANDARD: Evaluated at standard margin call evaluation time.
+  /// - CALL_TYPE_URGENT: Evaluated in realtime.
+  /// - CALL_TYPE_DEBIT: Evaluated at debit call evaluation time.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<XmCallType>))]
   public enum XmCallType
   {
     XM_CALL_TYPE_UNSPECIFIED,
+    /// <summary>
+    /// Evaluated at standard margin call evaluation time.
+    /// </summary>
     CALL_TYPE_STANDARD,
+    /// <summary>
+    /// Evaluated in realtime.
+    /// </summary>
     CALL_TYPE_URGENT,
+    /// <summary>
+    /// Evaluated at debit call evaluation time.
+    /// </summary>
     CALL_TYPE_DEBIT
   }
 }

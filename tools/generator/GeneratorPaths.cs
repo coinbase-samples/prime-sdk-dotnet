@@ -54,4 +54,14 @@ public static class GeneratorPaths
   {
     return Path.Combine(ToolDirectory(projectRoot), "templates");
   }
+
+  public static string DefaultCommittedSpecPath(string projectRoot)
+  {
+    return Path.Combine(projectRoot, "apiSpec", "prime-public-api-spec.yaml");
+  }
+
+  public static string CachedSpecPath(string projectRoot)
+  {
+    return Path.Combine(projectRoot, "generated", "openapi.yaml");
+  }
 }

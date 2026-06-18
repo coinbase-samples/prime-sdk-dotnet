@@ -24,24 +24,20 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class Commission
   {
     /// <summary>
     /// Fee model (all_in or cost_plus)
     /// </summary>
-    [JsonPropertyName("type")]
     public string? Type { get; set; }
     /// <summary>
     /// Commission rate (in whole percentage. Commission of 15bps is \&quot;0.0015\&quot;)
     /// </summary>
-    [JsonPropertyName("rate")]
     public string? Rate { get; set; }
     /// <summary>
     /// Average 30 days over past 3 months (e.g. 90 days divided by 3)
     /// </summary>
-    [JsonPropertyName("trading_volume")]
     public string? TradingVolume { get; set; }
     public Commission() { }
 

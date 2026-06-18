@@ -30,7 +30,6 @@ namespace CoinbaseSdk.Prime.Staking
     [JsonIgnore]
     public string WalletId { get; set; } = walletId;
 
-    [JsonPropertyName("amount")]
     public string? Amount { get; set; }
 
     public class PreviewUnstakeRequestBuilder

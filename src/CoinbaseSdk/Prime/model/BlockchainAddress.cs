@@ -24,21 +24,17 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
 
   public class BlockchainAddress
   {
     /// <summary>
     /// The address on the network
     /// </summary>
-    [JsonPropertyName("address")]
     public string? Address { get; set; }
     /// <summary>
     /// The account identifier (used on some chains to distinguish accounts using the same address)
     /// </summary>
-    [JsonPropertyName("account_identifier")]
     public string? AccountIdentifier { get; set; }
-    [JsonPropertyName("network")]
     public Network? Network { get; set; }
     public BlockchainAddress() { }
 

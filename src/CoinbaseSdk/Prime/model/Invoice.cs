@@ -24,28 +24,24 @@
 
 namespace CoinbaseSdk.Prime.Model
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Model.Enums;
+  /// <summary>
+  /// Invoice.
+  /// </summary>
 
   public class Invoice
   {
-    [JsonPropertyName("id")]
     public string? Id { get; set; }
-    [JsonPropertyName("billing_month")]
     public int? BillingMonth { get; set; }
-    [JsonPropertyName("billing_year")]
     public int? BillingYear { get; set; }
-    [JsonPropertyName("due_date")]
     public string? DueDate { get; set; }
-    [JsonPropertyName("invoice_number")]
     public string? InvoiceNumber { get; set; }
-    [JsonPropertyName("state")]
+    /// <summary>
+    /// States.
+    /// </summary>
     public InvoiceState? State { get; set; }
-    [JsonPropertyName("usd_amount_paid")]
     public double? UsdAmountPaid { get; set; }
-    [JsonPropertyName("usd_amount_owed")]
     public double? UsdAmountOwed { get; set; }
-    [JsonPropertyName("invoice_items")]
     public List<InvoiceItem>? InvoiceItems { get; set; }
     public Invoice() { }
 

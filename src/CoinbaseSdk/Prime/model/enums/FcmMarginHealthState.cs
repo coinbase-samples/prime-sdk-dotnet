@@ -26,13 +26,36 @@ namespace CoinbaseSdk.Prime.Model.Enums
 {
   using System.Text.Json.Serialization;
 
+  /// <summary>
+  /// The margin health state of an FCM account.
+  /// - FCM_MARGIN_HEALTH_STATE_UNSPECIFIED: Unspecified margin health state.
+  /// - FCM_MARGIN_HEALTH_STATE_HEALTHY: Account margin is healthy.
+  /// - FCM_MARGIN_HEALTH_STATE_RESTRICTED: Account margin is restricted.
+  /// - FCM_MARGIN_HEALTH_STATE_PRE_LIQUIDATION: Account is approaching liquidation.
+  /// - FCM_MARGIN_HEALTH_STATE_LIQUIDATION: Account is in liquidation.
+  /// </summary>
   [JsonConverter(typeof(JsonStringEnumConverter<FcmMarginHealthState>))]
   public enum FcmMarginHealthState
   {
+    /// <summary>
+    /// Unspecified margin health state.
+    /// </summary>
     FCM_MARGIN_HEALTH_STATE_UNSPECIFIED,
+    /// <summary>
+    /// Account margin is healthy.
+    /// </summary>
     FCM_MARGIN_HEALTH_STATE_HEALTHY,
+    /// <summary>
+    /// Account margin is restricted.
+    /// </summary>
     FCM_MARGIN_HEALTH_STATE_RESTRICTED,
+    /// <summary>
+    /// Account is approaching liquidation.
+    /// </summary>
     FCM_MARGIN_HEALTH_STATE_PRE_LIQUIDATION,
+    /// <summary>
+    /// Account is in liquidation.
+    /// </summary>
     FCM_MARGIN_HEALTH_STATE_LIQUIDATION
   }
 }

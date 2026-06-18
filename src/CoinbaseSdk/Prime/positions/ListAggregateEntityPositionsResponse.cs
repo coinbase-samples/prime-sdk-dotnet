@@ -16,7 +16,6 @@
 
 namespace CoinbaseSdk.Prime.Positions
 {
-  using System.Text.Json.Serialization;
   using CoinbaseSdk.Prime.Common;
   using CoinbaseSdk.Prime.Model;
 
@@ -25,10 +24,8 @@ namespace CoinbaseSdk.Prime.Positions
   /// </summary>
   public class ListAggregateEntityPositionsResponse
   {
-    [JsonPropertyName("positions")]
     public Position[] Positions { get; set; } = [];
 
-    [JsonPropertyName("pagination")]
     public Pagination Pagination { get; set; }
 
     public ListAggregateEntityPositionsResponse() { }
