@@ -33,18 +33,6 @@ namespace CoinbaseSdk.Prime.Wallets
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Create Wallet.
-    /// </summary>
-    public CreateWalletResponse CreateWallet(
-      CreateWalletRequest request,
-      CallOptions? options = null);
-
-    public Task<CreateWalletResponse> CreateWalletAsync(
-      CreateWalletRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get Wallet by Wallet ID.
     /// </summary>
     public GetWalletResponse GetWallet(
@@ -69,18 +57,6 @@ namespace CoinbaseSdk.Prime.Wallets
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Create Wallet Deposit Address.
-    /// </summary>
-    public CreateWalletDepositAddressResponse CreateWalletDepositAddress(
-      CreateWalletDepositAddressRequest request,
-      CallOptions? options = null);
-
-    public Task<CreateWalletDepositAddressResponse> CreateWalletDepositAddressAsync(
-      CreateWalletDepositAddressRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get Wallet Deposit Instructions.
     /// </summary>
     public GetWalletDepositInstructionsResponse GetWalletDepositInstructions(
@@ -89,6 +65,30 @@ namespace CoinbaseSdk.Prime.Wallets
 
     public Task<GetWalletDepositInstructionsResponse> GetWalletDepositInstructionsAsync(
       GetWalletDepositInstructionsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Create Wallet.
+    /// </summary>
+    public CreateWalletResponse CreateWallet(
+      CreateWalletRequest request,
+      CallOptions? options = null);
+
+    public Task<CreateWalletResponse> CreateWalletAsync(
+      CreateWalletRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Create Wallet Deposit Address.
+    /// </summary>
+    public CreateWalletDepositAddressResponse CreateWalletDepositAddress(
+      CreateWalletDepositAddressRequest request,
+      CallOptions? options = null);
+
+    public Task<CreateWalletDepositAddressResponse> CreateWalletDepositAddressAsync(
+      CreateWalletDepositAddressRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

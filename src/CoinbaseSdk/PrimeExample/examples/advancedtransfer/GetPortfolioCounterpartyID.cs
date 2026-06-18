@@ -31,7 +31,7 @@ var portfolioIdOption = new Option<string?>(
     name: "--portfolioId",
     description: "The Portfolio ID");
 
-var rootCommand = new RootCommand("Get Portfolio Counterparty")
+var rootCommand = new RootCommand("Get Portfolio Counterparty I D")
 {
     portfolioIdOption,
 };
@@ -54,19 +54,19 @@ rootCommand.SetHandler((portfolioId) =>
         var client = CoinbasePrimeClient.FromEnv();
         var advancedTransferService = new AdvancedTransferService(client);
 
-        var request = new GetPortfolioCounterpartyRequest(portfolioId);
+        var request = new GetPortfolioCounterpartyIDRequest(portfolioId);
 
-        PrettyPrinter.PrintResponse("GetPortfolioCounterpartyRequest", request);
+        PrettyPrinter.PrintResponse("GetPortfolioCounterpartyIDRequest", request);
 
-        var response = advancedTransferService.GetPortfolioCounterparty(request);
+        var response = advancedTransferService.GetPortfolioCounterpartyID(request);
 
-        PrettyPrinter.PrintResponse("GetPortfolioCounterpartyResponse", response);
+        PrettyPrinter.PrintResponse("GetPortfolioCounterpartyIDResponse", response);
 
         Environment.ExitCode = 0;
     }
     catch (Exception ex)
     {
-        PrettyPrinter.PrintError("Error calling GetPortfolioCounterparty", ex);
+        PrettyPrinter.PrintError("Error calling GetPortfolioCounterpartyID", ex);
         Environment.ExitCode = 1;
     }
 }, portfolioIdOption);

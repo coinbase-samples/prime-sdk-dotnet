@@ -21,14 +21,14 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
   public interface IOnchainAddressBookService
   {
     /// <summary>
-    /// Update Onchain Address Book Entry.
+    /// List Onchain Address Groups.
     /// </summary>
-    public UpdateOnchainAddressBookEntryResponse UpdateOnchainAddressBookEntry(
-      UpdateOnchainAddressBookEntryRequest request,
+    public ListOnchainAddressGroupsResponse ListOnchainAddressGroups(
+      ListOnchainAddressGroupsRequest request,
       CallOptions? options = null);
 
-    public Task<UpdateOnchainAddressBookEntryResponse> UpdateOnchainAddressBookEntryAsync(
-      UpdateOnchainAddressBookEntryRequest request,
+    public Task<ListOnchainAddressGroupsResponse> ListOnchainAddressGroupsAsync(
+      ListOnchainAddressGroupsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -45,6 +45,18 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
       CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Update Onchain Address Book Entry.
+    /// </summary>
+    public UpdateOnchainAddressBookEntryResponse UpdateOnchainAddressBookEntry(
+      UpdateOnchainAddressBookEntryRequest request,
+      CallOptions? options = null);
+
+    public Task<UpdateOnchainAddressBookEntryResponse> UpdateOnchainAddressBookEntryAsync(
+      UpdateOnchainAddressBookEntryRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Delete Onchain Address Group.
     /// </summary>
     public DeleteOnchainAddressGroupResponse DeleteOnchainAddressGroup(
@@ -53,18 +65,6 @@ namespace CoinbaseSdk.Prime.OnchainAddressBook
 
     public Task<DeleteOnchainAddressGroupResponse> DeleteOnchainAddressGroupAsync(
       DeleteOnchainAddressGroupRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// List Onchain Address Groups.
-    /// </summary>
-    public ListOnchainAddressGroupsResponse ListOnchainAddressGroups(
-      ListOnchainAddressGroupsRequest request,
-      CallOptions? options = null);
-
-    public Task<ListOnchainAddressGroupsResponse> ListOnchainAddressGroupsAsync(
-      ListOnchainAddressGroupsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

@@ -21,6 +21,30 @@ namespace CoinbaseSdk.Prime.Staking
   public interface IStakingService
   {
     /// <summary>
+    /// Get Staking Status.
+    /// </summary>
+    public GetStakingStatusResponse GetStakingStatus(
+      GetStakingStatusRequest request,
+      CallOptions? options = null);
+
+    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
+      GetStakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Get Unstaking Status.
+    /// </summary>
+    public GetUnstakingStatusResponse GetUnstakingStatus(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null);
+
+    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Request to stake currency in a portfolio.
     /// </summary>
     public CreatePortfolioStakeResponse CreatePortfolioStake(
@@ -33,18 +57,6 @@ namespace CoinbaseSdk.Prime.Staking
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// List Transaction Validators.
-    /// </summary>
-    public ListTransactionValidatorsResponse ListTransactionValidators(
-      ListTransactionValidatorsRequest request,
-      CallOptions? options = null);
-
-    public Task<ListTransactionValidatorsResponse> ListTransactionValidatorsAsync(
-      ListTransactionValidatorsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Request to unstake currency across a portfolio.
     /// </summary>
     public CreatePortfolioUnstakeResponse CreatePortfolioUnstake(
@@ -53,6 +65,18 @@ namespace CoinbaseSdk.Prime.Staking
 
     public Task<CreatePortfolioUnstakeResponse> CreatePortfolioUnstakeAsync(
       CreatePortfolioUnstakeRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// List Transaction Validators.
+    /// </summary>
+    public ListTransactionValidatorsResponse ListTransactionValidators(
+      ListTransactionValidatorsRequest request,
+      CallOptions? options = null);
+
+    public Task<ListTransactionValidatorsResponse> ListTransactionValidatorsAsync(
+      ListTransactionValidatorsRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -89,30 +113,6 @@ namespace CoinbaseSdk.Prime.Staking
 
     public Task<CreateUnstakeResponse> CreateUnstakeAsync(
       CreateUnstakeRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get Staking Status.
-    /// </summary>
-    public GetStakingStatusResponse GetStakingStatus(
-      GetStakingStatusRequest request,
-      CallOptions? options = null);
-
-    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
-      GetStakingStatusRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get Unstaking Status.
-    /// </summary>
-    public GetUnstakingStatusResponse GetUnstakingStatus(
-      GetUnstakingStatusRequest request,
-      CallOptions? options = null);
-
-    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
-      GetUnstakingStatusRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 

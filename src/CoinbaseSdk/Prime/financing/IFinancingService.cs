@@ -21,6 +21,16 @@ namespace CoinbaseSdk.Prime.Financing
   public interface IFinancingService
   {
     /// <summary>
+    /// List Financing Eligible Assets.
+    /// </summary>
+    public ListFinancingEligibleAssetsResponse ListFinancingEligibleAssets(
+      CallOptions? options = null);
+
+    public Task<ListFinancingEligibleAssetsResponse> ListFinancingEligibleAssetsAsync(
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// List Interest Accruals.
     /// </summary>
     public ListInterestAccrualsResponse ListInterestAccruals(
@@ -81,6 +91,18 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Get Market Data.
+    /// </summary>
+    public GetMarketDataResponse GetMarketData(
+      GetMarketDataRequest request,
+      CallOptions? options = null);
+
+    public Task<GetMarketDataResponse> GetMarketDataAsync(
+      GetMarketDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// List Trade Finance Obligations.
     /// </summary>
     public ListTradeFinanceObligationsResponse ListTradeFinanceObligations(
@@ -101,16 +123,6 @@ namespace CoinbaseSdk.Prime.Financing
 
     public Task<GetTradeFinanceTieredPricingFeesResponse> GetTradeFinanceTieredPricingFeesAsync(
       GetTradeFinanceTieredPricingFeesRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// List Financing Eligible Assets.
-    /// </summary>
-    public ListFinancingEligibleAssetsResponse ListFinancingEligibleAssets(
-      CallOptions? options = null);
-
-    public Task<ListFinancingEligibleAssetsResponse> ListFinancingEligibleAssetsAsync(
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -163,18 +175,6 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Create New Locates.
-    /// </summary>
-    public CreateNewLocatesResponse CreateNewLocates(
-      CreateNewLocatesRequest request,
-      CallOptions? options = null);
-
-    public Task<CreateNewLocatesResponse> CreateNewLocatesAsync(
-      CreateNewLocatesRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// List Margin Conversions.
     /// </summary>
     public ListMarginConversionsResponse ListMarginConversions(
@@ -199,18 +199,6 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get Prime Cross Margin Overview.
-    /// </summary>
-    public GetCrossMarginPrimeOverviewResponse GetCrossMarginPrimeOverview(
-      GetCrossMarginPrimeOverviewRequest request,
-      CallOptions? options = null);
-
-    public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
-      GetCrossMarginPrimeOverviewRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Get Cross Margin Risk Parameters.
     /// </summary>
     public GetCrossMarginRiskParametersResponse GetCrossMarginRiskParameters(
@@ -223,14 +211,14 @@ namespace CoinbaseSdk.Prime.Financing
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Get Market Data.
+    /// Get Prime Cross Margin Overview.
     /// </summary>
-    public GetMarketDataResponse GetMarketData(
-      GetMarketDataRequest request,
+    public GetCrossMarginPrimeOverviewResponse GetCrossMarginPrimeOverview(
+      GetCrossMarginPrimeOverviewRequest request,
       CallOptions? options = null);
 
-    public Task<GetMarketDataResponse> GetMarketDataAsync(
-      GetMarketDataRequest request,
+    public Task<GetCrossMarginPrimeOverviewResponse> GetCrossMarginPrimeOverviewAsync(
+      GetCrossMarginPrimeOverviewRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 
@@ -243,6 +231,18 @@ namespace CoinbaseSdk.Prime.Financing
 
     public Task<UpdateFundingSettingsResponse> UpdateFundingSettingsAsync(
       UpdateFundingSettingsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Create New Locates.
+    /// </summary>
+    public CreateNewLocatesResponse CreateNewLocates(
+      CreateNewLocatesRequest request,
+      CallOptions? options = null);
+
+    public Task<CreateNewLocatesResponse> CreateNewLocatesAsync(
+      CreateNewLocatesRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
   }

@@ -45,6 +45,30 @@ namespace CoinbaseSdk.Prime.Transactions
       CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Get Transaction Travel Rule Data.
+    /// </summary>
+    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null);
+
+    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// List Wallet Transactions.
+    /// </summary>
+    public ListWalletTransactionsResponse ListWalletTransactions(
+      ListWalletTransactionsRequest request,
+      CallOptions? options = null);
+
+    public Task<ListWalletTransactionsResponse> ListWalletTransactionsAsync(
+      ListWalletTransactionsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// Create Conversion.
     /// </summary>
     public CreateConversionResponse CreateConversion(
@@ -69,18 +93,6 @@ namespace CoinbaseSdk.Prime.Transactions
       CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// List Wallet Transactions.
-    /// </summary>
-    public ListWalletTransactionsResponse ListWalletTransactions(
-      ListWalletTransactionsRequest request,
-      CallOptions? options = null);
-
-    public Task<ListWalletTransactionsResponse> ListWalletTransactionsAsync(
-      ListWalletTransactionsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Create Transfer.
     /// </summary>
     public CreateTransferResponse CreateTransfer(
@@ -101,18 +113,6 @@ namespace CoinbaseSdk.Prime.Transactions
 
     public Task<CreateWithdrawalResponse> CreateWithdrawalAsync(
       CreateWithdrawalRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// Get Transaction Travel Rule Data.
-    /// </summary>
-    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
-      GetTransactionTravelRuleDataRequest request,
-      CallOptions? options = null);
-
-    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
-      GetTransactionTravelRuleDataRequest request,
       CallOptions? options = null,
       CancellationToken cancellationToken = default);
 

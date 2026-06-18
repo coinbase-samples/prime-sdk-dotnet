@@ -74,18 +74,6 @@ public class GeneratorConfiguration
   [JsonIgnore]
   public Dictionary<string, ServiceDefinition> Services { get; set; } = new();
 
-  /// <summary>
-  /// When non-empty for a service key, fixes method order; otherwise order is derived from HTTP verb and path.
-  /// </summary>
-  [JsonPropertyName("serviceMethodOrderOverrides")]
-  public Dictionary<string, List<string>> ServiceMethodOrderOverrides { get; set; } = new();
-
-  /// <summary>
-  /// Optional per-<see cref="SdkOperationBinding.SdkMethod"/> success status names when the published spec omits 201 but the API may return it.
-  /// </summary>
-  [JsonPropertyName("statusCodeOverrides")]
-  public Dictionary<string, List<string>> StatusCodeOverrides { get; set; } = new();
-
   public static GeneratorConfiguration Load(string projectRoot)
   {
     var path = Path.Combine(GeneratorPaths.ConfigDirectory(projectRoot), "generator-config.json");

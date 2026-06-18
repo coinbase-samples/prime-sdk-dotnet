@@ -82,6 +82,64 @@ namespace CoinbaseSdk.Prime.Transactions
     }
 
     /// <summary>
+    /// Get Transaction Travel Rule Data.
+    /// </summary>
+    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetTransactionTravelRuleDataResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
+      GetTransactionTravelRuleDataRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetTransactionTravelRuleDataResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// List Wallet Transactions.
+    /// </summary>
+    public ListWalletTransactionsResponse ListWalletTransactions(
+      ListWalletTransactionsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<ListWalletTransactionsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<ListWalletTransactionsResponse> ListWalletTransactionsAsync(
+      ListWalletTransactionsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<ListWalletTransactionsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
     /// Create Conversion.
     /// </summary>
     public CreateConversionResponse CreateConversion(
@@ -134,35 +192,6 @@ namespace CoinbaseSdk.Prime.Transactions
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/onchain_transaction",
         [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// List Wallet Transactions.
-    /// </summary>
-    public ListWalletTransactionsResponse ListWalletTransactions(
-      ListWalletTransactionsRequest request,
-      CallOptions? options = null)
-    {
-      return Request<ListWalletTransactionsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<ListWalletTransactionsResponse> ListWalletTransactionsAsync(
-      ListWalletTransactionsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<ListWalletTransactionsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/transactions",
-        [HttpStatusCode.OK],
         request,
         options,
         cancellationToken);
@@ -222,35 +251,6 @@ namespace CoinbaseSdk.Prime.Transactions
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/withdrawals",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Transaction Travel Rule Data.
-    /// </summary>
-    public GetTransactionTravelRuleDataResponse GetTransactionTravelRuleData(
-      GetTransactionTravelRuleDataRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetTransactionTravelRuleDataResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetTransactionTravelRuleDataResponse> GetTransactionTravelRuleDataAsync(
-      GetTransactionTravelRuleDataRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetTransactionTravelRuleDataResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/transactions/{request.TransactionId}/travel_rule",
-        [HttpStatusCode.OK],
-        null,
         options,
         cancellationToken);
     }

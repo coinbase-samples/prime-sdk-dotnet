@@ -74,7 +74,7 @@ public sealed class ClientSurfacePhase
 
     foreach (var serviceKey in byService.Keys.ToList())
     {
-      byService[serviceKey] = SortOperationsForService(_cfg, serviceKey, byService[serviceKey]);
+      byService[serviceKey] = SortOperationsForService(byService[serviceKey]);
     }
 
     foreach (var (_, ops) in byService.OrderBy(kv => kv.Key, StringComparer.Ordinal))
@@ -101,7 +101,7 @@ public sealed class ClientSurfacePhase
     {
       var svcDef = NamingResolver.RequireService(_cfg, serviceKey);
       var iface = ServicePhase.EmitInterface(svcDef, ops);
-      var impl = ServicePhase.EmitService(_cfg, svcDef, ops);
+      var impl = ServicePhase.EmitService(svcDef, ops);
       var ifacePath = Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.InterfaceName + ".cs");
       var implPath = Path.Combine(_primeSrcRoot, svcDef.Folder, svcDef.ClassName + ".cs");
       expectedPaths.Add(ifacePath);
@@ -230,19 +230,8 @@ public sealed class ClientSurfacePhase
   }
 
   private static List<(SdkOperationBinding B, ParsedOperation Op)> SortOperationsForService(
-    GeneratorConfiguration cfg,
-    string serviceKey,
     List<(SdkOperationBinding B, ParsedOperation Op)> ops)
   {
-    if (cfg.ServiceMethodOrderOverrides.TryGetValue(serviceKey, out var order) && order.Count > 0)
-    {
-      var rank = order.Select((m, i) => (m, i)).ToDictionary(x => x.m, x => x.i, StringComparer.Ordinal);
-      return ops
-        .OrderBy(x => rank.TryGetValue(x.B.SdkMethod, out var i) ? i : int.MaxValue)
-        .ThenBy(x => x.B.SdkMethod, StringComparer.Ordinal)
-        .ToList();
-    }
-
     return ops
       .OrderBy(x => HttpVerbRank(x.Op.HttpMethod))
       .ThenBy(x => PathDepth(x.Op.Path))

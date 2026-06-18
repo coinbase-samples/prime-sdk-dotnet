@@ -53,35 +53,6 @@ namespace CoinbaseSdk.Prime.Wallets
     }
 
     /// <summary>
-    /// Create Wallet.
-    /// </summary>
-    public CreateWalletResponse CreateWallet(
-      CreateWalletRequest request,
-      CallOptions? options = null)
-    {
-      return Request<CreateWalletResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<CreateWalletResponse> CreateWalletAsync(
-      CreateWalletRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<CreateWalletResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// Get Wallet by Wallet ID.
     /// </summary>
     public GetWalletResponse GetWallet(
@@ -140,35 +111,6 @@ namespace CoinbaseSdk.Prime.Wallets
     }
 
     /// <summary>
-    /// Create Wallet Deposit Address.
-    /// </summary>
-    public CreateWalletDepositAddressResponse CreateWalletDepositAddress(
-      CreateWalletDepositAddressRequest request,
-      CallOptions? options = null)
-    {
-      return Request<CreateWalletDepositAddressResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<CreateWalletDepositAddressResponse> CreateWalletDepositAddressAsync(
-      CreateWalletDepositAddressRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<CreateWalletDepositAddressResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// Get Wallet Deposit Instructions.
     /// </summary>
     public GetWalletDepositInstructionsResponse GetWalletDepositInstructions(
@@ -192,6 +134,64 @@ namespace CoinbaseSdk.Prime.Wallets
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/deposit_instructions",
         [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Create Wallet.
+    /// </summary>
+    public CreateWalletResponse CreateWallet(
+      CreateWalletRequest request,
+      CallOptions? options = null)
+    {
+      return Request<CreateWalletResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreateWalletResponse> CreateWalletAsync(
+      CreateWalletRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<CreateWalletResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Create Wallet Deposit Address.
+    /// </summary>
+    public CreateWalletDepositAddressResponse CreateWalletDepositAddress(
+      CreateWalletDepositAddressRequest request,
+      CallOptions? options = null)
+    {
+      return Request<CreateWalletDepositAddressResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreateWalletDepositAddressResponse> CreateWalletDepositAddressAsync(
+      CreateWalletDepositAddressRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<CreateWalletDepositAddressResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/addresses",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
         cancellationToken);

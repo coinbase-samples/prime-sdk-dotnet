@@ -24,6 +24,64 @@ namespace CoinbaseSdk.Prime.Staking
   public class StakingService(ICoinbaseClient client) : CoinbaseService(client), IStakingService
   {
     /// <summary>
+    /// Get Staking Status.
+    /// </summary>
+    public GetStakingStatusResponse GetStakingStatus(
+      GetStakingStatusRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetStakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
+      GetStakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetStakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Get Unstaking Status.
+    /// </summary>
+    public GetUnstakingStatusResponse GetUnstakingStatus(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null)
+    {
+      return Request<GetUnstakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
+        [HttpStatusCode.OK],
+        null,
+        options);
+    }
+
+    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
+      GetUnstakingStatusRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<GetUnstakingStatusResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
+        [HttpStatusCode.OK],
+        null,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
     /// Request to stake currency in a portfolio.
     /// </summary>
     public CreatePortfolioStakeResponse CreatePortfolioStake(
@@ -46,6 +104,35 @@ namespace CoinbaseSdk.Prime.Staking
       return RequestAsync<CreatePortfolioStakeResponse>(
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/staking/initiate",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// Request to unstake currency across a portfolio.
+    /// </summary>
+    public CreatePortfolioUnstakeResponse CreatePortfolioUnstake(
+      CreatePortfolioUnstakeRequest request,
+      CallOptions? options = null)
+    {
+      return Request<CreatePortfolioUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/unstake",
+        [HttpStatusCode.Created, HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<CreatePortfolioUnstakeResponse> CreatePortfolioUnstakeAsync(
+      CreatePortfolioUnstakeRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<CreatePortfolioUnstakeResponse>(
+        HttpMethod.Post,
+        $"/portfolios/{request.PortfolioId}/staking/unstake",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
@@ -76,35 +163,6 @@ namespace CoinbaseSdk.Prime.Staking
         HttpMethod.Post,
         $"/portfolios/{request.PortfolioId}/staking/transaction-validators/query",
         [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Request to unstake currency across a portfolio.
-    /// </summary>
-    public CreatePortfolioUnstakeResponse CreatePortfolioUnstake(
-      CreatePortfolioUnstakeRequest request,
-      CallOptions? options = null)
-    {
-      return Request<CreatePortfolioUnstakeResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/staking/unstake",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<CreatePortfolioUnstakeResponse> CreatePortfolioUnstakeAsync(
-      CreatePortfolioUnstakeRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<CreatePortfolioUnstakeResponse>(
-        HttpMethod.Post,
-        $"/portfolios/{request.PortfolioId}/staking/unstake",
-        [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
         options,
         cancellationToken);
@@ -193,64 +251,6 @@ namespace CoinbaseSdk.Prime.Staking
         $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake",
         [HttpStatusCode.Created, HttpStatusCode.OK],
         request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Staking Status.
-    /// </summary>
-    public GetStakingStatusResponse GetStakingStatus(
-      GetStakingStatusRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetStakingStatusResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetStakingStatusResponse> GetStakingStatusAsync(
-      GetStakingStatusRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetStakingStatusResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/status",
-        [HttpStatusCode.OK],
-        null,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
-    /// Get Unstaking Status.
-    /// </summary>
-    public GetUnstakingStatusResponse GetUnstakingStatus(
-      GetUnstakingStatusRequest request,
-      CallOptions? options = null)
-    {
-      return Request<GetUnstakingStatusResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
-        [HttpStatusCode.OK],
-        null,
-        options);
-    }
-
-    public Task<GetUnstakingStatusResponse> GetUnstakingStatusAsync(
-      GetUnstakingStatusRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<GetUnstakingStatusResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/wallets/{request.WalletId}/staking/unstake/status",
-        [HttpStatusCode.OK],
-        null,
         options,
         cancellationToken);
     }

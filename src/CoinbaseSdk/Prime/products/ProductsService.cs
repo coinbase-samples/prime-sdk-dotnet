@@ -24,35 +24,6 @@ namespace CoinbaseSdk.Prime.Products
   public class ProductsService(ICoinbaseClient client) : CoinbaseService(client), IProductsService
   {
     /// <summary>
-    /// List Portfolio Products.
-    /// </summary>
-    public ListPortfolioProductsResponse ListPortfolioProducts(
-      ListPortfolioProductsRequest request,
-      CallOptions? options = null)
-    {
-      return Request<ListPortfolioProductsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/products",
-        [HttpStatusCode.OK],
-        request,
-        options);
-    }
-
-    public Task<ListPortfolioProductsResponse> ListPortfolioProductsAsync(
-      ListPortfolioProductsRequest request,
-      CallOptions? options = null,
-      CancellationToken cancellationToken = default)
-    {
-      return RequestAsync<ListPortfolioProductsResponse>(
-        HttpMethod.Get,
-        $"/portfolios/{request.PortfolioId}/products",
-        [HttpStatusCode.OK],
-        request,
-        options,
-        cancellationToken);
-    }
-
-    /// <summary>
     /// Get Public Product Candles (Beta).
     /// </summary>
     public GetCandlesResponse GetCandles(
@@ -75,6 +46,35 @@ namespace CoinbaseSdk.Prime.Products
       return RequestAsync<GetCandlesResponse>(
         HttpMethod.Get,
         $"/portfolios/{request.PortfolioId}/candles",
+        [HttpStatusCode.OK],
+        request,
+        options,
+        cancellationToken);
+    }
+
+    /// <summary>
+    /// List Portfolio Products.
+    /// </summary>
+    public ListPortfolioProductsResponse ListPortfolioProducts(
+      ListPortfolioProductsRequest request,
+      CallOptions? options = null)
+    {
+      return Request<ListPortfolioProductsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/products",
+        [HttpStatusCode.OK],
+        request,
+        options);
+    }
+
+    public Task<ListPortfolioProductsResponse> ListPortfolioProductsAsync(
+      ListPortfolioProductsRequest request,
+      CallOptions? options = null,
+      CancellationToken cancellationToken = default)
+    {
+      return RequestAsync<ListPortfolioProductsResponse>(
+        HttpMethod.Get,
+        $"/portfolios/{request.PortfolioId}/products",
         [HttpStatusCode.OK],
         request,
         options,

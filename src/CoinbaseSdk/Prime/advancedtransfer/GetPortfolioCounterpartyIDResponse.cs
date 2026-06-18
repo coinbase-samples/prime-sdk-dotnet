@@ -21,10 +21,10 @@ namespace CoinbaseSdk.Prime.AdvancedTransfer
   /// <summary>
   /// Get Portfolio Counterparty ID.
   /// </summary>
-  public class GetPortfolioCounterpartyResponse
+  public class GetPortfolioCounterpartyIDResponse
   {
     public Counterparty Counterparty { get; set; }
 
-    public GetPortfolioCounterpartyResponse() { }
+    public GetPortfolioCounterpartyIDResponse() { }
   }
 }
