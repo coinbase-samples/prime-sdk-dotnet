@@ -1,6 +1,8 @@
 # Coinbase Prime .NET SDK
 
-The canonical source repository is **[coinbase/prime-sdk-dotnet](https://github.com/coinbase/prime-sdk-dotnet)**. The former [coinbase-samples/prime-sdk-dotnet](https://github.com/coinbase-samples/prime-sdk-dotnet) repository is deprecated. NuGet releases **0.7.0+** are published from the canonical repository. The package ID is unchanged (`CoinbaseSdk.Prime`).
+> **Deprecated:** This repository has moved to [github.com/coinbase/prime-sdk-dotnet](https://github.com/coinbase/prime-sdk-dotnet).
+> Install with `dotnet add package CoinbaseSdk.Prime`. The package ID is unchanged; NuGet releases **0.7.0+** are published from the canonical repository.
+> This repository is no longer maintained.
 
 ## Overview
 
